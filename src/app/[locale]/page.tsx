@@ -10,6 +10,7 @@ import {
 import InquiryForm from "@/components/common/InquiryForm";
 import HeroSlider from "@/components/home/HeroSlider";
 import FoodSection from "@/components/home/FoodSection";
+import TestimonialSlider from "@/components/home/TestimonialSlider";
 import Reveal from "@/components/home/Reveal";
 import {
   ChevronRight,
@@ -17,19 +18,20 @@ import {
   Star,
   Compass,
   Mountain,
-  Train,
   Trees,
   Camera,
   Sparkles,
   Ship,
   Tent,
-  Plane,
   Landmark,
   Clock,
   Users,
   Award,
   ArrowRight,
-  Quote
+  Shield,
+  Heart,
+  Globe,
+  Gem,
 } from "lucide-react";
 
 interface HomePageProps {
@@ -61,8 +63,8 @@ export default async function HomePage({ params }: HomePageProps) {
       packagesSub: "Curated Collections",
       packagesTitle: "Signature Tour Packages",
       packagesDesc: "Exclusive itineraries crafted by our luxury travel advisors. Each journey is tailored to your preferences.",
-      experiencesSub: "Travel Styles",
-      experiencesTitle: "Choose Your Experience",
+      whyTravelSub: "The MH India Trips Difference",
+      whyTravelTitle: "Why Travel With Us",
       foodSub: "Culinary Journey",
       foodTitle: "Taste the Soul of India",
       foodDesc: "From royal Mughal kitchens to vibrant street food, every meal tells a story of centuries-old traditions.",
@@ -79,6 +81,7 @@ export default async function HomePage({ params }: HomePageProps) {
       statTravelers: "Happy Travelers",
       statDest: "Destinations",
       statRating: "Average Rating",
+      viewAll: "View All",
     },
     es: {
       sub: "Viajes de Lujo en India",
@@ -95,8 +98,8 @@ export default async function HomePage({ params }: HomePageProps) {
       packagesSub: "Colecciones Selectas",
       packagesTitle: "Paquetes de Tour Exclusivos",
       packagesDesc: "Itinerarios exclusivos elaborados por nuestros asesores de viajes de lujo.",
-      experiencesSub: "Estilos de Viaje",
-      experiencesTitle: "Elija Su Experiencia",
+      whyTravelSub: "La Diferencia MH India Trips",
+      whyTravelTitle: "Por Qué Viajar Con Nosotros",
       foodSub: "Viaje Culinario",
       foodTitle: "Saboree el Alma de la India",
       foodDesc: "Desde cocinas reales mogoles hasta vibrante comida callejera, cada plato cuenta una historia centenaria.",
@@ -113,6 +116,7 @@ export default async function HomePage({ params }: HomePageProps) {
       statTravelers: "Viajeros Felices",
       statDest: "Destinos",
       statRating: "Valoración Media",
+      viewAll: "Ver Todos",
     },
     pt: {
       sub: "Viagens de Luxo na Índia",
@@ -129,8 +133,8 @@ export default async function HomePage({ params }: HomePageProps) {
       packagesSub: "Coleções Selecionadas",
       packagesTitle: "Pacotes de Tour Exclusivos",
       packagesDesc: "Itinerários exclusivos elaborados pelos nossos consultores de viagens de luxo.",
-      experiencesSub: "Estilos de Viagem",
-      experiencesTitle: "Escolha Sua Experiência",
+      whyTravelSub: "A Diferença MH India Trips",
+      whyTravelTitle: "Por Que Viajar Connosco",
       foodSub: "Jornada Culinária",
       foodTitle: "Saboreie a Alma da Índia",
       foodDesc: "Das cozinhas reais mogóis à vibrante comida de rua, cada refeição conta uma história centenária.",
@@ -147,6 +151,7 @@ export default async function HomePage({ params }: HomePageProps) {
       statTravelers: "Viajantes Felizes",
       statDest: "Destinos",
       statRating: "Avaliação Média",
+      viewAll: "Ver Todos",
     }
   };
 
@@ -191,64 +196,88 @@ export default async function HomePage({ params }: HomePageProps) {
   ];
 
   const regions = [
-    { name: locale === "es" ? "Norte de India" : locale === "pt" ? "Norte da Índia" : "North India", desc: locale === "es" ? "Himalayas, Taj Mahal y Ciudades Reales" : locale === "pt" ? "Himalaias, Taj Mahal e Cidades Reais" : "Himalayas, Taj Mahal & Royal Cities", img: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800", icon: Mountain },
-    { name: locale === "es" ? "Sur de India" : locale === "pt" ? "Sul da Índia" : "South India", desc: locale === "es" ? "Templos, Canales y Especias" : locale === "pt" ? "Templos, Canais e Especiarias" : "Temples, Backwaters & Spice Hills", img: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=800", icon: Trees },
-    { name: locale === "es" ? "Oeste de India" : locale === "pt" ? "Oeste da Índia" : "West India", desc: locale === "es" ? "Desiertos, Palacios y Playas" : locale === "pt" ? "Desertos, Palácios e Praias" : "Deserts, Palaces & Beaches", img: "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=800", icon: Landmark },
-    { name: locale === "es" ? "Este de India" : locale === "pt" ? "Leste da Índia" : "East India", desc: locale === "es" ? "Templos, Té y Cultura" : locale === "pt" ? "Templos, Chá e Cultura" : "Temples, Tea Gardens & Culture", img: "https://images.unsplash.com/photo-1593693411515-c202e974fe08?q=80&w=800", icon: Compass },
+    { name: locale === "es" ? "Norte de India" : locale === "pt" ? "Norte da Índia" : "North India", desc: locale === "es" ? "Himalayas, Taj Mahal y Ciudades Reales" : locale === "pt" ? "Himalaias, Taj Mahal e Cidades Reais" : "Himalayas, Taj Mahal & Royal Cities", img: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=900", icon: Mountain },
+    { name: locale === "es" ? "Sur de India" : locale === "pt" ? "Sul da Índia" : "South India", desc: locale === "es" ? "Templos, Canales y Especias" : locale === "pt" ? "Templos, Canais e Especiarias" : "Temples, Backwaters & Spice Hills", img: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=900", icon: Trees },
+    { name: locale === "es" ? "Oeste de India" : locale === "pt" ? "Oeste da Índia" : "West India", desc: locale === "es" ? "Desiertos, Palacios y Playas" : locale === "pt" ? "Desertos, Palácios e Praias" : "Deserts, Palaces & Beaches", img: "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=900", icon: Landmark },
+    { name: locale === "es" ? "Este de India" : locale === "pt" ? "Leste da Índia" : "East India", desc: locale === "es" ? "Templos, Té y Cultura Tribal" : locale === "pt" ? "Templos, Chá e Cultura Tribal" : "Temples, Tea Gardens & Tribal Culture", img: "https://images.unsplash.com/photo-1558431382-27e303142255?q=80&w=900", icon: Compass },
   ];
 
-  const experiences = [
-    { name: locale === "es" ? "Lujo y Palacios" : locale === "pt" ? "Luxo e Palácios" : "Luxury & Palaces", desc: locale === "es" ? "Alójese en hoteles de patrimonio real" : locale === "pt" ? "Fique em hotéis de patrimônio real" : "Stay in royal heritage hotels", icon: Sparkles, img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=600" },
-    { name: locale === "es" ? "Trenes de Lujo" : locale === "pt" ? "Trens de Luxo" : "Luxury Trains", desc: locale === "es" ? "El Palacio sobre Ruedas" : locale === "pt" ? "O Palácio sobre Rodas" : "Palace on Wheels journey", icon: Train, img: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=600" },
-    { name: locale === "es" ? "Campamentos en el Desierto" : locale === "pt" ? "Acampamentos no Deserto" : "Desert Glamping", desc: locale === "es" ? "Duerma bajo las estrellas" : locale === "pt" ? "Durma sob as estrelas" : "Sleep under desert stars", icon: Tent, img: "https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=600" },
-    { name: locale === "es" ? "Cruceros Fluviales" : locale === "pt" ? "Cruzeiros Fluviais" : "Houseboat Cruises", desc: locale === "es" ? "Cruceros por los canales de Kerala" : locale === "pt" ? "Cruzeiros nos canais de Kerala" : "Kerala backwater cruises", icon: Ship, img: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=600" },
-    { name: locale === "es" ? "Safaris de Vida Silvestre" : locale === "pt" ? "Safaris de Vida Selvagem" : "Wildlife Safaris", desc: locale === "es" ? "Descubra el Tigre Real de Bengala" : locale === "pt" ? "Descubra o Tigre Real de Bengala" : "Spot the Royal Bengal Tiger", icon: Camera, img: "https://images.unsplash.com/photo-1581791538302-03537b9c97bf?q=80&w=600" },
-    { name: locale === "es" ? "Espiritualidad y Yoga" : locale === "pt" ? "Espiritualidade e Yoga" : "Spiritual Retreats", desc: locale === "es" ? "Retiros en Rishikesh" : locale === "pt" ? "Retiros em Rishikesh" : "Yoga retreats in Rishikesh", icon: Compass, img: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=600" },
+  const whyTravelFeatures = [
+    {
+      icon: Shield,
+      title: locale === "es" ? "Viajes 100% Personalizados" : locale === "pt" ? "Viagens 100% Personalizadas" : "100% Tailor-Made Journeys",
+      desc: locale === "es" ? "Cada itinerario se diseña desde cero según sus intereses, ritmo y presupuesto." : locale === "pt" ? "Cada itinerário é desenhado do zero segundo seus interesses, ritmo e orçamento." : "Every itinerary is designed from scratch based on your interests, pace, and budget.",
+    },
+    {
+      icon: Users,
+      title: locale === "es" ? "Guías Expertos Locales" : locale === "pt" ? "Guias Especialistas Locais" : "Expert Local Guides",
+      desc: locale === "es" ? "Guías certificados bilingües que conocen cada rincón de la India." : locale === "pt" ? "Guias certificados bilíngues que conhecem cada canto da Índia." : "Certified bilingual guides who know every corner of India intimately.",
+    },
+    {
+      icon: Gem,
+      title: locale === "es" ? "Hoteles de Patrimonio de Lujo" : locale === "pt" ? "Hotéis de Património de Luxo" : "Luxury Heritage Stays",
+      desc: locale === "es" ? "Alojamientos cuidadosamente seleccionados en palacios históricos y resorts boutique." : locale === "pt" ? "Alojamentos cuidadosamente selecionados em palácios históricos e resorts boutique." : "Handpicked accommodations in historic palaces and boutique luxury resorts.",
+    },
+    {
+      icon: Heart,
+      title: locale === "es" ? "Experiencias Auténticas" : locale === "pt" ? "Experiências Autênticas" : "Authentic Experiences",
+      desc: locale === "es" ? "Más allá del turismo: inmersión cultural real con familias locales y artesanos." : locale === "pt" ? "Além do turismo: imersão cultural real com famílias locais e artesãos." : "Beyond tourism: real cultural immersion with local families and artisans.",
+    },
+    {
+      icon: Globe,
+      title: locale === "es" ? "Soporte 24/7 en Su Idioma" : locale === "pt" ? "Suporte 24/7 no Seu Idioma" : "24/7 Support in Your Language",
+      desc: locale === "es" ? "Asistencia continua en español, inglés y portugués durante todo su viaje." : locale === "pt" ? "Assistência contínua em português, inglês e espanhol durante toda a viagem." : "Round-the-clock assistance in English, Spanish, and Portuguese throughout your trip.",
+    },
+    {
+      icon: Award,
+      title: locale === "es" ? "14+ Años de Excelencia" : locale === "pt" ? "14+ Anos de Excelência" : "14+ Years of Excellence",
+      desc: locale === "es" ? "Miles de viajeros satisfechos y una reputación construida con pasión." : locale === "pt" ? "Milhares de viajantes satisfeitos e uma reputação construída com paixão." : "Thousands of satisfied travelers and a reputation built on passion and expertise.",
+    },
   ];
 
   return (
-    <div className="font-sans bg-[#FAF8F5] text-[#1B1B1B]">
+    <div className="font-sans bg-background text-foreground">
 
       {/* 1. Hero Slider */}
       <HeroSlider locale={locale} slides={slides} ctaText={text.cta} inquireCTA={text.inquireCTA} />
 
       {/* 2. Why Choose Us - Stats + Trust */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative section-spacing overflow-hidden">
         <div className="absolute inset-0 pattern-dots pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <Reveal className="space-y-8">
-              <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 items-center">
+            <Reveal className="space-y-10">
+              <div className="space-y-5">
                 <span className="editorial-subheading block">{text.whySub}</span>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-royal leading-tight">
+                <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-serif font-bold text-royal leading-[1.15]">
                   {text.whyTitle}
                 </h2>
-                <p className="text-base text-foreground/65 leading-relaxed max-w-lg">
+                <p className="text-[15px] text-foreground/60 leading-relaxed max-w-lg">
                   {text.whyDesc}
                 </p>
               </div>
               {/* Stats Row */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-sand">
-                <div className="space-y-1">
-                  <span className="text-3xl font-serif font-bold text-forest">14+</span>
-                  <p className="text-[11px] uppercase tracking-wider font-semibold text-foreground/50">{text.statYears}</p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-sand">
+                <div className="space-y-1.5">
+                  <span className="text-3xl lg:text-4xl font-serif font-bold text-forest">14+</span>
+                  <p className="text-[10px] uppercase tracking-[0.15em] font-semibold text-foreground/45">{text.statYears}</p>
                 </div>
-                <div className="space-y-1">
-                  <span className="text-3xl font-serif font-bold text-gold">5000+</span>
-                  <p className="text-[11px] uppercase tracking-wider font-semibold text-foreground/50">{text.statTravelers}</p>
+                <div className="space-y-1.5">
+                  <span className="text-3xl lg:text-4xl font-serif font-bold text-gold">5000+</span>
+                  <p className="text-[10px] uppercase tracking-[0.15em] font-semibold text-foreground/45">{text.statTravelers}</p>
                 </div>
-                <div className="space-y-1">
-                  <span className="text-3xl font-serif font-bold text-terracotta">100+</span>
-                  <p className="text-[11px] uppercase tracking-wider font-semibold text-foreground/50">{text.statDest}</p>
+                <div className="space-y-1.5">
+                  <span className="text-3xl lg:text-4xl font-serif font-bold text-terracotta">100+</span>
+                  <p className="text-[10px] uppercase tracking-[0.15em] font-semibold text-foreground/45">{text.statDest}</p>
                 </div>
-                <div className="space-y-1">
-                  <span className="text-3xl font-serif font-bold text-royal">4.9</span>
-                  <p className="text-[11px] uppercase tracking-wider font-semibold text-foreground/50">{text.statRating}</p>
+                <div className="space-y-1.5">
+                  <span className="text-3xl lg:text-4xl font-serif font-bold text-royal">4.9</span>
+                  <p className="text-[10px] uppercase tracking-[0.15em] font-semibold text-foreground/45">{text.statRating}</p>
                 </div>
               </div>
             </Reveal>
-            <Reveal delay={150} className="grid grid-cols-12 grid-rows-6 gap-3 h-[500px]">
-              <div className="col-span-7 row-span-6 rounded-2xl overflow-hidden shadow-lg image-zoom-container">
+            <Reveal delay={150} className="grid grid-cols-12 grid-rows-6 gap-3 h-[520px]">
+              <div className="col-span-7 row-span-6 rounded-2xl overflow-hidden shadow-xl image-zoom-container">
                 <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800" loading="lazy" className="w-full h-full object-cover" alt="Taj Mahal India" />
               </div>
               <div className="col-span-5 row-span-3 rounded-2xl overflow-hidden shadow-lg image-zoom-container">
@@ -262,33 +291,35 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
-      {/* 3. Explore by Region */}
-      <section className="py-24 bg-white border-y border-sand/50">
+      {/* 3. Explore by Region - Larger premium cards */}
+      <section className="section-spacing bg-white border-y border-sand/40">
         <div className="max-w-7xl mx-auto px-6 space-y-14">
-          <Reveal className="text-center space-y-4 max-w-2xl mx-auto">
+          <Reveal className="text-center space-y-5 max-w-2xl mx-auto">
             <span className="editorial-subheading block">{text.regionsSub}</span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-royal">
               {text.regionsTitle}
             </h2>
-            <p className="text-foreground/60 leading-relaxed">{text.regionsDesc}</p>
+            <p className="text-[15px] text-foreground/55 leading-relaxed">{text.regionsDesc}</p>
           </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {regions.map((region, i) => {
               const Icon = region.icon;
               return (
-                <Reveal key={region.name} delay={i * 80}>
-                  <Link href={`/${locale}/destinations`} className="group relative h-96 rounded-2xl overflow-hidden block">
+                <Reveal key={region.name} delay={i * 100}>
+                  <Link href={`/${locale}/destinations`} className="group relative h-[420px] rounded-2xl overflow-hidden block shadow-sm hover:shadow-xl transition-shadow duration-500">
                     <img src={region.img} loading="lazy" alt={region.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/5" />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
-                    <div className="absolute bottom-0 p-6 text-white space-y-2">
-                      <div className="flex items-center gap-2">
-                        <Icon className="w-5 h-5 text-gold" />
+                    <div className="absolute bottom-0 p-7 text-white space-y-3 w-full">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-9 h-9 rounded-lg bg-gold/20 backdrop-blur-sm flex items-center justify-center">
+                          <Icon className="w-4.5 h-4.5 text-gold" />
+                        </div>
                         <h3 className="text-lg font-serif font-bold">{region.name}</h3>
                       </div>
-                      <p className="text-xs text-white/75 font-light">{region.desc}</p>
-                      <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider font-semibold text-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300 pt-1">
+                      <p className="text-[13px] text-white/70 font-light leading-relaxed">{region.desc}</p>
+                      <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.15em] font-semibold text-gold opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pt-1">
                         <span>Explore</span>
                         <ArrowRight className="w-3 h-3" />
                       </span>
@@ -298,11 +329,19 @@ export default async function HomePage({ params }: HomePageProps) {
               );
             })}
           </div>
+
+          {/* View All Button */}
+          <Reveal className="text-center pt-4">
+            <Link href={`/${locale}/destinations`} className="btn-secondary inline-flex items-center gap-2">
+              <span>{text.viewAll}</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </Reveal>
         </div>
       </section>
 
       {/* 4. Featured Destinations */}
-      <section className="max-w-7xl mx-auto px-6 py-24 space-y-14">
+      <section className="max-w-7xl mx-auto px-6 section-spacing space-y-14">
         <Reveal className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
           <div className="space-y-4">
             <span className="editorial-subheading block">Signature Destinations</span>
@@ -318,25 +357,25 @@ export default async function HomePage({ params }: HomePageProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
           {states.slice(0, 6).map((state: any, i: number) => (
-            <Reveal key={state.slug} delay={i * 70}>
+            <Reveal key={state.slug} delay={i * 80}>
               <Link href={`/${locale}/destinations/${state.slug}`} className="group block h-full">
-                <div className="relative h-[440px] rounded-2xl overflow-hidden">
+                <div className="relative h-[460px] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
                   <img
                     src={state.image}
                     loading="lazy"
                     alt={state.title[locale as "en" | "es" | "pt"] || state.title.en}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute top-5 left-5">
                     <span className="badge-gold">{state.region}</span>
                   </div>
-                  <div className="absolute bottom-0 p-6 text-white space-y-2 w-full">
+                  <div className="absolute bottom-0 p-7 text-white space-y-2.5 w-full">
                     <h3 className="text-2xl font-serif font-bold">{state.title[locale as "en" | "es" | "pt"] || state.title.en}</h3>
-                    <p className="text-xs text-white/70 font-light line-clamp-2">
+                    <p className="text-[13px] text-white/65 font-light line-clamp-2 leading-relaxed">
                       {state.tagline?.[locale as "en" | "es" | "pt"] || state.tagline?.en || ""}
                     </p>
-                    <span className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider font-semibold text-gold pt-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                    <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.15em] font-semibold text-gold pt-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
                       <span>{locale === "es" ? "Explorar Guía" : locale === "pt" ? "Explorar Guia" : "Explore Guide"}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </span>
@@ -349,22 +388,22 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* 5. Tour Packages */}
-      <section className="bg-cream py-24 border-y border-sand/40" id="popular-packages">
+      <section className="bg-cream section-spacing border-y border-sand/30" id="popular-packages">
         <div className="max-w-7xl mx-auto px-6 space-y-14">
-          <Reveal className="text-center space-y-4 max-w-2xl mx-auto">
+          <Reveal className="text-center space-y-5 max-w-2xl mx-auto">
             <span className="editorial-subheading block">{text.packagesSub}</span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-royal">{text.packagesTitle}</h2>
-            <p className="text-foreground/60 leading-relaxed">{text.packagesDesc}</p>
+            <p className="text-[15px] text-foreground/55 leading-relaxed">{text.packagesDesc}</p>
           </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {packages.slice(0, 6).map((pkg: any, i: number) => (
-              <Reveal key={pkg.slug} delay={i * 70}>
+              <Reveal key={pkg.slug} delay={i * 80}>
                 <div className="card-elevated flex flex-col h-full">
                   <div className="relative h-64 overflow-hidden rounded-t-[1.5rem]">
-                    <img src={pkg.image} loading="lazy" alt={pkg.title.en} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                    <img src={pkg.image} loading="lazy" alt={pkg.title.en} className="w-full h-full object-cover transition-transform duration-600 hover:scale-105" />
                     <div className="absolute top-4 left-4 flex gap-2">
-                      <span className="bg-white/90 backdrop-blur-sm text-charcoal text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
+                      <span className="bg-white/90 backdrop-blur-sm text-charcoal text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-sm">
                         {pkg.durationDays} {locale === "es" ? "Días" : locale === "pt" ? "Dias" : "Days"}
                       </span>
                     </div>
@@ -379,24 +418,24 @@ export default async function HomePage({ params }: HomePageProps) {
                       <h3 className="text-xl font-serif font-bold text-royal leading-snug">
                         {pkg.title[locale as "en" | "es" | "pt"] || pkg.title.en}
                       </h3>
-                      <p className="text-sm text-foreground/60 leading-relaxed line-clamp-2">
+                      <p className="text-sm text-foreground/55 leading-relaxed line-clamp-2">
                         {pkg.tagline[locale as "en" | "es" | "pt"] || pkg.tagline.en}
                       </p>
                       {/* Highlights */}
-                      <div className="space-y-2 pt-3">
+                      <div className="space-y-2.5 pt-3">
                         {pkg.highlights.slice(0, 3).map((hl: any, idx: number) => (
-                          <div key={idx} className="flex items-start gap-2 text-xs text-foreground/70">
+                          <div key={idx} className="flex items-start gap-2.5 text-[13px] text-foreground/65">
                             <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-1.5" />
                             <span>{hl[locale as "en" | "es" | "pt"] || hl.en}</span>
                           </div>
                         ))}
                       </div>
                     </div>
-                    <div className="pt-5 mt-5 border-t border-sand/60 flex justify-between items-center">
+                    <div className="pt-5 mt-5 border-t border-sand/50 flex justify-between items-center">
                       <span className="text-[11px] font-semibold tracking-wider uppercase text-forest">
                         {locale === "es" ? "Precio a consultar" : locale === "pt" ? "Preço sob consulta" : "Price on Request"}
                       </span>
-                      <Link href={`/${locale}#inquire-now`} className="text-xs font-semibold text-gold hover:text-terracotta flex items-center gap-1 transition-colors">
+                      <Link href={`/${locale}#inquire-now`} className="text-xs font-semibold text-gold hover:text-terracotta flex items-center gap-1 transition-colors duration-200">
                         <span>{locale === "es" ? "Solicitar" : locale === "pt" ? "Solicitar" : "Inquire"}</span>
                         <ChevronRight className="w-3.5 h-3.5" />
                       </Link>
@@ -409,30 +448,31 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
-      {/* 6. Travel Experiences */}
-      <section className="max-w-7xl mx-auto px-6 py-24 space-y-14" id="experience-hub">
-        <Reveal className="text-center space-y-4 max-w-2xl mx-auto">
-          <span className="editorial-subheading block">{text.experiencesSub}</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-royal">{text.experiencesTitle}</h2>
-        </Reveal>
+      {/* 6. Why Travel With Us - Replaces "Choose Your Experience" */}
+      <section className="section-spacing relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-cream/30 to-background pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-6 relative z-10 space-y-14">
+          <Reveal className="text-center space-y-5 max-w-2xl mx-auto">
+            <span className="editorial-subheading block">{text.whyTravelSub}</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-royal">{text.whyTravelTitle}</h2>
+          </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {experiences.map((exp, i) => {
-            const Icon = exp.icon;
-            return (
-              <Reveal key={exp.name} delay={i * 70}>
-                <div className="group relative h-80 rounded-2xl overflow-hidden cursor-pointer">
-                  <img src={exp.img} loading="lazy" alt={exp.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10 group-hover:from-black/85 transition-colors duration-500" />
-                  <div className="absolute inset-0 flex flex-col justify-end p-8 text-white">
-                    <Icon className="w-8 h-8 text-gold mb-3 transition-transform duration-300 group-hover:scale-110" />
-                    <h3 className="text-xl font-serif font-bold mb-1">{exp.name}</h3>
-                    <p className="text-sm text-white/70 font-light">{exp.desc}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {whyTravelFeatures.map((feature, i) => {
+              const Icon = feature.icon;
+              return (
+                <Reveal key={i} delay={i * 80}>
+                  <div className="group p-8 rounded-2xl border border-sand/50 bg-white hover:border-gold/30 hover:shadow-lg transition-all duration-500 h-full">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-gold/10 to-gold/5 flex items-center justify-center mb-6 group-hover:from-gold/20 group-hover:to-gold/10 transition-all duration-300">
+                      <Icon className="w-6 h-6 text-gold" />
+                    </div>
+                    <h3 className="text-lg font-serif font-bold text-royal mb-3 leading-snug">{feature.title}</h3>
+                    <p className="text-sm text-foreground/55 leading-relaxed">{feature.desc}</p>
                   </div>
-                </div>
-              </Reveal>
-            );
-          })}
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -449,42 +489,18 @@ export default async function HomePage({ params }: HomePageProps) {
         }}
       />
 
-      {/* 8. Testimonials */}
-      <section className="py-24 bg-white border-y border-sand/40">
-        <div className="max-w-7xl mx-auto px-6 space-y-14">
-          <Reveal className="text-center space-y-4 max-w-2xl mx-auto">
-            <span className="editorial-subheading block">{text.testimonialsSub}</span>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-royal">{text.testimonialsTitle}</h2>
-          </Reveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {reviews.slice(0, 3).map((review: any, i: number) => (
-              <Reveal key={review.id} delay={i * 80}>
-                <div className="testimonial-card h-full flex flex-col">
-                  <div className="flex items-center gap-1 mb-4">
-                    {Array.from({ length: review.stars }).map((_, idx) => (
-                      <Star key={idx} className="w-4 h-4 fill-gold text-gold" />
-                    ))}
-                  </div>
-                  <p className="text-sm text-foreground/70 leading-relaxed italic flex-grow">
-                    &ldquo;{review.quote[locale as "en" | "es" | "pt"] || review.quote.en}&rdquo;
-                  </p>
-                  <div className="flex items-center gap-3 mt-6 pt-4 border-t border-sand/50">
-                    <img src={review.image} alt={review.name} className="w-10 h-10 rounded-full object-cover" />
-                    <div>
-                      <p className="text-sm font-semibold text-royal">{review.name}</p>
-                      <p className="text-[11px] text-foreground/50">{review.location}</p>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 8. Testimonials - Premium Infinite Slider */}
+      <TestimonialSlider
+        locale={locale}
+        reviews={reviews}
+        labels={{
+          sub: text.testimonialsSub,
+          title: text.testimonialsTitle,
+        }}
+      />
 
       {/* 9. Blog Section */}
-      <section className="max-w-7xl mx-auto px-6 py-24 space-y-14">
+      <section className="max-w-7xl mx-auto px-6 section-spacing space-y-14">
         <Reveal className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
           <div className="space-y-4">
             <span className="editorial-subheading block">{text.blogsSub}</span>
@@ -501,26 +517,26 @@ export default async function HomePage({ params }: HomePageProps) {
             <Reveal key={blog.slug} delay={i * 80}>
               <Link href={`/${locale}/blog/${blog.slug}`} className="group block">
                 <div className="card-elevated overflow-hidden">
-                  <div className="h-64 overflow-hidden">
+                  <div className="h-60 overflow-hidden">
                     <img
                       src={blog.featuredImage}
                       alt={blog.title[locale as "en" | "es" | "pt"] || blog.title.en}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-105"
                     />
                   </div>
                   <div className="p-7 space-y-4">
-                    <div className="flex items-center gap-3 text-[11px] text-foreground/50 font-medium">
+                    <div className="flex items-center gap-3 text-[11px] text-foreground/45 font-medium">
                       <span className="badge-forest">{blog.category}</span>
                       <span className="flex items-center gap-1">
                         <Clock className="w-3 h-3" />
                         {blog.readingTime} min
                       </span>
                     </div>
-                    <h3 className="text-xl font-serif font-bold text-royal leading-snug group-hover:text-gold transition-colors line-clamp-2">
+                    <h3 className="text-lg font-serif font-bold text-royal leading-snug group-hover:text-gold transition-colors duration-200 line-clamp-2">
                       {blog.title[locale as "en" | "es" | "pt"] || blog.title.en}
                     </h3>
-                    <p className="text-xs text-foreground/60 line-clamp-2 leading-relaxed">
+                    <p className="text-[13px] text-foreground/55 line-clamp-2 leading-relaxed">
                       {blog.excerpt[locale as "en" | "es" | "pt"] || blog.excerpt.en}
                     </p>
                   </div>
@@ -532,30 +548,31 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* 10. CTA Banner */}
-      <section className="relative py-28 overflow-hidden">
+      <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?q=80&w=1920"
             alt="India landscape"
+            loading="lazy"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-royal/85" />
+          <div className="absolute inset-0 bg-royal/85 backdrop-blur-[2px]" />
         </div>
-        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center text-white space-y-6">
+        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center text-white space-y-7">
           <Reveal>
-            <h2 className="text-3xl md:text-5xl font-serif font-bold leading-tight">
+            <h2 className="text-3xl md:text-5xl lg:text-[3.5rem] font-serif font-bold leading-tight">
               {text.ctaBannerTitle}
             </h2>
           </Reveal>
           <Reveal delay={100}>
-            <p className="text-base text-white/75 leading-relaxed max-w-lg mx-auto">
+            <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-lg mx-auto">
               {text.ctaBannerSub}
             </p>
           </Reveal>
           <Reveal delay={200}>
             <Link
               href={`/${locale}#inquire-now`}
-              className="inline-flex items-center gap-2 bg-gold hover:bg-gold/90 text-white text-xs font-semibold uppercase tracking-wider py-4 px-10 rounded-full transition-all duration-300 shadow-lg shadow-gold/20 hover:shadow-xl hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2.5 bg-gold hover:bg-gold-light text-white text-[11px] font-semibold uppercase tracking-[0.12em] py-4.5 px-11 rounded-full transition-all duration-400 shadow-lg shadow-gold/25 hover:shadow-xl hover:-translate-y-0.5"
             >
               <span>{text.ctaBannerBtn}</span>
               <ArrowRight className="w-4 h-4" />
@@ -565,7 +582,7 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* 11. Inquiry Form */}
-      <section className="py-24 bg-cream" id="inquire-now">
+      <section className="section-spacing bg-cream" id="inquire-now">
         <div className="max-w-7xl mx-auto px-6">
           <InquiryForm locale={locale} />
         </div>
