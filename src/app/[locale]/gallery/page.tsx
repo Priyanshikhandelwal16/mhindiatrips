@@ -20,15 +20,15 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
     { src: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800", alt: "Taj Mahal", span: "col-span-2 row-span-2" },
     { src: "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=600", alt: "Jaipur Palace", span: "col-span-1 row-span-1" },
     { src: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=600", alt: "Kerala Backwaters", span: "col-span-1 row-span-2" },
-    { src: "https://images.unsplash.com/photo-1561361513-2d000a50f0db?q=80&w=600", alt: "Varanasi Ghats", span: "col-span-1 row-span-1" },
+    { src: "/images/varanasi.jpg", alt: "Varanasi Ghats", span: "col-span-1 row-span-1" },
     { src: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=600", alt: "Goa Beach", span: "col-span-1 row-span-1" },
     { src: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=600", alt: "North India", span: "col-span-1 row-span-1" },
-    { src: "https://images.unsplash.com/photo-1558431382-27e303142255?q=80&w=600", alt: "Tea Gardens", span: "col-span-2 row-span-1" },
+    { src: "/images/ranthambore.jpg", alt: "Ranthambore Tiger Safari", span: "col-span-2 row-span-1" },
     { src: "https://images.unsplash.com/photo-1566552881560-0be862a7c445?q=80&w=600", alt: "Mumbai", span: "col-span-1 row-span-1" },
-    { src: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=600", alt: "Kerala Temple", span: "col-span-1 row-span-2" },
+    { src: "/images/varanasi ganga aarti.jpg", alt: "Varanasi Ganga Aarti", span: "col-span-1 row-span-2" },
     { src: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=600", alt: "Yoga Retreat", span: "col-span-1 row-span-1" },
-    { src: "https://images.unsplash.com/photo-1506461883276-594a12b11cf3?q=80&w=600", alt: "Indian Landscape", span: "col-span-2 row-span-1" },
-    { src: "https://images.unsplash.com/photo-1581791538302-03537b9c97bf?q=80&w=600", alt: "Tiger Safari", span: "col-span-1 row-span-1" },
+    { src: "/images/Wildlife & Tiger Safari.jpg", alt: "Wildlife Tiger Safari", span: "col-span-2 row-span-1" },
+    { src: "/images/rajasthan-camels.jpg", alt: "Rajasthan Camels", span: "col-span-1 row-span-1" },
   ];
 
   return (
