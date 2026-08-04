@@ -48,7 +48,7 @@ export default function Header({ locale }: HeaderProps) {
       home: "Home",
       destinations: "Destinations",
       packages: "Tour Packages",
-      food: "Cuisine",
+      food: "Food",
       blog: "Journal",
       about: "About",
       contact: "Contact",
@@ -60,7 +60,7 @@ export default function Header({ locale }: HeaderProps) {
       home: "Inicio",
       destinations: "Destinos",
       packages: "Paquetes",
-      food: "Gastronomía",
+      food: "Comida",
       blog: "Diario",
       about: "Nosotros",
       contact: "Contacto",
@@ -72,7 +72,7 @@ export default function Header({ locale }: HeaderProps) {
       home: "Início",
       destinations: "Destinos",
       packages: "Pacotes",
-      food: "Gastronomia",
+      food: "Comida",
       blog: "Diário",
       about: "Sobre",
       contact: "Contacto",
@@ -92,8 +92,8 @@ export default function Header({ locale }: HeaderProps) {
         { name: "Rajasthan", slug: "rajasthan" },
         { name: "Delhi & Agra", slug: "delhi-agra" },
         { name: "Varanasi", slug: "varanasi" },
-        { name: "Kashmir", slug: "srinagar" },
-        { name: "Himachal Pradesh", slug: "shimla" },
+        { name: "Kashmir", slug: "kashmir" },
+        { name: "Himachal Pradesh", slug: "himachal-pradesh" },
       ]
     },
     {
@@ -102,7 +102,7 @@ export default function Header({ locale }: HeaderProps) {
       states: [
         { name: "Kerala", slug: "kerala" },
         { name: "Tamil Nadu", slug: "tamil-nadu" },
-        { name: "Karnataka", slug: "hampi" },
+        { name: "Karnataka", slug: "karnataka" },
         { name: "Goa", slug: "goa" },
       ]
     },
@@ -110,10 +110,10 @@ export default function Header({ locale }: HeaderProps) {
       region: locale === "es" ? "India del Este" : locale === "pt" ? "Leste da Índia" : "East & Northeast",
       image: "https://images.unsplash.com/photo-1593693411515-c202e974fe08?q=80&w=400",
       states: [
-        { name: "Darjeeling", slug: "darjeeling" },
-        { name: "Sikkim", slug: "gangtok" },
-        { name: "Meghalaya", slug: "shillong" },
-        { name: "Odisha", slug: "puri" },
+        { name: "Darjeeling", slug: "west-bengal" },
+        { name: "Sikkim", slug: "sikkim" },
+        { name: "Meghalaya", slug: "meghalaya" },
+        { name: "Odisha", slug: "odisha" },
       ]
     }
   ];

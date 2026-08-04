@@ -180,7 +180,7 @@ export default async function HomePage({ params }: HomePageProps) {
       desc: locale === "es" ? "Navegue por canales bordeados de palmeras en casas flotantes de lujo." : locale === "pt" ? "Navegue por canais ladeados de palmeiras em casas flutuantes de luxo." : "Drift along palm-fringed waterways aboard luxury houseboats.",
     },
     {
-      image: "https://images.unsplash.com/photo-1561361513-2d000a50f0db?q=80&w=1920",
+      image: "/images/varanasi.jpg",
       location: "Varanasi, Uttar Pradesh",
       sub: "",
       title: locale === "es" ? "La Ciudad Eterna del Ganges" : locale === "pt" ? "A Cidade Eterna do Ganges" : "The Eternal City of Light",
@@ -192,6 +192,13 @@ export default async function HomePage({ params }: HomePageProps) {
       sub: "",
       title: locale === "es" ? "Playas Doradas y Encanto Colonial" : locale === "pt" ? "Praias Douradas e Charme Colonial" : "Golden Beaches & Colonial Charm",
       desc: locale === "es" ? "Relájese en playas prístinas y descubra la herencia portuguesa." : locale === "pt" ? "Relaxe em praias intocadas e descubra a herança portuguesa." : "Unwind on pristine shores and discover Portuguese heritage.",
+    },
+    {
+      image: "/images/ranthambore.jpg",
+      location: "Ranthambore, Rajasthan",
+      sub: "",
+      title: locale === "es" ? "Safari de Tigres Reales" : locale === "pt" ? "Safari de Tigres Reais" : "Royal Tiger Safari",
+      desc: locale === "es" ? "Encuentre al majestuoso Tigre Real de Bengala en su hábitat natural." : locale === "pt" ? "Encontre o majestoso Tigre Real de Bengala em seu habitat natural." : "Encounter the majestic Royal Bengal Tiger in its natural wilderness habitat.",
     },
   ];
 

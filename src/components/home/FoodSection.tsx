@@ -15,18 +15,18 @@ interface FoodSectionProps {
   };
 }
 
-// Fallback images for foods that may have missing/duplicate images
+// Local image paths for foods
 const foodImageMap: Record<string, string> = {
   "butter-chicken": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=800",
-  "masala-dosa": "https://images.unsplash.com/photo-1630383249896-424e482df921?q=80&w=800",
+  "masala-dosa": "/images/masala dosa.jpg",
   "hyderabadi-biryani": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=800",
-  "dal-baati-churma": "https://images.unsplash.com/photo-1606491956689-2ea866880049?q=80&w=800",
-  "pav-bhaji": "https://images.unsplash.com/photo-1606491956689-2ea866880049?q=80&w=800",
-  "goan-fish-curry": "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?q=80&w=800",
-  "momos": "https://images.unsplash.com/photo-1585032226651-759b368d7246?q=80&w=800",
-  "dhokla": "https://images.unsplash.com/photo-1567337710282-00832b415979?q=80&w=800",
-  "rasgulla": "https://images.unsplash.com/photo-1666190020955-42489e1a20de?q=80&w=800",
-  "appam-steamed-rice-crepe": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=800",
+  "dal-baati-churma": "/images/ranthambore.jpg",
+  "pav-bhaji": "/images/pav bhaji.jpg",
+  "goan-fish-curry": "/images/goan fish curry.jpg",
+  "momos": "/images/momos.jpg",
+  "dhokla": "/images/dhokla.jpg",
+  "rasgulla": "/images/rasgulla.jpg",
+  "appam-steamed-rice-crepe": "/images/appam idli.jpg",
 };
 
 export default function FoodSection({ locale, foods, labels }: FoodSectionProps) {

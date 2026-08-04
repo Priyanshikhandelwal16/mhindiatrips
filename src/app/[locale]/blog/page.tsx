@@ -22,13 +22,13 @@ export default async function BlogIndexPage({ params }: BlogIndexPageProps) {
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero */}
-      <div className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?q=80&w=1920" alt="Travel Blog" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-[#FAF8F5]" />
-        <div className="relative z-10 text-center text-white space-y-4 px-6 mt-16">
+      <div className="relative h-[55vh] min-h-[380px] flex items-center justify-center overflow-hidden">
+        <img src="/images/varanasi.jpg" alt="Travel Blog" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#FAF8F5]" />
+        <div className="relative z-10 text-center text-white space-y-5 px-6 mt-16">
           <span className="editorial-subheading block text-gold">{text.sub}</span>
-          <h1 className="text-4xl md:text-5xl font-serif font-bold">{text.title}</h1>
-          <p className="text-white/75 max-w-lg mx-auto text-sm">{text.desc}</p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">{text.title}</h1>
+          <p className="text-white/75 max-w-xl mx-auto text-[15px] leading-relaxed">{text.desc}</p>
         </div>
       </div>
 

@@ -13,9 +13,9 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
   const foods = await getFoodsAction();
 
   const t: Record<string, any> = {
-    en: { sub: "Culinary Guide", title: "The India Food Guide", desc: "Indian regional cuisines reflect centuries of royal patronage, traditional spices, and unique geography.", cta: "Discover Dish" },
-    es: { sub: "Guía Culinaria", title: "Guía de Comida India", desc: "Las cocinas regionales de la India reflejan siglos de mecenazgo real, especias tradicionales y geografía única.", cta: "Descubrir Plato" },
-    pt: { sub: "Guia Culinário", title: "Guia de Comida Indiana", desc: "As culinárias regionais da Índia refletem séculos de mecenato real, especiarias tradicionais e geografia única.", cta: "Descobrir Prato" }
+    en: { sub: "Food Guide", title: "The India Food Guide", desc: "Indian regional cuisines reflect centuries of royal patronage, traditional spices, and unique geography.", cta: "Discover Dish" },
+    es: { sub: "Guía de Comida", title: "Guía de Comida India", desc: "Las cocinas regionales de la India reflejan siglos de mecenazgo real, especias tradicionales y geografía única.", cta: "Descubrir Plato" },
+    pt: { sub: "Guia de Comida", title: "Guia de Comida Indiana", desc: "As culinárias regionais da Índia refletem séculos de mecenato real, especiarias tradicionais e geografia única.", cta: "Descobrir Prato" }
   };
   const text = t[locale] || t.en;
   const categories = Array.from(new Set(foods.map((f: any) => f.category))).filter(Boolean);
@@ -23,13 +23,13 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero */}
-      <div className="relative h-[45vh] min-h-[320px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[55vh] min-h-[380px] flex items-center justify-center overflow-hidden">
         <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=1920" alt="Indian Food" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-[#FAF8F5]" />
-        <div className="relative z-10 text-center text-white space-y-4 px-6 mt-16">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#FAF8F5]" />
+        <div className="relative z-10 text-center text-white space-y-5 px-6 mt-16">
           <span className="editorial-subheading block text-gold">{text.sub}</span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold">{text.title}</h1>
-          <p className="text-white/75 max-w-xl mx-auto text-sm leading-relaxed">{text.desc}</p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">{text.title}</h1>
+          <p className="text-white/75 max-w-xl mx-auto text-[15px] leading-relaxed">{text.desc}</p>
         </div>
       </div>
 

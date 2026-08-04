@@ -91,7 +91,7 @@ export default function Footer({ locale }: FooterProps) {
     { name: "Kerala", url: "/destinations/kerala" },
     { name: "Goa", url: "/destinations/goa" },
     { name: "Varanasi", url: "/destinations/varanasi" },
-    { name: "Kashmir", url: "/destinations/srinagar" },
+    { name: "Kashmir", url: "/destinations/kashmir" },
     { name: "Delhi & Agra", url: "/destinations/delhi-agra" },
   ];
 
