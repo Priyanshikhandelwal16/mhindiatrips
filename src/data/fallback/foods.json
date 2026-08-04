@@ -1,0 +1,591 @@
+[
+  {
+    "slug": "butter-chicken",
+    "title": {
+      "en": "Butter Chicken (Murgh Makhani)",
+      "es": "Pollo a la Mantequilla",
+      "pt": "Frango na Manteiga"
+    },
+    "category": "North Indian",
+    "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=800",
+    "gallery": [],
+    "history": {
+      "en": "This legendary dish was created in Delhi during the 1950s by mixing leftover tandoori chicken juices with butter, cream, and tomato gravy.",
+      "es": "Creado en Delhi en los años 1950 mezclando jugos de pollo tandoori con mantequilla, crema y tomate.",
+      "pt": "Criado em Deli nos anos 1950 misturando sucos de frango tandoori com manteiga, creme e tomate."
+    },
+    "ingredients": [
+      {
+        "en": "Tandoori chicken pieces",
+        "es": "Pollo asado al tandoor",
+        "pt": "Frango assado ao tandoor"
+      },
+      {
+        "en": "Fresh heavy cream and butter",
+        "es": "Crema de leche fresca y mantequilla",
+        "pt": "Creme de leite fresco e manteiga"
+      }
+    ],
+    "origin": {
+      "en": "New Delhi, India",
+      "es": "Nueva Delhi, India",
+      "pt": "Nova Deli, Índia"
+    },
+    "region": "North India",
+    "bestCities": [
+      {
+        "en": "New Delhi",
+        "es": "Nueva Delhi",
+        "pt": "Nova Deli"
+      }
+    ],
+    "bestRestaurants": [
+      {
+        "name": "Moti Mahal",
+        "city": "New Delhi"
+      }
+    ],
+    "travelTips": [
+      {
+        "en": "Pair with hot garlic naan bread.",
+        "es": "Acompañar con pan naan de ajo caliente.",
+        "pt": "Acompanhar com pão naan de alho quente."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "masala-dosa",
+    "title": {
+      "en": "Masala Dosa",
+      "es": "Masala Dosa",
+      "pt": "Masala Dosa"
+    },
+    "category": "South Indian",
+    "image": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=800",
+    "gallery": [],
+    "history": {
+      "en": "Originating in the temple town of Udupi, Masala Dosa is a thin, crispy fermented rice crepe stuffed with spiced potato mash.",
+      "es": "Crepa de arroz fermentado crujiente rellena de patata especiada, originaria de Udupi.",
+      "pt": "Crepe de arroz fermentado crocante recheada de batata temperada, originária de Udupi."
+    },
+    "ingredients": [
+      {
+        "en": "Rice and lentil batter",
+        "es": "Masa de arroz y lentejas",
+        "pt": "Massa de arroz e lentilhas"
+      }
+    ],
+    "origin": {
+      "en": "Udupi, Karnataka",
+      "es": "Udupi, Karnataka",
+      "pt": "Udupi, Karnataka"
+    },
+    "region": "South India",
+    "bestCities": [
+      {
+        "en": "Bangalore",
+        "es": "Bangalore",
+        "pt": "Bangalore"
+      }
+    ],
+    "bestRestaurants": [
+      {
+        "name": "MTR",
+        "city": "Bangalore"
+      }
+    ],
+    "travelTips": [],
+    "faqs": []
+  },
+  {
+    "slug": "hyderabadi-biryani",
+    "title": {
+      "en": "Hyderabadi Biryani",
+      "es": "Biryani de Hyderabad",
+      "pt": "Biryani de Hyderabad"
+    },
+    "category": "South Indian",
+    "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=800",
+    "gallery": [],
+    "history": {
+      "en": "A royal masterpiece from the Nizams' kitchens, layering marinated meat with basmati rice, saffron and mint, slow-cooked under seal (dum).",
+      "es": "Una obra maestra real de las cocinas de los Nizams, cocida lentamente bajo sello.",
+      "pt": "Uma obra-prima real das cozinhas dos Nizams, cozida lentamente sob selo."
+    },
+    "ingredients": [
+      {
+        "en": "Basmati rice",
+        "es": "Arroz basmati",
+        "pt": "Arroz basmati"
+      },
+      {
+        "en": "Marinated meat (chicken/lamb)",
+        "es": "Carne marinada",
+        "pt": "Carne marinada"
+      },
+      {
+        "en": "Saffron & mint",
+        "es": "Azafrán y menta",
+        "pt": "Açafrão e hortelã"
+      }
+    ],
+    "origin": {
+      "en": "Hyderabad, Telangana",
+      "es": "Hyderabad, Telangana",
+      "pt": "Hyderabad, Telangana"
+    },
+    "region": "South India",
+    "bestCities": [
+      {
+        "en": "Hyderabad",
+        "es": "Hyderabad",
+        "pt": "Hyderabad"
+      }
+    ],
+    "bestRestaurants": [
+      {
+        "name": "Paradise Biryani",
+        "city": "Hyderabad"
+      }
+    ],
+    "travelTips": [
+      {
+        "en": "Best paired with mirchi ka salan and raita.",
+        "es": "Acompañar con mirchi ka salan.",
+        "pt": "Acompanhar com mirchi ka salan."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "dal-baati-churma",
+    "title": {
+      "en": "Dal Baati Churma",
+      "es": "Dal Baati Churma",
+      "pt": "Dal Baati Churma"
+    },
+    "category": "North Indian",
+    "image": "https://images.unsplash.com/photo-1585938338392-50a59970d8ee?q=80&w=800",
+    "gallery": [],
+    "history": {
+      "en": "The iconic dish of Rajasthan. Baked wheat baati balls are served with spicy dal and sweet churma crumble, a staple of royal Marwari kitchens.",
+      "es": "El plato icónico de Rajastán. Bolas de trigo horneadas con dal picante y churma dulce.",
+      "pt": "O prato icônico do Rajastão. Bolas de trigo assadas com dal picante e churma doce."
+    },
+    "ingredients": [
+      {
+        "en": "Whole wheat flour",
+        "es": "Harina de trigo integral",
+        "pt": "Farinha de trigo integral"
+      },
+      {
+        "en": "Moong dal lentils",
+        "es": "Lentejas moong dal",
+        "pt": "Lentilhas moong dal"
+      },
+      {
+        "en": "Ghee & jaggery",
+        "es": "Ghee y panela",
+        "pt": "Ghee e rapadura"
+      }
+    ],
+    "origin": {
+      "en": "Rajasthan",
+      "es": "Rajastán",
+      "pt": "Rajastão"
+    },
+    "region": "North India",
+    "bestCities": [
+      {
+        "en": "Jaipur",
+        "es": "Jaipur",
+        "pt": "Jaipur"
+      },
+      {
+        "en": "Jodhpur",
+        "es": "Jodhpur",
+        "pt": "Jodhpur"
+      }
+    ],
+    "bestRestaurants": [
+      {
+        "name": "Chokhi Dhani",
+        "city": "Jaipur"
+      }
+    ],
+    "travelTips": [
+      {
+        "en": "Eat with generous amounts of ghee for authentic flavor.",
+        "es": "Acompañar con ghee generoso.",
+        "pt": "Acompanhar com ghee generoso."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "pav-bhaji",
+    "title": {
+      "en": "Pav Bhaji",
+      "es": "Pav Bhaji",
+      "pt": "Pav Bhaji"
+    },
+    "category": "Street Food",
+    "image": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=800",
+    "gallery": [],
+    "history": {
+      "en": "Born in Mumbai in the 1850s as a quick, nutritious meal for textile mill workers. A spiced vegetable mash served with buttered bread rolls.",
+      "es": "Nacido en Mumbai en la década de 1850 para los trabajadores textiles. Puré de verduras especiado con pan.",
+      "pt": "Nascido em Mumbai na década de 1850 para trabalhadores têxteis. Purê de legumes temperado com pão."
+    },
+    "ingredients": [
+      {
+        "en": "Mixed vegetables",
+        "es": "Verduras mixtas",
+        "pt": "Legumes mistos"
+      },
+      {
+        "en": "Pav bread rolls",
+        "es": "Panecillos pav",
+        "pt": "Pãezinhos pav"
+      },
+      {
+        "en": "Butter & pav bhaji masala",
+        "es": "Mantequilla y masala",
+        "pt": "Manteiga e masala"
+      }
+    ],
+    "origin": {
+      "en": "Mumbai, Maharashtra",
+      "es": "Mumbai, Maharashtra",
+      "pt": "Mumbai, Maharashtra"
+    },
+    "region": "West India",
+    "bestCities": [
+      {
+        "en": "Mumbai",
+        "es": "Mumbai",
+        "pt": "Mumbai"
+      }
+    ],
+    "bestRestaurants": [
+      {
+        "name": "Sardar Pav Bhaji",
+        "city": "Mumbai"
+      }
+    ],
+    "travelTips": [
+      {
+        "en": "Best enjoyed piping hot with a squeeze of lime.",
+        "es": "Mejor caliente con limón.",
+        "pt": "Melhor quente com limão."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "goan-fish-curry",
+    "title": {
+      "en": "Goan Fish Curry",
+      "es": "Curry de Pescado de Goa",
+      "pt": "Curry de Peixe de Goa"
+    },
+    "category": "Seafood",
+    "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=800",
+    "gallery": [],
+    "history": {
+      "en": "A coastal classic blending Portuguese influences with Konkani traditions. Fresh fish simmered in a coconut-based curry tempered with kokum.",
+      "es": "Un clásico costero que mezcla influencias portuguesas y tradiciones konkani.",
+      "pt": "Um clássico costeiro que mistura influências portuguesas e tradições konkani."
+    },
+    "ingredients": [
+      {
+        "en": "Fresh fish (kingfish)",
+        "es": "Pescado fresco",
+        "pt": "Peixe fresco"
+      },
+      {
+        "en": "Coconut milk",
+        "es": "Leche de coco",
+        "pt": "Leite de coco"
+      },
+      {
+        "en": "Kokum & red chillies",
+        "es": "Kokum y chiles",
+        "pt": "Kokum e pimentas"
+      }
+    ],
+    "origin": {
+      "en": "Goa",
+      "es": "Goa",
+      "pt": "Goa"
+    },
+    "region": "West India",
+    "bestCities": [
+      {
+        "en": "Goa",
+        "es": "Goa",
+        "pt": "Goa"
+      }
+    ],
+    "bestRestaurants": [
+      {
+        "name": "Fisherman's Wharf",
+        "city": "Goa"
+      }
+    ],
+    "travelTips": [
+      {
+        "en": "Pair with steamed rice for a simple coastal meal.",
+        "es": "Acompañar con arroz.",
+        "pt": "Acompanhar com arroz."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "momos",
+    "title": {
+      "en": "Momos (Dumplings)",
+      "es": "Momos (Dumplings)",
+      "pt": "Momos (Pastéis)"
+    },
+    "category": "North East & Street Food",
+    "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?q=80&w=800",
+    "gallery": [],
+    "history": {
+      "en": "Tibetan-style steamed dumplings that became a beloved street food across North India and the Himalayan regions.",
+      "es": "Dumplings tibetanos al vapor, populares en el norte de la India y el Himalaya.",
+      "pt": "Pastéis tibetanos cozidos no vapor, populares no norte da Índia e Himalaia."
+    },
+    "ingredients": [
+      {
+        "en": "Flour wrappers",
+        "es": "Masa de harina",
+        "pt": "Massa de farinha"
+      },
+      {
+        "en": "Vegetable or chicken filling",
+        "es": "Relleno de verduras o pollo",
+        "pt": "Recheio de legumes ou frango"
+      },
+      {
+        "en": "Spicy chutney",
+        "es": "Chutney picante",
+        "pt": "Chutney picante"
+      }
+    ],
+    "origin": {
+      "en": "Tibet / North-East India",
+      "es": "Tíbet / Nordeste de la India",
+      "pt": "Tibete / Nordeste da Índia"
+    },
+    "region": "North East India",
+    "bestCities": [
+      {
+        "en": "Delhi",
+        "es": "Delhi",
+        "pt": "Deli"
+      },
+      {
+        "en": "Sikkim",
+        "es": "Sikkim",
+        "pt": "Sikkim"
+      }
+    ],
+    "bestRestaurants": [
+      {
+        "name": "Yummy Momos",
+        "city": "Delhi"
+      }
+    ],
+    "travelTips": [
+      {
+        "en": "Available in both steamed and fried (kothey) varieties.",
+        "es": "Disponibles al vapor y fritos.",
+        "pt": "Disponíveis cozidos e fritos."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "dhokla",
+    "title": {
+      "en": "Dhokla",
+      "es": "Dhokla",
+      "pt": "Dhokla"
+    },
+    "category": "Gujarati & West Indian",
+    "image": "https://images.unsplash.com/photo-1585938338392-50a59970d8ee?q=80&w=800",
+    "gallery": [],
+    "history": {
+      "en": "A light and fluffy steamed savory cake from Gujarat, made from fermented chickpea batter and tempered with mustard seeds.",
+      "es": "Un pastel salado ligero y esponjoso de Gujarat, hecho de masa de garbanzos fermentada.",
+      "pt": "Um bolo salgado leve e fofo de Gujarat, feito de massa de grão-de-bico fermentada."
+    },
+    "ingredients": [
+      {
+        "en": "Chickpea flour (besan)",
+        "es": "Harina de garbanzos",
+        "pt": "Farinha de grão-de-bico"
+      },
+      {
+        "en": "Mustard seeds & curry leaves",
+        "es": "Semillas de mostaza",
+        "pt": "Sementes de mostarda"
+      },
+      {
+        "en": "Yogurt",
+        "es": "Yogur",
+        "pt": "Iogurte"
+      }
+    ],
+    "origin": {
+      "en": "Gujarat",
+      "es": "Gujarat",
+      "pt": "Gujarat"
+    },
+    "region": "West India",
+    "bestCities": [
+      {
+        "en": "Ahmedabad",
+        "es": "Ahmedabad",
+        "pt": "Ahmedabad"
+      }
+    ],
+    "bestRestaurants": [
+      {
+        "name": "Vishalla",
+        "city": "Ahmedabad"
+      }
+    ],
+    "travelTips": [
+      {
+        "en": "Tastes great with mint chutney and a side of hot chai.",
+        "es": "Ideal con chutney de menta y chai.",
+        "pt": "Ótimo com chutney de hortelã e chai."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "rasgulla",
+    "title": {
+      "en": "Rasgulla",
+      "es": "Rasgulla",
+      "pt": "Rasgulla"
+    },
+    "category": "Indian Desserts",
+    "image": "https://images.unsplash.com/photo-1601000938255-1f2d6d7c6f2b?q=80&w=800",
+    "gallery": [],
+    "history": {
+      "en": "Syrupy cottage-cheese balls from Bengal, one of India's most beloved sweets, served chilled in rose-accented sugar syrup.",
+      "es": "Bolas de queso cottage en almíbar de Bengala, uno de los dulces más queridos.",
+      "pt": "Bolas de queijo cottage em calda de Bengala, um dos doces mais amados."
+    },
+    "ingredients": [
+      {
+        "en": "Chhena (fresh cheese)",
+        "es": "Chhena (queso fresco)",
+        "pt": "Chhena (queijo fresco)"
+      },
+      {
+        "en": "Sugar syrup",
+        "es": "Almíbar de azúcar",
+        "pt": "Calda de açúcar"
+      },
+      {
+        "en": "Cardamom",
+        "es": "Cardamomo",
+        "pt": "Cardamomo"
+      }
+    ],
+    "origin": {
+      "en": "West Bengal",
+      "es": "Bengala Occidental",
+      "pt": "Bengala Ocidental"
+    },
+    "region": "East India",
+    "bestCities": [
+      {
+        "en": "Kolkata",
+        "es": "Calcuta",
+        "pt": "Calcutá"
+      }
+    ],
+    "bestRestaurants": [
+      {
+        "name": "K.C. Das",
+        "city": "Kolkata"
+      }
+    ],
+    "travelTips": [
+      {
+        "en": "Best served chilled after a spicy meal.",
+        "es": "Servir frío después de una comida picante.",
+        "pt": "Servir gelado após uma refeição picante."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "appam-steamed-rice-crepe",
+    "title": {
+      "en": "Appam & Stew",
+      "es": "Appam y Estofado",
+      "pt": "Appam e Ensopado"
+    },
+    "category": "South Indian",
+    "image": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=800",
+    "gallery": [],
+    "history": {
+      "en": "A Kerala classic — lacy fermented rice pancakes served with a fragrant vegetable or meat stew cooked in coconut milk.",
+      "es": "Un clásico de Kerala: panqueques de arroz fermentado con estofado de coco.",
+      "pt": "Um clássico de Kerala: panquecas de arroz fermentado com ensopado de coco."
+    },
+    "ingredients": [
+      {
+        "en": "Rice batter",
+        "es": "Masa de arroz",
+        "pt": "Massa de arroz"
+      },
+      {
+        "en": "Coconut milk stew",
+        "es": "Estofado de leche de coco",
+        "pt": "Ensopado de leite de coco"
+      },
+      {
+        "en": "Curry leaves",
+        "es": "Hojas de curry",
+        "pt": "Folhas de curry"
+      }
+    ],
+    "origin": {
+      "en": "Kerala",
+      "es": "Kerala",
+      "pt": "Kerala"
+    },
+    "region": "South India",
+    "bestCities": [
+      {
+        "en": "Kochi",
+        "es": "Kochi",
+        "pt": "Kochi"
+      }
+    ],
+    "bestRestaurants": [
+      {
+        "name": "Grand Pavilion",
+        "city": "Kochi"
+      }
+    ],
+    "travelTips": [
+      {
+        "en": "A must-have for breakfast during a backwaters cruise.",
+        "es": "Imprescindible para el desayuno en un crucero.",
+        "pt": "Imperdível no café da manhã em um cruzeiro."
+      }
+    ],
+    "faqs": []
+  }
+]

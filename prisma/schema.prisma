@@ -1,0 +1,88 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String   // Hashed password
+  name      String
+  role      String   @default("ADMIN")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Inquiry {
+  id           String   @id @default(uuid())
+  name         String
+  email        String
+  phone        String?
+  country      String?
+  startDate    String?  // Travel date or month
+  duration     Int?     // Number of days
+  travelers    Int      @default(1)
+  destinations String[] // Array of selected destination names
+  experience   String?  // Experience type: Luxury, Adventure, etc.
+  message      String?  
+  status       String   @default("NEW") // NEW, IN_PROGRESS, CONTACTED, CLOSED
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Blog {
+  id              String   @id @default(uuid())
+  slug            String   @unique
+  author          String   @default("MHIndiaTrips Editor")
+  featuredImage   String   // Cloudinary or local image URL
+  category        String   // Travel Guides, Travel Tips, Indian Food, Festivals, etc.
+  tags            String[]
+  readingTime     Int      @default(5)
+  isDraft         Boolean  @default(true)
+  scheduledFor    DateTime?
+  seoTitle        Json     // {"en": "...", "es": "...", "pt": "..."}
+  seoDescription  Json     // {"en": "...", "es": "...", "pt": "..."}
+  title           Json     // {"en": "...", "es": "...", "pt": "..."}
+  content         Json     // {"en": "...", "es": "...", "pt": "..."}
+  schemaMarkup    Json?    // Custom schema.org JSON-LD
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Destination {
+  id           String   @id @default(uuid())
+  slug         String   @unique
+  region       String   // North, South, East, West, Central, North East
+  image        String
+  gallery      String[]
+  title        Json     // {"en": "Rajasthan", "es": "Rajastán", "pt": "Rajastão"}
+  description  Json     // Localized overview paragraph
+  attractions  Json     // {"en": [{"name": "Taj Mahal", "desc": "..."}], "es": [...]}
+  bestTime     Json     // Localized description of best time
+  howToReach   Json     // Localized directions
+  localFood    Json     // Localized food highlight
+  culture      Json     // Localized culture highlight
+  tips         Json     // Localized travel tips list
+  faqs         Json     // Localized FAQs list
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Media {
+  id        String   @id @default(uuid())
+  url       String
+  filename  String
+  mimetype  String
+  size      Int
+  createdAt DateTime @default(now())
+}
+
+model Setting {
+  id    String @id @default(uuid())
+  key   String @unique
+  value Json
+}

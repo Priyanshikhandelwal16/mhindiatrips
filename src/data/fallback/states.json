@@ -1,0 +1,1407 @@
+[
+  {
+    "slug": "rajasthan",
+    "title": {
+      "en": "Rajasthan",
+      "es": "RajastÃ¡n",
+      "pt": "RajastÃ£o"
+    },
+    "tagline": {
+      "en": "Imperial Forts, Heritage Palaces & Sand Dunes",
+      "es": "Fuertes Imperiales, Palacios HistÃ³ricos y Dunas de Arena",
+      "pt": "Fortes Imperiais, PalÃ¡cios HistÃ³ricos e Dunas de Areia"
+    },
+    "region": "West",
+    "image": "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1200",
+    "gallery": [
+      "https://images.unsplash.com/photo-1602643072447-63ec27153372?q=80&w=800",
+      "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=800"
+    ],
+    "description": {
+      "en": "Rajasthan, the 'Land of Kings', is India's most flamboyant state. It is a stunning canvas of desert dunes, massive hilltop fortresses, ornate havelis, and luxurious heritage palace hotels that represent the height of Rajput royal power.",
+      "es": "RajastÃ¡n, la 'Tierra de los Reyes', es el estado mÃ¡s extravagante de la India. Es un lienzo impresionante de dunas de desierto, fortalezas colosales y palacios de lujo que representan el apogeo del poder Rajput.",
+      "pt": "O RajastÃ£o, a 'Terra dos Reis', Ã© o estado mais extravagante da Ãndia. Ã‰ uma tela deslumbrante de dunas de deserto, fortalezas colossais e hotÃ©is-palÃ¡cio luxuosos que representam o auge do poder Rajput."
+    },
+    "history": {
+      "en": "Rajasthan's history is written in acts of chivalry, romance, and fierce independence. Ruled for centuries by various Rajput clans, it resisted total Mughal conquest and maintained semi-autonomous royal states that developed unique palace architecture.",
+      "es": "La historia de RajastÃ¡n estÃ¡ escrita en actos de caballerosidad, romance e independencia. Gobernado durante siglos por clanes Rajput, mantuvo estados reales autÃ³nomos.",
+      "pt": "A histÃ³ria do RajastÃ£o Ã© escrita em atos de cavalheirismo, romance e independÃªncia. Governado por sÃ©culos por clÃ£s Rajput, manteve estados reais autÃ´nomos."
+    },
+    "culture": {
+      "en": "A vibrant burst of color in the desert. Famous for Ghoomar folk dances, heritage puppetry, miniature painting, and hand-block textile printing. Festivals like Pushkar Camel Fair and Holi are celebrated with unmatched splendor.",
+      "es": "Una explosiÃ³n vibrante de color en el desierto. Famoso por los bailes folclÃ³ricos Ghoomar, tÃ­teres histÃ³ricos y pinturas en miniatura.",
+      "pt": "Uma explosÃ£o vibrante de cor no deserto. Famoso por danÃ§as folclÃ³ricas Ghoomar, fantoches histÃ³ricos e pinturas em miniatura."
+    },
+    "localFood": {
+      "en": "Dal Baati Churma (baked wheat balls with lentils), Laal Maas (spicy mutton curry), and Ghewar (dessert). Every royal Marwari kitchen tells its story through these iconic flavors.",
+      "es": "Dal Baati Churma (bolas de trigo con lentejas), Laal Maas (curry de cordero picante) y Ghewar (postre).",
+      "pt": "Dal Baati Churma (bolas de trigo com lentilhas), Laal Maas (curry de cordeiro picante) e Ghewar (sobremesa)."
+    },
+    "bestTime": {
+      "en": "October to March. The winter climate is pleasant and sunny, ideal for desert camps and exploring forts.",
+      "es": "De octubre a marzo. El clima invernal es agradable y soleado, ideal para campamentos en el desierto.",
+      "pt": "De outubro a marÃ§o. O clima de inverno Ã© agradÃ¡vel e ensolarado, ideal para acampamentos no deserto."
+    },
+    "travelTips": [
+      {
+        "en": "Stay in heritage palaces (e.g., Lake Palace) for an authentic royal experience.",
+        "es": "HospÃ©dese en hoteles de patrimonio histÃ³rico para una experiencia real autÃ©ntica.",
+        "pt": "Hospede-se em hotÃ©is histÃ³ricos para uma experiÃªncia real autÃªntica."
+      },
+      {
+        "en": "Hire government-certified multilingual guides at major forts like Mehrangarh.",
+        "es": "Contrate guÃ­as certificados en fuertes importantes como Mehrangarh.",
+        "pt": "Contrate guias certificados em fortes importantes como Mehrangarh."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "Is Rajasthan safe for international travelers?",
+          "es": "Â¿Es seguro RajastÃ¡n para viajeros internacionales?",
+          "pt": "O RajastÃ£o Ã© seguro para viajantes internacionais?"
+        },
+        "a": {
+          "en": "Extremely safe. Tourism is Rajasthan's primary industry, and locals treat guests with great hospitality ('Atithi Devo Bhava').",
+          "es": "Extremadamente seguro. El turismo es su principal industria y tratan a los huÃ©spedes con gran hospitalidad.",
+          "pt": "Extremamente seguro. O turismo Ã© a sua principal indÃºstria e tratam os hÃ³spedes com grande hospitalidade."
+        }
+      }
+    ],
+    "cities": [
+      {
+        "slug": "jaipur",
+        "title": {
+          "en": "Jaipur",
+          "es": "Jaipur",
+          "pt": "Jaipur"
+        },
+        "tagline": {
+          "en": "The Regal Pink City",
+          "es": "La Ciudad Rosa Real",
+          "pt": "A Cidade Rosa Real"
+        },
+        "image": "https://images.unsplash.com/photo-1477584308802-e9c37c0f1676?q=80&w=800",
+        "gallery": [
+          "https://images.unsplash.com/photo-1477584308802-e9c37c0f1676?q=80&w=800",
+          "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800"
+        ],
+        "overview": {
+          "en": "Jaipur, the capital of Rajasthan, is known as the 'Pink City' because of the distinct pink terracotta color of its historic buildings, painted to welcome the Prince of Wales in 1876.",
+          "es": "Jaipur, la capital de RajastÃ¡n, es conocida como la 'Ciudad Rosa' por el color terracota de sus edificios histÃ³ricos, pintados para dar la bienvenida al PrÃ­ncipe de Gales en 1876.",
+          "pt": "Jaipur, a capital do RajastÃ£o, Ã© conhecida como a 'Cidade Rosa' pela cor terracota de seus edifÃ­cios histÃ³ricos, pintados para dar as boas-vindas ao PrÃ­ncipe de Gales in 1876."
+        },
+        "history": {
+          "en": "Founded in 1727 by Maharaja Sawai Jai Singh II, it was India's first planned city, designed according to Vastu Shastra (ancient architecture principles) and structured in grid layouts.",
+          "es": "Fundada en 1727 por el maharajah Sawai Jai Singh II, fue la primera ciudad planificada de la India.",
+          "pt": "Fundada em 1727 pelo marajÃ¡ Sawai Jai Singh II, foi a primeira cidade planejada da Ãndia."
+        },
+        "culture": {
+          "en": "A treasure trove of jewelry, hand-crafted carpets, block prints, and royal gemstone carving. The city is alive with traditional folk music and the sweet aromas of saffron sweets.",
+          "es": "Un tesoro de joyerÃ­a, alfombras artesanales, estampados y tallados de piedras preciosas.",
+          "pt": "Um trevo de joias, tapetes artesanais, estampas e lapidaÃ§Ã£o de pedras preciosas."
+        },
+        "attractions": [
+          {
+            "slug": "hawa-mahal",
+            "name": {
+              "en": "Hawa Mahal (Palace of Winds)",
+              "es": "Hawa Mahal (Palacio de los Vientos)",
+              "pt": "Hawa Mahal (PalÃ¡cio dos Ventos)"
+            },
+            "desc": {
+              "en": "An iconic five-story pink sandstone screen featuring 953 small windows designed for royal women to observe street life.",
+              "es": "IcÃ³nica fachada de arenisca rosa con 953 ventanas para observar la vida de la calle.",
+              "pt": "IcÃ´nica fachada de arenito rosa com 953 janelas para observar a vida da rua."
+            },
+            "history": {
+              "en": "Built in 1799 by Maharaja Sawai Pratap Singh as an extension of the Royal City Palace.",
+              "es": "Construido en 1799 por el Maharaja Sawai Pratap Singh.",
+              "pt": "ConstruÃ­do em 1799 pelo MarajÃ¡ Sawai Pratap Singh."
+            },
+            "architecture": {
+              "en": "Designed by Lal Chand Ustad, the building's exterior resembles the crown of Lord Krishna.",
+              "es": "DiseÃ±ado por Lal Chand Ustad en forma de la corona de Krishna.",
+              "pt": "Projetado por Lal Chand Ustad na forma da coroa de Krishna."
+            },
+            "timings": {
+              "en": "9:00 AM - 5:00 PM Daily",
+              "es": "9:00 AM - 5:00 PM Diario",
+              "pt": "9:00 AM - 5:00 PM Diariamente"
+            },
+            "info": {
+              "en": "Best photographed from the rooftop cafes directly opposite in the early morning light.",
+              "es": "Mejor fotografiado desde los cafÃ©s frente al palacio al amanecer.",
+              "pt": "Melhor fotografado dos cafÃ©s em frente ao palÃ¡cio ao amanhecer."
+            },
+            "image": "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=500",
+            "gallery": [],
+            "faqs": []
+          },
+          {
+            "slug": "amer-fort",
+            "name": {
+              "en": "Amer Fort & Palace",
+              "es": "Fuerte Amber",
+              "pt": "Forte Amber"
+            },
+            "desc": {
+              "en": "A majestic hilltop fort featuring mirror-tiled halls (Sheesh Mahal) and gorgeous views of Maota Lake.",
+              "es": "Fortaleza en la colina con salones de espejos.",
+              "pt": "Fortaleza na colina com salÃµes de espelhos."
+            },
+            "history": {
+              "en": "Constructed by Raja Man Singh I in 1592 and expanded by subsequent rulers over 150 years.",
+              "es": "Construido por Raja Man Singh I en 1592.",
+              "pt": "ConstruÃ­do por Raja Man Singh I em 1592."
+            },
+            "architecture": {
+              "en": "Combines Rajput Hindu artistic styles with Mughal Islamic architectural elements, constructed of red sandstone and marble.",
+              "es": "Combina estilos artÃ­sticos hindÃºes y mogoles.",
+              "pt": "Combina estilos artÃ­sticos hindus e mogÃ³is."
+            },
+            "timings": {
+              "en": "9:00 AM - 6:00 PM Daily, Evening light show starts at 7:30 PM",
+              "es": "9:00 AM - 6:00 PM Diario",
+              "pt": "9:00 AM - 6:00 PM Diariamente"
+            },
+            "info": {
+              "en": "Elephant rides or luxury jeeps are available to scale the cobbled paths to the main courtyard.",
+              "es": "Dispone de transporte en jeep para subir.",
+              "pt": "DispÃµe de transporte em jipe para subir."
+            },
+            "image": "https://images.unsplash.com/photo-1477584308802-e9c37c0f1676?q=80&w=500",
+            "gallery": [],
+            "faqs": []
+          }
+        ],
+        "thingsToDo": [
+          {
+            "en": "Take a private guided walk through the astronomers' park Jantar Mantar.",
+            "es": "Haga un recorrido guiado por el parque de astrÃ³nomos Jantar Mantar.",
+            "pt": "FaÃ§a um passeio guiado pelo parque de astrÃ´nomos Jantar Mantar."
+          },
+          {
+            "en": "Shop for authentic emerald jewelry and block-printed silks in Johari Bazaar.",
+            "es": "Compre joyas de esmeralda y sedas en Johari Bazaar.",
+            "pt": "Compre joias de esmeralda e sedas no Johari Bazaar."
+          }
+        ],
+        "hotels": [
+          {
+            "name": "Rambagh Palace",
+            "tier": "Heritage",
+            "desc": {
+              "en": "The former residence of the Maharaja of Jaipur, offering ultra-luxury suites.",
+              "es": "Antigua residencia del maharajÃ¡, con suites de lujo.",
+              "pt": "Antiga residÃªncia do marajÃ¡, com suÃ­tes de luxo."
+            },
+            "image": "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=500"
+          }
+        ],
+        "localFood": {
+          "en": "Dal Baati Churma (baked wheat balls with lentils and sugar crumble) and Pyaz Kachori.",
+          "es": "Dal Baati Churma y Pyaz Kachori (pan frito de cebolla picante).",
+          "pt": "Dal Baati Churma e Pyaz Kachori (pÃ£o frito de cebola picante)."
+        },
+        "shopping": {
+          "en": "Gemstones, silver jewelry, blue pottery, and bandhani sarees.",
+          "es": "Piedras preciosas, cerÃ¡mica azul y vestidos tradicionales bandhani.",
+          "pt": "Piedras preciosas, cerÃ¢mica azul e vestidos tradicionais bandhani."
+        },
+        "weather": {
+          "en": "Sunny and warm in winter (15Â°C - 25Â°C), extremely hot in summer (above 40Â°C).",
+          "es": "CÃ¡lido y soleado en invierno (15Â°C a 25Â°C), muy caluroso en verano.",
+          "pt": "Quente e ensolarado no inverno (15Â°C a 25Â°C), muito quente no verÃ£o."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a marÃ§o"
+        },
+        "travelTips": [
+          {
+            "en": "Book tickets to Amber Fort online to bypass the main ticket counters.",
+            "es": "Compre las entradas para el Fuerte Amber en lÃ­nea.",
+            "pt": "Compre as entradas para o Forte Amber online."
+          }
+        ],
+        "nearbyPlaces": [
+          {
+            "name": "Abhaneri Stepwell",
+            "distance": "95 km"
+          }
+        ],
+        "suggestedItinerary": {
+          "en": "Day 1: Explore City Palace & Hawa Mahal. Day 2: Morning excursion to Amber Fort, afternoon at Jantar Mantar.",
+          "es": "DÃ­a 1: Explore el Palacio de la Ciudad y Hawa Mahal. DÃ­a 2: ExcursiÃ³n al Fuerte Amber.",
+          "pt": "Dia 1: Explore o PalÃ¡cio da Cidade e Hawa Mahal. Dia 2: ExcursÃ£o ao Forte Amber."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "delhi-agra",
+    "title": {
+      "en": "Delhi & Uttar Pradesh (Agra)",
+      "es": "Delhi y Uttar Pradesh (Agra)",
+      "pt": "Deli e Uttar Pradesh (Agra)"
+    },
+    "tagline": {
+      "en": "The Capital Wonders & The Taj Mahal",
+      "es": "Las Maravillas de la Capital y el Taj Mahal",
+      "pt": "As Maravilhas da Capital e o Taj Mahal"
+    },
+    "region": "North",
+    "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200",
+    "gallery": [
+      "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=800"
+    ],
+    "description": {
+      "en": "A dynamic route merging India's cosmopolitan political core of New Delhi with Agra, the iconic former seat of the Mughal Empire housing the incomparable Taj Mahal.",
+      "es": "Una ruta que une el nÃºcleo polÃ­tico cosmopolita de la India con Agra, la antigua sede del Imperio Mughal y hogar del incomparable Taj Mahal.",
+      "pt": "Uma rota que une o nÃºcleo polÃ­tico cosmopolita da Ãndia com Agra, a antiga sede do ImpÃ©rio Mughal e lar do incomparÃ¡vel Taj Mahal."
+    },
+    "history": {
+      "en": "Delhi has served as the capital of various empires for over a thousand years, rebuilt seven times. Agra rose to prominence in 1504 under the Lodi dynasty and became the crowning capital of the Mughal golden age.",
+      "es": "Delhi ha sido la capital de varios imperios. Agra se convirtiÃ³ en la deslumbrante capital del apogeo de los Mughal.",
+      "pt": "Deli tem sido a capital de vÃ¡rios impÃ©rios. Agra se tornou a deslumbrante capital do apogeu dos Mughal."
+    },
+    "culture": {
+      "en": "A sensory feast of Mughal gardens, bustling historic bazaars (Chandni Chowk), Sufi devotional qawwalis, and classical Persian-influenced Mughal arts.",
+      "es": "FestÃ­n sensorial de jardines Mughal y bazares histÃ³ricos.",
+      "pt": "Banquete sensorial de jardins Mughal e bazares histÃ³ricos."
+    },
+    "localFood": {
+      "en": "Mughlai kebabs, rich butter chicken and dal makhani in Delhi, and Agra's famous Petha sweet and bedai aloo. A royal culinary journey through the heart of North India.",
+      "es": "Brochetas Mughlai, pollo a la mantequilla y dal makhani en Delhi, y el dulce Petha de Agra.",
+      "pt": "Espetos Mughlai, frango na manteiga e dal makhani em Deli, e o doce Petha de Agra."
+    },
+    "bestTime": {
+      "en": "October to March. Pleasant temperate weather avoids the summer heat and dust.",
+      "es": "De octubre a marzo. Evita el calor extremo del verano.",
+      "pt": "De octubre a marzo. Evita o calor extremo do verÃ£o."
+    },
+    "travelTips": [
+      {
+        "en": "Hire a private driver to navigate between Delhi and Agra on the Yamuna Expressway.",
+        "es": "Contrate un chofer privado para viajar entre Delhi y Agra.",
+        "pt": "Contrate um motorista particular para viajar entre Deli e Agra."
+      }
+    ],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "agra",
+        "title": {
+          "en": "Agra",
+          "es": "Agra",
+          "pt": "Agra"
+        },
+        "tagline": {
+          "en": "Home of the Taj Mahal",
+          "es": "Hogar del Taj Mahal",
+          "pt": "Lar do Taj Mahal"
+        },
+        "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800",
+        "gallery": [],
+        "overview": {
+          "en": "Agra is globally synonymous with the Taj Mahal, but it also hosts massive red sandstone palaces, royal tombs, and busy leather bazaars.",
+          "es": "Agra es conocida por el Taj Mahal, pero tambiÃ©n alberga palacios monumentales de arenisca roja.",
+          "pt": "Agra Ã© conhecida pelo Taj Mahal, mas tambÃ©m abriga palÃ¡cios monumentais de arenito vermelho."
+        },
+        "history": {
+          "en": "Constructed as the principal capital of the Mughal Empire under Emperors Akbar, Jahangir, and Shah Jahan before shifting to Delhi.",
+          "es": "Establecida como la capital principal del Imperio Mughal.",
+          "pt": "Estabelecida como a capital principal do ImpÃ©rio Mughal."
+        },
+        "culture": {
+          "en": "Famous for 'Pietra Dura' marble inlay work (replicating the Taj carvings) and delicious white pumpkin candy called Petha.",
+          "es": "Famoso por el trabajo de incrustaciÃ³n de mÃ¡rmol y el dulce Petha.",
+          "pt": "Famoso pelo trabalho de incrustaÃ§Ã£o de mÃ¡rmore e o doce Petha."
+        },
+        "attractions": [
+          {
+            "slug": "taj-mahal",
+            "name": {
+              "en": "Taj Mahal",
+              "es": "Taj Mahal",
+              "pt": "Taj Mahal"
+            },
+            "desc": {
+              "en": "The world's most famous white marble monument of love, built by Shah Jahan for his wife Mumtaz Mahal.",
+              "es": "El monumento de amor de mÃ¡rmol blanco mÃ¡s famoso del mundo.",
+              "pt": "O monumento de amor de mÃ¡rmore branco mais famoso do mundo."
+            },
+            "history": {
+              "en": "Commissioned in 1631 and completed in 1653, employing over 20,000 stone artisans.",
+              "es": "Encargado en 1631 y completado en 1653.",
+              "pt": "Encomendado em 1631 e concluÃ­do em 1653."
+            },
+            "architecture": {
+              "en": "The pinnacle of Mughal architecture, blending Persian, Islamic, and Indian architectural styles with perfect symmetry.",
+              "es": "CÃºspide de la arquitectura mogola con simetrÃ­a perfecta.",
+              "pt": "Cume da arquitetura mogol com simetria perfeita."
+            },
+            "timings": {
+              "en": "Sunrise to Sunset, closed on Fridays",
+              "es": "Amanecer al atardecer, cerrado los viernes",
+              "pt": "Nascer ao pÃ´r do sol, fechado Ã s sextas-feiras"
+            },
+            "info": {
+              "en": "Strict security search at entrance. No bags, food, chargers, or tripods allowed inside.",
+              "es": "Seguridad estricta en la entrada. No se permiten mochilas.",
+              "pt": "SeguranÃ§a estrita na entrada. NÃ£o sÃ£o permitidas mochilas."
+            },
+            "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=500",
+            "gallery": [],
+            "faqs": []
+          }
+        ],
+        "thingsToDo": [],
+        "hotels": [],
+        "localFood": {
+          "en": "Petha sweet, Mughlai rich kormas.",
+          "es": "Dulce de Petha y platos Mughlai.",
+          "pt": "Doce de Petha e pratos Mughlai."
+        },
+        "shopping": {
+          "en": "Marble inlay plates, leather footwear.",
+          "es": "Incrustaciones de mÃ¡rmol, calzado de cuero.",
+          "pt": "IncrustaÃ§Ãµes de mÃ¡rmore, calÃ§ado de couro."
+        },
+        "weather": {
+          "en": "Mild in winter (12Â°C - 22Â°C), scorching summer.",
+          "es": "Agradable en invierno, caluroso en verano.",
+          "pt": "AgradÃ¡vel no inverno, quente no verÃ£o."
+        },
+        "bestTime": {
+          "en": "November to February",
+          "es": "De noviembre a febrero",
+          "pt": "De novembro a fevereiro"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "1 Day: Morning at Taj Mahal, afternoon exploring Agra Fort and Mehtab Bagh gardens.",
+          "es": "1 DÃ­a: Visita al Taj Mahal por la maÃ±ana, Fuerte de Agra por la tarde.",
+          "pt": "1 Dia: Visita ao Taj Mahal pela manhÃ£, Forte de Agra Ã  tarde."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "kerala",
+    "title": {
+      "en": "Kerala",
+      "es": "Kerala",
+      "pt": "Kerala"
+    },
+    "tagline": {
+      "en": "Tropical Backwaters, Ayurveda & Spice Plantations",
+      "es": "Canales Tropicales, Ayurveda y Plantaciones de Especias",
+      "pt": "Canais Tropicais, Ayurveda e PlantaÃ§Ãµes de Especiarias"
+    },
+    "region": "South",
+    "image": "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "Known as 'God's Own Country', Kerala is a serene tropical paradise. It offers palm-fringed coastlines, pristine tea-covered mist highlands, and a vast system of interconnected canals known as the backwaters.",
+      "es": "Conocida como el 'PaÃ­s del Propio Dios', Kerala es un paraÃ­so tropical sereno. Ofrece canales navegables tranquilos, colinas de tÃ© y playas.",
+      "pt": "Conhecido como o 'PaÃ­s do PrÃ³prio Deus', Kerala Ã© um paraÃ­so tropical sereno. Oferece canais navegÃ¡veis tranquilos, colinas de chÃ¡ e praias."
+    },
+    "history": {
+      "en": "A historic spice-trading center that connected ancient Rome, Greece, Arabia, and China. Later colonized by the Portuguese, Dutch, and British.",
+      "es": "Centro histÃ³rico de comercio de especias que conectÃ³ a Roma, Grecia y Arabia.",
+      "pt": "Centro histÃ³rico de comÃ©rcio de especiarias que conectou Roma, GrÃ©cia e ArÃ¡bia."
+    },
+    "culture": {
+      "en": "Famous for Kathakali classical dance-drama, Mohiniyattam, martial art Kalaripayattu, and authentic Ayurvedic wellness therapies.",
+      "es": "Famoso por el teatro de danza Kathakali y la medicina tradicional Ayurveda.",
+      "pt": "Famoso pelo teatro de danÃ§a Kathakali e a medicina tradicional Ayurveda."
+    },
+    "localFood": {
+      "en": "Appam with ishtu (stew), Malabar parotta, and flavourful Kerala fish curry served on banana leaves. A coastal feast of coconut, spices and seafood.",
+      "es": "Appam con estofado, parotta de Malabar y curry de pescado de Kerala servido en hojas de plÃ¡tano.",
+      "pt": "Appam com ensopado, parotta de Malabar e curry de peixe de Kerala servido em folhas de bananeira."
+    },
+    "bestTime": {
+      "en": "September to March. High monsoon season runs from June to August.",
+      "es": "De septiembre a marzo. Evite el monzÃ³n de verano.",
+      "pt": "De setembro a marÃ§o. Evite a monÃ§Ã£o de verÃ£o."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "goa",
+    "title": {
+      "en": "Goa",
+      "es": "Goa",
+      "pt": "Goa"
+    },
+    "tagline": {
+      "en": "Pristine Golden Beaches & Portuguese Heritage",
+      "es": "Playas Doradas PrÃ­stinas y Patrimonio PortuguÃ©s",
+      "pt": "Praias Douradas Pristinas e PatrimÃ´nio PortuguÃªs"
+    },
+    "region": "West",
+    "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "Goa is India's pocket-sized paradise, renowned for its golden beaches, active nightlife, local fish curries, and rich colonial Portuguese churches.",
+      "es": "Goa es el paraÃ­so costero de la India, famoso por sus playas, vida nocturna y templos e iglesias portuguesas.",
+      "pt": "Goa Ã© o paraÃ­so costeiro da Ãndia, famoso por suas praias, vida noturna e igrejas portuguesas."
+    },
+    "history": {
+      "en": "Ruled as a Portuguese overseas territory for 450 years until annexed by India in 1961, establishing a unique Euro-Indian cultural blend.",
+      "es": "Gobernado como territorio portuguÃ©s durante 450 aÃ±os.",
+      "pt": "Governado como territÃ³rio portuguÃªs durante 450 anos."
+    },
+    "culture": {
+      "en": "A mix of Portuguese lifestyle and traditional Hindu Konkani culture, highlighted during the annual Goa Carnival.",
+      "es": "FusiÃ³n de estilo de vida portuguÃ©s y cultura hindÃº Konkani.",
+      "pt": "FusÃ£o de estilo de vida portuguÃªs e cultura hindu Konkani."
+    },
+    "localFood": {
+      "en": "Goan fish curry, fiery vindaloo, xacuti and bebinca dessert. A mouth-watering fusion of Portuguese and Konkani coastal cooking.",
+      "es": "Curry de pescado de Goa, vindaloo picante, xacuti y postre bebinca.",
+      "pt": "Curry de peixe de Goa, vindaloo picante, xacuti e sobremesa bebinca."
+    },
+    "bestTime": {
+      "en": "November to February. Pleasant winter breeze is ideal for water activities.",
+      "es": "De noviembre a febrero.",
+      "pt": "De novembro a fevereiro."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "varanasi",
+    "title": {
+      "en": "Varanasi",
+      "es": "BenarÃ©s",
+      "pt": "Varanasi"
+    },
+    "tagline": {
+      "en": "The Eternal City of the Ganges & Sacred Pilgrimages",
+      "es": "La Ciudad Eterna del Ganges y las Peregrinaciones Sagradas",
+      "pt": "A Cidade Eterna do Ganges e PeregrinaÃ§Ãµes Sagradas"
+    },
+    "region": "Central",
+    "image": "https://images.unsplash.com/photo-1561361513-2d000a50f0db?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "Varanasi is one of the world's oldest inhabited cities and the most sacred city in Hinduism, set on the banks of the sacred Ganges River.",
+      "es": "Varanasi es una de las ciudades habitadas mÃ¡s antiguas del mundo y la mÃ¡s sagrada del hinduismo.",
+      "pt": "Varanasi Ã© uma das cidades habitadas mais antigas do mundo e a mais sagrada do hinduÃ­smo."
+    },
+    "history": {
+      "en": "Mentioned in ancient Vedic scriptures. It was a historic center for Sanskrit scholarship, textiles, and classical arts.",
+      "es": "Mencionada en escrituras vÃ©dicas antiguas, centro de conocimiento sÃ¡nscrito.",
+      "pt": "Mencionada em escrituras vÃ©dicas antigas, centro de conhecimento sÃ¢nscrito."
+    },
+    "culture": {
+      "en": "Varanasi silk brocades are globally famous. The city is a living museum of classical Hindustani music and religious customs.",
+      "es": "Cuna de la seda Banarasi clÃ¡sica y rituales espirituales nocturnos.",
+      "pt": "BerÃ§o da seda Banarasi clÃ¡ssica e rituais espirituais noturnos."
+    },
+    "localFood": {
+      "en": "Banarasi Kachori-Sabzi, Baati Chokha, and the famous Malaiyyo dessert. A sacred city with a soulful street food culture.",
+      "es": "Kachori-Sabzi de BenarÃ©s, Baati Chokha y el postre Malaiyyo.",
+      "pt": "Kachori-Sabzi de Varanasi, Baati Chokha e a sobremesa Malaiyyo."
+    },
+    "bestTime": {
+      "en": "October to March. Pleasant winter temperatures permit boat rides on the Ganges.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a marÃ§o."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "mumbai-maharashtra",
+    "title": {
+      "en": "Mumbai & Maharashtra",
+      "es": "Bombay y Maharashtra",
+      "pt": "Mumbai e Maharashtra"
+    },
+    "tagline": {
+      "en": "City of Dreams, Bollywood & Colonial Heritage",
+      "es": "Ciudad de los SueÃ±os, Bollywood y Patrimonio Colonial",
+      "pt": "Cidade dos Sonhos, Bollywood e PatrimÃ´nio Colonial"
+    },
+    "region": "West",
+    "image": "https://images.unsplash.com/photo-1566552881560-0be862a7c445?auto=format&fit=crop&q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "Mumbai is India's financial capital, the hub of Bollywood, and a vibrant port city showcasing stunning colonial Gothic and Art Deco architecture.",
+      "es": "Mumbai es la capital financiera de la India, sede de Bollywood y un puerto cosmopolita vibrante.",
+      "pt": "Mumbai Ã© a capital financeira da Ãndia, sede do Bollywood e um porto cosmopolita vibrante."
+    },
+    "history": {
+      "en": "Developed by the British from seven original islands, becoming India's commercial gateway.",
+      "es": "Desarrollada por los britÃ¡nicos a partir de siete islas.",
+      "pt": "Desenvolvida pelos britÃ¢nicos a partir de sete ilhas."
+    },
+    "culture": {
+      "en": "A melting pot of cultures, famous for busy local markets, street food (Vada Pav), and the giant Ganesh festival.",
+      "es": "Crisol de culturas, famoso por sus mercados locales y comida de calle.",
+      "pt": "CaldeirÃ£o de culturas, famoso por seus mercados locais e comida de rua."
+    },
+    "localFood": {
+      "en": "Vada Pav, Pav Bhaji, Misal Pav and spicy Maharashtrian thalis. Mumbai is a paradise for street food lovers.",
+      "es": "Vada Pav, Pav Bhaji, Misal Pav y thalis picantes de Maharashtra.",
+      "pt": "Vada Pav, Pav Bhaji, Misal Pav e thalis picantes de Maharashtra."
+    },
+    "bestTime": {
+      "en": "November to February",
+      "es": "De noviembre a febrero",
+      "pt": "De novembro a fevereiro"
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "tamil-nadu",
+    "title": {
+      "en": "Tamil Nadu",
+      "es": "Tamil Nadu",
+      "pt": "Tamil Nadu"
+    },
+    "tagline": {
+      "en": "Land of Dravidian Temples & Classical Art",
+      "es": "Tierra de Templos DravÃ­dicos y Arte ClÃ¡sico",
+      "pt": "Terra de Templos DrÃ¡vidas e Arte ClÃ¡ssica"
+    },
+    "region": "South",
+    "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "Tamil Nadu is home to stunning Dravidian architecture, towering temple gopurams, and classical Bharatanatyam dance.",
+      "es": "Tamil Nadu alberga templos milenarios con espectaculares torres pintadas (gopurams).",
+      "pt": "Tamil Nadu abriga templos milenares com espetaculares torres pintadas (gopurams)."
+    },
+    "history": {
+      "en": "Ruled by Chola, Pallava, and Pandya dynasties who built towering stone temples and spread Hindu culture across Asia.",
+      "es": "Gobernado por las dinastÃ­as Chola, Pallava y Pandya.",
+      "pt": "Gobernado pelas dinastias Chola, Pallava e Pandya."
+    },
+    "culture": {
+      "en": "Ancient Tamil language, Carnatic music, and beautiful hand-woven Kanchipuram silk sarees.",
+      "es": "MÃºsica carnÃ¡tica, seda de Kanchipuram y el festival Pongal.",
+      "pt": "MÃºsica carnÃ¡tica, seda de Kanchipuram e o festival Pongal."
+    },
+    "localFood": {
+      "en": "Masala Dosa, Idli-Sambar, Chettinad chicken and spicy Pongal. Tamil Nadu is the heartland of South Indian comfort food.",
+      "es": "Masala Dosa, Idli-Sambar, pollo chettinad y Pongal picante.",
+      "pt": "Masala Dosa, Idli-Sambar, frango chettinad e Pongal picante."
+    },
+    "bestTime": {
+      "en": "November to March",
+      "es": "De noviembre a marzo",
+      "pt": "De novembro a marÃ§o"
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "andaman-islands",
+    "title": {
+      "en": "Andaman Islands",
+      "es": "Islas AndamÃ¡n",
+      "pt": "Ilhas Andaman"
+    },
+    "tagline": {
+      "en": "Pristine Turquoise Waters & Tropical Reefs",
+      "es": "Aguas Turquesas PrÃ­stinas y Arrecifes Tropicales",
+      "pt": "Ãguas Turquesas Pristinas e Recifes Tropicais"
+    },
+    "region": "Islands",
+    "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "An isolated archipelago in the Bay of Bengal, famous for pristine white sand beaches, clear coral reefs, and prime scuba diving.",
+      "es": "Un archipiÃ©lago tropical con arrecifes de coral intactos y playas paradisÃ­acas.",
+      "pt": "Um arquipÃ©lago tropical com recifes de coral intactos e praias paradisÃ­acas."
+    },
+    "history": {
+      "en": "Utilized as a colonial penal settlement by the British before developing into an eco-tourism destination.",
+      "es": "Utilizado como colonia penal colonial por los britÃ¡nicos.",
+      "pt": "Utilizado como colÃ´nia penal colonial pelos britÃ¢nicos."
+    },
+    "culture": {
+      "en": "Home to ancient indigenous tribes and a quiet, laid-back island lifestyle.",
+      "es": "Hogar de tribus indÃ­genas y un ambiente costero relajado.",
+      "pt": "Lar de tribos indÃ­genas e um ambiente costeiro relaxado."
+    },
+    "localFood": {
+      "en": "Fresh seafood, coconut-based curries and tropical fruits. The islands offer a unique fusion of Bengali and South Indian coastal cooking.",
+      "es": "Mariscos frescos, curries de coco y frutas tropicales.",
+      "pt": "Frutos do mar frescos, curries de coco e frutas tropicais."
+    },
+    "bestTime": {
+      "en": "November to April",
+      "es": "De noviembre a abril",
+      "pt": "De novembro a abril"
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "kashmir",
+    "title": {
+      "en": "Kashmir & Ladakh",
+      "es": "Cachemira y Ladakh",
+      "pt": "Caxemira e Ladakh"
+    },
+    "tagline": {
+      "en": "Paradise on Earth & High-Altitude Valleys",
+      "es": "ParaÃ­so en la Tierra",
+      "pt": "ParaÃ­so na Terra"
+    },
+    "region": "North",
+    "image": "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "Kashmir is famed as 'Paradise on Earth' with its snow-capped Himalayas, serene Dal Lake, and lush Mughal gardens, while Ladakh offers dramatic high-altitude desert landscapes.",
+      "es": "Cachemira es famosa como el 'ParaÃ­so en la Tierra' con sus Himalayas, el lago Dal y jardines mogoles.",
+      "pt": "Caxemira Ã© famosa como o 'ParaÃ­so na Terra' com seus Himalaias, lago Dal e jardins mogÃ³is."
+    },
+    "history": {
+      "en": "A historic valley touched by Hindu, Buddhist, and Mughal civilizations, later a princely state. Ladakh retains deep Tibetan Buddhist traditions.",
+      "es": "Un valle histÃ³rico tocado por civilizaciones hindÃº, budista y mogol.",
+      "pt": "Um vale histÃ³rico tocado por civilizaÃ§Ãµes hindu, budista e mogol."
+    },
+    "culture": {
+      "en": "Houseboats on Dal Lake, saffron harvests, and Tibetan Buddhist monasteries in Ladakh.",
+      "es": "Barcas en el lago Dal y monasterios budistas en Ladakh.",
+      "pt": "Casas-barco no lago Dal e mosteiros budistas em Ladakh."
+    },
+    "localFood": {
+      "en": "Wazwan (royal Kashmiri feast), Rogan Josh, Yakhni and the famous Kahwa tea. A hearty, aromatic cuisine of the mountains.",
+      "es": "Wazwan, Rogan Josh, Yakhni y el famoso tÃ© Kahwa.",
+      "pt": "Wazwan, Rogan Josh, Yakhni e o famoso chÃ¡ Kahwa."
+    },
+    "bestTime": {
+      "en": "April to October for the valley; May to September for Ladakh.",
+      "es": "De abril a octubre.",
+      "pt": "De abril a outubro."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "himachal-pradesh",
+    "title": {
+      "en": "Himachal Pradesh",
+      "es": "Himachal Pradesh",
+      "pt": "Himachal Pradesh"
+    },
+    "tagline": {
+      "en": "Himalayan Hill Stations & Adventure",
+      "es": "Estaciones de MontaÃ±a del Himalaya",
+      "pt": "EstaÃ§Ãµes de Montanha do Himalaia"
+    },
+    "region": "North",
+    "image": "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "A breathtaking Himalayan state of pine forests, colonial hill stations like Shimla and Manali, and the spiritual valley of Dharamshala.",
+      "es": "Un estado del Himalaya con bosques de pinos y estaciones coloniales como Shimla y Manali.",
+      "pt": "Um estado do Himalaia com florestas de pinheiros e estaÃ§Ãµes coloniais como Shimla e Manali."
+    },
+    "history": {
+      "en": "Former British summer capital at Shimla and a stronghold of ancient hill kingdoms.",
+      "es": "Antigua capital de verano britÃ¡nica en Shimla.",
+      "pt": "Antiga capital de verÃ£o britÃ¢nica em Shimla."
+    },
+    "culture": {
+      "en": "Colorful festivals, Tibetan-influenced culture in Dharamshala, and Kullu crafts.",
+      "es": "Cultura tibetana en Dharamshala y artesanÃ­as de Kullu.",
+      "pt": "Cultura tibetana em Dharamshala e artesanato de Kullu."
+    },
+    "localFood": {
+      "en": "Dham (festival thali), Siddu, Chha Gosht and hot Maggi with mountain tea. Cosy comfort food of the hills.",
+      "es": "Dham, Siddu, Chha Gosht y tÃ© de montaÃ±a.",
+      "pt": "Dham, Siddu, Chha Gosht e chÃ¡ de montanha."
+    },
+    "bestTime": {
+      "en": "March to June and October to January.",
+      "es": "De marzo a junio.",
+      "pt": "De marÃ§o a junho."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "uttarakhand",
+    "title": {
+      "en": "Uttarakhand",
+      "es": "Uttarakhand",
+      "pt": "Uttarakhand"
+    },
+    "tagline": {
+      "en": "Land of the Gods & Himalayan Pilgrimage",
+      "es": "Tierra de los Dioses",
+      "pt": "Terra dos Deuses"
+    },
+    "region": "North",
+    "image": "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "Known as 'Devbhoomi' (Land of Gods), this Himalayan state is home to the sacred towns of Rishikesh, Haridwar, and the Char Dham pilgrimage circuit.",
+      "es": "Conocida como 'Devbhoomi', hogar de Rishikesh y Haridwar.",
+      "pt": "Conhecida como 'Devbhoomi', lar de Rishikesh e Haridwar."
+    },
+    "history": {
+      "en": "A sacred region of ancient temples, ashrams, and the source of the Ganges.",
+      "es": "Una regiÃ³n sagrada de templos y ashrams.",
+      "pt": "Uma regiÃ£o sagrada de templos e ashrams."
+    },
+    "culture": {
+      "en": "Yoga retreats in Rishikesh, Ganga Aarti at Haridwar, and Kumaoni folk traditions.",
+      "es": "Retiros de yoga en Rishikesh y Aarti en Haridwar.",
+      "pt": "Retiros de yoga em Rishikesh e Aarti em Haridwar."
+    },
+    "localFood": {
+      "en": "Kumaoni Raita, Bhatt ki Churkani, Aloo Ke Gutke and Bal Mithai. Simple, wholesome mountain cuisine.",
+      "es": "Raita de Kumaoni, Bhatt ki Churkani y Bal Mithai.",
+      "pt": "Raita de Kumaoni, Bhatt ki Churkani e Bal Mithai."
+    },
+    "bestTime": {
+      "en": "March to June and September to November.",
+      "es": "De marzo a junio.",
+      "pt": "De marÃ§o a junho."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "punjab",
+    "title": {
+      "en": "Punjab",
+      "es": "Punyab",
+      "pt": "Punjab"
+    },
+    "tagline": {
+      "en": "Land of the Golden Temple & Rich Hospitality",
+      "es": "Tierra del Templo Dorado",
+      "pt": "Terra do Templo Dourado"
+    },
+    "region": "North",
+    "image": "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "The vibrant heart of North India, home to the sacred Golden Temple in Amritsar and a rich, hearty culinary culture.",
+      "es": "El corazÃ³n vibrante del norte de la India, hogar del Templo Dorado en Amritsar.",
+      "pt": "O coraÃ§Ã£o vibrante do norte da Ãndia, lar do Templo Dourado em Amritsar."
+    },
+    "history": {
+      "en": "Cradle of the Sikh faith and a historic agricultural powerhouse of the subcontinent.",
+      "es": "Cuna de la fe sij y potencia agrÃ­cola histÃ³rica.",
+      "pt": "BerÃ§o da fÃ© sikh e potÃªncia agrÃ­cola histÃ³rica."
+    },
+    "culture": {
+      "en": "Bhangra dance, the Golden Temple's langar, and warm hospitality.",
+      "es": "Danza bhangra y el langar del Templo Dorado.",
+      "pt": "DanÃ§a bhangra e o langar do Templo Dourado."
+    },
+    "localFood": {
+      "en": "Sarson ka Saag, Makki di Roti, Amritsari Kulcha and rich butter chicken. The ultimate Punjabi comfort food.",
+      "es": "Sarson ka Saag, Makki di Roti y Amritsari Kulcha.",
+      "pt": "Sarson ka Saag, Makki di Roti e Amritsari Kulcha."
+    },
+    "bestTime": {
+      "en": "October to March.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a marÃ§o."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "gujarat",
+    "title": {
+      "en": "Gujarat",
+      "es": "Gujarat",
+      "pt": "Gujarat"
+    },
+    "tagline": {
+      "en": "White Desert, Lions & Vibrant Culture",
+      "es": "Desierto Blanco, Leones y Cultura",
+      "pt": "Deserto Branco, LeÃµes e Cultura"
+    },
+    "region": "West",
+    "image": "https://images.unsplash.com/photo-1600100398055-144721489410?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "A land of contrast â€” the surreal white salt desert of the Rann of Kutch, Asiatic lions in Gir, and the vibrant city of Dwarka.",
+      "es": "Una tierra de contraste â€” el desierto blanco de Rann of Kutch y los leones de Gir.",
+      "pt": "Uma terra de contraste â€” o deserto branco de Rann of Kutch e os leÃµes de Gir."
+    },
+    "history": {
+      "en": "A historic maritime and textile hub with deep connections to the Indus Valley civilization.",
+      "es": "Un centro marÃ­timo y textil histÃ³rico.",
+      "pt": "Um centro marÃ­timo e tÃªxtil histÃ³rico."
+    },
+    "culture": {
+      "en": "Colorful handicrafts, the Rann Utsav festival, and devotional bhakti traditions.",
+      "es": "ArtesanÃ­as coloridas y el festival Rann Utsav.",
+      "pt": "Artesanato colorido e o festival Rann Utsav."
+    },
+    "localFood": {
+      "en": "Dhokla, Khandvi, Thepla, Undhiyu and the sweet Fafda-Jalebi. A light, fermented and vegetarian cuisine.",
+      "es": "Dhokla, Khandvi, Thepla y Undhiyu.",
+      "pt": "Dhokla, Khandvi, Thepla e Undhiyu."
+    },
+    "bestTime": {
+      "en": "November to February.",
+      "es": "De noviembre a febrero.",
+      "pt": "De novembro a fevereiro."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "madhya-pradesh",
+    "title": {
+      "en": "Madhya Pradesh",
+      "es": "Madhya Pradesh",
+      "pt": "Madhya Pradesh"
+    },
+    "tagline": {
+      "en": "Heart of India & Wildlife Sanctuaries",
+      "es": "CorazÃ³n de la India y Vida Silvestre",
+      "pt": "CoraÃ§Ã£o da Ãndia e Vida Selvagem"
+    },
+    "region": "Central",
+    "image": "https://images.unsplash.com/photo-1581791538302-03537b9c97bf?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "The 'Heart of India', home to the erotic temples of Khajuraho, the historic city of Orchha, and famous tiger reserves like Kanha and Bandhavgarh.",
+      "es": "El 'CorazÃ³n de la India', hogar de los templos de Khajuraho y reservas de tigres.",
+      "pt": "O 'CoraÃ§Ã£o da Ãndia', lar dos templos de Khajuraho e reservas de tigres."
+    },
+    "history": {
+      "en": "A central crossroads of empires, with UNESCO-listed Khajuraho temples and Gond and Rajput kingdoms.",
+      "es": "Crucero central de imperios con los templos de Khajuraho.",
+      "pt": "Encruzilhada central de impÃ©rios com os templos de Khajuraho."
+    },
+    "culture": {
+      "en": "Tribal arts, classical temple carvings, and rich wildlife heritage.",
+      "es": "Artes tribales y tallas de templos.",
+      "pt": "Artes tribais e esculturas de templos."
+    },
+    "localFood": {
+      "en": "Dal Bafla, Poha-Jalebi, Bhutte ka Kees and the unique Mawa Bati. A royal Central Indian feast.",
+      "es": "Dal Bafla, Poha-Jalebi y Mawa Bati.",
+      "pt": "Dal Bafla, Poha-Jalebi e Mawa Bati."
+    },
+    "bestTime": {
+      "en": "October to March.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a marÃ§o."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "karnataka",
+    "title": {
+      "en": "Karnataka",
+      "es": "Karnataka",
+      "pt": "Karnataka"
+    },
+    "tagline": {
+      "en": "Ruins of Empires & Tech Cities",
+      "es": "Ruinas de Imperios y Ciudades Tech",
+      "pt": "RuÃ­nas de ImpÃ©rios e Cidades Tech"
+    },
+    "region": "South",
+    "image": "https://images.unsplash.com/photo-1600100398055-144721489410?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "A blend of ancient Vijayanagara ruins at Hampi, the royal palaces of Mysore, lush Coorg coffee estates, and the IT hub of Bengaluru.",
+      "es": "Una mezcla de las ruinas de Hampi, los palacios de Mysore y las plantaciones de cafÃ© de Coorg.",
+      "pt": "Uma mistura das ruÃ­nas de Hampi, dos palÃ¡cios de Mysore e das plantaÃ§Ãµes de cafÃ© de Coorg."
+    },
+    "history": {
+      "en": "Home to the mighty Vijayanagara, Chalukya, and Hoysala dynasties.",
+      "es": "Hogar de los poderosos imperios Vijayanagara y Chalukya.",
+      "pt": "Lar dos poderosos impÃ©rios Vijayanagara e Chalukya."
+    },
+    "culture": {
+      "en": "Classical Carnatic music, Mysore silk, and the grand Dasara festival.",
+      "es": "MÃºsica carnÃ¡tica y seda de Mysore.",
+      "pt": "MÃºsica carnÃ¡tica e seda de Mysore."
+    },
+    "localFood": {
+      "en": "Bisi Bele Bath, Mysore Masala Dosa, Coorg Pandi Curry and filter coffee. A rich and aromatic South Indian cuisine.",
+      "es": "Bisi Bele Bath, Mysore Masala Dosa y cafÃ© de filtro.",
+      "pt": "Bisi Bele Bath, Mysore Masala Dosa e cafÃ© coado."
+    },
+    "bestTime": {
+      "en": "October to March.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a marÃ§o."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "west-bengal",
+    "title": {
+      "en": "West Bengal",
+      "es": "Bengala Occidental",
+      "pt": "Bengala Ocidental"
+    },
+    "tagline": {
+      "en": "Cultural Capital & The Himalayan Tea Trails",
+      "es": "Capital Cultural y Ruta del TÃ©",
+      "pt": "Capital Cultural e Rota do ChÃ¡"
+    },
+    "region": "East",
+    "image": "https://images.unsplash.com/photo-1593693411515-c202e974fe08?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "A culturally rich state centered on Kolkata, with the majestic Himalayan tea gardens of Darjeeling and the Sundarbans mangrove forest.",
+      "es": "Un estado culturalmente rico centrado en Kolkata con los jardines de tÃ© de Darjeeling.",
+      "pt": "Um estado culturalmente rico centrado em CalcutÃ¡ com os jardins de chÃ¡ de Darjeeling."
+    },
+    "history": {
+      "en": "The former capital of British India and a center of the Bengal Renaissance.",
+      "es": "Antigua capital de la India britÃ¡nica y centro del Renacimiento de Bengala.",
+      "pt": "Antiga capital da Ãndia britÃ¢nica e centro do Renascimento de Bengala."
+    },
+    "culture": {
+      "en": "Durga Puja celebrations, Tagore's poetry, and Victorian-era architecture in Kolkata.",
+      "es": "Celebraciones de Durga Puja y arquitectura victoriana.",
+      "pt": "CelebraÃ§Ãµes de Durga Puja e arquitetura vitoriana."
+    },
+    "localFood": {
+      "en": "Rasgulla, Sandesh, Mishti Doi, Kolkata Kathi Rolls and fish curry. A sweet-toothed culinary capital.",
+      "es": "Rasgulla, Sandesh, Mishti Doi y Kathi Rolls.",
+      "pt": "Rasgulla, Sandesh, Mishti Doi e Kathi Rolls."
+    },
+    "bestTime": {
+      "en": "October to March.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a marÃ§o."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "odisha",
+    "title": {
+      "en": "Odisha",
+      "es": "Odisha",
+      "pt": "Odisha"
+    },
+    "tagline": {
+      "en": "Sun Temple, Tribal Art & Coastal Charm",
+      "es": "Templo del Sol y Arte Tribal",
+      "pt": "Templo do Sol e Arte Tribal"
+    },
+    "region": "East",
+    "image": "https://images.unsplash.com/photo-1593693411515-c202e974fe08?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "A coastal state famed for the Sun Temple of Konark, the Jagannath Temple of Puri, and vibrant tribal heritage.",
+      "es": "Un estado costero famoso por el Templo del Sol de Konark y el templo de Puri.",
+      "pt": "Um estado costeiro famoso pelo Templo do Sol de Konark e o templo de Puri."
+    },
+    "history": {
+      "en": "Home to the magnificent Kalinga civilization and towering ancient temples.",
+      "es": "Hogar de la civilizaciÃ³n Kalinga y templos antiguos.",
+      "pt": "Lar da civilizaÃ§Ã£o Kalinga e templos antigos."
+    },
+    "culture": {
+      "en": "Odissi classical dance, Pattachitra painting, and the Rath Yatra festival.",
+      "es": "Danza Odissi y pintura Pattachitra.",
+      "pt": "DanÃ§a Odissi e pintura Pattachitra."
+    },
+    "localFood": {
+      "en": "Pakhala Bhata, Chenna Poda, Dalma and the famous Dahi-Bara. A light, soothing coastal cuisine.",
+      "es": "Pakhala Bhata, Chenna Poda y Dahi-Bara.",
+      "pt": "Pakhala Bhata, Chenna Poda e Dahi-Bara."
+    },
+    "bestTime": {
+      "en": "October to March.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a marÃ§o."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "assam",
+    "title": {
+      "en": "Assam & North-East",
+      "es": "Assam y Noreste",
+      "pt": "Assam e Nordeste"
+    },
+    "tagline": {
+      "en": "Tea Gardens, Wildlife & Majestic Rivers",
+      "es": "Jardines de TÃ© y Vida Silvestre",
+      "pt": "Jardins de ChÃ¡ e Vida Selvagem"
+    },
+    "region": "East",
+    "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "The gateway to India's North-East, famous for vast tea plantations, the one-horned rhino of Kaziranga, and the mighty Brahmaputra river.",
+      "es": "La puerta del noreste de la India, famosa por sus plantaciones de tÃ© y el rinoceronte de Kaziranga.",
+      "pt": "A porta do nordeste da Ãndia, famosa por suas plantaÃ§Ãµes de chÃ¡ e o rinoceronte de Kaziranga."
+    },
+    "history": {
+      "en": "A historic kingdom of the Ahom dynasty, rich in tribal traditions.",
+      "es": "Un reino histÃ³rico de la dinastÃ­a Ahom.",
+      "pt": "Um reino histÃ³rico da dinastia Ahom."
+    },
+    "culture": {
+      "en": "Bihu dance, silk weaving (Muga), and the vibrant Ambubachi Mela.",
+      "es": "Danza Bihu y tejido de seda Muga.",
+      "pt": "DanÃ§a Bihu e tecelagem de seda Muga."
+    },
+    "localFood": {
+      "en": "Assamese Thali, bamboo shoot curry, Khar, and the famous Assam tea. A unique blend of tribal and riverine cuisine.",
+      "es": "Thali de Assam, curry de brotes de bambÃº y tÃ© de Assam.",
+      "pt": "Thali de Assam, curry de brotos de bambu e chÃ¡ de Assam."
+    },
+    "bestTime": {
+      "en": "November to April.",
+      "es": "De noviembre a abril.",
+      "pt": "De novembro a abril."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "sikkim",
+    "title": {
+      "en": "Sikkim",
+      "es": "Sikkim",
+      "pt": "Sikkim"
+    },
+    "tagline": {
+      "en": "Mountain Kingdom & Buddhist Monasteries",
+      "es": "Reino de MontaÃ±a y Monasterios",
+      "pt": "Reino de Montanha e Mosteiros"
+    },
+    "region": "East",
+    "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "A pristine Himalayan kingdom of snow peaks, alpine lakes, and serene Buddhist monasteries, including the stunning view of Kanchenjunga.",
+      "es": "Un reino del Himalaya de picos nevados y monasterios budistas.",
+      "pt": "Um reino do Himalaia de picos nevados e mosteiros budistas."
+    },
+    "history": {
+      "en": "An independent Buddhist kingdom that merged with India in 1975.",
+      "es": "Un reino budista independiente que se uniÃ³ a la India en 1975.",
+      "pt": "Um reino budista independente que se juntou Ã  Ãndia em 1975."
+    },
+    "culture": {
+      "en": "Tibetan Buddhist festivals, the Tsomgo Lake, and traditional momo culture.",
+      "es": "Festivales budistas tibetanos y el lago Tsomgo.",
+      "pt": "Festivais budistas tibetanos e o lago Tsomgo."
+    },
+    "localFood": {
+      "en": "Momos, Thukpa, Phagshapa and Gundruk. A warming, Tibetan-influenced mountain cuisine.",
+      "es": "Momos, Thukpa y Phagshapa.",
+      "pt": "Momos, Thukpa e Phagshapa."
+    },
+    "bestTime": {
+      "en": "March to June and October to December.",
+      "es": "De marzo a junio.",
+      "pt": "De marÃ§o a junho."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "meghalaya",
+    "title": {
+      "en": "Meghalaya",
+      "es": "Meghalaya",
+      "pt": "Meghalaya"
+    },
+    "tagline": {
+      "en": "Abode of Clouds & Living Root Bridges",
+      "es": "Morada de las Nubes y Puentes de RaÃ­ces",
+      "pt": "Morada das Nuvens e Pontes de RaÃ­zes"
+    },
+    "region": "East",
+    "image": "https://images.unsplash.com/photo-1593693411515-c202e974fe08?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "The wettest place on Earth, with lush living root bridges in Cherrapunji, the crystal-clear Dawki river, and the capital Shillong.",
+      "es": "El lugar mÃ¡s lluvioso de la Tierra, con puentes de raÃ­ces vivas en Cherrapunji.",
+      "pt": "O lugar mais chuvoso da Terra, com pontes de raÃ­zes vivas em Cherrapunji."
+    },
+    "history": {
+      "en": "A matrilineal tribal state with ancient Khasi traditions.",
+      "es": "Un estado tribal matrilineal con tradiciones Khasi.",
+      "pt": "Um estado tribal matrilinear com tradiÃ§Ãµes Khasi."
+    },
+    "culture": {
+      "en": "The vibrant Shillong music scene and Khasi matrilineal customs.",
+      "es": "La vibrante escena musical de Shillong.",
+      "pt": "A vibrante cena musical de Shillong."
+    },
+    "localFood": {
+      "en": "Jadoh (rice and pork), Dohneiiong, bamboo shoots and tungtap fish. A savory tribal cuisine.",
+      "es": "Jadoh y Dohneiiong.",
+      "pt": "Jadoh e Dohneiiong."
+    },
+    "bestTime": {
+      "en": "October to June.",
+      "es": "De octubre a junio.",
+      "pt": "De outubro a junho."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "uttar-pradesh",
+    "title": {
+      "en": "Uttar Pradesh",
+      "es": "Uttar Pradesh",
+      "pt": "Uttar Pradesh"
+    },
+    "tagline": {
+      "en": "Sacred Cities & Mughal Heritage",
+      "es": "Ciudades Sagradas y Patrimonio Mughal",
+      "pt": "Cidades Sagradas e PatrimÃ´nio Mogol"
+    },
+    "region": "North",
+    "image": "https://images.unsplash.com/photo-1561361513-2d000a50f0db?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "A land of sacred pilgrimage â€” including Varanasi, Ayodhya, Mathura and Vrindavan â€” plus the rich Mughal heritage of Lucknow.",
+      "es": "Una tierra de peregrinaciÃ³n sagrada â€” Varanasi, Ayodhya y Mathura.",
+      "pt": "Uma terra de peregrinaÃ§Ã£o sagrada â€” Varanasi, Ayodhya e Mathura."
+    },
+    "history": {
+      "en": "The cradle of Hindu mythology and the capital of the wealthy Nawab state of Awadh.",
+      "es": "Cuna de la mitologÃ­a hindÃº y la capital del estado de Awadh.",
+      "pt": "BerÃ§o da mitologia hindu e a capital do estado de Awadh."
+    },
+    "culture": {
+      "en": "The Ganga Aarti at Varanasi, Kathak dance, and Lucknowi tehzeeb (refined etiquette).",
+      "es": "La Aarti del Ganges en Varanasi y la danza Kathak.",
+      "pt": "A Aarti do Ganges em Varanasi e a danÃ§a Kathak."
+    },
+    "localFood": {
+      "en": "Lucknowi Biryani, Tunday Kebabs, Banarasi Kachori and the sweet Jalebi. A royal Awadhi cuisine.",
+      "es": "Biryani de Lucknow, Tunday Kebabs y Kachori de BenarÃ©s.",
+      "pt": "Biryani de Lucknow, Tunday Kebabs e Kachori de Varanasi."
+    },
+    "bestTime": {
+      "en": "October to March.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a marÃ§o."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "maharashtra",
+    "title": {
+      "en": "Maharashtra",
+      "es": "Maharashtra",
+      "pt": "Maharashtra"
+    },
+    "tagline": {
+      "en": "Caves, Forts & Bollywood",
+      "es": "Cuevas, Fuertes y Bollywood",
+      "pt": "Cavernas, Fortes e Bollywood"
+    },
+    "region": "West",
+    "image": "https://images.unsplash.com/photo-1566552881560-0be862a7c445?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "A vast state spanning the financial capital Mumbai, the historic Ajanta-Ellora caves, and the hill stations of Lonavala and Mahabaleshwar.",
+      "es": "Un vasto estado que abarca Mumbai, las cuevas de Ajanta-Ellora y las estaciones de montaÃ±a.",
+      "pt": "Um vasto estado que abrange Mumbai, as cavernas de Ajanta-Ellora e as estaÃ§Ãµes de montanha."
+    },
+    "history": {
+      "en": "The seat of the Maratha Empire and the gateway of British colonial commerce.",
+      "es": "Sede del Imperio Maratha y puerta de la India britÃ¡nica.",
+      "pt": "Sede do ImpÃ©rio Maratha e porta da Ãndia britÃ¢nica."
+    },
+    "culture": {
+      "en": "Bollywood, the Ganesh festival, and the classical Marathi theatre.",
+      "es": "Bollywood y el festival de Ganesh.",
+      "pt": "Bollywood e o festival de Ganesh."
+    },
+    "localFood": {
+      "en": "Vada Pav, Pav Bhaji, Misal Pav, Puran Poli and the spicy Kolhapuri cuisine. A street-food paradise.",
+      "es": "Vada Pav, Pav Bhaji, Misal Pav y Puran Poli.",
+      "pt": "Vada Pav, Pav Bhaji, Misal Pav e Puran Poli."
+    },
+    "bestTime": {
+      "en": "November to February.",
+      "es": "De noviembre a febrero.",
+      "pt": "De novembro a fevereiro."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "telangana",
+    "title": {
+      "en": "Telangana",
+      "es": "Telangana",
+      "pt": "Telangana"
+    },
+    "tagline": {
+      "en": "Pearl City & Royal Nizam Culture",
+      "es": "Ciudad de las Perlas y Cultura Nizam",
+      "pt": "Cidade das PÃ©rolas e Cultura Nizam"
+    },
+    "region": "South",
+    "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "Home to Hyderabad, the 'City of Pearls', with its iconic Charminar, Golconda Fort, and the rich legacy of the Nizams.",
+      "es": "Hogar de Hyderabad, la 'Ciudad de las Perlas', con su Charminar y el Fuerte de Golconda.",
+      "pt": "Lar de Hyderabad, a 'Cidade das PÃ©rolas', com seu Charminar e o Forte de Golconda."
+    },
+    "history": {
+      "en": "Ruled by the Qutb Shahi dynasty and the wealthy Asaf Jahi Nizams.",
+      "es": "Gobernado por la dinastÃ­a Qutb Shahi y los ricos Nizams.",
+      "pt": "Governado pela dinastia Qutb Shahi e pelos ricos Nizams."
+    },
+    "culture": {
+      "en": "The famous Charminar, pearl bazaars, and Hyderabadi tehzeeb.",
+      "es": "El famoso Charminar y los bazares de perlas.",
+      "pt": "O famoso Charminar e os bazares de pÃ©rolas."
+    },
+    "localFood": {
+      "en": "Hyderabadi Biryani, Haleem, and Irani chai with Osmania biscuits. A royal Nizam cuisine of world renown.",
+      "es": "Biryani de Hyderabad, Haleem y chai Irani.",
+      "pt": "Biryani de Hyderabad, Haleem e chÃ¡ iraniano."
+    },
+    "bestTime": {
+      "en": "October to March.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a marÃ§o."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "andhra-pradesh",
+    "title": {
+      "en": "Andhra Pradesh",
+      "es": "Andhra Pradesh",
+      "pt": "Andhra Pradesh"
+    },
+    "tagline": {
+      "en": "Spicy Coastal Delights & Sacred Temples",
+      "es": "Delicias Costeras y Templos Sagrados",
+      "pt": "DelÃ­cias Costeiras e Templos Sagrados"
+    },
+    "region": "South",
+    "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "A coastal state famous for the sacred Tirupati temple, the pristine beaches of Visakhapatnam, and the Araku Valley.",
+      "es": "Un estado costero famoso por el templo de Tirupati y las playas de Visakhapatnam.",
+      "pt": "Um estado costeiro famoso pelo templo de Tirupati e as praias de Visakhapatnam."
+    },
+    "history": {
+      "en": "Home to the ancient Andhra Satavahana and later Vijayanagara empires.",
+      "es": "Hogar de los antiguos imperios Satavahana y Vijayanagara.",
+      "pt": "Lar dos antigos impÃ©rios Satavahana e Vijayanagara."
+    },
+    "culture": {
+      "en": "The grand Tirupati temple, Kuchipudi dance, and coastal fishing culture.",
+      "es": "El templo de Tirupati y la danza Kuchipudi.",
+      "pt": "O templo de Tirupati e a danÃ§a Kuchipudi."
+    },
+    "localFood": {
+      "en": "Gongura Pachadi, Andhra chicken curry, spicy Pesarattu and the famous Pulihora. A tangy, fiery coastal cuisine.",
+      "es": "Gongura Pachadi y curry de pollo de Andhra.",
+      "pt": "Gongura Pachadi e curry de frango de Andhra."
+    },
+    "bestTime": {
+      "en": "October to March.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a marÃ§o."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  },
+  {
+    "slug": "bihar",
+    "title": {
+      "en": "Bihar",
+      "es": "Bihar",
+      "pt": "Bihar"
+    },
+    "tagline": {
+      "en": "Land of Buddha & Ancient Learning",
+      "es": "Tierra de Buda y Aprendizaje Ancestral",
+      "pt": "Terra de Buda e Aprendizado Antigo"
+    },
+    "region": "East",
+    "image": "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?q=80&w=1200",
+    "gallery": [],
+    "description": {
+      "en": "The sacred land of Bodh Gaya where Buddha attained enlightenment, and the ancient center of the Nalanda university.",
+      "es": "La tierra sagrada de Bodh Gaya donde Buda alcanzÃ³ la iluminaciÃ³n.",
+      "pt": "A terra sagrada de Bodh Gaya onde Buda alcanÃ§ou a iluminaÃ§Ã£o."
+    },
+    "history": {
+      "en": "The cradle of Buddhism and the site of the ancient Nalanda and Vikramashila universities.",
+      "es": "Cuna del budismo y sitio de la antigua universidad de Nalanda.",
+      "pt": "BerÃ§o do budismo e local da antiga universidade de Nalanda."
+    },
+    "culture": {
+      "en": "The Mahabodhi Temple, Chhath festival, and Madhubani painting.",
+      "es": "El templo Mahabodhi y el festival Chhath.",
+      "pt": "O templo Mahabodhi e o festival Chhath."
+    },
+    "localFood": {
+      "en": "Litti Chokha, Sattu Paratha, Khaja and the sweet Thekua. A rustic, earthy North Indian cuisine.",
+      "es": "Litti Chokha, Sattu Paratha y Khaja.",
+      "pt": "Litti Chokha, Sattu Paratha e Khaja."
+    },
+    "bestTime": {
+      "en": "October to March.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a marÃ§o."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": []
+  }
+]

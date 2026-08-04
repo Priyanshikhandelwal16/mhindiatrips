@@ -1,0 +1,1820 @@
+﻿MHIndiaTrips 
+Master Website Specification (Version 1.0) 
+Project Type: 
+ International Luxury Travel Website 
+Company: 
+  
+MHIndiaTrips 
+Technology: 
+ Next.js 15 + TypeScript + Tailwind CSS + GSAP + Framer Motion + PostgreSQL + Prisma +  
+NextAuth 
+ + Custom Admin CMS 
+1. Project Vision 
+MHIndiaTrips 
+ is  
+not 
+ a simple travel agency website. 
+The goal is to build one of the most premium India-focused tourism platforms for international  
+travelers 
+. 
+This website should inspire visitors to travel to India before they even contact the company. 
+The design must feel like a combination of: 
+National Geographic 
+Airbnb 
+Aman Resorts 
+Four Seasons 
+Visit Dubai 
+Visit Singapore 
+Apple 
+The website must emotionally sell India through beautiful visuals, storytelling, destination discovery, and rich travel information. 
+2. Business Goal 
+The website will focus exclusively on  
+Domestic Tourism in India 
+ for international visitors. 
+The primary objective is: 
+Generate travel inquiries 
+Build trust 
+Showcase India professionally 
+Rank on Google through content marketing 
+Become a travel knowledge platform instead of just a tour booking website 
+No tour prices should be displayed. 
+Instead, every package and destination should encourage visitors to request a customized itinerary. 
+3. Target Audience 
+Primary Markets 
+Spain 
+Portugal 
+Europe 
+Latin America 
+United States 
+Australia 
+Age Groups 
+25–60 Years 
+Couples 
+Families 
+Solo Travelers 
+Luxury Travelers 
+Adventure Travelers 
+Photographers 
+Cultural Travelers 
+4. Website Goals 
+The website should: 
+Build trust within the first five seconds. 
+Showcase India's diversity. 
+Inspire exploration. 
+Encourage inquiries. 
+Rank on search engines. 
+Support three languages. 
+Feel premium on every device. 
+Look handcrafted rather than AI-generated. 
+5. Languages 
+Default 
+English 
+Additional 
+Español 
+Português 
+Every page, blog, destination, metadata, menu, and CMS entry must support all three languages. 
+The language switcher should display: 
+English 
+Español 
+Português 
+Do not use flags only. 
+6. Design Philosophy 
+The website must not resemble a template. 
+The visitor should feel like they are reading an international travel magazine. 
+Every section should tell a story. 
+Every page should include: 
+Cinematic imagery 
+Editorial layouts 
+Premium spacing 
+Beautiful typography 
+Interactive elements 
+Micro animations 
+Smooth transitions 
+The design must never feel crowded or repetitive. 
+7. Visual Style 
+Theme 
+Luxury • Editorial • Modern • Elegant • Minimal 
+Color 
+ Palette 
+Primary 
+White 
+Warm Cream 
+Light Beige 
+Accent 
+Forest Green 
+Royal Blue 
+Saffron 
+Luxury Gold 
+Avoid dark-heavy layouts except  
+where 
+ used intentionally for visual contrast. 
+8. Typography 
+Use  
+Poppins 
+ throughout the website. 
+Hierarchy 
+Large Hero Titles 
+Bold Section Headings 
+Clean Body Text 
+High readability 
+Consistent spacing 
+9. Image Direction (Highest Priority) 
+Images will define the quality of the website. 
+Every page must contain multiple beautiful images. 
+Never leave blank placeholders. 
+Image Categories 
+Drone Photography 
+Luxury Hotels 
+Heritage Palaces 
+Temples 
+Mountains 
+Beaches 
+Lakes 
+Forests 
+Wildlife 
+Festivals 
+Local Markets 
+Traditional Clothing 
+Local People 
+Indian Culture 
+Food Photography 
+Luxury Trains 
+Houseboats 
+Desert Camps 
+Adventure Activities 
+International Tourists enjoying India 
+If suitable licensed images are unavailable, use premium AI-generated images with a realistic editorial style. 
+10. User Experience Goals 
+Within the first 30 seconds, users should understand: 
+What  
+MHIndiaTrips 
+ offers 
+Why India is worth visiting 
+Which destinations are available 
+Which experiences are possible 
+How to contact the company 
+Navigation should always be simple, clear, and engaging. 
+11. Home Page Objectives 
+The homepage should work as a complete travel showcase. 
+It should immediately communicate: 
+India's beauty 
+India's diversity 
+Premium travel experiences 
+Trust 
+Expertise 
+Inspiration 
+The homepage should not rely on simple card grids. It should mix full-width banners, split layouts, galleries, editorial storytelling sections, maps, testimonials, and calls to action to create a memorable journey. 
+12. Quality Standards 
+Every page must include: 
+High-quality imagery 
+Proper content hierarchy 
+Smooth animations 
+Internal linking 
+SEO-friendly headings 
+Accessible design 
+Responsive layout 
+Fast loading 
+Modern interactions 
+No placeholder content. 
+No broken images. 
+No unfinished sections. 
+No generic templates. 
+Every page must look complete and production-ready. 
+MHIndiaTrips 
+ - Master Website Specification 
+PART 2 
+Complete Website Architecture &amp; Sitemap 
+13. WEBSITE ARCHITECTURE 
+MHIndiaTrips 
+ should NOT feel like a normal travel agency website. 
+Instead, it should become a complete  
+India Tourism Portal 
+ where users can discover destinations, experiences, food, festivals, culture, and travel information. 
+Think of it as: 
+Travel Guide + Travel Magazine + Tour Company + Blog + Destination  
+Encyclopedia 
+. 
+Every page should connect to other pages through internal linking. 
+The website should encourage users to keep exploring. 
+14. HEADER (GLOBAL) 
+The header should appear consistently across every page. 
+Structure: 
+Left 
+MHIndiaTrips 
+ Logo 
+Center 
+ Navigation 
+Home 
+Destinations 
+Tour Packages 
+Experiences 
+Food Guide 
+Travel Guide 
+Blog 
+About Us 
+Contact 
+Right 
+Search 
+Language Switcher (English | Español |  
+Português 
+) 
+Plan My Trip (Primary CTA) 
+Behavior 
+: 
+Transparent on hero sections. 
+Solid white with shadow on scroll. 
+Sticky. 
+Smooth GSAP transition. 
+Responsive hamburger menu on mobile. 
+15. MEGA MENU STRUCTURE 
+Destinations 
+Instead of showing only states, create a structured hierarchy. 
+India 
+→ North India 
+→ South India 
+→ East India 
+→ West India 
+→ Central India 
+→ North East India 
+→ Islands 
+Each region opens to states. 
+Each state opens to cities. 
+Each city opens to attractions. 
+Example: 
+North India 
+→ Rajasthan 
+→ Jaipur 
+→ Amer Fort 
+→ Hawa Mahal 
+→ Jal Mahal 
+→  
+Nahargarh 
+ Fort 
+→ City Palace 
+→ Albert Hall Museum 
+→ Patrika Gate 
+→ Birla Mandir 
+→  
+Chokhi 
+ Dhani 
+Same structure should be followed for every state. 
+16. COMPLETE STATE STRUCTURE 
+Every major tourist state should have a dedicated landing page. 
+Examples include: 
+Rajasthan 
+Kerala 
+Goa 
+Delhi 
+Uttar Pradesh 
+Uttarakhand 
+Himachal Pradesh 
+Jammu &amp; Kashmir 
+Ladakh 
+Punjab 
+Gujarat 
+Maharashtra 
+Madhya Pradesh 
+Tamil Nadu 
+Karnataka 
+Andhra Pradesh 
+Telangana 
+Odisha 
+West Bengal 
+Assam 
+Meghalaya 
+Sikkim 
+Arunachal Pradesh 
+Nagaland 
+Manipur 
+Mizoram 
+Tripura 
+Bihar 
+Jharkhand 
+Chhattisgarh 
+Lakshadweep 
+Andaman &amp; Nicobar Islands 
+Each State Page should include: 
+Cinematic Hero Banner 
+State Overview 
+Interactive State Map 
+Top Cities 
+Best Tourist Attractions 
+Local Food 
+Festivals 
+Culture 
+Wildlife 
+Adventure Activities 
+Best Time to Visit 
+Suggested Tour Packages 
+Popular Blogs 
+FAQ 
+Inquiry CTA 
+17. CITY STRUCTURE 
+Every important tourist city should have its own page. 
+Examples: 
+Jaipur 
+Udaipur 
+Jodhpur 
+Jaisalmer 
+Pushkar 
+Ajmer 
+Mount Abu 
+Delhi 
+Agra 
+Varanasi 
+Ayodhya 
+Rishikesh 
+Haridwar 
+Shimla 
+Manali 
+Kasol 
+Leh 
+Srinagar 
+Gulmarg 
+Goa (North &amp; South) 
+Munnar 
+Alleppey 
+Kochi 
+Mysore 
+Hampi 
+Coorg 
+Ooty 
+Darjeeling 
+Shillong 
+Gangtok 
+Puri 
+Konark 
+Khajuraho 
+Mumbai 
+Pune 
+Lonavala 
+Hyderabad 
+Bangalore 
+Chennai 
+Madurai 
+Rameswaram 
+And many more. 
+Each city page should contain: 
+Hero Image 
+About the City 
+Top Attractions 
+Suggested Itinerary 
+Local Cuisine 
+Hotels 
+Shopping 
+Travel Tips 
+Weather 
+Gallery 
+Nearby Places 
+Related Blogs 
+Contact CTA 
+18. ATTRACTION PAGES 
+Every famous attraction should have its own dedicated page. 
+Example: 
+Jaipur 
+→ Amer Fort 
+Amer Fort Page 
+Hero Image 
+History 
+Architecture 
+Timings 
+Visitor Information 
+Nearby Attractions 
+Photo Gallery 
+FAQs 
+Related Blogs 
+Inquiry CTA 
+This improves SEO significantly. 
+19. TOUR PACKAGE STRUCTURE 
+Categories: 
+Luxury Tours 
+Family Tours 
+Honeymoon Tours 
+Adventure Tours 
+Wildlife Tours 
+Photography Tours 
+Women Tours 
+Solo Tours 
+Spiritual Tours 
+Road Trips 
+Weekend Tours 
+Golden Triangle Tours 
+Desert Tours 
+Hill Station Tours 
+Beach Holidays 
+South India Tours 
+North India Tours 
+Royal Rajasthan Tours 
+Each package page should include: 
+Hero Banner 
+Highlights 
+Suggested Itinerary 
+Included Experiences 
+Gallery 
+Travel Tips 
+FAQ 
+Inquiry Form 
+No pricing should be displayed. 
+20. EXPERIENCE HUB 
+Separate section with dedicated pages. 
+Luxury Experiences 
+Adventure 
+Wildlife 
+Yoga Retreats 
+Ayurveda 
+Camping 
+Houseboats 
+Luxury Trains 
+Desert Camping 
+Camel Safari 
+Tiger Safari 
+River Rafting 
+Paragliding 
+Scuba Diving 
+Hot Air Balloon 
+Photography Tours 
+Temple Tours 
+Pilgrimage 
+Each experience page should connect to relevant destinations and blogs. 
+21. FOOD GUIDE 
+This should become one of the strongest content sections. 
+Top Categories: 
+North Indian Cuisine 
+South Indian Cuisine 
+Street Food 
+Royal Rajasthani Cuisine 
+Punjabi Cuisine 
+Gujarati Cuisine 
+Kerala Cuisine 
+Goan Cuisine 
+Kashmiri Cuisine 
+Bengali Cuisine 
+Indian Desserts 
+Traditional Drinks 
+Every category should have multiple dish pages. 
+Example: 
+Street Food 
+→ Pani Puri 
+→ Vada Pav 
+→ Kachori 
+→ Chole  
+Bhature 
+→ Pav Bhaji 
+Each dish page should include: 
+Hero Image 
+Story &amp; Origin 
+Ingredients 
+Region 
+Best Cities to Try 
+Travel Tips 
+Related Destinations 
+Gallery 
+FAQ 
+22. FESTIVAL HUB 
+Create individual pages for every major Indian festival. 
+Examples: 
+Diwali 
+Holi 
+Navratri 
+Durga Puja 
+Onam 
+Pongal 
+Lohri 
+Ganesh Chaturthi 
+Pushkar Fair 
+Kumbh Mela 
+Christmas in Goa 
+Each festival page should include: 
+Hero Banner 
+History 
+Significance 
+Best Places to Experience 
+Travel Tips 
+Festival Gallery 
+Videos 
+Related Destinations 
+Related Blogs 
+FAQ 
+23. BLOG STRUCTURE 
+The blog should become the biggest SEO engine. 
+Categories: 
+Destination Guides 
+Travel Tips 
+Indian Culture 
+Indian Food 
+Festivals 
+Packing Guides 
+Visa Information 
+Luxury Travel 
+Adventure 
+Wildlife 
+Road Trips 
+Photography 
+Shopping 
+Hidden Gems 
+Family Travel 
+Solo Travel 
+Women Travel 
+Every blog page should include: 
+Large Hero Image 
+Table of Contents 
+Reading Progress 
+Author Section 
+Related Blogs 
+Related Destinations 
+Social Share 
+Newsletter CTA 
+Inquiry CTA 
+24. INTERNAL LINKING 
+Every page should connect naturally. 
+Example: 
+Amer Fort 
+↓ 
+Jaipur 
+↓ 
+Rajasthan 
+↓ 
+Golden Triangle Tour 
+↓ 
+Blog: Best Places in Jaipur 
+↓ 
+Food:  
+Pyaaz 
+ Kachori 
+↓ 
+Festival:  
+Teej 
+This creates a strong SEO network and keeps visitors exploring. 
+25. FOOTER 
+The footer should not be a simple list of links. 
+Include: 
+Company Introduction 
+Quick Links 
+Popular Destinations 
+Tour Packages 
+Food Guide 
+Travel Guide 
+Blog Categories 
+Contact Information 
+Newsletter Signup 
+Social Media Links 
+Copyright 
+Terms &amp; Privacy 
+Use a visually rich layout with subtle imagery or texture while keeping readability high. 
+MHIndiaTrips 
+ - Master Website Specification 
+PART 3 
+Homepage UI / UX Blueprint (Luxury Travel Experience) 
+HOME PAGE OBJECTIVE 
+The homepage should not feel like a travel agency. 
+It should feel like an  
+experience 
+. 
+Visitors should feel like they are already exploring India. 
+Every scroll should reveal a new story. 
+Every section should feel unique. 
+Never repeat the same layout. 
+Avoid simple grids throughout the homepage. 
+Mix different layout styles such as: 
+Editorial Sections 
+Split Layouts 
+Full Width Banners 
+Masonry Galleries 
+Image Collages 
+Floating Cards 
+Horizontal Scroll Sections 
+Interactive Maps 
+Timelines 
+Magazine Layouts 
+Cinematic Image Blocks 
+The homepage should contain  
+20–25 premium sections 
+. 
+SECTION 1 — CINEMATIC HERO 
+This is the most important section. 
+Height: 100vh 
+Background: 
+Auto-playing cinematic slider (5–7 slides) 
+Slow zoom (Ken Burns effect) 
+Dark gradient overlay (subtle) 
+High-resolution destination images 
+Slides: 
+Taj Mahal at sunrise 
+Kerala backwaters 
+Jaisalmer desert &amp; camel safari 
+Ladakh mountain roads 
+Goa beach sunset 
+Varanasi ghats 
+Kashmir valley 
+Content: 
+Large heading 
+Short supporting text 
+"Explore India" button 
+"Plan My Trip" button 
+Extras: 
+Scroll indicator 
+Floating WhatsApp button 
+Mouse parallax on desktop 
+SECTION 2 — FLOATING TRAVEL SEARCH 
+Position: 
+Overlapping the hero section 
+Design: 
+Glassmorphism 
+ card 
+Rounded corners 
+Soft shadow 
+Fields: 
+Destination 
+Travel Theme 
+Travel Month 
+Number of Travelers 
+CTA: 
+Find Experiences 
+SECTION 3 — WHY INDIA 
+Editorial layout. 
+Left: 
+Inspiring content 
+Short paragraphs 
+Right: 
+Large collage of images 
+Animated counters: 
+38+ UNESCO World Heritage Sites 
+28 States 
+8 Union Territories 
+Thousands of years of history 
+Diverse cultures 
+Countless travel experiences 
+SECTION 4 — EXPLORE INDIA MAP 
+Interactive SVG map. 
+Hover on any state: 
+Highlight state 
+Show image preview 
+Show short description 
+Click: 
+Open dedicated state page. 
+Desktop: 
+Full interactive map. 
+Mobile: 
+Accordion list of states. 
+SECTION 5 — EXPLORE BY REGION 
+Create large editorial cards. 
+North India 
+South India 
+East India 
+West India 
+Central India 
+North East India 
+Islands 
+Each card should include: 
+Full image 
+Overlay title 
+Description 
+Explore button 
+SECTION 6 — FEATURED DESTINATIONS 
+Do not use a simple grid. 
+Use a Pinterest / Masonry layout. 
+Include: 
+Jaipur 
+Udaipur 
+Goa 
+Munnar 
+Ladakh 
+Kashmir 
+Varanasi 
+Agra 
+Andaman 
+Darjeeling 
+Rishikesh 
+Jaisalmer 
+Hover: 
+Slight zoom 
+Gradient overlay 
+Explore CTA 
+SECTION 7 — TRAVEL BY INTEREST 
+Horizontal scrolling cards. 
+Categories: 
+Luxury 
+Family 
+Honeymoon 
+Solo 
+Women 
+Adventure 
+Wildlife 
+Spiritual 
+Food 
+Photography 
+Each card: 
+Large image 
+Icon 
+Title 
+Description 
+SECTION 8 — LUXURY EXPERIENCES 
+Magazine-style layout. 
+Large left image. 
+Right side: 
+Palace stays 
+Luxury trains 
+Houseboats 
+Desert camps 
+Private safaris 
+Use alternating layouts. 
+SECTION 9 — ADVENTURE INDIA 
+Full-width section. 
+Parallax background. 
+Cards: 
+Trekking 
+River rafting 
+Scuba diving 
+Camping 
+Paragliding 
+Hot air balloon 
+Camel safari 
+SECTION 10 — WILDLIFE INDIA 
+Dark-green themed section. 
+Large image banner. 
+Animals: 
+Tiger 
+Rhino 
+Elephant 
+Leopard 
+Birds 
+CTA: 
+Explore National Parks 
+SECTION 11 — FESTIVAL CALENDAR 
+Timeline design. 
+Cards: 
+Diwali 
+Holi 
+Navratri 
+Onam 
+Pushkar Fair 
+Ganesh Chaturthi 
+Durga Puja 
+Hover animation. 
+Click: 
+Open festival page. 
+SECTION 12 — INDIAN FOOD JOURNEY 
+One of the most attractive sections. 
+Large food photography. 
+Categories: 
+North Indian 
+South Indian 
+Street Food 
+Royal Cuisine 
+Desserts 
+Traditional Drinks 
+Hover: 
+Image zoom 
+Read More CTA 
+SECTION 13 — UNESCO HERITAGE 
+Editorial image gallery. 
+Cards: 
+Taj Mahal 
+Hampi 
+Khajuraho 
+Konark 
+Ajanta 
+Ellora 
+Qutub Minar 
+Red Fort 
+SECTION 14 — HIDDEN GEMS 
+Large image collage. 
+Include: 
+Ziro Valley 
+Tawang 
+Chopta 
+Majuli 
+Gokarna 
+Spiti 
+Mandu 
+Orchha 
+SECTION 15 — TRAVEL THROUGH SEASONS 
+Interactive tabs. 
+Summer 
+Winter 
+Monsoon 
+Spring 
+Each tab updates destinations and imagery dynamically. 
+SECTION 16 — CUSTOMER STORIES 
+Large testimonial cards. 
+Include: 
+Traveler photo 
+Country 
+Trip summary 
+Star rating 
+Optionally embed short video testimonials. 
+SECTION 17 — INSTAGRAM GALLERY 
+Pinterest-style masonry grid. 
+Hover: 
+Open lightbox. 
+CTA: 
+Follow on Instagram 
+SECTION 18 — LATEST BLOGS 
+Magazine layout. 
+Large featured article. 
+Smaller related articles. 
+Show: 
+Cover image 
+Category 
+Reading time 
+Date 
+SECTION 19 — FAQ 
+Accordion. 
+Organized into categories: 
+Booking 
+Visa 
+Safety 
+Best Time 
+Payments 
+Transport 
+SECTION 20 — NEWSLETTER 
+Luxury banner. 
+Heading: 
+"Get Inspired Before Your Next Journey" 
+Email field. 
+Subscribe CTA. 
+SECTION 21 — CONTACT CTA 
+Full-width banner. 
+Background: 
+Beautiful Indian landscape. 
+Buttons: 
+Plan My Trip 
+WhatsApp 
+Contact Us 
+SECTION 22 — FOOTER 
+Premium multi-column footer. 
+Sections: 
+Company 
+Destinations 
+Tour Packages 
+Food Guide 
+Travel Guide 
+Blogs 
+Contact 
+Newsletter 
+Social Links 
+Language Switcher 
+Use a subtle textured background inspired by Indian patterns. 
+GLOBAL HOMEPAGE RULES 
+✔ 
+ Every section must have at least one high-quality image. 
+✔ 
+ Never leave empty white space. 
+✔ 
+ Alternate image/text positions for visual rhythm. 
+✔ 
+ Use GSAP reveal animations on scroll. 
+✔ 
+ Add smooth hover effects to all interactive elements. 
+✔ 
+ Keep generous spacing for a premium feel. 
+✔ 
+ Every section should include a clear CTA or link to another part of the site. 
+✔ 
+ The homepage should guide users naturally from inspiration → exploration → trust → inquiry. 
+The final homepage should feel like an award-winning travel magazine rather than a generic travel agency website. 
+MHIndiaTrips 
+ - Master Website Specification 
+PART 4 
+Destination Module (State → City → Attraction Architecture) 
+DESTINATION PHILOSOPHY 
+The destination section should not look like a simple list of places. 
+It should become India's largest travel discovery platform. 
+The user journey should always be: 
+India 
+↓ 
+Region 
+↓ 
+State 
+↓ 
+City 
+↓ 
+Attraction 
+Every level should have its own dedicated SEO page. 
+Every page should be visually rich, informative and connected to related destinations, blogs, food, festivals and experiences. 
+WEBSITE DESTINATION HIERARCHY 
+India 
+↓ 
+North India 
+↓ 
+Rajasthan 
+↓ 
+Jaipur 
+↓ 
+Amer Fort 
+↓ 
+Nearby Attractions 
+↓ 
+Related Food 
+↓ 
+Related Festival 
+↓ 
+Related Blog 
+↓ 
+Inquiry 
+The same architecture should be followed for every state. 
+LEVEL 1 — INDIA DESTINATION PAGE 
+Purpose: 
+Introduce India as a travel destination. 
+Sections: 
+• Cinematic Hero Banner 
+• Interactive India Map 
+• Explore by Region 
+• Top States 
+• Popular Experiences 
+• UNESCO Heritage 
+• Food Journey 
+• Festivals 
+• Wildlife 
+• Luxury Tours 
+• Adventure Tours 
+• Hidden Gems 
+• Travel Blogs 
+• FAQ 
+• Contact CTA 
+LEVEL 2 — REGION PAGE 
+Example: 
+North India 
+South India 
+East India 
+West India 
+Central India 
+North East India 
+Islands 
+Every region page should include: 
+Hero Image 
+Region Overview 
+Interactive Map 
+States 
+Popular Cities 
+Weather Overview 
+Best Time to Visit 
+Experiences 
+Food 
+Festivals 
+Suggested Tour Routes 
+Blogs 
+Inquiry CTA 
+LEVEL 3 — STATE PAGE 
+Every tourist state gets its own landing page. 
+Example: 
+Rajasthan 
+Kerala 
+Goa 
+Himachal Pradesh 
+Uttarakhand 
+Karnataka 
+Tamil Nadu 
+Maharashtra 
+Madhya Pradesh 
+Gujarat 
+Punjab 
+Assam 
+Meghalaya 
+Sikkim 
+Ladakh 
+Andaman 
+Lakshadweep 
+Every State Page should include: 
+SECTION 1 
+Large Cinematic Hero 
+Background Image 
+State Name 
+Tagline 
+Explore Button 
+Inquiry Button 
+SECTION 2 
+About State 
+Editorial layout 
+Large Image 
+Beautiful Storytelling 
+SECTION 3 
+Quick Facts 
+Capital 
+Language 
+Best Time 
+Currency 
+Climate 
+Famous For 
+UNESCO Sites 
+SECTION 4 
+Interactive State Map 
+Hover City 
+Click 
+↓ 
+Open City 
+SECTION 5 
+Popular Cities 
+Large Editorial Cards 
+Beautiful Images 
+Description 
+Explore CTA 
+SECTION 6 
+Top Attractions 
+Premium Cards 
+Gallery 
+SECTION 7 
+Experiences 
+Adventure 
+Luxury 
+Wildlife 
+Spiritual 
+Photography 
+SECTION 8 
+Local Food 
+Beautiful Food Photography 
+Featured Dishes 
+SECTION 9 
+Festivals 
+Festival Cards 
+Timeline 
+SECTION 10 
+Best Itineraries 
+3 Days 
+5 Days 
+7 Days 
+10 Days 
+SECTION 11 
+Photo Gallery 
+Large Masonry Grid 
+SECTION 12 
+Travel Tips 
+Safety 
+Weather 
+Transport 
+Packing 
+SECTION 13 
+Related Blogs 
+Magazine Cards 
+SECTION 14 
+FAQs 
+SECTION 15 
+Inquiry CTA 
+LEVEL 4 — CITY PAGE 
+Example 
+Jaipur 
+Udaipur 
+Jaisalmer 
+Munnar 
+Leh 
+Goa 
+Varanasi 
+Rishikesh 
+Every City Page should contain 
+Hero Banner 
+City Story 
+Top Attractions 
+Interactive Map 
+Suggested Itinerary 
+Things To Do 
+Local Food 
+Shopping 
+Weather 
+Best Time 
+Hotels 
+Photo Gallery 
+Nearby Cities 
+Travel Tips 
+FAQs 
+Related Blogs 
+Inquiry CTA 
+LEVEL 5 — ATTRACTION PAGE 
+Every famous attraction should have its own page. 
+Example 
+Amer Fort 
+Hawa Mahal 
+Jal Mahal 
+Mehrangarh 
+ Fort 
+City Palace 
+Taj Mahal 
+Qutub Minar 
+Golden Temple 
+Each attraction page should include 
+Large Hero Image 
+Overview 
+History 
+Architecture 
+Photography Spots 
+Visitor Information 
+Best Time  
+To 
+ Visit 
+Opening Hours 
+Nearby Attractions 
+Travel Tips 
+Gallery 
+FAQs 
+Related Blogs 
+Inquiry CTA 
+DESTINATION IMAGE RULES 
+Every destination page must include 
+Large Hero Banner 
+Gallery 
+Drone Images 
+Landscape Photography 
+People 
+Culture 
+Hotels 
+Food 
+Markets 
+Wildlife 
+Street Photography 
+Never use placeholders. 
+Never leave image containers empty. 
+Every image should feel like a luxury travel magazine. 
+DESTINATION PAGE LAYOUT STYLE 
+Avoid repetitive card grids. 
+Use 
+Editorial Blocks 
+Split Layouts 
+Image Collages 
+Masonry Gallery 
+Magazine Style 
+Alternating Image Positions 
+Full Width Image Sections 
+Storytelling Blocks 
+Timeline Sections 
+Interactive Maps 
+Sticky Side Navigation 
+Image Carousels 
+INTERNAL LINKING 
+Every destination page must naturally connect users to other pages. 
+For example: 
+Jaipur 
+↓ 
+Amer Fort 
+↓ 
+Pyaaz 
+ Kachori 
+↓ 
+Teej 
+ Festival 
+↓ 
+Golden Triangle Tour 
+↓ 
+Best Time to Visit Jaipur 
+↓ 
+Nearby City: Ajmer 
+↓ 
+Rajasthan State Page 
+This creates a strong SEO network and increases time spent on the website. 
+RESPONSIVE DESIGN 
+Destination pages must be fully responsive. 
+Desktop: 
+Large editorial layouts. 
+Tablet: 
+Balanced split layouts. 
+Mobile: 
+Single-column layouts with optimized image galleries and easy navigation. 
+No broken cards. 
+No overlapping elements. 
+No horizontal scrolling. 
+FINAL GOAL 
+Every destination page should feel like a premium travel guide. 
+Visitors should spend several minutes exploring a single destination because the page is visually rich, informative, immersive and beautifully connected to the rest of the website. 
+The destination section should become one of the strongest reasons users trust  
+MHIndiaTrips 
+ and continue exploring India through the website. 
+MHIndiaTrips 
+ – Master Website Specification 
+PART 5 
+Tour Packages • Experiences • Food Guide • Festivals • Blog &amp; SEO Architecture 
+26. TOUR PACKAGE MODULE 
+The Tour Package section should inspire users to inquire about a personalized itinerary. 
+Never display prices. 
+Every package page should focus on experiences, destinations, and highlights. 
+Suggested Categories 
+• Golden Triangle Tours 
+• Rajasthan Tours 
+• Kerala Tours 
+• Goa Tours 
+• Kashmir Tours 
+• Ladakh Tours 
+• South India Tours 
+• North India Tours 
+• Spiritual Tours 
+• Wildlife Tours 
+• Luxury Tours 
+• Family Tours 
+• Honeymoon Tours 
+• Solo Tours 
+• Women Tours 
+• Adventure Tours 
+• Photography Tours 
+• Wellness &amp; Yoga Tours 
+• Road Trips 
+• Festival Tours 
+Every Tour Package Page should include 
+SECTION 1 
+Large Hero Banner 
+SECTION 2 
+Tour Overview 
+SECTION 3 
+Trip Highlights 
+SECTION 4 
+Suggested Day-wise Itinerary 
+SECTION 5 
+Destinations Covered 
+SECTION 6 
+Experiences Included 
+SECTION 7 
+Photo Gallery 
+SECTION 8 
+Best Time to Travel 
+SECTION 9 
+Packing Suggestions 
+SECTION 10 
+Related Destinations 
+SECTION 11 
+Related Blogs 
+SECTION 12 
+Frequently Asked Questions 
+SECTION 13 
+Plan My Trip Inquiry Form 
+No pricing. 
+No booking calendar. 
+Only inquiry-driven CTA. 
+27. EXPERIENCE HUB 
+Create a separate Experiences section. 
+Examples 
+Luxury Experiences 
+Adventure 
+Wildlife 
+Photography 
+Culture 
+Spiritual 
+Wellness 
+Road Trips 
+Luxury Trains 
+Houseboats 
+Camping 
+River Rafting 
+Camel Safari 
+Paragliding 
+Hot Air Balloon 
+Scuba Diving 
+Tiger Safari 
+Yoga Retreats 
+Ayurveda Retreats 
+Every experience page should include 
+• Hero Banner 
+• Experience Overview 
+• Best Destinations 
+• Best Season 
+• Gallery 
+• Safety Tips 
+• Suggested Packages 
+• Related Blogs 
+• Inquiry CTA 
+28. FOOD GUIDE 
+Food should become one of the biggest attractions of the website. 
+Create category pages first, then individual dish pages. 
+Categories 
+North Indian Cuisine 
+South Indian Cuisine 
+East Indian Cuisine 
+West Indian Cuisine 
+North East Cuisine 
+Street Food 
+Royal Cuisine 
+Vegetarian Dishes 
+Seafood 
+Indian Desserts 
+Traditional Drinks 
+Every category page should contain 
+• Hero Banner 
+• Cuisine Story 
+• Featured Dishes 
+• Regional Map 
+• Related Destinations 
+• Gallery 
+• Blogs 
+Every individual dish page should include 
+• Hero Image 
+• Dish History 
+• Region of Origin 
+• Ingredients 
+• Taste Profile 
+• Best Places to Try 
+• Travel Tips 
+• Related Destinations 
+• Related Festivals 
+• FAQs 
+29. FESTIVAL HUB 
+Create dedicated pages for India's major festivals. 
+Examples 
+Diwali 
+Holi 
+Navratri 
+Durga Puja 
+Onam 
+Pongal 
+Ganesh Chaturthi 
+Pushkar Fair 
+Kumbh Mela 
+Baisakhi 
+Lohri 
+Christmas in Goa 
+Each page should include 
+• Hero Banner 
+• Festival Story 
+• Historical Background 
+• Cultural Significance 
+• Best Places to Experience 
+• Celebration Gallery 
+• Suggested Travel Plan 
+• Related Blogs 
+• FAQs 
+• Inquiry CTA 
+30. BLOG SYSTEM 
+The Blog should become the primary SEO driver. 
+Design Style 
+Editorial 
+Magazine Layout 
+Large Cover Image 
+Excellent Typography 
+Table of Contents 
+Reading Progress 
+Author Section 
+Related Articles 
+Newsletter CTA 
+Suggested Categories 
+Destination Guides 
+Travel Tips 
+Best Time to Visit 
+Hidden Gems 
+Indian Culture 
+Food Guides 
+Festival Guides 
+Luxury Travel 
+Wildlife 
+Adventure 
+Road Trips 
+Photography 
+Packing Guides 
+Transportation 
+Shopping Guides 
+Family Travel 
+Solo Travel 
+Women Travel 
+Budget vs Luxury Travel 
+Each blog page should include 
+• Hero Image 
+• Table of Contents 
+• Rich Images 
+• Internal Links 
+• Destination Cards 
+• Related Foods 
+• Related Festivals 
+• FAQs 
+• Related Articles 
+• Contact CTA 
+31. SEO CONTENT ARCHITECTURE 
+Every destination should have  
+supporting 
+ content. 
+Example 
+Jaipur 
+↓ 
+Best Time to Visit Jaipur 
+↓ 
+Things to Do in Jaipur 
+↓ 
+Top 10 Places in Jaipur 
+↓ 
+Jaipur Food Guide 
+↓ 
+Shopping in Jaipur 
+↓ 
+Jaipur Travel Tips 
+↓ 
+2-Day Jaipur Itinerary 
+↓ 
+5-Day Rajasthan Itinerary 
+↓ 
+Nearby Attractions 
+↓ 
+Related Tour Package 
+This creates topical authority. 
+The same pattern should be repeated for every major destination. 
+32. SEARCH EXPERIENCE 
+The website search should not only search pages. 
+It should search 
+• States 
+• Cities 
+• Attractions 
+• Tour Packages 
+• Food 
+• Festivals 
+• Blogs 
+• Experiences 
+Show instant suggestions while typing. 
+33. RELATED CONTENT ENGINE 
+Every page should recommend additional content. 
+Example 
+If user is reading 
+"Amer Fort" 
+Show 
+Related Destination 
+Jaipur 
+Related State 
+Rajasthan 
+Related Food 
+Pyaaz 
+ Kachori 
+Related Festival 
+Teej 
+Related Blog 
+Best Time to Visit Jaipur 
+Related Package 
+Golden Triangle Tour 
+34. CONTENT QUALITY 
+Never use generic paragraphs. 
+Every page should feel researched and useful. 
+Avoid repeating the same introduction. 
+Use storytelling where appropriate. 
+Keep the tone informative, welcoming and inspiring. 
+35. CALL TO ACTION STRATEGY 
+Every page should end with a clear action. 
+Examples 
+Plan My India Trip 
+Talk to a Travel Expert 
+Need a Customized Itinerary? 
+Explore More Destinations 
+Discover Local Experiences 
+CTA should never feel aggressive. 
+It should naturally continue the visitor's journey. 
+36. IMAGE GUIDELINES 
+Every page must contain multiple high-quality visuals. 
+Include 
+• Full-width hero banner 
+• Supporting editorial images 
+• Gallery 
+• Landscape photography 
+• Cultural photography 
+• Food photography where relevant 
+• Festival photography where relevant 
+No broken images. 
+No empty image placeholders. 
+Images should be optimized for performance without reducing visual quality. 
+37. PERFORMANCE &amp; SEO BEST PRACTICES 
+The website should be built for excellent Core Web Vitals. 
+Requirements 
+• Fast image loading 
+• Lazy loading galleries 
+• Optimized metadata 
+• Schema.org markup 
+• Breadcrumbs 
+• XML sitemap 
+•  
+Hreflang 
+ for English, Español and  
+Português 
+• Canonical URLs 
+• Semantic HTML 
+• Strong internal linking 
+• Accessible components 
+• Mobile-first design 
+FINAL GOAL 
+MHIndiaTrips 
+ should not look like a simple brochure website. 
+It should become a complete India travel ecosystem where users can discover destinations, culture, food, festivals, experiences and travel knowledge in one place. 
+The website should encourage visitors to keep exploring, increase time on site, build trust and generate high-quality travel inquiries from international tourists. 
+  
+MHIndiaTrips 
+ – Master Website Specification 
+PART 6 
+Admin Panel • Design System • Animations • CMS • Development Standards • QA Checklist 
+38. ADMIN PANEL (CMS) 
+The admin panel should be modern, clean, secure, and easy to use. 
+The design should feel like Notion, Linear, or  
+Vercel 
+ Dashboard. 
+Do not build a basic CRUD panel. 
+The dashboard should help the team manage the complete website without touching the code. 
+Dashboard 
+Display important statistics. 
+Cards: 
+• Total Inquiries 
+• Total Blog Posts 
+• Total Destinations 
+• Total Tour Packages 
+• Total States 
+• Total Cities 
+• Total Attractions 
+• Total Food Articles 
+• Total Festivals 
+• Website Visitors 
+• Most Viewed Pages 
+• Most Popular Destinations 
+• Recent Inquiries 
+Charts 
+• Monthly Traffic 
+• Inquiry Trends 
+• Top Countries 
+• Blog Performance 
+39. CONTENT MANAGEMENT 
+The CMS should allow administrators to manage: 
+Destinations 
+States 
+Cities 
+Attractions 
+Tour Packages 
+Experiences 
+Food Categories 
+Food Articles 
+Festival Pages 
+Travel Guides 
+Blogs 
+Testimonials 
+FAQs 
+Gallery 
+Homepage Sections 
+Navigation Menu 
+Footer 
+SEO Settings 
+Newsletter Subscribers 
+Contact Inquiries 
+Media Library 
+Users &amp; Roles 
+Site Settings 
+40. MULTILINGUAL CMS 
+Every content type should support: 
+English 
+Español 
+Português 
+Each language should have: 
+• Title 
+• Slug 
+• Meta Title 
+• Meta Description 
+• Rich Content 
+• FAQs 
+• CTA Text 
+• Image Alt Text 
+• Open Graph Content 
+Admins should easily switch languages while editing. 
+41. MEDIA LIBRARY 
+Create a professional media manager. 
+Features: 
+• Upload Images 
+• Upload Videos 
+• Categories 
+• Search 
+• Filter 
+• Bulk Delete 
+• Bulk Upload 
+• Image Compression 
+• Auto  
+WebP 
+ Conversion 
+• AVIF Support 
+• AI-generated image tagging 
+• Alt Text 
+• Caption 
+• Credits 
+• Image Usage Tracking 
+42. SEO MANAGER 
+Provide complete SEO controls. 
+Fields: 
+SEO Title 
+Meta Description 
+Focus Keyword 
+Canonical URL 
+OG Title 
+OG Description 
+Twitter Card 
+Schema Type 
+Breadcrumb Title 
+Image Alt Text 
+Slug 
+Robots Index 
+Sitemap Status 
+Internal Linking Suggestions 
+SEO Score 
+Preview before publishing. 
+43. DESIGN SYSTEM 
+The website must use a single consistent design language. 
+Buttons 
+Primary 
+Secondary 
+Outline 
+Ghost 
+Icon Button 
+Floating CTA 
+Hover Animations 
+Cards 
+Destination Card 
+Blog Card 
+Tour Card 
+Food Card 
+Festival Card 
+Gallery Card 
+Experience Card 
+State Card 
+Testimonial Card 
+Forms 
+Rounded Inputs 
+Floating Labels 
+Validation 
+Modern Error Messages 
+Success Animation 
+Icons 
+Use one consistent icon library. 
+Rounded modern icons. 
+Border Radius 
+Consistent throughout. 
+Spacing 
+Follow an 8px spacing system. 
+Avoid inconsistent padding and margins. 
+Shadows 
+Soft premium shadows. 
+No heavy or outdated effects. 
+44. IMAGE STYLE GUIDE 
+All visuals should follow a consistent premium style. 
+Preferred imagery: 
+• Editorial photography 
+• Cinematic drone shots 
+• Golden hour landscapes 
+• Luxury hotels 
+• Heritage architecture 
+• Authentic street scenes 
+• Local artisans 
+• Regional cuisine 
+• Wildlife 
+• Festivals 
+Image Guidelines 
+• High Resolution 
+• Landscape orientation where appropriate 
+• Optimized loading 
+• Responsive crops 
+• Lazy Loading 
+Never use stretched or pixelated images. 
+Never leave empty placeholders. 
+45. ANIMATION SYSTEM 
+Use GSAP and Framer Motion. 
+Animations should enhance the experience without slowing the website. 
+Examples 
+Hero 
+Fade + Scale 
+Sections 
+Fade Up 
+Images 
+Reveal Mask 
+Cards 
+Lift on Hover 
+Buttons 
+Ripple &amp; Scale 
+Counters 
+Count Up 
+Navigation 
+Smooth Sticky Transition 
+Gallery 
+Lightbox Fade 
+Page Transition 
+Smooth Cross Fade 
+Do not overuse animations. 
+Performance always comes first. 
+46. RESPONSIVE DESIGN RULES 
+Mobile First. 
+Support: 
+Desktop 
+Laptop 
+Tablet 
+Mobile 
+Landscape Mobile 
+Requirements 
+• No horizontal scrolling 
+• Responsive typography 
+• Responsive galleries 
+• Responsive navigation 
+• Responsive mega menu 
+• Optimized image loading 
+• Touch-friendly buttons 
+• Proper spacing 
+47. ACCESSIBILITY 
+Follow accessibility best practices. 
+Requirements 
+• Semantic HTML 
+• Keyboard Navigation 
+• Proper Focus States 
+• Alt Text 
+•  
+Color 
+ Contrast 
+• Screen Reader Friendly 
+• Accessible Forms 
+48. PERFORMANCE 
+Target excellent Core Web Vitals. 
+Requirements 
+• Fast initial load 
+• Optimized images 
+• Lazy loading 
+• Code splitting 
+• Server Components where appropriate 
+• Static generation where appropriate 
+• Efficient caching 
+• Minimal layout shift 
+49. SECURITY 
+Secure admin authentication. 
+Features 
+• Role-based Access 
+• Secure Sessions 
+• CSRF Protection 
+• Input Validation 
+• Rate Limiting 
+• Secure File Uploads 
+• Audit Logs 
+50. CONTACT &amp; LEAD MANAGEMENT 
+Every inquiry should be stored. 
+Fields 
+Name 
+Email 
+Phone 
+Country 
+Preferred Language 
+Travel Interest 
+Travel Dates 
+Message 
+Admin should be able to: 
+• View 
+• Filter 
+• Export 
+• Mark Follow-up Status 
+51. NEWSLETTER 
+Store subscribers. 
+Allow export. 
+Support multilingual emails. 
+52. DEVELOPMENT STANDARDS 
+Technology 
+Next.js 15 
+TypeScript 
+Tailwind CSS 
+Framer Motion 
+GSAP 
+Prisma 
+PostgreSQL 
+NextAuth 
+Cloudinary 
+Code Quality 
+Reusable Components 
+Clean Folder Structure 
+Consistent Naming 
+No Duplicate Components 
+Scalable Architecture 
+Production Ready 
+53. QUALITY ASSURANCE CHECKLIST 
+Before launch, verify: 
+✓ 
+ Every page is complete 
+✓ 
+ No placeholder content 
+✓ 
+ No broken links 
+✓ 
+ No broken images 
+✓ 
+ All forms work 
+✓ 
+ All animations are smooth 
+✓ 
+ Responsive on all devices 
+✓ 
+ Language switching works 
+✓ 
+ Internal links work 
+✓ 
+ SEO metadata added 
+✓ 
+ Sitemap generated 
+✓ 
+ Schema implemented 
+✓ 
+ Performance optimized 
+✓ 
+ Accessibility checked 
+✓ 
+ CMS functioning correctly 
+✓ 
+ Gallery loading properly 
+✓ 
+ Inquiry forms storing data 
+✓ 
+ Blog system operational 
+✓ 
+ Search working 
+✓ 
+ Navigation consistent 
+✓ 
+ Footer complete 
+54. FINAL CREATIVE DIRECTION 
+MHIndiaTrips 
+ must not feel like a website. 
+It must feel like a digital journey through India. 
+Visitors should discover destinations, culture, food, festivals, wildlife, history and experiences in a natural storytelling flow. 
+Every scroll should create curiosity. 
+Every page should encourage deeper exploration. 
+The final result should be visually stunning, content-rich, multilingual, SEO-first, highly responsive, easy to manage, and production-ready. 
+The benchmark is not a generic travel agency website. 
+The benchmark is a world-class digital tourism platform that users remember, trust, and return to whenever they plan a trip to India.
