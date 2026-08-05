@@ -100,13 +100,13 @@ export default async function StateDetailPage({ params }: StatePageProps) {
       
       {/* SECTION 1: Cinematic Hero Banner */}
       <section className="relative h-[55vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <img src={state.image} alt={state.title?.[locale] || state.title?.en} className="absolute inset-0 w-full h-full object-cover animate-kenburns" loading="eager" />
+        <img src={state.image} alt={state.title?.[locale] || state.title?.en} className="absolute inset-0 w-full h-full object-cover object-[center_35%] animate-kenburns" loading="eager" />
         <div className="absolute inset-0 bg-black/45" />
         <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-4xl">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block shadow-md">
             {state.region} India
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-white">{state.title?.[locale] || state.title?.en}</h1>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-white">{state.title?.[locale] || state.title?.en}</h1>
           <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed">{state.tagline?.[locale] || state.tagline?.en}</p>
         </div>
       </section>
@@ -191,14 +191,14 @@ export default async function StateDetailPage({ params }: StatePageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {state.cities.map((city: any) => (
               <Link key={city.slug} href={`/${locale}/destinations/${stateSlug}/${city.slug}`} className="group block">
-                <div className="luxury-card hover-lift overflow-hidden flex flex-col md:flex-row h-64 border border-gold/10 bg-white">
-                  <div className="md:w-5/12 h-44 md:h-full shrink-0 overflow-hidden relative">
+                <div className="luxury-card hover-lift overflow-hidden flex flex-col md:flex-row h-80 border border-gold/10 bg-white">
+                  <div className="md:w-5/12 h-52 md:h-full shrink-0 overflow-hidden relative">
                     <img src={city.image} alt={city.title?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-105" />
                   </div>
                   <div className="md:w-7/12 p-7 flex flex-col justify-between bg-white">
                     <div className="space-y-2">
                       <h3 className="text-xl font-serif font-bold text-royal group-hover:text-gold transition-colors">{city.title?.[locale] || city.title?.en}</h3>
-                      <p className="text-xs text-foreground/55 line-clamp-3 leading-relaxed font-light">{city.overview?.[locale] || city.overview?.en}</p>
+                      <p className="text-sm text-foreground/55 line-clamp-3 leading-relaxed font-light">{city.overview?.[locale] || city.overview?.en}</p>
                     </div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-gold flex items-center gap-1.5 mt-3 group-hover:text-saffron transition-colors">
                       <span>Explore Sights</span><Sparkles className="w-3.5 h-3.5" />
@@ -222,17 +222,17 @@ export default async function StateDetailPage({ params }: StatePageProps) {
           <div className="space-y-3 text-center md:text-left">
             <span className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold mx-auto md:mx-0"><Calendar className="w-5 h-5" /></span>
             <h4 className="text-sm font-serif font-bold text-royal uppercase tracking-wider">Peak Season (Oct - Mar)</h4>
-            <p className="text-xs text-foreground/60 leading-relaxed font-light">Perfect dry winter days, ideal for sightseeing, heritage walks, and safari drives.</p>
+            <p className="text-sm text-foreground/60 leading-relaxed font-light">Perfect dry winter days, ideal for sightseeing, heritage walks, and safari drives.</p>
           </div>
           <div className="space-y-3 text-center md:text-left border-y md:border-y-0 md:border-x border-gold/15 py-6 md:py-0 md:px-8">
             <span className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold mx-auto md:mx-0"><Calendar className="w-5 h-5" /></span>
             <h4 className="text-sm font-serif font-bold text-royal uppercase tracking-wider">Shoulder Season (Apr - Jun)</h4>
-            <p className="text-xs text-foreground/60 leading-relaxed font-light">Warm summer months, great for tiger tracking safaris and luxury hotel stays at lower rates.</p>
+            <p className="text-sm text-foreground/60 leading-relaxed font-light">Warm summer months, great for tiger tracking safaris and luxury hotel stays at lower rates.</p>
           </div>
           <div className="space-y-3 text-center md:text-left">
             <span className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold mx-auto md:mx-0"><Calendar className="w-5 h-5" /></span>
             <h4 className="text-sm font-serif font-bold text-royal uppercase tracking-wider">Monsoon Season (Jul - Sep)</h4>
-            <p className="text-xs text-foreground/60 leading-relaxed font-light">Beautiful green landscapes, ideal for Kerala backwaters cruises and Ayurvedic spa retreats.</p>
+            <p className="text-sm text-foreground/60 leading-relaxed font-light">Beautiful green landscapes, ideal for Kerala backwaters cruises and Ayurvedic spa retreats.</p>
           </div>
         </div>
       </section>
@@ -248,15 +248,15 @@ export default async function StateDetailPage({ params }: StatePageProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {relatedPackages.map((pkg: any) => (
               <Link key={pkg.slug} href={`/${locale}/packages`} className="group block">
-                <div className="luxury-card hover-lift overflow-hidden h-[400px] flex flex-col border border-gold/10 bg-white">
-                  <div className="h-48 overflow-hidden relative shrink-0">
+                <div className="luxury-card hover-lift overflow-hidden h-[440px] flex flex-col border border-gold/10 bg-white">
+                  <div className="h-56 overflow-hidden relative shrink-0">
                     <img src={pkg.image} alt={pkg.title?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-105" />
                     <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-royal text-[9px] uppercase font-bold tracking-wider px-2.5 py-1 rounded shadow-sm">{pkg.durationDays} Days</div>
                   </div>
                   <div className="p-6 flex flex-col flex-grow justify-between bg-white">
                     <div className="space-y-2">
                       <h3 className="text-base font-serif font-bold text-royal group-hover:text-gold transition-colors leading-snug">{pkg.title?.[locale] || pkg.title?.en}</h3>
-                      <p className="text-xs text-foreground/55 line-clamp-3 leading-relaxed font-light">{pkg.tagline?.[locale] || pkg.tagline?.en}</p>
+                      <p className="text-sm text-foreground/55 line-clamp-3 leading-relaxed font-light">{pkg.tagline?.[locale] || pkg.tagline?.en}</p>
                     </div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-gold flex items-center gap-1.5 pt-2">
                       <span>View Tour Details</span><ArrowRight className="w-3.5 h-3.5" />
@@ -327,8 +327,8 @@ export default async function StateDetailPage({ params }: StatePageProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {otherStates.map((st: any) => (
               <Link key={st.slug} href={`/${locale}/destinations/${st.slug}`} className="group block">
-                <div className="luxury-card hover-lift overflow-hidden h-[380px] flex flex-col border border-gold/10 bg-white">
-                  <div className="h-48 overflow-hidden relative shrink-0">
+                <div className="luxury-card hover-lift overflow-hidden h-[420px] flex flex-col border border-gold/10 bg-white">
+                  <div className="h-52 overflow-hidden relative shrink-0">
                     <img src={st.image} alt={st.title?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-105" />
                     <div className="absolute top-3 left-3 bg-forest/90 backdrop-blur-sm text-white text-[9px] uppercase font-bold tracking-wider px-2.5 py-1 rounded shadow-sm">{st.region} India</div>
                   </div>

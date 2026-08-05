@@ -174,26 +174,24 @@ export default async function HomePage({ params }: HomePageProps) {
         <img 
           src="/images/taj_mahal_sunrise.png" 
           alt="Luxury India Trips" 
-          className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns"
+          className="absolute inset-0 w-full h-full object-cover object-[center_28%] scale-100 animate-kenburns"
           loading="eager"
         />
         <div className="absolute inset-0 bg-black/50" />
         
-        <div className="relative z-10 text-center text-white space-y-8 px-6 max-w-5xl mt-24">
+        <div className="relative z-10 text-center text-white space-y-8 px-6 max-w-4xl mt-24">
           <Reveal>
             <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.3em] px-6 py-2.5 rounded-full shadow-lg inline-block">
               {text.heroSub}
             </span>
           </Reveal>
           <Reveal delay={150}>
-            {/* Hero Heading: 56px–72px */}
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] text-white">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-white">
               {text.heroTitle}
             </h1>
           </Reveal>
           <Reveal delay={300}>
-            {/* Paragraph: 16px–18px */}
-            <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto font-light leading-relaxed">
+            <p className="text-sm md:text-base lg:text-lg text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
               {text.heroDesc}
             </p>
           </Reveal>

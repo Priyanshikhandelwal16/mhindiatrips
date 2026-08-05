@@ -23,14 +23,14 @@ export default async function AttractionDetailPage({ params }: AttractionPagePro
       
       {/* SECTION 1: Monument Title Banner */}
       <section className="relative h-[55vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <img src={attraction.image} alt={attraction.name?.[locale] || attraction.name?.en} className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns" loading="eager" />
+        <img src={attraction.image} alt={attraction.name?.[locale] || attraction.name?.en} className="absolute inset-0 w-full h-full object-cover object-[center_35%] animate-kenburns" loading="eager" />
         <div className="absolute inset-0 bg-black/45" />
         
         <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-4xl">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
             {city.title?.[locale] || city.title?.en} Heritage Site
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-none text-white">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-white">
             {attraction.name?.[locale] || attraction.name?.en}
           </h1>
         </div>

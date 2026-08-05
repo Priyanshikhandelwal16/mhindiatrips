@@ -125,7 +125,7 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
         <img
           src="/images/luxury_palace_train.png"
           alt="Tour Packages India"
-          className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns"
+          className="absolute inset-0 w-full h-full object-cover object-[center_35%] scale-100 animate-kenburns"
           loading="eager"
         />
         <div className="absolute inset-0 bg-black/45" />
@@ -133,7 +133,7 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
             {text.heroSub}
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-white">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-white">
             {text.heroTitle}
           </h1>
           <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed">

@@ -55,7 +55,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
 
   return (
     <section
-      className="relative h-screen min-h-[700px] max-h-[1100px] overflow-hidden"
+      className="relative h-[85vh] min-h-[550px] max-h-[900px] overflow-hidden"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={handleTouchStart}
@@ -78,7 +78,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
           {/* Content */}
           <div className="relative z-10 h-full flex items-center">
             <div className="max-w-7xl mx-auto px-6 w-full">
-              <div className="max-w-2xl space-y-7 text-white">
+              <div className="max-w-2xl space-y-5 text-white">
                 {/* Location Badge */}
                 <div className="hero-text">
                   <span className="inline-flex items-center gap-2 bg-white/8 backdrop-blur-xl border border-white/15 rounded-full px-5 py-2.5 text-[10px] uppercase tracking-[0.25em] font-semibold text-white/90">
@@ -95,27 +95,27 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
                 )}
 
                 {/* Title */}
-                <h1 className="hero-text text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-serif font-bold tracking-tight leading-[1.05]">
+                <h1 className="hero-text text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-serif font-bold tracking-tight leading-[1.1]">
                   {slide.title}
                 </h1>
 
                 {/* Description */}
-                <p className="hero-text text-base md:text-lg text-white/80 max-w-lg leading-relaxed font-light">
+                <p className="hero-text text-sm md:text-base text-white/80 max-w-lg leading-relaxed font-light">
                   {slide.desc}
                 </p>
 
                 {/* CTAs */}
-                <div className="hero-text flex flex-wrap gap-4 pt-2">
+                <div className="hero-text flex flex-wrap gap-2.5 pt-1">
                   <Link
                     href={`/${locale}/destinations`}
-                    className="group bg-gold hover:bg-gold-light text-white text-[11px] font-semibold uppercase tracking-[0.12em] py-4 px-9 rounded-full transition-all duration-400 shadow-lg shadow-gold/25 hover:shadow-xl hover:shadow-gold/35 hover:-translate-y-0.5 inline-flex items-center gap-2"
+                    className="group bg-gold hover:bg-gold-light text-white text-[8px] font-semibold uppercase tracking-[0.1em] py-2 px-5 rounded-full transition-all duration-400 shadow-md shadow-gold/20 hover:shadow-lg hover:-translate-y-0.5 inline-flex items-center gap-1.5"
                   >
                     <span>{ctaText}</span>
-                    <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight className="w-2.5 h-2.5 group-hover:translate-x-0.5 transition-transform" />
                   </Link>
                   <Link
                     href={`/${locale}#inquire-now`}
-                    className="bg-white/8 hover:bg-white/15 backdrop-blur-xl text-white text-[11px] font-semibold uppercase tracking-[0.12em] py-4 px-9 rounded-full transition-all duration-400 border border-white/20 hover:border-white/40"
+                    className="bg-white/8 hover:bg-white/15 backdrop-blur-xl text-white text-[8px] font-semibold uppercase tracking-[0.1em] py-2 px-5 rounded-full transition-all duration-400 border border-white/20 hover:border-white/40"
                   >
                     {inquireCTA}
                   </Link>
@@ -143,7 +143,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
       </button>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-32 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
         {slides.map((_, i) => (
           <button
             key={i}
@@ -161,7 +161,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
       </div>
 
       {/* Slide Counter */}
-      <div className="absolute bottom-32 right-8 z-20 hidden md:flex items-center gap-3 text-white/50 text-sm font-light">
+      <div className="absolute bottom-20 right-8 z-20 hidden md:flex items-center gap-3 text-white/50 text-sm font-light">
         <span className="text-white font-semibold text-xl font-serif">{String(current + 1).padStart(2, '0')}</span>
         <span className="w-8 h-px bg-white/30" />
         <span className="text-sm">{String(slides.length).padStart(2, '0')}</span>

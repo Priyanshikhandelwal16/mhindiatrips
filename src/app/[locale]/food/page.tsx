@@ -74,7 +74,7 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
                             <MapPin className="w-3.5 h-3.5 text-gold" />
                             <span>{food.region}</span>
                           </div>
-                          <p className="text-xs text-foreground/50 leading-relaxed line-clamp-2 font-light">
+                          <p className="text-sm text-foreground/50 leading-relaxed line-clamp-2 font-light">
                             {food.history?.[locale as "en"|"es"|"pt"] || food.history?.en || ""}
                           </p>
                         </div>

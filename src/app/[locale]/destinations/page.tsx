@@ -23,11 +23,11 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero Banner */}
       <section className="relative h-[55vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <img src="/images/rajasthan_fort_sunset.png" alt="India Destinations" className="absolute inset-0 w-full h-full object-cover animate-kenburns" loading="eager" />
+        <img src="/images/rajasthan_fort_sunset.png" alt="India Destinations" className="absolute inset-0 w-full h-full object-cover object-[center_35%] animate-kenburns" loading="eager" />
         <div className="absolute inset-0 bg-black/45" />
         <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-4xl">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">{text.sub}</span>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-white">{text.title}</h1>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-white">{text.title}</h1>
           <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed">{text.desc}</p>
         </div>
       </section>
@@ -48,7 +48,7 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
                 {regionStates.map((state: any) => (
                   <Link key={state.slug} href={`/${locale}/destinations/${state.slug}`} className="group block h-full">
                     <div className="bg-white border border-gold/10 rounded-[2rem] overflow-hidden shadow-lg flex flex-col h-full transition-all duration-500 hover:-translate-y-3 hover:border-gold/25 hover:shadow-2xl">
-                      <div className="h-60 overflow-hidden relative shrink-0">
+                      <div className="h-72 overflow-hidden relative shrink-0">
                         <img src={state.image} alt={state.title[locale as "en"|"es"|"pt"] || state.title.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         <div className="absolute top-5 left-5 bg-royal text-gold text-[9px] uppercase tracking-wider font-bold px-3 py-1.5 rounded-full shadow-sm">{state.region}</div>
                       </div>

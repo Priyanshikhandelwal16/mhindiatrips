@@ -21,14 +21,14 @@ export default async function CityDetailPage({ params }: CityPageProps) {
       
       {/* SECTION 1: Editorial Header Banner */}
       <section className="relative h-[55vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <img src={city.image} alt={city.title?.[locale] || city.title?.en} className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns" loading="eager" />
+        <img src={city.image} alt={city.title?.[locale] || city.title?.en} className="absolute inset-0 w-full h-full object-cover object-[center_35%] animate-kenburns" loading="eager" />
         <div className="absolute inset-0 bg-black/45" />
         
         <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-4xl">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
             {state.title?.[locale] || state.title?.en} Exploration
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-none text-white">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-white">
             {city.title?.[locale] || city.title?.en}
           </h1>
           <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
@@ -51,7 +51,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
             <h2 className="text-2xl font-serif font-bold text-royal">
               The Charm of {city.title?.[locale] || city.title?.en}
             </h2>
-            <p className="text-xs md:text-sm text-foreground/60 leading-relaxed font-light">
+            <p className="text-sm text-foreground/60 leading-relaxed font-light">
               {city.overview?.[locale] || city.overview?.en}
             </p>
           </div>
@@ -117,14 +117,14 @@ export default async function CityDetailPage({ params }: CityPageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {city.attractions.map((att: any, idx: number) => (
               <Link key={att.slug || idx} href={`/${locale}/destinations/${stateSlug}/${citySlug}/${att.slug}`} className="group block">
-                <div className="bg-white border border-gold/10 rounded-2xl overflow-hidden flex flex-col md:flex-row h-64 shadow-md transition-transform duration-500 hover:-translate-y-1 hover:border-gold/25">
-                  <div className="md:w-5/12 h-44 md:h-full shrink-0 overflow-hidden relative">
+                <div className="bg-white border border-gold/10 rounded-2xl overflow-hidden flex flex-col md:flex-row h-72 shadow-md transition-transform duration-500 hover:-translate-y-1 hover:border-gold/25">
+                  <div className="md:w-5/12 h-48 md:h-full shrink-0 overflow-hidden relative">
                     <img src={att.image} alt={att.name?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-105" />
                   </div>
                   <div className="md:w-7/12 p-6 flex flex-col justify-between bg-white">
                     <div className="space-y-2">
                       <h3 className="text-base font-serif font-bold text-royal group-hover:text-gold transition-colors leading-snug">{att.name?.[locale] || att.name?.en}</h3>
-                      <p className="text-xs text-foreground/55 line-clamp-3 leading-relaxed font-light">{att.desc?.[locale] || att.desc?.en}</p>
+                      <p className="text-sm text-foreground/55 line-clamp-3 leading-relaxed font-light">{att.desc?.[locale] || att.desc?.en}</p>
                     </div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-gold flex items-center gap-1.5 mt-2 group-hover:text-royal transition-colors">
                       <span>View Monument details</span><Landmark className="w-3.5 h-3.5" />

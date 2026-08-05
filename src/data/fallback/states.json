@@ -12,7 +12,7 @@
       "pt": "Fortes Imperiais, PalÃ¡cios HistÃ³ricos e Dunas de Areia"
     },
     "region": "West",
-    "image": "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1200",
+    "image": "/images/rajasthan_fort_sunset.png",
     "gallery": [
       "https://images.unsplash.com/photo-1602643072447-63ec27153372?q=80&w=800",
       "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=800"
@@ -81,7 +81,7 @@
           "es": "La Ciudad Rosa Real",
           "pt": "A Cidade Rosa Real"
         },
-        "image": "https://images.unsplash.com/photo-1477584308802-e9c37c0f1676?q=80&w=800",
+        "image": "/images/Jaipur.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1477584308802-e9c37c0f1676?q=80&w=800",
           "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800"
@@ -251,7 +251,7 @@
           "es": "City of Lakes & Romance",
           "pt": "City of Lakes & Romance"
         },
-        "image": "https://images.unsplash.com/photo-1602643072447-63ec27153372?q=80&w=800",
+        "image": "/images/Udaipur.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1602643072447-63ec27153372?q=80&w=800"
         ],
@@ -331,7 +331,7 @@
           "es": "The Blue City",
           "pt": "The Blue City"
         },
-        "image": "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=800",
+        "image": "/images/jodhpur.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=800"
         ],
@@ -411,7 +411,7 @@
           "es": "The Golden City of the Thar",
           "pt": "The Golden City of the Thar"
         },
-        "image": "https://images.unsplash.com/photo-1600100398055-144721489410?q=80&w=800",
+        "image": "/images/jaisalmer.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1600100398055-144721489410?q=80&w=800"
         ],
@@ -491,7 +491,7 @@
           "es": "Sacred Lake & Camel Fair",
           "pt": "Sacred Lake & Camel Fair"
         },
-        "image": "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=800",
+        "image": "/images/Pushkar.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=800"
         ],
@@ -571,7 +571,7 @@
           "es": "Tiger Territory & Ancient Ruins",
           "pt": "Tiger Territory & Ancient Ruins"
         },
-        "image": "https://images.unsplash.com/photo-1581791538302-03537b9c97bf?q=80&w=800",
+        "image": "/images/ranthambore new.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1581791538302-03537b9c97bf?q=80&w=800"
         ],
@@ -651,7 +651,7 @@
           "es": "Rajasthan's Hill Station",
           "pt": "Rajasthan's Hill Station"
         },
-        "image": "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?q=80&w=800",
+        "image": "/images/mount abu.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?q=80&w=800"
         ],
@@ -731,7 +731,7 @@
           "es": "Camel Country & Desert Forts",
           "pt": "Camel Country & Desert Forts"
         },
-        "image": "https://images.unsplash.com/photo-1616788494677-7d52a225faeb?q=80&w=800",
+        "image": "/images/bikaner.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1616788494677-7d52a225faeb?q=80&w=800"
         ],
@@ -814,7 +814,7 @@
       "pt": "As Maravilhas da Capital e o Taj Mahal"
     },
     "region": "North",
-    "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200",
+    "image": "/images/taj_mahal_sunrise.png",
     "gallery": [
       "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=800"
     ],
@@ -1205,7 +1205,7 @@
       "pt": "Canais Tropicais, Ayurveda e PlantaÃ§Ãµes de Especiarias"
     },
     "region": "South",
-    "image": "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=1200",
+    "image": "/images/kerala_backwaters_houseboat.png",
     "gallery": [],
     "description": {
       "en": "Known as 'God's Own Country', Kerala is a serene tropical paradise. It offers palm-fringed coastlines, pristine tea-covered mist highlands, and a vast system of interconnected canals known as the backwaters.",
@@ -1247,7 +1247,7 @@
           "es": "Queen of the Arabian Sea",
           "pt": "Queen of the Arabian Sea"
         },
-        "image": "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=800",
+        "image": "/images/kochi.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=800"
         ],
@@ -1327,7 +1327,7 @@
           "es": "Tea Gardens in the Clouds",
           "pt": "Tea Gardens in the Clouds"
         },
-        "image": "https://images.unsplash.com/photo-1593693411515-c202e974fe08?q=80&w=800",
+        "image": "/images/munnar.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1593693411515-c202e974fe08?q=80&w=800"
         ],
@@ -1407,7 +1407,7 @@
           "es": "Venice of the East",
           "pt": "Venice of the East"
         },
-        "image": "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=800",
+        "image": "/images/alleppye.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=800"
         ],
@@ -1487,7 +1487,7 @@
           "es": "Spice Plantations & Wildlife",
           "pt": "Spice Plantations & Wildlife"
         },
-        "image": "https://images.unsplash.com/photo-1593693411515-c202e974fe08?q=80&w=800",
+        "image": "/images/thekaddy.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1593693411515-c202e974fe08?q=80&w=800"
         ],
@@ -1567,7 +1567,7 @@
           "es": "Cliffside Beach Paradise",
           "pt": "Cliffside Beach Paradise"
         },
-        "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=800",
+        "image": "/images/varkala.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=800"
         ],
@@ -1647,7 +1647,7 @@
           "es": "Crescent Beach Haven",
           "pt": "Crescent Beach Haven"
         },
-        "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=800",
+        "image": "/images/kovalam.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=800"
         ],
@@ -1727,7 +1727,7 @@
           "es": "Jungle Retreat of Kerala",
           "pt": "Jungle Retreat of Kerala"
         },
-        "image": "https://images.unsplash.com/photo-1593693411515-c202e974fe08?q=80&w=800",
+        "image": "/images/wayanad.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1593693411515-c202e974fe08?q=80&w=800"
         ],
@@ -1810,7 +1810,7 @@
       "pt": "Praias Douradas Pristinas e PatrimÃ´nio PortuguÃªs"
     },
     "region": "West",
-    "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&q=80&w=1200",
+    "image": "/images/goa.jpg",
     "gallery": [],
     "description": {
       "en": "Goa is India's pocket-sized paradise, renowned for its golden beaches, active nightlife, local fish curries, and rich colonial Portuguese churches.",
@@ -1852,7 +1852,7 @@
           "es": "Beaches, Nightlife & Forts",
           "pt": "Beaches, Nightlife & Forts"
         },
-        "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=800",
+        "image": "/images/north goa.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=800"
         ],
@@ -1932,7 +1932,7 @@
           "es": "Serene Beaches & Heritage",
           "pt": "Serene Beaches & Heritage"
         },
-        "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=800",
+        "image": "/images/south goa.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=800"
         ],
@@ -2012,7 +2012,7 @@
           "es": "Portuguese Heritage & Churches",
           "pt": "Portuguese Heritage & Churches"
         },
-        "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=800",
+        "image": "/images/old goa.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=800"
         ],
@@ -2137,7 +2137,7 @@
           "es": "The Eternal Spiritual Capital",
           "pt": "The Eternal Spiritual Capital"
         },
-        "image": "https://images.unsplash.com/photo-1561361513-2d000a50f0db?q=80&w=800",
+        "image": "/images/varansi city.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1561361513-2d000a50f0db?q=80&w=800"
         ],
@@ -2217,7 +2217,7 @@
           "es": "Where Buddha Preached First",
           "pt": "Where Buddha Preached First"
         },
-        "image": "https://images.unsplash.com/photo-1561361513-2d000a50f0db?q=80&w=800",
+        "image": "/images/sarnath.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1561361513-2d000a50f0db?q=80&w=800"
         ],
@@ -2300,7 +2300,7 @@
       "pt": "Cidade dos Sonhos, Bollywood e PatrimÃ´nio Colonial"
     },
     "region": "West",
-    "image": "https://images.unsplash.com/photo-1566552881560-0be862a7c445?auto=format&fit=crop&q=80&w=1200",
+    "image": "/images/maharashtra.jpg",
     "gallery": [],
     "description": {
       "en": "Mumbai is India's financial capital, the hub of Bollywood, and a vibrant port city showcasing stunning colonial Gothic and Art Deco architecture.",
@@ -2745,7 +2745,7 @@
       "pt": "Terra de Templos DrÃ¡vidas e Arte ClÃ¡ssica"
     },
     "region": "South",
-    "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=1200",
+    "image": "/images/karanataka.jpg",
     "gallery": [],
     "description": {
       "en": "Tamil Nadu is home to stunning Dravidian architecture, towering temple gopurams, and classical Bharatanatyam dance.",
@@ -3270,7 +3270,7 @@
       "pt": "Ãguas Turquesas Pristinas e Recifes Tropicais"
     },
     "region": "Islands",
-    "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&q=80&w=1200",
+    "image": "/images/andaman islands.jpg",
     "gallery": [],
     "description": {
       "en": "An isolated archipelago in the Bay of Bengal, famous for pristine white sand beaches, clear coral reefs, and prime scuba diving.",
@@ -3555,7 +3555,7 @@
       "pt": "ParaÃ­so na Terra"
     },
     "region": "North",
-    "image": "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?q=80&w=1200",
+    "image": "/images/himachal pradesh.jpg",
     "gallery": [],
     "description": {
       "en": "Kashmir is famed as 'Paradise on Earth' with its snow-capped Himalayas, serene Dal Lake, and lush Mughal gardens, while Ladakh offers dramatic high-altitude desert landscapes.",
@@ -3920,7 +3920,7 @@
       "pt": "EstaÃ§Ãµes de Montanha do Himalaia"
     },
     "region": "North",
-    "image": "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?q=80&w=1200",
+    "image": "/images/himachal pradesh.jpg",
     "gallery": [],
     "description": {
       "en": "A breathtaking Himalayan state of pine forests, colonial hill stations like Shimla and Manali, and the spiritual valley of Dharamshala.",
@@ -4365,7 +4365,7 @@
       "pt": "Terra dos Deuses"
     },
     "region": "North",
-    "image": "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1200",
+    "image": "/images/uttarakhand.jpg",
     "gallery": [],
     "description": {
       "en": "Known as 'Devbhoomi' (Land of Gods), this Himalayan state is home to the sacred towns of Rishikesh, Haridwar, and the Char Dham pilgrimage circuit.",
@@ -4810,7 +4810,7 @@
       "pt": "Terra do Templo Dourado"
     },
     "region": "North",
-    "image": "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?q=80&w=1200",
+    "image": "/images/uttar pradesh.jpg",
     "gallery": [],
     "description": {
       "en": "The vibrant heart of North India, home to the sacred Golden Temple in Amritsar and a rich, hearty culinary culture.",
@@ -5015,7 +5015,7 @@
       "pt": "Deserto Branco, LeÃµes e Cultura"
     },
     "region": "West",
-    "image": "https://images.unsplash.com/photo-1600100398055-144721489410?q=80&w=1200",
+    "image": "/images/gujarat.jpg",
     "gallery": [],
     "description": {
       "en": "A land of contrast â€” the surreal white salt desert of the Rann of Kutch, Asiatic lions in Gir, and the vibrant city of Dwarka.",
@@ -5460,7 +5460,7 @@
       "pt": "CoraÃ§Ã£o da Ãndia e Vida Selvagem"
     },
     "region": "Central",
-    "image": "https://images.unsplash.com/photo-1581791538302-03537b9c97bf?q=80&w=1200",
+    "image": "/images/madhya pradesh.jpg",
     "gallery": [],
     "description": {
       "en": "The 'Heart of India', home to the erotic temples of Khajuraho, the historic city of Orchha, and famous tiger reserves like Kanha and Bandhavgarh.",
@@ -5825,7 +5825,7 @@
       "pt": "RuÃ­nas de ImpÃ©rios e Cidades Tech"
     },
     "region": "South",
-    "image": "https://images.unsplash.com/photo-1600100398055-144721489410?q=80&w=1200",
+    "image": "/images/karanataka.jpg",
     "gallery": [],
     "description": {
       "en": "A blend of ancient Vijayanagara ruins at Hampi, the royal palaces of Mysore, lush Coorg coffee estates, and the IT hub of Bengaluru.",
@@ -6027,7 +6027,7 @@
           "es": "Ruins of a Lost Empire",
           "pt": "Ruins of a Lost Empire"
         },
-        "image": "https://images.unsplash.com/photo-1600100398055-144721489410?q=80&w=800",
+        "image": "/images/hampi-ruins.jpg",
         "gallery": [
           "https://images.unsplash.com/photo-1600100398055-144721489410?q=80&w=800"
         ],
@@ -6270,7 +6270,7 @@
       "pt": "Capital Cultural e Rota do ChÃ¡"
     },
     "region": "East",
-    "image": "https://images.unsplash.com/photo-1593693411515-c202e974fe08?q=80&w=1200",
+    "image": "/images/west bengal.jpg",
     "gallery": [],
     "description": {
       "en": "A culturally rich state centered on Kolkata, with the majestic Himalayan tea gardens of Darjeeling and the Sundarbans mangrove forest.",
@@ -6555,7 +6555,7 @@
       "pt": "Templo do Sol e Arte Tribal"
     },
     "region": "East",
-    "image": "https://images.unsplash.com/photo-1593693411515-c202e974fe08?q=80&w=1200",
+    "image": "/images/odisha.jpg",
     "gallery": [],
     "description": {
       "en": "A coastal state famed for the Sun Temple of Konark, the Jagannath Temple of Puri, and vibrant tribal heritage.",
@@ -6840,7 +6840,7 @@
       "pt": "Jardins de ChÃ¡ e Vida Selvagem"
     },
     "region": "East",
-    "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1200",
+    "image": "/images/assam.jpg",
     "gallery": [],
     "description": {
       "en": "The gateway to India's North-East, famous for vast tea plantations, the one-horned rhino of Kaziranga, and the mighty Brahmaputra river.",
@@ -7125,7 +7125,7 @@
       "pt": "Reino de Montanha e Mosteiros"
     },
     "region": "East",
-    "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1200",
+    "image": "/images/meghalaya.jpg",
     "gallery": [],
     "description": {
       "en": "A pristine Himalayan kingdom of snow peaks, alpine lakes, and serene Buddhist monasteries, including the stunning view of Kanchenjunga.",
@@ -7410,7 +7410,7 @@
       "pt": "Morada das Nuvens e Pontes de RaÃ­zes"
     },
     "region": "East",
-    "image": "https://images.unsplash.com/photo-1593693411515-c202e974fe08?q=80&w=1200",
+    "image": "/images/meghalaya.jpg",
     "gallery": [],
     "description": {
       "en": "The wettest place on Earth, with lush living root bridges in Cherrapunji, the crystal-clear Dawki river, and the capital Shillong.",
@@ -7695,7 +7695,7 @@
       "pt": "Cidades Sagradas e PatrimÃ´nio Mogol"
     },
     "region": "North",
-    "image": "https://images.unsplash.com/photo-1561361513-2d000a50f0db?q=80&w=1200",
+    "image": "/images/uttar pradesh.jpg",
     "gallery": [],
     "description": {
       "en": "A land of sacred pilgrimage â€” including Varanasi, Ayodhya, Mathura and Vrindavan â€” plus the rich Mughal heritage of Lucknow.",
@@ -7980,7 +7980,7 @@
       "pt": "Cavernas, Fortes e Bollywood"
     },
     "region": "West",
-    "image": "https://images.unsplash.com/photo-1566552881560-0be862a7c445?q=80&w=1200",
+    "image": "/images/maharashtra.jpg",
     "gallery": [],
     "description": {
       "en": "A vast state spanning the financial capital Mumbai, the historic Ajanta-Ellora caves, and the hill stations of Lonavala and Mahabaleshwar.",
@@ -8185,7 +8185,7 @@
       "pt": "Cidade das PÃ©rolas e Cultura Nizam"
     },
     "region": "South",
-    "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=1200",
+    "image": "/images/telangana.jpg",
     "gallery": [],
     "description": {
       "en": "Home to Hyderabad, the 'City of Pearls', with its iconic Charminar, Golconda Fort, and the rich legacy of the Nizams.",
@@ -8390,7 +8390,7 @@
       "pt": "DelÃ­cias Costeiras e Templos Sagrados"
     },
     "region": "South",
-    "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=1200",
+    "image": "/images/andhra pradesh.jpg",
     "gallery": [],
     "description": {
       "en": "A coastal state famous for the sacred Tirupati temple, the pristine beaches of Visakhapatnam, and the Araku Valley.",
@@ -8595,7 +8595,7 @@
       "pt": "Terra de Buda e Aprendizado Antigo"
     },
     "region": "East",
-    "image": "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?q=80&w=1200",
+    "image": "/images/bihar.jpg",
     "gallery": [],
     "description": {
       "en": "The sacred land of Bodh Gaya where Buddha attained enlightenment, and the ancient center of the Nalanda university.",
