@@ -22,9 +22,9 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero Banner */}
-      <div className="relative h-[45vh] min-h-[320px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[55vh] min-h-[380px] flex items-center justify-center overflow-hidden">
         <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1920" alt="India Destinations" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-[#FAF8F5]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
         <div className="relative z-10 text-center text-white space-y-4 px-6 mt-16">
           <span className="editorial-subheading block text-gold">{text.sub}</span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold">{text.title}</h1>

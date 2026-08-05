@@ -153,14 +153,14 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
 
       {/* === SECTION 1: Hero Banner === */}
-      <section className="relative h-[55vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[60vh] min-h-[420px] flex items-center justify-center overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1920"
           alt="Tour Packages India"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-[#FAF8F5]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
         <div className="relative z-10 text-center text-white space-y-5 px-6 mt-16">
           <span className="editorial-subheading block text-gold">{text.heroSub}</span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold">{text.heroTitle}</h1>

@@ -19,7 +19,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
       {/* Hero */}
       <div className="relative h-[50vh] min-h-[350px] flex items-center justify-center overflow-hidden">
         <img src={blog.featuredImage} alt={blog.title?.[locale as "en"|"es"|"pt"] || blog.title?.en} className="absolute inset-0 w-full h-full object-cover" loading="eager" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-[#FAF8F5]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
         <div className="relative z-10 text-center max-w-4xl px-6 space-y-4 text-white mt-16">
           <span className="badge-gold">{blog.category}</span>
           <h1 className="text-3xl md:text-5xl font-serif font-bold leading-tight mt-3">
