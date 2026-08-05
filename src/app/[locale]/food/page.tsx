@@ -22,86 +22,80 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
 
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
-      {/* Hero */}
-      <div className="relative h-[60vh] min-h-[420px] flex items-center justify-center overflow-hidden">
-        <img src="/images/indian_cuisine_feast.png" alt="Indian Food" className="absolute inset-0 w-full h-full object-cover animate-kenburns" loading="eager" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/75" />
-        <div className="relative z-10 text-center text-white space-y-5 px-6 mt-16">
-          <span className="editorial-subheading block text-gold">{text.sub}</span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">{text.title}</h1>
-          <p className="text-white/75 max-w-xl mx-auto text-[15px] leading-relaxed">{text.desc}</p>
+      
+      {/* SECTION 1: Banner Header */}
+      <section className="relative h-[60vh] min-h-[420px] flex items-center justify-center overflow-hidden">
+        <img src="/images/indian_cuisine_feast.png" alt="Indian Food" className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns" loading="eager" />
+        <div className="absolute inset-0 bg-gradient-to-b from-royal/65 via-royal/35 to-royal/80" />
+        <div className="relative z-10 text-center text-white space-y-4 px-6 mt-16 max-w-3xl">
+          <span className="bg-gold/90 text-royal text-[9px] uppercase tracking-[0.25em] font-extrabold px-4 py-1.5 rounded-full inline-block">
+            {text.sub}
+          </span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-black tracking-tight leading-none text-white">{text.title}</h1>
+          <p className="text-white/85 max-w-xl mx-auto text-xs md:text-sm leading-relaxed font-light">{text.desc}</p>
         </div>
-      </div>
+      </section>
 
-      {/* Food by Category */}
-      <div className="max-w-7xl mx-auto px-6 py-16 space-y-20">
-        {categories.length > 0 ? categories.map((cat) => {
+      {/* SECTION 2: Categories lists */}
+      <section className="max-w-7xl mx-auto px-6 py-28 space-y-24">
+        {categories.map((cat) => {
           const catFoods = foods.filter((f: any) => f.category === cat);
           if (catFoods.length === 0) return null;
           return (
-            <div key={cat} className="space-y-8">
-              <div className="flex items-center justify-center gap-3 border-b border-sand pb-4">
+            <div key={cat} className="space-y-12">
+              
+              <div className="flex items-center gap-3 border-b border-gold/15 pb-4">
                 <Sparkles className="w-5 h-5 text-gold" />
-                <h2 className="text-lg font-semibold tracking-wider uppercase text-gold">{cat}</h2>
-                <span className="text-xs text-foreground/40 ml-auto">{catFoods.length} {locale === "es" ? "platos" : locale === "pt" ? "pratos" : "dishes"}</span>
+                <h2 className="text-sm font-serif font-bold uppercase tracking-wider text-royal">{cat}</h2>
+                <span className="text-[10px] text-foreground/40 ml-auto font-bold uppercase tracking-wider">{catFoods.length} Items</span>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {catFoods.map((food: FoodData) => (
                   <Link key={food.slug} href={`/${locale}/food/${food.slug}`} className="group block">
-                    <div className="luxury-card hover-lift overflow-hidden h-[420px] flex flex-col border border-gold/10 bg-white">
+                    <div className="bg-white border border-gold/10 rounded-2xl overflow-hidden shadow-sm flex flex-col h-[420px] transition-transform duration-500 hover:-translate-y-2 hover:border-gold/25">
+                      
                       <div className="h-52 overflow-hidden relative shrink-0">
-                        <img src={food.image} alt={food.title[locale as "en"|"es"|"pt"] || food.title.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                        <img src={food.image} alt={food.title[locale as "en"|"es"|"pt"] || food.title.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         <div className="absolute top-4 left-4">
-                          <span className="bg-white/95 backdrop-blur-sm text-charcoal text-[9px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full flex items-center gap-1 shadow-sm">
-                            <Utensils className="w-3 h-3 text-gold" />
+                          <span className="bg-white/95 backdrop-blur-sm text-royal text-[9px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full flex items-center gap-1 shadow-sm">
+                            <Utensils className="w-3.5 h-3.5 text-gold" />
                             {food.category}
                           </span>
                         </div>
                       </div>
+
                       <div className="p-7 flex flex-col flex-grow justify-between bg-white">
                         <div className="space-y-3">
-                          <h3 className="text-lg font-serif font-bold text-royal group-hover:text-gold transition-colors leading-snug">
+                          <h3 className="text-base font-serif font-bold text-royal group-hover:text-gold transition-colors leading-snug">
                             {food.title[locale as "en"|"es"|"pt"] || food.title.en}
                           </h3>
-                          <div className="flex items-center gap-1.5 text-[10px] text-gold font-bold uppercase tracking-wider">
-                            <MapPin className="w-3 h-3 text-gold" />
+                          <div className="flex items-center gap-1.5 text-[9px] text-gold font-bold uppercase tracking-wider">
+                            <MapPin className="w-3.5 h-3.5 text-gold" />
                             <span>{food.region}</span>
                           </div>
-                          <p className="text-xs text-foreground/55 leading-relaxed line-clamp-2 font-light">
+                          <p className="text-xs text-foreground/50 leading-relaxed line-clamp-2 font-light">
                             {food.history?.[locale as "en"|"es"|"pt"] || food.history?.en || ""}
                           </p>
                         </div>
-                        <div className="pt-4 mt-4 border-t border-sand/50 flex items-center justify-between">
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-forest group-hover:text-gold flex items-center gap-1.5 transition-colors">
+                        <div className="pt-4 mt-4 border-t border-gold/10 flex items-center justify-between">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-forest group-hover:text-royal flex items-center gap-1 transition-colors">
                             <span>{text.cta}</span>
                             <ArrowRight className="w-3.5 h-3.5" />
                           </span>
                         </div>
                       </div>
+
                     </div>
                   </Link>
                 ))}
               </div>
+
             </div>
           );
-        }) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-            {foods.map((food: FoodData) => (
-              <Link key={food.slug} href={`/${locale}/food/${food.slug}`} className="group block">
-                <div className="card-elevated overflow-hidden h-full">
-                  <div className="h-48 overflow-hidden">
-                    <img src={food.image} alt={food.title.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  </div>
-                  <div className="p-6 space-y-2">
-                    <h3 className="text-lg font-serif font-bold text-royal">{food.title[locale as "en"|"es"|"pt"] || food.title.en}</h3>
-                    <p className="text-xs text-foreground/60 line-clamp-2">{food.history?.[locale as "en"|"es"|"pt"] || food.history?.en || ""}</p>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        )}
-      </div>
+        })}
+      </section>
+
     </div>
   );
 }

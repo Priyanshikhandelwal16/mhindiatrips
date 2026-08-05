@@ -1,7 +1,7 @@
 import React from "react";
 import Reveal from "@/components/home/Reveal";
 import InquiryForm from "@/components/common/InquiryForm";
-import { Phone, Mail, MapPin, Clock, MessageSquare } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageSquare, Compass } from "lucide-react";
 
 interface ContactPageProps {
   params: Promise<{ locale: string }>;
@@ -51,86 +51,92 @@ export default async function ContactPage({ params }: ContactPageProps) {
   return (
     <div className="font-sans bg-[#FAF8F5] min-h-screen text-[#1B1B1B]">
       
-      {/* Hero */}
+      {/* SECTION 1: Banner Header */}
       <section className="relative h-[55vh] min-h-[380px] flex items-center justify-center overflow-hidden">
         <img src="/images/luxury_palace_train.png" alt="Contact Concierge" className="absolute inset-0 w-full h-full object-cover animate-kenburns" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-royal/65 via-royal/35 to-royal/80" />
         <div className="relative z-10 text-center text-white px-6 max-w-3xl mt-16 space-y-4">
-          <span className="editorial-subheading block text-gold tracking-[0.25em] text-[10px] font-bold">{text.heroSub}</span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold tracking-tight">{text.hero}</h1>
-          <p className="text-sm md:text-base text-white/80 max-w-xl mx-auto leading-relaxed font-light">{text.heroDesc}</p>
+          <span className="bg-gold/90 text-royal text-[9px] uppercase tracking-[0.25em] font-extrabold px-4 py-1.5 rounded-full inline-block">
+            {text.heroSub}
+          </span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-black tracking-tight leading-none text-white">{text.hero}</h1>
+          <p className="text-xs md:text-sm text-white/80 max-w-xl mx-auto leading-relaxed font-light">{text.heroDesc}</p>
         </div>
       </section>
 
-      {/* Contact Info + Form */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
+      {/* SECTION 2: Split columns */}
+      <section className="max-w-7xl mx-auto px-6 py-24">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
           
-          {/* Contact Info Card */}
-          <Reveal className="space-y-8 lg:sticky lg:top-24">
+          {/* Postcard Details box */}
+          <Reveal className="bg-white border border-gold/25 p-8 rounded-3xl space-y-8 shadow-xl shadow-royal/5 relative overflow-hidden lg:sticky lg:top-24">
+            <div className="absolute top-0 left-0 w-full h-[4px] bg-gold" />
             <div className="space-y-2">
-              <span className="text-[10px] uppercase tracking-wider font-bold text-gold">Direct Channels</span>
-              <h2 className="text-3xl font-serif font-bold text-royal">{text.infoTitle}</h2>
-              <div className="gold-divider w-16 mt-2" />
+              <span className="text-[9px] uppercase tracking-wider font-bold text-gold flex items-center gap-1.5">
+                <Compass className="w-3.5 h-3.5" />
+                <span>DIRECT CHANNELS</span>
+              </span>
+              <h2 className="text-2xl font-serif font-bold text-royal">{text.infoTitle}</h2>
+              <div className="h-px w-16 bg-gold/25 mt-2" />
             </div>
             
-            <div className="space-y-6">
+            <div className="space-y-6 text-xs">
               <a href={`tel:${text.phone}`} className="flex items-start gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center shrink-0 group-hover:bg-gold/20 transition-all group-hover:scale-105 shadow-sm">
-                  <Phone className="w-5 h-5 text-gold" />
+                <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0 group-hover:bg-gold/20 transition-all shadow-sm">
+                  <Phone className="w-4 h-4 text-gold" />
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-wider font-bold text-foreground/45">Concierge Phone</p>
+                  <p className="text-[10px] uppercase tracking-wider font-bold text-foreground/45">Phone Desk</p>
                   <p className="text-sm font-semibold text-royal group-hover:text-gold transition-colors mt-0.5">{text.phone}</p>
                 </div>
               </a>
               
               <a href={`mailto:${text.email}`} className="flex items-start gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center shrink-0 group-hover:bg-gold/20 transition-all group-hover:scale-105 shadow-sm">
-                  <Mail className="w-5 h-5 text-gold" />
+                <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0 group-hover:bg-gold/20 transition-all shadow-sm">
+                  <Mail className="w-4 h-4 text-gold" />
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-wider font-bold text-foreground/45">Concierge Email</p>
+                  <p className="text-[10px] uppercase tracking-wider font-bold text-foreground/45">Mail Desk</p>
                   <p className="text-sm font-semibold text-royal group-hover:text-gold transition-colors mt-0.5">{text.email}</p>
                 </div>
               </a>
               
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center shrink-0 shadow-sm">
-                  <MapPin className="w-5 h-5 text-gold" />
+                <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0 shadow-sm">
+                  <MapPin className="w-4 h-4 text-gold" />
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-wider font-bold text-foreground/45">Corporate Office</p>
+                  <p className="text-[10px] uppercase tracking-wider font-bold text-foreground/45">Headquarters</p>
                   <p className="text-sm font-semibold text-royal mt-0.5">{text.address}</p>
                 </div>
               </div>
               
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center shrink-0 shadow-sm">
-                  <Clock className="w-5 h-5 text-gold" />
+                <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0 shadow-sm">
+                  <Clock className="w-4 h-4 text-gold" />
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-wider font-bold text-foreground/45">Support Hours</p>
+                  <p className="text-[10px] uppercase tracking-wider font-bold text-foreground/45">Desk Hours</p>
                   <p className="text-sm font-semibold text-royal mt-0.5">{text.hours}</p>
                 </div>
               </div>
             </div>
 
-            {/* Premium WhatsApp Concierge Link */}
-            <div className="pt-6 border-t border-sand/65">
+            {/* Instant Support */}
+            <div className="pt-6 border-t border-gold/15">
               <a 
                 href="https://wa.me/919876543210" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold uppercase tracking-wider py-4 px-6 rounded-full transition-all shadow-md shadow-emerald-500/10 hover:shadow-lg hover:-translate-y-0.5"
+                className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white text-[10px] font-bold uppercase tracking-widest py-4 px-6 rounded-full transition-transform hover:scale-[1.02] shadow-md"
               >
-                <MessageSquare className="w-4 h-4" />
+                <MessageSquare className="w-4 h-4 text-white" />
                 <span>{text.whatsappBtn}</span>
               </a>
             </div>
           </Reveal>
 
-          {/* Inquiry Form Column */}
+          {/* Form */}
           <div className="lg:col-span-2">
             <Reveal delay={100}>
               <InquiryForm locale={locale} />
@@ -138,6 +144,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
           </div>
         </div>
       </section>
+
     </div>
   );
 }

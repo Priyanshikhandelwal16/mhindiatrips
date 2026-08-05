@@ -27,57 +27,57 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
 
   const translations: Record<string, any> = {
     en: {
-      title: "Plan Your Private Journey",
-      subtitle: "Tell us your travel dreams. Our experts will craft a personalized itinerary within 24 hours.",
+      title: "Plan Your Bespoke Journey",
+      subtitle: "Share your travel aspirations. Our private travel designers will draft a custom itinerary within 24 hours.",
       name: "Full Name",
       email: "Email Address",
       phone: "Phone Number",
-      country: "Country",
-      startDate: "Travel Date / Month",
+      country: "Country of Residence",
+      startDate: "Proposed Date / Month",
       duration: "Duration (Days)",
-      travelers: "Travelers",
-      experience: "Travel Style",
+      travelers: "Guests Count",
+      experience: "Travel Philosophy",
       message: "Tell us about your interests & special requests...",
-      submit: "Send My Travel Request",
-      submitting: "Sending...",
-      successTitle: "Thank You!",
-      successText: "Your travel inquiry has been received. Our specialists will contact you within 24 hours with a draft itinerary.",
+      submit: "Send Travel Request",
+      submitting: "Transmitting...",
+      successTitle: "Thank You",
+      successText: "Your private inquiry has been received. Our specialists will contact you with a draft itinerary shortly.",
       errorText: "Something went wrong. Please try again."
     },
     es: {
       title: "Planifique Su Viaje Privado",
-      subtitle: "Cuéntenos sus sueños de viaje. Nuestros expertos diseñarán un itinerario personalizado en 24 horas.",
+      subtitle: "Comparta sus deseos de viaje. Nuestros diseñadores de viajes privados prepararán un itinerario a medida en 24 horas.",
       name: "Nombre Completo",
       email: "Correo Electrónico",
       phone: "Teléfono",
-      country: "País",
-      startDate: "Fecha de Viaje",
+      country: "País de Residencia",
+      startDate: "Fecha Propuesta",
       duration: "Duración (Días)",
-      travelers: "Viajeros",
-      experience: "Estilo de Viaje",
+      travelers: "Número de Huéspedes",
+      experience: "Filosofía de Viaje",
       message: "Cuéntenos sobre sus intereses y peticiones especiales...",
       submit: "Enviar Solicitud",
-      submitting: "Enviando...",
+      submitting: "Transmitiendo...",
       successTitle: "¡Muchas Gracias!",
-      successText: "Hemos recibido su consulta. Nuestros especialistas se pondrán en contacto en 24 horas.",
+      successText: "Hemos recibido su consulta. Nuestros especialistas se pondrán en contacto con un borrador de itinerario.",
       errorText: "Algo salió mal. Inténtelo de nuevo."
     },
     pt: {
       title: "Planeje Sua Viagem Privada",
-      subtitle: "Conte-nos seus sonhos de viagem. Nossos especialistas criarão um itinerário personalizado em 24 horas.",
+      subtitle: "Compartilhe seus desejos de viagem. Nossos designers de viagens privadas prepararão um itinerário sob medida em 24 horas.",
       name: "Nome Completo",
       email: "E-mail",
       phone: "Telefone",
-      country: "País",
-      startDate: "Data de Viagem",
+      country: "País de Residência",
+      startDate: "Data Proposta",
       duration: "Duração (Dias)",
-      travelers: "Viajantes",
-      experience: "Estilo de Viagem",
+      travelers: "Número de Hóspedes",
+      experience: "Filosofia de Viagem",
       message: "Conte-nos sobre seus interesses e pedidos especiais...",
       submit: "Enviar Solicitação",
-      submitting: "Enviando...",
+      submitting: "Transmitindo...",
       successTitle: "Muito Obrigado!",
-      successText: "Recebemos sua consulta. Nossos especialistas entrarão em contato em 24 horas.",
+      successText: "Recebemos sua consulta. Nossos especialistas entrarão em contato com um esboço de itinerário em breve.",
       errorText: "Algo deu errado. Tente novamente."
     }
   };
@@ -105,32 +105,36 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
 
   if (success) {
     return (
-      <div className="glass-panel rounded-3xl p-10 md:p-14 text-center space-y-6 max-w-xl mx-auto animate-scale-up">
-        <div className="w-16 h-16 bg-forest/10 rounded-full flex items-center justify-center mx-auto">
-          <CheckCircle2 className="w-8 h-8 text-forest" />
+      <div className="bg-white border border-gold/25 p-12 text-center space-y-6 max-w-xl mx-auto rounded-3xl shadow-xl shadow-royal/5 animate-scale-up">
+        <div className="w-16 h-16 bg-gold/15 rounded-full flex items-center justify-center mx-auto">
+          <CheckCircle2 className="w-8 h-8 text-gold" />
         </div>
-        <h3 className="text-2xl font-serif font-bold text-royal">{text.successTitle}</h3>
-        <p className="text-sm text-foreground/65 leading-relaxed">{text.successText}</p>
+        <h3 className="text-3xl font-serif font-bold text-royal">{text.successTitle}</h3>
+        <p className="text-sm text-foreground/60 leading-relaxed font-light">{text.successText}</p>
       </div>
     );
   }
 
   return (
-    <div className="glass-panel border border-gold/15 rounded-3xl p-8 md:p-12 max-w-2xl mx-auto shadow-xl shadow-royal/5 relative overflow-hidden" id="inquire-now">
-      <div className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-gold via-gold-light to-gold opacity-80" />
-      <div className="space-y-3 mb-8 text-center relative z-10">
-        <div className="flex items-center justify-center gap-2 mb-1.5">
-          <Sparkles className="w-4 h-4 text-gold animate-pulse-gentle" />
-          <span className="editorial-subheading text-[10px] tracking-[0.25em] text-gold font-bold">
-            {locale === "es" ? "Viaje Personalizado" : locale === "pt" ? "Viagem Personalizada" : "Bespoke Journey"}
+    <div className="bg-white border border-gold/20 rounded-3xl p-8 md:p-12 max-w-3xl mx-auto shadow-2xl shadow-royal/5 relative overflow-hidden" id="inquire-now">
+      
+      {/* Decorative corner accents */}
+      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-gold/10 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-gold/10 via-transparent to-transparent pointer-events-none" />
+
+      <div className="space-y-3 mb-10 text-center relative z-10">
+        <div className="flex items-center justify-center gap-2">
+          <Sparkles className="w-4 h-4 text-gold" />
+          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-gold">
+            {locale === "es" ? "Boceto Personalizado" : locale === "pt" ? "Esboço Personalizado" : "Bespoke Journey Designer"}
           </span>
         </div>
-        <h3 className="text-3xl font-serif font-bold text-royal tracking-tight">{text.title}</h3>
-        <p className="text-sm text-foreground/55 max-w-md mx-auto leading-relaxed">{text.subtitle}</p>
-        <div className="gold-divider w-24 mx-auto mt-4" />
+        <h3 className="text-3xl md:text-4xl font-serif font-bold text-royal tracking-tight">{text.title}</h3>
+        <p className="text-xs text-foreground/50 max-w-md mx-auto leading-relaxed font-light">{text.subtitle}</p>
+        <div className="h-px w-20 bg-gold/25 mx-auto mt-4" />
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-5">
+      <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
         {error && (
           <div className="bg-red-50 text-red-700 text-xs p-4 rounded-xl flex items-center gap-2 border border-red-100">
             <AlertCircle className="w-4 h-4 shrink-0" />
@@ -138,63 +142,123 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div className="space-y-1.5">
-            <label className="text-[11px] font-semibold uppercase tracking-wider text-foreground/50">{text.name}</label>
-            <input type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="input-elegant" required />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+          
+          <div className="space-y-1">
+            <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">{text.name}</label>
+            <input 
+              type="text" 
+              value={form.name} 
+              onChange={(e) => setForm({ ...form, name: e.target.value })} 
+              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3 text-xs text-royal outline-none transition-colors" 
+              required 
+            />
           </div>
-          <div className="space-y-1.5">
-            <label className="text-[11px] font-semibold uppercase tracking-wider text-foreground/50">{text.email}</label>
-            <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="input-elegant" required />
+
+          <div className="space-y-1">
+            <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">{text.email}</label>
+            <input 
+              type="email" 
+              value={form.email} 
+              onChange={(e) => setForm({ ...form, email: e.target.value })} 
+              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3 text-xs text-royal outline-none transition-colors" 
+              required 
+            />
           </div>
-          <div className="space-y-1.5">
-            <label className="text-[11px] font-semibold uppercase tracking-wider text-foreground/50">{text.phone}</label>
-            <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="input-elegant" />
+
+          <div className="space-y-1">
+            <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">{text.phone}</label>
+            <input 
+              type="tel" 
+              value={form.phone} 
+              onChange={(e) => setForm({ ...form, phone: e.target.value })} 
+              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3 text-xs text-royal outline-none transition-colors" 
+            />
           </div>
-          <div className="space-y-1.5">
-            <label className="text-[11px] font-semibold uppercase tracking-wider text-foreground/50">{text.country}</label>
-            <input type="text" value={form.country} onChange={(e) => setForm({ ...form, country: e.target.value })} className="input-elegant" />
+
+          <div className="space-y-1">
+            <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">{text.country}</label>
+            <input 
+              type="text" 
+              value={form.country} 
+              onChange={(e) => setForm({ ...form, country: e.target.value })} 
+              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3 text-xs text-royal outline-none transition-colors" 
+            />
           </div>
-          <div className="space-y-1.5">
-            <label className="text-[11px] font-semibold uppercase tracking-wider text-foreground/50">{text.startDate}</label>
-            <input type="text" value={form.startDate} placeholder={locale === "es" ? "Ej: Octubre 2026" : locale === "pt" ? "Ex: Outubro 2026" : "e.g. October 2026"} onChange={(e) => setForm({ ...form, startDate: e.target.value })} className="input-elegant" required />
+
+          <div className="space-y-1">
+            <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">{text.startDate}</label>
+            <input 
+              type="text" 
+              value={form.startDate} 
+              placeholder={locale === "es" ? "Ej: Octubre 2026" : locale === "pt" ? "Ex: Outubro 2026" : "e.g. October 2026"} 
+              onChange={(e) => setForm({ ...form, startDate: e.target.value })} 
+              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3 text-xs text-royal outline-none transition-colors" 
+              required 
+            />
           </div>
-          <div className="space-y-1.5">
-            <label className="text-[11px] font-semibold uppercase tracking-wider text-foreground/50">{text.duration}</label>
-            <input type="number" value={form.duration} onChange={(e) => setForm({ ...form, duration: e.target.value })} className="input-elegant" />
+
+          <div className="space-y-1">
+            <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">{text.duration}</label>
+            <input 
+              type="number" 
+              value={form.duration} 
+              onChange={(e) => setForm({ ...form, duration: e.target.value })} 
+              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3 text-xs text-royal outline-none transition-colors" 
+            />
           </div>
-          <div className="space-y-1.5">
-            <label className="text-[11px] font-semibold uppercase tracking-wider text-foreground/50">{text.travelers}</label>
-            <select value={form.travelers} onChange={(e) => setForm({ ...form, travelers: e.target.value })} className="input-elegant appearance-none">
-              <option value="1">1</option>
-              <option value="2">2 (Couple)</option>
-              <option value="3-5">3-5 (Family)</option>
-              <option value="6+">6+ (Group)</option>
-            </select>
+
+          <div className="space-y-1">
+            <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">{text.travelers}</label>
+            <div className="relative">
+              <select 
+                value={form.travelers} 
+                onChange={(e) => setForm({ ...form, travelers: e.target.value })} 
+                className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3 text-xs text-royal outline-none transition-colors appearance-none cursor-pointer"
+              >
+                <option value="1">1</option>
+                <option value="2">2 (Couple)</option>
+                <option value="3-5">3-5 (Family)</option>
+                <option value="6+">6+ (Group)</option>
+              </select>
+            </div>
           </div>
-          <div className="space-y-1.5">
-            <label className="text-[11px] font-semibold uppercase tracking-wider text-foreground/50">{text.experience}</label>
-            <select value={form.experience} onChange={(e) => setForm({ ...form, experience: e.target.value })} className="input-elegant appearance-none">
-              <option value="Luxury">Luxury & Palaces</option>
-              <option value="Adventure">Adventure</option>
-              <option value="Spiritual">Spiritual & Yoga</option>
-              <option value="Wildlife">Wildlife Safari</option>
-              <option value="Honeymoon">Honeymoon</option>
-            </select>
+
+          <div className="space-y-1">
+            <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">{text.experience}</label>
+            <div className="relative">
+              <select 
+                value={form.experience} 
+                onChange={(e) => setForm({ ...form, experience: e.target.value })} 
+                className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3 text-xs text-royal outline-none transition-colors appearance-none cursor-pointer"
+              >
+                <option value="Luxury">Luxury & Palaces</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Spiritual">Spiritual & Yoga</option>
+                <option value="Wildlife">Wildlife Safari</option>
+                <option value="Honeymoon">Honeymoon</option>
+              </select>
+            </div>
           </div>
+
         </div>
 
-        <div className="space-y-1.5">
-          <label className="text-[11px] font-semibold uppercase tracking-wider text-foreground/50">{text.message}</label>
-          <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={4} className="input-elegant resize-none" />
+        <div className="space-y-1">
+          <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">{text.message}</label>
+          <textarea 
+            value={form.message} 
+            onChange={(e) => setForm({ ...form, message: e.target.value })} 
+            rows={4} 
+            className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3 text-xs text-royal outline-none transition-colors resize-none" 
+          />
         </div>
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full btn-primary py-4 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-gold hover:bg-gold-light text-royal text-xs font-bold uppercase tracking-widest py-4 rounded-full transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-gold/10"
         >
-          <Send className="w-4 h-4" />
+          <Send className="w-4 h-4 text-royal" />
           <span>{loading ? text.submitting : text.submit}</span>
         </button>
       </form>

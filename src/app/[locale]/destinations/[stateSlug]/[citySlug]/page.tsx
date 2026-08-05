@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getStateBySlugAction } from "@/app/actions/queries";
 import InquiryForm from "@/components/common/InquiryForm";
-import { Calendar, Landmark, ArrowRight, Sparkles, MapPin, Compass, Clock } from "lucide-react";
+import { Calendar, Landmark, Sparkles, MapPin, Compass, Clock, Info } from "lucide-react";
 
 interface CityPageProps {
   params: Promise<{ locale: string; stateSlug: string; citySlug: string }>;
@@ -19,90 +19,115 @@ export default async function CityDetailPage({ params }: CityPageProps) {
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
-      {/* Hero */}
-      <div className="relative h-[55vh] min-h-[380px] flex items-center justify-center overflow-hidden">
-        <img src={city.image} alt={city.title?.[locale] || city.title?.en} className="absolute inset-0 w-full h-full object-cover animate-kenburns" loading="eager" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/75" />
-        <div className="relative z-10 text-center text-white space-y-4 px-6 mt-16 max-w-3xl">
-          <span className="editorial-subheading block text-gold tracking-[0.2em] text-[10px] font-bold">{state.title?.[locale] || state.title?.en} Destination</span>
-          <h1 className="text-4xl md:text-5xl font-serif font-bold tracking-tight">{city.title?.[locale] || city.title?.en}</h1>
-          <p className="text-white/80 max-w-xl mx-auto text-sm leading-relaxed font-light">{city.tagline?.[locale] || city.tagline?.en}</p>
-        </div>
-      </div>
-
-      {/* Content */}
-      <section className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-3 gap-16">
-        <div className="lg:col-span-2 space-y-10">
-          <div className="space-y-4">
-            <span className="text-[10px] uppercase tracking-wider font-bold text-gold flex items-center gap-1.5">
-              <Compass className="w-3.5 h-3.5" />
-              <span>About Destination</span>
-            </span>
-            <h2 className="text-2xl font-serif font-bold text-royal">Overview & Character</h2>
-            <p className="text-sm text-foreground/60 leading-relaxed font-light">{city.overview?.[locale] || city.overview?.en}</p>
-          </div>
-          
-          {/* Suggested Itinerary Timeline */}
-          <div className="space-y-6 pt-8 border-t border-sand/65">
-            <h3 className="text-xl font-serif font-bold text-royal flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-gold" />
-              <span>{locale === "es" ? "Itinerario Sugerido" : locale === "pt" ? "Itinerário Sugerido" : "Suggested Experience Itinerary"}</span>
-            </h3>
-            <div className="relative border-l border-gold/30 ml-3.5 pl-6 space-y-8 py-2">
-              <div className="relative">
-                <span className="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-gold border border-white flex items-center justify-center shadow-sm" />
-                <h4 className="text-sm font-semibold text-royal uppercase tracking-wider">Day Plan & Sightseeing</h4>
-                <p className="text-xs text-foreground/60 mt-2 leading-relaxed bg-white border border-sand/50 p-5 rounded-2xl font-light">
-                  {city.suggestedItinerary?.[locale] || city.suggestedItinerary?.en}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* SECTION 1: Editorial Header Banner */}
+      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <img src={city.image} alt={city.title?.[locale] || city.title?.en} className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns" loading="eager" />
+        <div className="absolute inset-0 bg-gradient-to-b from-royal/60 via-royal/30 to-royal/80" />
         
-        {/* Sidebar Info */}
-        <div className="glass-panel border border-gold/15 p-8 rounded-3xl h-fit space-y-6 shadow-xl shadow-royal/5 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-[3px] bg-gold" />
-          <h3 className="editorial-subheading text-[10px] tracking-[0.2em] font-bold text-royal border-b border-sand/70 pb-3">Travel Essentials</h3>
-          <div className="space-y-5 text-sm">
-            <div>
-              <span className="text-[9px] uppercase tracking-wider font-bold text-foreground/40 block mb-1">Best Season to Visit</span>
-              <span className="text-foreground/75 font-medium">{city.bestTime?.[locale] || city.bestTime?.en}</span>
-            </div>
-            <div className="pt-4 border-t border-sand/40">
-              <span className="text-[9px] uppercase tracking-wider font-bold text-foreground/40 block mb-1">Signature Food</span>
-              <span className="text-foreground/75 font-medium">{city.localFood?.[locale] || city.localFood?.en}</span>
-            </div>
-            <div className="pt-4 border-t border-sand/40">
-              <span className="text-[9px] uppercase tracking-wider font-bold text-foreground/40 block mb-1">Local Shopping specialties</span>
-              <span className="text-foreground/75 font-medium">{city.shopping?.[locale] || city.shopping?.en}</span>
-            </div>
-          </div>
+        <div className="relative z-10 text-center text-white space-y-4 px-6 mt-16 max-w-4xl">
+          <span className="bg-gold/90 text-royal text-[9px] uppercase tracking-[0.25em] font-extrabold px-4 py-1.5 rounded-full inline-block">
+            {state.title?.[locale] || state.title?.en} Exploration
+          </span>
+          <h1 className="text-4xl md:text-6xl font-serif font-black tracking-tight leading-none text-white">
+            {city.title?.[locale] || city.title?.en}
+          </h1>
+          <p className="text-white/80 max-w-xl mx-auto text-xs md:text-sm leading-relaxed font-light">
+            {city.tagline?.[locale] || city.tagline?.en}
+          </p>
         </div>
       </section>
 
-      {/* Attractions */}
-      {city.attractions?.length > 0 && (
-        <section className="max-w-7xl mx-auto px-6 py-16 space-y-12 border-t border-sand/50">
-          <div className="text-center space-y-3 max-w-lg mx-auto">
-            <span className="editorial-subheading block text-gold text-[10px] tracking-[0.2em]">What to See</span>
-            <h2 className="text-3xl font-serif font-bold text-royal tracking-tight">Key Landmarks & Points of Interest</h2>
-            <div className="gold-divider w-20 mx-auto mt-2" />
+      {/* SECTION 2: Dynamic Column Grid */}
+      <section className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-3 gap-16">
+        
+        {/* Core content details */}
+        <div className="lg:col-span-2 space-y-12">
+          
+          <div className="space-y-4">
+            <span className="text-[10px] uppercase tracking-[0.2em] font-black text-gold flex items-center gap-1.5">
+              <Compass className="w-4 h-4" />
+              <span>OVERVIEW</span>
+            </span>
+            <h2 className="text-2xl font-serif font-bold text-royal">
+              The Charm of {city.title?.[locale] || city.title?.en}
+            </h2>
+            <p className="text-xs md:text-sm text-foreground/60 leading-relaxed font-light">
+              {city.overview?.[locale] || city.overview?.en}
+            </p>
           </div>
+
+          {/* Timeline details */}
+          {city.suggestedItinerary && (
+            <div className="space-y-6 pt-10 border-t border-gold/10">
+              <h3 className="text-lg font-serif font-bold text-royal flex items-center gap-2">
+                <Calendar className="w-5 h-5 text-gold" />
+                <span>{locale === "es" ? "Itinerario Recomendado" : locale === "pt" ? "Itinerário Recomendado" : "Bespoke Suggestions"}</span>
+              </h3>
+              <div className="relative border-l border-gold/30 ml-3.5 pl-6 py-1">
+                <div className="relative">
+                  <span className="absolute -left-[30px] top-1 w-3 h-3 rounded-full bg-gold border border-[#FAF8F5]" />
+                  <h4 className="text-xs font-bold text-royal uppercase tracking-wider">Suggested Exploration Plan</h4>
+                  <p className="text-xs text-foreground/60 mt-3 leading-relaxed bg-white border border-gold/10 p-6 rounded-2xl font-light shadow-sm">
+                    {city.suggestedItinerary?.[locale] || city.suggestedItinerary?.en}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+        </div>
+
+        {/* Postcard essentials box */}
+        <div className="bg-white border border-gold/25 p-8 rounded-3xl h-fit space-y-6 shadow-xl shadow-royal/5 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-[4px] bg-gold" />
+          <h3 className="text-[10px] uppercase tracking-[0.25em] font-black text-royal border-b border-gold/10 pb-4">
+            Travel Essentials
+          </h3>
+          <div className="space-y-5 text-xs">
+            <div>
+              <span className="text-[9px] uppercase tracking-wider font-bold text-foreground/40 block mb-1">Optimal Season</span>
+              <span className="text-foreground/75 font-semibold">{city.bestTime?.[locale] || city.bestTime?.en}</span>
+            </div>
+            {city.localFood && (
+              <div className="pt-4 border-t border-gold/10">
+                <span className="text-[9px] uppercase tracking-wider font-bold text-foreground/40 block mb-1">Local Culinary Guide</span>
+                <span className="text-foreground/75 font-light leading-relaxed block">{city.localFood?.[locale] || city.localFood?.en}</span>
+              </div>
+            )}
+            {city.shopping && (
+              <div className="pt-4 border-t border-gold/10">
+                <span className="text-[9px] uppercase tracking-wider font-bold text-foreground/40 block mb-1">Signature Handlooms & Shopping</span>
+                <span className="text-foreground/75 font-light leading-relaxed block">{city.shopping?.[locale] || city.shopping?.en}</span>
+              </div>
+            )}
+          </div>
+        </div>
+
+      </section>
+
+      {/* SECTION 3: Sights Grid */}
+      {city.attractions?.length > 0 && (
+        <section className="max-w-7xl mx-auto px-6 py-20 border-t border-gold/10 space-y-12">
+          <div className="text-center space-y-3 max-w-lg mx-auto">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold block">SIGNATURE LANDMARKS</span>
+            <h2 className="text-3xl font-serif font-bold text-royal tracking-tight">Key Monument Diaries</h2>
+            <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {city.attractions.map((att: any, idx: number) => (
               <Link key={att.slug || idx} href={`/${locale}/destinations/${stateSlug}/${citySlug}/${att.slug}`} className="group block">
-                <div className="luxury-card hover-lift overflow-hidden flex flex-col md:flex-row h-60 border border-gold/10">
-                  <div className="md:w-5/12 h-40 md:h-full shrink-0 overflow-hidden relative">
+                <div className="bg-white border border-gold/10 rounded-2xl overflow-hidden flex flex-col md:flex-row h-64 shadow-md transition-transform duration-500 hover:-translate-y-1 hover:border-gold/25">
+                  <div className="md:w-5/12 h-44 md:h-full shrink-0 overflow-hidden relative">
                     <img src={att.image} alt={att.name?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-105" />
                   </div>
                   <div className="md:w-7/12 p-6 flex flex-col justify-between bg-white">
                     <div className="space-y-2">
-                      <h3 className="text-lg font-serif font-bold text-royal group-hover:text-gold transition-colors leading-snug">{att.name?.[locale] || att.name?.en}</h3>
+                      <h3 className="text-base font-serif font-bold text-royal group-hover:text-gold transition-colors leading-snug">{att.name?.[locale] || att.name?.en}</h3>
                       <p className="text-xs text-foreground/55 line-clamp-3 leading-relaxed font-light">{att.desc?.[locale] || att.desc?.en}</p>
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-gold flex items-center gap-1.5 mt-2 group-hover:text-saffron transition-colors">
-                      <span>Landmark Details</span><Landmark className="w-3.5 h-3.5" />
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-gold flex items-center gap-1.5 mt-2 group-hover:text-royal transition-colors">
+                      <span>View Monument details</span><Landmark className="w-3.5 h-3.5" />
                     </span>
                   </div>
                 </div>
@@ -112,10 +137,11 @@ export default async function CityDetailPage({ params }: CityPageProps) {
         </section>
       )}
 
-      {/* Inquiry */}
-      <section className="max-w-7xl mx-auto px-6 py-20 border-t border-sand/50">
+      {/* SECTION 4: Inquire Now */}
+      <section className="max-w-7xl mx-auto px-6 py-20 border-t border-gold/10">
         <InquiryForm locale={locale} />
       </section>
+
     </div>
   );
 }

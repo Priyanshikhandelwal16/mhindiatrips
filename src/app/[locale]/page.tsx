@@ -1,39 +1,11 @@
 import React from "react";
 import Link from "next/link";
-import {
-  getStatesAction,
-  getTourPackagesAction,
-  getFoodsAction,
-  getBlogsAction,
-  getTestimonialsAction
-} from "@/app/actions/queries";
+import { getStatesAction, getTourPackagesAction, getBlogsAction, getTestimonialsAction, getFoodsAction } from "@/app/actions/queries";
 import InquiryForm from "@/components/common/InquiryForm";
-import HeroSlider from "@/components/home/HeroSlider";
-import FoodSection from "@/components/home/FoodSection";
-import TestimonialSlider from "@/components/home/TestimonialSlider";
-import StatsCounter from "@/components/home/StatsCounter";
-import FloatingElements from "@/components/common/FloatingElements";
 import Reveal from "@/components/home/Reveal";
-import {
-  ChevronRight,
-  MapPin,
-  Star,
-  Compass,
-  Mountain,
-  Trees,
-  Camera,
-  Sparkles,
-  Ship,
-  Tent,
-  Landmark,
-  Clock,
-  Users,
-  Award,
-  ArrowRight,
-  Shield,
-  Heart,
-  Globe,
-  Gem,
+import { 
+  MapPin, Clock, ArrowRight, Star, Heart, Compass, Sparkles, 
+  Award, Shield, Calendar, BookOpen, Coffee, Landmark, ArrowUpRight 
 } from "lucide-react";
 
 interface HomePageProps {
@@ -43,117 +15,106 @@ interface HomePageProps {
 export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
 
+  // Fetch content dynamically from query database mock layer
   const states = await getStatesAction();
-  const packages = await getTourPackagesAction();
-  const foods = await getFoodsAction();
+  const tourPackages = await getTourPackagesAction();
   const blogs = await getBlogsAction();
-  const reviews = await getTestimonialsAction();
+  const testimonials = await getTestimonialsAction();
+  const foods = await getFoodsAction();
 
   const labels: Record<string, any> = {
     en: {
-      sub: "Bespoke India Journeys",
-      title: "Discover India Beyond Expectations",
-      desc: "Immersive luxury itineraries, hand-crafted private tours, and authentic heritage stays designed for deep cultural connection.",
-      cta: "Explore Destinations",
-      inquireCTA: "Speak with an Expert",
-      whySub: "Why Choose Us",
-      whyTitle: "Crafting Unforgettable Indian Experiences Since 2010",
-      whyDesc: "We design bespoke journeys that go beyond tourist trails. Every trip is handcrafted by local experts who know India intimately.",
-      regionsSub: "Explore by Region",
-      regionsTitle: "A Land of Infinite Contrasts",
-      regionsDesc: "From snow-capped Himalayan peaks to tropical Kerala backwaters, each region offers a completely unique world to explore.",
-      packagesSub: "Curated Collections",
-      packagesTitle: "Signature Tour Packages",
-      packagesDesc: "Exclusive itineraries crafted by our luxury travel advisors. Each journey is tailored to your preferences.",
-      whyTravelSub: "The MH India Trips Difference",
-      whyTravelTitle: "Why Travel With Us",
-      foodSub: "Culinary Journey",
-      foodTitle: "Taste the Soul of India",
-      foodDesc: "From royal Mughal kitchens to vibrant street food, every meal tells a story of centuries-old traditions.",
-      foodCta: "Discover",
-      foodViewAll: "Explore Food Guide",
-      testimonialsSub: "Guest Stories",
-      testimonialsTitle: "What Our Travelers Say",
-      blogsSub: "Travel Blog",
-      blogsTitle: "Stories & Insights",
-      ctaBannerTitle: "Ready for Your Dream India Journey?",
-      ctaBannerSub: "Let our destination experts craft a personalized itinerary just for you.",
-      ctaBannerBtn: "Start Planning",
-      statYears: "Years Experience",
-      statTravelers: "Happy Travelers",
-      statDest: "Destinations",
-      statRating: "Average Rating",
-      viewAll: "View All",
+      heroSub: "BESPOKE PRIVATE TOURS",
+      heroTitle: "Experience India in Absolute Luxury",
+      heroDesc: "Curated itineraries featuring private guides, heritage palace hotels, and custom travel arrangements.",
+      cta: "Explore Our Regions",
+      inquireCTA: "Plan Your Journey",
+      whySub: "Our Philosophy",
+      whyTitle: "Why Travelers Choose MH India Trips",
+      regionsSub: "Custom Destinations",
+      regionsTitle: "Explore Diverse Horizons",
+      regionsDesc: "From the grand palaces of Rajasthan to the serene canals of Kerala, discover a tailored world.",
+      packagesSub: "Featured Journeys",
+      packagesTitle: "Signature Travel Packages",
+      packagesDesc: "Elite itineraries hand-designed by our specialist destination managers.",
+      foodSub: "Culinary Heritage",
+      foodTitle: "Flavor Journeys",
+      foodDesc: "Taste the heritage of royal Mughal kitchens and aromatic local street spices.",
+      testimonialsSub: "Traveler Whispers",
+      testimonialsTitle: "What Our Guests Say",
+      blogsSub: "Travel Log",
+      blogsTitle: "Stories & Inspiration",
+      faqSub: "Concierge Guide",
+      faqTitle: "Planning Your Voyage",
+      ctaBannerTitle: "Begin Your Private Passage",
+      ctaBannerSub: "Speak to a luxury travel advisor to draft your tailored itinerary.",
+      ctaBannerBtn: "Inquire Now",
+      statYears: "Years on Ground",
+      statTravelers: "Delighted Guests",
+      statDest: "Unique Districts",
+      statRating: "Guest Rating"
     },
     es: {
-      sub: "Viajes de Lujo en India",
-      title: "Descubra la India Más Allá de las Expectativas",
-      desc: "Itinerarios de lujo inmersivos, tours privados diseñados a medida y estadías históricas.",
-      cta: "Explorar Destinos",
-      inquireCTA: "Hablar con un Experto",
-      whySub: "Por Qué Elegirnos",
-      whyTitle: "Creando Experiencias Inolvidables Desde 2010",
-      whyDesc: "Diseñamos viajes a medida que van más allá de las rutas turísticas convencionales.",
-      regionsSub: "Explorar por Región",
-      regionsTitle: "Una Tierra de Contrastes Infinitos",
-      regionsDesc: "Desde las cumbres del Himalaya hasta los canales de Kerala, cada región ofrece un mundo completamente único.",
-      packagesSub: "Colecciones Selectas",
-      packagesTitle: "Paquetes de Tour Exclusivos",
-      packagesDesc: "Itinerarios exclusivos elaborados por nuestros asesores de viajes de lujo.",
-      whyTravelSub: "La Diferencia MH India Trips",
-      whyTravelTitle: "Por Qué Viajar Con Nosotros",
-      foodSub: "Viaje Culinario",
-      foodTitle: "Saboree el Alma de la India",
-      foodDesc: "Desde cocinas reales mogoles hasta vibrante comida callejera, cada plato cuenta una historia centenaria.",
-      foodCta: "Descubrir",
-      foodViewAll: "Explorar Guía",
-      testimonialsSub: "Historias de Viajeros",
-      testimonialsTitle: "Lo Que Dicen Nuestros Viajeros",
-      blogsSub: "Blog de Viajes",
-      blogsTitle: "Historias e Ideas",
-      ctaBannerTitle: "¿Listo para Su Viaje Soñado?",
-      ctaBannerSub: "Nuestros expertos crearán un itinerario personalizado para usted.",
-      ctaBannerBtn: "Comenzar a Planificar",
+      heroSub: "TOURS PRIVADOS A MEDIDA",
+      heroTitle: "Experimente la India con Lujo Absoluto",
+      heroDesc: "Itinerarios curados con guías privados, hoteles palacio históricos y traslados personalizados.",
+      cta: "Explorar Regiones",
+      inquireCTA: "Planificar Viaje",
+      whySub: "Nuestra Filosofía",
+      whyTitle: "Por Qué Elegir MH India Trips",
+      regionsSub: "Destinos Personalizados",
+      regionsTitle: "Explore Horizontes Diversos",
+      regionsDesc: "Desde los grandes palacios de Rajasthan hasta los serenos canales de Kerala.",
+      packagesSub: "Viajes Destacados",
+      packagesTitle: "Paquetes de Viajes Exclusivos",
+      packagesDesc: "Itinerarios de élite diseñados a mano por nuestros directores de destino.",
+      foodSub: "Patrimonio Culinario",
+      foodTitle: "Viajes de Sabor",
+      foodDesc: "Saboree el patrimonio de las cocinas reales mogoles y las especias locales.",
+      testimonialsSub: "Ecos de Viajeros",
+      testimonialsTitle: "Lo Que Dicen Nuestros Huéspedes",
+      blogsSub: "Diario de Viaje",
+      blogsTitle: "Historias e Inspiración",
+      faqSub: "Guía de Conserjería",
+      faqTitle: "Planificando Su Viaje",
+      ctaBannerTitle: "Comience Su Viaje Privado",
+      ctaBannerSub: "Hable con un asesor de viajes de lujo para diseñar su itinerario a medida.",
+      ctaBannerBtn: "Planificar Ahora",
       statYears: "Años de Experiencia",
-      statTravelers: "Viajeros Felices",
-      statDest: "Destinos",
-      statRating: "Valoración Media",
-      viewAll: "Ver Todos",
+      statTravelers: "Huéspedes Felices",
+      statDest: "Distritos Únicos",
+      statRating: "Valoración Media"
     },
     pt: {
-      sub: "Viagens de Luxo na Índia",
-      title: "Descubra a Índia Além das Expectativas",
-      desc: "Itinerários de luxo imersivos, tours privados sob medida e estadias históricas em palácios.",
-      cta: "Explorar Destinos",
-      inquireCTA: "Falar com Especialista",
-      whySub: "Por Que Nos Escolher",
-      whyTitle: "Criando Experiências Inesquecíveis Desde 2010",
-      whyDesc: "Desenhamos viagens sob medida que vão além das rotas turísticas convencionais.",
-      regionsSub: "Explorar por Região",
-      regionsTitle: "Uma Terra de Contrastes Infinitos",
-      regionsDesc: "Dos picos nevados do Himalaia aos canais de Kerala, cada região oferece um mundo completamente único.",
-      packagesSub: "Coleções Selecionadas",
-      packagesTitle: "Pacotes de Tour Exclusivos",
-      packagesDesc: "Itinerários exclusivos elaborados pelos nossos consultores de viagens de luxo.",
-      whyTravelSub: "A Diferença MH India Trips",
-      whyTravelTitle: "Por Que Viajar Connosco",
-      foodSub: "Jornada Culinária",
-      foodTitle: "Saboreie a Alma da Índia",
-      foodDesc: "Das cozinhas reais mogóis à vibrante comida de rua, cada refeição conta uma história centenária.",
-      foodCta: "Descobrir",
-      foodViewAll: "Explorar Guia",
-      testimonialsSub: "Histórias de Viajantes",
-      testimonialsTitle: "O Que Dizem Nossos Viajantes",
-      blogsSub: "Blog de Viagens",
-      blogsTitle: "Histórias e Inspirações",
-      ctaBannerTitle: "Pronto para Sua Viagem dos Sonhos?",
-      ctaBannerSub: "Nossos especialistas criarão um itinerário personalizado para você.",
-      ctaBannerBtn: "Começar a Planejar",
+      heroSub: "TOURS PRIVADOS SOB MEDIDA",
+      heroTitle: "Experimente a Índia com Luxo Absoluto",
+      heroDesc: "Itinerários selecionados com guias privados, hotéis palácio históricos e traslados personalizados.",
+      cta: "Explorar Regiões",
+      inquireCTA: "Planejar Viagem",
+      whySub: "Nossa Filosofia",
+      whyTitle: "Por Que Escolher a MH India Trips",
+      regionsSub: "Destinos Personalizados",
+      regionsTitle: "Explore Horizontes Diversos",
+      regionsDesc: "Dos grandes palácios do Rajastão aos canais serenos de Kerala.",
+      packagesSub: "Viagens Em Destaque",
+      packagesTitle: "Pacotes de Viagens Exclusivos",
+      packagesDesc: "Itinerários de elite desenhados à mão pelos nossos especialistas de destino.",
+      foodSub: "Patrimônio Culinário",
+      foodTitle: "Viagens de Sabor",
+      foodDesc: "Saboreie o patrimônio das cozinhas reais mogóis e as especiarias locais.",
+      testimonialsSub: "Sussurros de Viajantes",
+      testimonialsTitle: "O Que Dizem Nossos Hóspedes",
+      blogsSub: "Diário de Viagem",
+      blogsTitle: "Histórias e Inspiração",
+      faqSub: "Guia de Concierge",
+      faqTitle: "Planejando Sua Viagem",
+      ctaBannerTitle: "Comece Sua Viagem Privada",
+      ctaBannerSub: "Fale com um consultor de viagens de luxo para desenhar seu itinerário sob medida.",
+      ctaBannerBtn: "Planejar Agora",
       statYears: "Anos de Experiência",
-      statTravelers: "Viajantes Felizes",
-      statDest: "Destinos",
-      statRating: "Avaliação Média",
-      viewAll: "Ver Todos",
+      statTravelers: "Hóspedes Felizes",
+      statDest: "Distritos Únicos",
+      statRating: "Avaliação Média"
     }
   };
 
@@ -163,213 +124,167 @@ export default async function HomePage({ params }: HomePageProps) {
     {
       image: "/images/taj_mahal_sunrise.png",
       location: "Agra, Uttar Pradesh",
-      sub: locale === "es" ? "Maravilla del Mundo" : locale === "pt" ? "Maravilha do Mundo" : "Wonder of the World",
-      title: locale === "es" ? "El Taj Mahal al Amanecer" : locale === "pt" ? "O Taj Mahal ao Amanhecer" : "The Taj Mahal at Sunrise",
-      desc: locale === "es" ? "Contemple el majestuoso mausoleo de mármol blanco bañado por la primera luz dorada del día, guiado por historiadores expertos." : locale === "pt" ? "Contemple o majestoso mausoléu de mármore branco banhado pela primeira luz dourada do dia, guiado por historiadores especialistas." : "Witness the sublime white marble mausoleum bathed in golden first light, guided by our expert heritage historians before the crowds arrive.",
+      sub: locale === "es" ? "Monumento al Amor" : locale === "pt" ? "Monumento ao Amor" : "Icon of Eternal Love",
+      title: locale === "es" ? "Taj Mahal al Amanecer" : locale === "pt" ? "Taj Mahal ao Amanhecer" : "Taj Mahal Sunrise",
+      desc: locale === "es" ? "Contemple el majestuoso Taj Mahal en privado con luz dorada del amanecer." : locale === "pt" ? "Contemple o majestoso Taj Mahal em privado com luz dourada do amanhecer." : "Witness the ivory-white marble mausoleum in complete peace, before crowds arrive, guided by our heritage specialists."
     },
     {
       image: "/images/rajasthan_fort_sunset.png",
       location: "Jaipur, Rajasthan",
-      sub: locale === "es" ? "La Tierra de los Reyes" : locale === "pt" ? "A Terra dos Reis" : "The Land of Kings",
-      title: locale === "es" ? "Palacios Reales y Fortalezas" : locale === "pt" ? "Palácios Reais e Fortalezas" : "Royal Palaces & Desert Forts",
-      desc: locale === "es" ? "Explore fortalezas imponentes y quédese en opulentos palacios de antiguos Maharajás con traslados privados." : locale === "pt" ? "Explore fortalezas imponentes e hospede-se em opulentos palácios de antigos Maharajas com traslados privados." : "Explore mighty hilltop fortresses and stay in opulent heritage palaces of former Maharajas, traveling in private luxury vehicles.",
+      sub: locale === "es" ? "Tierra de Reyes" : locale === "pt" ? "Terra de Reis" : "Land of Sovereigns",
+      title: locale === "es" ? "Fuertes de Rajasthan" : locale === "pt" ? "Fortes do Rajastão" : "Rajasthan Royal Forts",
+      desc: locale === "es" ? "Explore palacios imperiales de color rosa y fortalezas sobre colinas en carruajes privados." : locale === "pt" ? "Explore palácios imperiais de cor rosa e fortalezas sobre colinas em carruagens privadas." : "Immerse yourself in heritage luxury rooms, sunset lake views, and private royal hospitality archives."
     },
     {
       image: "/images/kerala_backwaters_houseboat.png",
-      location: "Kerala, South India",
-      sub: locale === "es" ? "El País de Dios" : locale === "pt" ? "A Terra de Deus" : "God's Own Country",
-      title: locale === "es" ? "Canales Tropicales de Kerala" : locale === "pt" ? "Canais Tropicais de Kerala" : "Kerala's Emerald Backwaters",
-      desc: locale === "es" ? "Navegue por canales bordeados de palmeras en casas flotantes de lujo con chef privado a bordo." : locale === "pt" ? "Navegue por canais ladeados de palmeiras em casas flutuantes de luxo com chef privado a bordo." : "Drift along palm-fringed emerald waterways aboard a private luxury houseboat, enjoying freshly prepared traditional cuisine on board.",
+      location: "Alleppey, Kerala",
+      sub: locale === "es" ? "Canales Tropicales" : locale === "pt" ? "Canais Tropicais" : "Tropical Waterways",
+      title: locale === "es" ? "Crucero en Casa Flotante" : locale === "pt" ? "Cruzeiro em Casa Flutuante" : "Backwater Houseboats",
+      desc: locale === "es" ? "Navegue por lagunas serenas bordeadas de palmeras a bordo de una casa flotante privada de lujo." : locale === "pt" ? "Navegue por lagoas serenas cercadas de palmeiras a bordo de uma casa flutuante privada de luxo." : "Cruise the palm-fringed rivers of Southern India on your private thatched luxury houseboat with a personal chef."
     },
     {
-      image: "/images/varanasi_ghats_aarti.png",
-      location: "Varanasi, Uttar Pradesh",
-      sub: locale === "es" ? "La Ciudad Más Antigua del Mundo" : locale === "pt" ? "A Cidade Mais Antiga do Mundo" : "The World's Oldest Living City",
-      title: locale === "es" ? "La Ciudad Eterna del Ganges" : locale === "pt" ? "A Cidade Eterna do Ganges" : "The Eternal City of Light",
-      desc: locale === "es" ? "Viva la devoción mística presenciando la sagrada ceremonia Ganga Aarti desde una embarcación privada al atardecer." : locale === "pt" ? "Viva a devoção mística presenciando a sagrada cerimônia Ganga Aarti de um barco privado ao entardecer." : "Experience profound mysticism witnessing the sacred evening Ganga Aarti ritual lamps from a private boat on the Ganges.",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1920",
-      location: "Goa, West India",
-      sub: locale === "es" ? "Paraíso Costero" : locale === "pt" ? "Paraíso Costeiro" : "Coastal Paradise",
-      title: locale === "es" ? "Playas Doradas y Encanto Colonial" : locale === "pt" ? "Praias Douradas e Charme Colonial" : "Golden Beaches & Colonial Charm",
-      desc: locale === "es" ? "Relájese en playas doradas vírgenes, explore capillas históricas y disfrute de retiros de bienestar de lujo." : locale === "pt" ? "Relaxe em praias douradas intocadas, explore capelas históricas e desfrute de retiros de bem-estar de luxo." : "Relax on pristine golden sands, explore colonial heritage architecture, and unwind at five-star boutique beachfront resorts.",
+      image: "/images/luxury_palace_train.png",
+      location: "North & West India",
+      sub: locale === "es" ? "Trenes de Palacio" : locale === "pt" ? "Trens de Palácio" : "Palace Trains",
+      title: locale === "es" ? "El Tren de Lujo Exclusivo" : locale === "pt" ? "O Trem de Luxo Exclusivo" : "Palace on Wheels Journey",
+      desc: locale === "es" ? "Viaje como la realeza india en una suite privada sobre rieles con servicio de mayordomo de 5 estrellas." : locale === "pt" ? "Viaje como a realeza indiana em uma suíte privada sobre trilhos com serviço de mordomo de 5 estrelas." : "Journey across royal states in premium private cabins, combining heritage comfort, custom meals, and daily guided excursions."
     },
     {
       image: "/images/ranthambore_tiger_safari.png",
       location: "Ranthambore, Rajasthan",
-      sub: locale === "es" ? "Aventura en la Naturaleza" : locale === "pt" ? "Aventura na Natureza" : "Into the Wild",
-      title: locale === "es" ? "Safari de Tigres Reales" : locale === "pt" ? "Safari de Tigres Reais" : "Royal Tiger Safari",
-      desc: locale === "es" ? "Rastree al majestuoso Tigre de Bengala en vehículos 4x4 privados guiados por naturalistas expertos." : locale === "pt" ? "Rastreie o majestoso Tigre de Bengala em veículos 4x4 privados guiados por naturalistas experientes." : "Embark on private 4x4 game drives to track the elusive Bengal Tiger in its natural wilderness with expert local naturalists.",
-    },
+      sub: locale === "es" ? "Aventura Salvaje" : locale === "pt" ? "Aventura Selvagem" : "Wild Horizon",
+      title: locale === "es" ? "Safari de Tigres Reales" : locale === "pt" ? "Safari de Tigres Reais" : "Bengal Tiger Safaris",
+      desc: locale === "es" ? "Rastree tigres de Bengala en libertad en vehículos 4x4 privados con naturalistas expertos." : locale === "pt" ? "Rastreie tigres de Bengala em liberdade em veículos 4x4 privados com naturalistas experientes." : "Track the elusive Bengal Tiger in ancient dry-deciduous forests in private open-top luxury jeeps."
+    }
   ];
 
-  const regions = [
-    { name: locale === "es" ? "Norte de India" : locale === "pt" ? "Norte da Índia" : "North India", desc: locale === "es" ? "Himalayas, Taj Mahal y Ciudades Reales" : locale === "pt" ? "Himalaias, Taj Mahal e Cidades Reais" : "Himalayas, Taj Mahal & Royal Cities", img: "/images/taj_mahal_sunrise.png", icon: Mountain },
-    { name: locale === "es" ? "Sur de India" : locale === "pt" ? "Sul da Índia" : "South India", desc: locale === "es" ? "Templos, Canales y Especias" : locale === "pt" ? "Templos, Canais e Especiarias" : "Temples, Backwaters & Spice Hills", img: "/images/kerala_backwaters_houseboat.png", icon: Trees },
-    { name: locale === "es" ? "Oeste de India" : locale === "pt" ? "Oeste da Índia" : "West India", desc: locale === "es" ? "Desiertos, Palacios y Playas" : locale === "pt" ? "Desertos, Palácios e Praias" : "Deserts, Palaces & Beaches", img: "/images/rajasthan_fort_sunset.png", icon: Landmark },
-    { name: locale === "es" ? "Este de India" : locale === "pt" ? "Leste da Índia" : "East India", desc: locale === "es" ? "Templos, Té y Cultura Tribal" : locale === "pt" ? "Templos, Chá e Cultura Tribal" : "Temples, Tea Gardens & Tribal Culture", img: "https://images.unsplash.com/photo-1558431382-27e303142255?q=80&w=900", icon: Compass },
-  ];
-
-  const whyTravelFeatures = [
+  const homepageFaqs = [
     {
-      icon: Shield,
-      title: locale === "es" ? "Viajes 100% Personalizados" : locale === "pt" ? "Viagens 100% Personalizadas" : "100% Tailor-Made Journeys",
-      desc: locale === "es" ? "Cada itinerario se diseña desde cero según sus intereses, ritmo y presupuesto." : locale === "pt" ? "Cada itinerário é desenhado do zero segundo seus interesses, ritmo e orçamento." : "Every itinerary is designed from scratch based on your interests, pace, and budget.",
+      q: locale === "es" ? "¿Qué hace que sus tours sean únicos?" : locale === "pt" ? "O que torna seus tours únicos?" : "What makes your tours unique?",
+      a: locale === "es" ? "Nuestros tours son 100% privados. Viajará con vehículos y chóferes dedicados, guías expertos autorizados y suites en hoteles palacio seleccionados de cinco estrellas." : locale === "pt" ? "Nossos tours são 100% privados. Você viajará com motorista dedicado, guias certificados e estadias em palácios cinco estrelas." : "Every single itinerary is crafted from scratch. We secure private monument openings, arrange special dinners inside palaces, and provide full concierge support throughout."
     },
     {
-      icon: Users,
-      title: locale === "es" ? "Guías Expertos Locales" : locale === "pt" ? "Guias Especialistas Locais" : "Expert Local Guides",
-      desc: locale === "es" ? "Guías certificados bilingües que conocen cada rincón de la India." : locale === "pt" ? "Guias certificados bilíngues que conhecem cada canto da Índia." : "Certified bilingual guides who know every corner of India intimately.",
-    },
-    {
-      icon: Gem,
-      title: locale === "es" ? "Hoteles de Patrimonio de Lujo" : locale === "pt" ? "Hotéis de Património de Luxo" : "Luxury Heritage Stays",
-      desc: locale === "es" ? "Alojamientos cuidadosamente seleccionados en palacios históricos y resorts boutique." : locale === "pt" ? "Alojamentos cuidadosamente selecionados em palácios históricos e resorts boutique." : "Handpicked accommodations in historic palaces and boutique luxury resorts.",
-    },
-    {
-      icon: Heart,
-      title: locale === "es" ? "Experiencias Auténticas" : locale === "pt" ? "Experiências Autênticas" : "Authentic Experiences",
-      desc: locale === "es" ? "Más allá del turismo: inmersión cultural real con familias locales y artesanos." : locale === "pt" ? "Além do turismo: imersão cultural real com famílias locais e artesãos." : "Beyond tourism: real cultural immersion with local families and artisans.",
-    },
-    {
-      icon: Globe,
-      title: locale === "es" ? "Soporte 24/7 en Su Idioma" : locale === "pt" ? "Suporte 24/7 no Seu Idioma" : "24/7 Support in Your Language",
-      desc: locale === "es" ? "Asistencia continua en español, inglés y portugués durante todo su viaje." : locale === "pt" ? "Assistência contínua em português, inglês e espanhol durante toda a viagem." : "Round-the-clock assistance in English, Spanish, and Portuguese throughout your trip.",
-    },
-    {
-      icon: Award,
-      title: locale === "es" ? "14+ Años de Excelencia" : locale === "pt" ? "14+ Anos de Excelência" : "14+ Years of Excellence",
-      desc: locale === "es" ? "Miles de viajeros satisfechos y una reputación construida con pasión." : locale === "pt" ? "Milhares de viajantes satisfeitos e uma reputação construída com paixão." : "Thousands of satisfied travelers and a reputation built on passion and expertise.",
-    },
+      q: locale === "es" ? "¿Cómo reservo un viaje personalizado?" : locale === "pt" ? "Como reservo uma viagem personalizada?" : "How do I book a custom journey?",
+      a: locale === "es" ? "Simplemente complete nuestro formulario de consulta. Su diseñador de viajes asignado lo contactará en 24 horas para comenzar a trabajar." : locale === "pt" ? "Basta preencher o formulário. Seu designer de viagens entrará em contato em 24 horas para dar início ao esboço." : "Simply fill out our tailored inquiry form. Your designated private travel designer will connect with you via phone or email to craft your itinerary draft."
+    }
   ];
 
   return (
-    <div className="font-sans bg-background text-foreground">
-
-      {/* 1. Hero Slider */}
-      <HeroSlider locale={locale} slides={slides} ctaText={text.cta} inquireCTA={text.inquireCTA} />
-
-      {/* 2. Why Choose Us - Stats + Trust */}
-      <section className="relative section-spacing overflow-hidden">
-        <div className="absolute inset-0 pattern-dots pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 items-center">
-            <Reveal className="space-y-10">
-              <div className="space-y-5">
-                <span className="editorial-subheading block">{text.whySub}</span>
-                <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-serif font-bold text-royal leading-[1.15]">
-                  {text.whyTitle}
-                </h2>
-                <p className="text-[15px] text-foreground/60 leading-relaxed max-w-lg">
-                  {text.whyDesc}
-                </p>
-              </div>
-              {/* Stats Row */}
-              <StatsCounter labels={{ years: text.statYears, travelers: text.statTravelers, destinations: text.statDest, rating: text.statRating }} />
-            </Reveal>
-            <Reveal delay={150} className="grid grid-cols-12 grid-rows-6 gap-3 h-[520px]">
-              <div className="col-span-7 row-span-6 rounded-2xl overflow-hidden shadow-xl image-zoom-container">
-                <img src="/images/taj_mahal_sunrise.png" loading="lazy" className="w-full h-full object-cover" alt="Taj Mahal India" />
-              </div>
-              <div className="col-span-5 row-span-3 rounded-2xl overflow-hidden shadow-lg image-zoom-container">
-                <img src="/images/rajasthan_fort_sunset.png" loading="lazy" className="w-full h-full object-cover" alt="Rajasthan Palace" />
-              </div>
-              <div className="col-span-5 row-span-3 rounded-2xl overflow-hidden shadow-lg image-zoom-container">
-                <img src="/images/kerala_backwaters_houseboat.png" loading="lazy" className="w-full h-full object-cover" alt="Kerala Backwaters" />
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Explore by Region - Larger premium cards */}
-      <section className="section-spacing bg-white border-y border-sand/40">
-        <div className="max-w-7xl mx-auto px-6 space-y-14">
-          <Reveal className="text-center space-y-5 max-w-2xl mx-auto">
-            <span className="editorial-subheading block">{text.regionsSub}</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-royal">
-              {text.regionsTitle}
-            </h2>
-            <p className="text-[15px] text-foreground/55 leading-relaxed">{text.regionsDesc}</p>
+    <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
+      
+      {/* SECTION 1: Full-Width Editorial Hero Banner (Pure Luxury Layout) */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Render Slide 1 as a static premium background overlay */}
+        <img 
+          src={slides[0].image} 
+          alt="Luxury India Trips" 
+          className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-royal/55 via-royal/35 to-royal/80" />
+        
+        {/* Floating post-card text */}
+        <div className="relative z-10 text-center text-white space-y-6 px-6 max-w-4xl mt-20">
+          <Reveal>
+            <span className="bg-gold/90 text-royal text-[9px] uppercase tracking-[0.25em] font-extrabold px-5 py-2 rounded-full shadow-lg inline-block">
+              {text.heroSub}
+            </span>
           </Reveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {regions.map((region, i) => {
-              const Icon = region.icon;
-              return (
-                <Reveal key={region.name} delay={i * 100}>
-                  <Link href={`/${locale}/destinations`} className="group relative h-[420px] rounded-2xl overflow-hidden block shadow-sm hover:shadow-xl transition-shadow duration-500">
-                    <img src={region.img} loading="lazy" alt={region.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/5" />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
-                    <div className="absolute bottom-0 p-7 text-white space-y-3 w-full">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-9 h-9 rounded-lg bg-gold/20 backdrop-blur-sm flex items-center justify-center">
-                          <Icon className="w-4.5 h-4.5 text-gold" />
-                        </div>
-                        <h3 className="text-lg font-serif font-bold">{region.name}</h3>
-                      </div>
-                      <p className="text-[13px] text-white/70 font-light leading-relaxed">{region.desc}</p>
-                      <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.15em] font-semibold text-gold opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pt-1">
-                        <span>Explore</span>
-                        <ArrowRight className="w-3 h-3" />
-                      </span>
-                    </div>
-                  </Link>
-                </Reveal>
-              );
-            })}
-          </div>
-
-          {/* View All Button */}
-          <Reveal className="text-center pt-4">
-            <Link href={`/${locale}/destinations`} className="btn-secondary inline-flex items-center gap-2">
-              <span>{text.viewAll}</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+          <Reveal delay={150}>
+            <h1 className="text-4xl md:text-7xl font-serif font-black tracking-tight leading-[1.1] text-white">
+              {text.heroTitle}
+            </h1>
+          </Reveal>
+          <Reveal delay={300}>
+            <p className="text-sm md:text-lg text-white/85 max-w-2xl mx-auto font-light leading-relaxed">
+              {text.heroDesc}
+            </p>
+          </Reveal>
+          
+          <Reveal delay={450} className="pt-8 flex flex-wrap justify-center gap-4">
+            <Link href="#destinations" className="bg-gold hover:bg-gold-light text-royal text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-full transition-transform hover:scale-105 shadow-lg shadow-gold/15">
+              {text.cta}
+            </Link>
+            <Link href="#inquire-now" className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-full border border-white/20 transition-colors">
+              {text.inquireCTA}
             </Link>
           </Reveal>
         </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 z-20">
+          <span className="text-[8px] uppercase tracking-[0.3em] text-white font-bold">Discover</span>
+          <div className="w-px h-10 bg-gradient-to-b from-white to-transparent" />
+        </div>
       </section>
 
-      {/* 4. Featured Destinations */}
-      <section className="max-w-7xl mx-auto px-6 section-spacing space-y-14">
-        <Reveal className="flex flex-col items-center text-center gap-6">
-          <div className="space-y-4">
-            <span className="editorial-subheading block">Signature Destinations</span>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-royal">
-              {locale === "es" ? "Destinos Emblemáticos" : locale === "pt" ? "Destinos Emblemáticos" : "Iconic Destinations"}
-            </h2>
+      {/* SECTION 2: The Philosophy Section (Split screen layout) */}
+      <section className="max-w-7xl mx-auto px-6 py-28 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center border-b border-gold/10">
+        <Reveal className="space-y-6">
+          <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold flex items-center gap-1.5">
+            <Compass className="w-4 h-4" />
+            <span>{text.whySub}</span>
+          </span>
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-royal leading-tight">
+            {text.whyTitle}
+          </h2>
+          <p className="text-sm text-foreground/60 leading-relaxed font-light">
+            We believe travel is not about ticking off boxes; it is a fine art. For over 15 years, our on-ground concierge desks have unlocked private access to monuments, designed authentic cultural encounters, and hosted global travelers in India’s finest grand suites.
+          </p>
+          <div className="grid grid-cols-2 gap-6 pt-6">
+            <div className="space-y-1">
+              <span className="text-3xl font-serif font-black text-gold">24/7</span>
+              <p className="text-xs uppercase tracking-wider text-foreground/50 font-bold">On-Ground Support</p>
+            </div>
+            <div className="space-y-1">
+              <span className="text-3xl font-serif font-black text-gold">100%</span>
+              <p className="text-xs uppercase tracking-wider text-foreground/50 font-bold">Private & Guided</p>
+            </div>
           </div>
-          <Link href={`/${locale}/destinations`} className="btn-secondary inline-flex items-center gap-2">
-            <span>{locale === "es" ? "Ver Todos" : locale === "pt" ? "Ver Todos" : "View All"}</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
         </Reveal>
+        
+        {/* Postcard frame */}
+        <Reveal delay={200} className="relative p-3 bg-white border border-gold/15 rounded-3xl shadow-xl shadow-royal/5">
+          <div className="overflow-hidden rounded-2xl h-[420px]">
+            <img src="/images/rajasthan_fort_sunset.png" alt="Philosophy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+          </div>
+          <div className="absolute -bottom-6 -right-6 bg-royal text-white p-6 rounded-2xl max-w-xs space-y-2 shadow-lg hidden md:block">
+            <h4 className="font-serif font-bold text-gold text-sm">Palace Heritage</h4>
+            <p className="text-[11px] text-white/70 leading-relaxed font-light">We organize private dinners inside authentic lake palaces and medieval desert forts.</p>
+          </div>
+        </Reveal>
+      </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-          {states.slice(0, 6).map((state: any, i: number) => (
-            <Reveal key={state.slug} delay={i * 80}>
-              <Link href={`/${locale}/destinations/${state.slug}`} className="group block h-full">
-                <div className="relative h-[460px] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
-                  <img
-                    src={state.image}
-                    loading="lazy"
-                    alt={state.title[locale as "en" | "es" | "pt"] || state.title.en}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  <div className="absolute top-5 left-5">
-                    <span className="badge-gold">{state.region}</span>
+      {/* SECTION 3: Custom Destinations (Postcards layout) */}
+      <section id="destinations" className="max-w-7xl mx-auto px-6 py-28 space-y-16 border-b border-gold/10">
+        <div className="text-center space-y-3 max-w-lg mx-auto">
+          <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold block">{text.regionsSub}</span>
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-royal tracking-tight">{text.regionsTitle}</h2>
+          <p className="text-xs text-foreground/50 leading-relaxed font-light">{text.regionsDesc}</p>
+          <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {states.slice(0, 3).map((st: any, i: number) => (
+            <Reveal key={st.slug} delay={i * 80}>
+              <Link href={`/${locale}/destinations/${st.slug}`} className="group block">
+                <div className="bg-white border border-gold/10 rounded-2xl overflow-hidden shadow-md transition-transform duration-500 hover:-translate-y-2 hover:border-gold/25">
+                  <div className="h-56 overflow-hidden relative">
+                    <img src={st.image} alt={st.title?.en} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <span className="absolute top-4 left-4 bg-royal text-gold text-[9px] uppercase tracking-wider font-bold px-2.5 py-1 rounded shadow-sm">
+                      {st.region} India
+                    </span>
                   </div>
-                  <div className="absolute bottom-0 p-7 text-white space-y-2.5 w-full">
-                    <h3 className="text-2xl font-serif font-bold">{state.title[locale as "en" | "es" | "pt"] || state.title.en}</h3>
-                    <p className="text-[13px] text-white/65 font-light line-clamp-2 leading-relaxed">
-                      {state.tagline?.[locale as "en" | "es" | "pt"] || state.tagline?.en || ""}
+                  <div className="p-6 space-y-3 bg-white">
+                    <h3 className="text-lg font-serif font-bold text-royal group-hover:text-gold transition-colors">
+                      {st.title?.[locale] || st.title?.en}
+                    </h3>
+                    <p className="text-xs text-foreground/55 line-clamp-3 leading-relaxed font-light">
+                      {st.tagline?.[locale] || st.tagline?.en}
                     </p>
-                    <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.15em] font-semibold text-gold pt-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                      <span>{locale === "es" ? "Explorar Guía" : locale === "pt" ? "Explorar Guia" : "Explore Guide"}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-gold flex items-center gap-1.5 pt-2">
+                      <span>Explore Region</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
                 </div>
@@ -379,159 +294,39 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
-      {/* 5. Tour Packages */}
-      <section className="bg-cream section-spacing border-y border-sand/30" id="popular-packages">
-        <div className="max-w-7xl mx-auto px-6 space-y-14">
-          <Reveal className="text-center space-y-5 max-w-2xl mx-auto">
-            <span className="editorial-subheading block">{text.packagesSub}</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-royal">{text.packagesTitle}</h2>
-            <p className="text-[15px] text-foreground/55 leading-relaxed">{text.packagesDesc}</p>
-          </Reveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {packages.slice(0, 6).map((pkg: any, i: number) => (
-              <Reveal key={pkg.slug} delay={i * 80}>
-                <div className="card-elevated flex flex-col h-full">
-                  <div className="relative h-64 overflow-hidden rounded-t-[1.5rem]">
-                    <img src={pkg.image} loading="lazy" alt={pkg.title.en} className="w-full h-full object-cover transition-transform duration-600 hover:scale-105" />
-                    <div className="absolute top-4 left-4 flex gap-2">
-                      <span className="bg-white/90 backdrop-blur-sm text-charcoal text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-sm">
-                        {pkg.durationDays} {locale === "es" ? "Días" : locale === "pt" ? "Dias" : "Days"}
-                      </span>
-                    </div>
-                    <div className="absolute bottom-4 right-4">
-                      <span className="bg-forest/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
-                        Private Tour
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-7 flex flex-col flex-grow">
-                    <div className="space-y-3 flex-grow">
-                      <h3 className="text-xl font-serif font-bold text-royal leading-snug">
-                        {pkg.title[locale as "en" | "es" | "pt"] || pkg.title.en}
-                      </h3>
-                      <p className="text-sm text-foreground/55 leading-relaxed line-clamp-2">
-                        {pkg.tagline[locale as "en" | "es" | "pt"] || pkg.tagline.en}
-                      </p>
-                      {/* Highlights */}
-                      <div className="space-y-2.5 pt-3">
-                        {pkg.highlights.slice(0, 3).map((hl: any, idx: number) => (
-                          <div key={idx} className="flex items-start gap-2.5 text-[13px] text-foreground/65">
-                            <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-1.5" />
-                            <span>{hl[locale as "en" | "es" | "pt"] || hl.en}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="pt-5 mt-5 border-t border-sand/50 flex justify-between items-center">
-                      <span className="text-[11px] font-semibold tracking-wider uppercase text-forest">
-                        {locale === "es" ? "Precio a consultar" : locale === "pt" ? "Preço sob consulta" : "Price on Request"}
-                      </span>
-                      <Link href={`/${locale}#inquire-now`} className="text-xs font-semibold text-gold hover:text-terracotta flex items-center gap-1 transition-colors duration-200">
-                        <span>{locale === "es" ? "Solicitar" : locale === "pt" ? "Solicitar" : "Inquire"}</span>
-                        <ChevronRight className="w-3.5 h-3.5" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+      {/* SECTION 4: Curated Packages (Signature Cards Grid) */}
+      <section className="max-w-7xl mx-auto px-6 py-28 space-y-16 border-b border-gold/10">
+        <div className="text-center space-y-3 max-w-lg mx-auto">
+          <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold block">{text.packagesSub}</span>
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-royal tracking-tight">{text.packagesTitle}</h2>
+          <p className="text-xs text-foreground/50 leading-relaxed font-light">{text.packagesDesc}</p>
+          <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
         </div>
-      </section>
-
-      {/* 6. Why Travel With Us - Replaces "Choose Your Experience" */}
-      <section className="section-spacing relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-cream/30 to-background pointer-events-none" />
-        <FloatingElements />
-        <div className="max-w-7xl mx-auto px-6 relative z-10 space-y-14">
-          <Reveal className="text-center space-y-5 max-w-2xl mx-auto">
-            <span className="editorial-subheading block">{text.whyTravelSub}</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-royal">{text.whyTravelTitle}</h2>
-          </Reveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {whyTravelFeatures.map((feature, i) => {
-              const Icon = feature.icon;
-              return (
-                <Reveal key={i} delay={i * 80}>
-                  <div className="group p-8 rounded-2xl border border-sand/50 bg-white hover:border-gold/30 hover:shadow-lg transition-all duration-500 h-full card-tilt">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-gold/10 to-gold/5 flex items-center justify-center mb-6 group-hover:from-gold/20 group-hover:to-gold/10 transition-all duration-300 group-hover:scale-110">
-                      <Icon className="w-6 h-6 text-gold group-hover:rotate-12 transition-transform duration-500" />
-                    </div>
-                    <h3 className="text-lg font-serif font-bold text-royal mb-3 leading-snug">{feature.title}</h3>
-                    <p className="text-sm text-foreground/55 leading-relaxed">{feature.desc}</p>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Food Section */}
-      <FoodSection
-        locale={locale}
-        foods={foods}
-        labels={{
-          sub: text.foodSub,
-          title: text.foodTitle,
-          desc: text.foodDesc,
-          cta: text.foodCta,
-          viewAll: text.foodViewAll,
-        }}
-      />
-
-      {/* 8. Testimonials - Premium Infinite Slider */}
-      <TestimonialSlider
-        locale={locale}
-        reviews={reviews}
-        labels={{
-          sub: text.testimonialsSub,
-          title: text.testimonialsTitle,
-        }}
-      />
-
-      {/* 9. Blog Section */}
-      <section className="max-w-7xl mx-auto px-6 section-spacing space-y-14">
-        <Reveal className="flex flex-col items-center text-center gap-6">
-          <div className="space-y-4">
-            <span className="editorial-subheading block">{text.blogsSub}</span>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-royal">{text.blogsTitle}</h2>
-          </div>
-          <Link href={`/${locale}/blog`} className="btn-secondary inline-flex items-center gap-2">
-            <span>{locale === "es" ? "Leer Todo" : locale === "pt" ? "Ler Tudo" : "Read All"}</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogs.slice(0, 6).map((blog: any, i: number) => (
-            <Reveal key={blog.slug} delay={i * 80}>
-              <Link href={`/${locale}/blog/${blog.slug}`} className="group block">
-                <div className="card-elevated overflow-hidden">
-                  <div className="h-60 overflow-hidden">
-                    <img
-                      src={blog.featuredImage}
-                      alt={blog.title[locale as "en" | "es" | "pt"] || blog.title.en}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-105"
-                    />
+          {tourPackages.slice(0, 3).map((pkg: any, i: number) => (
+            <Reveal key={pkg.slug} delay={i * 80}>
+              <Link href={`/${locale}/packages`} className="group block h-full">
+                <div className="bg-white border border-gold/10 rounded-2xl overflow-hidden shadow-md flex flex-col h-full transition-transform duration-500 hover:-translate-y-2 hover:border-gold/25">
+                  <div className="h-48 shrink-0 overflow-hidden relative">
+                    <img src={pkg.image} alt={pkg.title?.en} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <span className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-royal text-[9px] uppercase font-bold tracking-wider px-2.5 py-1 rounded shadow-sm">
+                      {pkg.durationDays} Days
+                    </span>
                   </div>
-                  <div className="p-7 space-y-4">
-                    <div className="flex items-center gap-3 text-[11px] text-foreground/45 font-medium">
-                      <span className="badge-forest">{blog.category}</span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-3 h-3" />
-                        {blog.readingTime} min
-                      </span>
+                  <div className="p-6 flex flex-col justify-between flex-grow bg-white">
+                    <div className="space-y-2">
+                      <h3 className="text-base font-serif font-bold text-royal group-hover:text-gold transition-colors leading-snug">
+                        {pkg.title?.[locale] || pkg.title?.en}
+                      </h3>
+                      <p className="text-xs text-foreground/55 line-clamp-3 leading-relaxed font-light">
+                        {pkg.tagline?.[locale] || pkg.tagline?.en}
+                      </p>
                     </div>
-                    <h3 className="text-lg font-serif font-bold text-royal leading-snug group-hover:text-gold transition-colors duration-200 line-clamp-2">
-                      {blog.title[locale as "en" | "es" | "pt"] || blog.title.en}
-                    </h3>
-                    <p className="text-[13px] text-foreground/55 line-clamp-2 leading-relaxed">
-                      {blog.excerpt[locale as "en" | "es" | "pt"] || blog.excerpt.en}
-                    </p>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-gold flex items-center gap-1 mt-4">
+                      <span>Request Draft</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </span>
                   </div>
                 </div>
               </Link>
@@ -540,45 +335,116 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
-      {/* 10. CTA Banner */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?q=80&w=1920"
-            alt="India landscape"
-            loading="lazy"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-royal/85 backdrop-blur-[2px]" />
-        </div>
-        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center text-white space-y-7">
-          <Reveal>
-            <h2 className="text-3xl md:text-5xl lg:text-[3.5rem] font-serif font-bold leading-tight">
-              {text.ctaBannerTitle}
-            </h2>
-          </Reveal>
-          <Reveal delay={100}>
-            <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-lg mx-auto">
-              {text.ctaBannerSub}
+      {/* SECTION 5: Gastronomy Preview (Curated Culinary Card) */}
+      <section className="max-w-7xl mx-auto px-6 py-28 border-b border-gold/10">
+        <div className="bg-royal border border-gold/15 rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 relative">
+          <div className="lg:col-span-5 h-[320px] lg:h-full relative overflow-hidden">
+            <img src="/images/indian_cuisine_feast.png" alt="Culinary Spices" className="w-full h-full object-cover animate-kenburns" />
+          </div>
+          <div className="lg:col-span-7 p-10 md:p-16 flex flex-col justify-center space-y-6 text-white bg-royal relative">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-gold/5 via-transparent to-transparent pointer-events-none" />
+            <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold">{text.foodSub}</span>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold tracking-tight">{text.foodTitle}</h2>
+            <p className="text-xs text-white/70 leading-relaxed font-light max-w-md">
+              India's cultural geography is best tasted. From royal Mughal slow-cooked saffron curries to local coconut fish marinades, we map private food walks and dining logs.
             </p>
-          </Reveal>
-          <Reveal delay={200}>
-            <Link
-              href={`/${locale}#inquire-now`}
-              className="inline-flex items-center gap-2.5 bg-gold hover:bg-gold-light text-white text-[11px] font-semibold uppercase tracking-[0.12em] py-4.5 px-11 rounded-full transition-all duration-400 shadow-lg shadow-gold/25 hover:shadow-xl hover:-translate-y-0.5"
-            >
-              <span>{text.ctaBannerBtn}</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </Reveal>
+            <div className="pt-2">
+              <Link href={`/${locale}/food`} className="bg-gold hover:bg-gold-light text-royal text-[10px] font-bold uppercase tracking-widest px-6 py-3.5 rounded-full transition-transform hover:scale-105 inline-block shadow-md">
+                Explore Food Guide
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 11. Inquiry Form */}
-      <section className="section-spacing bg-cream" id="inquire-now">
-        <div className="max-w-7xl mx-auto px-6">
-          <InquiryForm locale={locale} />
+      {/* SECTION 6: Customer Testimonials */}
+      <section className="max-w-7xl mx-auto px-6 py-28 space-y-16 border-b border-gold/10">
+        <div className="text-center space-y-3 max-w-lg mx-auto">
+          <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold block">{text.testimonialsSub}</span>
+          <h2 className="text-3xl font-serif font-bold text-royal tracking-tight">{text.testimonialsTitle}</h2>
+          <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
         </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.slice(0, 3).map((test: any, i: number) => (
+            <Reveal key={i} delay={i * 80}>
+              <div className="bg-white border border-gold/10 p-8 rounded-2xl shadow-sm space-y-5 relative">
+                <div className="flex gap-1 text-gold">
+                  {[...Array(5)].map((_, idx) => (
+                    <Star key={idx} className="w-3.5 h-3.5 fill-current" />
+                  ))}
+                </div>
+                <p className="text-xs text-foreground/60 italic leading-relaxed font-light">"{test.text?.[locale] || test.text?.en}"</p>
+                <div className="border-t border-sand/40 pt-4 flex justify-between items-center text-xs">
+                  <span className="font-bold text-royal">{test.author}</span>
+                  <span className="text-[10px] text-foreground/45 uppercase tracking-wider">{test.location}</span>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION 7: Curated Concierge FAQs */}
+      <section className="max-w-4xl mx-auto px-6 py-28 space-y-16 border-b border-gold/10">
+        <div className="text-center space-y-3 max-w-lg mx-auto">
+          <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold block">{text.faqSub}</span>
+          <h2 className="text-3xl font-serif font-bold text-royal tracking-tight">{text.faqTitle}</h2>
+          <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
+        </div>
+
+        <div className="space-y-5">
+          {homepageFaqs.map((f, i) => (
+            <details key={i} className="group border-b border-gold/10 pb-5" open={i === 0}>
+              <summary className="flex justify-between items-center font-serif font-bold text-royal cursor-pointer list-none text-base">
+                <span>{f.q}</span>
+                <span className="w-5 h-5 rounded-full bg-gold/10 flex items-center justify-center text-gold text-xs transition-transform duration-300 group-open:rotate-45">+</span>
+              </summary>
+              <p className="text-xs text-foreground/60 mt-3 leading-relaxed pl-2 border-l border-gold/25 font-light">
+                {f.a}
+              </p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION 8: Blog Log */}
+      {blogs.length > 0 && (
+        <section className="max-w-7xl mx-auto px-6 py-28 space-y-16 border-b border-gold/10">
+          <div className="text-center space-y-3 max-w-lg mx-auto">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold block">{text.blogsSub}</span>
+            <h2 className="text-3xl font-serif font-bold text-royal tracking-tight">{text.blogsTitle}</h2>
+            <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {blogs.slice(0, 3).map((post: any, i: number) => (
+              <Reveal key={post.slug} delay={i * 80}>
+                <Link href={`/${locale}/blog/${post.slug}`} className="group block">
+                  <div className="bg-white border border-gold/10 rounded-2xl overflow-hidden shadow-sm transition-transform duration-500 hover:-translate-y-1 hover:border-gold/25">
+                    <div className="h-44 overflow-hidden">
+                      <img src={post.featuredImage} alt={post.title?.en} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    </div>
+                    <div className="p-6 space-y-3 bg-white">
+                      <span className="text-[9px] uppercase tracking-wider font-bold text-gold">{post.category}</span>
+                      <h3 className="text-sm font-serif font-bold text-royal group-hover:text-gold transition-colors leading-snug">
+                        {post.title?.[locale] || post.title?.en}
+                      </h3>
+                      <span className="text-[9px] text-foreground/45 uppercase tracking-wider block pt-1">
+                        {post.readingTime} Min Read &bull; By {post.author}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* SECTION 9: Tailored Inquiry Callout Panel */}
+      <section className="max-w-7xl mx-auto px-6 py-28">
+        <InquiryForm locale={locale} />
       </section>
 
     </div>

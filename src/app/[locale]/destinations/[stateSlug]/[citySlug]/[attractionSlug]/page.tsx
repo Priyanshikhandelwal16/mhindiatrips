@@ -20,65 +20,83 @@ export default async function AttractionDetailPage({ params }: AttractionPagePro
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
-      {/* Hero */}
-      <div className="relative h-[55vh] min-h-[380px] flex items-center justify-center overflow-hidden">
-        <img src={attraction.image} alt={attraction.name?.[locale] || attraction.name?.en} className="absolute inset-0 w-full h-full object-cover animate-kenburns" loading="eager" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/75" />
-        <div className="relative z-10 text-center text-white space-y-4 px-6 mt-16 max-w-3xl">
-          <span className="editorial-subheading block text-gold flex items-center justify-center gap-1.5 text-[10px] tracking-[0.2em] font-bold">
-            <Landmark className="w-4 h-4" />{city.title?.en} Landmark
-          </span>
-          <h1 className="text-3xl md:text-5xl font-serif font-bold tracking-tight">{attraction.name?.[locale] || attraction.name?.en}</h1>
-        </div>
-      </div>
-
-      {/* Content */}
-      <section className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-3 gap-16">
-        <div className="lg:col-span-2 space-y-10">
-          <div className="space-y-4">
-            <span className="text-[10px] uppercase tracking-wider font-bold text-gold flex items-center gap-1.5">
-              <BookOpen className="w-3.5 h-3.5" />
-              <span>{locale === "es" ? "SOBRE EL MONUMENTO" : locale === "pt" ? "SOBRE O MONUMENTO" : "Heritage Overview"}</span>
-            </span>
-            <h2 className="text-2xl font-serif font-bold text-royal">{locale === "es" ? "Sobre" : locale === "pt" ? "Sobre" : "Introduction"}</h2>
-            <p className="text-sm text-foreground/60 leading-relaxed font-light">{attraction.desc?.[locale] || attraction.desc?.en}</p>
-          </div>
-          <div className="space-y-4 pt-8 border-t border-sand/65">
-            <h3 className="text-xl font-serif font-bold text-royal">{locale === "es" ? "Historia" : locale === "pt" ? "História" : "Chronicle & Historical Context"}</h3>
-            <p className="text-sm text-foreground/60 leading-relaxed font-light">{attraction.history?.[locale] || attraction.history?.en}</p>
-          </div>
-          <div className="space-y-4 pt-8 border-t border-sand/65">
-            <h3 className="text-xl font-serif font-bold text-royal">{locale === "es" ? "Arquitectura" : locale === "pt" ? "Arquitetura" : "Architectural Marvels"}</h3>
-            <p className="text-sm text-foreground/60 leading-relaxed font-light">{attraction.architecture?.[locale] || attraction.architecture?.en}</p>
-          </div>
-        </div>
+      {/* SECTION 1: Monument Title Banner */}
+      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <img src={attraction.image} alt={attraction.name?.[locale] || attraction.name?.en} className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns" loading="eager" />
+        <div className="absolute inset-0 bg-gradient-to-b from-royal/60 via-royal/30 to-royal/80" />
         
-        {/* Sidebar Info */}
-        <div className="glass-panel border border-gold/15 p-8 rounded-3xl h-fit space-y-6 shadow-xl shadow-royal/5 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-[3px] bg-gold" />
-          <h3 className="editorial-subheading border-b border-sand/70 pb-3 text-[10px] tracking-[0.2em] font-bold text-royal">Visitor Essentials</h3>
-          <div className="space-y-5 text-sm">
+        <div className="relative z-10 text-center text-white space-y-4 px-6 mt-16 max-w-4xl">
+          <span className="bg-gold/90 text-royal text-[9px] uppercase tracking-[0.25em] font-extrabold px-4 py-1.5 rounded-full inline-block">
+            {city.title?.[locale] || city.title?.en} Heritage Site
+          </span>
+          <h1 className="text-4xl md:text-6xl font-serif font-black tracking-tight leading-none text-white">
+            {attraction.name?.[locale] || attraction.name?.en}
+          </h1>
+        </div>
+      </section>
+
+      {/* SECTION 2: Split columns details */}
+      <section className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-3 gap-16">
+        
+        {/* Left Column: Descriptive sections */}
+        <div className="lg:col-span-2 space-y-12">
+          
+          <div className="space-y-4">
+            <span className="text-[10px] uppercase tracking-[0.2em] font-black text-gold flex items-center gap-1.5">
+              <BookOpen className="w-4 h-4" />
+              <span>{locale === "es" ? "HISTORIA Y ANÁLISIS" : locale === "pt" ? "HISTÓRIA E ANÁLISE" : "Historical Insight"}</span>
+            </span>
+            <h2 className="text-2xl font-serif font-bold text-royal">Heritage Introduction</h2>
+            <p className="text-xs md:text-sm text-foreground/60 leading-relaxed font-light">{attraction.desc?.[locale] || attraction.desc?.en}</p>
+          </div>
+
+          {attraction.history && (
+            <div className="space-y-4 pt-10 border-t border-gold/10">
+              <h3 className="text-xl font-serif font-bold text-royal">Legacy & Timeline</h3>
+              <p className="text-xs md:text-sm text-foreground/60 leading-relaxed font-light">{attraction.history?.[locale] || attraction.history?.en}</p>
+            </div>
+          )}
+
+          {attraction.architecture && (
+            <div className="space-y-4 pt-10 border-t border-gold/10">
+              <h3 className="text-xl font-serif font-bold text-royal">Architectural Marvel</h3>
+              <p className="text-xs md:text-sm text-foreground/60 leading-relaxed font-light">{attraction.architecture?.[locale] || attraction.architecture?.en}</p>
+            </div>
+          )}
+
+        </div>
+
+        {/* Right Column: Postcard Essentials Box */}
+        <div className="bg-white border border-gold/25 p-8 rounded-3xl h-fit space-y-6 shadow-xl shadow-royal/5 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-[4px] bg-gold" />
+          <h3 className="text-[10px] uppercase tracking-[0.25em] font-black text-royal border-b border-gold/10 pb-4">Visitor Dossier</h3>
+          <div className="space-y-6 text-xs">
             <div className="flex items-start gap-3">
               <Clock className="w-4 h-4 text-gold shrink-0 mt-0.5" />
               <div>
-                <span className="text-[9px] uppercase tracking-wider font-bold text-foreground/40 block mb-1">Visiting Hours</span>
-                <span className="text-foreground/75 font-medium leading-relaxed block">{attraction.timings?.[locale] || attraction.timings?.en}</span>
+                <span className="text-[9px] uppercase tracking-wider font-bold text-foreground/40 block mb-1">Gate Hours</span>
+                <span className="text-foreground/75 font-semibold leading-relaxed block">{attraction.timings?.[locale] || attraction.timings?.en}</span>
               </div>
             </div>
-            <div className="flex items-start gap-3 pt-5 border-t border-sand/40">
-              <Info className="w-4 h-4 text-gold shrink-0 mt-0.5" />
-              <div>
-                <span className="text-[9px] uppercase tracking-wider font-bold text-foreground/40 block mb-1">Key Advice & Tips</span>
-                <span className="text-foreground/75 font-light leading-relaxed block">{attraction.info?.[locale] || attraction.info?.en}</span>
+            {attraction.info && (
+              <div className="flex items-start gap-3 pt-5 border-t border-gold/10">
+                <Info className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+                <div>
+                  <span className="text-[9px] uppercase tracking-wider font-bold text-foreground/40 block mb-1">Advisor Tip</span>
+                  <span className="text-foreground/75 font-light leading-relaxed block">{attraction.info?.[locale] || attraction.info?.en}</span>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
+
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 py-20 border-t border-sand/50">
+      {/* SECTION 3: Book Travel */}
+      <section className="max-w-7xl mx-auto px-6 py-20 border-t border-gold/10">
         <InquiryForm locale={locale} />
       </section>
+
     </div>
   );
 }
