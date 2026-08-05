@@ -1,6 +1,7 @@
 "use server";
 
 import { db } from "@/lib/db";
+import { sendInquiryNotification, sendInquiryConfirmation } from "@/lib/email";
 
 export async function createInquiryAction(formData: any) {
   try {
@@ -16,6 +17,27 @@ export async function createInquiryAction(formData: any) {
       experience: formData.experience || "",
       message: formData.message || "",
     });
+
+    // Send email notifications (non-blocking - don't fail the inquiry if email fails)
+    const emailData = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone || undefined,
+      destination: Array.isArray(formData.destinations) ? formData.destinations.join(", ") : formData.destinations || undefined,
+      travelDates: formData.startDate || undefined,
+      travelers: formData.travelers ? String(formData.travelers) : undefined,
+      message: formData.message || undefined,
+      budget: formData.experience || undefined,
+    };
+
+    // Send both emails in parallel (don't await to avoid slowing down response)
+    Promise.all([
+      sendInquiryNotification(emailData),
+      sendInquiryConfirmation(emailData),
+    ]).catch((err) => {
+      console.error("Email sending failed:", err);
+    });
+
     return { success: true, inquiry };
   } catch (error: any) {
     console.error("Error creating inquiry:", error);
