@@ -66,7 +66,7 @@ export default async function StateDetailPage({ params }: StatePageProps) {
       {/* Cities */}
       {state.cities && state.cities.length > 0 && (
         <section className="max-w-7xl mx-auto px-6 py-12 space-y-8">
-          <h2 className="text-2xl font-serif font-bold text-royal">{text.cities}</h2>
+          <h2 className="text-2xl font-serif font-bold text-royal text-center">{text.cities}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
             {state.cities.map((city: any) => (
               <Link key={city.slug} href={`/${locale}/destinations/${stateSlug}/${city.slug}`} className="group block">
@@ -93,7 +93,7 @@ export default async function StateDetailPage({ params }: StatePageProps) {
       {/* Attractions */}
       {state.cities?.some((c: any) => c.attractions?.length > 0) && (
         <section className="max-w-7xl mx-auto px-6 py-12 space-y-8 border-t border-sand">
-          <h2 className="text-2xl font-serif font-bold text-royal">{text.attractions}</h2>
+          <h2 className="text-2xl font-serif font-bold text-royal text-center">{text.attractions}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
             {state.cities.flatMap((city: any) =>
               (city.attractions || []).map((att: any) => ({ ...att, citySlug: city.slug, cityName: city.title?.[locale] || city.title?.en }))

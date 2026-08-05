@@ -169,12 +169,12 @@ export default function Header({ locale }: HeaderProps) {
           {/* Logo */}
           <Link href={`/${locale}`} className="flex items-center gap-2 group relative z-10">
             <Image
-              src="/images/logo.png"
+              src="/images/logo-transparent.png"
               alt="MH India Trips"
-              width={180}
-              height={50}
+              width={220}
+              height={65}
               priority
-              className={`h-10 w-auto transition-all duration-400 ${
+              className={`h-14 w-auto transition-all duration-400 ${
                 scrolled ? "brightness-100" : "brightness-0 invert"
               }`}
             />
@@ -263,7 +263,7 @@ export default function Header({ locale }: HeaderProps) {
             </div>
 
             <Link
-              href={`/${locale}#popular-packages`}
+              href={`/${locale}/packages`}
               className={`nav-link px-4 py-2 rounded-lg transition-all duration-300 ${
                 scrolled ? "text-foreground/80 hover:text-gold" : "text-white/90 hover:text-gold"
               }`}
@@ -361,11 +361,11 @@ export default function Header({ locale }: HeaderProps) {
           {/* Menu Header */}
           <div className="flex justify-between items-center p-6 border-b border-sand/50">
             <Image
-              src="/images/logo.png"
+              src="/images/logo-transparent.png"
               alt="MH India Trips"
-              width={140}
-              height={40}
-              className="h-8 w-auto"
+              width={180}
+              height={55}
+              className="h-12 w-auto"
             />
             <button
               onClick={() => setMobileMenuOpen(false)}

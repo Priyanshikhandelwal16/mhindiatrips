@@ -68,7 +68,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
       {/* Attractions */}
       {city.attractions?.length > 0 && (
         <section className="max-w-7xl mx-auto px-6 py-12 space-y-8 border-t border-sand">
-          <h2 className="text-2xl font-serif font-bold text-royal">
+          <h2 className="text-2xl font-serif font-bold text-royal text-center">
             {locale === "es" ? "Monumentos Destacados" : locale === "pt" ? "Monumentos Destacados" : "Key Landmarks"}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-7">

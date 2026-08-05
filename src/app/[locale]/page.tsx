@@ -11,6 +11,8 @@ import InquiryForm from "@/components/common/InquiryForm";
 import HeroSlider from "@/components/home/HeroSlider";
 import FoodSection from "@/components/home/FoodSection";
 import TestimonialSlider from "@/components/home/TestimonialSlider";
+import StatsCounter from "@/components/home/StatsCounter";
+import FloatingElements from "@/components/common/FloatingElements";
 import Reveal from "@/components/home/Reveal";
 import {
   ChevronRight,
@@ -161,42 +163,42 @@ export default async function HomePage({ params }: HomePageProps) {
     {
       image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1920",
       location: "Agra, Uttar Pradesh",
-      sub: "",
+      sub: locale === "es" ? "Maravilla del Mundo" : locale === "pt" ? "Maravilha do Mundo" : "Wonder of the World",
       title: locale === "es" ? "El Taj Mahal al Amanecer" : locale === "pt" ? "O Taj Mahal ao Amanhecer" : "The Taj Mahal at Sunrise",
       desc: locale === "es" ? "Contemple la maravilla del mundo bañada por la primera luz del día." : locale === "pt" ? "Contemple a maravilha do mundo banhada pela primeira luz do dia." : "Witness the wonder of the world bathed in golden first light.",
     },
     {
       image: "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1920",
       location: "Jaipur, Rajasthan",
-      sub: "",
+      sub: locale === "es" ? "La Tierra de los Reyes" : locale === "pt" ? "A Terra dos Reis" : "The Land of Kings",
       title: locale === "es" ? "Palacios Reales y Fortalezas" : locale === "pt" ? "Palácios Reais e Fortalezas" : "Royal Palaces & Desert Forts",
       desc: locale === "es" ? "Explore la majestuosidad de los palacios y fortalezas de Rajastán." : locale === "pt" ? "Explore a majestade dos palácios e fortalezas do Rajastão." : "Explore the grandeur of Rajasthan's heritage palaces and mighty fortresses.",
     },
     {
       image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1920",
       location: "Kerala, South India",
-      sub: "",
+      sub: locale === "es" ? "El País de Dios" : locale === "pt" ? "A Terra de Deus" : "God's Own Country",
       title: locale === "es" ? "Canales Tropicales de Kerala" : locale === "pt" ? "Canais Tropicais de Kerala" : "Kerala's Emerald Backwaters",
       desc: locale === "es" ? "Navegue por canales bordeados de palmeras en casas flotantes de lujo." : locale === "pt" ? "Navegue por canais ladeados de palmeiras em casas flutuantes de luxo." : "Drift along palm-fringed waterways aboard luxury houseboats.",
     },
     {
       image: "/images/varanasi.jpg",
       location: "Varanasi, Uttar Pradesh",
-      sub: "",
+      sub: locale === "es" ? "La Ciudad Más Antigua del Mundo" : locale === "pt" ? "A Cidade Mais Antiga do Mundo" : "The World's Oldest Living City",
       title: locale === "es" ? "La Ciudad Eterna del Ganges" : locale === "pt" ? "A Cidade Eterna do Ganges" : "The Eternal City of Light",
       desc: locale === "es" ? "Viva la espiritualidad en los ghats sagrados del Ganges." : locale === "pt" ? "Viva a espiritualidade nos ghats sagrados do Ganges." : "Experience ancient spirituality on the sacred ghats of the Ganges.",
     },
     {
       image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1920",
       location: "Goa, West India",
-      sub: "",
+      sub: locale === "es" ? "Paraíso Costero" : locale === "pt" ? "Paraíso Costeiro" : "Coastal Paradise",
       title: locale === "es" ? "Playas Doradas y Encanto Colonial" : locale === "pt" ? "Praias Douradas e Charme Colonial" : "Golden Beaches & Colonial Charm",
       desc: locale === "es" ? "Relájese en playas prístinas y descubra la herencia portuguesa." : locale === "pt" ? "Relaxe em praias intocadas e descubra a herança portuguesa." : "Unwind on pristine shores and discover Portuguese heritage.",
     },
     {
       image: "/images/ranthambore.jpg",
       location: "Ranthambore, Rajasthan",
-      sub: "",
+      sub: locale === "es" ? "Aventura en la Naturaleza" : locale === "pt" ? "Aventura na Natureza" : "Into the Wild",
       title: locale === "es" ? "Safari de Tigres Reales" : locale === "pt" ? "Safari de Tigres Reais" : "Royal Tiger Safari",
       desc: locale === "es" ? "Encuentre al majestuoso Tigre Real de Bengala en su hábitat natural." : locale === "pt" ? "Encontre o majestoso Tigre Real de Bengala em seu habitat natural." : "Encounter the majestic Royal Bengal Tiger in its natural wilderness habitat.",
     },
@@ -264,24 +266,7 @@ export default async function HomePage({ params }: HomePageProps) {
                 </p>
               </div>
               {/* Stats Row */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-sand">
-                <div className="space-y-1.5">
-                  <span className="text-3xl lg:text-4xl font-serif font-bold text-forest">14+</span>
-                  <p className="text-[10px] uppercase tracking-[0.15em] font-semibold text-foreground/45">{text.statYears}</p>
-                </div>
-                <div className="space-y-1.5">
-                  <span className="text-3xl lg:text-4xl font-serif font-bold text-gold">5000+</span>
-                  <p className="text-[10px] uppercase tracking-[0.15em] font-semibold text-foreground/45">{text.statTravelers}</p>
-                </div>
-                <div className="space-y-1.5">
-                  <span className="text-3xl lg:text-4xl font-serif font-bold text-terracotta">100+</span>
-                  <p className="text-[10px] uppercase tracking-[0.15em] font-semibold text-foreground/45">{text.statDest}</p>
-                </div>
-                <div className="space-y-1.5">
-                  <span className="text-3xl lg:text-4xl font-serif font-bold text-royal">4.9</span>
-                  <p className="text-[10px] uppercase tracking-[0.15em] font-semibold text-foreground/45">{text.statRating}</p>
-                </div>
-              </div>
+              <StatsCounter labels={{ years: text.statYears, travelers: text.statTravelers, destinations: text.statDest, rating: text.statRating }} />
             </Reveal>
             <Reveal delay={150} className="grid grid-cols-12 grid-rows-6 gap-3 h-[520px]">
               <div className="col-span-7 row-span-6 rounded-2xl overflow-hidden shadow-xl image-zoom-container">
@@ -349,7 +334,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
       {/* 4. Featured Destinations */}
       <section className="max-w-7xl mx-auto px-6 section-spacing space-y-14">
-        <Reveal className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+        <Reveal className="flex flex-col items-center text-center gap-6">
           <div className="space-y-4">
             <span className="editorial-subheading block">Signature Destinations</span>
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-royal">
@@ -458,6 +443,7 @@ export default async function HomePage({ params }: HomePageProps) {
       {/* 6. Why Travel With Us - Replaces "Choose Your Experience" */}
       <section className="section-spacing relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-cream/30 to-background pointer-events-none" />
+        <FloatingElements />
         <div className="max-w-7xl mx-auto px-6 relative z-10 space-y-14">
           <Reveal className="text-center space-y-5 max-w-2xl mx-auto">
             <span className="editorial-subheading block">{text.whyTravelSub}</span>
@@ -469,9 +455,9 @@ export default async function HomePage({ params }: HomePageProps) {
               const Icon = feature.icon;
               return (
                 <Reveal key={i} delay={i * 80}>
-                  <div className="group p-8 rounded-2xl border border-sand/50 bg-white hover:border-gold/30 hover:shadow-lg transition-all duration-500 h-full">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-gold/10 to-gold/5 flex items-center justify-center mb-6 group-hover:from-gold/20 group-hover:to-gold/10 transition-all duration-300">
-                      <Icon className="w-6 h-6 text-gold" />
+                  <div className="group p-8 rounded-2xl border border-sand/50 bg-white hover:border-gold/30 hover:shadow-lg transition-all duration-500 h-full card-tilt">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-gold/10 to-gold/5 flex items-center justify-center mb-6 group-hover:from-gold/20 group-hover:to-gold/10 transition-all duration-300 group-hover:scale-110">
+                      <Icon className="w-6 h-6 text-gold group-hover:rotate-12 transition-transform duration-500" />
                     </div>
                     <h3 className="text-lg font-serif font-bold text-royal mb-3 leading-snug">{feature.title}</h3>
                     <p className="text-sm text-foreground/55 leading-relaxed">{feature.desc}</p>
@@ -508,7 +494,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
       {/* 9. Blog Section */}
       <section className="max-w-7xl mx-auto px-6 section-spacing space-y-14">
-        <Reveal className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+        <Reveal className="flex flex-col items-center text-center gap-6">
           <div className="space-y-4">
             <span className="editorial-subheading block">{text.blogsSub}</span>
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-royal">{text.blogsTitle}</h2>

@@ -120,12 +120,12 @@ export default function Footer({ locale }: FooterProps) {
           <div className="lg:col-span-4 space-y-6">
             <div>
               <Image
-                src="/images/logo.png"
+                src="/images/logo-transparent.png"
                 alt="MH India Trips"
-                width={160}
-                height={45}
+                width={200}
+                height={60}
                 loading="lazy"
-                className="h-10 w-auto brightness-0 invert"
+                className="h-14 w-auto brightness-0 invert"
               />
               <p className="text-[10px] uppercase tracking-[0.25em] text-white/25 mt-1.5 font-medium">
                 {labels.tagline}

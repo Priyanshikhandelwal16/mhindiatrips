@@ -53,16 +53,16 @@ export default function FoodSection({ locale, foods, labels }: FoodSectionProps)
       <div className="relative z-10 max-w-7xl mx-auto px-6 space-y-14">
         {/* Header */}
         <Reveal>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end">
+          <div className="flex flex-col items-center text-center gap-6">
             <div className="space-y-5">
               <span className="inline-flex items-center gap-2.5 text-[11px] uppercase tracking-[0.2em] text-gold font-semibold">
                 <Utensils className="w-4 h-4" />
                 <span>{labels.sub}</span>
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight">{labels.title}</h2>
-              <p className="text-[15px] text-white/55 max-w-lg leading-relaxed">{labels.desc}</p>
+              <p className="text-[15px] text-white/55 max-w-lg leading-relaxed mx-auto">{labels.desc}</p>
             </div>
-            <div className="lg:text-right">
+            <div>
               <Link
                 href={`/${locale}/food`}
                 className="inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-gold hover:text-white border border-gold/30 hover:border-gold px-7 py-3.5 rounded-full transition-all duration-300"

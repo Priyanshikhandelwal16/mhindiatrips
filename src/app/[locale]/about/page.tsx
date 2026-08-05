@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Reveal from "@/components/home/Reveal";
+import AboutStatsCounter from "@/components/common/AboutStatsCounter";
 import { Award, Users, Globe, Heart, Shield, ArrowRight, Star, Clock, MapPin, Compass } from "lucide-react";
 
 interface AboutPageProps {
@@ -82,7 +83,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
       <section className="section-spacing">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <Reveal className="space-y-6">
+            <Reveal className="space-y-6 text-center">
               <span className="editorial-subheading block">{text.heroSub}</span>
               <h2 className="text-3xl md:text-4xl font-bold text-royal">{text.storyTitle}</h2>
               <div className="space-y-4 text-[15px] text-foreground/60 leading-relaxed">
@@ -119,14 +120,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
           <Reveal className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold">{text.numbersTitle}</h2>
           </Reveal>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {stats.map((stat, i) => (
-              <Reveal key={i} delay={i * 60} className="text-center">
-                <span className="text-3xl lg:text-4xl font-bold text-gold block">{stat.number}</span>
-                <p className="text-[11px] uppercase tracking-[0.15em] text-white/50 mt-2 font-medium">{stat.label}</p>
-              </Reveal>
-            ))}
-          </div>
+          <AboutStatsCounter stats={stats} />
         </div>
       </section>
 

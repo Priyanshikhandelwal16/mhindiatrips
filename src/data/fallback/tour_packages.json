@@ -59,7 +59,7 @@
     "tagline": { "en": "Sacred ghats of Varanasi, yoga in Rishikesh, and meditation in the Himalayas.", "es": "Ghats sagrados, yoga en Rishikesh y meditación en el Himalaya.", "pt": "Ghats sagrados, yoga em Rishikesh e meditação no Himalaia." },
     "category": "Spiritual Tours",
     "durationDays": 9,
-    "image": "https://images.unsplash.com/photo-1561361513-2d000a50f0db?q=80&w=800",
+    "image": "/images/varanasi ganga aarti.jpg",
     "gallery": [],
     "highlights": [
       { "en": "Private Ganga Aarti viewing at Dashashwamedh Ghat", "es": "Ganga Aarti privada en Dashashwamedh Ghat", "pt": "Ganga Aarti privada em Dashashwamedh Ghat" },
@@ -77,7 +77,7 @@
     "tagline": { "en": "Track the Royal Bengal Tiger across India's finest national parks and reserves.", "es": "Rastree al tigre real de Bengala en los mejores parques nacionales.", "pt": "Rastreie o tigre real de Bengala nos melhores parques nacionais." },
     "category": "Wildlife Tours",
     "durationDays": 8,
-    "image": "https://images.unsplash.com/photo-1581791538302-03537b9c97bf?q=80&w=800",
+    "image": "/images/ranthambore.jpg",
     "gallery": [],
     "highlights": [
       { "en": "Expert naturalist-guided safaris", "es": "Safaris guiados por naturalistas expertos", "pt": "Safaris guiados por naturalistas especialistas" },

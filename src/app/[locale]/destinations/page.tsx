@@ -39,7 +39,7 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
           if (regionStates.length === 0) return null;
           return (
             <div key={reg} className="space-y-8">
-              <div className="flex items-center gap-3 border-b border-sand pb-4">
+              <div className="flex items-center justify-center gap-3 border-b border-sand pb-4">
                 <Layers className="w-5 h-5 text-gold" />
                 <h2 className="text-lg font-semibold tracking-wider uppercase text-gold">{reg} India</h2>
                 <span className="text-xs text-foreground/40 ml-auto">{regionStates.length} {locale === "es" ? "destinos" : locale === "pt" ? "destinos" : "destinations"}</span>

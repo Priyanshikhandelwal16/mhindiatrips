@@ -87,6 +87,13 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
                   </span>
                 </div>
 
+                {/* Subtitle */}
+                {slide.sub && (
+                  <p className="hero-text text-[11px] uppercase tracking-[0.2em] text-gold font-semibold">
+                    {slide.sub}
+                  </p>
+                )}
+
                 {/* Title */}
                 <h1 className="hero-text text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-serif font-bold tracking-tight leading-[1.05]">
                   {slide.title}
