@@ -72,29 +72,29 @@ export default async function FAQPage({ params }: FAQPageProps) {
   ];
 
   return (
-    <div className="font-sans bg-background text-foreground">
+    <div className="font-sans bg-[#FAF8F5] min-h-screen text-[#1B1B1B]">
       {/* Hero */}
       <section className="relative h-[45vh] min-h-[320px] flex items-center justify-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1920" alt="FAQ" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-royal/80" />
-        <div className="relative z-10 text-center text-white px-6 max-w-3xl">
-          <span className="editorial-subheading block text-gold mb-4">{text.heroSub}</span>
+        <img src="/images/taj_mahal_sunrise.png" alt="FAQ" className="absolute inset-0 w-full h-full object-cover animate-kenburns" />
+        <div className="absolute inset-0 bg-royal/70" />
+        <div className="relative z-10 text-center text-white px-6 max-w-3xl mt-12">
+          <span className="editorial-subheading block text-gold mb-4 tracking-[0.2em]">{text.heroSub}</span>
           <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">{text.hero}</h1>
-          <p className="text-base text-white/70">{text.heroDesc}</p>
+          <p className="text-sm text-white/80 font-light">{text.heroDesc}</p>
         </div>
       </section>
 
       {/* FAQ Items */}
-      <section className="section-spacing">
+      <section className="py-20 bg-[#FAF8F5]">
         <div className="max-w-3xl mx-auto px-6 space-y-6">
           {faqs.map((faq, i) => (
             <Reveal key={i} delay={i * 50}>
-              <details className="group p-6 rounded-2xl border border-sand/50 bg-white hover:border-gold/20 transition-colors cursor-pointer">
-                <summary className="flex items-center justify-between text-[15px] font-semibold text-royal cursor-pointer list-none">
+              <details className="group p-7 rounded-3xl border border-gold/10 bg-white hover:border-gold/30 transition-all duration-300 cursor-pointer shadow-sm relative overflow-hidden">
+                <summary className="flex items-center justify-between text-base font-serif font-bold text-royal cursor-pointer list-none">
                   <span>{faq.q}</span>
-                  <span className="ml-4 shrink-0 w-6 h-6 rounded-full bg-gold/10 flex items-center justify-center text-gold text-sm group-open:rotate-45 transition-transform duration-300">+</span>
+                  <span className="ml-4 shrink-0 w-7 h-7 rounded-full bg-gold/10 flex items-center justify-center text-gold text-sm group-open:rotate-45 transition-transform duration-300">+</span>
                 </summary>
-                <p className="mt-4 text-sm text-foreground/55 leading-relaxed">{faq.a}</p>
+                <p className="mt-4 text-xs text-foreground/60 leading-relaxed font-light pl-2 border-l border-gold/25">{faq.a}</p>
               </details>
             </Reveal>
           ))}

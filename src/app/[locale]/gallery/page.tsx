@@ -17,26 +17,26 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
   const text = t[locale] || t.en;
 
   const images = [
-    { src: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800", alt: "Taj Mahal", span: "col-span-2 row-span-2" },
-    { src: "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=600", alt: "Jaipur Palace", span: "col-span-1 row-span-1" },
-    { src: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=600", alt: "Kerala Backwaters", span: "col-span-1 row-span-2" },
-    { src: "/images/varanasi.jpg", alt: "Varanasi Ghats", span: "col-span-1 row-span-1" },
+    { src: "/images/taj_mahal_sunrise.png", alt: "Taj Mahal", span: "col-span-2 row-span-2" },
+    { src: "/images/rajasthan_fort_sunset.png", alt: "Jaipur Palace", span: "col-span-1 row-span-1" },
+    { src: "/images/kerala_backwaters_houseboat.png", alt: "Kerala Backwaters", span: "col-span-1 row-span-2" },
+    { src: "/images/varanasi_ghats_aarti.png", alt: "Varanasi Ghats", span: "col-span-1 row-span-1" },
     { src: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=600", alt: "Goa Beach", span: "col-span-1 row-span-1" },
-    { src: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=600", alt: "North India", span: "col-span-1 row-span-1" },
-    { src: "/images/ranthambore.jpg", alt: "Ranthambore Tiger Safari", span: "col-span-2 row-span-1" },
+    { src: "/images/luxury_palace_train.png", alt: "Luxury Palace Train", span: "col-span-1 row-span-1" },
+    { src: "/images/ranthambore_tiger_safari.png", alt: "Ranthambore Tiger Safari", span: "col-span-2 row-span-1" },
     { src: "https://images.unsplash.com/photo-1566552881560-0be862a7c445?q=80&w=600", alt: "Mumbai", span: "col-span-1 row-span-1" },
-    { src: "/images/varanasi ganga aarti.jpg", alt: "Varanasi Ganga Aarti", span: "col-span-1 row-span-2" },
-    { src: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=600", alt: "Yoga Retreat", span: "col-span-1 row-span-1" },
-    { src: "/images/Wildlife & Tiger Safari.jpg", alt: "Wildlife Tiger Safari", span: "col-span-2 row-span-1" },
-    { src: "/images/rajasthan-camels.jpg", alt: "Rajasthan Camels", span: "col-span-1 row-span-1" },
+    { src: "/images/varanasi_ghats_aarti.png", alt: "Varanasi Ganga Aarti", span: "col-span-1 row-span-2" },
+    { src: "/images/indian_cuisine_feast.png", alt: "Indian Cuisine Feast", span: "col-span-1 row-span-1" },
+    { src: "/images/ranthambore_tiger_safari.png", alt: "Wildlife Tiger Safari", span: "col-span-2 row-span-1" },
+    { src: "/images/rajasthan_fort_sunset.png", alt: "Rajasthan Fort", span: "col-span-1 row-span-1" },
   ];
 
   return (
     <div className="font-sans bg-background text-foreground">
       {/* Hero */}
       <section className="relative h-[45vh] min-h-[320px] flex items-center justify-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1920" alt="Gallery" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-royal/80" />
+        <img src="/images/rajasthan_fort_sunset.png" alt="Gallery" className="absolute inset-0 w-full h-full object-cover animate-kenburns" />
+        <div className="absolute inset-0 bg-royal/70" />
         <div className="relative z-10 text-center text-white px-6 max-w-3xl">
           <span className="editorial-subheading block text-gold mb-4">{text.heroSub}</span>
           <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">{text.hero}</h1>
@@ -49,12 +49,12 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[200px] gap-4">
             {images.map((img, i) => (
-              <Reveal key={i} delay={i * 50} className={`${img.span} rounded-2xl overflow-hidden image-zoom-container`}>
+              <Reveal key={i} delay={i * 50} className={`${img.span} rounded-2xl overflow-hidden image-zoom-container border border-gold/10 hover:border-gold/25 transition-colors`}>
                 <img
                   src={img.src}
                   alt={img.alt}
                   loading="lazy"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700"
                 />
               </Reveal>
             ))}

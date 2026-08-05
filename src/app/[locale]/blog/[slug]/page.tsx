@@ -17,11 +17,11 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero */}
-      <div className="relative h-[50vh] min-h-[350px] flex items-center justify-center overflow-hidden">
-        <img src={blog.featuredImage} alt={blog.title?.[locale as "en"|"es"|"pt"] || blog.title?.en} className="absolute inset-0 w-full h-full object-cover" loading="eager" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+      <div className="relative h-[55vh] min-h-[380px] flex items-center justify-center overflow-hidden">
+        <img src={blog.featuredImage} alt={blog.title?.[locale as "en"|"es"|"pt"] || blog.title?.en} className="absolute inset-0 w-full h-full object-cover animate-kenburns" loading="eager" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/75" />
         <div className="relative z-10 text-center max-w-4xl px-6 space-y-4 text-white mt-16">
-          <span className="badge-gold">{blog.category}</span>
+          <span className="bg-gold/90 text-royal text-[9px] uppercase tracking-wider font-bold px-3 py-1.5 rounded shadow-sm">{blog.category}</span>
           <h1 className="text-3xl md:text-5xl font-serif font-bold leading-tight mt-3">
             {blog.title?.[locale as "en"|"es"|"pt"] || blog.title?.en}
           </h1>
@@ -33,17 +33,17 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
       </div>
 
       {/* Content */}
-      <section className="max-w-3xl mx-auto px-6 py-16 space-y-10">
-        <Link href={`/${locale}/blog`} className="text-xs font-semibold uppercase tracking-wider text-forest hover:text-gold flex items-center gap-1.5 w-fit transition-colors">
+      <section className="max-w-3xl mx-auto px-6 py-20 space-y-10">
+        <Link href={`/${locale}/blog`} className="text-[10px] font-bold uppercase tracking-wider text-forest hover:text-gold flex items-center gap-1.5 w-fit transition-colors">
           <ArrowLeft className="w-4 h-4" />
           <span>{locale === "es" ? "Volver al Blog" : locale === "pt" ? "Voltar ao Blog" : "Back to Blog"}</span>
         </Link>
 
         <article className="prose max-w-none space-y-6">
-          <p className="text-base font-medium text-royal leading-relaxed">
+          <p className="text-base font-serif font-bold text-royal leading-relaxed pl-4 border-l-2 border-gold italic">
             {blog.excerpt?.[locale as "en"|"es"|"pt"] || blog.excerpt?.en}
           </p>
-          <div className="text-sm text-foreground/70 leading-relaxed whitespace-pre-line">
+          <div className="text-sm text-foreground/60 leading-relaxed whitespace-pre-line font-light">
             {blog.content?.[locale as "en"|"es"|"pt"] || blog.content?.en}
           </div>
         </article>
