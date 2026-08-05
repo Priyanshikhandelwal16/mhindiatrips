@@ -63,7 +63,7 @@ export default function Header({ locale }: HeaderProps) {
     { name: "Rajasthan", path: "/destinations/rajasthan" },
     { name: "Kerala", path: "/destinations/kerala" },
     { name: "Varanasi", path: "/destinations/varanasi" },
-    { name: "Delhi & Agra", path: "/destinations/delhi-and-agra" },
+    { name: "Delhi & Agra", path: "/destinations/delhi-agra" },
     { name: "Goa", path: "/destinations/goa" }
   ];
 

@@ -197,11 +197,11 @@ export default async function HomePage({ params }: HomePageProps) {
           </Reveal>
           
           {/* Buttons: 16px–18px */}
-          <Reveal delay={450} className="pt-8 flex flex-wrap justify-center gap-6">
-            <Link href="#destinations" className="bg-gold hover:bg-gold-light text-royal text-base md:text-lg font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 shadow-xl shadow-gold/20">
+          <Reveal delay={450} className="pt-6 flex flex-wrap justify-center gap-4">
+            <Link href="#destinations" className="bg-gold hover:bg-gold-light text-royal text-[11px] font-bold uppercase tracking-wider px-7 py-3 rounded-full transition-transform hover:scale-105 shadow-lg shadow-gold/20">
               {text.cta}
             </Link>
-            <Link href="#inquire-now" className="bg-white/10 hover:bg-white/20 text-white text-base md:text-lg font-bold uppercase tracking-widest px-10 py-5 rounded-full border border-white/35 transition-colors">
+            <Link href="#inquire-now" className="bg-white/10 hover:bg-white/20 text-white text-[11px] font-bold uppercase tracking-wider px-7 py-3 rounded-full border border-white/35 transition-colors">
               {text.inquireCTA}
             </Link>
           </Reveal>
