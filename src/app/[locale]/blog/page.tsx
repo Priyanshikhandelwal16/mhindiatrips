@@ -13,9 +13,9 @@ export default async function BlogIndexPage({ params }: BlogIndexPageProps) {
   const blogs = await getBlogsAction();
 
   const t: Record<string, any> = {
-    en: { sub: "Travel Journal", title: "Stories & Insights", desc: "Expert tips, cultural insights, and luxury travel secrets from our local destination managers.", cta: "Read Story" },
-    es: { sub: "Diario de Viaje", title: "Historias e Ideas", desc: "Consejos de expertos, ideas culturales y secretos de viajes de lujo de nuestros asesores locales.", cta: "Leer Historia" },
-    pt: { sub: "Diário de Viagem", title: "Histórias e Inspirações", desc: "Dicas de especialistas, insights culturais e segredos de viagem de luxo dos nossos consultores.", cta: "Ler História" }
+    en: { sub: "Travel Blog", title: "Stories & Insights", desc: "Expert tips, cultural insights, and luxury travel secrets from our local destination managers.", cta: "Read Story" },
+    es: { sub: "Blog de Viajes", title: "Historias e Ideas", desc: "Consejos de expertos, ideas culturales y secretos de viajes de lujo de nuestros asesores locales.", cta: "Leer Historia" },
+    pt: { sub: "Blog de Viagens", title: "Histórias e Inspirações", desc: "Dicas de especialistas, insights culturais e segredos de viagem de luxo dos nossos consultores.", cta: "Ler História" }
   };
   const text = t[locale] || t.en;
 

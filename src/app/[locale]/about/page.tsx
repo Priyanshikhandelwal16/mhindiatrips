@@ -60,10 +60,10 @@ export default async function AboutPage({ params }: AboutPageProps) {
   ];
 
   const team = [
-    { name: "Rahul Sharma", role: "Founder & Lead Travel Designer", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300" },
-    { name: "Priya Kapoor", role: "Senior Destination Expert", img: "https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=300" },
-    { name: "Vikram Singh", role: "Heritage & Culture Specialist", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=300" },
-    { name: "Anita Desai", role: "Client Relations Manager", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=300" },
+    { name: "Rahul Sharma", role: "Founder & Lead Travel Designer", img: "/images/team_rahul.png" },
+    { name: "Priya Kapoor", role: "Senior Destination Expert", img: "/images/team_priya.png" },
+    { name: "Vikram Singh", role: "Heritage & Culture Specialist", img: "/images/team_vikram.png" },
+    { name: "Anita Desai", role: "Client Relations Manager", img: "/images/team_anita.png" },
   ];
 
   return (
