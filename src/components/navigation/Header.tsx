@@ -171,11 +171,11 @@ export default function Header({ locale }: HeaderProps) {
             <Image
               src="/images/logo-transparent.png"
               alt="MH India Trips"
-              width={220}
-              height={65}
+              width={280}
+              height={84}
               priority
-              className={`h-14 w-auto transition-all duration-400 ${
-                scrolled ? "brightness-100" : "brightness-0 invert"
+              className={`w-auto transition-all duration-400 ${
+                scrolled ? "h-16 brightness-100" : "h-22 brightness-0 invert"
               }`}
             />
           </Link>
@@ -363,9 +363,9 @@ export default function Header({ locale }: HeaderProps) {
             <Image
               src="/images/logo-transparent.png"
               alt="MH India Trips"
-              width={180}
-              height={55}
-              className="h-12 w-auto"
+              width={220}
+              height={66}
+              className="h-16 w-auto"
             />
             <button
               onClick={() => setMobileMenuOpen(false)}

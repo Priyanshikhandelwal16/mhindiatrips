@@ -122,10 +122,10 @@ export default function Footer({ locale }: FooterProps) {
               <Image
                 src="/images/logo-transparent.png"
                 alt="MH India Trips"
-                width={200}
-                height={60}
+                width={260}
+                height={78}
                 loading="lazy"
-                className="h-14 w-auto brightness-0 invert"
+                className="h-18 w-auto brightness-0 invert"
               />
               <p className="text-[10px] uppercase tracking-[0.25em] text-white/25 mt-1.5 font-medium">
                 {labels.tagline}
