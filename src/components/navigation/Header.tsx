@@ -161,8 +161,8 @@ export default function Header({ locale }: HeaderProps) {
         ref={headerRef}
         className={`fixed left-0 w-full z-50 transition-all duration-500 ease-out ${
           scrolled
-            ? "top-0 bg-white/97 backdrop-blur-xl shadow-[0_1px_20px_rgba(0,0,0,0.06)] py-3"
-            : "lg:top-[38px] top-0 bg-gradient-to-b from-black/30 to-transparent py-5"
+            ? "top-0 bg-white/95 backdrop-blur-xl border-b border-gold/10 shadow-[0_1px_20px_rgba(0,0,0,0.04)] py-2.5"
+            : "lg:top-[38px] top-0 bg-gradient-to-b from-black/60 via-black/10 to-transparent py-4"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -233,8 +233,8 @@ export default function Header({ locale }: HeaderProps) {
                     {/* Featured Image */}
                     <div className="relative rounded-xl overflow-hidden h-full min-h-[200px]">
                       <Image
-                        src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=400"
-                        alt="India Travel"
+                        src="/images/taj_mahal_sunrise.png"
+                        alt="Taj Mahal Travel"
                         fill
                         loading="lazy"
                         className="object-cover transition-transform duration-700 hover:scale-105"

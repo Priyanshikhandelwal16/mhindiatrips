@@ -161,28 +161,28 @@ export default async function HomePage({ params }: HomePageProps) {
 
   const slides = [
     {
-      image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1920",
+      image: "/images/taj_mahal_sunrise.png",
       location: "Agra, Uttar Pradesh",
       sub: locale === "es" ? "Maravilla del Mundo" : locale === "pt" ? "Maravilha do Mundo" : "Wonder of the World",
       title: locale === "es" ? "El Taj Mahal al Amanecer" : locale === "pt" ? "O Taj Mahal ao Amanhecer" : "The Taj Mahal at Sunrise",
       desc: locale === "es" ? "Contemple la maravilla del mundo bañada por la primera luz del día." : locale === "pt" ? "Contemple a maravilha do mundo banhada pela primeira luz do dia." : "Witness the wonder of the world bathed in golden first light.",
     },
     {
-      image: "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1920",
+      image: "/images/rajasthan_fort_sunset.png",
       location: "Jaipur, Rajasthan",
       sub: locale === "es" ? "La Tierra de los Reyes" : locale === "pt" ? "A Terra dos Reis" : "The Land of Kings",
       title: locale === "es" ? "Palacios Reales y Fortalezas" : locale === "pt" ? "Palácios Reais e Fortalezas" : "Royal Palaces & Desert Forts",
       desc: locale === "es" ? "Explore la majestuosidad de los palacios y fortalezas de Rajastán." : locale === "pt" ? "Explore a majestade dos palácios e fortalezas do Rajastão." : "Explore the grandeur of Rajasthan's heritage palaces and mighty fortresses.",
     },
     {
-      image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1920",
+      image: "/images/kerala_backwaters_houseboat.png",
       location: "Kerala, South India",
       sub: locale === "es" ? "El País de Dios" : locale === "pt" ? "A Terra de Deus" : "God's Own Country",
       title: locale === "es" ? "Canales Tropicales de Kerala" : locale === "pt" ? "Canais Tropicais de Kerala" : "Kerala's Emerald Backwaters",
       desc: locale === "es" ? "Navegue por canales bordeados de palmeras en casas flotantes de lujo." : locale === "pt" ? "Navegue por canais ladeados de palmeiras em casas flutuantes de luxo." : "Drift along palm-fringed waterways aboard luxury houseboats.",
     },
     {
-      image: "/images/varanasi.jpg",
+      image: "/images/varanasi_ghats_aarti.png",
       location: "Varanasi, Uttar Pradesh",
       sub: locale === "es" ? "La Ciudad Más Antigua del Mundo" : locale === "pt" ? "A Cidade Mais Antiga do Mundo" : "The World's Oldest Living City",
       title: locale === "es" ? "La Ciudad Eterna del Ganges" : locale === "pt" ? "A Cidade Eterna do Ganges" : "The Eternal City of Light",
@@ -196,7 +196,7 @@ export default async function HomePage({ params }: HomePageProps) {
       desc: locale === "es" ? "Relájese en playas prístinas y descubra la herencia portuguesa." : locale === "pt" ? "Relaxe em praias intocadas e descubra a herança portuguesa." : "Unwind on pristine shores and discover Portuguese heritage.",
     },
     {
-      image: "/images/ranthambore.jpg",
+      image: "/images/ranthambore-safari.jpg",
       location: "Ranthambore, Rajasthan",
       sub: locale === "es" ? "Aventura en la Naturaleza" : locale === "pt" ? "Aventura na Natureza" : "Into the Wild",
       title: locale === "es" ? "Safari de Tigres Reales" : locale === "pt" ? "Safari de Tigres Reais" : "Royal Tiger Safari",
@@ -205,9 +205,9 @@ export default async function HomePage({ params }: HomePageProps) {
   ];
 
   const regions = [
-    { name: locale === "es" ? "Norte de India" : locale === "pt" ? "Norte da Índia" : "North India", desc: locale === "es" ? "Himalayas, Taj Mahal y Ciudades Reales" : locale === "pt" ? "Himalaias, Taj Mahal e Cidades Reais" : "Himalayas, Taj Mahal & Royal Cities", img: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=900", icon: Mountain },
-    { name: locale === "es" ? "Sur de India" : locale === "pt" ? "Sul da Índia" : "South India", desc: locale === "es" ? "Templos, Canales y Especias" : locale === "pt" ? "Templos, Canais e Especiarias" : "Temples, Backwaters & Spice Hills", img: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=900", icon: Trees },
-    { name: locale === "es" ? "Oeste de India" : locale === "pt" ? "Oeste da Índia" : "West India", desc: locale === "es" ? "Desiertos, Palacios y Playas" : locale === "pt" ? "Desertos, Palácios e Praias" : "Deserts, Palaces & Beaches", img: "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=900", icon: Landmark },
+    { name: locale === "es" ? "Norte de India" : locale === "pt" ? "Norte da Índia" : "North India", desc: locale === "es" ? "Himalayas, Taj Mahal y Ciudades Reales" : locale === "pt" ? "Himalaias, Taj Mahal e Cidades Reais" : "Himalayas, Taj Mahal & Royal Cities", img: "/images/taj_mahal_sunrise.png", icon: Mountain },
+    { name: locale === "es" ? "Sur de India" : locale === "pt" ? "Sul da Índia" : "South India", desc: locale === "es" ? "Templos, Canales y Especias" : locale === "pt" ? "Templos, Canais e Especiarias" : "Temples, Backwaters & Spice Hills", img: "/images/kerala_backwaters_houseboat.png", icon: Trees },
+    { name: locale === "es" ? "Oeste de India" : locale === "pt" ? "Oeste da Índia" : "West India", desc: locale === "es" ? "Desiertos, Palacios y Playas" : locale === "pt" ? "Desertos, Palácios e Praias" : "Deserts, Palaces & Beaches", img: "/images/rajasthan_fort_sunset.png", icon: Landmark },
     { name: locale === "es" ? "Este de India" : locale === "pt" ? "Leste da Índia" : "East India", desc: locale === "es" ? "Templos, Té y Cultura Tribal" : locale === "pt" ? "Templos, Chá e Cultura Tribal" : "Temples, Tea Gardens & Tribal Culture", img: "https://images.unsplash.com/photo-1558431382-27e303142255?q=80&w=900", icon: Compass },
   ];
 
@@ -270,13 +270,13 @@ export default async function HomePage({ params }: HomePageProps) {
             </Reveal>
             <Reveal delay={150} className="grid grid-cols-12 grid-rows-6 gap-3 h-[520px]">
               <div className="col-span-7 row-span-6 rounded-2xl overflow-hidden shadow-xl image-zoom-container">
-                <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800" loading="lazy" className="w-full h-full object-cover" alt="Taj Mahal India" />
+                <img src="/images/taj_mahal_sunrise.png" loading="lazy" className="w-full h-full object-cover" alt="Taj Mahal India" />
               </div>
               <div className="col-span-5 row-span-3 rounded-2xl overflow-hidden shadow-lg image-zoom-container">
-                <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=600" loading="lazy" className="w-full h-full object-cover" alt="Rajasthan Palace" />
+                <img src="/images/rajasthan_fort_sunset.png" loading="lazy" className="w-full h-full object-cover" alt="Rajasthan Palace" />
               </div>
               <div className="col-span-5 row-span-3 rounded-2xl overflow-hidden shadow-lg image-zoom-container">
-                <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=600" loading="lazy" className="w-full h-full object-cover" alt="Kerala Backwaters" />
+                <img src="/images/kerala_backwaters_houseboat.png" loading="lazy" className="w-full h-full object-cover" alt="Kerala Backwaters" />
               </div>
             </Reveal>
           </div>

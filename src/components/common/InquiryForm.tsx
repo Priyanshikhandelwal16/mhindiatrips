@@ -116,16 +116,18 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
   }
 
   return (
-    <div className="glass-panel rounded-3xl p-8 md:p-12 max-w-2xl mx-auto" id="inquire-now">
-      <div className="space-y-3 mb-8 text-center">
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <Sparkles className="w-4 h-4 text-gold" />
-          <span className="editorial-subheading">
+    <div className="glass-panel border border-gold/15 rounded-3xl p-8 md:p-12 max-w-2xl mx-auto shadow-xl shadow-royal/5 relative overflow-hidden" id="inquire-now">
+      <div className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-gold via-gold-light to-gold opacity-80" />
+      <div className="space-y-3 mb-8 text-center relative z-10">
+        <div className="flex items-center justify-center gap-2 mb-1.5">
+          <Sparkles className="w-4 h-4 text-gold animate-pulse-gentle" />
+          <span className="editorial-subheading text-[10px] tracking-[0.25em] text-gold font-bold">
             {locale === "es" ? "Viaje Personalizado" : locale === "pt" ? "Viagem Personalizada" : "Bespoke Journey"}
           </span>
         </div>
-        <h3 className="text-2xl md:text-3xl font-serif font-bold text-royal">{text.title}</h3>
-        <p className="text-sm text-foreground/55 max-w-md mx-auto">{text.subtitle}</p>
+        <h3 className="text-3xl font-serif font-bold text-royal tracking-tight">{text.title}</h3>
+        <p className="text-sm text-foreground/55 max-w-md mx-auto leading-relaxed">{text.subtitle}</p>
+        <div className="gold-divider w-24 mx-auto mt-4" />
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5">

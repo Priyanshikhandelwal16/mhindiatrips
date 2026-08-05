@@ -1,8 +1,23 @@
 import React from "react";
 import type { Metadata } from "next";
+import { Playfair_Display, Outfit } from "next/font/google";
 import Header from "@/components/navigation/Header";
 import Footer from "@/components/navigation/Footer";
 import "@/app/globals.css";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "MH India Trips | Luxury Private Tours & Bespoke Travel Experiences in India",
@@ -25,7 +40,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const { locale } = await params;
 
   return (
-    <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
+    <html lang={locale} className={`${playfair.variable} ${outfit.variable} scroll-smooth`} suppressHydrationWarning>
       <body className="bg-background text-foreground antialiased min-h-screen flex flex-col justify-between font-sans" suppressHydrationWarning>
         <Header locale={locale} />
         <main className="flex-grow">

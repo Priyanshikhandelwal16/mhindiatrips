@@ -70,11 +70,11 @@ export default async function AboutPage({ params }: AboutPageProps) {
     <div className="font-sans bg-background text-foreground">
       {/* Section 1: Hero with Varanasi Image */}
       <section className="relative h-[65vh] min-h-[450px] flex items-center justify-center overflow-hidden">
-        <img src="/images/varanasi.jpg" alt="Varanasi Ghats at Sunset" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
-        <div className="absolute inset-0 bg-royal/75" />
+        <img src="/images/varanasi_ghats_aarti.png" alt="Varanasi Ghats at Sunset" className="absolute inset-0 w-full h-full object-cover animate-kenburns" loading="eager" />
+        <div className="absolute inset-0 bg-royal/70" />
         <div className="relative z-10 text-center text-white px-6 max-w-3xl">
           <span className="editorial-subheading block text-gold mb-4">{text.heroSub}</span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">{text.hero}</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-serif">{text.hero}</h1>
           <p className="text-lg text-white/75 leading-relaxed">{text.heroDesc}</p>
         </div>
       </section>
@@ -85,7 +85,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <Reveal className="space-y-6 text-center">
               <span className="editorial-subheading block">{text.heroSub}</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-royal">{text.storyTitle}</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-royal font-serif">{text.storyTitle}</h2>
               <div className="space-y-4 text-[15px] text-foreground/60 leading-relaxed">
                 <p>{text.storyP1}</p>
                 <p>{text.storyP2}</p>
@@ -95,15 +95,15 @@ export default async function AboutPage({ params }: AboutPageProps) {
             <Reveal delay={100} className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="rounded-2xl overflow-hidden h-48 image-zoom-container">
-                  <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=500" alt="Rajasthan" className="w-full h-full object-cover" loading="lazy" />
+                  <img src="/images/rajasthan_fort_sunset.png" alt="Rajasthan" className="w-full h-full object-cover" loading="lazy" />
                 </div>
                 <div className="rounded-2xl overflow-hidden h-64 image-zoom-container">
-                  <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=500" alt="Kerala" className="w-full h-full object-cover" loading="lazy" />
+                  <img src="/images/kerala_backwaters_houseboat.png" alt="Kerala" className="w-full h-full object-cover" loading="lazy" />
                 </div>
               </div>
               <div className="space-y-4 pt-8">
                 <div className="rounded-2xl overflow-hidden h-64 image-zoom-container">
-                  <img src="/images/varanasi.jpg" alt="Varanasi" className="w-full h-full object-cover" loading="lazy" />
+                  <img src="/images/varanasi_ghats_aarti.png" alt="Varanasi" className="w-full h-full object-cover" loading="lazy" />
                 </div>
                 <div className="rounded-2xl overflow-hidden h-48 image-zoom-container">
                   <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=500" alt="Goa" className="w-full h-full object-cover" loading="lazy" />

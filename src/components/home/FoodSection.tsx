@@ -17,9 +17,9 @@ interface FoodSectionProps {
 
 // Local image paths for foods
 const foodImageMap: Record<string, string> = {
-  "butter-chicken": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=800",
+  "butter-chicken": "/images/indian_cuisine_feast.png",
   "masala-dosa": "/images/masala dosa.jpg",
-  "hyderabadi-biryani": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=800",
+  "hyderabadi-biryani": "/images/indian_cuisine_feast.png",
   "dal-baati-churma": "/images/churma bati.jpg",
   "pav-bhaji": "/images/pav bhaji.jpg",
   "goan-fish-curry": "/images/goan fish curry.jpg",

@@ -23,8 +23,8 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero Banner */}
       <div className="relative h-[55vh] min-h-[380px] flex items-center justify-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1920" alt="India Destinations" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+        <img src="/images/taj_mahal_sunrise.png" alt="India Destinations" className="absolute inset-0 w-full h-full object-cover animate-kenburns" loading="eager" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/75" />
         <div className="relative z-10 text-center text-white space-y-4 px-6 mt-16">
           <span className="editorial-subheading block text-gold">{text.sub}</span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold">{text.title}</h1>
@@ -47,26 +47,26 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
                 {regionStates.map((state: any) => (
                   <Link key={state.slug} href={`/${locale}/destinations/${state.slug}`} className="group block">
-                    <div className="card-elevated overflow-hidden h-[400px] flex flex-col">
-                      <div className="h-52 overflow-hidden relative shrink-0">
-                        <img src={state.image} alt={state.title[locale as "en"|"es"|"pt"] || state.title.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-105" />
+                    <div className="luxury-card hover-lift overflow-hidden h-[420px] flex flex-col border border-gold/10">
+                      <div className="h-56 overflow-hidden relative shrink-0">
+                        <img src={state.image} alt={state.title[locale as "en"|"es"|"pt"] || state.title.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         <div className="absolute top-4 left-4">
-                          <span className="badge-gold">{state.region}</span>
+                          <span className="bg-forest/90 backdrop-blur-sm text-white text-[9px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">{state.region}</span>
                         </div>
                       </div>
-                      <div className="p-6 flex flex-col flex-grow justify-between">
-                        <div className="space-y-2">
-                          <h3 className="text-xl font-serif font-bold text-royal group-hover:text-gold transition-colors">
+                      <div className="p-7 flex flex-col flex-grow justify-between bg-white">
+                        <div className="space-y-3">
+                          <h3 className="text-xl font-serif font-bold text-royal group-hover:text-gold transition-colors leading-snug">
                             {state.title[locale as "en"|"es"|"pt"] || state.title.en}
                           </h3>
-                          <p className="text-xs text-foreground/60 leading-relaxed line-clamp-3">
+                          <p className="text-xs text-foreground/55 leading-relaxed line-clamp-3">
                             {state.description?.[locale as "en"|"es"|"pt"] || state.description?.en || ""}
                           </p>
                         </div>
-                        <div className="pt-4 border-t border-sand/50 mt-4">
-                          <span className="text-xs font-semibold uppercase tracking-wider text-forest group-hover:text-gold flex items-center gap-1.5 transition-colors">
+                        <div className="pt-4 border-t border-sand/50 mt-4 flex items-center justify-between">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-gold group-hover:text-saffron transition-colors flex items-center gap-1.5">
                             <span>{text.cta}</span>
-                            <ArrowRight className="w-3.5 h-3.5" />
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                           </span>
                         </div>
                       </div>

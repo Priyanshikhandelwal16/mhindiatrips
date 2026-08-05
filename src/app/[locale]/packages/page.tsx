@@ -155,9 +155,9 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
       {/* === SECTION 1: Hero Banner === */}
       <section className="relative h-[60vh] min-h-[420px] flex items-center justify-center overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1920"
+          src="/images/luxury_palace_train.png"
           alt="Tour Packages India"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover animate-kenburns"
           loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
@@ -192,7 +192,7 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {packages.map((pkg: any, i: number) => (
             <Reveal key={pkg.slug} delay={i * 80}>
-              <div className="card-elevated flex flex-col h-full hover-lift">
+              <div className="luxury-card hover-lift flex flex-col h-full border border-gold/10 bg-white">
                 <div className="relative h-64 overflow-hidden rounded-t-[1.5rem]">
                   <img
                     src={pkg.image}
@@ -201,8 +201,8 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
                     className="w-full h-full object-cover transition-transform duration-600 hover:scale-105"
                   />
                   <div className="absolute top-4 left-4 flex gap-2">
-                    <span className="bg-white/90 backdrop-blur-sm text-charcoal text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1">
-                      <Calendar className="w-3 h-3" />
+                    <span className="bg-white/95 backdrop-blur-sm text-charcoal text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1">
+                      <Calendar className="w-3.5 h-3.5 text-gold" />
                       {pkg.durationDays} {text.days}
                     </span>
                   </div>
@@ -217,7 +217,7 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
                     </span>
                   </div>
                 </div>
-                <div className="p-7 flex flex-col flex-grow">
+                <div className="p-7 flex flex-col flex-grow bg-white">
                   <div className="space-y-3 flex-grow">
                     <h3 className="text-xl font-serif font-bold text-royal leading-snug">
                       {pkg.title[locale as "en" | "es" | "pt"] || pkg.title.en}
@@ -234,13 +234,13 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
                       ))}
                     </div>
                   </div>
-                  <div className="pt-5 mt-5 border-t border-sand/50 flex justify-between items-center">
-                    <span className="text-[11px] font-semibold tracking-wider uppercase text-forest">
+                  <div className="pt-5 mt-5 border-t border-sand/50 flex justify-between items-center bg-white">
+                    <span className="text-[11px] font-bold tracking-wider uppercase text-gold">
                       {text.priceOnRequest}
                     </span>
                     <Link
                       href={`/${locale}/packages#inquire-packages`}
-                      className="text-xs font-semibold text-gold hover:text-terracotta flex items-center gap-1 transition-colors duration-200"
+                      className="text-xs font-bold uppercase tracking-wider text-forest hover:text-gold flex items-center gap-1.5 transition-colors duration-200"
                     >
                       <span>{text.inquire}</span>
                       <ChevronRight className="w-3.5 h-3.5" />
