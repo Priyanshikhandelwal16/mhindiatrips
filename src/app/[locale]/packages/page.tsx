@@ -143,22 +143,22 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
 
       {/* SECTION 1: Hero Banner */}
-      <section className="relative h-[60vh] min-h-[420px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <img
           src="/images/luxury_palace_train.png"
           alt="Tour Packages India"
           className="absolute inset-0 w-full h-full object-cover animate-kenburns"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-royal/65 via-royal/35 to-royal/80" />
-        <div className="relative z-10 text-center text-white space-y-4 px-6 mt-16">
-          <span className="bg-gold/90 text-royal text-[9px] uppercase tracking-[0.25em] font-extrabold px-4 py-1.5 rounded-full inline-block">
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-5xl">
+          <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
             {text.heroSub}
           </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-black tracking-tight leading-none text-white">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-none text-white">
             {text.heroTitle}
           </h1>
-          <p className="text-white/80 max-w-xl mx-auto text-xs md:text-sm leading-relaxed font-light">
+          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
             {text.heroDesc}
           </p>
         </div>

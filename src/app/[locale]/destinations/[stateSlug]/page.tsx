@@ -101,16 +101,16 @@ export default async function StateDetailPage({ params }: StatePageProps) {
       {/* SECTION 1: Cinematic Hero Banner */}
       <section className="relative h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <img src={state.image} alt={state.title?.[locale] || state.title?.en} className="absolute inset-0 w-full h-full object-cover animate-kenburns" loading="eager" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/75" />
-        <div className="relative z-10 text-center text-white space-y-4 px-6 mt-16 max-w-3xl">
-          <span className="bg-gold/90 text-royal text-[9px] uppercase tracking-[0.25em] font-bold px-4 py-1.5 rounded-full inline-block mb-2 shadow-md">
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-5xl">
+          <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block shadow-md">
             {state.region} India
           </span>
-          <h1 className="text-4xl md:text-6xl font-serif font-bold tracking-tight leading-tight">{state.title?.[locale] || state.title?.en}</h1>
-          <p className="text-white/85 max-w-2xl mx-auto text-sm md:text-base leading-relaxed font-light">{state.tagline?.[locale] || state.tagline?.en}</p>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-none text-white">{state.title?.[locale] || state.title?.en}</h1>
+          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto font-light leading-relaxed">{state.tagline?.[locale] || state.tagline?.en}</p>
           
           <div className="pt-10 flex flex-col items-center opacity-50">
-            <span className="text-[8px] uppercase tracking-[0.35em] mb-2 font-medium">Scroll to explore</span>
+            <span className="text-[10px] uppercase tracking-[0.35em] mb-2 font-medium">Scroll to explore</span>
             <div className="w-[1px] h-8 bg-gradient-to-b from-white to-transparent animate-pulse" />
           </div>
         </div>

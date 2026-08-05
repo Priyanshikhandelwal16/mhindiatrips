@@ -17,20 +17,20 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero */}
-      <div className="relative h-[55vh] min-h-[380px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <img src={blog.featuredImage} alt={blog.title?.[locale as "en"|"es"|"pt"] || blog.title?.en} className="absolute inset-0 w-full h-full object-cover animate-kenburns" loading="eager" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/75" />
-        <div className="relative z-10 text-center max-w-4xl px-6 space-y-4 text-white mt-16">
-          <span className="bg-gold/90 text-royal text-[9px] uppercase tracking-wider font-bold px-3 py-1.5 rounded shadow-sm">{blog.category}</span>
-          <h1 className="text-3xl md:text-5xl font-serif font-bold leading-tight mt-3">
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 text-center max-w-5xl px-6 space-y-6 text-white mt-20">
+          <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">{blog.category}</span>
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight mt-3">
             {blog.title?.[locale as "en"|"es"|"pt"] || blog.title?.en}
           </h1>
-          <div className="flex justify-center items-center gap-6 text-xs text-white/70 pt-3">
-            <span className="flex items-center gap-1.5"><User className="w-3.5 h-3.5 text-gold" />{blog.author}</span>
-            <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5 text-gold" />{blog.readingTime} min read</span>
+          <div className="flex justify-center items-center gap-6 text-sm text-white/80 pt-3">
+            <span className="flex items-center gap-1.5"><User className="w-4 h-4 text-gold" />{blog.author}</span>
+            <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-gold" />{blog.readingTime} min read</span>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Content */}
       <section className="max-w-3xl mx-auto px-6 py-20 space-y-10">

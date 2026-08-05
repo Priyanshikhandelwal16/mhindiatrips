@@ -18,6 +18,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
     duration: "",
     travelers: "1",
     experience: "Luxury",
+    destinations: "Rajasthan", // New required field
     message: ""
   });
 
@@ -37,6 +38,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
       duration: "Duration (Days)",
       travelers: "Guests Count",
       experience: "Travel Philosophy",
+      destination: "Interested Destination", // New label
       message: "Tell us about your interests & special requests...",
       submit: "Send Travel Request",
       submitting: "Transmitting...",
@@ -55,6 +57,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
       duration: "Duración (Días)",
       travelers: "Número de Huéspedes",
       experience: "Filosofía de Viaje",
+      destination: "Destino de Interés", // New label
       message: "Cuéntenos sobre sus intereses y peticiones especiales...",
       submit: "Enviar Solicitud",
       submitting: "Transmitiendo...",
@@ -73,6 +76,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
       duration: "Duração (Dias)",
       travelers: "Número de Hóspedes",
       experience: "Filosofia de Viagem",
+      destination: "Destino de Interesse", // New label
       message: "Conte-nos sobre seus interesses e pedidos especiais...",
       submit: "Enviar Solicitação",
       submitting: "Transmitindo...",
@@ -89,10 +93,13 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
     setLoading(true);
     setError(null);
     try {
-      const res = await createInquiryAction(form);
+      const res = await createInquiryAction({
+        ...form,
+        destinations: [form.destinations] // Wrap destinations string in array for backend compatibility
+      });
       if (res.success) {
         setSuccess(true);
-        setForm({ name: "", email: "", phone: "", country: "", startDate: "", duration: "", travelers: "1", experience: "Luxury", message: "" });
+        setForm({ name: "", email: "", phone: "", country: "", startDate: "", duration: "", travelers: "1", experience: "Luxury", destinations: "Rajasthan", message: "" });
       } else {
         setError(res.error || text.errorText);
       }
@@ -109,14 +116,14 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
         <div className="w-16 h-16 bg-gold/15 rounded-full flex items-center justify-center mx-auto">
           <CheckCircle2 className="w-8 h-8 text-gold" />
         </div>
-        <h3 className="text-3xl font-serif font-bold text-royal">{text.successTitle}</h3>
-        <p className="text-sm text-foreground/60 leading-relaxed font-light">{text.successText}</p>
+        <h3 className="text-3xl font-bold text-royal">{text.successTitle}</h3>
+        <p className="text-base text-foreground/60 leading-relaxed font-light">{text.successText}</p>
       </div>
     );
   }
 
   return (
-    <div className="bg-white border border-gold/20 rounded-3xl p-8 md:p-12 max-w-3xl mx-auto shadow-2xl shadow-royal/5 relative overflow-hidden" id="inquire-now">
+    <div className="bg-white border border-gold/20 rounded-3xl p-8 md:p-12 max-w-4xl mx-auto shadow-2xl shadow-royal/5 relative overflow-hidden" id="inquire-now">
       
       {/* Decorative corner accents */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-gold/10 via-transparent to-transparent pointer-events-none" />
@@ -125,12 +132,12 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
       <div className="space-y-3 mb-10 text-center relative z-10">
         <div className="flex items-center justify-center gap-2">
           <Sparkles className="w-4 h-4 text-gold" />
-          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-gold">
+          <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-gold">
             {locale === "es" ? "Boceto Personalizado" : locale === "pt" ? "Esboço Personalizado" : "Bespoke Journey Designer"}
           </span>
         </div>
-        <h3 className="text-3xl md:text-4xl font-serif font-bold text-royal tracking-tight">{text.title}</h3>
-        <p className="text-xs text-foreground/50 max-w-md mx-auto leading-relaxed font-light">{text.subtitle}</p>
+        <h3 className="text-3xl md:text-5xl font-bold text-royal tracking-tight">{text.title}</h3>
+        <p className="text-sm text-foreground/50 max-w-md mx-auto leading-relaxed font-light">{text.subtitle}</p>
         <div className="h-px w-20 bg-gold/25 mx-auto mt-4" />
       </div>
 
@@ -145,76 +152,76 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
           
           <div className="space-y-1">
-            <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">{text.name}</label>
+            <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.name}</label>
             <input 
               type="text" 
               value={form.name} 
               onChange={(e) => setForm({ ...form, name: e.target.value })} 
-              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3 text-xs text-royal outline-none transition-colors" 
+              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors" 
               required 
             />
           </div>
 
           <div className="space-y-1">
-            <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">{text.email}</label>
+            <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.email}</label>
             <input 
               type="email" 
               value={form.email} 
               onChange={(e) => setForm({ ...form, email: e.target.value })} 
-              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3 text-xs text-royal outline-none transition-colors" 
+              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors" 
               required 
             />
           </div>
 
           <div className="space-y-1">
-            <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">{text.phone}</label>
+            <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.phone}</label>
             <input 
               type="tel" 
               value={form.phone} 
               onChange={(e) => setForm({ ...form, phone: e.target.value })} 
-              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3 text-xs text-royal outline-none transition-colors" 
+              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors" 
             />
           </div>
 
           <div className="space-y-1">
-            <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">{text.country}</label>
+            <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.country}</label>
             <input 
               type="text" 
               value={form.country} 
               onChange={(e) => setForm({ ...form, country: e.target.value })} 
-              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3 text-xs text-royal outline-none transition-colors" 
+              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors" 
             />
           </div>
 
           <div className="space-y-1">
-            <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">{text.startDate}</label>
+            <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.startDate}</label>
             <input 
               type="text" 
               value={form.startDate} 
               placeholder={locale === "es" ? "Ej: Octubre 2026" : locale === "pt" ? "Ex: Outubro 2026" : "e.g. October 2026"} 
               onChange={(e) => setForm({ ...form, startDate: e.target.value })} 
-              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3 text-xs text-royal outline-none transition-colors" 
+              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors" 
               required 
             />
           </div>
 
           <div className="space-y-1">
-            <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">{text.duration}</label>
+            <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.duration}</label>
             <input 
               type="number" 
               value={form.duration} 
               onChange={(e) => setForm({ ...form, duration: e.target.value })} 
-              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3 text-xs text-royal outline-none transition-colors" 
+              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors" 
             />
           </div>
 
           <div className="space-y-1">
-            <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">{text.travelers}</label>
+            <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.travelers}</label>
             <div className="relative">
               <select 
                 value={form.travelers} 
                 onChange={(e) => setForm({ ...form, travelers: e.target.value })} 
-                className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3 text-xs text-royal outline-none transition-colors appearance-none cursor-pointer"
+                className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors appearance-none cursor-pointer"
               >
                 <option value="1">1</option>
                 <option value="2">2 (Couple)</option>
@@ -225,18 +232,37 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
           </div>
 
           <div className="space-y-1">
-            <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">{text.experience}</label>
+            <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.experience}</label>
             <div className="relative">
               <select 
                 value={form.experience} 
                 onChange={(e) => setForm({ ...form, experience: e.target.value })} 
-                className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3 text-xs text-royal outline-none transition-colors appearance-none cursor-pointer"
+                className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors appearance-none cursor-pointer"
               >
                 <option value="Luxury">Luxury & Palaces</option>
                 <option value="Adventure">Adventure</option>
                 <option value="Spiritual">Spiritual & Yoga</option>
                 <option value="Wildlife">Wildlife Safari</option>
-                <option value="Honeymoon">Honeymoon</option>
+              </select>
+            </div>
+          </div>
+
+          {/* New Required Destination select dropdown */}
+          <div className="space-y-1 md:col-span-2">
+            <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.destination} *</label>
+            <div className="relative">
+              <select 
+                value={form.destinations} 
+                onChange={(e) => setForm({ ...form, destinations: e.target.value })} 
+                className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors appearance-none cursor-pointer font-semibold"
+                required
+              >
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Varanasi">Varanasi</option>
+                <option value="Delhi & Agra">Delhi & Agra</option>
+                <option value="Goa">Goa</option>
+                <option value="Others">Others</option>
               </select>
             </div>
           </div>
@@ -244,21 +270,21 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
         </div>
 
         <div className="space-y-1">
-          <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">{text.message}</label>
+          <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.message}</label>
           <textarea 
             value={form.message} 
             onChange={(e) => setForm({ ...form, message: e.target.value })} 
             rows={4} 
-            className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3 text-xs text-royal outline-none transition-colors resize-none" 
+            className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors resize-none font-light" 
           />
         </div>
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-gold hover:bg-gold-light text-royal text-xs font-bold uppercase tracking-widest py-4 rounded-full transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-gold/10"
+          className="w-full bg-gold hover:bg-gold-light text-royal text-base font-bold uppercase tracking-widest py-4.5 rounded-full transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-gold/10"
         >
-          <Send className="w-4 h-4 text-royal" />
+          <Send className="w-5 h-5 text-royal" />
           <span>{loading ? text.submitting : text.submit}</span>
         </button>
       </form>

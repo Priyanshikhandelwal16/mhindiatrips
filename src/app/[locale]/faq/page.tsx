@@ -74,13 +74,15 @@ export default async function FAQPage({ params }: FAQPageProps) {
   return (
     <div className="font-sans bg-[#FAF8F5] min-h-screen text-[#1B1B1B]">
       {/* Hero */}
-      <section className="relative h-[45vh] min-h-[320px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <img src="/images/taj_mahal_sunrise.png" alt="FAQ" className="absolute inset-0 w-full h-full object-cover animate-kenburns" />
-        <div className="absolute inset-0 bg-royal/70" />
-        <div className="relative z-10 text-center text-white px-6 max-w-3xl mt-12">
-          <span className="editorial-subheading block text-gold mb-4 tracking-[0.2em]">{text.heroSub}</span>
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">{text.hero}</h1>
-          <p className="text-sm text-white/80 font-light">{text.heroDesc}</p>
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 text-center text-white px-6 max-w-5xl mt-20 space-y-6">
+          <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
+            {text.heroSub}
+          </span>
+          <h1 className="text-5xl md:text-7xl font-bold mb-4">{text.hero}</h1>
+          <p className="text-base md:text-lg text-white/90 font-light max-w-2xl mx-auto">{text.heroDesc}</p>
         </div>
       </section>
 

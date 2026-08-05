@@ -20,7 +20,6 @@ export default async function HomePage({ params }: HomePageProps) {
   const tourPackages = await getTourPackagesAction();
   const blogs = await getBlogsAction();
   const testimonials = await getTestimonialsAction();
-  const foods = await getFoodsAction();
 
   const labels: Record<string, any> = {
     en: {
@@ -49,10 +48,7 @@ export default async function HomePage({ params }: HomePageProps) {
       ctaBannerTitle: "Begin Your Private Passage",
       ctaBannerSub: "Speak to a luxury travel advisor to draft your tailored itinerary.",
       ctaBannerBtn: "Inquire Now",
-      statYears: "Years on Ground",
-      statTravelers: "Delighted Guests",
-      statDest: "Unique Districts",
-      statRating: "Guest Rating"
+      viewAll: "View All Experiences"
     },
     es: {
       heroSub: "TOURS PRIVADOS A MEDIDA",
@@ -80,10 +76,7 @@ export default async function HomePage({ params }: HomePageProps) {
       ctaBannerTitle: "Comience Su Viaje Privado",
       ctaBannerSub: "Hable con un asesor de viajes de lujo para diseñar su itinerario a medida.",
       ctaBannerBtn: "Planificar Ahora",
-      statYears: "Años de Experiencia",
-      statTravelers: "Huéspedes Felices",
-      statDest: "Distritos Únicos",
-      statRating: "Valoración Media"
+      viewAll: "Ver Todas las Experiencias"
     },
     pt: {
       heroSub: "TOURS PRIVADOS SOB MEDIDA",
@@ -111,101 +104,65 @@ export default async function HomePage({ params }: HomePageProps) {
       ctaBannerTitle: "Comece Sua Viagem Privada",
       ctaBannerSub: "Fale com um consultor de viagens de luxo para desenhar seu itinerário sob medida.",
       ctaBannerBtn: "Planejar Agora",
-      statYears: "Anos de Experiência",
-      statTravelers: "Hóspedes Felizes",
-      statDest: "Distritos Únicos",
-      statRating: "Avaliação Média"
+      viewAll: "Ver Todas as Experiências"
     }
   };
 
-  const text = labels[locale] || labels.en;
-
-  const slides = [
-    {
-      image: "/images/taj_mahal_sunrise.png",
-      location: "Agra, Uttar Pradesh",
-      sub: locale === "es" ? "Monumento al Amor" : locale === "pt" ? "Monumento ao Amor" : "Icon of Eternal Love",
-      title: locale === "es" ? "Taj Mahal al Amanecer" : locale === "pt" ? "Taj Mahal ao Amanhecer" : "Taj Mahal Sunrise",
-      desc: locale === "es" ? "Contemple el majestuoso Taj Mahal en privado con luz dorada del amanecer." : locale === "pt" ? "Contemple o majestoso Taj Mahal em privado com luz dourada do amanhecer." : "Witness the ivory-white marble mausoleum in complete peace, before crowds arrive, guided by our heritage specialists."
-    },
-    {
-      image: "/images/rajasthan_fort_sunset.png",
-      location: "Jaipur, Rajasthan",
-      sub: locale === "es" ? "Tierra de Reyes" : locale === "pt" ? "Terra de Reis" : "Land of Sovereigns",
-      title: locale === "es" ? "Fuertes de Rajasthan" : locale === "pt" ? "Fortes do Rajastão" : "Rajasthan Royal Forts",
-      desc: locale === "es" ? "Explore palacios imperiales de color rosa y fortalezas sobre colinas en carruajes privados." : locale === "pt" ? "Explore palácios imperiais de cor rosa e fortalezas sobre colinas em carruagens privadas." : "Immerse yourself in heritage luxury rooms, sunset lake views, and private royal hospitality archives."
-    },
-    {
-      image: "/images/kerala_backwaters_houseboat.png",
-      location: "Alleppey, Kerala",
-      sub: locale === "es" ? "Canales Tropicales" : locale === "pt" ? "Canais Tropicais" : "Tropical Waterways",
-      title: locale === "es" ? "Crucero en Casa Flotante" : locale === "pt" ? "Cruzeiro em Casa Flutuante" : "Backwater Houseboats",
-      desc: locale === "es" ? "Navegue por lagunas serenas bordeadas de palmeras a bordo de una casa flotante privada de lujo." : locale === "pt" ? "Navegue por lagoas serenas cercadas de palmeiras a bordo de uma casa flutuante privada de luxo." : "Cruise the palm-fringed rivers of Southern India on your private thatched luxury houseboat with a personal chef."
-    },
-    {
-      image: "/images/luxury_palace_train.png",
-      location: "North & West India",
-      sub: locale === "es" ? "Trenes de Palacio" : locale === "pt" ? "Trens de Palácio" : "Palace Trains",
-      title: locale === "es" ? "El Tren de Lujo Exclusivo" : locale === "pt" ? "O Trem de Luxo Exclusivo" : "Palace on Wheels Journey",
-      desc: locale === "es" ? "Viaje como la realeza india en una suite privada sobre rieles con servicio de mayordomo de 5 estrellas." : locale === "pt" ? "Viaje como a realeza indiana em uma suíte privada sobre trilhos com serviço de mordomo de 5 estrelas." : "Journey across royal states in premium private cabins, combining heritage comfort, custom meals, and daily guided excursions."
-    },
-    {
-      image: "/images/ranthambore_tiger_safari.png",
-      location: "Ranthambore, Rajasthan",
-      sub: locale === "es" ? "Aventura Salvaje" : locale === "pt" ? "Aventura Selvagem" : "Wild Horizon",
-      title: locale === "es" ? "Safari de Tigres Reales" : locale === "pt" ? "Safari de Tigres Reais" : "Bengal Tiger Safaris",
-      desc: locale === "es" ? "Rastree tigres de Bengala en libertad en vehículos 4x4 privados con naturalistas expertos." : locale === "pt" ? "Rastreie tigres de Bengala em liberdade em veículos 4x4 privados com naturalistas experientes." : "Track the elusive Bengal Tiger in ancient dry-deciduous forests in private open-top luxury jeeps."
-    }
-  ];
-
   const homepageFaqs = [
     {
-      q: locale === "es" ? "¿Qué hace que sus tours sean únicos?" : locale === "pt" ? "O que torna seus tours únicos?" : "What makes your tours unique?",
-      a: locale === "es" ? "Nuestros tours son 100% privados. Viajará con vehículos y chóferes dedicados, guías expertos autorizados y suites en hoteles palacio seleccionados de cinco estrellas." : locale === "pt" ? "Nossos tours são 100% privados. Você viajará com motorista dedicado, guias certificados e estadias em palácios cinco estrelas." : "Every single itinerary is crafted from scratch. We secure private monument openings, arrange special dinners inside palaces, and provide full concierge support throughout."
+      q: locale === "es" ? "¿Es seguro viajar a la India?" : locale === "pt" ? "É seguro viajar para a Índia?" : "Is it safe to travel to India?",
+      a: locale === "es" ? "Sí, la India es generalmente segura para turistas. Nuestros guías expertos aseguran su comodidad y seguridad en todo momento." : locale === "pt" ? "Sim, a Índia é geralmente segura para turistas. Nossos guias especialistas garantem seu conforto e segurança em todos os momentos." : "Yes, India is generally safe for tourists. Our expert guides ensure your comfort and security at all times. We carefully plan routes and accommodations for the safest experience.",
     },
     {
-      q: locale === "es" ? "¿Cómo reservo un viaje personalizado?" : locale === "pt" ? "Como reservo uma viagem personalizada?" : "How do I book a custom journey?",
-      a: locale === "es" ? "Simplemente complete nuestro formulario de consulta. Su diseñador de viajes asignado lo contactará en 24 horas para comenzar a trabajar." : locale === "pt" ? "Basta preencher o formulário. Seu designer de viagens entrará em contato em 24 horas para dar início ao esboço." : "Simply fill out our tailored inquiry form. Your designated private travel designer will connect with you via phone or email to craft your itinerary draft."
-    }
+      q: locale === "es" ? "¿Cuál es la mejor época para visitar la India?" : locale === "pt" ? "Qual é a melhor época para visitar a Índia?" : "What is the best time to visit India?",
+      a: locale === "es" ? "Octubre a marzo es ideal para la mayoría de regiones. El sur se puede visitar todo el año. Le ayudaremos a elegir según su itinerario." : locale === "pt" ? "Outubro a março é ideal para a maioria das regiões. O sul pode ser visitado durante todo o ano." : "October to March is ideal for most regions. South India can be visited year-round. We'll help you choose the perfect timing based on your itinerary and interests.",
+    },
+    {
+      q: locale === "es" ? "¿Necesito visa para la India?" : locale === "pt" ? "Preciso de visto para a Índia?" : "Do I need a visa for India?",
+      a: locale === "es" ? "Sí, la mayoría de nacionalidades necesitan visa. La e-Visa online es la opción más fácil y la procesamos en 72 horas." : locale === "pt" ? "Sim, a maioria das nacionalidades precisa de visto. O e-Visa online é a opção mais fácil." : "Yes, most nationalities require a visa. The e-Visa (online) is the easiest option and is typically processed within 72 hours. We provide guidance on the application process.",
+    },
   ];
+
+  const text = labels[locale] || labels.en;
 
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
-      {/* SECTION 1: Full-Width Editorial Hero Banner (Pure Luxury Layout) */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Render Slide 1 as a static premium background overlay */}
+      {/* SECTION 1: Full-Width Cinematic Hero Banner (100vh height) */}
+      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
         <img 
-          src={slides[0].image} 
+          src="/images/taj_mahal_sunrise.png" 
           alt="Luxury India Trips" 
           className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-royal/55 via-royal/35 to-royal/80" />
+        <div className="absolute inset-0 bg-black/50" />
         
-        {/* Floating post-card text */}
-        <div className="relative z-10 text-center text-white space-y-6 px-6 max-w-4xl mt-20">
+        <div className="relative z-10 text-center text-white space-y-8 px-6 max-w-5xl mt-24">
           <Reveal>
-            <span className="bg-gold/90 text-royal text-[9px] uppercase tracking-[0.25em] font-extrabold px-5 py-2 rounded-full shadow-lg inline-block">
+            <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.3em] px-6 py-2.5 rounded-full shadow-lg inline-block">
               {text.heroSub}
             </span>
           </Reveal>
           <Reveal delay={150}>
-            <h1 className="text-4xl md:text-7xl font-serif font-black tracking-tight leading-[1.1] text-white">
+            {/* Hero Heading: 56px–72px */}
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] text-white">
               {text.heroTitle}
             </h1>
           </Reveal>
           <Reveal delay={300}>
-            <p className="text-sm md:text-lg text-white/85 max-w-2xl mx-auto font-light leading-relaxed">
+            {/* Paragraph: 16px–18px */}
+            <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto font-light leading-relaxed">
               {text.heroDesc}
             </p>
           </Reveal>
           
-          <Reveal delay={450} className="pt-8 flex flex-wrap justify-center gap-4">
-            <Link href="#destinations" className="bg-gold hover:bg-gold-light text-royal text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-full transition-transform hover:scale-105 shadow-lg shadow-gold/15">
+          {/* Buttons: 16px–18px */}
+          <Reveal delay={450} className="pt-8 flex flex-wrap justify-center gap-6">
+            <Link href="#destinations" className="bg-gold hover:bg-gold-light text-royal text-base md:text-lg font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 shadow-xl shadow-gold/20">
               {text.cta}
             </Link>
-            <Link href="#inquire-now" className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-full border border-white/20 transition-colors">
+            <Link href="#inquire-now" className="bg-white/10 hover:bg-white/20 text-white text-base md:text-lg font-bold uppercase tracking-widest px-10 py-5 rounded-full border border-white/35 transition-colors">
               {text.inquireCTA}
             </Link>
           </Reveal>
@@ -213,119 +170,134 @@ export default async function HomePage({ params }: HomePageProps) {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 z-20">
-          <span className="text-[8px] uppercase tracking-[0.3em] text-white font-bold">Discover</span>
+          <span className="text-[10px] uppercase tracking-[0.3em] text-white font-bold">Discover</span>
           <div className="w-px h-10 bg-gradient-to-b from-white to-transparent" />
         </div>
       </section>
 
       {/* SECTION 2: The Philosophy Section (Split screen layout) */}
-      <section className="max-w-7xl mx-auto px-6 py-28 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center border-b border-gold/10">
-        <Reveal className="space-y-6">
-          <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold flex items-center gap-1.5">
-            <Compass className="w-4 h-4" />
+      <section className="max-w-7xl mx-auto px-6 py-32 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center border-b border-gold/10">
+        <Reveal className="space-y-8">
+          <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold flex items-center gap-1.5">
+            <Compass className="w-5 h-5" />
             <span>{text.whySub}</span>
           </span>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-royal leading-tight">
+          {/* Section Heading: 40px–48px */}
+          <h2 className="text-4xl md:text-5xl font-bold text-royal leading-tight">
             {text.whyTitle}
           </h2>
-          <p className="text-sm text-foreground/60 leading-relaxed font-light">
+          <p className="text-base md:text-lg text-foreground/60 leading-relaxed font-light">
             We believe travel is not about ticking off boxes; it is a fine art. For over 15 years, our on-ground concierge desks have unlocked private access to monuments, designed authentic cultural encounters, and hosted global travelers in India’s finest grand suites.
           </p>
-          <div className="grid grid-cols-2 gap-6 pt-6">
-            <div className="space-y-1">
-              <span className="text-3xl font-serif font-black text-gold">24/7</span>
+          <div className="grid grid-cols-2 gap-8 pt-6">
+            <div className="space-y-2">
+              <span className="text-4xl font-black text-gold">24/7</span>
               <p className="text-xs uppercase tracking-wider text-foreground/50 font-bold">On-Ground Support</p>
             </div>
-            <div className="space-y-1">
-              <span className="text-3xl font-serif font-black text-gold">100%</span>
+            <div className="space-y-2">
+              <span className="text-4xl font-black text-gold">100%</span>
               <p className="text-xs uppercase tracking-wider text-foreground/50 font-bold">Private & Guided</p>
             </div>
           </div>
         </Reveal>
         
         {/* Postcard frame */}
-        <Reveal delay={200} className="relative p-3 bg-white border border-gold/15 rounded-3xl shadow-xl shadow-royal/5">
-          <div className="overflow-hidden rounded-2xl h-[420px]">
+        <Reveal delay={200} className="relative p-4 bg-white border border-gold/15 rounded-[2rem] shadow-2xl shadow-royal/5">
+          <div className="overflow-hidden rounded-2xl h-[480px]">
             <img src="/images/rajasthan_fort_sunset.png" alt="Philosophy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
           </div>
-          <div className="absolute -bottom-6 -right-6 bg-royal text-white p-6 rounded-2xl max-w-xs space-y-2 shadow-lg hidden md:block">
-            <h4 className="font-serif font-bold text-gold text-sm">Palace Heritage</h4>
-            <p className="text-[11px] text-white/70 leading-relaxed font-light">We organize private dinners inside authentic lake palaces and medieval desert forts.</p>
+          <div className="absolute -bottom-6 -right-6 bg-royal text-white p-8 rounded-2xl max-w-sm space-y-3 shadow-2xl hidden md:block border border-gold/15">
+            <h4 className="font-bold text-gold text-base">Palace Heritage</h4>
+            <p className="text-xs text-white/70 leading-relaxed font-light">We organize private dinners inside authentic lake palaces and medieval desert forts.</p>
           </div>
         </Reveal>
       </section>
 
       {/* SECTION 3: Custom Destinations (Postcards layout) */}
-      <section id="destinations" className="max-w-7xl mx-auto px-6 py-28 space-y-16 border-b border-gold/10">
-        <div className="text-center space-y-3 max-w-lg mx-auto">
-          <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold block">{text.regionsSub}</span>
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-royal tracking-tight">{text.regionsTitle}</h2>
-          <p className="text-xs text-foreground/50 leading-relaxed font-light">{text.regionsDesc}</p>
+      <section id="destinations" className="max-w-7xl mx-auto px-6 py-32 space-y-20 border-b border-gold/10">
+        <div className="text-center space-y-4 max-w-2xl mx-auto">
+          <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.regionsSub}</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight">{text.regionsTitle}</h2>
+          <p className="text-base text-foreground/50 leading-relaxed font-light">{text.regionsDesc}</p>
           <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Large, Beautiful Cards (Increased dimensions, larger padding) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {states.slice(0, 3).map((st: any, i: number) => (
             <Reveal key={st.slug} delay={i * 80}>
-              <Link href={`/${locale}/destinations/${st.slug}`} className="group block">
-                <div className="bg-white border border-gold/10 rounded-2xl overflow-hidden shadow-md transition-transform duration-500 hover:-translate-y-2 hover:border-gold/25">
-                  <div className="h-56 overflow-hidden relative">
+              <Link href={`/${locale}/destinations/${st.slug}`} className="group block h-full">
+                <div className="bg-white border border-gold/10 rounded-[2rem] overflow-hidden shadow-lg transition-all duration-500 hover:-translate-y-3 hover:border-gold/25 hover:shadow-2xl flex flex-col h-full">
+                  <div className="h-72 overflow-hidden relative shrink-0">
                     <img src={st.image} alt={st.title?.en} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <span className="absolute top-4 left-4 bg-royal text-gold text-[9px] uppercase tracking-wider font-bold px-2.5 py-1 rounded shadow-sm">
+                    <span className="absolute top-5 left-5 bg-royal text-gold text-[10px] uppercase tracking-wider font-bold px-4 py-2 rounded-full shadow-sm">
                       {st.region} India
                     </span>
                   </div>
-                  <div className="p-6 space-y-3 bg-white">
-                    <h3 className="text-lg font-serif font-bold text-royal group-hover:text-gold transition-colors">
-                      {st.title?.[locale] || st.title?.en}
-                    </h3>
-                    <p className="text-xs text-foreground/55 line-clamp-3 leading-relaxed font-light">
-                      {st.tagline?.[locale] || st.tagline?.en}
-                    </p>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-gold flex items-center gap-1.5 pt-2">
+                  {/* Padding: p-8 */}
+                  <div className="p-8 space-y-4 bg-white flex flex-col flex-grow justify-between">
+                    <div className="space-y-2.5">
+                      <h3 className="text-xl md:text-2xl font-bold text-royal group-hover:text-gold transition-colors">
+                        {st.title?.[locale] || st.title?.en}
+                      </h3>
+                      <p className="text-sm md:text-base text-foreground/55 line-clamp-3 leading-relaxed font-light">
+                        {st.tagline?.[locale] || st.tagline?.en}
+                      </p>
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-gold flex items-center gap-1.5 pt-4 border-t border-gold/10 mt-auto">
                       <span>Explore Region</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
+                      <ArrowUpRight className="w-4 h-4" />
                     </span>
                   </div>
                 </div>
               </Link>
             </Reveal>
           ))}
+        </div>
+
+        {/* VIEW ALL Destinations button */}
+        <div className="text-center pt-8">
+          <Link href={`/${locale}/destinations`} className="inline-flex items-center gap-2 bg-royal hover:bg-royal/90 text-white text-base md:text-lg font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 shadow-xl">
+            <span>View All Destinations</span>
+            <ArrowRight className="w-5 h-5 text-gold" />
+          </Link>
         </div>
       </section>
 
       {/* SECTION 4: Curated Packages (Signature Cards Grid) */}
-      <section className="max-w-7xl mx-auto px-6 py-28 space-y-16 border-b border-gold/10">
-        <div className="text-center space-y-3 max-w-lg mx-auto">
-          <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold block">{text.packagesSub}</span>
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-royal tracking-tight">{text.packagesTitle}</h2>
-          <p className="text-xs text-foreground/50 leading-relaxed font-light">{text.packagesDesc}</p>
+      <section className="max-w-7xl mx-auto px-6 py-32 space-y-20 border-b border-gold/10">
+        <div className="text-center space-y-4 max-w-2xl mx-auto">
+          <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.packagesSub}</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight">{text.packagesTitle}</h2>
+          <p className="text-base text-foreground/50 leading-relaxed font-light">{text.packagesDesc}</p>
           <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Large, Beautiful Cards (Increased dimensions, larger padding) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {tourPackages.slice(0, 3).map((pkg: any, i: number) => (
             <Reveal key={pkg.slug} delay={i * 80}>
               <Link href={`/${locale}/packages`} className="group block h-full">
-                <div className="bg-white border border-gold/10 rounded-2xl overflow-hidden shadow-md flex flex-col h-full transition-transform duration-500 hover:-translate-y-2 hover:border-gold/25">
-                  <div className="h-48 shrink-0 overflow-hidden relative">
+                <div className="bg-white border border-gold/10 rounded-[2rem] overflow-hidden shadow-lg flex flex-col h-full transition-all duration-500 hover:-translate-y-3 hover:border-gold/25 hover:shadow-2xl">
+                  <div className="h-64 shrink-0 overflow-hidden relative">
                     <img src={pkg.image} alt={pkg.title?.en} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <span className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-royal text-[9px] uppercase font-bold tracking-wider px-2.5 py-1 rounded shadow-sm">
+                    <span className="absolute top-5 left-5 bg-white/95 backdrop-blur-sm text-royal text-[10px] uppercase font-bold tracking-wider px-4 py-2 rounded-full shadow-sm">
                       {pkg.durationDays} Days
                     </span>
                   </div>
-                  <div className="p-6 flex flex-col justify-between flex-grow bg-white">
-                    <div className="space-y-2">
-                      <h3 className="text-base font-serif font-bold text-royal group-hover:text-gold transition-colors leading-snug">
+                  {/* Padding: p-8 */}
+                  <div className="p-8 flex flex-col justify-between flex-grow bg-white">
+                    <div className="space-y-3">
+                      <h3 className="text-xl md:text-2xl font-bold text-royal group-hover:text-gold transition-colors leading-snug">
                         {pkg.title?.[locale] || pkg.title?.en}
                       </h3>
-                      <p className="text-xs text-foreground/55 line-clamp-3 leading-relaxed font-light">
+                      <p className="text-sm md:text-base text-foreground/55 line-clamp-3 leading-relaxed font-light">
                         {pkg.tagline?.[locale] || pkg.tagline?.en}
                       </p>
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-gold flex items-center gap-1 mt-4">
-                      <span>Request Draft</span>
-                      <ArrowRight className="w-3 h-3" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-gold flex items-center gap-1.5 pt-4 border-t border-gold/10 mt-6">
+                      <span>Request Draft Itinerary</span>
+                      <ArrowRight className="w-4 h-4" />
                     </span>
                   </div>
                 </div>
@@ -333,51 +305,69 @@ export default async function HomePage({ params }: HomePageProps) {
             </Reveal>
           ))}
         </div>
+
+        {/* VIEW ALL Packages button */}
+        <div className="text-center pt-8">
+          <Link href={`/${locale}/packages`} className="inline-flex items-center gap-2 bg-royal hover:bg-royal/90 text-white text-base md:text-lg font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 shadow-xl">
+            <span>View All Packages</span>
+            <ArrowRight className="w-5 h-5 text-gold" />
+          </Link>
+        </div>
       </section>
 
       {/* SECTION 5: Gastronomy Preview (Curated Culinary Card) */}
-      <section className="max-w-7xl mx-auto px-6 py-28 border-b border-gold/10">
-        <div className="bg-royal border border-gold/15 rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 relative">
-          <div className="lg:col-span-5 h-[320px] lg:h-full relative overflow-hidden">
+      <section className="max-w-7xl mx-auto px-6 py-32 border-b border-gold/10 space-y-16">
+        <div className="bg-royal border border-gold/15 rounded-[2.5rem] overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 relative shadow-2xl">
+          <div className="lg:col-span-5 h-[400px] lg:h-full relative overflow-hidden">
             <img src="/images/indian_cuisine_feast.png" alt="Culinary Spices" className="w-full h-full object-cover animate-kenburns" />
           </div>
-          <div className="lg:col-span-7 p-10 md:p-16 flex flex-col justify-center space-y-6 text-white bg-royal relative">
+          <div className="lg:col-span-7 p-10 md:p-20 flex flex-col justify-center space-y-8 text-white bg-royal relative">
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-gold/5 via-transparent to-transparent pointer-events-none" />
-            <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold">{text.foodSub}</span>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold tracking-tight">{text.foodTitle}</h2>
-            <p className="text-xs text-white/70 leading-relaxed font-light max-w-md">
+            <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold">{text.foodSub}</span>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">{text.foodTitle}</h2>
+            <p className="text-sm md:text-base text-white/70 leading-relaxed font-light max-w-xl">
               India's cultural geography is best tasted. From royal Mughal slow-cooked saffron curries to local coconut fish marinades, we map private food walks and dining logs.
             </p>
-            <div className="pt-2">
-              <Link href={`/${locale}/food`} className="bg-gold hover:bg-gold-light text-royal text-[10px] font-bold uppercase tracking-widest px-6 py-3.5 rounded-full transition-transform hover:scale-105 inline-block shadow-md">
+            <div className="pt-4">
+              <Link href={`/${locale}/food`} className="bg-gold hover:bg-gold-light text-royal text-base md:text-lg font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 inline-block shadow-lg">
                 Explore Food Guide
               </Link>
             </div>
           </div>
         </div>
+
+        {/* VIEW ALL Food Experiences button */}
+        <div className="text-center pt-8">
+          <Link href={`/${locale}/food`} className="inline-flex items-center gap-2 bg-royal hover:bg-royal/90 text-white text-base md:text-lg font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 shadow-xl">
+            <span>{text.viewAll}</span>
+            <ArrowRight className="w-5 h-5 text-gold" />
+          </Link>
+        </div>
       </section>
 
       {/* SECTION 6: Customer Testimonials */}
-      <section className="max-w-7xl mx-auto px-6 py-28 space-y-16 border-b border-gold/10">
-        <div className="text-center space-y-3 max-w-lg mx-auto">
-          <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold block">{text.testimonialsSub}</span>
-          <h2 className="text-3xl font-serif font-bold text-royal tracking-tight">{text.testimonialsTitle}</h2>
+      <section className="max-w-7xl mx-auto px-6 py-32 space-y-20 border-b border-gold/10">
+        <div className="text-center space-y-4 max-w-2xl mx-auto">
+          <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.testimonialsSub}</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight">{text.testimonialsTitle}</h2>
           <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {testimonials.slice(0, 3).map((test: any, i: number) => (
             <Reveal key={i} delay={i * 80}>
-              <div className="bg-white border border-gold/10 p-8 rounded-2xl shadow-sm space-y-5 relative">
-                <div className="flex gap-1 text-gold">
-                  {[...Array(5)].map((_, idx) => (
-                    <Star key={idx} className="w-3.5 h-3.5 fill-current" />
-                  ))}
+              <div className="bg-white border border-gold/10 p-10 rounded-[2rem] shadow-md space-y-6 relative h-full flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="flex gap-1 text-gold">
+                    {[...Array(5)].map((_, idx) => (
+                      <Star key={idx} className="w-4 h-4 fill-current" />
+                    ))}
+                  </div>
+                  <p className="text-sm md:text-base text-foreground/60 italic leading-relaxed font-light">"{test.text?.[locale] || test.text?.en}"</p>
                 </div>
-                <p className="text-xs text-foreground/60 italic leading-relaxed font-light">"{test.text?.[locale] || test.text?.en}"</p>
-                <div className="border-t border-sand/40 pt-4 flex justify-between items-center text-xs">
+                <div className="border-t border-sand/40 pt-5 flex justify-between items-center text-sm mt-6">
                   <span className="font-bold text-royal">{test.author}</span>
-                  <span className="text-[10px] text-foreground/45 uppercase tracking-wider">{test.location}</span>
+                  <span className="text-[10px] text-foreground/45 uppercase tracking-wider font-semibold">{test.location}</span>
                 </div>
               </div>
             </Reveal>
@@ -386,21 +376,21 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* SECTION 7: Curated Concierge FAQs */}
-      <section className="max-w-4xl mx-auto px-6 py-28 space-y-16 border-b border-gold/10">
-        <div className="text-center space-y-3 max-w-lg mx-auto">
-          <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold block">{text.faqSub}</span>
-          <h2 className="text-3xl font-serif font-bold text-royal tracking-tight">{text.faqTitle}</h2>
+      <section className="max-w-4xl mx-auto px-6 py-32 space-y-20 border-b border-gold/10">
+        <div className="text-center space-y-4 max-w-2xl mx-auto">
+          <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.faqSub}</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight">{text.faqTitle}</h2>
           <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
         </div>
 
-        <div className="space-y-5">
+        <div className="space-y-6">
           {homepageFaqs.map((f, i) => (
-            <details key={i} className="group border-b border-gold/10 pb-5" open={i === 0}>
-              <summary className="flex justify-between items-center font-serif font-bold text-royal cursor-pointer list-none text-base">
+            <details key={i} className="group border-b border-gold/10 pb-6" open={i === 0}>
+              <summary className="flex justify-between items-center font-bold text-royal cursor-pointer list-none text-lg md:text-xl">
                 <span>{f.q}</span>
-                <span className="w-5 h-5 rounded-full bg-gold/10 flex items-center justify-center text-gold text-xs transition-transform duration-300 group-open:rotate-45">+</span>
+                <span className="w-6 h-6 rounded-full bg-gold/10 flex items-center justify-center text-gold text-xs transition-transform duration-300 group-open:rotate-45">+</span>
               </summary>
-              <p className="text-xs text-foreground/60 mt-3 leading-relaxed pl-2 border-l border-gold/25 font-light">
+              <p className="text-sm md:text-base text-foreground/60 mt-4 leading-relaxed pl-3 border-l border-gold/25 font-light">
                 {f.a}
               </p>
             </details>
@@ -410,27 +400,31 @@ export default async function HomePage({ params }: HomePageProps) {
 
       {/* SECTION 8: Blog Log */}
       {blogs.length > 0 && (
-        <section className="max-w-7xl mx-auto px-6 py-28 space-y-16 border-b border-gold/10">
-          <div className="text-center space-y-3 max-w-lg mx-auto">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold block">{text.blogsSub}</span>
-            <h2 className="text-3xl font-serif font-bold text-royal tracking-tight">{text.blogsTitle}</h2>
+        <section className="max-w-7xl mx-auto px-6 py-32 space-y-20 border-b border-gold/10">
+          <div className="text-center space-y-4 max-w-2xl mx-auto">
+            <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.blogsSub}</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight">{text.blogsTitle}</h2>
             <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Large, Beautiful Cards (Increased dimensions, larger padding) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {blogs.slice(0, 3).map((post: any, i: number) => (
               <Reveal key={post.slug} delay={i * 80}>
-                <Link href={`/${locale}/blog/${post.slug}`} className="group block">
-                  <div className="bg-white border border-gold/10 rounded-2xl overflow-hidden shadow-sm transition-transform duration-500 hover:-translate-y-1 hover:border-gold/25">
-                    <div className="h-44 overflow-hidden">
+                <Link href={`/${locale}/blog/${post.slug}`} className="group block h-full">
+                  <div className="bg-white border border-gold/10 rounded-[2rem] overflow-hidden shadow-lg transition-all duration-500 hover:-translate-y-2 hover:border-gold/25 hover:shadow-2xl flex flex-col h-full">
+                    <div className="h-56 overflow-hidden shrink-0">
                       <img src={post.featuredImage} alt={post.title?.en} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     </div>
-                    <div className="p-6 space-y-3 bg-white">
-                      <span className="text-[9px] uppercase tracking-wider font-bold text-gold">{post.category}</span>
-                      <h3 className="text-sm font-serif font-bold text-royal group-hover:text-gold transition-colors leading-snug">
-                        {post.title?.[locale] || post.title?.en}
-                      </h3>
-                      <span className="text-[9px] text-foreground/45 uppercase tracking-wider block pt-1">
+                    {/* Padding: p-8 */}
+                    <div className="p-8 space-y-4 bg-white flex flex-col flex-grow justify-between">
+                      <div className="space-y-2.5">
+                        <span className="text-[10px] uppercase tracking-wider font-bold text-gold block">{post.category}</span>
+                        <h3 className="text-lg font-bold text-royal group-hover:text-gold transition-colors leading-snug line-clamp-2">
+                          {post.title?.[locale] || post.title?.en}
+                        </h3>
+                      </div>
+                      <span className="text-[10px] text-foreground/45 uppercase tracking-wider block pt-4 border-t border-gold/10">
                         {post.readingTime} Min Read &bull; By {post.author}
                       </span>
                     </div>
@@ -439,11 +433,19 @@ export default async function HomePage({ params }: HomePageProps) {
               </Reveal>
             ))}
           </div>
+
+          {/* VIEW ALL Blogs button */}
+          <div className="text-center pt-8">
+            <Link href={`/${locale}/blog`} className="inline-flex items-center gap-2 bg-royal hover:bg-royal/90 text-white text-base md:text-lg font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 shadow-xl">
+              <span>View All Blogs</span>
+              <ArrowRight className="w-5 h-5 text-gold" />
+            </Link>
+          </div>
         </section>
       )}
 
       {/* SECTION 9: Tailored Inquiry Callout Panel */}
-      <section className="max-w-7xl mx-auto px-6 py-28">
+      <section className="max-w-7xl mx-auto px-6 py-32">
         <InquiryForm locale={locale} />
       </section>
 

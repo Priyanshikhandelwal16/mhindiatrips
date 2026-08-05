@@ -17,15 +17,15 @@ export default async function FoodDetailPage({ params }: FoodDetailPageProps) {
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
       {/* SECTION 1: Banner Header */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <img src={food.image} alt={food.title?.[locale as "en"|"es"|"pt"] || food.title?.en} className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns" loading="eager" />
-        <div className="absolute inset-0 bg-gradient-to-b from-royal/65 via-royal/35 to-royal/80" />
-        <div className="relative z-10 text-center text-white space-y-4 px-6 mt-16 max-w-3xl">
-          <span className="bg-gold/90 text-royal text-[9px] uppercase tracking-[0.25em] font-extrabold px-4 py-1.5 rounded-full inline-block">
-            <Utensils className="w-3.5 h-3.5 text-royal inline-block mr-1.5 align-text-bottom" />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-5xl">
+          <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
+            <Utensils className="w-4 h-4 text-royal inline-block mr-1.5 align-text-bottom" />
             {food.category} Culinary
           </span>
-          <h1 className="text-4xl md:text-6xl font-serif font-black tracking-tight leading-none text-white">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-none text-white">
             {food.title?.[locale as "en"|"es"|"pt"] || food.title?.en}
           </h1>
         </div>
