@@ -20,7 +20,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero */}
       <div className="relative h-[50vh] min-h-[350px] flex items-center justify-center overflow-hidden">
-        <img src={city.image} alt={city.title?.[locale] || city.title?.en} className="absolute inset-0 w-full h-full object-cover" />
+        <img src={city.image} alt={city.title?.[locale] || city.title?.en} className="absolute inset-0 w-full h-full object-cover" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-[#FAF8F5]" />
         <div className="relative z-10 text-center text-white space-y-4 px-6 mt-16">
           <span className="editorial-subheading block text-gold">{state.title?.en} Destination</span>
@@ -76,7 +76,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
               <Link key={att.slug || idx} href={`/${locale}/destinations/${stateSlug}/${citySlug}/${att.slug}`} className="group block">
                 <div className="card-elevated overflow-hidden flex flex-col md:flex-row h-56">
                   <div className="md:w-5/12 h-40 md:h-full shrink-0 overflow-hidden">
-                    <img src={att.image} alt={att.name?.en} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <img src={att.image} alt={att.name?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <div className="md:w-7/12 p-5 flex flex-col justify-between">
                     <div className="space-y-2">

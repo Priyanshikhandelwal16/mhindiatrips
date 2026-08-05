@@ -69,7 +69,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
     <div className="font-sans bg-background text-foreground">
       {/* Section 1: Hero with Varanasi Image */}
       <section className="relative h-[65vh] min-h-[450px] flex items-center justify-center overflow-hidden">
-        <img src="/images/varanasi.jpg" alt="Varanasi Ghats at Sunset" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="/images/varanasi.jpg" alt="Varanasi Ghats at Sunset" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
         <div className="absolute inset-0 bg-royal/75" />
         <div className="relative z-10 text-center text-white px-6 max-w-3xl">
           <span className="editorial-subheading block text-gold mb-4">{text.heroSub}</span>

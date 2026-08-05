@@ -24,7 +24,7 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero */}
       <div className="relative h-[55vh] min-h-[380px] flex items-center justify-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=1920" alt="Indian Food" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=1920" alt="Indian Food" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#FAF8F5]" />
         <div className="relative z-10 text-center text-white space-y-5 px-6 mt-16">
           <span className="editorial-subheading block text-gold">{text.sub}</span>
@@ -90,7 +90,7 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
               <Link key={food.slug} href={`/${locale}/food/${food.slug}`} className="group block">
                 <div className="card-elevated overflow-hidden h-full">
                   <div className="h-48 overflow-hidden">
-                    <img src={food.image} alt={food.title.en} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <img src={food.image} alt={food.title.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <div className="p-6 space-y-2">
                     <h3 className="text-lg font-serif font-bold text-royal">{food.title[locale as "en"|"es"|"pt"] || food.title.en}</h3>

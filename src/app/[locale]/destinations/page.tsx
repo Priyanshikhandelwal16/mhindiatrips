@@ -23,7 +23,7 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero Banner */}
       <div className="relative h-[45vh] min-h-[320px] flex items-center justify-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1920" alt="India Destinations" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1920" alt="India Destinations" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-[#FAF8F5]" />
         <div className="relative z-10 text-center text-white space-y-4 px-6 mt-16">
           <span className="editorial-subheading block text-gold">{text.sub}</span>
@@ -49,7 +49,7 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
                   <Link key={state.slug} href={`/${locale}/destinations/${state.slug}`} className="group block">
                     <div className="card-elevated overflow-hidden h-[400px] flex flex-col">
                       <div className="h-52 overflow-hidden relative shrink-0">
-                        <img src={state.image} alt={state.title[locale as "en"|"es"|"pt"] || state.title.en} className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-105" />
+                        <img src={state.image} alt={state.title[locale as "en"|"es"|"pt"] || state.title.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-105" />
                         <div className="absolute top-4 left-4">
                           <span className="badge-gold">{state.region}</span>
                         </div>

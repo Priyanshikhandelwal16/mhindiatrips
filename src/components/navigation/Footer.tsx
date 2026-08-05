@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Send, Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
 
 interface FooterProps {
@@ -118,9 +119,14 @@ export default function Footer({ locale }: FooterProps) {
           {/* Column 1: Brand - spans 4 cols */}
           <div className="lg:col-span-4 space-y-6">
             <div>
-              <span className="text-xl font-bold tracking-[0.1em] text-white block">
-                MH<span className="text-gold font-serif italic tracking-normal">India</span>Trips
-              </span>
+              <Image
+                src="/images/logo.png"
+                alt="MH India Trips"
+                width={160}
+                height={45}
+                loading="lazy"
+                className="h-10 w-auto brightness-0 invert"
+              />
               <p className="text-[10px] uppercase tracking-[0.25em] text-white/25 mt-1.5 font-medium">
                 {labels.tagline}
               </p>

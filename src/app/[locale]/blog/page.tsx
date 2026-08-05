@@ -23,7 +23,7 @@ export default async function BlogIndexPage({ params }: BlogIndexPageProps) {
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero */}
       <div className="relative h-[55vh] min-h-[380px] flex items-center justify-center overflow-hidden">
-        <img src="/images/varanasi.jpg" alt="Travel Blog" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="/images/varanasi.jpg" alt="Travel Blog" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#FAF8F5]" />
         <div className="relative z-10 text-center text-white space-y-5 px-6 mt-16">
           <span className="editorial-subheading block text-gold">{text.sub}</span>
@@ -39,7 +39,7 @@ export default async function BlogIndexPage({ params }: BlogIndexPageProps) {
             <Link key={blog.slug} href={`/${locale}/blog/${blog.slug}`} className="group block">
               <div className="card-elevated overflow-hidden h-full flex flex-col">
                 <div className="h-52 overflow-hidden relative shrink-0">
-                  <img src={blog.featuredImage} alt={blog.title[locale as "en"|"es"|"pt"] || blog.title.en} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <img src={blog.featuredImage} alt={blog.title[locale as "en"|"es"|"pt"] || blog.title.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   <div className="absolute top-4 left-4">
                     <span className="badge-forest">{blog.category}</span>
                   </div>

@@ -17,7 +17,7 @@ export default async function FoodDetailPage({ params }: FoodDetailPageProps) {
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero */}
       <div className="relative h-[45vh] min-h-[320px] flex items-center justify-center overflow-hidden">
-        <img src={food.image} alt={food.title?.[locale as "en"|"es"|"pt"] || food.title?.en} className="absolute inset-0 w-full h-full object-cover" />
+        <img src={food.image} alt={food.title?.[locale as "en"|"es"|"pt"] || food.title?.en} className="absolute inset-0 w-full h-full object-cover" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-[#FAF8F5]" />
         <div className="relative z-10 text-center text-white space-y-4 px-6 mt-16">
           <span className="editorial-subheading block text-gold flex items-center justify-center gap-1.5">

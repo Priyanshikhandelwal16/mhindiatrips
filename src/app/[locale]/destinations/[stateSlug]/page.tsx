@@ -25,7 +25,7 @@ export default async function StateDetailPage({ params }: StatePageProps) {
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero */}
       <div className="relative h-[55vh] min-h-[380px] flex items-center justify-center overflow-hidden">
-        <img src={state.image} alt={state.title?.[locale] || state.title?.en} className="absolute inset-0 w-full h-full object-cover" />
+        <img src={state.image} alt={state.title?.[locale] || state.title?.en} className="absolute inset-0 w-full h-full object-cover" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-[#FAF8F5]" />
         <div className="relative z-10 text-center text-white space-y-4 px-6 mt-16">
           <span className="editorial-subheading block text-gold">{state.region} India</span>
@@ -72,7 +72,7 @@ export default async function StateDetailPage({ params }: StatePageProps) {
               <Link key={city.slug} href={`/${locale}/destinations/${stateSlug}/${city.slug}`} className="group block">
                 <div className="card-elevated overflow-hidden flex flex-col md:flex-row h-64">
                   <div className="md:w-5/12 h-44 md:h-full shrink-0 overflow-hidden">
-                    <img src={city.image} alt={city.title?.en} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <img src={city.image} alt={city.title?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <div className="md:w-7/12 p-6 flex flex-col justify-between">
                     <div className="space-y-2">
@@ -101,7 +101,7 @@ export default async function StateDetailPage({ params }: StatePageProps) {
               <Link key={att.slug || idx} href={`/${locale}/destinations/${stateSlug}/${att.citySlug}/${att.slug}`} className="group block">
                 <div className="card-elevated overflow-hidden h-[360px] flex flex-col">
                   <div className="h-44 overflow-hidden relative shrink-0">
-                    <img src={att.image} alt={att.name?.en} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <img src={att.image} alt={att.name?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-gold text-[9px] uppercase font-bold tracking-wider px-2.5 py-1 rounded">{att.cityName}</div>
                   </div>
                   <div className="p-5 flex flex-col flex-grow justify-between">
@@ -133,7 +133,7 @@ export default async function StateDetailPage({ params }: StatePageProps) {
               </Link>
             </div>
             <div className="h-64 rounded-2xl overflow-hidden shadow-lg image-zoom-container">
-              <img src="https://images.unsplash.com/photo-1585938338392-50a59970d8ee?q=80&w=800" alt="Indian Food" className="w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1585938338392-50a59970d8ee?q=80&w=800" alt="Indian Food" loading="lazy" className="w-full h-full object-cover" />
             </div>
           </div>
         </section>

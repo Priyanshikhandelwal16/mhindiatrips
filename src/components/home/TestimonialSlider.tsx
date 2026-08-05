@@ -97,6 +97,7 @@ export default function TestimonialSlider({ locale, reviews, labels }: Testimoni
                     <img
                       src={review.image}
                       alt={review.name}
+                      loading="lazy"
                       className="w-10 h-10 rounded-full object-cover ring-2 ring-gold/10"
                     />
                     <div>

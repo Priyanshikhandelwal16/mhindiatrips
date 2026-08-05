@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { Globe, Menu, X, ChevronDown, ChevronRight, Phone, Mail, MapPin } from "lucide-react";
 import { locales } from "@/lib/i18n";
@@ -167,18 +168,16 @@ export default function Header({ locale }: HeaderProps) {
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           {/* Logo */}
           <Link href={`/${locale}`} className="flex items-center gap-2 group relative z-10">
-            <div className="flex flex-col">
-              <span className={`text-[1.35rem] font-bold tracking-[0.1em] transition-colors duration-400 font-sans ${
-                scrolled ? "text-royal" : "text-white"
-              }`}>
-                MH<span className="text-gold font-serif italic tracking-normal">India</span>Trips
-              </span>
-              <span className={`text-[8px] tracking-[0.3em] uppercase font-medium transition-colors duration-400 ${
-                scrolled ? "text-foreground/40" : "text-white/60"
-              }`}>
-                Luxury Travel Specialists
-              </span>
-            </div>
+            <Image
+              src="/images/logo.png"
+              alt="MH India Trips"
+              width={180}
+              height={50}
+              priority
+              className={`h-10 w-auto transition-all duration-400 ${
+                scrolled ? "brightness-100" : "brightness-0 invert"
+              }`}
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -233,10 +232,13 @@ export default function Header({ locale }: HeaderProps) {
                     ))}
                     {/* Featured Image */}
                     <div className="relative rounded-xl overflow-hidden h-full min-h-[200px]">
-                      <img
+                      <Image
                         src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=400"
                         alt="India Travel"
-                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                        fill
+                        loading="lazy"
+                        className="object-cover transition-transform duration-700 hover:scale-105"
+                        sizes="200px"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-royal/80 via-royal/20 to-transparent flex items-end p-4">
                         <div className="text-white">
@@ -358,9 +360,13 @@ export default function Header({ locale }: HeaderProps) {
         <div className={`absolute right-0 top-0 h-full w-full max-w-[380px] bg-ivory flex flex-col transition-transform duration-500 ease-out ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
           {/* Menu Header */}
           <div className="flex justify-between items-center p-6 border-b border-sand/50">
-            <span className="text-lg font-bold tracking-[0.1em] text-royal">
-              MH<span className="text-gold font-serif italic tracking-normal">India</span>Trips
-            </span>
+            <Image
+              src="/images/logo.png"
+              alt="MH India Trips"
+              width={140}
+              height={40}
+              className="h-8 w-auto"
+            />
             <button
               onClick={() => setMobileMenuOpen(false)}
               className="p-2.5 text-foreground/60 hover:text-foreground hover:bg-sand/40 rounded-xl transition-all duration-200"
