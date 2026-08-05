@@ -125,10 +125,10 @@ export default function Header({ locale }: HeaderProps) {
             <Image
               src="/images/logo-transparent.png"
               alt="MH India Trips"
-              width={260}
-              height={78}
+              width={220}
+              height={65}
               priority
-              className="h-16 md:h-18 w-auto transition-transform duration-300 hover:scale-[1.02]"
+              className="h-10 md:h-14 lg:h-16 w-auto transition-transform duration-300 hover:scale-[1.02]"
             />
           </Link>
 
@@ -246,7 +246,7 @@ export default function Header({ locale }: HeaderProps) {
           </div>
 
           {/* Mobile Buttons */}
-          <div className="flex lg:hidden items-center gap-4 z-20">
+          <div className="flex lg:hidden items-center gap-3 z-20">
             
             {/* Lang Button */}
             <button
