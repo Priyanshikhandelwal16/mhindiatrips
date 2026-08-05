@@ -2,7 +2,8 @@ import React from "react";
 import { notFound } from "next/navigation";
 import { getFoodBySlugAction } from "@/app/actions/queries";
 import InquiryForm from "@/components/common/InquiryForm";
-import { Utensils, MapPin, Check, BookOpen, Star } from "lucide-react";
+import Link from "next/link";
+import { Utensils, MapPin, Check, BookOpen, Star, ArrowRight } from "lucide-react";
 
 interface FoodDetailPageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -17,15 +18,15 @@ export default async function FoodDetailPage({ params }: FoodDetailPageProps) {
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
       {/* SECTION 1: Banner Header */}
-      <section className="relative h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[55vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         <img src={food.image} alt={food.title?.[locale as "en"|"es"|"pt"] || food.title?.en} className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns" loading="eager" />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-5xl">
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-4xl">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
             <Utensils className="w-4 h-4 text-royal inline-block mr-1.5 align-text-bottom" />
             {food.category} Culinary
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-none text-white">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-white">
             {food.title?.[locale as "en"|"es"|"pt"] || food.title?.en}
           </h1>
         </div>
@@ -115,10 +116,14 @@ export default async function FoodDetailPage({ params }: FoodDetailPageProps) {
       </section>
 
       {/* Inquiry Form */}
-      <section className="max-w-7xl mx-auto px-6 py-20 border-t border-gold/10">
-        <InquiryForm locale={locale} />
+      <section className="max-w-3xl mx-auto px-6 py-20 text-center space-y-6 border-t border-gold/10">
+        <h2 className="text-2xl md:text-3xl font-bold text-royal">Want to taste this regional cuisine?</h2>
+        <p className="text-sm text-foreground/50 font-light leading-relaxed max-w-md mx-auto">Let our luxury destination designers craft the perfect custom itinerary for you.</p>
+        <Link href={`/${locale}/contact`} className="bg-gold hover:bg-gold-light text-royal text-xs font-bold uppercase tracking-widest px-8 py-4.5 rounded-full inline-flex items-center gap-1.5 shadow-md">
+          <span>Inquire About Tour</span>
+          <ArrowRight className="w-4 h-4 text-royal" />
+        </Link>
       </section>
-
     </div>
   );
 }

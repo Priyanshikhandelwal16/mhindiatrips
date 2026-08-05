@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Compass, Menu, X, Globe, ArrowRight } from "lucide-react";
+import { Menu, X, Globe, ArrowRight, ChevronDown } from "lucide-react";
 
 interface HeaderProps {
   locale: string;
@@ -59,8 +59,15 @@ export default function Header({ locale }: HeaderProps) {
 
   const labels = menuTranslations[locale] || menuTranslations.en;
 
+  const statesList = [
+    { name: "Rajasthan", path: "/destinations/rajasthan" },
+    { name: "Kerala", path: "/destinations/kerala" },
+    { name: "Varanasi", path: "/destinations/varanasi" },
+    { name: "Delhi & Agra", path: "/destinations/delhi-and-agra" },
+    { name: "Goa", path: "/destinations/goa" }
+  ];
+
   const menuItems = [
-    { name: labels.destinations, path: "/destinations" },
     { name: labels.packages, path: "/packages" },
     { name: labels.food, path: "/food" },
     { name: labels.blog, path: "/blog" },
@@ -74,12 +81,14 @@ export default function Header({ locale }: HeaderProps) {
     { code: "pt", name: "Português" }
   ];
 
-  // Computes path for switching language
   const switchLocalePath = (targetLocale: string) => {
     if (!pathname) return `/${targetLocale}`;
     const segments = pathname.split("/");
-    // Replace the first segment (which represents locale) with targetLocale
-    segments[1] = targetLocale;
+    if (segments[1] === "en" || segments[1] === "es" || segments[1] === "pt") {
+      segments[1] = targetLocale;
+    } else {
+      segments.splice(1, 0, targetLocale);
+    }
     return segments.join("/");
   };
 
@@ -94,7 +103,7 @@ export default function Header({ locale }: HeaderProps) {
     <header className="fixed top-0 left-0 right-0 z-50 w-full font-sans transition-all duration-500">
       
       {/* Luxury Top Marquee Announcement */}
-      <div className="bg-royal text-gold text-[8px] md:text-[9px] uppercase tracking-[0.25em] font-bold py-2 px-6 flex items-center justify-between border-b border-gold/15 relative z-20">
+      <div className="bg-royal text-gold text-[9px] uppercase tracking-[0.25em] font-bold py-2 px-6 flex items-center justify-between border-b border-gold/15 relative z-20">
         <span className="animate-pulse">MH India Trips &bull; Curated Luxury Journeys</span>
         <div className="hidden md:flex gap-6">
           <span>Private Guided Tours</span>
@@ -106,7 +115,7 @@ export default function Header({ locale }: HeaderProps) {
       {/* Main Premium Navigation Header */}
       <div 
         className={`w-full bg-[#FAF8F5]/98 border-b border-gold/15 transition-all duration-300 ${
-          scrolled ? "py-3 shadow-lg shadow-royal/5" : "py-5"
+          scrolled ? "py-2.5 shadow-lg shadow-royal/5" : "py-4"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -119,19 +128,68 @@ export default function Header({ locale }: HeaderProps) {
               width={260}
               height={78}
               priority
-              className="h-16 md:h-20 w-auto transition-transform duration-300 hover:scale-[1.02]"
+              className="h-16 md:h-18 w-auto transition-transform duration-300 hover:scale-[1.02]"
             />
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-9">
+          <nav className="hidden lg:flex items-center gap-8">
+            
+            {/* Home Link */}
+            <Link
+              href={`/${locale}`}
+              className={`text-[11px] font-bold uppercase tracking-[0.18em] hover:text-gold transition-colors duration-300 relative py-1 ${
+                isActive("/") ? "text-gold" : "text-royal"
+              }`}
+            >
+              <span>{labels.home || "Home"}</span>
+              {isActive("/") && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full" />
+              )}
+            </Link>
+
+            {/* Destinations Hover Dropdown */}
+            <div className="relative group py-1">
+              <Link
+                href={`/${locale}/destinations`}
+                className={`text-[11px] font-bold uppercase tracking-[0.18em] hover:text-gold transition-colors duration-300 flex items-center gap-1 ${
+                  isActive("/destinations") ? "text-gold" : "text-royal"
+                }`}
+              >
+                <span>{labels.destinations}</span>
+                <ChevronDown className="w-3.5 h-3.5 text-gold transition-transform duration-300 group-hover:rotate-180" />
+              </Link>
+              
+              {/* Dropdown Container */}
+              <div className="absolute left-0 mt-2 w-52 bg-[#FAF8F5] border border-gold/15 rounded-2xl shadow-xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
+                <Link
+                  href={`/${locale}/destinations`}
+                  className="block px-5 py-2.5 text-[10px] font-bold uppercase tracking-wider text-royal/60 hover:text-gold hover:bg-gold/5 transition-colors border-b border-gold/5 mb-1.5"
+                >
+                  All Regions
+                </Link>
+                {statesList.map((st) => (
+                  <Link
+                    key={st.path}
+                    href={`/${locale}${st.path}`}
+                    className="block px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-royal hover:bg-gold/10 hover:text-gold transition-colors"
+                  >
+                    {st.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Other Menu Items */}
             {menuItems.map((item) => {
               const active = isActive(item.path);
               return (
                 <Link
                   key={item.path}
                   href={`/${locale}${item.path}`}
-                  className="text-[11px] font-bold uppercase tracking-[0.18em] text-royal hover:text-gold transition-colors duration-300 relative py-1"
+                  className={`text-[11px] font-bold uppercase tracking-[0.18em] hover:text-gold transition-colors duration-300 relative py-1 ${
+                    active ? "text-gold" : "text-royal"
+                  }`}
                 >
                   <span>{item.name}</span>
                   {active && (
@@ -180,7 +238,7 @@ export default function Header({ locale }: HeaderProps) {
             {/* Inquire CTA Button */}
             <Link 
               href={`/${locale}/contact`}
-              className="bg-gold hover:bg-gold-light text-royal text-[10px] font-bold uppercase tracking-[0.18em] px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 inline-flex items-center gap-1.5 shadow-md shadow-gold/10 border border-gold/10"
+              className="bg-gold hover:bg-gold-light text-royal text-[10px] font-bold uppercase tracking-[0.18em] px-6 py-3.5 rounded-full transition-all duration-300 hover:scale-105 inline-flex items-center gap-1.5 shadow-md shadow-gold/10 border border-gold/10"
             >
               <span>{labels.cta}</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -234,12 +292,40 @@ export default function Header({ locale }: HeaderProps) {
       {mobileMenuOpen && (
         <div className="fixed inset-0 bg-[#FAF8F5] z-10 flex flex-col justify-center px-8 space-y-8 animate-fade-in lg:hidden">
           <nav className="flex flex-col space-y-6 text-center">
+            
+            <Link
+              href={`/${locale}`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-lg font-bold text-royal hover:text-gold transition-colors"
+            >
+              {labels.home || "Home"}
+            </Link>
+
+            {/* Mobile Destinations Sublinks */}
+            <div className="space-y-3">
+              <span className="text-sm font-bold uppercase tracking-wider text-gold block">
+                {labels.destinations}
+              </span>
+              <div className="flex flex-wrap justify-center gap-2.5">
+                {statesList.map((st) => (
+                  <Link
+                    key={st.path}
+                    href={`/${locale}${st.path}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-xs font-semibold text-royal/70 hover:text-gold border border-gold/10 px-3 py-1 rounded-full bg-white"
+                  >
+                    {st.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             {menuItems.map((item) => (
               <Link
                 key={item.path}
                 href={`/${locale}${item.path}`}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-lg font-serif font-bold text-royal hover:text-gold transition-colors"
+                className="text-lg font-bold text-royal hover:text-gold transition-colors"
               >
                 {item.name}
               </Link>

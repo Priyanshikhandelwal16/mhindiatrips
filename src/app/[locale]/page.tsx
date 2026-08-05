@@ -108,6 +108,39 @@ export default async function HomePage({ params }: HomePageProps) {
     }
   };
 
+  const clientReviews = [
+    {
+      author: "Sarah & Family",
+      location: "London, UK",
+      text: {
+        en: "Our 14-day family journey through Rajasthan, Agra, and Delhi was flawlessly designed. The private chauffeur, heritage palace hotel upgrades, and direct local guides made this a magical experience. MH India Trips exceeded all our expectations.",
+        es: "Nuestro viaje familiar de 14 días por Rajasthan, Agra y Delhi fue diseñado a la perfección. El chofer privado, las mejoras de hoteles y guías locales hicieron de esta una experiencia mágica.",
+        pt: "Nossa viagem familiar de 14 dias pelo Rajastão, Agra e Deli foi planejada com perfeição. O motorista particular, upgrades em hotéis e guias locais tornaram tudo uma experiência mágica."
+      },
+      tour: "Imperial Rajasthan & Taj Mahal Heritage Tour"
+    },
+    {
+      author: "Jean-Pierre & Marie",
+      location: "Paris, France",
+      text: {
+        en: "MH India Trips created an incredible culinary and cultural tour. From Old Delhi street food guides to private chef classes in Udaipur palaces, everything exceeded our high expectations. The attention to detail is outstanding.",
+        es: "MH India Trips creó un tour culinario y cultural increíble. Desde guías de comida callejera en Delhi hasta clases con chefs privados en palacios de Udaipur, todo superó nuestras expectativas.",
+        pt: "A MH India Trips criou um tour culinário e cultural incrível. Desde guias de comida de rua em Deli até aulas com chefs privados em palácios de Udaipur, tudo superou nossas expectativas."
+      },
+      tour: "Culinary & Heritage Explorer of Northern India"
+    },
+    {
+      author: "Ana Maria Silva",
+      location: "São Paulo, Brazil",
+      text: {
+        en: "The spiritual trip to Varanasi and private sunset boat tour on the Ganges was breathtaking. Absolute elite guides, premium luxury cars, and 24/7 concierge assistance. I highly recommend booking with them.",
+        es: "El viaje espiritual a Varanasi y el tour privado en barco al atardecer por el Ganges fue impresionante. Guías de élite y asistencia de conserjería 24/7. Lo recomiendo ampliamente.",
+        pt: "A viagem espiritual para Varanasi e o tour privado de barco no Ganges ao pôr do sol foi de tirar o fôlego. Guias excelentes e assistência de concierge 24/7. Recomendo muito."
+      },
+      tour: "Spiritual Ganges & Classical India Experience"
+    }
+  ];
+
   const homepageFaqs = [
     {
       q: locale === "es" ? "¿Es seguro viajar a la India?" : locale === "pt" ? "É seguro viajar para a Índia?" : "Is it safe to travel to India?",
@@ -121,6 +154,14 @@ export default async function HomePage({ params }: HomePageProps) {
       q: locale === "es" ? "¿Necesito visa para la India?" : locale === "pt" ? "Preciso de visto para a Índia?" : "Do I need a visa for India?",
       a: locale === "es" ? "Sí, la mayoría de nacionalidades necesitan visa. La e-Visa online es la opción más fácil y la procesamos en 72 horas." : locale === "pt" ? "Sim, a maioria das nacionalidades precisa de visto. O e-Visa online é a opção mais fácil." : "Yes, most nationalities require a visa. The e-Visa (online) is the easiest option and is typically processed within 72 hours. We provide guidance on the application process.",
     },
+    {
+      q: locale === "es" ? "¿Puedo personalizar mi viaje?" : locale === "pt" ? "Posso personalizar a minha viagem?" : "Can I fully customize my travel package?",
+      a: locale === "es" ? "Por supuesto. Cada detalle se diseña desde cero de acuerdo con sus especificaciones de lujo, ritmo y preferencias de hotel." : locale === "pt" ? "Certamente. Cada detalhe é planejado a partir do zero de acordo com suas especificações de luxo, ritmo e preferências." : "Absolutely. Every detail of your journey is tailormade from scratch. You can customize the route, duration, hotel tiers (heritage palaces, luxury boutique wellness retreats), and private activities.",
+    },
+    {
+      q: locale === "es" ? "¿Cómo se gestiona el transporte?" : locale === "pt" ? "Como é gerido o transporte?" : "How is local transportation managed?",
+      a: locale === "es" ? "Proporcionamos vehículos privados de lujo con aire acondicionado y conductores altamente experimentados durante todo el viaje." : locale === "pt" ? "Oferecemos veículos de luxo particulares com ar-condicionado e motoristas experientes para todo o trajeto." : "We provide private, premium air-conditioned luxury SUVs (e.g., Toyota Innova Crysta or luxury sedans) with experienced English-speaking tourist drivers for all intercity transfers and local sightseeing.",
+    }
   ];
 
   const text = labels[locale] || labels.en;
@@ -353,21 +394,26 @@ export default async function HomePage({ params }: HomePageProps) {
           <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {testimonials.slice(0, 3).map((test: any, i: number) => (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          {clientReviews.map((test: any, i: number) => (
             <Reveal key={i} delay={i * 80}>
-              <div className="bg-white border border-gold/10 p-10 rounded-[2rem] shadow-md space-y-6 relative h-full flex flex-col justify-between">
+              <div className="bg-white border border-gold/15 p-12 rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-300 space-y-6 relative h-full flex flex-col justify-between hover:-translate-y-1">
                 <div className="space-y-4">
                   <div className="flex gap-1 text-gold">
                     {[...Array(5)].map((_, idx) => (
                       <Star key={idx} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <p className="text-sm md:text-base text-foreground/60 italic leading-relaxed font-light">"{test.text?.[locale] || test.text?.en}"</p>
+                  <p className="text-sm md:text-base text-foreground/70 italic leading-relaxed font-light">
+                    "{test.text[locale as "en"|"es"|"pt"] || test.text.en}"
+                  </p>
                 </div>
-                <div className="border-t border-sand/40 pt-5 flex justify-between items-center text-sm mt-6">
-                  <span className="font-bold text-royal">{test.author}</span>
-                  <span className="text-[10px] text-foreground/45 uppercase tracking-wider font-semibold">{test.location}</span>
+                <div className="border-t border-gold/10 pt-5 space-y-1.5 mt-6">
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="font-bold text-royal">{test.author}</span>
+                    <span className="text-[10px] text-gold uppercase tracking-wider font-extrabold">{test.location}</span>
+                  </div>
+                  <p className="text-[10px] text-foreground/40 uppercase tracking-wider font-medium">{test.tour}</p>
                 </div>
               </div>
             </Reveal>

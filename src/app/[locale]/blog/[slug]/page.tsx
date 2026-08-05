@@ -2,7 +2,7 @@ import React from "react";
 import { notFound } from "next/navigation";
 import { getBlogBySlugAction } from "@/app/actions/queries";
 import InquiryForm from "@/components/common/InquiryForm";
-import { Clock, ArrowLeft, User } from "lucide-react";
+import { Clock, ArrowLeft, User, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 interface BlogDetailPageProps {
@@ -48,8 +48,12 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
           </div>
         </article>
 
-        <div className="pt-12 border-t border-sand">
-          <InquiryForm locale={locale} />
+        <div className="pt-12 border-t border-gold/15 text-center space-y-4">
+          <p className="text-sm text-foreground/50 font-light">Inspired by our luxury travel stories?</p>
+          <Link href={`/${locale}/contact`} className="bg-gold hover:bg-gold-light text-royal text-xs font-bold uppercase tracking-widest px-8 py-4.5 rounded-full inline-flex items-center gap-1.5 shadow-md">
+            <span>Plan Your Custom Journey</span>
+            <ArrowRight className="w-4 h-4 text-royal" />
+          </Link>
         </div>
       </section>
     </div>

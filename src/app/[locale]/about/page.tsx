@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import { Compass, Users, Heart, Star, Shield, Award, ArrowRight } from "lucide-react";
 import Reveal from "@/components/home/Reveal";
-import { Award, Users, Globe, Heart, Shield, ArrowRight, Star, Clock, MapPin, Compass } from "lucide-react";
 
 interface AboutPageProps {
   params: Promise<{ locale: string }>;
@@ -10,34 +10,69 @@ interface AboutPageProps {
 export default async function AboutPage({ params }: AboutPageProps) {
   const { locale } = await params;
 
-  const text = {
-    heroSub: "Our Story",
-    hero: "About MH India Trips",
-    heroDesc: "Since 2010, we have been crafting extraordinary journeys across India for discerning travelers from around the world.",
-    storyTitle: "Our Journey",
-    storyP1: "Founded in 2010 by passionate travel enthusiasts, MH India Trips was born from a simple belief: that India deserves to be experienced, not just visited. What started as a small team of dedicated travel planners has grown into a leading luxury travel company serving discerning travelers from over 40 countries.",
-    storyP2: "Every journey we design is a labor of love. Our team of local experts, heritage consultants, and cultural ambassadors work together to create itineraries that go far beyond the ordinary tourist trail. We believe in slow travel, meaningful connections, and experiences that leave a lasting impression.",
-    storyP3: "From the snow-capped peaks of the Himalayas to the tropical backwaters of Kerala, we have explored every corner of this incredible land so you don't have to plan alone.",
-    missionTitle: "Our Mission",
-    missionText: "To provide transformative travel experiences that connect travelers with India's rich heritage, diverse cultures, and breathtaking landscapes through personalized luxury journeys.",
-    visionTitle: "Our Vision",
-    visionText: "To be recognized as the premier luxury travel company for bespoke India experiences, setting the global standard for cultural immersion and sustainable tourism.",
-    valuesTitle: "Our Core Values",
-    numbersTitle: "MH India Trips in Numbers",
-    teamTitle: "Our Expert Team",
-    teamDesc: "Our team brings together decades of travel industry experience with genuine local knowledge. From multilingual guides to heritage specialists, every member is dedicated to making your India journey extraordinary.",
-    ctaTitle: "Ready to Experience India?",
-    ctaDesc: "Let us craft a journey that exceeds your expectations.",
-    ctaBtn: "Start Planning",
+  const t: Record<string, any> = {
+    en: {
+      heroSub: "Our Story",
+      hero: "Pioneers of Bespoke Indian Safaris",
+      heroDesc: "Creating elite private journeys across the Indian subcontinent since 2010. Our passion is authentic local story-telling and unparalleled service.",
+      storyTitle: "Our Heritage & Philosophy",
+      storyP1: "Founded over a decade ago, MH India Trips was born from a simple vision: to showcase the rich heritage, vibrant colors, and spiritual depth of India without compromising on comfort. We believe that travel should be slow, immersive, and custom-tailored to the individual traveler.",
+      storyP2: "From private dinners inside medieval desert forts to custom houseboat tours on Kerala's tranquil backwaters, our on-ground concierge team works tirelessly to ensure every detail is absolute perfection. We don't just book tours; we curate life-defining memories.",
+      missionTitle: "Our Mission",
+      missionText: "To bridge the gap between luxury comfort and authentic local encounters, offering absolute peace of mind through hand-picked experts.",
+      visionTitle: "Our Vision",
+      visionText: "To remain India's premier private travel designer, recognized globally for outstanding service, sustainability, and unique palace stays.",
+      valuesTitle: "Our Core Values",
+      teamTitle: "Our Expert Team",
+      teamDesc: "Meet our bilingual destination managers, heritage researchers, and logistics coordinators.",
+      ctaTitle: "Ready to Plan Your Indian Safari?",
+      ctaDesc: "Contact our luxury travel advisors today to begin drafting your custom custom-tailored itinerary.",
+      ctaBtn: "Inquire Now",
+    },
+    es: {
+      heroSub: "Nuestra Historia",
+      hero: "Pioneros de Viajes a Medida en la India",
+      heroDesc: "Creando itinerarios privados de lujo desde 2010. Nuestra pasión es el servicio inigualable y la autenticidad local.",
+      storyTitle: "Nuestra Filosofía y Legado",
+      storyP1: "Fundada hace más de una década, MH India Trips nació de una visión simple: mostrar el rico patrimonio, los colores vibrantes y la profundidad espiritual de la India sin comprometer el confort.",
+      storyP2: "Desde cenas privadas en fuertes medievales del desierto hasta paseos a medida en casas flotantes por los canales de Kerala, nuestro equipo trabaja incansablemente para que cada detalle sea perfecto.",
+      missionTitle: "Nuestra Misión",
+      missionText: "Unir el confort de lujo con encuentros locales auténticos, ofreciendo total tranquilidad a través de expertos locales.",
+      visionTitle: "Nuestra Visión",
+      visionText: "Seguir siendo el diseñador de viajes privados líder en la India, reconocido por nuestro servicio sobresaliente y estancias en palacios reales.",
+      valuesTitle: "Nuestros Valores Core",
+      teamTitle: "Nuestro Equipo de Expertos",
+      teamDesc: "Conozca a nuestros asesores de destino bilingües y coordinadores de logística.",
+      ctaTitle: "¿Listo Para Diseñar Su Viaje a la India?",
+      ctaDesc: "Contacte a nuestros asesores de viajes de lujo hoy para comenzar a planificar su itinerario a medida.",
+      ctaBtn: "Planificar Ahora",
+    },
+    pt: {
+      heroSub: "Nossa História",
+      hero: "Pioneiros de Viagens Sob Medida na Índia",
+      heroDesc: "Criando itinerários privados de luxo desde 2010. Nossa paixão é o serviço incomparável e a autenticidade local.",
+      storyTitle: "Nossa Filosofia e Legado",
+      storyP1: "Fundada há mais de uma década, a MH India Trips nasceu de uma visão simples: mostrar o rico patrimônio, as cores vibrantes e a profundidade espiritual da Índia sem comprometer o conforto.",
+      storyP2: "De jantares privados em fortes medievais do deserto a passeios sob medida em barcos nos canais de Kerala, nossa equipe trabalha incansavelmente para que cada detalhe seja perfeito.",
+      missionTitle: "Nossa Missão",
+      missionText: "Unir o conforto de luxo com encontros locais autênticos, oferecendo total tranquilidade através de especialistas.",
+      visionTitle: "Nossa Visão",
+      visionText: "Seguir sendo o designer de viagens privadas líder na Índia, reconhecido pelo nosso serviço excepcional e estadias em palácios reais.",
+      valuesTitle: "Nossos Valores Core",
+      teamTitle: "Nossa Equipe de Especialistas",
+      teamDesc: "Conheça nossos consultores de destino bilíngues e coordenadores de logística.",
+      ctaTitle: "Pronto Para Planejar Sua Viagem à Índia?",
+      ctaDesc: "Entre em contato com nossos consultores de viagens de luxo hoje para começar a planejar seu itinerário sob medida.",
+      ctaBtn: "Fale Conosco",
+    }
   };
 
+  const text = t[locale] || t.en;
+
   const values = [
-    { icon: Heart, title: "Passion", desc: "We love what we do and it shows in every detail of your journey" },
-    { icon: Shield, title: "Trust", desc: "Complete transparency in pricing, planning, and communication" },
-    { icon: Globe, title: "Authenticity", desc: "Genuine cultural experiences far beyond tourist trails" },
-    { icon: Users, title: "Personalization", desc: "Every journey uniquely tailored to your interests and pace" },
-    { icon: Star, title: "Excellence", desc: "We partner only with the finest hotels, guides, and services" },
-    { icon: Compass, title: "Expertise", desc: "15+ years of deep local knowledge across all Indian regions" },
+    { icon: Shield, title: locale === "es" ? "Seguridad y Confianza" : locale === "pt" ? "Segurança e Confiança" : "Safety & Trust", desc: locale === "es" ? "Conductores experimentados y guías certificados en todo momento." : locale === "pt" ? "Motoristas experientes e guias certificados em todos os momentos." : "Fully certified bilingual guides and highly vetted private tourist drivers." },
+    { icon: Heart, title: locale === "es" ? "Pasión por el Detalle" : locale === "pt" ? "Paixão pelo Detalhe" : "Passion for Detail", desc: locale === "es" ? "Ajustamos cada reserva de hotel y traslado para su máxima comodidad." : locale === "pt" ? "Ajustamos cada reserva de hotel e transporte para seu máximo conforto." : "Fine-tuning every palace suite check-in and private monument access." },
+    { icon: Compass, title: locale === "es" ? "Conocimiento Local" : locale === "pt" ? "Conhecimento Local" : "Local Expertise", desc: locale === "es" ? "Más de 15 años de experiencia diseñando rutas en toda la India." : locale === "pt" ? "Mais de 15 anos de experiência planejando rotas na Índia." : "15+ years of deep boots-on-the-ground knowledge across all regions." },
   ];
 
   const stats = [
@@ -60,65 +95,65 @@ export default async function AboutPage({ params }: AboutPageProps) {
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
       {/* SECTION 1: Hero Banner */}
-      <section className="relative h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[65vh] min-h-[460px] flex items-center justify-center overflow-hidden">
         <img 
           src="/images/luxury_palace_train.png" 
           alt="About MH India Trips" 
-          className="absolute inset-0 w-full h-full object-cover animate-kenburns"
+          className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-5xl">
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-4xl">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
             {text.heroSub}
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-none text-white">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-white">
             {text.hero}
           </h1>
-          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
             {text.heroDesc}
           </p>
         </div>
       </section>
 
-      {/* SECTION 2: Story columns */}
+      {/* SECTION 2: Story columns (Increased Paragraph Font Sizes) */}
       <section className="max-w-7xl mx-auto px-6 py-28 grid grid-cols-1 lg:grid-cols-2 gap-16 border-b border-gold/10">
         <Reveal className="space-y-6">
-          <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold flex items-center gap-1">
+          <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold flex items-center gap-1">
             <Compass className="w-4 h-4" />
             <span>LEGACY</span>
           </span>
-          <h2 className="text-3xl font-serif font-bold text-royal leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-royal leading-tight">
             {text.storyTitle}
           </h2>
-          <p className="text-xs md:text-sm text-foreground/60 leading-relaxed font-light">
+          <p className="text-base md:text-lg text-foreground/60 leading-relaxed font-light">
             {text.storyP1}
           </p>
-          <p className="text-xs md:text-sm text-foreground/60 leading-relaxed font-light">
+          <p className="text-base md:text-lg text-foreground/60 leading-relaxed font-light">
             {text.storyP2}
           </p>
         </Reveal>
         
-        {/* Mission Card */}
+        {/* Mission Card (Increased Text Sizes) */}
         <Reveal delay={200} className="bg-white border border-gold/25 p-10 rounded-3xl space-y-8 shadow-xl shadow-royal/5 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-[4px] bg-gold" />
-          <div className="space-y-2">
-            <h3 className="text-lg font-serif font-bold text-royal">{text.missionTitle}</h3>
-            <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.missionText}</p>
+          <div className="space-y-3">
+            <h3 className="text-xl font-bold text-royal">{text.missionTitle}</h3>
+            <p className="text-sm md:text-base text-foreground/60 leading-relaxed font-light">{text.missionText}</p>
           </div>
           <div className="h-px bg-gold/15" />
-          <div className="space-y-2">
-            <h3 className="text-lg font-serif font-bold text-royal">{text.visionTitle}</h3>
-            <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.visionText}</p>
+          <div className="space-y-3">
+            <h3 className="text-xl font-bold text-royal">{text.visionTitle}</h3>
+            <p className="text-sm md:text-base text-foreground/60 leading-relaxed font-light">{text.visionText}</p>
           </div>
         </Reveal>
       </section>
 
-      {/* SECTION 3: Core Values Grid */}
+      {/* SECTION 3: Core Values Grid (Increased Core Values Text Sizes) */}
       <section className="max-w-7xl mx-auto px-6 py-28 space-y-16 border-b border-gold/10">
         <div className="text-center space-y-3 max-w-lg mx-auto">
-          <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold block">STANDARDS</span>
-          <h2 className="text-3xl font-serif font-bold text-royal tracking-tight">{text.valuesTitle}</h2>
+          <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold block">STANDARDS</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-royal tracking-tight">{text.valuesTitle}</h2>
           <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
         </div>
 
@@ -126,12 +161,12 @@ export default async function AboutPage({ params }: AboutPageProps) {
           {values.map((val, i) => {
             const Icon = val.icon;
             return (
-              <Reveal key={i} delay={i * 60} className="bg-white border border-gold/10 p-8 rounded-2xl shadow-sm space-y-4">
-                <span className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold">
-                  <Icon className="w-5 h-5" />
+              <Reveal key={i} delay={i * 60} className="bg-white border border-gold/10 p-10 rounded-3xl shadow-sm space-y-5">
+                <span className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
+                  <Icon className="w-6 h-6" />
                 </span>
-                <h4 className="text-sm font-serif font-bold text-royal uppercase tracking-wider">{val.title}</h4>
-                <p className="text-xs text-foreground/50 leading-relaxed font-light">{val.desc}</p>
+                <h4 className="text-lg font-bold text-royal uppercase tracking-wider">{val.title}</h4>
+                <p className="text-sm md:text-base text-foreground/50 leading-relaxed font-light">{val.desc}</p>
               </Reveal>
             );
           })}
@@ -144,31 +179,31 @@ export default async function AboutPage({ params }: AboutPageProps) {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-6 gap-8 text-center relative z-10">
           {stats.map((st, i) => (
             <Reveal key={i} delay={i * 50} className="space-y-1">
-              <span className="text-3xl md:text-4xl font-serif font-black text-gold block">{st.number}</span>
-              <span className="text-[10px] uppercase tracking-wider text-white/50 block font-medium">{st.label}</span>
+              <span className="text-4xl font-black text-gold block">{st.number}</span>
+              <span className="text-[10px] uppercase tracking-wider text-white/50 block font-bold">{st.label}</span>
             </Reveal>
           ))}
         </div>
       </section>
 
-      {/* SECTION 5: Expert Team */}
+      {/* SECTION 5: Expert Team (Increased Expert Team Text Sizes) */}
       <section className="max-w-7xl mx-auto px-6 py-28 space-y-16 border-b border-gold/10">
         <div className="text-center space-y-3 max-w-lg mx-auto">
-          <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold block">EXPERTS</span>
-          <h2 className="text-3xl font-serif font-bold text-royal tracking-tight">{text.teamTitle}</h2>
-          <p className="text-xs text-foreground/50 leading-relaxed font-light">{text.teamDesc}</p>
+          <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold block">EXPERTS</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-royal tracking-tight">{text.teamTitle}</h2>
+          <p className="text-sm text-foreground/50 leading-relaxed font-light">{text.teamDesc}</p>
           <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {team.map((member, i) => (
-            <Reveal key={i} delay={i * 80} className="bg-white border border-gold/10 rounded-2xl overflow-hidden shadow-sm transition-transform duration-500 hover:-translate-y-1 hover:border-gold/25">
-              <div className="h-64 overflow-hidden relative">
+            <Reveal key={i} delay={i * 80} className="bg-white border border-gold/10 rounded-3xl overflow-hidden shadow-md transition-all duration-350 hover:-translate-y-2">
+              <div className="h-72 overflow-hidden relative">
                 <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
               </div>
-              <div className="p-5 text-center bg-white">
-                <h4 className="text-sm font-serif font-bold text-royal">{member.name}</h4>
-                <p className="text-[10px] text-foreground/45 uppercase tracking-wider mt-1">{member.role}</p>
+              <div className="p-6 text-center bg-white">
+                <h4 className="text-lg font-bold text-royal">{member.name}</h4>
+                <p className="text-xs text-foreground/45 uppercase tracking-wider mt-1">{member.role}</p>
               </div>
             </Reveal>
           ))}
@@ -178,15 +213,15 @@ export default async function AboutPage({ params }: AboutPageProps) {
       {/* SECTION 6: Call To Action */}
       <section className="max-w-3xl mx-auto px-6 py-28 text-center space-y-6">
         <Reveal>
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-royal">{text.ctaTitle}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-royal">{text.ctaTitle}</h2>
         </Reveal>
         <Reveal delay={100}>
-          <p className="text-xs text-foreground/50 font-light leading-relaxed max-w-md mx-auto">{text.ctaDesc}</p>
+          <p className="text-sm text-foreground/50 font-light leading-relaxed max-w-md mx-auto">{text.ctaDesc}</p>
         </Reveal>
         <Reveal delay={200} className="pt-4">
-          <Link href={`/${locale}/contact`} className="bg-gold hover:bg-gold-light text-royal text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-full inline-flex items-center gap-1.5 shadow-md">
+          <Link href={`/${locale}/contact`} className="bg-gold hover:bg-gold-light text-royal text-sm font-bold uppercase tracking-widest px-8 py-4.5 rounded-full inline-flex items-center gap-1.5 shadow-md">
             <span>{text.ctaBtn}</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </Reveal>
       </section>

@@ -99,20 +99,15 @@ export default async function StateDetailPage({ params }: StatePageProps) {
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
       {/* SECTION 1: Cinematic Hero Banner */}
-      <section className="relative h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[55vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         <img src={state.image} alt={state.title?.[locale] || state.title?.en} className="absolute inset-0 w-full h-full object-cover animate-kenburns" loading="eager" />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-5xl">
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-4xl">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block shadow-md">
             {state.region} India
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-none text-white">{state.title?.[locale] || state.title?.en}</h1>
-          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto font-light leading-relaxed">{state.tagline?.[locale] || state.tagline?.en}</p>
-          
-          <div className="pt-10 flex flex-col items-center opacity-50">
-            <span className="text-[10px] uppercase tracking-[0.35em] mb-2 font-medium">Scroll to explore</span>
-            <div className="w-[1px] h-8 bg-gradient-to-b from-white to-transparent animate-pulse" />
-          </div>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-white">{state.title?.[locale] || state.title?.en}</h1>
+          <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed">{state.tagline?.[locale] || state.tagline?.en}</p>
         </div>
       </section>
 
@@ -354,8 +349,13 @@ export default async function StateDetailPage({ params }: StatePageProps) {
       )}
 
       {/* SECTION 10: Tailored Inquiry Planner */}
-      <section className="max-w-7xl mx-auto px-6 py-24">
-        <InquiryForm locale={locale} />
+      <section className="max-w-3xl mx-auto px-6 py-20 text-center space-y-6">
+        <h2 className="text-2xl md:text-3xl font-bold text-royal">Interested in {state.title?.[locale] || state.title?.en}?</h2>
+        <p className="text-sm text-foreground/50 font-light leading-relaxed max-w-md mx-auto">Let our luxury destination designers craft the perfect custom itinerary for you.</p>
+        <Link href={`/${locale}/contact`} className="bg-gold hover:bg-gold-light text-royal text-xs font-bold uppercase tracking-widest px-8 py-4.5 rounded-full inline-flex items-center gap-1.5 shadow-md">
+          <span>Inquire About Region</span>
+          <ArrowRight className="w-4 h-4" />
+        </Link>
       </section>
     </div>
   );

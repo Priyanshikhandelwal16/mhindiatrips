@@ -2,7 +2,8 @@ import React from "react";
 import { notFound } from "next/navigation";
 import { getStateBySlugAction } from "@/app/actions/queries";
 import InquiryForm from "@/components/common/InquiryForm";
-import { Landmark, Clock, Info, BookOpen } from "lucide-react";
+import Link from "next/link";
+import { Landmark, Clock, Info, BookOpen, ArrowRight } from "lucide-react";
 
 interface AttractionPageProps {
   params: Promise<{ locale: string; stateSlug: string; citySlug: string; attractionSlug: string }>;
@@ -21,15 +22,15 @@ export default async function AttractionDetailPage({ params }: AttractionPagePro
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
       {/* SECTION 1: Monument Title Banner */}
-      <section className="relative h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[55vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         <img src={attraction.image} alt={attraction.name?.[locale] || attraction.name?.en} className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns" loading="eager" />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/45" />
         
-        <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-5xl">
+        <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-4xl">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
             {city.title?.[locale] || city.title?.en} Heritage Site
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-none text-white">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-none text-white">
             {attraction.name?.[locale] || attraction.name?.en}
           </h1>
         </div>
@@ -93,10 +94,14 @@ export default async function AttractionDetailPage({ params }: AttractionPagePro
       </section>
 
       {/* SECTION 3: Book Travel */}
-      <section className="max-w-7xl mx-auto px-6 py-20 border-t border-gold/10">
-        <InquiryForm locale={locale} />
+      <section className="max-w-3xl mx-auto px-6 py-20 text-center space-y-6 border-t border-gold/10">
+        <h2 className="text-2xl md:text-3xl font-bold text-royal">Interested in {attraction.name?.[locale] || attraction.name?.en}?</h2>
+        <p className="text-sm text-foreground/50 font-light leading-relaxed max-w-md mx-auto">Let our luxury destination designers craft the perfect custom itinerary for you.</p>
+        <Link href={`/${locale}/contact`} className="bg-gold hover:bg-gold-light text-royal text-xs font-bold uppercase tracking-widest px-8 py-4.5 rounded-full inline-flex items-center gap-1.5 shadow-md">
+          <span>Inquire About Monument</span>
+          <ArrowRight className="w-4 h-4 text-royal" />
+        </Link>
       </section>
-
     </div>
   );
 }

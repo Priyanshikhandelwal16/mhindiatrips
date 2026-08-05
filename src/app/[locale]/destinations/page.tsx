@@ -22,13 +22,13 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero Banner */}
-      <section className="relative h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-        <img src="/images/taj_mahal_sunrise.png" alt="India Destinations" className="absolute inset-0 w-full h-full object-cover animate-kenburns" loading="eager" />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-5xl">
+      <section className="relative h-[55vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <img src="/images/rajasthan_fort_sunset.png" alt="India Destinations" className="absolute inset-0 w-full h-full object-cover animate-kenburns" loading="eager" />
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-4xl">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">{text.sub}</span>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-none text-white">{text.title}</h1>
-          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto font-light leading-relaxed">{text.desc}</p>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-white">{text.title}</h1>
+          <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed">{text.desc}</p>
         </div>
       </section>
 
