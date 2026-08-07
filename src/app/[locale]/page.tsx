@@ -5,6 +5,9 @@ import InquiryForm from "@/components/common/InquiryForm";
 import Reveal from "@/components/home/Reveal";
 import HeroSlider from "@/components/home/HeroSlider";
 import TestimonialSlider from "@/components/home/TestimonialSlider";
+import MonumentsAccordion from "@/components/home/MonumentsAccordion";
+import TravelerInfoCarousel from "@/components/home/TravelerInfoCarousel";
+import StatCounter from "@/components/home/StatCounter";
 import { 
   MapPin, Clock, ArrowRight, Star, Heart, Compass, Sparkles, 
   Award, Shield, Calendar, BookOpen, Coffee, Landmark, ArrowUpRight 
@@ -61,7 +64,30 @@ export default async function HomePage({ params }: HomePageProps) {
       guide3Title: "Vaccines & Health",
       guide3Desc: "Simple precautions ensure a safe trip. We provide up-to-date health guides for all regions.",
       guide4Title: "Currency & Payments",
-      guide4Desc: "Cards are widely accepted, but carrying some Rupees is useful for local markets and small vendors."
+      guide4Desc: "Cards are widely accepted, but carrying some Rupees is useful for local markets and small vendors.",
+      howItWorksSub: "Our Process",
+      howItWorksTitle: "How to Design Your Custom Tour",
+      howItWorksDesc: "Three simple steps to unlock a perfectly tailormade premium travel experience in India.",
+      step1Title: "1. Select or Customize",
+      step1Desc: "Browse our signature routes or share your bucket-list regions with our specialist desk.",
+      step2Title: "2. Co-Design with an Advisor",
+      step2Desc: "Your dedicated destination expert builds the details: hotel classes, private vehicles, and local guides.",
+      step3Title: "3. Board & Travel in Peace",
+      step3Desc: "Our on-ground ops desk coordinates all logistics, including professional private drivers and 24/7 concierge.",
+      inclusionsSub: "Luxury Standard",
+      inclusionsTitle: "Our Premium Booking Standard",
+      inclusionsDesc: "What we guarantee in every bespoke private package booking.",
+      inc1Title: "Private Professional Chauffeur",
+      inc1Desc: "Air-conditioned luxury SUVs or spacious sedans with verified drivers at your disposal for all regional transits.",
+      inc2Title: "Licensed Local Guides",
+      inc2Desc: "Official government-certified guides at every heritage fort, lake palace, and monument checkout.",
+      inc3Title: "Boutique & Heritage Stays",
+      inc3Desc: "Hand-curated bookings inside restored royal fortresses, wellness resorts, or luxury safari camps.",
+      inc4Title: "24/7 Concierge Support",
+      inc4Desc: "Direct active connection line to our operations desk via WhatsApp for real-time schedule adjustments.",
+      exploreBtn: "Build Custom Package",
+      fromPrice: "From $180 / day per guest",
+      customizableText: "100% Customizable Private Itinerary"
     },
     es: {
       heroSub: "TOURS PRIVADOS A MEDIDA",
@@ -101,7 +127,30 @@ export default async function HomePage({ params }: HomePageProps) {
       guide3Title: "Vacunas y Salud",
       guide3Desc: "Precauciones simples aseguran un viaje saludable. Ofrecemos recomendaciones de salud actualizadas.",
       guide4Title: "Moneda en la India",
-      guide4Desc: "Las tarjetas de crédito son comunes, pero llevar rupias en efectivo es ideal para pequeños mercados."
+      guide4Desc: "Las tarjetas de crédito son comunes, pero llevar rupias en efectivo es ideal para pequeños mercados.",
+      howItWorksSub: "Nuestro Proceso",
+      howItWorksTitle: "Cómo Diseñar Su Viaje a Medida",
+      howItWorksDesc: "Tres pasos sencillos para desbloquear una experiencia de viaje premium y personalizada en la India.",
+      step1Title: "1. Seleccione o Personalice",
+      step1Desc: "Examine nuestras rutas exclusivas o comparta sus regiones deseadas con nuestro equipo de especialistas.",
+      step2Title: "2. Co-diseñe con un Asesor",
+      step2Desc: "Un especialista diseña sus detalles: categoría de hoteles, vehículos privados y guías locales.",
+      step3Title: "3. Viaje con Total Tranquilidad",
+      step3Desc: "Nuestro equipo gestiona toda la logística terrestre, con choferes profesionales y asistencia 24/7.",
+      inclusionsSub: "Servicio de Lujo",
+      inclusionsTitle: "Qué Incluye Cada Viaje Privado",
+      inclusionsDesc: "Nuestras garantías de calidad en todas las reservas de paquetes privados.",
+      inc1Title: "Chofer Profesional Privado",
+      inc1Desc: "SUVs premium con aire acondicionado y choferes verificados a su disposición para traslados regionales.",
+      inc2Title: "Guías Certificados Oficiales",
+      inc2Desc: "Guías locales oficiales en cada monumento histórico, palacio y templo.",
+      inc3Title: "Hoteles de Patrimonio y Lujo",
+      inc3Desc: "Estancias seleccionadas a mano en palacios reales restaurados o retiros de bienestar de alta gama.",
+      inc4Title: "Soporte Concierge 24/7",
+      inc4Desc: "Contacto directo por WhatsApp con nuestro departamento de operaciones para cualquier ajuste en tiempo real.",
+      exploreBtn: "Personalizar Este Viaje",
+      fromPrice: "Desde $180 / día por persona",
+      customizableText: "Itinerario Privado 100% Personalizable"
     },
     pt: {
       heroSub: "TOURS PRIVADOS SOB MEDIDA",
@@ -140,7 +189,30 @@ export default async function HomePage({ params }: HomePageProps) {
       guide3Title: "Vacinas e Saúde",
       guide3Desc: "Precauções simples garantem uma viagem saudável. Oferecemos diretrizes atualizadas por região.",
       guide4Title: "Moneda na Índia",
-      guide4Desc: "Cartões são aceitos, mas ter rúpias em mãos é ideal para feiras de artesanato e mercados locais."
+      guide4Desc: "Cartões são aceitos, mas ter rúpias em mãos é ideal para feiras de artesanato e mercados locais.",
+      howItWorksSub: "Nosso Processo",
+      howItWorksTitle: "Como Planejar Sua Viagem sob Medida",
+      howItWorksDesc: "Três passos simples para desbloquear uma experiência de viagem premium e personalizada na Índia.",
+      step1Title: "1. Selecione ou Personalize",
+      step1Desc: "Examine nossas rotas exclusivas ou compartilhe suas regiões desejadas com nossa equipe de especialistas.",
+      step2Title: "2. Co-desenhe com um Consultor",
+      step2Desc: "Um especialista constrói os detalhes: categoria de hotéis, transporte particular e guias locais.",
+      step3Title: "3. Viaje com Total Tranquilidade",
+      step3Desc: "Nossa equipe coordena toda a logística terrestre, com motoristas profissionais e suporte 24/7.",
+      inclusionsSub: "Serviço de Luxo",
+      inclusionsTitle: "O Que Inclui Cada Viagem Privada",
+      inclusionsDesc: "Nossas garantias de qualidade em todas as reservas de pacotes privados.",
+      inc1Title: "Motorista Profissional Particular",
+      inc1Desc: "SUVs premium com ar-condicionado e motoristas verificados à sua disposição para traslados regionais.",
+      inc2Title: "Guias Credenciados Oficiais",
+      inc2Desc: "Guias locais oficiais em cada monumento histórico, palácio e templo.",
+      inc3Title: "Hotéis de Patrimônio e Luxo",
+      inc3Desc: "Estadias selecionadas em palácios reais restaurados ou resorts de bem-estar de alto padrão.",
+      inc4Title: "Suporte Concierge 24/7",
+      inc4Desc: "Contato direto por WhatsApp com nossa equipe de operações para ajustes de roteiro em tempo real.",
+      exploreBtn: "Personalizar Esta Viagem",
+      fromPrice: "A partir de $180 / dia por pessoa",
+      customizableText: "Itinerário Privado 100% Personalizável"
     }
   };
 
@@ -240,6 +312,71 @@ export default async function HomePage({ params }: HomePageProps) {
         inquireCTA={text.inquireCTA} 
       />
 
+      {/* SECTION 1.5: Infographic Circular Stats (Screenshot 1 Theme) */}
+      <section className="bg-white py-24 border-b border-gold/10 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 justify-items-center">
+            
+            {/* Stat 1 */}
+            <Reveal delay={50} className="text-center space-y-5">
+              <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-[#EBF5F8]/40 border border-orange-600/35 shadow-inner mx-auto">
+                <div className="absolute -inset-1 rounded-full border border-orange-600/25 scale-[1.04]" />
+                <div className="absolute bottom-4 right-1.5 w-2.5 h-2.5 rounded-full bg-orange-700/80 border border-white" />
+                <span className="text-4xl font-bold text-[#1B1B1B] font-serif">
+                  <StatCounter target={12} />
+                </span>
+              </div>
+              <p className="text-xs uppercase tracking-wider text-royal font-bold max-w-[160px] mx-auto leading-snug">
+                {locale === "es" ? "Años de experiencia" : locale === "pt" ? "Anos de experiência" : "Years of experience"}
+              </p>
+            </Reveal>
+
+            {/* Stat 2 */}
+            <Reveal delay={120} className="text-center space-y-5">
+              <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-[#EBF5F8]/40 border border-orange-600/35 shadow-inner mx-auto">
+                <div className="absolute -inset-1 rounded-full border border-orange-600/25 scale-[1.04]" />
+                <div className="absolute top-2 right-6 w-2.5 h-2.5 rounded-full bg-orange-700/80 border border-white" />
+                <span className="text-4xl font-bold text-[#1B1B1B] font-serif">
+                  <StatCounter target={97} suffix="%" />
+                </span>
+              </div>
+              <p className="text-xs uppercase tracking-wider text-royal font-bold max-w-[160px] mx-auto leading-snug">
+                {locale === "es" ? "Tasa de retención" : locale === "pt" ? "Taxa de retenção" : "Retention rate"}
+              </p>
+            </Reveal>
+
+            {/* Stat 3 */}
+            <Reveal delay={190} className="text-center space-y-5">
+              <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-[#EBF5F8]/40 border border-orange-600/35 shadow-inner mx-auto">
+                <div className="absolute -inset-1 rounded-full border border-orange-600/25 scale-[1.04]" />
+                <div className="absolute bottom-6 left-2 w-2.5 h-2.5 rounded-full bg-orange-700/80 border border-white" />
+                <span className="text-4xl font-bold text-[#1B1B1B] font-serif">
+                  <StatCounter target={8} suffix="k" />
+                </span>
+              </div>
+              <p className="text-xs uppercase tracking-wider text-royal font-bold max-w-[160px] mx-auto leading-snug">
+                {locale === "es" ? "Tour completado" : locale === "pt" ? "Tour completado" : "Tours completed"}
+              </p>
+            </Reveal>
+
+            {/* Stat 4 */}
+            <Reveal delay={260} className="text-center space-y-5">
+              <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-[#EBF5F8]/40 border border-orange-600/35 shadow-inner mx-auto">
+                <div className="absolute -inset-1 rounded-full border border-orange-600/25 scale-[1.04]" />
+                <div className="absolute top-3 right-5 w-2.5 h-2.5 rounded-full bg-orange-700/80 border border-white" />
+                <span className="text-4xl font-bold text-[#1B1B1B] font-serif">
+                  <StatCounter target={19} suffix="k" />
+                </span>
+              </div>
+              <p className="text-xs uppercase tracking-wider text-royal font-bold max-w-[160px] mx-auto leading-snug">
+                {locale === "es" ? "Cliente feliz" : locale === "pt" ? "Cliente feliz" : "Happy clients"}
+              </p>
+            </Reveal>
+
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 2: The Philosophy Section (Split screen layout) */}
       <section className="max-w-7xl mx-auto px-6 py-32 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center border-b border-gold/10">
         <Reveal className="space-y-8">
@@ -276,6 +413,52 @@ export default async function HomePage({ params }: HomePageProps) {
             <p className="text-xs text-white/70 leading-relaxed font-light">We organize private dinners inside authentic lake palaces and medieval desert forts.</p>
           </div>
         </Reveal>
+      </section>
+
+      {/* SECTION 2.5: How It Works / Custom Tour Planning (Bespoke Agency Identity) */}
+      <section className="bg-cream border-t border-b border-sand/20 py-28 relative">
+        <div className="max-w-7xl mx-auto px-6 space-y-20">
+          
+          {/* Header */}
+          <Reveal className="text-center space-y-4 max-w-3xl mx-auto">
+            <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.howItWorksSub}</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-royal tracking-tight">{text.howItWorksTitle}</h2>
+            <p className="text-sm md:text-base text-foreground/50 leading-relaxed font-light">{text.howItWorksDesc}</p>
+            <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
+          </Reveal>
+
+          {/* 3 Step Flowchart Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+            
+            {/* Step 1 */}
+            <Reveal delay={50} className="relative space-y-4 bg-white border border-gold/10 p-8 rounded-[2.5rem] shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold text-lg font-black font-serif">
+                1
+              </div>
+              <h3 className="text-lg font-bold text-royal font-serif">{text.step1Title}</h3>
+              <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.step1Desc}</p>
+            </Reveal>
+
+            {/* Step 2 */}
+            <Reveal delay={150} className="relative space-y-4 bg-white border border-gold/10 p-8 rounded-[2.5rem] shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold text-lg font-black font-serif">
+                2
+              </div>
+              <h3 className="text-lg font-bold text-royal font-serif">{text.step2Title}</h3>
+              <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.step2Desc}</p>
+            </Reveal>
+
+            {/* Step 3 */}
+            <Reveal delay={250} className="relative space-y-4 bg-white border border-gold/10 p-8 rounded-[2.5rem] shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold text-lg font-black font-serif">
+                3
+              </div>
+              <h3 className="text-lg font-bold text-royal font-serif">{text.step3Title}</h3>
+              <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.step3Desc}</p>
+            </Reveal>
+
+          </div>
+        </div>
       </section>
 
       {/* SECTION 3: Custom Destinations (Postcards layout) */}
@@ -329,6 +512,9 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
+      {/* SECTION 3.5: Expanding Monuments Accordion Row (Screenshot 2 Theme) */}
+      <MonumentsAccordion locale={locale} />
+
       {/* SECTION 4: Curated Packages (Signature Cards Grid) */}
       <section className="max-w-7xl mx-auto px-6 py-32 space-y-20 border-b border-gold/10">
         <div className="text-center space-y-4 max-w-2xl mx-auto">
@@ -344,26 +530,40 @@ export default async function HomePage({ params }: HomePageProps) {
             <Reveal key={pkg.slug} delay={i * 80}>
               <Link href={`/${locale}/packages`} className="group block h-full">
                 <div className="bg-white border border-gold/10 rounded-[2rem] overflow-hidden shadow-lg flex flex-col h-full transition-all duration-500 hover:-translate-y-3 hover:border-gold/25 hover:shadow-2xl">
-                  <div className="h-64 shrink-0 overflow-hidden relative">
+                  <div className="relative h-64 shrink-0 overflow-hidden">
                     <img src={pkg.image} alt={pkg.title?.en} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <span className="absolute top-5 left-5 bg-white/95 backdrop-blur-sm text-royal text-[10px] uppercase font-bold tracking-wider px-4 py-2 rounded-full shadow-sm">
-                      {pkg.durationDays} Days
-                    </span>
+                    <div className="absolute top-4 left-4 flex flex-col gap-2">
+                      <span className="bg-royal text-gold text-[9px] uppercase font-bold tracking-wider px-3.5 py-1.5 rounded-full shadow-md border border-gold/10">
+                        {pkg.durationDays} {locale === "es" ? "Días" : locale === "pt" ? "Dias" : "Days"}
+                      </span>
+                    </div>
+                    <div className="absolute bottom-4 left-4">
+                      <span className="bg-gold text-royal text-[8px] font-black uppercase tracking-widest px-3 py-1 rounded-md shadow-sm">
+                        {text.customizableText}
+                      </span>
+                    </div>
                   </div>
                   {/* Padding: p-8 */}
-                  <div className="p-8 flex flex-col justify-between flex-grow bg-white">
+                  <div className="p-8 flex flex-col justify-between flex-grow bg-white space-y-6">
                     <div className="space-y-3">
-                      <h3 className="text-xl md:text-2xl font-bold text-royal group-hover:text-gold transition-colors leading-snug">
+                      <h3 className="text-xl font-bold text-royal group-hover:text-gold transition-colors leading-snug">
                         {pkg.title?.[locale] || pkg.title?.en}
                       </h3>
-                      <p className="text-sm md:text-base text-foreground/55 line-clamp-3 leading-relaxed font-light">
+                      <p className="text-xs md:text-sm text-foreground/55 line-clamp-3 leading-relaxed font-light">
                         {pkg.tagline?.[locale] || pkg.tagline?.en}
                       </p>
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-gold flex items-center gap-1.5 pt-4 border-t border-gold/10 mt-6">
-                      <span>Request Draft Itinerary</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
+
+                    <div className="pt-4 border-t border-gold/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-auto">
+                      <div className="flex flex-col">
+                        <span className="text-[9px] uppercase tracking-wider text-foreground/45 font-bold">{locale === "es" ? "Tarifa Estándar" : "Standard Rate"}</span>
+                        <span className="text-sm font-bold text-royal font-serif">{text.fromPrice}</span>
+                      </div>
+                      <span className="bg-transparent hover:bg-gold border border-gold hover:border-gold text-gold hover:text-royal text-[9px] font-black uppercase tracking-wider py-2.5 px-4 rounded-full transition-all duration-300 inline-flex items-center gap-1">
+                        <span>{text.exploreBtn}</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </span>
+                    </div>
                   </div>
                 </div>
               </Link>
@@ -377,6 +577,61 @@ export default async function HomePage({ params }: HomePageProps) {
             <span>View All Packages</span>
             <ArrowRight className="w-5 h-5 text-gold" />
           </Link>
+        </div>
+      </section>
+
+      {/* SECTION 4.5: Our Premium Inclusions (What We Do / Value Proposition) */}
+      <section className="bg-white border-b border-gold/10 py-32">
+        <div className="max-w-7xl mx-auto px-6 space-y-20">
+          
+          {/* Header */}
+          <Reveal className="text-center space-y-4 max-w-3xl mx-auto">
+            <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.inclusionsSub}</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-royal tracking-tight">{text.inclusionsTitle}</h2>
+            <p className="text-sm md:text-base text-foreground/50 leading-relaxed font-light">{text.inclusionsDesc}</p>
+            <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
+          </Reveal>
+
+          {/* Inclusions Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            {/* Inc 1: Driver */}
+            <Reveal delay={50} className="space-y-4 border border-gold/10 bg-[#FAF8F5] p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
+                <Compass className="w-6 h-6" />
+              </div>
+              <h4 className="text-base font-bold text-royal font-serif">{text.inc1Title}</h4>
+              <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.inc1Desc}</p>
+            </Reveal>
+
+            {/* Inc 2: Guides */}
+            <Reveal delay={120} className="space-y-4 border border-gold/10 bg-[#FAF8F5] p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
+                <Landmark className="w-6 h-6" />
+              </div>
+              <h4 className="text-base font-bold text-royal font-serif">{text.inc2Title}</h4>
+              <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.inc2Desc}</p>
+            </Reveal>
+
+            {/* Inc 3: Hotels */}
+            <Reveal delay={190} className="space-y-4 border border-gold/10 bg-[#FAF8F5] p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
+                <Coffee className="w-6 h-6" />
+              </div>
+              <h4 className="text-base font-bold text-royal font-serif">{text.inc3Title}</h4>
+              <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.inc3Desc}</p>
+            </Reveal>
+
+            {/* Inc 4: Support */}
+            <Reveal delay={260} className="space-y-4 border border-gold/10 bg-[#FAF8F5] p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
+                <Shield className="w-6 h-6" />
+              </div>
+              <h4 className="text-base font-bold text-royal font-serif">{text.inc4Title}</h4>
+              <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.inc4Desc}</p>
+            </Reveal>
+
+          </div>
         </div>
       </section>
 
@@ -410,95 +665,8 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
-      {/* SECTION 5.5: Traveler Essential Resources */}
-      <section className="bg-white border-t border-gold/15 py-32">
-        <div className="max-w-7xl mx-auto px-6 space-y-20">
-          <Reveal className="text-center space-y-4 max-w-3xl mx-auto">
-            <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.guideSub}</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight">{text.guideTitle}</h2>
-            <p className="text-sm md:text-base text-foreground/50 leading-relaxed font-light">{text.guideDesc}</p>
-            <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
-          </Reveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Guide 1: Solo Female Travel */}
-            <Reveal delay={50}>
-              <div className="bg-[#FAF8F5] border border-gold/10 p-9 rounded-[2rem] hover:shadow-xl hover:border-gold/25 transition-all duration-300 space-y-6 h-full flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
-                    <Shield className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-lg font-bold text-royal font-serif">{text.guide1Title}</h3>
-                  <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.guide1Desc}</p>
-                </div>
-                <div className="pt-4 border-t border-gold/5">
-                  <Link href={`/${locale}/faq`} className="text-[10px] font-bold uppercase tracking-wider text-gold hover:text-royal transition-colors inline-flex items-center gap-1.5">
-                    <span>Read Guide</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Guide 2: Best Time to Visit */}
-            <Reveal delay={120}>
-              <div className="bg-[#FAF8F5] border border-gold/10 p-9 rounded-[2rem] hover:shadow-xl hover:border-gold/25 transition-all duration-300 space-y-6 h-full flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
-                    <Calendar className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-lg font-bold text-royal font-serif">{text.guide2Title}</h3>
-                  <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.guide2Desc}</p>
-                </div>
-                <div className="pt-4 border-t border-gold/5">
-                  <Link href={`/${locale}/faq`} className="text-[10px] font-bold uppercase tracking-wider text-gold hover:text-royal transition-colors inline-flex items-center gap-1.5">
-                    <span>Read Guide</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Guide 3: Vaccines & Health */}
-            <Reveal delay={190}>
-              <div className="bg-[#FAF8F5] border border-gold/10 p-9 rounded-[2rem] hover:shadow-xl hover:border-gold/25 transition-all duration-300 space-y-6 h-full flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
-                    <Heart className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-lg font-bold text-royal font-serif">{text.guide3Title}</h3>
-                  <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.guide3Desc}</p>
-                </div>
-                <div className="pt-4 border-t border-gold/5">
-                  <Link href={`/${locale}/faq`} className="text-[10px] font-bold uppercase tracking-wider text-gold hover:text-royal transition-colors inline-flex items-center gap-1.5">
-                    <span>Read Guide</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Guide 4: Currency & Money */}
-            <Reveal delay={260}>
-              <div className="bg-[#FAF8F5] border border-gold/10 p-9 rounded-[2rem] hover:shadow-xl hover:border-gold/25 transition-all duration-300 space-y-6 h-full flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
-                    <Compass className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-lg font-bold text-royal font-serif">{text.guide4Title}</h3>
-                  <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.guide4Desc}</p>
-                </div>
-                <div className="pt-4 border-t border-gold/5">
-                  <Link href={`/${locale}/faq`} className="text-[10px] font-bold uppercase tracking-wider text-gold hover:text-royal transition-colors inline-flex items-center gap-1.5">
-                    <span>Read Guide</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
+      {/* SECTION 5.5: Traveler Information 3D Carousel (Screenshot 3 Theme) */}
+      <TravelerInfoCarousel locale={locale} />
 
       {/* SECTION 6: Customer Testimonials (Infinite Scroll Slider) */}
       <TestimonialSlider 

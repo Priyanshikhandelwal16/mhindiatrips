@@ -344,7 +344,7 @@ export default function Header({ locale }: HeaderProps) {
             {/* Inquire CTA Button */}
             <Link 
               href={`/${locale}/contact`}
-              className="bg-gold hover:bg-gold-light text-royal text-[10px] font-bold uppercase tracking-[0.18em] px-6 py-3.5 rounded-full transition-all duration-300 hover:scale-105 inline-flex items-center gap-1.5 shadow-md shadow-gold/10 border border-gold/10"
+              className="bg-gold hover:bg-gold-light text-royal text-[10px] font-bold uppercase tracking-[0.18em] px-6 py-3.5 rounded-full transition-all duration-300 hover:scale-105 inline-flex items-center gap-1.5 shadow-md shadow-gold/10 border border-gold/10 whitespace-nowrap"
             >
               <span>{labels.cta}</span>
               <ArrowRight className="w-3.5 h-3.5" />

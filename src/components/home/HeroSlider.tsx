@@ -73,7 +73,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
             src={slide.image}
             alt={slide.title}
             loading={i === 0 ? "eager" : "lazy"}
-            className="w-full h-full object-cover animate-kenburns"
+            className="w-full h-full object-cover hero-slide-img"
             style={{ objectPosition: slide.objectPosition || "center 30%" }}
           />
           {/* Premium center gradient overlay for readable text */}
