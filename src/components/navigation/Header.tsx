@@ -30,6 +30,7 @@ export default function Header({ locale }: HeaderProps) {
       packages: "Travel Packages",
       about: "About Us",
       destinations: "Destinations in India",
+      monuments: "Monuments",
       info: "Traveler Info",
       contact: "Contact",
       blog: "Blog",
@@ -40,6 +41,7 @@ export default function Header({ locale }: HeaderProps) {
       packages: "Paquetes de Viajes",
       about: "Sobre Nosotros",
       destinations: "Destinos en India",
+      monuments: "Monumentos",
       info: "Información para viajeros",
       contact: "Contacto",
       blog: "Blog",
@@ -50,6 +52,7 @@ export default function Header({ locale }: HeaderProps) {
       packages: "Pacotes de Viagens",
       about: "Sobre Nós",
       destinations: "Destinos na Índia",
+      monuments: "Monumentos",
       info: "Informações para viajantes",
       contact: "Contato",
       blog: "Blog",
@@ -235,6 +238,19 @@ export default function Header({ locale }: HeaderProps) {
               </div>
             </div>
 
+            {/* 3.5 Monumentos Link */}
+            <Link
+              href={`/${locale}/monuments`}
+              className={`text-[10px] xl:text-[11px] font-bold uppercase tracking-[0.1em] xl:tracking-[0.16em] whitespace-nowrap hover:text-gold transition-colors duration-300 relative py-1 ${
+                isActive("/monuments") ? "text-gold" : "text-royal"
+              }`}
+            >
+              <span>{labels.monuments}</span>
+              {isActive("/monuments") && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full" />
+              )}
+            </Link>
+
             {/* 4. Información para viajeros Dropdown */}
             <div className="relative group py-1">
               <Link
@@ -415,6 +431,14 @@ export default function Header({ locale }: HeaderProps) {
               className="text-lg font-bold text-royal hover:text-gold transition-colors"
             >
               {labels.destinations}
+            </Link>
+
+            <Link
+              href={`/${locale}/monuments`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-lg font-bold text-royal hover:text-gold transition-colors"
+            >
+              {labels.monuments}
             </Link>
 
             <Link

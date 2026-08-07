@@ -65,7 +65,10 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
     >
       {/* Slides */}
       {slides.map((slide, i) => (
-        <div key={i} className={`hero-slide ${i === current ? "active" : ""}`}>
+        <div 
+          key={i} 
+          className={`hero-slide absolute inset-0 transition-opacity duration-1000 ${i === current ? "z-10 opacity-100" : "z-0 opacity-0 pointer-events-none"}`}
+        >
           <img
             src={slide.image}
             alt={slide.title}

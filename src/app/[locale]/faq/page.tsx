@@ -1,7 +1,7 @@
 import React from "react";
 import Reveal from "@/components/home/Reveal";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Shield, Calendar, Heart, Compass, Wallet, Briefcase } from "lucide-react";
 
 interface FAQPageProps {
   params: Promise<{ locale: string }>;
@@ -12,25 +12,67 @@ export default async function FAQPage({ params }: FAQPageProps) {
 
   const t: Record<string, any> = {
     en: {
-      hero: "Frequently Asked Questions",
-      heroSub: "Help Center",
-      heroDesc: "Find answers to common questions about traveling to India with MH India Trips.",
-      ctaTitle: "Still have questions?",
-      ctaBtn: "Contact Us",
+      heroSub: "Practical Advice",
+      heroTitle: "Traveler Information",
+      heroDesc: "All essential guidelines, logistic parameters, safety precautions, and advice to prepare for your journey to India.",
+      sectionTitle: "Essential Guides",
+      sectionDesc: "Important advice categorized for high-end bespoke traveler peace of mind.",
+      faqTitle: "Frequently Asked Questions",
+      faqDesc: "Find answers to typical concierge queries before your departure.",
+      ctaTitle: "Have custom requests?",
+      ctaBtn: "Inquire Now",
+      guide1Title: "Solo Female Travel",
+      guide1Desc: "India is highly welcoming to foreign guests. For female travelers, we guarantee private transfers with verified professional chauffeurs, government-certified local guides at all monument check-points, and 24/7 active concierge helpline support.",
+      guide2Title: "Best Time to Visit & Climate",
+      guide2Desc: "October to March is the ideal season for most of India, featuring warm days and cool evenings. The Himalayan ranges are perfect in summer, and South India remains lush and beautiful year-round.",
+      guide3Title: "Vaccinations & Health",
+      guide3Desc: "Basic precautions ensure an amazing holiday. Up-to-date routine vaccines are recommended. Drink only sealed bottled water, eat at vetted hygiene-inspected dining rooms, and pack standard traveler first-aid guides.",
+      guide4Title: "Currency & Payments",
+      guide4Desc: "The local currency is the Indian Rupee (INR). International credit cards are widely used in luxury hotels, boutiques, and high-end dining. Carrying some cash is helpful for tips and local heritage craft markets.",
+      guide5Title: "Packing & Clothing",
+      guide5Desc: "Wear light, breathable cotton layers. It is respectful to dress modestly when visiting temples and spiritual shrines (shoulders and knees covered). Slip-on shoes are ideal as shoes are removed at holy sites."
     },
     es: {
-      hero: "Preguntas Frecuentes",
-      heroSub: "Centro de Ayuda",
-      heroDesc: "Encuentre respuestas a preguntas comunes sobre viajar a la India con MH India Trips.",
-      ctaTitle: "¿Aún tiene preguntas?",
-      ctaBtn: "Contáctenos",
+      heroSub: "Consejos Prácticos",
+      heroTitle: "Información para Viajeros",
+      heroDesc: "Todas las directrices esenciales, parámetros logísticos, precauciones de seguridad y consejos para preparar su viaje a la India.",
+      sectionTitle: "Guías Esenciales",
+      sectionDesc: "Consejos importantes categorizados para la tranquilidad del viajero.",
+      faqTitle: "Preguntas Frecuentes",
+      faqDesc: "Encuentre respuestas a las consultas más comunes de conserjería antes de su partida.",
+      ctaTitle: "¿Tiene requisitos específicos?",
+      ctaBtn: "Consultar Ahora",
+      guide1Title: "Mujer viajando sola por la India",
+      guide1Desc: "La India es muy acogedora con los viajeros. Para las mujeres que viajan solas, garantizamos traslados privados con choferes profesionales verificados, guías locales certificados y asistencia telefónica activa las 24 horas.",
+      guide2Title: "Cuándo viajar y Clima",
+      guide2Desc: "De octubre a marzo es la temporada ideal para la mayor parte de la India, con días templados y noches frescas. Las regiones del Himalaya son perfectas en verano y el sur permanece verde todo el año.",
+      guide3Title: "Vacunas y Salud en India",
+      guide3Desc: "Precauciones básicas aseguran unas vacaciones perfectas. Se recomiendan vacunas de rutina actualizadas. Beba solo agua embotellada, coma en restaurantes seleccionados e higiénicos, y lleve un botiquín básico.",
+      guide4Title: "Moneda y Pagos",
+      guide4Desc: "La moneda local es la Rupia India (INR). Las tarjetas de crédito internacionales son ampliamente aceptadas en hoteles de lujo, boutiques y restaurantes. Llevar algo de efectivo es útil para propinas y mercados.",
+      guide5Title: "Equipaje y Ropa",
+      guide5Desc: "Lleve ropa ligera de algodón. Es respetuoso vestir con modestia al visitar templos y lugares espirituales (hombros y rodillas cubiertos). Los zapatos fáciles de quitar son ideales, ya que se retiran en templos."
     },
     pt: {
-      hero: "Perguntas Frequentes",
-      heroSub: "Central de Ajuda",
-      heroDesc: "Encontre respostas para perguntas comuns sobre viajar para a Índia com MH India Trips.",
-      ctaTitle: "Ainda tem perguntas?",
-      ctaBtn: "Contacte-nos",
+      heroSub: "Conselhos Práticos",
+      heroTitle: "Informações para Viajantes",
+      heroDesc: "Todas as diretrizes essenciais, parâmetros logísticos, precauções de segurança e conselhos para preparar sua viagem à Índia.",
+      sectionTitle: "Guias Essenciais",
+      sectionDesc: "Conselhos importantes categorizados para a tranquilidade do viajante.",
+      faqTitle: "Perguntas Frequentes",
+      faqDesc: "Encontre respostas para as dúvidas mais comuns de concierge antes de sua partida.",
+      ctaTitle: "Tem requisitos específicos?",
+      ctaBtn: "Fale Conosco",
+      guide1Title: "Mulher viajando sozinha",
+      guide1Desc: "A Índia é acolhedora para os visitantes. Para mulheres viajando sozinhas, garantimos traslados privados com motoristas profissionais verificados, guias locais credenciados e assistência de concierge ativa 24/7.",
+      guide2Title: "Quando viajar e Clima",
+      guide2Desc: "De outubro a março é a temporada ideal para a maioria das regiões, com dias amenos e noites frescas. O Himalaia é perfeito no verão e o sul permanece verde e exuberante o ano todo.",
+      guide3Title: "Vacinas e Saúde na Índia",
+      guide3Desc: "Precauções básicas garantem férias perfeitas. Recomendamos vacinas de rotina atualizadas. Beba apenas água mineral engarrafada, coma em locais higiênicos selecionados e leve itens básicos de saúde.",
+      guide4Title: "Moeda e Pagamentos",
+      guide4Desc: "A moeda local é a Rúpia Indiana (INR). Cartões de crédito internacionais são amplamente aceitos em hotéis de luxo, boutiques e restaurantes. Ter dinheiro em mãos é útil para gorjetas e mercados locais.",
+      guide5Title: "Bagagem e Roupas",
+      guide5Desc: "Use roupas leves de algodão. Vista-se de maneira respeitosa ao visitar templos e locais sagrados (ombros e joelhos cobertos). Sapatos fáceis de tirar são ideais, pois são retirados nos templos."
     }
   };
 
@@ -61,51 +103,136 @@ export default async function FAQPage({ params }: FAQPageProps) {
       q: locale === "es" ? "¿Qué incluyen sus paquetes?" : locale === "pt" ? "O que incluem seus pacotes?" : "What's included in your packages?",
       a: locale === "es" ? "Nuestros paquetes incluyen alojamiento, transporte privado, guías, entradas a monumentos y experiencias culturales." : locale === "pt" ? "Nossos pacotes incluem alojamento, transporte privado, guias, entradas a monumentos e experiências culturais." : "Our packages include accommodation, private transport, expert guides, monument entries, and curated cultural experiences. Meals and flights can be added.",
     },
-    {
-      q: locale === "es" ? "¿Hablan español sus guías?" : locale === "pt" ? "Seus guias falam português?" : "Do your guides speak my language?",
-      a: locale === "es" ? "Sí, tenemos guías certificados que hablan español, inglés y portugués en los principales destinos." : locale === "pt" ? "Sim, temos guias certificados que falam português, inglês e espanhol nos principais destinos." : "Yes, we have certified guides who speak English, Spanish, and Portuguese at major destinations. Other languages available on request.",
-    },
-    {
-      q: locale === "es" ? "¿Pueden organizar viajes para grupos?" : locale === "pt" ? "Podem organizar viagens para grupos?" : "Can you arrange group tours?",
-      a: locale === "es" ? "Absolutamente. Organizamos viajes para parejas, familias y grupos de hasta 30 personas con precios especiales." : locale === "pt" ? "Absolutamente. Organizamos viagens para casais, famílias e grupos de até 30 pessoas." : "Absolutely. We organize trips for couples, families, and groups of up to 30 people with special group rates and dedicated coordinators.",
-    },
   ];
 
   return (
-    <div className="font-sans bg-[#FAF8F5] min-h-screen text-[#1B1B1B]">
-      {/* Hero */}
-      <section className="relative h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-        <img src="/images/taj_mahal_sunrise.png" alt="FAQ" className="absolute inset-0 w-full h-full object-cover animate-kenburns" />
+    <div className="bg-[#FAF8F5] min-h-screen text-[#1B1B1B] font-sans">
+      
+      {/* Hero Banner */}
+      <section className="relative h-[65vh] min-h-[460px] flex items-center justify-center overflow-hidden">
+        <img 
+          src="/images/taj_mahal_sunrise.png" 
+          alt="Traveler Info" 
+          className="absolute inset-0 w-full h-full object-cover object-[center_35%] scale-100 animate-kenburns" 
+        />
         <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 text-center text-white px-6 max-w-5xl mt-20 space-y-6">
-          <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
+        <div className="relative z-10 text-center text-white px-6 max-w-4xl mt-20 space-y-6">
+          <span className="bg-gold text-royal text-[10px] font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
             {text.heroSub}
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold mb-4">{text.hero}</h1>
-          <p className="text-base md:text-lg text-white/90 font-light max-w-2xl mx-auto">{text.heroDesc}</p>
+          <h1 className="text-4xl md:text-6xl font-bold font-serif text-white tracking-tight leading-tight">{text.heroTitle}</h1>
+          <p className="text-sm md:text-base text-white/90 font-light max-w-2xl mx-auto leading-relaxed">{text.heroDesc}</p>
         </div>
       </section>
 
-      {/* FAQ Items */}
-      <section className="py-20 bg-[#FAF8F5]">
-        <div className="max-w-3xl mx-auto px-6 space-y-6">
-          {faqs.map((faq, i) => (
-            <Reveal key={i} delay={i * 50}>
-              <details className="group p-7 rounded-3xl border border-gold/10 bg-white hover:border-gold/30 transition-all duration-300 cursor-pointer shadow-sm relative overflow-hidden">
-                <summary className="flex items-center justify-between text-base font-serif font-bold text-royal cursor-pointer list-none">
-                  <span>{faq.q}</span>
-                  <span className="ml-4 shrink-0 w-7 h-7 rounded-full bg-gold/10 flex items-center justify-center text-gold text-sm group-open:rotate-45 transition-transform duration-300">+</span>
-                </summary>
-                <p className="mt-4 text-xs text-foreground/60 leading-relaxed font-light pl-2 border-l border-gold/25">{faq.a}</p>
-              </details>
-            </Reveal>
-          ))}
+      {/* Info Sections Grid */}
+      <section className="py-28 max-w-7xl mx-auto px-6 space-y-20">
+        <Reveal className="text-center space-y-3 max-w-2xl mx-auto">
+          <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold block">{text.heroSub}</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-royal tracking-tight">{text.sectionTitle}</h2>
+          <p className="text-sm text-foreground/50 leading-relaxed font-light">{text.sectionDesc}</p>
+          <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
+        </Reveal>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          
+          {/* Card 1: Solo Female Travel */}
+          <Reveal>
+            <div className="bg-white border border-gold/10 p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:border-gold/20 transition-all duration-300 flex gap-6 items-start h-full">
+              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">
+                <Shield className="w-6 h-6" />
+              </div>
+              <div className="space-y-3">
+                <h3 className="text-lg font-bold text-royal font-serif">{text.guide1Title}</h3>
+                <p className="text-xs md:text-sm text-foreground/60 leading-relaxed font-light">{text.guide1Desc}</p>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Card 2: Climate & Best Time */}
+          <Reveal delay={80}>
+            <div className="bg-white border border-gold/10 p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:border-gold/20 transition-all duration-300 flex gap-6 items-start h-full">
+              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">
+                <Calendar className="w-6 h-6" />
+              </div>
+              <div className="space-y-3">
+                <h3 className="text-lg font-bold text-royal font-serif">{text.guide2Title}</h3>
+                <p className="text-xs md:text-sm text-foreground/60 leading-relaxed font-light">{text.guide2Desc}</p>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Card 3: Vaccines & Health */}
+          <Reveal delay={160}>
+            <div className="bg-white border border-gold/10 p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:border-gold/20 transition-all duration-300 flex gap-6 items-start h-full">
+              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">
+                <Heart className="w-6 h-6" />
+              </div>
+              <div className="space-y-3">
+                <h3 className="text-lg font-bold text-royal font-serif">{text.guide3Title}</h3>
+                <p className="text-xs md:text-sm text-foreground/60 leading-relaxed font-light">{text.guide3Desc}</p>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Card 4: Currency & Money */}
+          <Reveal delay={240}>
+            <div className="bg-white border border-gold/10 p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:border-gold/20 transition-all duration-300 flex gap-6 items-start h-full">
+              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">
+                <Wallet className="w-6 h-6" />
+              </div>
+              <div className="space-y-3">
+                <h3 className="text-lg font-bold text-royal font-serif">{text.guide4Title}</h3>
+                <p className="text-xs md:text-sm text-foreground/60 leading-relaxed font-light">{text.guide4Desc}</p>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Card 5: Packing & Clothing */}
+          <Reveal delay={320} className="lg:col-span-2">
+            <div className="bg-white border border-gold/10 p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:border-gold/20 transition-all duration-300 flex gap-6 items-start h-full">
+              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">
+                <Briefcase className="w-6 h-6" />
+              </div>
+              <div className="space-y-3">
+                <h3 className="text-lg font-bold text-royal font-serif">{text.guide5Title}</h3>
+                <p className="text-xs md:text-sm text-foreground/60 leading-relaxed font-light">{text.guide5Desc}</p>
+              </div>
+            </div>
+          </Reveal>
+
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section-spacing bg-cream border-t border-sand/30">
-        <div className="max-w-3xl mx-auto px-6 text-center space-y-6">
+      {/* FAQ Accordion Section */}
+      <section className="py-28 bg-[#FAF8F5] border-t border-gold/15">
+        <div className="max-w-4xl mx-auto px-6 space-y-16">
+          <Reveal className="text-center space-y-3 max-w-2xl mx-auto">
+            <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold block">{text.heroSub}</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-royal tracking-tight">{text.faqTitle}</h2>
+            <p className="text-sm text-foreground/50 leading-relaxed font-light">{text.faqDesc}</p>
+            <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
+          </Reveal>
+
+          <div className="space-y-5">
+            {faqs.map((faq, i) => (
+              <Reveal key={i} delay={i * 50}>
+                <details className="group p-8 rounded-3xl border border-gold/10 bg-white hover:border-gold/30 transition-all duration-300 cursor-pointer shadow-sm relative overflow-hidden">
+                  <summary className="flex items-center justify-between text-base md:text-lg font-serif font-bold text-royal cursor-pointer list-none">
+                    <span>{faq.q}</span>
+                    <span className="ml-4 shrink-0 w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold text-sm group-open:rotate-45 transition-transform duration-300">+</span>
+                  </summary>
+                  <p className="mt-4 text-xs md:text-sm text-foreground/60 leading-relaxed font-light pl-3 border-l border-gold/20">{faq.a}</p>
+                </details>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-cream border-t border-sand/30 text-center">
+        <div className="max-w-xl mx-auto px-6 space-y-6">
           <Reveal>
             <h2 className="text-2xl md:text-3xl font-serif font-bold text-royal">{text.ctaTitle}</h2>
           </Reveal>
@@ -117,6 +244,7 @@ export default async function FAQPage({ params }: FAQPageProps) {
           </Reveal>
         </div>
       </section>
+      
     </div>
   );
 }
