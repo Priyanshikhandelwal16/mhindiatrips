@@ -10,6 +10,7 @@ interface Slide {
   title: string;
   desc: string;
   location: string;
+  objectPosition?: string;
 }
 
 interface HeroSliderProps {
@@ -55,7 +56,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
 
   return (
     <section
-      className="relative h-[85vh] min-h-[550px] max-h-[900px] overflow-hidden"
+      className="relative h-screen w-full overflow-hidden"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={handleTouchStart}
@@ -69,53 +70,56 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
             src={slide.image}
             alt={slide.title}
             loading={i === 0 ? "eager" : "lazy"}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover animate-kenburns"
+            style={{ objectPosition: slide.objectPosition || "center 30%" }}
           />
-          {/* Premium multi-layer gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/15 to-black/60" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
+          {/* Premium center gradient overlay for readable text */}
+          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/45" />
 
-          {/* Content */}
-          <div className="relative z-10 h-full flex items-center">
-            <div className="max-w-7xl mx-auto px-6 w-full">
-              <div className="max-w-2xl space-y-5 text-white">
+          {/* Content (Centered vertically and horizontally) */}
+          <div className="relative z-10 h-full flex items-center justify-center">
+            <div className="max-w-4xl mx-auto text-center px-6 w-full flex flex-col items-center">
+              <div className={`space-y-6 text-white text-center flex flex-col items-center max-w-3xl transition-all duration-1000 transform ${
+                i === current ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95 pointer-events-none"
+              }`}>
                 {/* Location Badge */}
-                <div className="hero-text">
-                  <span className="inline-flex items-center gap-2 bg-white/8 backdrop-blur-xl border border-white/15 rounded-full px-5 py-2.5 text-[10px] uppercase tracking-[0.25em] font-semibold text-white/90">
-                    <MapPin className="w-3 h-3 text-gold" />
+                <div className="inline-block">
+                  <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full px-5 py-2 text-[10px] uppercase tracking-[0.25em] font-semibold text-white/90">
+                    <MapPin className="w-3.5 h-3.5 text-gold" />
                     <span>{slide.location}</span>
                   </span>
                 </div>
 
                 {/* Subtitle */}
                 {slide.sub && (
-                  <p className="hero-text text-[11px] uppercase tracking-[0.2em] text-gold font-semibold">
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-gold font-bold text-center block">
                     {slide.sub}
                   </p>
                 )}
 
                 {/* Title */}
-                <h1 className="hero-text text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-serif font-bold tracking-tight leading-[1.1]">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold tracking-tight leading-[1.1] text-center">
                   {slide.title}
                 </h1>
 
                 {/* Description */}
-                <p className="hero-text text-sm md:text-base text-white/80 max-w-lg leading-relaxed font-light">
+                <p className="text-sm md:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed font-light text-center">
                   {slide.desc}
                 </p>
 
                 {/* CTAs */}
-                <div className="hero-text flex flex-wrap gap-2.5 pt-1">
+                <div className="flex flex-wrap justify-center gap-4 pt-4">
                   <Link
                     href={`/${locale}/destinations`}
-                    className="group bg-gold hover:bg-gold-light text-white text-[8px] font-semibold uppercase tracking-[0.1em] py-2 px-5 rounded-full transition-all duration-400 shadow-md shadow-gold/20 hover:shadow-lg hover:-translate-y-0.5 inline-flex items-center gap-1.5"
+                    className="group bg-gold hover:bg-gold-light text-royal text-[11px] font-bold uppercase tracking-wider py-3.5 px-8 rounded-full transition-all duration-400 shadow-lg shadow-gold/20 hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center gap-2"
                   >
                     <span>{ctaText}</span>
-                    <ChevronRight className="w-2.5 h-2.5 group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform text-royal" />
                   </Link>
                   <Link
                     href={`/${locale}#inquire-now`}
-                    className="bg-white/8 hover:bg-white/15 backdrop-blur-xl text-white text-[8px] font-semibold uppercase tracking-[0.1em] py-2 px-5 rounded-full transition-all duration-400 border border-white/20 hover:border-white/40"
+                    className="bg-white/10 hover:bg-white/20 backdrop-blur-xl text-white text-[11px] font-bold uppercase tracking-wider py-3.5 px-8 rounded-full transition-all duration-400 border border-white/30 hover:border-white/50"
                   >
                     {inquireCTA}
                   </Link>
@@ -131,6 +135,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
         onClick={() => goTo(current - 1)}
         aria-label="Previous slide"
         className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 z-20 w-13 h-13 items-center justify-center rounded-full bg-white/8 backdrop-blur-xl border border-white/15 text-white hover:bg-white hover:text-royal transition-all duration-300 group hover:scale-105"
+        suppressHydrationWarning={true}
       >
         <ChevronLeft className="w-5 h-5 group-hover:scale-110 transition-transform" />
       </button>
@@ -138,6 +143,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
         onClick={() => goTo(current + 1)}
         aria-label="Next slide"
         className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 z-20 w-13 h-13 items-center justify-center rounded-full bg-white/8 backdrop-blur-xl border border-white/15 text-white hover:bg-white hover:text-royal transition-all duration-300 group hover:scale-105"
+        suppressHydrationWarning={true}
       >
         <ChevronRight className="w-5 h-5 group-hover:scale-110 transition-transform" />
       </button>
@@ -150,6 +156,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
             onClick={() => goTo(i)}
             aria-label={`Go to slide ${i + 1}`}
             className="group relative p-1"
+            suppressHydrationWarning={true}
           >
             <span className={`block rounded-full transition-all duration-700 ${
               i === current

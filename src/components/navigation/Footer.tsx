@@ -195,8 +195,9 @@ export default function Footer({ locale }: FooterProps) {
                   placeholder={labels.newsletterPlaceholder}
                   className="bg-transparent text-xs pl-4 outline-none w-full text-royal placeholder-[#2C2C2C]/30 font-light"
                   required
+                  suppressHydrationWarning={true}
                 />
-                <button type="submit" className="bg-gold hover:bg-gold-light text-royal rounded-full p-3 transition-transform duration-200 hover:scale-105 shrink-0" aria-label="Subscribe">
+                <button type="submit" className="bg-gold hover:bg-gold-light text-royal rounded-full p-3 transition-transform duration-200 hover:scale-105 shrink-0" aria-label="Subscribe" suppressHydrationWarning={true}>
                   <Send className="w-3.5 h-3.5 text-royal" />
                 </button>
               </form>

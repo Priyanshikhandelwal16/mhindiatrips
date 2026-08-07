@@ -2,27 +2,27 @@
 
 :root {
   /* Premium Color Palette - Inspired by Indian luxury & MH brand */
-  --background: #FAFAF8;
+  --background: #FAF8F5;
   --foreground: #1A1A1A;
   --card: #FFFFFF;
   --card-foreground: #1A1A1A;
 
   /* Primary Brand Colors */
-  --primary-saffron: #C4672A;
-  --primary-saffron-hover: #A85520;
-  --forest-green: #1A5336;
-  --forest-green-light: #2A7A52;
-  --royal-blue: #0D2440;
-  --warm-gold: #B8964B;
-  --warm-gold-light: #D4AF61;
+  --primary-saffron: #A5823C;
+  --primary-saffron-hover: #907133;
+  --forest-green: #143728;
+  --forest-green-light: #1c4d38;
+  --royal-blue: #143728;
+  --warm-gold: #A5823C;
+  --warm-gold-light: #bc984e;
   --light-beige: #F0EBE3;
-  --very-light-gray: #FDFCFA;
+  --very-light-gray: #FAF8F5;
 
   /* Accent Colors */
-  --terracotta: #B8593A;
+  --terracotta: #A5823C;
   --deep-burgundy: #6B2D3B;
   --sage: #7A8F7E;
-  --cream: #FBF7F0;
+  --cream: #FAF8F5;
   --charcoal: #2C2C2C;
   --muted-sand: #E8E2D8;
   --ivory: #FFFEF9;
@@ -51,9 +51,9 @@
   --color-sand: var(--muted-sand);
   --color-ivory: var(--ivory);
 
-  --font-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-serif: 'EB Garamond', Georgia, serif;
+  --font-sans: 'Poppins', sans-serif;
+  --font-display: 'EB Garamond', Georgia, serif;
 
   --animate-fade-up: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   --animate-fade-in: fade-in 0.6s ease-out forwards;

@@ -1,4 +1,57 @@
-import { StateData as DbDestination, FoodData as DbFood } from "@/data/mockData";
+import { LocalizedString } from "./mockData";
+
+export interface DbDestination {
+  id: string;
+  slug: string;
+  region: string;
+  image: string;
+  gallery: string[];
+  title: LocalizedString;
+  description: LocalizedString;
+  attractions: {
+    en: { name: string; desc: string }[];
+    es: { name: string; desc: string }[];
+    pt: { name: string; desc: string }[];
+  } | any;
+  bestTime: LocalizedString;
+  howToReach: LocalizedString;
+  localFood: LocalizedString;
+  culture: LocalizedString;
+  tips: {
+    en: string[];
+    es: string[];
+    pt: string[];
+  } | any;
+  faqs: {
+    en: { q: string; a: string }[];
+    es: { q: string; a: string }[];
+    pt: { q: string; a: string }[];
+  } | any;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface DbFood {
+  id: string;
+  slug: string;
+  region: string;
+  image: string;
+  gallery: string[];
+  title: LocalizedString;
+  history: LocalizedString;
+  ingredients: {
+    en: string[];
+    es: string[];
+    pt: string[];
+  } | any;
+  bestPlaces: LocalizedString;
+  tips: {
+    en: string[];
+    es: string[];
+    pt: string[];
+  } | any;
+  createdAt: string;
+}
 
 // Helper to construct a template text object for localizations
 const localize = (en: string, es: string, pt: string) => ({ en, es, pt });

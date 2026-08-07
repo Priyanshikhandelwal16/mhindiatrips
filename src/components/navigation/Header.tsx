@@ -27,52 +27,62 @@ export default function Header({ locale }: HeaderProps) {
   const menuTranslations: Record<string, any> = {
     en: {
       home: "Home",
-      destinations: "Destinations",
-      packages: "Packages",
-      food: "Food Guide",
-      blog: "Blog",
+      packages: "Travel Packages",
       about: "About Us",
+      destinations: "Destinations in India",
+      info: "Traveler Info",
       contact: "Contact",
+      blog: "Blog",
       cta: "Inquire Now"
     },
     es: {
       home: "Inicio",
-      destinations: "Destinos",
-      packages: "Paquetes",
-      food: "Gastronomía",
-      blog: "Blog",
-      about: "Nosotros",
+      packages: "Paquetes de Viajes",
+      about: "Sobre Nosotros",
+      destinations: "Destinos en India",
+      info: "Información para viajeros",
       contact: "Contacto",
+      blog: "Blog",
       cta: "Planificar Viaje"
     },
     pt: {
       home: "Início",
-      destinations: "Destinos",
-      packages: "Pacotes",
-      food: "Gastronomia",
-      blog: "Blog",
+      packages: "Pacotes de Viagens",
       about: "Sobre Nós",
+      destinations: "Destinos na Índia",
+      info: "Informações para viajantes",
       contact: "Contato",
+      blog: "Blog",
       cta: "Fale Conosco"
     }
   };
 
   const labels = menuTranslations[locale] || menuTranslations.en;
 
-  const statesList = [
-    { name: "Rajasthan", path: "/destinations/rajasthan" },
-    { name: "Kerala", path: "/destinations/kerala" },
-    { name: "Varanasi", path: "/destinations/varanasi" },
-    { name: "Delhi & Agra", path: "/destinations/delhi-agra" },
-    { name: "Goa", path: "/destinations/goa" }
+  const packagesList = [
+    { name: { en: "Imperial Golden Triangle", es: "Triángulo de Oro Imperial", pt: "Triângulo de Ouro Imperial" }, path: "/packages#golden-triangle-luxury" },
+    { name: { en: "Royal Rajasthan Heritage", es: "Rajastán Real y Patrimonial", pt: "Rajastão Real e Patrimonial" }, path: "/packages#royal-rajasthan-heritage" },
+    { name: { en: "Kerala Tropical Escape", es: "Escapada Tropical a Kerala", pt: "Escapada Tropical a Kerala" }, path: "/packages#kerala-tropical-escape" },
+    { name: { en: "Spiritual India Journey", es: "Viaje Espiritual por la India", pt: "Viagem Espiritual pela Índia" }, path: "/packages#spiritual-india-varanasi" },
+    { name: { en: "Wildlife & Tiger Safari", es: "Safari de Vida Silvestre y Tigres", pt: "Safari de Vida Selvagem e Tigres" }, path: "/packages#wildlife-tiger-safari" },
+    { name: { en: "Goa Beach & Heritage Luxury", es: "Lujo de Playa y Patrimonio en Goa", pt: "Luxo de Praia e Patrimônio em Goa" }, path: "/packages#goa-beach-luxury" }
   ];
 
-  const menuItems = [
-    { name: labels.packages, path: "/packages" },
-    { name: labels.food, path: "/food" },
-    { name: labels.blog, path: "/blog" },
-    { name: labels.about, path: "/about" },
-    { name: labels.contact, path: "/contact" }
+  const destinationsList = [
+    { name: { en: "Rajasthan", es: "Rajastán", pt: "Rajastão" }, path: "/destinations/rajasthan" },
+    { name: { en: "Delhi & Agra", es: "Delhi y Uttar Pradesh (Agra)", pt: "Deli e Uttar Pradesh (Agra)" }, path: "/destinations/delhi-agra" },
+    { name: { en: "Kerala", es: "Kerala", pt: "Kerala" }, path: "/destinations/kerala" },
+    { name: { en: "Goa", es: "Goa", pt: "Goa" }, path: "/destinations/goa" },
+    { name: { en: "Varanasi", es: "Benarés", pt: "Varanasi" }, path: "/destinations/varanasi" },
+    { name: { en: "Mumbai & Maharashtra", es: "Bombay y Maharashtra", pt: "Mumbai e Maharashtra" }, path: "/destinations/mumbai-maharashtra" }
+  ];
+
+  const infoList = [
+    { name: { en: "Solo Female Traveler", es: "Mujer viajando sola por la India", pt: "Mulher viajando sozinha na Índia" }, path: "/faq" },
+    { name: { en: "Frequently Asked Questions", es: "Preguntas Frecuentes", pt: "Perguntas Frequentes" }, path: "/faq" },
+    { name: { en: "Best Time to Visit", es: "Cuando viajar a la India", pt: "Quando viajar para a Índia" }, path: "/faq" },
+    { name: { en: "Currency Guide", es: "Moneda en India", pt: "Moeda na Índia" }, path: "/faq" },
+    { name: { en: "Luggage & Packing", es: "Equipaje en India", pt: "Bagagem na Índia" }, path: "/faq" }
   ];
 
   const languages = [
@@ -118,7 +128,7 @@ export default function Header({ locale }: HeaderProps) {
           scrolled ? "py-2.5 shadow-lg shadow-royal/5" : "py-4"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="w-full max-w-7xl mx-auto px-6 flex items-center justify-between gap-4">
           
           {/* Logo */}
           <Link href={`/${locale}`} className="relative block shrink-0 z-20">
@@ -133,26 +143,71 @@ export default function Header({ locale }: HeaderProps) {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 shrink-0">
             
             {/* Home Link */}
             <Link
               href={`/${locale}`}
-              className={`text-[11px] font-bold uppercase tracking-[0.18em] hover:text-gold transition-colors duration-300 relative py-1 ${
+              className={`text-[10px] xl:text-[11px] font-bold uppercase tracking-[0.1em] xl:tracking-[0.16em] whitespace-nowrap hover:text-gold transition-colors duration-300 relative py-1 ${
                 isActive("/") ? "text-gold" : "text-royal"
               }`}
             >
-              <span>{labels.home || "Home"}</span>
+              <span>{labels.home}</span>
               {isActive("/") && (
                 <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full" />
               )}
             </Link>
 
-            {/* Destinations Hover Dropdown */}
+            {/* 1. Paquetes de Viajes Hover Dropdown */}
+            <div className="relative group py-1">
+              <Link
+                href={`/${locale}/packages`}
+                className={`text-[10px] xl:text-[11px] font-bold uppercase tracking-[0.1em] xl:tracking-[0.16em] whitespace-nowrap hover:text-gold transition-colors duration-300 flex items-center gap-1 ${
+                  isActive("/packages") ? "text-gold" : "text-royal"
+                }`}
+              >
+                <span>{labels.packages}</span>
+                <ChevronDown className="w-3.5 h-3.5 text-gold transition-transform duration-300 group-hover:rotate-180" />
+              </Link>
+              
+              {/* Dropdown Container */}
+              <div className="absolute left-0 mt-2 w-64 bg-[#FAF8F5] border border-gold/15 rounded-2xl shadow-xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
+                <Link
+                  href={`/${locale}/packages`}
+                  className="block px-5 py-2 text-[10px] font-bold uppercase tracking-wider text-royal/60 hover:text-gold hover:bg-gold/5 transition-colors border-b border-gold/5 mb-1.5 pb-2"
+                >
+                  All Packages
+                </Link>
+                {packagesList.map((pkg, idx) => (
+                  <Link
+                    key={idx}
+                    href={`/${locale}${pkg.path}`}
+                    className="block px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-royal hover:bg-gold/10 hover:text-gold transition-colors"
+                  >
+                    {pkg.name[locale as 'en'|'es'|'pt'] || pkg.name.en}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* 2. Sobre Nosotros Link */}
+            <Link
+              href={`/${locale}/about`}
+              className={`text-[10px] xl:text-[11px] font-bold uppercase tracking-[0.1em] xl:tracking-[0.16em] whitespace-nowrap hover:text-gold transition-colors duration-300 relative py-1 ${
+                isActive("/about") ? "text-gold" : "text-royal"
+              }`}
+            >
+              <span>{labels.about}</span>
+              {isActive("/about") && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full" />
+              )}
+            </Link>
+
+            {/* 3. Destinos Hover Dropdown */}
             <div className="relative group py-1">
               <Link
                 href={`/${locale}/destinations`}
-                className={`text-[11px] font-bold uppercase tracking-[0.18em] hover:text-gold transition-colors duration-300 flex items-center gap-1 ${
+                className={`text-[10px] xl:text-[11px] font-bold uppercase tracking-[0.1em] xl:tracking-[0.16em] whitespace-nowrap hover:text-gold transition-colors duration-300 flex items-center gap-1 ${
                   isActive("/destinations") ? "text-gold" : "text-royal"
                 }`}
               >
@@ -161,43 +216,77 @@ export default function Header({ locale }: HeaderProps) {
               </Link>
               
               {/* Dropdown Container */}
-              <div className="absolute left-0 mt-2 w-52 bg-[#FAF8F5] border border-gold/15 rounded-2xl shadow-xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
+              <div className="absolute left-0 mt-2 w-64 bg-[#FAF8F5] border border-gold/15 rounded-2xl shadow-xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
                 <Link
                   href={`/${locale}/destinations`}
-                  className="block px-5 py-2.5 text-[10px] font-bold uppercase tracking-wider text-royal/60 hover:text-gold hover:bg-gold/5 transition-colors border-b border-gold/5 mb-1.5"
+                  className="block px-5 py-2 text-[10px] font-bold uppercase tracking-wider text-royal/60 hover:text-gold hover:bg-gold/5 transition-colors border-b border-gold/5 mb-1.5 pb-2"
                 >
-                  All Regions
+                  All Destinations
                 </Link>
-                {statesList.map((st) => (
+                {destinationsList.map((dest, idx) => (
                   <Link
-                    key={st.path}
-                    href={`/${locale}${st.path}`}
+                    key={idx}
+                    href={`/${locale}${dest.path}`}
                     className="block px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-royal hover:bg-gold/10 hover:text-gold transition-colors"
                   >
-                    {st.name}
+                    {dest.name[locale as 'en'|'es'|'pt'] || dest.name.en}
                   </Link>
                 ))}
               </div>
             </div>
 
-            {/* Other Menu Items */}
-            {menuItems.map((item) => {
-              const active = isActive(item.path);
-              return (
-                <Link
-                  key={item.path}
-                  href={`/${locale}${item.path}`}
-                  className={`text-[11px] font-bold uppercase tracking-[0.18em] hover:text-gold transition-colors duration-300 relative py-1 ${
-                    active ? "text-gold" : "text-royal"
-                  }`}
-                >
-                  <span>{item.name}</span>
-                  {active && (
-                    <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full" />
-                  )}
-                </Link>
-              );
-            })}
+            {/* 4. Información para viajeros Dropdown */}
+            <div className="relative group py-1">
+              <Link
+                href={`/${locale}/faq`}
+                className={`text-[10px] xl:text-[11px] font-bold uppercase tracking-[0.1em] xl:tracking-[0.16em] whitespace-nowrap hover:text-gold transition-colors duration-300 flex items-center gap-1 ${
+                  isActive("/faq") ? "text-gold" : "text-royal"
+                }`}
+              >
+                <span>{labels.info}</span>
+                <ChevronDown className="w-3.5 h-3.5 text-gold transition-transform duration-300 group-hover:rotate-180" />
+              </Link>
+              
+              {/* Dropdown Container */}
+              <div className="absolute left-0 mt-2 w-64 bg-[#FAF8F5] border border-gold/15 rounded-2xl shadow-xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
+                {infoList.map((info, idx) => (
+                  <Link
+                    key={idx}
+                    href={`/${locale}${info.path}`}
+                    className="block px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-royal hover:bg-gold/10 hover:text-gold transition-colors"
+                  >
+                    {info.name[locale as 'en'|'es'|'pt'] || info.name.en}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* 5. Contact Link */}
+            <Link
+              href={`/${locale}/contact`}
+              className={`text-[10px] xl:text-[11px] font-bold uppercase tracking-[0.1em] xl:tracking-[0.16em] whitespace-nowrap hover:text-gold transition-colors duration-300 relative py-1 ${
+                isActive("/contact") ? "text-gold" : "text-royal"
+              }`}
+            >
+              <span>{labels.contact}</span>
+              {isActive("/contact") && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full" />
+              )}
+            </Link>
+
+            {/* 6. Blog Link */}
+            <Link
+              href={`/${locale}/blog`}
+              className={`text-[10px] xl:text-[11px] font-bold uppercase tracking-[0.1em] xl:tracking-[0.16em] whitespace-nowrap hover:text-gold transition-colors duration-300 relative py-1 ${
+                isActive("/blog") ? "text-gold" : "text-royal"
+              }`}
+            >
+              <span>{labels.blog}</span>
+              {isActive("/blog") && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full" />
+              )}
+            </Link>
+
           </nav>
 
           {/* Right Action Menu */}
@@ -209,6 +298,7 @@ export default function Header({ locale }: HeaderProps) {
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
                 className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-royal hover:text-gold transition-colors border border-gold/25 px-3 py-1.5 rounded-full"
                 aria-label="Language Selector"
+                suppressHydrationWarning={true}
               >
                 <Globe className="w-3.5 h-3.5 text-gold" />
                 <span>{locale}</span>
@@ -253,6 +343,7 @@ export default function Header({ locale }: HeaderProps) {
               onClick={() => setLangMenuOpen(!langMenuOpen)}
               className="p-2 border border-gold/15 rounded-full text-royal"
               aria-label="Language Mobile Menu"
+              suppressHydrationWarning={true}
             >
               <Globe className="w-4 h-4 text-gold" />
             </button>
@@ -280,6 +371,7 @@ export default function Header({ locale }: HeaderProps) {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 border border-gold/15 rounded-full text-royal"
               aria-label="Toggle Mobile Menu"
+              suppressHydrationWarning={true}
             >
               {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
@@ -290,48 +382,67 @@ export default function Header({ locale }: HeaderProps) {
 
       {/* Mobile Menu Panel */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-[#FAF8F5] z-10 flex flex-col justify-center px-8 space-y-8 animate-fade-in lg:hidden">
-          <nav className="flex flex-col space-y-6 text-center">
+        <div className="fixed inset-0 bg-[#FAF8F5] z-10 flex flex-col justify-center px-8 space-y-6 animate-fade-in lg:hidden">
+          <nav className="flex flex-col space-y-4 text-center">
             
             <Link
               href={`/${locale}`}
               onClick={() => setMobileMenuOpen(false)}
               className="text-lg font-bold text-royal hover:text-gold transition-colors"
             >
-              {labels.home || "Home"}
+              {labels.home}
             </Link>
 
-            {/* Mobile Destinations Sublinks */}
-            <div className="space-y-3">
-              <span className="text-sm font-bold uppercase tracking-wider text-gold block">
-                {labels.destinations}
-              </span>
-              <div className="flex flex-wrap justify-center gap-2.5">
-                {statesList.map((st) => (
-                  <Link
-                    key={st.path}
-                    href={`/${locale}${st.path}`}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-xs font-semibold text-royal/70 hover:text-gold border border-gold/10 px-3 py-1 rounded-full bg-white"
-                  >
-                    {st.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
+            <Link
+              href={`/${locale}/packages`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-lg font-bold text-royal hover:text-gold transition-colors"
+            >
+              {labels.packages}
+            </Link>
 
-            {menuItems.map((item) => (
-              <Link
-                key={item.path}
-                href={`/${locale}${item.path}`}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-lg font-bold text-royal hover:text-gold transition-colors"
-              >
-                {item.name}
-              </Link>
-            ))}
+            <Link
+              href={`/${locale}/about`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-lg font-bold text-royal hover:text-gold transition-colors"
+            >
+              {labels.about}
+            </Link>
+
+            <Link
+              href={`/${locale}/destinations`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-lg font-bold text-royal hover:text-gold transition-colors"
+            >
+              {labels.destinations}
+            </Link>
+
+            <Link
+              href={`/${locale}/faq`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-lg font-bold text-royal hover:text-gold transition-colors"
+            >
+              {labels.info}
+            </Link>
+
+            <Link
+              href={`/${locale}/contact`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-lg font-bold text-royal hover:text-gold transition-colors"
+            >
+              {labels.contact}
+            </Link>
+
+            <Link
+              href={`/${locale}/blog`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-lg font-bold text-royal hover:text-gold transition-colors"
+            >
+              {labels.blog}
+            </Link>
+
           </nav>
-          <div className="text-center pt-8 border-t border-gold/10">
+          <div className="text-center pt-6 border-t border-gold/10">
             <Link
               href={`/${locale}/contact`}
               onClick={() => setMobileMenuOpen(false)}

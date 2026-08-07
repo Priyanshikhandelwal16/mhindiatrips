@@ -3,6 +3,8 @@ import Link from "next/link";
 import { getStatesAction, getTourPackagesAction, getBlogsAction, getTestimonialsAction, getFoodsAction } from "@/app/actions/queries";
 import InquiryForm from "@/components/common/InquiryForm";
 import Reveal from "@/components/home/Reveal";
+import HeroSlider from "@/components/home/HeroSlider";
+import TestimonialSlider from "@/components/home/TestimonialSlider";
 import { 
   MapPin, Clock, ArrowRight, Star, Heart, Compass, Sparkles, 
   Award, Shield, Calendar, BookOpen, Coffee, Landmark, ArrowUpRight 
@@ -48,7 +50,18 @@ export default async function HomePage({ params }: HomePageProps) {
       ctaBannerTitle: "Begin Your Private Passage",
       ctaBannerSub: "Speak to a luxury travel advisor to draft your tailored itinerary.",
       ctaBannerBtn: "Inquire Now",
-      viewAll: "View All Experiences"
+      viewAll: "View All Experiences",
+      guideSub: "Traveler Resources",
+      guideTitle: "Essential India Guides",
+      guideDesc: "Practical travel intelligence to plan your journey with confidence.",
+      guide1Title: "Solo Female Travel",
+      guide1Desc: "India is welcoming and safe. We provide dedicated private drivers, licensed local guides, and 24/7 concierge support.",
+      guide2Title: "Best Time to Visit",
+      guide2Desc: "October to March offers cool, pleasant days. Ideal for exploring heritage forts and desert safaris.",
+      guide3Title: "Vaccines & Health",
+      guide3Desc: "Simple precautions ensure a safe trip. We provide up-to-date health guides for all regions.",
+      guide4Title: "Currency & Payments",
+      guide4Desc: "Cards are widely accepted, but carrying some Rupees is useful for local markets and small vendors."
     },
     es: {
       heroSub: "TOURS PRIVADOS A MEDIDA",
@@ -62,6 +75,7 @@ export default async function HomePage({ params }: HomePageProps) {
       regionsTitle: "Explore Horizontes Diversos",
       regionsDesc: "Desde los grandes palacios de Rajasthan hasta los serenos canales de Kerala.",
       packagesSub: "Viajes Destacados",
+      regionsTitleCustom: "Explorar Regiones",
       packagesTitle: "Paquetes de Viajes Exclusivos",
       packagesDesc: "Itinerarios de élite diseñados a mano por nuestros directores de destino.",
       foodSub: "Patrimonio Culinario",
@@ -76,7 +90,18 @@ export default async function HomePage({ params }: HomePageProps) {
       ctaBannerTitle: "Comience Su Viaje Privado",
       ctaBannerSub: "Hable con un asesor de viajes de lujo para diseñar su itinerario a medida.",
       ctaBannerBtn: "Planificar Ahora",
-      viewAll: "Ver Todas las Experiencias"
+      viewAll: "Ver Todas las Experiencias",
+      guideSub: "Recursos para Viajeros",
+      guideTitle: "Guías Esenciales de India",
+      guideDesc: "Información práctica y detallada para planificar su viaje con total tranquilidad.",
+      guide1Title: "Mujer viajando sola",
+      guide1Desc: "La India es acogedora y segura. Brindamos choferes privados, guías certificados y asistencia activa las 24 horas.",
+      guide2Title: "Cuándo viajar a la India",
+      guide2Desc: "De octubre a marzo es la época dorada, ideal para explorar fortalezas imperiales sin calor extremo.",
+      guide3Title: "Vacunas y Salud",
+      guide3Desc: "Precauciones simples aseguran un viaje saludable. Ofrecemos recomendaciones de salud actualizadas.",
+      guide4Title: "Moneda en la India",
+      guide4Desc: "Las tarjetas de crédito son comunes, pero llevar rupias en efectivo es ideal para pequeños mercados."
     },
     pt: {
       heroSub: "TOURS PRIVADOS SOB MEDIDA",
@@ -104,7 +129,18 @@ export default async function HomePage({ params }: HomePageProps) {
       ctaBannerTitle: "Comece Sua Viagem Privada",
       ctaBannerSub: "Fale com um consultor de viagens de luxo para desenhar seu itinerário sob medida.",
       ctaBannerBtn: "Planejar Agora",
-      viewAll: "Ver Todas as Experiências"
+      viewAll: "Ver Todas as Experiências",
+      guideSub: "Recursos para Viajantes",
+      guideTitle: "Guias Essenciais da Índia",
+      guideDesc: "Informações práticas e detalhadas para planejar sua viagem com total tranquilidade.",
+      guide1Title: "Mulher viajando sozinha",
+      guide1Desc: "A Índia é acolhedora e segura. Oferecemos motoristas particulares, guias certificados e assistência 24/7.",
+      guide2Title: "Quando viajar para a Índia",
+      guide2Desc: "De outubro a março é a época de ouro, ideal para explorar palácios históricos e safáris no deserto.",
+      guide3Title: "Vacinas e Saúde",
+      guide3Desc: "Precauções simples garantem uma viagem saudável. Oferecemos diretrizes atualizadas por região.",
+      guide4Title: "Moneda na Índia",
+      guide4Desc: "Cartões são aceitos, mas ter rúpias em mãos é ideal para feiras de artesanato e mercados locais."
     }
   };
 
@@ -166,53 +202,43 @@ export default async function HomePage({ params }: HomePageProps) {
 
   const text = labels[locale] || labels.en;
 
+  const slides = [
+    {
+      image: "/images/taj_mahal_sunrise.png",
+      sub: text.heroSub,
+      title: locale === "es" ? "Viaje a India en Lujo Absoluto" : locale === "pt" ? "Viaje para a Índia em Luxo Absoluto" : "Experience India in Absolute Luxury",
+      desc: text.heroDesc,
+      location: locale === "es" ? "Taj Mahal, Agra" : locale === "pt" ? "Taj Mahal, Agra" : "Taj Mahal, Agra",
+      objectPosition: "center 28%"
+    },
+    {
+      image: "/images/rajasthan_fort_sunset.png",
+      sub: locale === "es" ? "PALACIOS HISTÓRICOS" : locale === "pt" ? "PALÁCIOS HISTÓRICOS" : "HERITAGE PALACES",
+      title: locale === "es" ? "La Magia Real de Rajastán" : locale === "pt" ? "A Magia Real do Rajastão" : "The Royal Magic of Rajasthan",
+      desc: locale === "es" ? "Explore dunas de arena, fuertes medievales y cene dentro de auténticos palacios reales." : locale === "pt" ? "Explore dunas de areia, fortes medievais e jante dentro de autênticos palácios reais." : "Explore desert dunes, medieval forts, and dine inside authentic royal lakeside palaces.",
+      location: locale === "es" ? "Fuerte Mehrangarh, Jodhpur" : locale === "pt" ? "Forte Mehrangarh, Jodhpur" : "Mehrangarh Fort, Jodhpur",
+      objectPosition: "center 35%"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=1200",
+      sub: locale === "es" ? "RETIROS HOLÍSTICOS" : locale === "pt" ? "RETIROS HOLÍSTICOS" : "HOLISTIC RETREATS",
+      title: locale === "es" ? "Serenidad Tropical en Kerala" : locale === "pt" ? "Serenidade Tropical em Kerala" : "Tropical Serenity in Kerala",
+      desc: locale === "es" ? "Navegue por canales de esmeralda y rejuvenezca con auténticos rituales ayurvédicos." : locale === "pt" ? "Navegue por canais de esmeralda e rejuveneça com autênticos rituais ayurvédicos." : "Cruise through emerald backwaters and rejuvenate with authentic wellness Ayurvedic rituals.",
+      location: locale === "es" ? "Remansos de Alleppey, Kerala" : locale === "pt" ? "Canais de Alleppey, Kerala" : "Backwaters, Alleppey",
+      objectPosition: "center 40%"
+    }
+  ];
+
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
-      {/* SECTION 1: Full-Width Cinematic Hero Banner (100vh height) */}
-      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-        <img 
-          src="/images/taj_mahal_sunrise.png" 
-          alt="Luxury India Trips" 
-          className="absolute inset-0 w-full h-full object-cover object-[center_28%] scale-100 animate-kenburns"
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-black/50" />
-        
-        <div className="relative z-10 text-center text-white space-y-8 px-6 max-w-4xl mt-24">
-          <Reveal>
-            <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.3em] px-6 py-2.5 rounded-full shadow-lg inline-block">
-              {text.heroSub}
-            </span>
-          </Reveal>
-          <Reveal delay={150}>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-white">
-              {text.heroTitle}
-            </h1>
-          </Reveal>
-          <Reveal delay={300}>
-            <p className="text-sm md:text-base lg:text-lg text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
-              {text.heroDesc}
-            </p>
-          </Reveal>
-          
-          {/* Buttons: 16px–18px */}
-          <Reveal delay={450} className="pt-6 flex flex-wrap justify-center gap-4">
-            <Link href="#destinations" className="bg-gold hover:bg-gold-light text-royal text-[11px] font-bold uppercase tracking-wider px-7 py-3 rounded-full transition-transform hover:scale-105 shadow-lg shadow-gold/20">
-              {text.cta}
-            </Link>
-            <Link href="#inquire-now" className="bg-white/10 hover:bg-white/20 text-white text-[11px] font-bold uppercase tracking-wider px-7 py-3 rounded-full border border-white/35 transition-colors">
-              {text.inquireCTA}
-            </Link>
-          </Reveal>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 z-20">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-white font-bold">Discover</span>
-          <div className="w-px h-10 bg-gradient-to-b from-white to-transparent" />
-        </div>
-      </section>
+      {/* SECTION 1: Dynamic Hero Banner Slider */}
+      <HeroSlider 
+        locale={locale} 
+        slides={slides} 
+        ctaText={text.cta} 
+        inquireCTA={text.inquireCTA} 
+      />
 
       {/* SECTION 2: The Philosophy Section (Split screen layout) */}
       <section className="max-w-7xl mx-auto px-6 py-32 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center border-b border-gold/10">
@@ -384,40 +410,102 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
-      {/* SECTION 6: Customer Testimonials */}
-      <section className="max-w-7xl mx-auto px-6 py-32 space-y-20 border-b border-gold/10">
-        <div className="text-center space-y-4 max-w-2xl mx-auto">
-          <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.testimonialsSub}</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight">{text.testimonialsTitle}</h2>
-          <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
-        </div>
+      {/* SECTION 5.5: Traveler Essential Resources */}
+      <section className="bg-white border-t border-gold/15 py-32">
+        <div className="max-w-7xl mx-auto px-6 space-y-20">
+          <Reveal className="text-center space-y-4 max-w-3xl mx-auto">
+            <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.guideSub}</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight">{text.guideTitle}</h2>
+            <p className="text-sm md:text-base text-foreground/50 leading-relaxed font-light">{text.guideDesc}</p>
+            <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
+          </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-          {clientReviews.map((test: any, i: number) => (
-            <Reveal key={i} delay={i * 80}>
-              <div className="bg-white border border-gold/15 p-12 rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-300 space-y-6 relative h-full flex flex-col justify-between hover:-translate-y-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Guide 1: Solo Female Travel */}
+            <Reveal delay={50}>
+              <div className="bg-[#FAF8F5] border border-gold/10 p-9 rounded-[2rem] hover:shadow-xl hover:border-gold/25 transition-all duration-300 space-y-6 h-full flex flex-col justify-between">
                 <div className="space-y-4">
-                  <div className="flex gap-1 text-gold">
-                    {[...Array(5)].map((_, idx) => (
-                      <Star key={idx} className="w-4 h-4 fill-current" />
-                    ))}
+                  <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
+                    <Shield className="w-6 h-6" />
                   </div>
-                  <p className="text-sm md:text-base text-foreground/70 italic leading-relaxed font-light">
-                    "{test.text[locale as "en"|"es"|"pt"] || test.text.en}"
-                  </p>
+                  <h3 className="text-lg font-bold text-royal font-serif">{text.guide1Title}</h3>
+                  <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.guide1Desc}</p>
                 </div>
-                <div className="border-t border-gold/10 pt-5 space-y-1.5 mt-6">
-                  <div className="flex justify-between items-center text-sm">
-                    <span className="font-bold text-royal">{test.author}</span>
-                    <span className="text-[10px] text-gold uppercase tracking-wider font-extrabold">{test.location}</span>
-                  </div>
-                  <p className="text-[10px] text-foreground/40 uppercase tracking-wider font-medium">{test.tour}</p>
+                <div className="pt-4 border-t border-gold/5">
+                  <Link href={`/${locale}/faq`} className="text-[10px] font-bold uppercase tracking-wider text-gold hover:text-royal transition-colors inline-flex items-center gap-1.5">
+                    <span>Read Guide</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
               </div>
             </Reveal>
-          ))}
+
+            {/* Guide 2: Best Time to Visit */}
+            <Reveal delay={120}>
+              <div className="bg-[#FAF8F5] border border-gold/10 p-9 rounded-[2rem] hover:shadow-xl hover:border-gold/25 transition-all duration-300 space-y-6 h-full flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
+                    <Calendar className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-royal font-serif">{text.guide2Title}</h3>
+                  <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.guide2Desc}</p>
+                </div>
+                <div className="pt-4 border-t border-gold/5">
+                  <Link href={`/${locale}/faq`} className="text-[10px] font-bold uppercase tracking-wider text-gold hover:text-royal transition-colors inline-flex items-center gap-1.5">
+                    <span>Read Guide</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Guide 3: Vaccines & Health */}
+            <Reveal delay={190}>
+              <div className="bg-[#FAF8F5] border border-gold/10 p-9 rounded-[2rem] hover:shadow-xl hover:border-gold/25 transition-all duration-300 space-y-6 h-full flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
+                    <Heart className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-royal font-serif">{text.guide3Title}</h3>
+                  <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.guide3Desc}</p>
+                </div>
+                <div className="pt-4 border-t border-gold/5">
+                  <Link href={`/${locale}/faq`} className="text-[10px] font-bold uppercase tracking-wider text-gold hover:text-royal transition-colors inline-flex items-center gap-1.5">
+                    <span>Read Guide</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Guide 4: Currency & Money */}
+            <Reveal delay={260}>
+              <div className="bg-[#FAF8F5] border border-gold/10 p-9 rounded-[2rem] hover:shadow-xl hover:border-gold/25 transition-all duration-300 space-y-6 h-full flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
+                    <Compass className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-royal font-serif">{text.guide4Title}</h3>
+                  <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.guide4Desc}</p>
+                </div>
+                <div className="pt-4 border-t border-gold/5">
+                  <Link href={`/${locale}/faq`} className="text-[10px] font-bold uppercase tracking-wider text-gold hover:text-royal transition-colors inline-flex items-center gap-1.5">
+                    <span>Read Guide</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
+
+      {/* SECTION 6: Customer Testimonials (Infinite Scroll Slider) */}
+      <TestimonialSlider 
+        locale={locale} 
+        reviews={testimonials} 
+        labels={{ sub: text.testimonialsSub, title: text.testimonialsTitle }} 
+      />
 
       {/* SECTION 7: Curated Concierge FAQs */}
       <section className="max-w-4xl mx-auto px-6 py-32 space-y-20 border-b border-gold/10">

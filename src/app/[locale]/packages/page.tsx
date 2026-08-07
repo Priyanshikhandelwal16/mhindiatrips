@@ -167,7 +167,7 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {packages.map((pkg: any, i: number) => (
             <Reveal key={pkg.slug} delay={i * 80}>
-              <div className="bg-white border border-gold/10 rounded-[2rem] overflow-hidden shadow-lg flex flex-col h-full transition-all duration-500 hover:-translate-y-2 hover:border-gold/25 hover:shadow-2xl">
+              <div id={pkg.slug} className="bg-white border border-gold/10 rounded-[2rem] overflow-hidden shadow-lg flex flex-col h-full transition-all duration-500 hover:-translate-y-2 hover:border-gold/25 hover:shadow-2xl scroll-mt-28">
                 
                 <div className="relative h-64 overflow-hidden shrink-0">
                   <img

@@ -159,6 +159,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
               onChange={(e) => setForm({ ...form, name: e.target.value })} 
               className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors" 
               required 
+              suppressHydrationWarning={true}
             />
           </div>
 
@@ -170,6 +171,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
               onChange={(e) => setForm({ ...form, email: e.target.value })} 
               className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors" 
               required 
+              suppressHydrationWarning={true}
             />
           </div>
 
@@ -180,6 +182,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
               value={form.phone} 
               onChange={(e) => setForm({ ...form, phone: e.target.value })} 
               className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors" 
+              suppressHydrationWarning={true}
             />
           </div>
 
@@ -190,6 +193,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
               value={form.country} 
               onChange={(e) => setForm({ ...form, country: e.target.value })} 
               className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors" 
+              suppressHydrationWarning={true}
             />
           </div>
 
@@ -202,6 +206,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
               onChange={(e) => setForm({ ...form, startDate: e.target.value })} 
               className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors" 
               required 
+              suppressHydrationWarning={true}
             />
           </div>
 
@@ -212,6 +217,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
               value={form.duration} 
               onChange={(e) => setForm({ ...form, duration: e.target.value })} 
               className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors" 
+              suppressHydrationWarning={true}
             />
           </div>
 
@@ -222,6 +228,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
                 value={form.travelers} 
                 onChange={(e) => setForm({ ...form, travelers: e.target.value })} 
                 className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors appearance-none cursor-pointer"
+                suppressHydrationWarning={true}
               >
                 <option value="1">1</option>
                 <option value="2">2 (Couple)</option>
@@ -238,6 +245,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
                 value={form.experience} 
                 onChange={(e) => setForm({ ...form, experience: e.target.value })} 
                 className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors appearance-none cursor-pointer"
+                suppressHydrationWarning={true}
               >
                 <option value="Luxury">Luxury & Palaces</option>
                 <option value="Adventure">Adventure</option>
@@ -256,6 +264,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
                 onChange={(e) => setForm({ ...form, destinations: e.target.value })} 
                 className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors appearance-none cursor-pointer font-semibold"
                 required
+                suppressHydrationWarning={true}
               >
                 <option value="Rajasthan">Rajasthan</option>
                 <option value="Kerala">Kerala</option>
@@ -276,6 +285,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
             onChange={(e) => setForm({ ...form, message: e.target.value })} 
             rows={4} 
             className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors resize-none font-light" 
+            suppressHydrationWarning={true}
           />
         </div>
 
@@ -283,6 +293,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
           type="submit"
           disabled={loading}
           className="w-full bg-gold hover:bg-gold-light text-royal text-base font-bold uppercase tracking-widest py-4.5 rounded-full transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-gold/10"
+          suppressHydrationWarning={true}
         >
           <Send className="w-5 h-5 text-royal" />
           <span>{loading ? text.submitting : text.submit}</span>
