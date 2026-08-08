@@ -106,5 +106,73 @@
     "includedExperiences": [{ "en": "Private cooking class with local chef", "es": "Clase de cocina con chef local", "pt": "Aula de culinária com chef local" }],
     "travelTips": [],
     "faqs": []
+  },
+  {
+    "slug": "himalayan-adventure-retreat",
+    "title": { "en": "Himalayan Adventure & Spa", "es": "Aventura y Spa en el Himalaya", "pt": "Aventura e Spa no Himalaia" },
+    "tagline": { "en": "Scenic mountain trails, river rafting, and premium luxury wellness retreats in Rishikesh & Shimla.", "es": "Senderos de montaña escénicos y retiros de bienestar de lujo.", "pt": "Trilhas de montanha cênicas e retiros de bem-estar de luxo." },
+    "category": "Adventure & Wellness",
+    "durationDays": 8,
+    "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=800",
+    "gallery": [],
+    "highlights": [
+      { "en": "Luxury stays in heritage hills resorts", "es": "Estancias de lujo en colinas", "pt": "Estadias de luxo em colinas" },
+      { "en": "White river rafting in Rishikesh", "es": "Rafting en el río Rishikesh", "pt": "Rafting no rio Rishikesh" }
+    ],
+    "itinerary": [{ "day": 1, "title": { "en": "Arrive Shimla", "es": "Llegada a Shimla", "pt": "Chegada a Shimla" }, "desc": { "en": "Welcome and check-in to Wildflower Hall.", "es": "Bienvenida y check-in.", "pt": "Boas-vindas e check-in." } }],
+    "includedExperiences": [{ "en": "Private yoga sessions", "es": "Sesiones de yoga privadas", "pt": "Sessões de ioga privadas" }],
+    "travelTips": [],
+    "faqs": []
+  },
+  {
+    "slug": "south-india-temples-palaces",
+    "title": { "en": "Dravidian Temples & Palaces", "es": "Templos y Palacios Dravidianos", "pt": "Templos e Palácios Dravidianos" },
+    "tagline": { "en": "Discover Mysore palaces, Hampi ruins, and Madurai's grand towers.", "es": "Descubra palacios de Mysore y ruinas de Hampi.", "pt": "Descubra palácios de Mysore e ruínas de Hampi." },
+    "category": "Heritage Tours",
+    "durationDays": 11,
+    "image": "/images/hampi-ruins.jpg",
+    "gallery": [],
+    "highlights": [
+      { "en": "Exclusive tour of Mysore Palace at night", "es": "Tour exclusivo del Palacio de Mysore", "pt": "Tour exclusivo do Palácio de Mysore" },
+      { "en": "Sunset guided walk in Hampi ruins", "es": "Caminata al atardecer en Hampi", "pt": "Caminhada ao pôr do sol em Hampi" }
+    ],
+    "itinerary": [{ "day": 1, "title": { "en": "Arrive Bangalore", "es": "Llegada a Bangalore", "pt": "Chegada a Bangalore" }, "desc": { "en": "Transfer to Taj West End.", "es": "Traslado al Taj West End.", "pt": "Traslado ao Taj West End." } }],
+    "includedExperiences": [{ "en": "Traditional Carnatic music concert", "es": "Concierto de música Carnatic", "pt": "Concerto de música Carnatic" }],
+    "travelTips": [],
+    "faqs": []
+  },
+  {
+    "slug": "gujarat-culture-heritage",
+    "title": { "en": "Imperial Gujarat & Heritage", "es": "Gujarat Imperial y Patrimonio", "pt": "Gujarat Imperial e Patrimônio" },
+    "tagline": { "en": "Rann of Kutch salt flats, Asiatic lions of Gir, and ancient temple steps.", "es": "Salinas de Rann of Kutch y leones de Gir.", "pt": "Salinas de Rann of Kutch e leões de Gir." },
+    "category": "Cultural Heritage",
+    "durationDays": 9,
+    "image": "/images/gujarat.jpg",
+    "gallery": [],
+    "highlights": [
+      { "en": "Witness sunset at White Rann of Kutch", "es": "Amanecer en el Rann Blanco de Kutch", "pt": "Amanhecer no Rann Branco de Kutch" },
+      { "en": "Open jeep safari in Gir Lion Sanctuary", "es": "Safari en jeep en Gir", "pt": "Safari de jipe em Gir" }
+    ],
+    "itinerary": [{ "day": 1, "title": { "en": "Arrive Ahmedabad", "es": "Llegada a Ahmedabad", "pt": "Chegada a Ahmedabad" }, "desc": { "en": "Explore heritage stepwells and Gandhi ashram.", "es": "Explore los pozos y el ashram.", "pt": "Explore os poços e o ashram." } }],
+    "includedExperiences": [{ "en": "Handloom weaving workshop", "es": "Taller de tejido tradicional", "pt": "Oficina de tecelagem tradicional" }],
+    "travelTips": [],
+    "faqs": []
+  },
+  {
+    "slug": "darjeeling-sikkim-tea-trails",
+    "title": { "en": "Imperial Darjeeling Tea Trail", "es": "Ruta del Té Imperial Darjeeling", "pt": "Rota do Chá Imperial Darjeeling" },
+    "tagline": { "en": "Majestic Kanchenjunga mountain views, tea estate heritage bungalows, and toy train rides.", "es": "Vistas de la montaña Kanchenjunga y plantaciones de té.", "pt": "Vistas da montanha Kanchenjunga e plantações de chá." },
+    "category": "Scenic & Heritage",
+    "durationDays": 7,
+    "image": "https://images.unsplash.com/photo-1593693411515-c202e974fe08?q=80&w=800",
+    "gallery": [],
+    "highlights": [
+      { "en": "Stay in 19th-century luxury tea estate bungalow", "es": "Alojamiento en bungalow de té histórico", "pt": "Hospedagem em bangalô de chá histórico" },
+      { "en": "UNESCO Toy Train private chartered ride", "es": "Paseo en el tren de juguete UNESCO", "pt": "Passeio no trem de brinquedo da UNESCO" }
+    ],
+    "itinerary": [{ "day": 1, "title": { "en": "Arrive Darjeeling", "es": "Llegada a Darjeeling", "pt": "Chegada a Darjeeling" }, "desc": { "en": "Transfer to Windamere heritage hotel.", "es": "Traslado al hotel Windamere.", "pt": "Traslado ao hotel Windamere." } }],
+    "includedExperiences": [{ "en": "Exclusive private tea tasting session", "es": "Degustación privada de té", "pt": "Degustação privada de chá" }],
+    "travelTips": [],
+    "faqs": []
   }
 ]

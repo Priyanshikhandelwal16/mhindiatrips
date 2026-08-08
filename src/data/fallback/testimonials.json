@@ -46,5 +46,17 @@
       "pt": "Experiência excepcional de bem-estar em Kerala. O cruzeiro em casa flutuante e os tratamentos ayurvédicos foram perfeitos."
     },
     "stars": 5
+  },
+  {
+    "id": "test-5",
+    "name": "Jean-Pierre Laurent",
+    "location": "Paris, France",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200",
+    "quote": {
+      "en": "MH India Trips created an incredible culinary and cultural tour. The Old Delhi street food tour and private chef cooking class in Udaipur were absolute highlights of our journey. Highly recommended!",
+      "es": "¡MH India Trips creó un increíble tour culinario y cultural! La degustación en Old Delhi y la clase de cocina privada en Udaipur fueron espectaculares.",
+      "pt": "A MH India Trips criou um tour culinário e cultural incrível. A degustação em Old Delhi e a aula de culinária privada em Udaipur foram excelentes."
+    },
+    "stars": 5
   }
 ]
