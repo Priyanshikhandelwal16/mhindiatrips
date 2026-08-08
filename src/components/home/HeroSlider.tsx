@@ -83,9 +83,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
           {/* Content (Centered vertically and horizontally) */}
           <div className="relative z-10 h-full flex items-center justify-center">
             <div className="max-w-4xl mx-auto text-center px-6 w-full flex flex-col items-center">
-              <div className={`space-y-6 text-white text-center flex flex-col items-center max-w-3xl transition-opacity duration-1000 ${
-                i === current ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-              }`}>
+              <div className="space-y-6 text-white text-center flex flex-col items-center max-w-3xl">
                 {/* Location Badge */}
                 <div className="inline-block">
                   <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full px-5 py-2 text-[10px] uppercase tracking-[0.25em] font-semibold text-white/90">

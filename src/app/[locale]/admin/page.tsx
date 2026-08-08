@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { 
   getInquiriesAction
 } from "@/app/actions/inquiry";
@@ -29,10 +30,12 @@ import {
 import { 
   BarChart, Users, FileText, Compass, CheckCircle, Trash2, 
   Mail, Phone, MapPin, Calendar, Plus, Edit2, Upload, Lock, 
-  CheckCircle2, Star, Eye, Utensils, Sparkles, LogOut
+  CheckCircle2, Star, Eye, Utensils, Sparkles, LogOut, Map,
+  LayoutDashboard
 } from "lucide-react";
 import { signInWithEmailAndPassword, onAuthStateChanged, signOut, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase";
+import { useParams } from "next/navigation";
 
 // Cloudinary image uploader client-side helper
 function CloudinaryUpload({ onUploadComplete, label = "Upload Image" }: { onUploadComplete: (url: string) => void, label?: string }) {
@@ -102,15 +105,29 @@ export default function AdminDashboard() {
   const [editState, setEditState] = useState<any>(null);
   const [newTestimonial, setNewTestimonial] = useState<any>(null);
 
+  const params = useParams();
+  const locale = params?.locale || "en";
+
   // Monitor Auth State
   useEffect(() => {
+    const savedUser = localStorage.getItem("admin_user");
+    if (savedUser) {
+      try {
+        setUser(JSON.parse(savedUser));
+        setAuthLoading(false);
+        return;
+      } catch (e) {}
+    }
+
     if (!auth) {
       setUser({ email: "offline-developer-mode@mhindiatrips.com" });
       setAuthLoading(false);
       return;
     }
     const unsubscribe = onAuthStateChanged(auth, (usr) => {
-      setUser(usr);
+      if (usr) {
+        setUser(usr);
+      }
       setAuthLoading(false);
     });
     return () => unsubscribe();
@@ -166,9 +183,20 @@ export default function AdminDashboard() {
   // Authenticate Admin
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Check against configured admin credentials first
+    const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL || "admin@mhindiatrips.com";
+    const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "admin";
+
+    if (email === adminEmail && password === adminPassword) {
+      const customUser = { email: adminEmail, customAuth: true };
+      setUser(customUser);
+      localStorage.setItem("admin_user", JSON.stringify(customUser));
+      return;
+    }
+
     if (!auth) {
-      alert("Firebase configuration is missing. Auto-authorized offline developer user.");
-      setUser({ email: "offline-developer-mode@mhindiatrips.com" });
+      alert("Firebase configuration is missing and custom credentials mismatch.");
       return;
     }
     setAuthLoading(true);
@@ -177,7 +205,10 @@ export default function AdminDashboard() {
         await createUserWithEmailAndPassword(auth, email, password);
         alert("Admin account created successfully!");
       } else {
-        await signInWithEmailAndPassword(auth, email, password);
+        const credential = await signInWithEmailAndPassword(auth, email, password);
+        const firebaseUser = { email: credential.user.email, uid: credential.user.uid };
+        setUser(firebaseUser);
+        localStorage.setItem("admin_user", JSON.stringify(firebaseUser));
       }
     } catch (err: any) {
       alert(err.message || "Authentication failed.");
@@ -187,11 +218,11 @@ export default function AdminDashboard() {
   };
 
   const handleLogout = async () => {
-    if (!auth) {
-      setUser(null);
-      return;
+    localStorage.removeItem("admin_user");
+    setUser(null);
+    if (auth) {
+      await signOut(auth);
     }
-    await signOut(auth);
   };
 
   // LEADS ACTIONS
@@ -411,14 +442,129 @@ export default function AdminDashboard() {
 
   // Dashboard content renderer
   return (
-    <div className="bg-[#FCFAF6] min-h-screen py-10 text-[#1A1E1D] font-sans">
+    <div className="min-h-screen bg-[#FCFAF6] flex font-sans text-[#1A1E1D]">
       
-      {/* Upper header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-10 border-b border-beige/40 pb-6">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight text-royal font-serif uppercase">
-            CMS Console: <span className="text-gold font-sans font-light">{activeTab}</span>
-          </h1>
+      {/* Sidebar Navigation */}
+      <aside className="w-64 bg-[#1A1E1D] text-white shrink-0 hidden md:flex flex-col justify-between py-8 px-6 border-r border-white/5">
+        <div className="space-y-10">
+          <Link href={`/${locale}`} className="text-xl font-bold tracking-widest text-[#FCFAF6] block">
+            MH<span className="text-gold font-semibold">ADMIN</span>
+          </Link>
+ 
+          <nav className="space-y-2">
+            <button
+              onClick={() => {
+                setActiveTab("dashboard");
+                window.location.hash = "";
+              }}
+              className={`flex items-center space-x-3 px-4 py-3 rounded-xl w-full text-left text-sm font-semibold transition cursor-pointer ${
+                activeTab === "dashboard" ? "bg-white/10 text-white font-bold" : "hover:bg-white/5 text-white/70"
+              }`}
+            >
+              <LayoutDashboard className="w-5 h-5 text-gold shrink-0" />
+              <span>Dashboard</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setActiveTab("leads");
+                window.location.hash = "leads";
+              }}
+              className={`flex items-center space-x-3 px-4 py-3 rounded-xl w-full text-left text-sm font-semibold transition cursor-pointer ${
+                activeTab === "leads" ? "bg-white/10 text-white font-bold" : "hover:bg-white/5 text-white/70"
+              }`}
+            >
+              <Users className="w-5 h-5 text-gold shrink-0" />
+              <span>Travel Leads</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setActiveTab("packages");
+                window.location.hash = "packages";
+              }}
+              className={`flex items-center space-x-3 px-4 py-3 rounded-xl w-full text-left text-sm font-semibold transition cursor-pointer ${
+                activeTab === "packages" ? "bg-white/10 text-white font-bold" : "hover:bg-white/5 text-white/70"
+              }`}
+            >
+              <Map className="w-5 h-5 text-gold shrink-0" />
+              <span>Tour Packages</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setActiveTab("blogs");
+                window.location.hash = "blogs";
+              }}
+              className={`flex items-center space-x-3 px-4 py-3 rounded-xl w-full text-left text-sm font-semibold transition cursor-pointer ${
+                activeTab === "blogs" ? "bg-white/10 text-white font-bold" : "hover:bg-white/5 text-white/70"
+              }`}
+            >
+              <FileText className="w-5 h-5 text-gold shrink-0" />
+              <span>Manage Blogs</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setActiveTab("cuisines");
+                window.location.hash = "cuisines";
+              }}
+              className={`flex items-center space-x-3 px-4 py-3 rounded-xl w-full text-left text-sm font-semibold transition cursor-pointer ${
+                activeTab === "cuisines" ? "bg-white/10 text-white font-bold" : "hover:bg-white/5 text-white/70"
+              }`}
+            >
+              <Utensils className="w-5 h-5 text-gold shrink-0" />
+              <span>Food Catalog</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setActiveTab("destinations");
+                window.location.hash = "destinations";
+              }}
+              className={`flex items-center space-x-3 px-4 py-3 rounded-xl w-full text-left text-sm font-semibold transition cursor-pointer ${
+                activeTab === "destinations" ? "bg-white/10 text-white font-bold" : "hover:bg-white/5 text-white/70"
+              }`}
+            >
+              <MapPin className="w-5 h-5 text-gold shrink-0" />
+              <span>Destinations</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setActiveTab("testimonials");
+                window.location.hash = "testimonials";
+              }}
+              className={`flex items-center space-x-3 px-4 py-3 rounded-xl w-full text-left text-sm font-semibold transition cursor-pointer ${
+                activeTab === "testimonials" ? "bg-white/10 text-white font-bold" : "hover:bg-white/5 text-white/70"
+              }`}
+            >
+              <Star className="w-5 h-5 text-gold shrink-0" />
+              <span>Testimonials</span>
+            </button>
+          </nav>
+        </div>
+
+        <div className="pt-6 border-t border-white/5">
+          <Link
+            href={`/${locale}`}
+            className="text-xs text-white/60 hover:text-gold flex items-center space-x-2 transition"
+          >
+            <Compass className="w-4 h-4" />
+            <span>Go to Live Website</span>
+          </Link>
+        </div>
+      </aside>
+
+      {/* Main Admin Area */}
+      <div className="flex-grow overflow-y-auto px-8 py-10">
+        
+        {/* Upper header */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-10 border-b border-beige/40 pb-6">
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight text-royal font-serif uppercase">
+              CMS Console: <span className="text-gold font-sans font-light">{activeTab}</span>
+            </h1>
           <p className="text-xs text-foreground/50 font-light uppercase tracking-wider mt-1">
             Signed in as {user.email}
           </p>
@@ -1266,6 +1412,7 @@ export default function AdminDashboard() {
         </div>
       )}
 
+      </div>
     </div>
   );
 }

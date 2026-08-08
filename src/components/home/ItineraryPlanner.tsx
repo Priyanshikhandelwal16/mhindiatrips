@@ -185,17 +185,39 @@ export default function ItineraryPlanner({ locale }: { locale: string }) {
   const currentInclusions = INCLUSIONS[tier];
 
   const handleBook = () => {
-    const inquirySection = document.getElementById("inquiry");
+    const inquirySection = document.getElementById("inquire-now");
     if (inquirySection) {
       inquirySection.scrollIntoView({ behavior: "smooth" });
       
-      // Attempt to auto-select corresponding travel style
-      const styleInput = document.querySelector('select[name="packageSlug"]') as HTMLSelectElement;
-      if (styleInput) {
-        // Fallback value assignment
-        styleInput.value = style === "heritage" ? "golden-triangle-luxury" : style === "wellness" ? "kerala-ayurveda-wellness" : "wildlife-ranthambore-safari";
-        // Dispatch event so state changes in React if needed
-        styleInput.dispatchEvent(new Event("change", { bubbles: true }));
+      // Find the select dropdowns by matching their option values
+      const selects = Array.from(inquirySection.querySelectorAll("select"));
+      const experienceSelect = selects.find(s => 
+        Array.from(s.options).some(o => o.value === "Luxury")
+      );
+      const destinationSelect = selects.find(s => 
+        Array.from(s.options).some(o => o.value === "Rajasthan")
+      );
+
+      if (experienceSelect) {
+        if (style === "heritage") {
+          experienceSelect.value = "Luxury";
+        } else if (style === "wellness") {
+          experienceSelect.value = "Spiritual";
+        } else if (style === "wildlife") {
+          experienceSelect.value = "Wildlife";
+        }
+        experienceSelect.dispatchEvent(new Event("change", { bubbles: true }));
+      }
+
+      if (destinationSelect) {
+        if (style === "heritage") {
+          destinationSelect.value = "Rajasthan";
+        } else if (style === "wellness") {
+          destinationSelect.value = "Kerala";
+        } else if (style === "wildlife") {
+          destinationSelect.value = "Others";
+        }
+        destinationSelect.dispatchEvent(new Event("change", { bubbles: true }));
       }
     }
   };
