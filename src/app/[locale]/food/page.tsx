@@ -10,7 +10,7 @@ interface FoodIndexPageProps {
 
 export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
   const { locale } = await params;
-  const foods = await getFoodsAction();
+  const foods = (await getFoodsAction()).slice(0, 15);
 
   const t: Record<string, any> = {
     en: { 

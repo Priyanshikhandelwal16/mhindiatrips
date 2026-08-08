@@ -473,7 +473,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
         {/* Large, Beautiful Cards (Increased dimensions, larger padding) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {states.slice(0, 6).map((st: any, i: number) => (
+          {states.slice(0, 10).map((st: any, i: number) => (
             <Reveal key={st.slug} delay={i * 80}>
               <Link href={`/${locale}/destinations/${st.slug}`} className="group block h-full">
                 <div className="bg-white border border-gold/10 rounded-[2rem] overflow-hidden shadow-lg transition-all duration-500 hover:-translate-y-3 hover:border-gold/25 hover:shadow-2xl flex flex-col h-full">
@@ -527,7 +527,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
         {/* Large, Beautiful Cards (Increased dimensions, larger padding) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {tourPackages.slice(0, 6).map((pkg: any, i: number) => (
+          {tourPackages.slice(0, 10).map((pkg: any, i: number) => (
             <Reveal key={pkg.slug} delay={i * 80}>
               <Link href={`/${locale}/packages`} className="group block h-full">
                 <div className="bg-white border border-gold/10 rounded-[2rem] overflow-hidden shadow-lg flex flex-col h-full transition-all duration-500 hover:-translate-y-3 hover:border-gold/25 hover:shadow-2xl">
@@ -675,7 +675,7 @@ export default async function HomePage({ params }: HomePageProps) {
       {/* SECTION 6: Customer Testimonials (Infinite Scroll Slider) */}
       <TestimonialSlider 
         locale={locale} 
-        reviews={testimonials} 
+        reviews={testimonials.slice(0, 5)} 
         labels={{ sub: text.testimonialsSub, title: text.testimonialsTitle }} 
       />
 
@@ -713,7 +713,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
           {/* Large, Beautiful Cards (Increased dimensions, larger padding) */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {blogs.slice(0, 3).map((post: any, i: number) => (
+            {blogs.slice(0, 6).map((post: any, i: number) => (
               <Reveal key={post.slug} delay={i * 80}>
                 <Link href={`/${locale}/blog/${post.slug}`} className="group block h-full">
                   <div className="bg-white border border-gold/10 rounded-[2rem] overflow-hidden shadow-lg transition-all duration-500 hover:-translate-y-2 hover:border-gold/25 hover:shadow-2xl flex flex-col h-full">
