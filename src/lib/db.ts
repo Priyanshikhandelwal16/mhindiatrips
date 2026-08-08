@@ -28,11 +28,22 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
-const firestore = getFirestore(app);
+let app: any = null;
+let firestore: any = null;
+let useFirestore = false;
 
-// Hybrid local JSON storage fallback configuration
-let useFirestore = true;
+if (process.env.NEXT_PUBLIC_FIREBASE_API_KEY) {
+  try {
+    app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
+    firestore = getFirestore(app);
+    useFirestore = true;
+  } catch (e) {
+    console.warn("Failed to initialize Firebase app in db.ts:", e);
+    useFirestore = false;
+  }
+} else {
+  useFirestore = false;
+}
 
 const FALLBACK_DIR = path.join(process.cwd(), "src", "data", "fallback");
 if (!fs.existsSync(FALLBACK_DIR)) {

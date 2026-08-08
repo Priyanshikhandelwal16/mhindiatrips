@@ -12,8 +12,19 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
+let app: any = null;
+let auth: any = null;
+let firestore: any = null;
 
-export const auth = getAuth(app);
-export const firestore = getFirestore(app);
+if (process.env.NEXT_PUBLIC_FIREBASE_API_KEY) {
+  try {
+    app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
+    auth = getAuth(app);
+    firestore = getFirestore(app);
+  } catch (e) {
+    console.warn("Failed to initialize Firebase app in firebase.ts:", e);
+  }
+}
+
+export { app, auth, firestore };
 export default app;

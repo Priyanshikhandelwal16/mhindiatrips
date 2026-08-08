@@ -104,6 +104,11 @@ export default function AdminDashboard() {
 
   // Monitor Auth State
   useEffect(() => {
+    if (!auth) {
+      setUser({ email: "offline-developer-mode@mhindiatrips.com" });
+      setAuthLoading(false);
+      return;
+    }
     const unsubscribe = onAuthStateChanged(auth, (usr) => {
       setUser(usr);
       setAuthLoading(false);
@@ -161,6 +166,11 @@ export default function AdminDashboard() {
   // Authenticate Admin
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!auth) {
+      alert("Firebase configuration is missing. Auto-authorized offline developer user.");
+      setUser({ email: "offline-developer-mode@mhindiatrips.com" });
+      return;
+    }
     setAuthLoading(true);
     try {
       if (isSignUp) {
@@ -177,6 +187,10 @@ export default function AdminDashboard() {
   };
 
   const handleLogout = async () => {
+    if (!auth) {
+      setUser(null);
+      return;
+    }
     await signOut(auth);
   };
 
