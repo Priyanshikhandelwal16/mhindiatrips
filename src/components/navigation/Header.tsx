@@ -81,11 +81,11 @@ export default function Header({ locale }: HeaderProps) {
   ];
 
   const infoList = [
-    { name: { en: "Solo Female Traveler", es: "Mujer viajando sola por la India", pt: "Mulher viajando sozinha na Índia" }, path: "/faq" },
-    { name: { en: "Frequently Asked Questions", es: "Preguntas Frecuentes", pt: "Perguntas Frequentes" }, path: "/faq" },
-    { name: { en: "Best Time to Visit", es: "Cuando viajar a la India", pt: "Quando viajar para a Índia" }, path: "/faq" },
-    { name: { en: "Currency Guide", es: "Moneda en India", pt: "Moeda na Índia" }, path: "/faq" },
-    { name: { en: "Luggage & Packing", es: "Equipaje en India", pt: "Bagagem na Índia" }, path: "/faq" }
+    { name: { en: "Solo Female Traveler", es: "Mujer viajando sola por la India", pt: "Mulher viajando sozinha na Índia" }, path: "/faq#solo-female" },
+    { name: { en: "Frequently Asked Questions", es: "Preguntas Frecuentes", pt: "Perguntas Frequentes" }, path: "/faq#questions" },
+    { name: { en: "Best Time to Visit", es: "Cuando viajar a la India", pt: "Quando viajar para a Índia" }, path: "/faq#best-time" },
+    { name: { en: "Currency Guide", es: "Moneda en India", pt: "Moeda na Índia" }, path: "/faq#currency" },
+    { name: { en: "Luggage & Packing", es: "Equipaje en India", pt: "Bagagem na Índia" }, path: "/faq#packing" }
   ];
 
   const languages = [

@@ -27,7 +27,7 @@ export default function TravelerInfoCarousel({ locale }: TravelerInfoCarouselPro
         es: "Trámites de visado para la India",
         pt: "Trâmites de visto para a Índia"
       },
-      path: "/faq"
+      path: "/faq#questions"
     },
     {
       id: "climate",
@@ -37,7 +37,7 @@ export default function TravelerInfoCarousel({ locale }: TravelerInfoCarouselPro
         es: "Cuándo viajar y Clima en la India",
         pt: "Quando viajar e Clima na Índia"
       },
-      path: "/faq"
+      path: "/faq#best-time"
     },
     {
       id: "solo-travel",
@@ -47,7 +47,7 @@ export default function TravelerInfoCarousel({ locale }: TravelerInfoCarouselPro
         es: "Mujer viajando sola por la India",
         pt: "Mulher viajando sozinha na Índia"
       },
-      path: "/faq"
+      path: "/faq#solo-female"
     },
     {
       id: "vaccines",
@@ -57,7 +57,7 @@ export default function TravelerInfoCarousel({ locale }: TravelerInfoCarouselPro
         es: "Las vacunas para viajar a la India",
         pt: "As vacinas para viajar para a Índia"
       },
-      path: "/faq"
+      path: "/faq#health"
     },
     {
       id: "packing",
@@ -67,7 +67,7 @@ export default function TravelerInfoCarousel({ locale }: TravelerInfoCarouselPro
         es: "Moneda y Equipaje recomendado",
         pt: "Moeda e Bagagem recomendada"
       },
-      path: "/faq"
+      path: "/faq#packing"
     }
   ];
 

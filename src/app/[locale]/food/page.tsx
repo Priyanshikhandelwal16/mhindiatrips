@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { getFoodsAction } from "@/app/actions/queries";
 import { FoodData } from "@/data/mockData";
-import { Utensils, MapPin, ArrowRight, Sparkles } from "lucide-react";
+import { Utensils, MapPin, ArrowRight, Sparkles, Compass } from "lucide-react";
 
 interface FoodIndexPageProps {
   params: Promise<{ locale: string }>;
@@ -13,73 +13,126 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
   const foods = await getFoodsAction();
 
   const t: Record<string, any> = {
-    en: { sub: "Food Guide", title: "The India Food Guide", desc: "Indian regional cuisines reflect centuries of royal patronage, traditional spices, and unique geography.", cta: "Discover Dish" },
-    es: { sub: "Guía de Comida", title: "Guía de Comida India", desc: "Las cocinas regionales de la India reflejan siglos de mecenazgo real, especias tradicionales y geografía única.", cta: "Descubrir Plato" },
-    pt: { sub: "Guia de Comida", title: "Guia de Comida Indiana", desc: "As culinárias regionais da Índia refletem séculos de mecenato real, especiarias tradicionais e geografia única.", cta: "Descobrir Prato" }
+    en: { 
+      sub: "Culinary Heritage", 
+      title: "Regional Food Guide", 
+      desc: "Taste the history of the subcontinent. Explore traditional cuisines mapped by geographical regions, from rich royal kitchens to vibrant coastal spices.", 
+      cta: "Discover Recipe",
+      items: "dishes"
+    },
+    es: { 
+      sub: "Patrimonio Culinario", 
+      title: "Guía de Comida Regional", 
+      desc: "Pruebe la historia del subcontinente. Explore las cocinas tradicionales mapeadas por regiones geográficas, desde cocinas reales hasta especias costeras.", 
+      cta: "Descubrir Receta",
+      items: "platos"
+    },
+    pt: { 
+      sub: "Patrimônio Culinário", 
+      title: "Guia de Comida Regional", 
+      desc: "Prove a história do subcontinente. Explore as cozinhas tradicionais mapeadas por regiões geográficas, desde cozinhas reais até especiarias costeiras.", 
+      cta: "Descobrir Receita",
+      items: "pratos"
+    }
   };
   const text = t[locale] || t.en;
-  const categories = Array.from(new Set(foods.map((f: any) => f.category))).filter(Boolean);
+
+  // Ordered list of regions to display logically
+  const regionsOrder = ["North India", "South India", "West India", "East India", "Central India", "Coastal India"];
+  
+  // Filter regions that actually have items in database
+  const activeRegions = regionsOrder.filter(r => 
+    foods.some((f: any) => (f.region || "").toLowerCase() === r.toLowerCase())
+  );
+
+  // Catch-all for any other regions not in our list
+  const otherRegions = Array.from(new Set(foods.map((f: any) => f.region)))
+    .filter(Boolean)
+    .filter((r: any) => !regionsOrder.some(ro => ro.toLowerCase() === r.toLowerCase())) as string[];
+
+  const finalRegions = [...activeRegions, ...otherRegions];
 
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
       {/* SECTION 1: Banner Header */}
-      <section className="relative h-[80vh] min-h-[580px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
-        <img src="/images/indian_cuisine_feast.png" alt="Indian Food" className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns" loading="eager" />
+      <section className="relative h-[78vh] min-h-[540px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
+        <img 
+          src="/images/indian_cuisine_feast.png" 
+          alt="Indian Regional Cuisine" 
+          className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns" 
+          loading="eager" 
+        />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center text-white space-y-6 px-6 max-w-5xl">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
             {text.sub}
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-none text-white">{text.title}</h1>
-          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto font-light leading-relaxed">{text.desc}</p>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-none text-white font-serif">
+            {text.title}
+          </h1>
+          <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
+            {text.desc}
+          </p>
         </div>
       </section>
 
-      {/* SECTION 2: Categories lists */}
+      {/* SECTION 2: Regions lists */}
       <section className="max-w-7xl mx-auto px-6 py-28 space-y-24">
-        {categories.map((cat: any) => {
-          const catFoods = foods.filter((f: any) => f.category === cat);
-          if (catFoods.length === 0) return null;
+        {finalRegions.map((reg: string) => {
+          const regFoods = foods.filter((f: any) => (f.region || "").toLowerCase() === reg.toLowerCase());
+          if (regFoods.length === 0) return null;
+          
           return (
-            <div key={cat} className="space-y-12">
+            <div key={reg} className="space-y-12">
               
+              {/* Region Section Header */}
               <div className="flex items-center gap-3 border-b border-gold/15 pb-4">
-                <Sparkles className="w-5 h-5 text-gold" />
-                <h2 className="text-sm font-serif font-bold uppercase tracking-wider text-royal">{cat}</h2>
-                <span className="text-[10px] text-foreground/40 ml-auto font-bold uppercase tracking-wider">{catFoods.length} Items</span>
+                <Compass className="w-5 h-5 text-gold" />
+                <h2 className="text-xl font-serif font-bold text-royal tracking-wide uppercase">{reg}</h2>
+                <span className="text-[10px] text-foreground/45 ml-auto font-bold uppercase tracking-wider">
+                  {regFoods.length} {text.items}
+                </span>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {catFoods.map((food: FoodData) => (
+              {/* Dishes Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                {regFoods.map((food: FoodData) => (
                   <Link key={food.slug} href={`/${locale}/food/${food.slug}`} className="group block">
-                    <div className="bg-white border border-gold/10 rounded-2xl overflow-hidden shadow-sm flex flex-col h-[420px] transition-transform duration-500 hover:-translate-y-2 hover:border-gold/25">
+                    <div className="bg-white border border-gold/10 rounded-3xl overflow-hidden shadow-lg flex flex-col h-[440px] transition-all duration-500 hover:-translate-y-2.5 hover:border-gold/25 hover:shadow-2xl">
                       
-                      <div className="h-52 overflow-hidden relative shrink-0">
-                        <img src={food.image} alt={food.title[locale as "en"|"es"|"pt"] || food.title.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                      {/* Image Frame */}
+                      <div className="h-56 overflow-hidden relative shrink-0">
+                        <img 
+                          src={food.image} 
+                          alt={food.title[locale as "en"|"es"|"pt"] || food.title.en} 
+                          loading="lazy" 
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                        />
                         <div className="absolute top-4 left-4">
-                          <span className="bg-white/95 backdrop-blur-sm text-royal text-[9px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full flex items-center gap-1 shadow-sm">
+                          <span className="bg-white/95 backdrop-blur-sm text-royal text-[9px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-md">
                             <Utensils className="w-3.5 h-3.5 text-gold" />
                             {food.category}
                           </span>
                         </div>
                       </div>
 
-                      <div className="p-7 flex flex-col flex-grow justify-between bg-white">
+                      {/* Info Details Content */}
+                      <div className="p-8 flex flex-col flex-grow justify-between bg-white space-y-4">
                         <div className="space-y-3">
-                          <h3 className="text-base font-serif font-bold text-royal group-hover:text-gold transition-colors leading-snug">
+                          <h3 className="text-lg font-serif font-bold text-royal group-hover:text-gold transition-colors leading-snug line-clamp-1">
                             {food.title[locale as "en"|"es"|"pt"] || food.title.en}
                           </h3>
                           <div className="flex items-center gap-1.5 text-[9px] text-gold font-bold uppercase tracking-wider">
                             <MapPin className="w-3.5 h-3.5 text-gold" />
-                            <span>{food.region}</span>
+                            <span>{food.origin[locale as "en"|"es"|"pt"] || food.origin.en}</span>
                           </div>
-                          <p className="text-sm text-foreground/50 leading-relaxed line-clamp-2 font-light">
+                          <p className="text-xs md:text-sm text-foreground/50 leading-relaxed line-clamp-2 font-light">
                             {food.history?.[locale as "en"|"es"|"pt"] || food.history?.en || ""}
                           </p>
                         </div>
-                        <div className="pt-4 mt-4 border-t border-gold/10 flex items-center justify-between">
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-forest group-hover:text-royal flex items-center gap-1 transition-colors">
+                        <div className="pt-4 border-t border-gold/10 flex items-center justify-between mt-auto">
+                          <span className="text-[10px] font-black uppercase tracking-wider text-gold group-hover:text-royal flex items-center gap-1 transition-colors">
                             <span>{text.cta}</span>
                             <ArrowRight className="w-3.5 h-3.5" />
                           </span>

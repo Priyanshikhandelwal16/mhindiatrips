@@ -642,8 +642,8 @@ export default async function HomePage({ params }: HomePageProps) {
       {/* SECTION 5: Gastronomy Preview (Curated Culinary Card) */}
       <section className="max-w-7xl mx-auto px-6 py-32 border-b border-gold/10 space-y-16">
         <div className="bg-royal border border-gold/15 rounded-[2.5rem] overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 relative shadow-2xl">
-          <div className="lg:col-span-5 h-[400px] lg:h-full relative overflow-hidden">
-            <img src="/images/indian_cuisine_feast.png" alt="Culinary Spices" className="w-full h-full object-cover animate-kenburns" />
+          <div className="lg:col-span-5 h-[400px] lg:h-auto relative overflow-hidden">
+            <img src="/images/indian_cuisine_feast.png" alt="Culinary Spices" className="w-full h-full object-cover absolute inset-0 animate-kenburns" />
           </div>
           <div className="lg:col-span-7 p-10 md:p-20 flex flex-col justify-center space-y-8 text-white bg-royal relative">
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-gold/5 via-transparent to-transparent pointer-events-none" />

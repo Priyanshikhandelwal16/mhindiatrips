@@ -138,7 +138,7 @@ export default async function FAQPage({ params }: FAQPageProps) {
           
           {/* Card 1: Solo Female Travel */}
           <Reveal>
-            <div className="bg-white border border-gold/10 p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:border-gold/20 transition-all duration-300 flex gap-6 items-start h-full">
+            <div id="solo-female" className="bg-white border border-gold/10 p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:border-gold/20 transition-all duration-300 flex gap-6 items-start h-full">
               <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">
                 <Shield className="w-6 h-6" />
               </div>
@@ -151,7 +151,7 @@ export default async function FAQPage({ params }: FAQPageProps) {
 
           {/* Card 2: Climate & Best Time */}
           <Reveal delay={80}>
-            <div className="bg-white border border-gold/10 p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:border-gold/20 transition-all duration-300 flex gap-6 items-start h-full">
+            <div id="best-time" className="bg-white border border-gold/10 p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:border-gold/20 transition-all duration-300 flex gap-6 items-start h-full">
               <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">
                 <Calendar className="w-6 h-6" />
               </div>
@@ -164,7 +164,7 @@ export default async function FAQPage({ params }: FAQPageProps) {
 
           {/* Card 3: Vaccines & Health */}
           <Reveal delay={160}>
-            <div className="bg-white border border-gold/10 p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:border-gold/20 transition-all duration-300 flex gap-6 items-start h-full">
+            <div id="health" className="bg-white border border-gold/10 p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:border-gold/20 transition-all duration-300 flex gap-6 items-start h-full">
               <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">
                 <Heart className="w-6 h-6" />
               </div>
@@ -177,7 +177,7 @@ export default async function FAQPage({ params }: FAQPageProps) {
 
           {/* Card 4: Currency & Money */}
           <Reveal delay={240}>
-            <div className="bg-white border border-gold/10 p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:border-gold/20 transition-all duration-300 flex gap-6 items-start h-full">
+            <div id="currency" className="bg-white border border-gold/10 p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:border-gold/20 transition-all duration-300 flex gap-6 items-start h-full">
               <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">
                 <Wallet className="w-6 h-6" />
               </div>
@@ -190,7 +190,7 @@ export default async function FAQPage({ params }: FAQPageProps) {
 
           {/* Card 5: Packing & Clothing */}
           <Reveal delay={320} className="lg:col-span-2">
-            <div className="bg-white border border-gold/10 p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:border-gold/20 transition-all duration-300 flex gap-6 items-start h-full">
+            <div id="packing" className="bg-white border border-gold/10 p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:border-gold/20 transition-all duration-300 flex gap-6 items-start h-full">
               <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">
                 <Briefcase className="w-6 h-6" />
               </div>
@@ -205,7 +205,7 @@ export default async function FAQPage({ params }: FAQPageProps) {
       </section>
 
       {/* FAQ Accordion Section */}
-      <section className="py-28 bg-[#FAF8F5] border-t border-gold/15">
+      <section id="questions" className="py-28 bg-[#FAF8F5] border-t border-gold/15">
         <div className="max-w-4xl mx-auto px-6 space-y-16">
           <Reveal className="text-center space-y-3 max-w-2xl mx-auto">
             <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold block">{text.heroSub}</span>
