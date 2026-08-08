@@ -185,10 +185,10 @@ export default function AdminDashboard() {
     e.preventDefault();
 
     // Check against configured admin credentials first
-    const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL || "admin@mhindiatrips.com";
-    const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "admin";
+    const adminEmail = (process.env.NEXT_PUBLIC_ADMIN_EMAIL || "admin@mhindiatrips.com").replace(/['"]/g, "").trim();
+    const adminPassword = (process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "admin").replace(/['"]/g, "").trim();
 
-    if (email === adminEmail && password === adminPassword) {
+    if (email.trim() === adminEmail && password.trim() === adminPassword) {
       const customUser = { email: adminEmail, customAuth: true };
       setUser(customUser);
       localStorage.setItem("admin_user", JSON.stringify(customUser));
