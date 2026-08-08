@@ -5,7 +5,7 @@
     "location": "Madrid, Spain",
     "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200",
     "quote": {
-      "en": "The best travel experience of our lives! Rebuilding our itinerary with custom palace hotels and private luxury vans made our Rajasthan tour absolutely flawless.",
+      "en": "The best travel experience of our lives! Rebuilding our itinerary with custom palace hotels and private luxury vans made our Rajasthan tour absolutely flawless. Their 24/7 concierge was exceptional.",
       "es": "¡La mejor experiencia de viaje de nuestras vidas! La atención al detalle en los hoteles palacio y el chofer privado hicieron que nuestro viaje fuera perfecto.",
       "pt": "A melhor experiência de viagem de nossas vidas! A atenção aos detalhes nos hotéis-palácio e o motorista particular tornaram nossa viagem perfeita."
     },
@@ -13,13 +13,37 @@
   },
   {
     "id": "test-2",
+    "name": "Aarav Mehta",
+    "location": "Mumbai, India",
+    "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200",
+    "quote": {
+      "en": "MH India Trips curated a phenomenal heritage journey for our family. Staying at the Rambagh Palace in Jaipur was majestic, and the private guides provided incredible historical context.",
+      "es": "¡MH India Trips organizó un viaje patrimonial fenomenal para nuestra familia. Alojarnos en el Rambagh Palace fue majestuoso.",
+      "pt": "A MH India Trips planejou uma viagem histórica fenomenal para nossa família. Hospedar-se no Rambagh Palace foi majestoso."
+    },
+    "stars": 5
+  },
+  {
+    "id": "test-3",
     "name": "Clara Santos",
     "location": "Lisbon, Portugal",
     "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200",
     "quote": {
-      "en": "South India did not disappoint. The heritage monuments in Hampi and gorgeous hotels in Mysore were spectacular. Outstanding service!",
-      "es": "El sur de la India no decepcó. Los monumentos en Hampi y palacios en Mysore fueron espectaculares.",
-      "pt": "O sul da Índia não decepcionou. Os monumentos em Hampi e palácios em Mysore foram espetaculares."
+      "en": "South India did not disappoint. The heritage monuments in Hampi and gorgeous hotels in Mysore were spectacular. Outstanding service from start to finish!",
+      "es": "El sur de la India no decepcó. Los monumentos en Hampi y palacios en Mysore fueron espectaculares. ¡Excelente servicio!",
+      "pt": "O sul da Índia não decepcionou. Os monumentos em Hampi e palácios em Mysore foram espetaculares. Excelente serviço!"
+    },
+    "stars": 5
+  },
+  {
+    "id": "test-4",
+    "name": "Priya Sharma",
+    "location": "Delhi, India",
+    "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200",
+    "quote": {
+      "en": "Exceptional luxury wellness experience in Kerala. The houseboat cruise through the backwaters and customized Ayurvedic spa sessions were perfectly arranged. Highly professional concierge desk.",
+      "es": "Experiencia excepcional de bienestar en Kerala. El crucero en casa flotante y los tratamientos ayurvédicos fueron perfectos.",
+      "pt": "Experiência excepcional de bem-estar em Kerala. O cruzeiro em casa flutuante e os tratamentos ayurvédicos foram perfeitos."
     },
     "stars": 5
   }

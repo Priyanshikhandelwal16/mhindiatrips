@@ -116,12 +116,18 @@ export default function Header({ locale }: HeaderProps) {
     <header className="fixed top-0 left-0 right-0 z-50 w-full font-sans transition-all duration-500">
       
       {/* Luxury Top Marquee Announcement */}
-      <div className="bg-royal text-gold text-[9px] uppercase tracking-[0.25em] font-bold py-2 px-6 flex items-center justify-between border-b border-gold/15 relative z-20">
-        <span className="animate-pulse">MH India Trips &bull; Curated Luxury Journeys</span>
-        <div className="hidden md:flex gap-6">
-          <span>Private Guided Tours</span>
-          <span>Heritage Palace Escapes</span>
-          <span>Ayurvedic Retreats</span>
+      <div className="bg-royal text-gold text-[9px] uppercase tracking-[0.25em] font-bold py-2.5 border-b border-gold/15 relative z-20 overflow-hidden select-none">
+        <div className="flex w-max min-w-full gap-12 animate-marquee">
+          <div className="flex justify-around min-w-full shrink-0 gap-12">
+            <span>MH India Trips &bull; Curated Luxury Journeys</span>
+            <span>Private Guided Tours &bull; Heritage Palace Escapes</span>
+            <span>Ayurvedic Retreats &bull; Custom Itineraries</span>
+          </div>
+          <div className="flex justify-around min-w-full shrink-0 gap-12" aria-hidden="true">
+            <span>MH India Trips &bull; Curated Luxury Journeys</span>
+            <span>Private Guided Tours &bull; Heritage Palace Escapes</span>
+            <span>Ayurvedic Retreats &bull; Custom Itineraries</span>
+          </div>
         </div>
       </div>
 

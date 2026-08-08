@@ -52,10 +52,10 @@ export default async function ContactPage({ params }: ContactPageProps) {
     <div className="font-sans bg-[#FAF8F5] min-h-screen text-[#1B1B1B]">
       
       {/* SECTION 1: Banner Header */}
-      <section className="relative h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[80vh] min-h-[580px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
         <img src="/images/luxury_palace_train.png" alt="Contact Concierge" className="absolute inset-0 w-full h-full object-cover animate-kenburns" />
         <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-5xl">
+        <div className="relative z-10 text-center text-white space-y-6 px-6 max-w-5xl">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
             {text.heroSub}
           </span>

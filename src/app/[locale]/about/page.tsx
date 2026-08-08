@@ -95,7 +95,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
       {/* SECTION 1: Hero Banner */}
-      <section className="relative h-[65vh] min-h-[460px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[78vh] min-h-[540px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
         <img 
           src="/images/luxury_palace_train.png" 
           alt="About MH India Trips" 
@@ -103,7 +103,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
           loading="eager"
         />
         <div className="absolute inset-0 bg-black/45" />
-        <div className="relative z-10 text-center text-white space-y-6 px-6 mt-20 max-w-4xl">
+        <div className="relative z-10 text-center text-white space-y-6 px-6 max-w-4xl">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
             {text.heroSub}
           </span>

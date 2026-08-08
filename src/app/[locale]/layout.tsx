@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import Header from "@/components/navigation/Header";
 import Footer from "@/components/navigation/Footer";
+import PageTransition from "@/components/common/PageTransition";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
@@ -34,8 +35,10 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       </head>
       <body className="bg-background text-foreground antialiased min-h-screen flex flex-col justify-between font-sans" suppressHydrationWarning>
         <Header locale={locale} />
-        <main className="flex-grow">
-          {children}
+        <main className="flex-grow flex flex-col">
+          <PageTransition>
+            {children}
+          </PageTransition>
         </main>
         <Footer locale={locale} />
       </body>

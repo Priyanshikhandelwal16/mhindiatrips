@@ -17,10 +17,10 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero */}
-      <section className="relative h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[82vh] min-h-[580px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
         <img src={blog.featuredImage} alt={blog.title?.[locale as "en"|"es"|"pt"] || blog.title?.en} className="absolute inset-0 w-full h-full object-cover animate-kenburns" loading="eager" />
         <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 text-center max-w-5xl px-6 space-y-6 text-white mt-20">
+        <div className="relative z-10 text-center max-w-5xl px-6 space-y-6 text-white">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">{blog.category}</span>
           <h1 className="text-5xl md:text-7xl font-bold leading-tight mt-3">
             {blog.title?.[locale as "en"|"es"|"pt"] || blog.title?.en}
