@@ -228,6 +228,7 @@ export default function TravelerInfoCarousel({ locale }: TravelerInfoCarouselPro
             onClick={prevSlide}
             aria-label="Previous card"
             className="w-12 h-12 rounded-full border border-gold/25 bg-white text-royal hover:bg-gold hover:text-royal transition-all duration-300 flex items-center justify-center shadow"
+            suppressHydrationWarning
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -235,6 +236,7 @@ export default function TravelerInfoCarousel({ locale }: TravelerInfoCarouselPro
             onClick={nextSlide}
             aria-label="Next card"
             className="w-12 h-12 rounded-full border border-gold/25 bg-white text-royal hover:bg-gold hover:text-royal transition-all duration-300 flex items-center justify-center shadow"
+            suppressHydrationWarning
           >
             <ChevronRight className="w-5 h-5" />
           </button>
