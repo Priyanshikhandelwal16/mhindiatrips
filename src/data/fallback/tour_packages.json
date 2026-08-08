@@ -1,349 +1,109 @@
 [
   {
     "slug": "golden-triangle-luxury",
-    "title": {
-      "en": "Imperial Golden Triangle Journey",
-      "es": "Viaje Imperial del Triángulo de Oro",
-      "pt": "Viagem Imperial do Triângulo de Ouro"
-    },
-    "tagline": {
-      "en": "The Classic Luxury Showcase of Delhi, Agra & Jaipur",
-      "es": "La Clásica Aventura de Lujo de Delhi, Agra y Jaipur",
-      "pt": "O Clássico Roteiro de Luxo de Deli, Agra e Jaipur"
-    },
+    "title": { "en": "Imperial Golden Triangle", "es": "Triángulo de Oro Imperial", "pt": "Triângulo de Ouro Imperial" },
+    "tagline": { "en": "The classic luxury showcase of Delhi, Agra & Jaipur with palace stays.", "es": "El clásico viaje de lujo por Delhi, Agra y Jaipur.", "pt": "O clássico roteiro de luxo por Deli, Agra e Jaipur." },
     "category": "Luxury Tours",
     "durationDays": 7,
-    "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=800",
+    "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800",
     "gallery": [],
     "highlights": [
-      {
-        "en": "Private sunrise access to the Taj Mahal",
-        "es": "Acceso privado al Taj Mahal al amanecer",
-        "pt": "Acesso privado ao Taj Mahal ao amanhecer"
-      },
-      {
-        "en": "Stay in Oberoi & Taj royal palace suites",
-        "es": "Alojamiento en suites de palacios reales",
-        "pt": "Hospedagem em suítes de palácios reais"
-      },
-      {
-        "en": "Private chauffeur luxury car transfers",
-        "es": "Traslados privados en coche de lujo con chofer",
-        "pt": "Traspasos privados em carro de luxo com motorista"
-      }
+      { "en": "Private sunrise access to the Taj Mahal", "es": "Acceso privado al Taj Mahal al amanecer", "pt": "Acesso privado ao Taj Mahal ao amanhecer" },
+      { "en": "Stay in Oberoi & Taj royal palace suites", "es": "Alojamiento en suites de palacios reales", "pt": "Hospedagem em suítes de palácios reais" },
+      { "en": "Private chauffeur luxury transfers", "es": "Traslados privados en coche de lujo", "pt": "Transferências privadas em carro de luxo" }
     ],
-    "itinerary": [
-      {
-        "day": 1,
-        "title": {
-          "en": "Arrival in New Delhi",
-          "es": "Llegada a Nueva Delhi",
-          "pt": "Chegada a Nova Deli"
-        },
-        "desc": {
-          "en": "VIP welcome, transfer to luxury hotel.",
-          "es": "Bienvenida VIP, traslado al hotel.",
-          "pt": "Boas-vindas VIP, traslado para o hotel."
-        }
-      }
-    ],
-    "includedExperiences": [
-      {
-        "en": "Professional guides in all languages",
-        "es": "Guías profesionales bilingües",
-        "pt": "Guias profissionais bilíngues"
-      }
-    ],
+    "itinerary": [{ "day": 1, "title": { "en": "Arrival in Delhi", "es": "Llegada a Delhi", "pt": "Chegada a Deli" }, "desc": { "en": "VIP welcome and transfer to palace hotel.", "es": "Bienvenida VIP y traslado.", "pt": "Boas-vindas VIP e traslado." } }],
+    "includedExperiences": [{ "en": "Professional guides in all languages", "es": "Guías bilingües", "pt": "Guias bilíngues" }],
     "travelTips": [],
     "faqs": []
   },
   {
-    "slug": "kerala-ayurveda-wellness",
-    "title": {
-      "en": "Kerala Ayurveda & Wellness retreat",
-      "es": "Retiro de Bienestar y Ayurveda en Kerala",
-      "pt": "Retiro de Bem-Estar e Ayurveda em Kerala"
-    },
-    "tagline": {
-      "en": "Rejuvenating Body & Soul in the Coconut Paradise",
-      "es": "Rejuvenece Cuerpo y Alma en el Paraíso de los Cocos",
-      "pt": "Rejuvenesça Corpo e Alma no Paraíso dos Cocos"
-    },
-    "category": "Wellness Tours",
-    "durationDays": 9,
-    "image": "/images/kerala_backwaters_houseboat.png",
-    "gallery": [],
-    "highlights": [
-      {
-        "en": "Daily consultation with Ayurvedic doctors",
-        "es": "Consulta diaria con médicos ayurvédicos",
-        "pt": "Consulta diária com médicos ayurvédicos"
-      },
-      {
-        "en": "Private houseboat stay along Backwaters",
-        "es": "Estadía privada en casa bote por los canales",
-        "pt": "Hospedagem privada em casa barco nos canais"
-      },
-      {
-        "en": "Daily private meditation and yoga sessions",
-        "es": "Sesiones diarias privadas de yoga y meditación",
-        "pt": "Sessões diárias privadas de ioga e meditação"
-      }
-    ],
-    "itinerary": [
-      {
-        "day": 1,
-        "title": {
-          "en": "Arrival in Kochi Port",
-          "es": "Llegada al Puerto de Kochi",
-          "pt": "Chegada ao Porto de Kochi"
-        },
-        "desc": {
-          "en": "Check-in to a luxury wellness eco-resort.",
-          "es": "Check-in en un eco-resort de bienestar de lujo.",
-          "pt": "Check-in em um resort ecológico de bem-estar de luxo."
-        }
-      }
-    ],
-    "includedExperiences": [
-      {
-        "en": "Full board healthy Ayurvedic organic meals",
-        "es": "Pensión completa con alimentos ayurvédicos",
-        "pt": "Pensão completa com alimentos ayurvédicos"
-      }
-    ],
-    "travelTips": [],
-    "faqs": []
-  },
-  {
-    "slug": "wildlife-ranthambore-safari",
-    "title": {
-      "en": "Wildlife & Royal Tiger Safaris",
-      "es": "Aventura de Vida Silvestre y Safari de Tigres",
-      "pt": "Aventura de Vida Selvagem e Safári de Tigres"
-    },
-    "tagline": {
-      "en": "Encounter Majestic Bengal Tigers in Ancient Forests",
-      "es": "Encuentre Tigres de Bengala en Bosques Antiguos",
-      "pt": "Encontre Tigres de Bengala em Florestas Antigas"
-    },
-    "category": "Wildlife Safaris",
-    "durationDays": 8,
-    "image": "/images/ranthambore_tiger_safari.png",
-    "gallery": [],
-    "highlights": [
-      {
-        "en": "4 private customized jeep game drives",
-        "es": "4 safaris en jeep privado personalizado",
-        "pt": "4 safaris de jipe privado personalizado"
-      },
-      {
-        "en": "Luxury wilderness glamping resort stay",
-        "es": "Estancia en campamento de lujo tipo glamping",
-        "pt": "Estadia em acampamento de luxo tipo glamping"
-      },
-      {
-        "en": "Explore Ranthambore high forest fort ruins",
-        "es": "Exploración de las ruinas del fuerte forestal",
-        "pt": "Exploração das ruínas do forte florestal"
-      }
-    ],
-    "itinerary": [
-      {
-        "day": 1,
-        "title": {
-          "en": "Arrival at Ranthambore Camp",
-          "es": "Llegada al Campamento Ranthambore",
-          "pt": "Chegada ao Acampamento Ranthambore"
-        },
-        "desc": {
-          "en": "Welcome ceremony at luxury jungle camp.",
-          "es": "Ceremonia de bienvenida en el campamento.",
-          "pt": "Cerimônia de boas-vindas no acampamento."
-        }
-      }
-    ],
-    "includedExperiences": [
-      {
-        "en": "Expert naturalist accompaniment",
-        "es": "Acompañamiento de un naturalista experto",
-        "pt": "Acompanhamento de um naturalista perito"
-      }
-    ],
-    "travelTips": [],
-    "faqs": []
-  },
-  {
-    "slug": "rajasthan-royal-heritage",
-    "title": {
-      "en": "Rajasthan Heritage & Royal Palaces Tour",
-      "es": "Patrimonio de Rajastán y Palacios Reales",
-      "pt": "Patrimônio do Rajastão e Palácios Reais"
-    },
-    "tagline": {
-      "en": "The Ultimate Grand Tour of Rajput Royalty & Dunes",
-      "es": "El Gran Tour de la Realeza Rajput y Dunas de Arena",
-      "pt": "O Grande Tour da Realeza Rajput e Dunas de Areia"
-    },
-    "category": "Heritage Tours",
-    "durationDays": 12,
-    "image": "/images/rajasthan_fort_sunset.png",
-    "gallery": [],
-    "highlights": [
-      {
-        "en": "Stay in actual heritage palace suites",
-        "es": "Estancia en suites de antiguos palacios reales",
-        "pt": "Hospedagem em suítes de antigos palácios reais"
-      },
-      {
-        "en": "Private sand dunes sundowner camel ride",
-        "es": "Paseo en camello al atardecer en dunas",
-        "pt": "Passeio de camelo ao entardecer nas dunas"
-      },
-      {
-        "en": "Private traditional sitar recital evening",
-        "es": "Recital privado de música de sitar tradicional",
-        "pt": "Recital privado de música sitar tradicional"
-      }
-    ],
-    "itinerary": [
-      {
-        "day": 1,
-        "title": {
-          "en": "Welcome in Udaipur Lake City",
-          "es": "Bienvenida en Udaipur Ciudad de Lagos",
-          "pt": "Boas-vindas em Udaipur Cidade dos Lagos"
-        },
-        "desc": {
-          "en": "VIP boat check-in to historic lake palace hotel.",
-          "es": "Check-in en barco VIP al hotel palacio del lago.",
-          "pt": "Check-in em barco VIP ao hotel palácio do lago."
-        }
-      }
-    ],
-    "includedExperiences": [
-      {
-        "en": "Exclusive access to palace museums",
-        "es": "Acceso exclusivo a museos de palacios",
-        "pt": "Acesso exclusivo a museus de palácios"
-      }
-    ],
-    "travelTips": [],
-    "faqs": []
-  },
-  {
-    "slug": "south-india-temples",
-    "title": {
-      "en": "South India Monuments & Temples",
-      "es": "Monumentos e Templos del Sur de la India",
-      "pt": "Monumentos e Templos do Sul da Índia"
-    },
-    "tagline": {
-      "en": "Architectural Marvels of Hampi, Mysore & Madurai",
-      "es": "Maravillas Arquitectónicas del Sur de la India",
-      "pt": "Maravilhas Arquitetônicas do Sul da Índia"
-    },
+    "slug": "royal-rajasthan-heritage",
+    "title": { "en": "Royal Rajasthan Heritage", "es": "Rajastán Real y Patrimonial", "pt": "Rajastão Real e Patrimonial" },
+    "tagline": { "en": "Desert forts, lake palaces, and golden sand dunes across the Land of Kings.", "es": "Fortalezas del desierto, palacios lacustres y dunas doradas.", "pt": "Fortalezas do deserto, palácios lacustres e dunas douradas." },
     "category": "Heritage Tours",
     "durationDays": 10,
-    "image": "/images/hampi-ruins.jpg",
+    "image": "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=800",
     "gallery": [],
     "highlights": [
-      {
-        "en": "Private walking tours of UNESCO Hampi ruins",
-        "es": "Tour a pie privado por las ruinas de Hampi",
-        "pt": "Tour a pé privado pelas ruínas de Hampi"
-      },
-      {
-        "en": "VIP entry to Madurai Meenakshi Temple",
-        "es": "Entrada VIP al Templo Meenakshi de Madurai",
-        "pt": "Entrada VIP no Templo Meenakshi de Madurai"
-      },
-      {
-        "en": "Stay in historic colonial-era bungalows",
-        "es": "Estancia en bungalows coloniales históricos",
-        "pt": "Estadia em bangalôs coloniais históricos"
-      }
+      { "en": "Stay in 500-year-old heritage palaces", "es": "Alojamiento en palacios de 500 años", "pt": "Hospedagem em palácios de 500 anos" },
+      { "en": "Camel safari in Thar Desert under stars", "es": "Safari en camello bajo las estrellas", "pt": "Safari de camelo sob as estrelas" },
+      { "en": "Private elephant ride at Amber Fort", "es": "Paseo en elefante en el Fuerte Amber", "pt": "Passeio de elefante no Forte Amber" }
     ],
-    "itinerary": [
-      {
-        "day": 1,
-        "title": {
-          "en": "Arrival in Bangalore Garden City",
-          "es": "Llegada a Bangalore Ciudad Jardín",
-          "pt": "Chegada a Bangalore Cidade Jardim"
-        },
-        "desc": {
-          "en": "VIP pickup and transfer to Taj West End.",
-          "es": "Recogida VIP y traslado al hotel.",
-          "pt": "Coleta VIP e traslado para o hotel."
-        }
-      }
+    "itinerary": [{ "day": 1, "title": { "en": "Arrive Jaipur", "es": "Llegada a Jaipur", "pt": "Chegada a Jaipur" }, "desc": { "en": "Transfer to Rambagh Palace.", "es": "Traslado al Palacio Rambagh.", "pt": "Traslado ao Palácio Rambagh." } }],
+    "includedExperiences": [{ "en": "Royal dinner at heritage fort", "es": "Cena real en fuerte histórico", "pt": "Jantar real em forte histórico" }],
+    "travelTips": [],
+    "faqs": []
+  },
+  {
+    "slug": "kerala-tropical-escape",
+    "title": { "en": "Kerala Tropical Escape", "es": "Escapada Tropical a Kerala", "pt": "Escapada Tropical a Kerala" },
+    "tagline": { "en": "Backwater houseboats, spice plantations, and Ayurvedic wellness retreats.", "es": "Casas flotantes, plantaciones de especias y retiros ayurvédicos.", "pt": "Casas flutuantes, plantações de especiarias e retiros ayurvédicos." },
+    "category": "Wellness Tours",
+    "durationDays": 8,
+    "image": "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=800",
+    "gallery": [],
+    "highlights": [
+      { "en": "Luxury kettuvallam houseboat cruise", "es": "Crucero en casa flotante de lujo", "pt": "Cruzeiro em casa flutuante de luxo" },
+      { "en": "Private Ayurvedic spa treatments", "es": "Tratamientos ayurvédicos privados", "pt": "Tratamentos ayurvédicos privados" },
+      { "en": "Tea plantation walk in Munnar hills", "es": "Paseo por plantaciones de té en Munnar", "pt": "Passeio em plantações de chá em Munnar" }
     ],
-    "includedExperiences": [
-      {
-        "en": "Expert architecture historians guides",
-        "es": "Guías historiadores de arte expertos",
-        "pt": "Guias historiadores de arte peritos"
-      }
+    "itinerary": [{ "day": 1, "title": { "en": "Arrive Kochi", "es": "Llegada a Kochi", "pt": "Chegada a Kochi" }, "desc": { "en": "Explore Fort Kochi and Chinese fishing nets.", "es": "Explore el fuerte Kochi.", "pt": "Explore o forte Kochi." } }],
+    "includedExperiences": [{ "en": "Kathakali dance private performance", "es": "Espectáculo privado de Kathakali", "pt": "Espetáculo privado de Kathakali" }],
+    "travelTips": [],
+    "faqs": []
+  },
+  {
+    "slug": "spiritual-india-varanasi",
+    "title": { "en": "Spiritual India Journey", "es": "Viaje Espiritual por la India", "pt": "Viagem Espiritual pela Índia" },
+    "tagline": { "en": "Sacred ghats of Varanasi, yoga in Rishikesh, and meditation in the Himalayas.", "es": "Ghats sagrados, yoga en Rishikesh y meditación en el Himalaya.", "pt": "Ghats sagrados, yoga em Rishikesh e meditação no Himalaia." },
+    "category": "Spiritual Tours",
+    "durationDays": 9,
+    "image": "/images/varanasi ganga aarti.jpg",
+    "gallery": [],
+    "highlights": [
+      { "en": "Private Ganga Aarti viewing at Dashashwamedh Ghat", "es": "Ganga Aarti privada en Dashashwamedh Ghat", "pt": "Ganga Aarti privada em Dashashwamedh Ghat" },
+      { "en": "Personal yoga sessions in Rishikesh ashram", "es": "Sesiones de yoga personales en ashram", "pt": "Sessões de yoga pessoais em ashram" },
+      { "en": "Dawn boat ride on the sacred Ganges", "es": "Paseo en barco al amanecer por el Ganges", "pt": "Passeio de barco ao amanhecer pelo Ganges" }
     ],
+    "itinerary": [{ "day": 1, "title": { "en": "Arrive Varanasi", "es": "Llegada a Varanasi", "pt": "Chegada a Varanasi" }, "desc": { "en": "Evening Ganga Aarti ceremony.", "es": "Ceremonia Ganga Aarti al atardecer.", "pt": "Cerimônia Ganga Aarti ao entardecer." } }],
+    "includedExperiences": [{ "en": "Private meditation with local guru", "es": "Meditación privada con gurú local", "pt": "Meditação privada com guru local" }],
+    "travelTips": [],
+    "faqs": []
+  },
+  {
+    "slug": "wildlife-tiger-safari",
+    "title": { "en": "Wildlife & Tiger Safari", "es": "Safari de Vida Silvestre y Tigres", "pt": "Safari de Vida Selvagem e Tigres" },
+    "tagline": { "en": "Track the Royal Bengal Tiger across India's finest national parks and reserves.", "es": "Rastree al tigre real de Bengala en los mejores parques nacionales.", "pt": "Rastreie o tigre real de Bengala nos melhores parques nacionais." },
+    "category": "Wildlife Tours",
+    "durationDays": 8,
+    "image": "/images/ranthambore.jpg",
+    "gallery": [],
+    "highlights": [
+      { "en": "Expert naturalist-guided safaris", "es": "Safaris guiados por naturalistas expertos", "pt": "Safaris guiados por naturalistas especialistas" },
+      { "en": "Luxury jungle lodges & tented camps", "es": "Alojamientos de lujo en la selva", "pt": "Hospedagens de luxo na selva" },
+      { "en": "Ranthambore, Kanha & Bandhavgarh parks", "es": "Parques Ranthambore, Kanha y Bandhavgarh", "pt": "Parques Ranthambore, Kanha e Bandhavgarh" }
+    ],
+    "itinerary": [{ "day": 1, "title": { "en": "Arrive Ranthambore", "es": "Llegada a Ranthambore", "pt": "Chegada a Ranthambore" }, "desc": { "en": "Check into luxury jungle lodge.", "es": "Check-in en lodge de selva de lujo.", "pt": "Check-in em lodge de selva de luxo." } }],
+    "includedExperiences": [{ "en": "Bird watching and nature walks", "es": "Observación de aves y paseos", "pt": "Observação de aves e passeios" }],
     "travelTips": [],
     "faqs": []
   },
   {
     "slug": "goa-beach-luxury",
-    "title": {
-      "en": "Goa Luxury Beach Vacation",
-      "es": "Vacaciones de Lujo en las Playas de Goa",
-      "pt": "Férias de Luxo nas Praias de Goa"
-    },
-    "tagline": {
-      "en": "Pure Coastal Indulgence, Yacht Cruises & Villas",
-      "es": "Pura Indulgencia Costera, Yate Privado y Villas",
-      "pt": "Pura Indulgência Costeira, Iate Privado e Villas"
-    },
-    "category": "Beach Vacations",
+    "title": { "en": "Goa Beach & Heritage Luxury", "es": "Lujo de Playa y Patrimonio en Goa", "pt": "Luxo de Praia e Patrimônio em Goa" },
+    "tagline": { "en": "Pristine beaches, Portuguese heritage, and world-class resorts on the Arabian Sea.", "es": "Playas prístinas, herencia portuguesa y resorts de clase mundial.", "pt": "Praias intocadas, herança portuguesa e resorts de classe mundial." },
+    "category": "Beach & Relaxation",
     "durationDays": 6,
-    "image": "/images/goa.jpg",
+    "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=800",
     "gallery": [],
     "highlights": [
-      {
-        "en": "Sunset cruise on private luxury yacht",
-        "es": "Crucero privado en yate de lujo al atardecer",
-        "pt": "Cruzeiro privado em iate de luxo ao entardecer"
-      },
-      {
-        "en": "Stay in 5-star beachfront luxury villa",
-        "es": "Alojamiento en villa frente al mar de 5 estrellas",
-        "pt": "Hospedagem em villa em frente ao mar de 5 estrelas"
-      },
-      {
-        "en": "Private spice plantation tour and lunch",
-        "es": "Visita y almuerzo privado en plantación",
-        "pt": "Visita e almoço privado em plantação de especiarias"
-      }
+      { "en": "Private beach villa with infinity pool", "es": "Villa privada con piscina infinita", "pt": "Villa privada com piscina infinita" },
+      { "en": "Sunset yacht cruise along the coast", "es": "Crucero en yate al atardecer", "pt": "Cruzeiro de iate ao pôr do sol" },
+      { "en": "Old Goa Portuguese church heritage tour", "es": "Tour de iglesias portuguesas históricas", "pt": "Tour de igrejas portuguesas históricas" }
     ],
-    "itinerary": [
-      {
-        "day": 1,
-        "title": {
-          "en": "Welcome in Goa Airport",
-          "es": "Bienvenida en el Aeropuerto de Goa",
-          "pt": "Boas-vindas no Aeroporto de Goa"
-        },
-        "desc": {
-          "en": "VIP Mercedes transfer to beachside resort.",
-          "es": "Traslado en Mercedes VIP al resort de playa.",
-          "pt": "Traslado em Mercedes VIP para o resort de praia."
-        }
-      }
-    ],
-    "includedExperiences": [
-      {
-        "en": "Private chef seafood dinner evening",
-        "es": "Cena de mariscos preparada por chef privado",
-        "pt": "Jantar de frutos do mar feito por chef privado"
-      }
-    ],
+    "itinerary": [{ "day": 1, "title": { "en": "Arrive Goa", "es": "Llegada a Goa", "pt": "Chegada a Goa" }, "desc": { "en": "Transfer to beachfront luxury resort.", "es": "Traslado al resort de playa de lujo.", "pt": "Traslado ao resort de praia de luxo." } }],
+    "includedExperiences": [{ "en": "Private cooking class with local chef", "es": "Clase de cocina con chef local", "pt": "Aula de culinária com chef local" }],
     "travelTips": [],
     "faqs": []
   }
