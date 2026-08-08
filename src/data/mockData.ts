@@ -151,8 +151,31 @@ export interface Testimonial {
   stars: number;
 }
 
+// Helper mock city generator
+const createMockCity = (stateSlug: string, citySlug: string, nameEn: string, nameEs: string, namePt: string, taglineEn: string, img: string): CityData => ({
+  slug: citySlug,
+  title: { en: nameEn, es: nameEs, pt: namePt },
+  tagline: { en: taglineEn, es: `Descubre la magia de ${nameEs}`, pt: `Descubra a magia de ${namePt}` },
+  image: img,
+  gallery: [],
+  overview: { en: `A historical city in ${stateSlug} known for heritage.`, es: `Una ciudad histórica en ${stateSlug} conocida por su patrimonio.`, pt: `Uma cidade histórica em ${stateSlug} conhecida por seu patrimônio.` },
+  history: { en: "A rich past dating back centuries.", es: "Un pasado rico que se remonta a siglos.", pt: "Um passado rico que remonta a séculos." },
+  culture: { en: "Local arts, music and heritage crafts.", es: "Artes locales, música y artesanía.", pt: "Artes locais, música e artesanato." },
+  attractions: [],
+  thingsToDo: [{ en: "Sightseeing", es: "Visitas guiadas", pt: "Visitas guiadas" }],
+  hotels: [],
+  localFood: { en: "Traditional regional recipes.", es: "Recetas tradicionales de la región.", pt: "Receitas tradicionais da região." },
+  shopping: { en: "Heritage bazaars and local markets.", es: "Bazar histórico y mercados locales.", pt: "Bazar histórico e mercados locais." },
+  weather: { en: "Pleasant winters and warm summers.", es: "Inviernos agradables y veranos cálidos.", pt: "Invernos agradáveis e verões quentes." },
+  bestTime: { en: "October to March", es: "De octubre a marzo", pt: "De outubro a março" },
+  travelTips: [],
+  nearbyPlaces: [],
+  suggestedItinerary: { en: "A detailed 2-day guide.", es: "Una guía detallada de 2 días.", pt: "Um guia detalhado de 2 dias." },
+  faqs: []
+});
+
 // ----------------------------------------------------
-// STATE DATA (seed defaults - overridden by src/data/fallback/states.json)
+// STATE DATA (6 Cards)
 // ----------------------------------------------------
 export const statesData: StateData[] = [
   {
@@ -169,12 +192,92 @@ export const statesData: StateData[] = [
     bestTime: { en: "October to March.", es: "De octubre a marzo.", pt: "De outubro a março." },
     travelTips: [],
     faqs: [],
-    cities: []
+    cities: [createMockCity("rajasthan", "jaipur", "Jaipur", "Jaipur", "Jaipur", "The Pink City of Maharajas", "/images/rajasthan_fort_sunset.png")]
+  },
+  {
+    slug: "kerala",
+    title: { en: "Kerala", es: "Kerala", pt: "Kerala" },
+    tagline: { en: "God's Own Country, Backwaters & Ayurvedic Wellness", es: "El propio país de Dios, canales y ayurveda", pt: "O próprio país de Deus, canais e ayurveda" },
+    region: "South",
+    image: "/images/kerala 2.jpg",
+    gallery: [],
+    description: { en: "An emerald paradise of coconut plantations, spice hills and quiet backwater canals.", es: "Un paraíso esmeralda de plantaciones de coco y colinas de especias.", pt: "Um paraíso esmeralda de plantações de coco e colinas de especiarias." },
+    history: { en: "A global spice trade hub for Phoenicians, Romans and Arabs.", es: "Un centro de comercio de especias desde la antigüedad.", pt: "Um centro de comércio de especiarias desde a antiguidade." },
+    culture: { en: "Kathakali dance-drama, Kalaripayattu martial art, and temple festivals.", es: "Danza Kathakali y arte marcial Kalaripayattu.", pt: "Dança Kathakali e arte marcial Kalaripayattu." },
+    localFood: { en: "Karimeen Pollichathu, Idiyappam with curry and payasam.", es: "Frutos de mar con coco y arroz puttu.", pt: "Frutos do mar com coco e arroz puttu." },
+    bestTime: { en: "September to March.", es: "De septiembre a marzo.", pt: "De setembro a março." },
+    travelTips: [],
+    faqs: [],
+    cities: [createMockCity("kerala", "kochi", "Kochi", "Kochi", "Kochi", "The Historic Spice Port Route", "/images/kerala_backwaters_houseboat.png")]
+  },
+  {
+    slug: "goa",
+    title: { en: "Goa", es: "Goa", pt: "Goa" },
+    tagline: { en: "Sun-Kissed Beaches, Portuguese Architecture & Spices", es: "Playas Soleadas, Arquitectura Portuguesa y Especias", pt: "Praias Ensolaradas, Arquitetura Portuguesa e Especiarias" },
+    region: "West",
+    image: "/images/goa 2.jpg",
+    gallery: [],
+    description: { en: "A blend of Indian culture and Portuguese heritage on golden coastlines.", es: "Una fusión de cultura india y herencia portuguesa.", pt: "Uma fusão da cultura indiana e herança portuguesa." },
+    history: { en: "A Portuguese colony for over 450 years.", es: "Colonia portuguesa durante más de 450 años.", pt: "Colônia portuguesa por mais de 450 anos." },
+    culture: { en: "Famous for Goan carnival, church feasts, and beach vibes.", es: "Famoso por el carnaval y fiestas patronales.", pt: "Famoso pelo carnaval e festas de igrejas." },
+    localFood: { en: "Goan Fish Curry, Pork Vindaloo, Bebinca dessert.", es: "Vindaloo y curry de pescado goan.", pt: "Vindaloo e curry de peixe goano." },
+    bestTime: { en: "November to February.", es: "De noviembre a febrero.", pt: "De novembro a fevereiro." },
+    travelTips: [],
+    faqs: [],
+    cities: [createMockCity("goa", "panaji", "Panaji", "Panaji", "Panaji", "Portuguese Heritage Capital", "/images/goa.jpg")]
+  },
+  {
+    slug: "uttar-pradesh",
+    title: { en: "Uttar Pradesh", es: "Uttar Pradesh", pt: "Uttar Pradesh" },
+    tagline: { en: "The Taj Mahal, Spiritual Ghats & Sacred River Banks", es: "El Taj Mahal, Ghats Espirituales y Ríos Sagrados", pt: "O Taj Mahal, Ghats Espirituais e Rios Sagrados" },
+    region: "North",
+    image: "/images/uttar pradesh.jpg",
+    gallery: [],
+    description: { en: "The spiritual heartland of India, housing the Taj Mahal and ancient Varanasi.", es: "El corazón espiritual, hogar de Agra y Varanasi.", pt: "O coração espiritual, lar de Agra e Varanasi." },
+    history: { en: "The epicentre of the Mughal Empire and ancient Vedic civilisations.", es: "Epicentro del imperio mogol y cultura védica.", pt: "Epicentro do império mogol e cultura védica." },
+    culture: { en: "Kathak classical dance, Banarasi silk weavers and Ganga Aarti ceremonies.", es: "Ceremonias en el Ganges y tejidos de seda.", pt: "Cerimônias no Ganges e tecidos de seda." },
+    localFood: { en: "Petha sweet, Awadhi Biryani and Kebabs.", es: "Biryani aromático y dulces tradicionales.", pt: "Biryani aromático e doces tradicionais." },
+    bestTime: { en: "October to March.", es: "De octubre a marzo.", pt: "De outubro a março." },
+    travelTips: [],
+    faqs: [],
+    cities: [createMockCity("uttar-pradesh", "varanasi", "Varanasi", "Varanasi", "Varanasi", "The Ancient Sacred City of Light", "/images/varanasi_ghats_aarti.png")]
+  },
+  {
+    slug: "himachal-pradesh",
+    title: { en: "Himachal Pradesh", es: "Himachal Pradesh", pt: "Himachal Pradesh" },
+    tagline: { en: "Snowy Mountain Peaks, Pine Forests & Valleys", es: "Picos Nevados, Bosques de Pinos y Valles", pt: "Picos Nevados, Florestas de Pinheiros e Vales" },
+    region: "North",
+    image: "/images/himachal pradesh.jpg",
+    gallery: [],
+    description: { en: "A majestic Himalayan sanctuary of hill stations, apple orchards and monasteries.", es: "Un santuario del Himalaya con vistas nevadas.", pt: "Um santuário do Himalaia com vistas nevadas." },
+    history: { en: "Former summer capital of British India and homeland of Tibetan monks.", es: "Antigua capital de verano británica.", pt: "Antiga capital de verão britânica." },
+    culture: { en: "Himachali shawls, wood carvings and Buddhist chanting.", es: "Tejidos tradicionales y cultura budista.", pt: "Tecidos tradicionais e cultura budista." },
+    localFood: { en: "Siddu bread, Madra chickpeas and Trout fish.", es: "Platos montañeses y pan casero siddu.", pt: "Pratos montanheses e pão caseiro siddu." },
+    bestTime: { en: "March to June & September to December.", es: "De marzo a junio y septiembre a diciembre.", pt: "De março a junho e setembro a dezembro." },
+    travelTips: [],
+    faqs: [],
+    cities: [createMockCity("himachal-pradesh", "shimla", "Shimla", "Shimla", "Shimla", "Summer Hill Station Capital", "/images/himachal pradesh.jpg")]
+  },
+  {
+    slug: "maharashtra",
+    title: { en: "Maharashtra", es: "Maharashtra", pt: "Maharashtra" },
+    tagline: { en: "Ancient Rock Caves, Hill Stations & Dynamic Mumbai", es: "Cuevas Antiguas, Colinas y el Dinámico Mumbai", pt: "Cavernas Antigas, Colinas e o Dinâmico Mumbai" },
+    region: "West",
+    image: "/images/maharashtra.jpg",
+    gallery: [],
+    description: { en: "A massive state featuring the Ajanta-Ellora world heritage caves and bustling Mumbai.", es: "Hogar de las cuevas patrimonio mundial y Mumbai.", pt: "Lar das cavernas patrimônio mundial e Mumbai." },
+    history: { en: "The territory of the great Maratha Empire under Shivaji.", es: "Cuna del gran imperio guerrero Maratha.", pt: "Berço do grande império guerreiro Maratha." },
+    culture: { en: "Lavani folk dance, Warli paintings and Ganesh Chaturthi festival.", es: "Pinturas Warli y festivales dinámicos.", pt: "Pinturas Warli e festivais dinâmicos." },
+    localFood: { en: "Misal Pav, Vada Pav and Puran Poli dessert.", es: "Bocadillos picantes y postres locales.", pt: "Lanches condimentados e sobremesas locais." },
+    bestTime: { en: "October to March.", es: "De octubre a marzo.", pt: "De outubro a março." },
+    travelTips: [],
+    faqs: [],
+    cities: [createMockCity("maharashtra", "mumbai", "Mumbai", "Mumbai", "Mumbai", "City of Dreams & Gateway of India", "/images/maharashtra.jpg")]
   }
 ];
 
 // ----------------------------------------------------
-// TOUR PACKAGES (seed defaults - overridden by tour_packages.json)
+// TOUR PACKAGES (6 Cards)
 // ----------------------------------------------------
 export const tourPackages: TourPackage[] = [
   {
@@ -198,11 +301,121 @@ export const tourPackages: TourPackage[] = [
     ],
     travelTips: [],
     faqs: []
+  },
+  {
+    slug: "kerala-ayurveda-wellness",
+    title: { en: "Kerala Ayurveda & Wellness retreat", es: "Retiro de Bienestar y Ayurveda en Kerala", pt: "Retiro de Bem-Estar e Ayurveda em Kerala" },
+    tagline: { en: "Rejuvenating Body & Soul in the Coconut Paradise", es: "Rejuvenece Cuerpo y Alma en el Paraíso de los Cocos", pt: "Rejuvenesça Corpo e Alma no Paraíso dos Cocos" },
+    category: "Wellness Tours",
+    durationDays: 9,
+    image: "/images/kerala_backwaters_houseboat.png",
+    gallery: [],
+    highlights: [
+      { en: "Daily consultation with Ayurvedic doctors", es: "Consulta diaria con médicos ayurvédicos", pt: "Consulta diária com médicos ayurvédicos" },
+      { en: "Private houseboat stay along Backwaters", es: "Estadía privada en casa bote por los canales", pt: "Hospedagem privada em casa barco nos canais" },
+      { en: "Daily private meditation and yoga sessions", es: "Sesiones diarias privadas de yoga y meditación", pt: "Sessões diárias privadas de ioga e meditação" }
+    ],
+    itinerary: [
+      { day: 1, title: { en: "Arrival in Kochi Port", es: "Llegada al Puerto de Kochi", pt: "Chegada ao Porto de Kochi" }, desc: { en: "Check-in to a luxury wellness eco-resort.", es: "Check-in en un eco-resort de bienestar de lujo.", pt: "Check-in em um resort ecológico de bem-estar de luxo." } }
+    ],
+    includedExperiences: [
+      { en: "Full board healthy Ayurvedic organic meals", es: "Pensión completa con alimentos ayurvédicos", pt: "Pensão completa com alimentos ayurvédicos" }
+    ],
+    travelTips: [],
+    faqs: []
+  },
+  {
+    slug: "wildlife-ranthambore-safari",
+    title: { en: "Wildlife & Royal Tiger Safaris", es: "Aventura de Vida Silvestre y Safari de Tigres", pt: "Aventura de Vida Selvagem e Safári de Tigres" },
+    tagline: { en: "Encounter Majestic Bengal Tigers in Ancient Forests", es: "Encuentre Tigres de Bengala en Bosques Antiguos", pt: "Encontre Tigres de Bengala em Florestas Antigas" },
+    category: "Wildlife Safaris",
+    durationDays: 8,
+    image: "/images/ranthambore_tiger_safari.png",
+    gallery: [],
+    highlights: [
+      { en: "4 private customized jeep game drives", es: "4 safaris en jeep privado personalizado", pt: "4 safaris de jipe privado personalizado" },
+      { en: "Luxury wilderness glamping resort stay", es: "Estancia en campamento de lujo tipo glamping", pt: "Estadia em acampamento de luxo tipo glamping" },
+      { en: "Explore Ranthambore high forest fort ruins", es: "Exploración de las ruinas del fuerte forestal", pt: "Exploração das ruínas do forte florestal" }
+    ],
+    itinerary: [
+      { day: 1, title: { en: "Arrival at Ranthambore Camp", es: "Llegada al Campamento Ranthambore", pt: "Chegada ao Acampamento Ranthambore" }, desc: { en: "Welcome ceremony at luxury jungle camp.", es: "Ceremonia de bienvenida en el campamento.", pt: "Cerimônia de boas-vindas no acampamento." } }
+    ],
+    includedExperiences: [
+      { en: "Expert naturalist accompaniment", es: "Acompañamiento de un naturalista experto", pt: "Acompanhamento de um naturalista perito" }
+    ],
+    travelTips: [],
+    faqs: []
+  },
+  {
+    slug: "rajasthan-royal-heritage",
+    title: { en: "Rajasthan Heritage & Royal Palaces Tour", es: "Patrimonio de Rajastán y Palacios Reales", pt: "Patrimônio do Rajastão e Palácios Reais" },
+    tagline: { en: "The Ultimate Grand Tour of Rajput Royalty & Dunes", es: "El Gran Tour de la Realeza Rajput y Dunas de Arena", pt: "O Grande Tour da Realeza Rajput e Dunas de Areia" },
+    category: "Heritage Tours",
+    durationDays: 12,
+    image: "/images/rajasthan_fort_sunset.png",
+    gallery: [],
+    highlights: [
+      { en: "Stay in actual heritage palace suites", es: "Estancia en suites de antiguos palacios reales", pt: "Hospedagem em suítes de antigos palácios reais" },
+      { en: "Private sand dunes sundowner camel ride", es: "Paseo en camello al atardecer en dunas", pt: "Passeio de camelo ao entardecer nas dunas" },
+      { en: "Private traditional sitar recital evening", es: "Recital privado de música de sitar tradicional", pt: "Recital privado de música sitar tradicional" }
+    ],
+    itinerary: [
+      { day: 1, title: { en: "Welcome in Udaipur Lake City", es: "Bienvenida en Udaipur Ciudad de Lagos", pt: "Boas-vindas em Udaipur Cidade dos Lagos" }, desc: { en: "VIP boat check-in to historic lake palace hotel.", es: "Check-in en barco VIP al hotel palacio del lago.", pt: "Check-in em barco VIP ao hotel palácio do lago." } }
+    ],
+    includedExperiences: [
+      { en: "Exclusive access to palace museums", es: "Acceso exclusivo a museos de palacios", pt: "Acesso exclusivo a museus de palácios" }
+    ],
+    travelTips: [],
+    faqs: []
+  },
+  {
+    slug: "south-india-temples",
+    title: { en: "South India Monuments & Temples", es: "Monumentos e Templos del Sur de la India", pt: "Monumentos e Templos do Sul da Índia" },
+    tagline: { en: "Architectural Marvels of Hampi, Mysore & Madurai", es: "Maravillas Arquitectónicas del Sur de la India", pt: "Maravilhas Arquitetônicas do Sul da Índia" },
+    category: "Heritage Tours",
+    durationDays: 10,
+    image: "/images/hampi-ruins.jpg",
+    gallery: [],
+    highlights: [
+      { en: "Private walking tours of UNESCO Hampi ruins", es: "Tour a pie privado por las ruinas de Hampi", pt: "Tour a pé privado pelas ruínas de Hampi" },
+      { en: "VIP entry to Madurai Meenakshi Temple", es: "Entrada VIP al Templo Meenakshi de Madurai", pt: "Entrada VIP no Templo Meenakshi de Madurai" },
+      { en: "Stay in historic colonial-era bungalows", es: "Estancia en bungalows coloniales históricos", pt: "Estadia em bangalôs coloniais históricos" }
+    ],
+    itinerary: [
+      { day: 1, title: { en: "Arrival in Bangalore Garden City", es: "Llegada a Bangalore Ciudad Jardín", pt: "Chegada a Bangalore Cidade Jardim" }, desc: { en: "VIP pickup and transfer to Taj West End.", es: "Recogida VIP y traslado al hotel.", pt: "Coleta VIP e traslado para o hotel." } }
+    ],
+    includedExperiences: [
+      { en: "Expert architecture historians guides", es: "Guías historiadores de arte expertos", pt: "Guias historiadores de arte peritos" }
+    ],
+    travelTips: [],
+    faqs: []
+  },
+  {
+    slug: "goa-beach-luxury",
+    title: { en: "Goa Luxury Beach Vacation", es: "Vacaciones de Lujo en las Playas de Goa", pt: "Férias de Luxo nas Praias de Goa" },
+    tagline: { en: "Pure Coastal Indulgence, Yacht Cruises & Villas", es: "Pura Indulgencia Costera, Yate Privado y Villas", pt: "Pura Indulgência Costeira, Iate Privado e Villas" },
+    category: "Beach Vacations",
+    durationDays: 6,
+    image: "/images/goa.jpg",
+    gallery: [],
+    highlights: [
+      { en: "Sunset cruise on private luxury yacht", es: "Crucero privado en yate de lujo al atardecer", pt: "Cruzeiro privado em iate de luxo ao entardecer" },
+      { en: "Stay in 5-star beachfront luxury villa", es: "Alojamiento en villa frente al mar de 5 estrellas", pt: "Hospedagem em villa em frente ao mar de 5 estrelas" },
+      { en: "Private spice plantation tour and lunch", es: "Visita y almuerzo privado en plantación", pt: "Visita e almoço privado em plantação de especiarias" }
+    ],
+    itinerary: [
+      { day: 1, title: { en: "Welcome in Goa Airport", es: "Bienvenida en el Aeropuerto de Goa", pt: "Boas-vindas no Aeroporto de Goa" }, desc: { en: "VIP Mercedes transfer to beachside resort.", es: "Traslado en Mercedes VIP al resort de playa.", pt: "Traslado em Mercedes VIP para o resort de praia." } }
+    ],
+    includedExperiences: [
+      { en: "Private chef seafood dinner evening", es: "Cena de mariscos preparada por chef privado", pt: "Jantar de frutos do mar feito por chef privado" }
+    ],
+    travelTips: [],
+    faqs: []
   }
 ];
 
 // ----------------------------------------------------
-// CUISINES & FOODS (seed defaults - overridden by foods.json)
+// CUISINES & FOODS (6 Cards)
 // ----------------------------------------------------
 export const foodsData: FoodData[] = [
   {
@@ -212,11 +425,86 @@ export const foodsData: FoodData[] = [
     image: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=800",
     gallery: [],
     history: { en: "Created in Delhi in the 1950s.", es: "Creado en Delhi en los años 1950.", pt: "Criado em Deli nos anos 1950." },
-    ingredients: [{ en: "Tandoori chicken", es: "Pollo tandoori", pt: "Frango tandoori" }],
+    ingredients: [{ en: "Tandoori chicken", es: "Pollo tandoori", pt: "Frango tandoori" }, { en: "Butter, tomato & heavy cream", es: "Mantequilla, tomate y crema", pt: "Manteiga, tomate e creme" }],
     origin: { en: "New Delhi, India", es: "Nueva Delhi, India", pt: "Nova Deli, Índia" },
     region: "North India",
     bestCities: [{ en: "New Delhi", es: "Nueva Delhi", pt: "Nova Deli" }],
     bestRestaurants: [{ name: "Moti Mahal", city: "New Delhi" }],
+    travelTips: [],
+    faqs: []
+  },
+  {
+    slug: "masala-dosa",
+    title: { en: "Masala Dosa", es: "Masala Dosa", pt: "Masala Dosa" },
+    category: "South Indian",
+    image: "/images/masala dosa.jpg",
+    gallery: [],
+    history: { en: "Originating in Karnataka, a staple breakfast for centuries.", es: "Originario de Karnataka, un desayuno básico durante siglos.", pt: "Originário de Karnataka, um café da manhã básico por séculos." },
+    ingredients: [{ en: "Fermented rice batter", es: "Masa de arroz fermentado", pt: "Massa de arroz fermentado" }, { en: "Spiced potato filling", es: "Relleno de papa condimentada", pt: "Recheio de batata temperada" }],
+    origin: { en: "Udupi, Karnataka", es: "Udupi, Karnataka", pt: "Udupi, Karnataka" },
+    region: "South India",
+    bestCities: [{ en: "Bangalore", es: "Bangalore", pt: "Bangalore" }, { en: "Chennai", es: "Chennai", pt: "Chennai" }],
+    bestRestaurants: [{ name: "MTR", city: "Bangalore" }],
+    travelTips: [],
+    faqs: []
+  },
+  {
+    slug: "dal-baati-churma",
+    title: { en: "Dal Baati Churma", es: "Dal Baati Churma", pt: "Dal Baati Churma" },
+    category: "West Indian",
+    image: "/images/churma bati.jpg",
+    gallery: [],
+    history: { en: "The iconic traditional culinary dish of Rajput warriors.", es: "El plato tradicional icónico de los guerreros Rajput.", pt: "O prato tradicional icônico dos guerreiros Rajput." },
+    ingredients: [{ en: "Baked wheat balls (Baati)", es: "Bolas de trigo horneadas (Baati)", pt: "Bolas de trigo assadas (Baati)" }, { en: "Five-lentil soup (Dal)", es: "Sopa de cinco lentejas (Dal)", pt: "Sopa de cinco lentilhas (Dal)" }, { en: "Sweet crushed wheat (Churma)", es: "Trigo triturado dulce (Churma)", pt: "Trigo triturado doce (Churma)" }],
+    origin: { en: "Mewar Region, Rajasthan", es: "Región de Mewar, Rajastán", pt: "Região de Mewar, Rajastão" },
+    region: "West India",
+    bestCities: [{ en: "Jaipur", es: "Jaipur", pt: "Jaipur" }, { en: "Udaipur", es: "Udaipur", pt: "Udaipur" }],
+    bestRestaurants: [{ name: "Chokhi Dhani", city: "Jaipur" }],
+    travelTips: [],
+    faqs: []
+  },
+  {
+    slug: "goan-fish-curry",
+    title: { en: "Goan Fish Curry", es: "Curry de Pescado Goan", pt: "Caril de Peixe Goano" },
+    category: "Coastal Indian",
+    image: "/images/goan fish curry.jpg",
+    gallery: [],
+    history: { en: "A delicious blend of local coconut spices and Portuguese influence.", es: "Una fusión de especias de coco locales e influencia portuguesa.", pt: "Uma fusão de especiarias de coco locais e influência portuguesa." },
+    ingredients: [{ en: "Fresh fish (Kingfish or Pomfret)", es: "Pescado fresco", pt: "Peixe fresco" }, { en: "Coconut milk & tamarind", es: "Leche de coco y tamarindo", pt: "Leite de coco e tamarindo" }],
+    origin: { en: "Goa, India", es: "Goa, India", pt: "Goa, Índia" },
+    region: "Coastal India",
+    bestCities: [{ en: "Panaji", es: "Panaji", pt: "Panaji" }, { en: "Margao", es: "Margao", pt: "Margao" }],
+    bestRestaurants: [{ name: "Fisherman's Wharf", city: "Panaji" }],
+    travelTips: [],
+    faqs: []
+  },
+  {
+    slug: "chhole-bhature",
+    title: { en: "Chhole Bhature", es: "Chhole Bhature", pt: "Chhole Bhature" },
+    category: "North Indian",
+    image: "/images/chhole bhature.jpg",
+    gallery: [],
+    history: { en: "A beloved Punjabi street food staple, popularized post-independence.", es: "Una comida callejera favorita de origen punjabi.", pt: "Uma comida de rua favorita de origem punjabi." },
+    ingredients: [{ en: "Spicy chickpeas (Chhole)", es: "Garbanzos condimentados (Chhole)", pt: "Grão-de-bico temperado (Chhole)" }, { en: "Fluffy fried bread (Bhature)", es: "Pan frito inflado (Bhature)", pt: "Pão frito inflado (Bhature)" }],
+    origin: { en: "Punjab / New Delhi", es: "Punjab / Nueva Delhi", pt: "Punjab / Nova Deli" },
+    region: "North India",
+    bestCities: [{ en: "New Delhi", es: "Nueva Delhi", pt: "Nova Deli" }, { en: "Amritsar", es: "Amritsar", pt: "Amritsar" }],
+    bestRestaurants: [{ name: "Sita Ram Diwan Chand", city: "New Delhi" }],
+    travelTips: [],
+    faqs: []
+  },
+  {
+    slug: "puttu-kadala",
+    title: { en: "Puttu & Kadala Curry", es: "Puttu y Kadala Curry", pt: "Puttu e Kadala Curry" },
+    category: "South Indian",
+    image: "/images/puttu kadala curry.jpg",
+    gallery: [],
+    history: { en: "The signature morning breakfast recipe of Kerala houseboats.", es: "La receta de desayuno característica de las casas barco en Kerala.", pt: "A receita de café da manhã característica das casas barco em Kerala." },
+    ingredients: [{ en: "Steamed rice cake rolls (Puttu)", es: "Pastel de arroz al vapor (Puttu)", pt: "Bolo de arroz ao vapor (Puttu)" }, { en: "Black chickpeas gravy (Kadala)", es: "Guiso de garbanzos negros (Kadala)", pt: "Guisado de grão-de-bico preto (Kadala)" }],
+    origin: { en: "Kerala, India", es: "Kerala, India", pt: "Kerala, Índia" },
+    region: "South India",
+    bestCities: [{ en: "Kochi", es: "Kochi", pt: "Kochi" }, { en: "Trivandrum", es: "Trivandrum", pt: "Trivandrum" }],
+    bestRestaurants: [{ name: "Paragon Restaurant", city: "Kochi" }],
     travelTips: [],
     faqs: []
   }
@@ -241,7 +529,7 @@ export const festivalsData: FestivalData[] = [
 ];
 
 // ----------------------------------------------------
-// TRAVEL BLOGS DATA (seed defaults - overridden by blogs.json)
+// TRAVEL BLOGS DATA (6 Cards)
 // ----------------------------------------------------
 export const blogsData: BlogData[] = [
   {
@@ -257,11 +545,81 @@ export const blogsData: BlogData[] = [
     createdAt: "2026-05-12",
     seoTitle: { en: "First Time India Travel Guide | MHIndiaTrips", es: "Guía de Viaje a la India | MHIndiaTrips", pt: "Guia de Viagem para a Índia | MHIndiaTrips" },
     seoDescription: { en: "Professional travel tips for a memorable India tour.", es: "Consejos profesionales para un viaje a la India.", pt: "Conselhos profissionais para uma viagem à Índia." }
+  },
+  {
+    slug: "solo-female-travel-india",
+    title: { en: "Solo Female Travel in India: Practical Safety Guide", es: "Viajar Sola en la India: Guía Práctica de Seguridad", pt: "Viajar Sozinha na Índia: Guia Prático de Segurança" },
+    excerpt: { en: "Important considerations and safety tips for solo women travelers.", es: "Consideraciones importantes de seguridad para mujeres.", pt: "Considerações importantes de segurança para mulheres." },
+    content: { en: "Exploring India alone is incredibly empowering.", es: "Explorar la India sola es increíblemente empoderador.", pt: "Explorar a Índia sozinha é incrivelmente empoderador." },
+    featuredImage: "/images/team_anita.png",
+    author: "Anita Sharma",
+    category: "Safety & Tips",
+    tags: ["Solo Travel", "Safety Guide"],
+    readingTime: 8,
+    createdAt: "2026-06-01",
+    seoTitle: { en: "Solo Female Travel Safety Guide India", es: "Guía de Seguridad para Viajar Sola", pt: "Guia de Segurança para Viajar Sozinha" },
+    seoDescription: { en: "Expert concierge tips and recommendations for women travel.", es: "Consejos de expertos para mujeres que viajan solas.", pt: "Conselhos de peritos para mulheres que viajam sozinhas." }
+  },
+  {
+    slug: "best-time-to-visit-india",
+    title: { en: "Best Time to Visit India: Region-by-Region Guide", es: "Mejor Época para Visitar la India: Guía Regional", pt: "Melhor Época para Visitar a Índia: Guia Regional" },
+    excerpt: { en: "Choose the perfect month for your custom private tour.", es: "Elija el mes perfecto para su recorrido privado.", pt: "Escolha o mês perfeito para a sua viagem privada." },
+    content: { en: "With varying climates, timing is everything.", es: "Con climas tan diversos, el tiempo lo es todo.", pt: "Com climas tão diversos, o tempo é tudo." },
+    featuredImage: "/images/taj_mahal_sunrise.png",
+    author: "Priya Patel",
+    category: "Planning Guides",
+    tags: ["Weather Guide", "Seasons"],
+    readingTime: 5,
+    createdAt: "2026-06-15",
+    seoTitle: { en: "When to Visit India | Best Weather Guides", es: "Cuándo viajar a la India | Mejor Clima", pt: "Quando viajar para a Índia | Melhor Clima" },
+    seoDescription: { en: "Learn about monsoon, winter, and summer tourism months.", es: "Infórmese sobre los meses de monzón, invierno y verano.", pt: "Informe-se sobre os meses de monção, inverno e verão." }
+  },
+  {
+    slug: "understanding-indian-culture",
+    title: { en: "Understanding Indian Culture & Traditions", es: "Entendiendo la Cultura y Tradiciones de la India", pt: "Entendendo a Cultura e Tradições da Índia" },
+    excerpt: { en: "A guide to local etiquette, dress codes, and greetings.", es: "Una guía de etiqueta local, vestimenta y saludos.", pt: "Um guia de etiqueta local, vestimentas e saudações." },
+    content: { en: "India's culture is a tapestry of deep heritage.", es: "La cultura de la India es un tapiz de herencia profunda.", pt: "A cultura da Índia é uma tapeçaria de herança profunda." },
+    featuredImage: "/images/varanasi_ghats_aarti.png",
+    author: "Rajesh Kumar",
+    category: "Culture & Arts",
+    tags: ["Culture", "Etiquette"],
+    readingTime: 7,
+    createdAt: "2026-07-02",
+    seoTitle: { en: "India Cultural Etiquette Travel Guide", es: "Guía de Etiqueta Cultural en la India", pt: "Guia de Etiqueta Cultural na Índia" },
+    seoDescription: { en: "Essential cultural rules for international tourists.", es: "Reglas culturales esenciales para turistas internacionales.", pt: "Regras culturais essenciais para turistas internacionais." }
+  },
+  {
+    slug: "south-vs-north-india",
+    title: { en: "North vs South India: Differences in Experience", es: "Norte vs Sur de la India: Diferencias", pt: "Norte vs Sul da Índia: Diferenças" },
+    excerpt: { en: "Compare the landscapes, food, and culture of the two regions.", es: "Compare los paisajes, comida y cultura de ambas regiones.", pt: "Compare as paisagens, comida e cultura de ambas as regiões." },
+    content: { en: "Choosing between North and South India is a delightful dilemma.", es: "Elegir entre el norte y el sur de la India es un dilema encantador.", pt: "Escolher entre o norte e o sul da Índia é um dilema adorável." },
+    featuredImage: "/images/kerala 3.jpg",
+    author: "Elena Rodriguez",
+    category: "Travel Guides",
+    tags: ["North India", "South India"],
+    readingTime: 9,
+    createdAt: "2026-07-20",
+    seoTitle: { en: "North vs South India Travel Comparison Guide", es: "Comparación de Viaje: Norte vs Sur", pt: "Comparação de Viagem: Norte vs Sul" },
+    seoDescription: { en: "Find out which region fits your travel dreams.", es: "Descubra qué región se adapta a sus sueños de viaje.", pt: "Descubra qual região se adapta aos seus sonhos de viagem." }
+  },
+  {
+    slug: "luxury-trains-india",
+    title: { en: "Luxury Trains of India: The Ultimate Railway Guides", es: "Trenes de Lujo en la India: Guía de Ferrocarriles", pt: "Trens de Luxo na Índia: Guia de Ferrovias" },
+    excerpt: { en: "Travel like a Maharaja inside palace cabins on wheels.", es: "Viaje como un Maharaja dentro de cabinas palacio.", pt: "Viaje como um Maharaja dentro de cabines palácio." },
+    content: { en: "Train travel in India can be an ultra-luxury affair.", es: "El viaje en tren en la India puede ser un asunto de ultra lujo.", pt: "A viagem de trem na Índia pode ser um caso de ultra luxo." },
+    featuredImage: "/images/luxury_palace_train.png",
+    author: "Priya Patel",
+    category: "Luxury Travel",
+    tags: ["Luxury Trains", "Maharaja Express"],
+    readingTime: 6,
+    createdAt: "2026-08-01",
+    seoTitle: { en: "Luxury Railway Palace Trains Guide India", es: "Guía de Trenes de Lujo de la India", pt: "Guia de Trens de Luxo da Índia" },
+    seoDescription: { en: "Experience Maharajas Express and Palace on Wheels.", es: "Experimente el Maharajas Express y el Palace on Wheels.", pt: "Experimente o Maharajas Express e o Palace on Wheels." }
   }
 ];
 
 // ----------------------------------------------------
-// TESTIMONIALS (seed defaults - overridden by testimonials.json)
+// TESTIMONIALS (6 Cards)
 // ----------------------------------------------------
 export const testimonials: Testimonial[] = [
   {
@@ -269,7 +627,7 @@ export const testimonials: Testimonial[] = [
     name: "Alvaro Gomez",
     location: "Madrid, Spain",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200",
-    quote: { en: "The best travel experience of our lives!", es: "¡La mejor experiencia de viaje de nuestras vidas!", pt: "A melhor experiência de viagem de nossas vidas!" },
+    quote: { en: "The best travel experience of our lives! The private guides and luxury chauffeur cars made our Rajasthan journey absolutely perfect.", es: "¡La mejor experiencia de viaje de nuestras vidas! Los guías privados y los coches de lujo hicieron que nuestro viaje por Rajastán fuera perfecto.", pt: "A melhor experiência de viagem de nossas vidas! Os guias privados e os carros de luxo tornaram a nossa viagem pelo Rajastão perfeita." },
     stars: 5
   },
   {
@@ -277,7 +635,39 @@ export const testimonials: Testimonial[] = [
     name: "Clara Santos",
     location: "Lisbon, Portugal",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200",
-    quote: { en: "South India was spectacular.", es: "El sur de la India fue espectacular.", pt: "O sul da Índia foi espetacular." },
+    quote: { en: "South India and the backwaters of Kerala were spectacular. The Ayurvedic wellness treatments and custom hotels exceeded our expectations.", es: "El sur de la India y los canales de Kerala fueron espectaculares. Los tratamientos de ayurveda superaron nuestras expectativas.", pt: "O sul da Índia e os canais de Kerala foram espetaculares. Os tratamentos de ayurveda superaram as nossas expectativas." },
+    stars: 5
+  },
+  {
+    id: "test-3",
+    name: "Sarah & Family",
+    location: "London, United Kingdom",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200",
+    quote: { en: "Traveling with children can be hectic, but MH India Trips made it seamless. The private vehicle was comfortable, and our driver was fantastic.", es: "Viajar con niños puede ser agitado, pero MH India Trips lo hizo impecable. El vehículo privado fue muy cómodo.", pt: "Viajar com crianças pode ser agitado, mas a MH India Trips tornou tudo impecável. O veículo privado era muito confortável." },
+    stars: 5
+  },
+  {
+    id: "test-4",
+    name: "Jean-Pierre & Marie",
+    location: "Paris, France",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200",
+    quote: { en: "A truly royal experience. We stayed in actual palace suites and had private sunrise tours of the Taj Mahal. Outstanding service!", es: "Una experiencia verdaderamente real. Nos alojamos en suites de palacios y tuvimos tours privados al Taj Mahal.", pt: "Uma experiência verdadeiramente real. Hospedamo-nos em suítes de palácios e tivemos tours privados ao Taj Mahal." },
+    stars: 5
+  },
+  {
+    id: "test-5",
+    name: "Ana Maria Silva",
+    location: "São Paulo, Brazil",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200",
+    quote: { en: "Incredible attention to detail. Every single guide spoke fluent Spanish/Portuguese, and the local cuisine recommendations were superb.", es: "Increíble atención al detalle. Cada guía hablaba español con fluidez y las recomendaciones de comida local fueron excelentes.", pt: "Incrível atenção aos detalhes. Cada guia falava espanhol fluentemente e as recomendações de comida local foram excelentes." },
+    stars: 5
+  },
+  {
+    id: "test-6",
+    name: "David Miller",
+    location: "New York, USA",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200",
+    quote: { en: "Their Ranthambore wildlife safari organization was top-notch. We spotted a tiger on our first game drive! Highly recommended concierge.", es: "La organización del safari en Ranthambore fue excelente. ¡Vimos un tigre en nuestro primer safari!", pt: "A organização do safári em Ranthambore foi excelente. Vimos um tigre no nosso primeiro safári! Muito recomendado." },
     stars: 5
   }
 ];
