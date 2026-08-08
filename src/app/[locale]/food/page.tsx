@@ -38,7 +38,7 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
 
       {/* SECTION 2: Categories lists */}
       <section className="max-w-7xl mx-auto px-6 py-28 space-y-24">
-        {categories.map((cat) => {
+        {categories.map((cat: any) => {
           const catFoods = foods.filter((f: any) => f.category === cat);
           if (catFoods.length === 0) return null;
           return (

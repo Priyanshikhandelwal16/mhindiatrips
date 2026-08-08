@@ -13,9 +13,9 @@ export default async function MonumentsPage({ params }: MonumentsPageProps) {
   const states = await getStatesAction();
 
   // Extract all attractions from all cities under all states
-  const monuments = states.flatMap((state) =>
-    state.cities.flatMap((city) =>
-      city.attractions.map((attraction) => ({
+  const monuments = states.flatMap((state: any) =>
+    state.cities.flatMap((city: any) =>
+      city.attractions.map((attraction: any) => ({
         ...attraction,
         stateSlug: state.slug,
         citySlug: city.slug,
@@ -95,7 +95,7 @@ export default async function MonumentsPage({ params }: MonumentsPageProps) {
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {monuments.map((mon, i) => {
+          {monuments.map((mon: any, i: number) => {
             const attractionName = mon.name[locale as "en" | "es" | "pt"] || mon.name.en;
             const attractionDesc = mon.desc[locale as "en" | "es" | "pt"] || mon.desc.en;
 

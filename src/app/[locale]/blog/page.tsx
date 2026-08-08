@@ -185,7 +185,7 @@ export default async function BlogIndexPage({ params }: BlogIndexPageProps) {
             <h3 className="text-2xl font-bold text-royal">{text.popular}</h3>
             <div className="h-px w-20 bg-gold/25" />
             <div className="space-y-8">
-              {blogs.slice(0, 3).map((blog, idx) => (
+              {blogs.slice(0, 3).map((blog: any, idx: number) => (
                 <Link key={idx} href={`/${locale}/blog/${blog.slug}`} className="flex gap-6 group">
                   <div className="w-24 h-24 rounded-2xl overflow-hidden shrink-0">
                     <img src={blog.featuredImage} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />

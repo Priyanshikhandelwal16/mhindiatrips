@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Compass, Users, FileText, Settings, LayoutDashboard, Utensils } from "lucide-react";
+import { Compass, Users, FileText, LayoutDashboard, Utensils, Star, MapPin, Map } from "lucide-react";
 
 export default async function AdminLayout({
   children,
@@ -20,13 +20,13 @@ export default async function AdminLayout({
           <Link href={`/${locale}`} className="text-xl font-bold tracking-widest text-[#FCFAF6] block">
             MH<span className="text-gold font-semibold">ADMIN</span>
           </Link>
-
+ 
           <nav className="space-y-2">
             <Link
               href={`/${locale}/admin`}
               className="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-white/5 text-sm font-semibold transition text-white/90"
             >
-              <LayoutDashboard className="w-5 h-5 text-gold" />
+              <LayoutDashboard className="w-5 h-5 text-gold shrink-0" />
               <span>Dashboard</span>
             </Link>
 
@@ -34,15 +34,23 @@ export default async function AdminLayout({
               href={`/${locale}/admin#leads`}
               className="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-white/5 text-sm font-semibold transition text-white/90"
             >
-              <Users className="w-5 h-5 text-gold" />
+              <Users className="w-5 h-5 text-gold shrink-0" />
               <span>Travel Leads</span>
+            </Link>
+
+            <Link
+              href={`/${locale}/admin#packages`}
+              className="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-white/5 text-sm font-semibold transition text-white/90"
+            >
+              <Map className="w-5 h-5 text-gold shrink-0" />
+              <span>Tour Packages</span>
             </Link>
 
             <Link
               href={`/${locale}/admin#blogs`}
               className="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-white/5 text-sm font-semibold transition text-white/90"
             >
-              <FileText className="w-5 h-5 text-gold" />
+              <FileText className="w-5 h-5 text-gold shrink-0" />
               <span>Manage Blogs</span>
             </Link>
 
@@ -50,8 +58,24 @@ export default async function AdminLayout({
               href={`/${locale}/admin#cuisines`}
               className="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-white/5 text-sm font-semibold transition text-white/90"
             >
-              <Utensils className="w-5 h-5 text-gold" />
+              <Utensils className="w-5 h-5 text-gold shrink-0" />
               <span>Food Catalog</span>
+            </Link>
+
+            <Link
+              href={`/${locale}/admin#destinations`}
+              className="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-white/5 text-sm font-semibold transition text-white/90"
+            >
+              <MapPin className="w-5 h-5 text-gold shrink-0" />
+              <span>Destinations</span>
+            </Link>
+
+            <Link
+              href={`/${locale}/admin#testimonials`}
+              className="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-white/5 text-sm font-semibold transition text-white/90"
+            >
+              <Star className="w-5 h-5 text-gold shrink-0" />
+              <span>Testimonials</span>
             </Link>
           </nav>
         </div>

@@ -115,7 +115,7 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
     },
   ];
 
-  const categories = Array.from(new Set(packages.map((p: any) => p.category))).filter(Boolean);
+  const categories = Array.from(new Set(packages.map((p: any) => p.category))).filter(Boolean) as string[];
   const featured = packages.find((p: any) => p.slug === "golden-triangle-luxury") || packages[0];
 
   return (
