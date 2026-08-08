@@ -253,6 +253,7 @@ export default function ItineraryPlanner({ locale }: { locale: string }) {
                           ? "bg-gold border-gold text-royal shadow-lg scale-[1.02]"
                           : "bg-white/5 border-white/10 text-white/80 hover:bg-white/10 hover:border-gold/30"
                       }`}
+                      suppressHydrationWarning
                     >
                       <Icon className={`w-5 h-5 ${active ? "text-royal" : "text-gold"}`} />
                       <span>{item.title}</span>
@@ -284,6 +285,7 @@ export default function ItineraryPlanner({ locale }: { locale: string }) {
                           ? "bg-gold border-gold text-royal shadow-md"
                           : "bg-white/5 border-white/10 text-white/80 hover:bg-white/10"
                       }`}
+                      suppressHydrationWarning
                     >
                       {item.label}
                     </button>
@@ -310,6 +312,7 @@ export default function ItineraryPlanner({ locale }: { locale: string }) {
                           ? "bg-gold border-gold text-royal shadow-md"
                           : "bg-white/5 border-white/10 text-white/80 hover:bg-white/10"
                       }`}
+                      suppressHydrationWarning
                     >
                       <span className="text-[10px] font-extrabold block uppercase tracking-wider">{item.title}</span>
                       <span className={`text-[8px] font-light block ${active ? "text-royal/80" : "text-white/40"}`}>{item.desc}</span>
@@ -362,6 +365,7 @@ export default function ItineraryPlanner({ locale }: { locale: string }) {
                           ? "bg-gold border-gold text-royal shadow"
                           : "border-gold/15 bg-gold/5 text-royal hover:bg-gold/15"
                       }`}
+                      suppressHydrationWarning
                     >
                       {d.day}
                     </button>
@@ -414,6 +418,7 @@ export default function ItineraryPlanner({ locale }: { locale: string }) {
               <button
                 onClick={handleBook}
                 className="w-full sm:w-auto bg-royal text-gold border border-gold/30 hover:bg-gold hover:text-royal transition-all duration-300 font-bold uppercase text-[10px] tracking-widest px-8 py-4 rounded-full flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:shadow-xl"
+                suppressHydrationWarning
               >
                 <span>Initiate Bespoke Booking</span>
                 <ChevronRight className="w-4.5 h-4.5" />
