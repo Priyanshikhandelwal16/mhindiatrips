@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Header from "@/components/navigation/Header";
 import Footer from "@/components/navigation/Footer";
 import PageTransition from "@/components/common/PageTransition";
+import ConciergeSeal from "@/components/common/ConciergeSeal";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
@@ -41,6 +42,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           </PageTransition>
         </main>
         <Footer locale={locale} />
+        <ConciergeSeal locale={locale} />
       </body>
     </html>
   );

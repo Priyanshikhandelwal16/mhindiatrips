@@ -8,6 +8,7 @@ import TestimonialSlider from "@/components/home/TestimonialSlider";
 import MonumentsAccordion from "@/components/home/MonumentsAccordion";
 import TravelerInfoCarousel from "@/components/home/TravelerInfoCarousel";
 import StatCounter from "@/components/home/StatCounter";
+import ItineraryPlanner from "@/components/home/ItineraryPlanner";
 import { 
   MapPin, Clock, ArrowRight, Star, Heart, Compass, Sparkles, 
   Award, Shield, Calendar, BookOpen, Coffee, Landmark, ArrowUpRight 
@@ -579,6 +580,9 @@ export default async function HomePage({ params }: HomePageProps) {
           </Link>
         </div>
       </section>
+
+      {/* SECTION 3.5: Interactive Bespoke Itinerary Planner */}
+      <ItineraryPlanner locale={locale} />
 
       {/* SECTION 4.5: Our Premium Inclusions (What We Do / Value Proposition) */}
       <section className="bg-white border-b border-gold/10 py-32">
