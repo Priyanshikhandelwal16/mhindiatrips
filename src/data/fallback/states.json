@@ -1,0 +1,3817 @@
+[
+  {
+    "slug": "rajasthan",
+    "title": {
+      "en": "Rajasthan",
+      "es": "Rajastán",
+      "pt": "Rajastão"
+    },
+    "tagline": {
+      "en": "Imperial Forts, Heritage Palaces & Sand Dunes",
+      "es": "Fuertes Imperiales, Palacios Históricos y Dunas de Arena",
+      "pt": "Fortes Imperiais, Palácios Históricos e Dunas de Areia"
+    },
+    "region": "West",
+    "image": "/images/rajasthan-camels.jpg",
+    "gallery": [],
+    "description": {
+      "en": "The Land of Kings. Explore desert dunes, mighty forts and heritage palaces.",
+      "es": "La tierra de los reyes. Dunas, fuertes y palacios.",
+      "pt": "A terra dos reis. Dunas, fortes e palácios."
+    },
+    "history": {
+      "en": "Ruled by Rajput clans for centuries.",
+      "es": "Gobernado por clanes Rajput.",
+      "pt": "Governado por clãs Rajput."
+    },
+    "culture": {
+      "en": "Folk dances, miniature painting and textile printing.",
+      "es": "Danzas folclóricas y pintura en miniatura.",
+      "pt": "Danças folclóricas e pintura em miniatura."
+    },
+    "localFood": {
+      "en": "Dal Baati Churma, Laal Maas and Ghewar.",
+      "es": "Dal Baati Churma y Laal Maas.",
+      "pt": "Dal Baati Churma e Laal Maas."
+    },
+    "bestTime": {
+      "en": "October to March.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a março."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "jaipur",
+        "title": {
+          "en": "Jaipur",
+          "es": "Jaipur",
+          "pt": "Jaipur"
+        },
+        "tagline": {
+          "en": "The Pink City of Maharajas",
+          "es": "La Ciudad Rosa de los Maharajás",
+          "pt": "A Cidade Rosa dos Marajás"
+        },
+        "image": "/images/rajasthan_fort_sunset.png",
+        "gallery": [],
+        "overview": {
+          "en": "Capital of Rajasthan, known for its pink-painted old city walls, grand palaces, and bustling bazaars. A UNESCO World Heritage City since 2019.",
+          "es": "Capital de Rajastán, conocida por sus murallas pintadas de rosa, palacios grandiosos y bazares bulliciosos.",
+          "pt": "Capital do Rajastão, conhecida por suas muralhas pintadas de rosa, palácios grandiosos e bazares movimentados."
+        },
+        "history": {
+          "en": "Founded in 1727 by Maharaja Sawai Jai Singh II, one of the first planned cities in India.",
+          "es": "Fundada en 1727 por el Maharajá Sawai Jai Singh II.",
+          "pt": "Fundada em 1727 pelo Marajá Sawai Jai Singh II."
+        },
+        "culture": {
+          "en": "Famous for block printing, blue pottery, gemstone cutting, and Kathak dance performances.",
+          "es": "Famoso por la impresión en bloques, cerámica azul y corte de gemas.",
+          "pt": "Famoso por impressão em bloco, cerâmica azul e corte de pedras preciosas."
+        },
+        "attractions": [
+          {
+            "slug": "amber-fort",
+            "name": {
+              "en": "Amber Fort",
+              "es": "Fuerte Amber",
+              "pt": "Forte Amber"
+            },
+            "desc": {
+              "en": "A majestic hilltop fortress with stunning mirror work, elephant rides, and panoramic views of Maota Lake. Built in 1592 by Raja Man Singh.",
+              "es": "Una fortaleza majestuosa en la cima de una colina con impresionantes trabajos de espejo.",
+              "pt": "Uma fortaleza majestosa no topo de uma colina com impressionantes trabalhos de espelho."
+            },
+            "history": {
+              "en": "Built in 1592 by Raja Man Singh I as the royal residence of Kachwaha Rajputs.",
+              "es": "Construido en 1592 por Raja Man Singh I.",
+              "pt": "Construído em 1592 por Raja Man Singh I."
+            },
+            "architecture": {
+              "en": "A blend of Hindu and Mughal architecture with red sandstone and white marble.",
+              "es": "Una mezcla de arquitectura hindú y mogol.",
+              "pt": "Uma mistura de arquitetura hindu e mogol."
+            },
+            "timings": {
+              "en": "8:00 AM to 5:30 PM daily",
+              "es": "8:00 AM a 5:30 PM diario",
+              "pt": "8:00 às 17:30 diariamente"
+            },
+            "info": {
+              "en": "Allow 2-3 hours. Hire a guide at the entrance for best experience.",
+              "es": "Reserve 2-3 horas. Contrate un guía.",
+              "pt": "Reserve 2-3 horas. Contrate um guia."
+            },
+            "image": "/images/Jaipur.jpg",
+            "gallery": [],
+            "faqs": []
+          },
+          {
+            "slug": "hawa-mahal",
+            "name": {
+              "en": "Hawa Mahal",
+              "es": "Hawa Mahal",
+              "pt": "Hawa Mahal"
+            },
+            "desc": {
+              "en": "The iconic Palace of Winds with 953 small windows, built in 1799 for royal women to observe street life.",
+              "es": "El icónico Palacio de los Vientos con 953 ventanas pequeñas.",
+              "pt": "O icônico Palácio dos Ventos com 953 pequenas janelas."
+            },
+            "history": {
+              "en": "Constructed in 1799 by Maharaja Sawai Pratap Singh in the form of Lord Krishna's crown.",
+              "es": "Construido en 1799 por el Maharajá Sawai Pratap Singh.",
+              "pt": "Construído em 1799 pelo Marajá Sawai Pratap Singh."
+            },
+            "architecture": {
+              "en": "Five-story pyramidal structure made of pink sandstone with honeycomb design.",
+              "es": "Estructura piramidal de cinco pisos en arenisca rosa.",
+              "pt": "Estrutura piramidal de cinco andares em arenito rosa."
+            },
+            "timings": {
+              "en": "9:00 AM to 5:00 PM daily",
+              "es": "9:00 AM a 5:00 PM diario",
+              "pt": "9:00 às 17:00 diariamente"
+            },
+            "info": {
+              "en": "Best photographed from the street at sunrise. Entry is from the back.",
+              "es": "Mejor fotografiado al amanecer desde la calle.",
+              "pt": "Melhor fotografado ao amanhecer da rua."
+            },
+            "image": "/images/Jaipur.jpg",
+            "gallery": [],
+            "faqs": []
+          },
+          {
+            "slug": "city-palace",
+            "name": {
+              "en": "City Palace",
+              "es": "Palacio de la Ciudad",
+              "pt": "Palácio da Cidade"
+            },
+            "desc": {
+              "en": "A sprawling palace complex that blends Rajput and Mughal architecture, still partially occupied by the royal family.",
+              "es": "Un amplio complejo palaciego que mezcla arquitectura Rajput y Mogol.",
+              "pt": "Um amplo complexo palaciano que mistura arquitetura Rajput e Mogol."
+            },
+            "history": {
+              "en": "Built over centuries starting from 1727 by successive Maharajas.",
+              "es": "Construido durante siglos a partir de 1727.",
+              "pt": "Construído ao longo de séculos a partir de 1727."
+            },
+            "architecture": {
+              "en": "Mix of Rajasthani and Mughal architecture with ornate gateways and courtyards.",
+              "es": "Mezcla de arquitectura rajasthaní y mogol.",
+              "pt": "Mistura de arquitetura rajastã e mogol."
+            },
+            "timings": {
+              "en": "9:30 AM to 5:00 PM daily",
+              "es": "9:30 AM a 5:00 PM diario",
+              "pt": "9:30 às 17:00 diariamente"
+            },
+            "info": {
+              "en": "Audio guide available. Photography allowed in most areas.",
+              "es": "Audioguía disponible. Fotografía permitida.",
+              "pt": "Audioguia disponível. Fotografia permitida."
+            },
+            "image": "/images/Jaipur.jpg",
+            "gallery": [],
+            "faqs": []
+          },
+          {
+            "slug": "jantar-mantar",
+            "name": {
+              "en": "Jantar Mantar",
+              "es": "Jantar Mantar",
+              "pt": "Jantar Mantar"
+            },
+            "desc": {
+              "en": "A UNESCO World Heritage astronomical observation site with the world's largest stone sundial.",
+              "es": "Un sitio UNESCO de observación astronómica con el reloj solar más grande del mundo.",
+              "pt": "Um local UNESCO de observação astronômica com o maior relógio solar do mundo."
+            },
+            "history": {
+              "en": "Built in 1734 by Maharaja Sawai Jai Singh II who was passionate about astronomy.",
+              "es": "Construido en 1734 por el Maharajá astrónomo.",
+              "pt": "Construído em 1734 pelo Marajá astrônomo."
+            },
+            "architecture": {
+              "en": "Collection of 19 astronomical instruments built in stone and brass.",
+              "es": "Colección de 19 instrumentos astronómicos.",
+              "pt": "Coleção de 19 instrumentos astronômicos."
+            },
+            "timings": {
+              "en": "9:00 AM to 4:30 PM daily",
+              "es": "9:00 AM a 4:30 PM diario",
+              "pt": "9:00 às 16:30 diariamente"
+            },
+            "info": {
+              "en": "Hire a guide to understand the instruments properly.",
+              "es": "Contrate un guía para entender los instrumentos.",
+              "pt": "Contrate um guia para entender os instrumentos."
+            },
+            "image": "/images/Jaipur.jpg",
+            "gallery": [],
+            "faqs": []
+          }
+        ],
+        "thingsToDo": [
+          {
+            "en": "Hot air balloon ride at sunrise",
+            "es": "Paseo en globo al amanecer",
+            "pt": "Passeio de balão ao amanhecer"
+          },
+          {
+            "en": "Block printing workshop",
+            "es": "Taller de impresión en bloque",
+            "pt": "Oficina de impressão em bloco"
+          },
+          {
+            "en": "Evening light show at Amber Fort",
+            "es": "Show de luces en Fuerte Amber",
+            "pt": "Show de luzes no Forte Amber"
+          }
+        ],
+        "hotels": [
+          {
+            "name": "Rambagh Palace",
+            "tier": "Luxury",
+            "desc": {
+              "en": "Former royal residence turned luxury hotel.",
+              "es": "Antigua residencia real convertida en hotel.",
+              "pt": "Antiga residência real convertida em hotel."
+            },
+            "image": ""
+          }
+        ],
+        "localFood": {
+          "en": "Dal Baati Churma, Pyaaz Kachori, Ghewar, Laal Maas, Rajasthani Thali.",
+          "es": "Dal Baati Churma, Pyaaz Kachori, Ghewar.",
+          "pt": "Dal Baati Churma, Pyaaz Kachori, Ghewar."
+        },
+        "shopping": {
+          "en": "Johari Bazaar for gems, Bapu Bazaar for textiles, Tripolia Bazaar for bangles.",
+          "es": "Johari Bazaar para gemas, Bapu Bazaar para textiles.",
+          "pt": "Johari Bazaar para gemas, Bapu Bazaar para têxteis."
+        },
+        "weather": {
+          "en": "Hot summers (40°C+), pleasant winters (8-25°C). Best Oct-Mar.",
+          "es": "Veranos calurosos, inviernos agradables.",
+          "pt": "Verões quentes, invernos agradáveis."
+        },
+        "bestTime": {
+          "en": "October to March (peak: November-February)",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [
+          {
+            "en": "Buy a composite ticket for multiple monuments.",
+            "es": "Compre un boleto compuesto para varios monumentos.",
+            "pt": "Compre um bilhete composto para vários monumentos."
+          }
+        ],
+        "nearbyPlaces": [
+          {
+            "name": "Pushkar",
+            "distance": "145 km"
+          },
+          {
+            "name": "Ajmer",
+            "distance": "135 km"
+          }
+        ],
+        "suggestedItinerary": {
+          "en": "Day 1: Amber Fort + Jaigarh. Day 2: City Palace, Hawa Mahal, Jantar Mantar. Day 3: Nahargarh sunset, bazaar shopping.",
+          "es": "Día 1: Fuerte Amber. Día 2: Palacio, Hawa Mahal. Día 3: Nahargarh.",
+          "pt": "Dia 1: Forte Amber. Dia 2: Palácio, Hawa Mahal. Dia 3: Nahargarh."
+        },
+        "faqs": [
+          {
+            "q": {
+              "en": "How many days for Jaipur?",
+              "es": "¿Cuántos días para Jaipur?",
+              "pt": "Quantos dias para Jaipur?"
+            },
+            "a": {
+              "en": "2-3 days ideal. 4 days if including day trips to Pushkar/Ajmer.",
+              "es": "2-3 días ideales.",
+              "pt": "2-3 dias ideais."
+            }
+          }
+        ]
+      },
+      {
+        "slug": "udaipur",
+        "title": {
+          "en": "Udaipur",
+          "es": "Udaipur",
+          "pt": "Udaipur"
+        },
+        "tagline": {
+          "en": "The City of Lakes & Romance",
+          "es": "La Ciudad de los Lagos y el Romance",
+          "pt": "A Cidade dos Lagos e Romance"
+        },
+        "image": "/images/rajasthan_fort_sunset.png",
+        "gallery": [],
+        "overview": {
+          "en": "Known as the Venice of the East, Udaipur is set around beautiful lakes and features stunning white marble palaces. One of India's most romantic cities.",
+          "es": "Conocida como la Venecia del Este, Udaipur está rodeada de lagos hermosos y palacios de mármol blanco.",
+          "pt": "Conhecida como a Veneza do Oriente, Udaipur é cercada por lagos bonitos e palácios de mármore branco."
+        },
+        "history": {
+          "en": "Founded in 1559 by Maharana Udai Singh II after the fall of Chittorgarh.",
+          "es": "Fundada en 1559 por Maharana Udai Singh II.",
+          "pt": "Fundada em 1559 por Maharana Udai Singh II."
+        },
+        "culture": {
+          "en": "Mewar school of miniature painting, puppet shows, and folk music evenings.",
+          "es": "Escuela de pintura en miniatura Mewar y espectáculos de marionetas.",
+          "pt": "Escola de pintura em miniatura Mewar e espetáculos de marionetas."
+        },
+        "attractions": [
+          {
+            "slug": "city-palace-udaipur",
+            "name": {
+              "en": "City Palace Udaipur",
+              "es": "Palacio de Udaipur",
+              "pt": "Palácio de Udaipur"
+            },
+            "desc": {
+              "en": "A massive palace complex overlooking Lake Pichola, built over 400 years by 22 Mewar rulers.",
+              "es": "Un enorme complejo palaciego con vista al lago Pichola.",
+              "pt": "Um enorme complexo palaciano com vista para o Lago Pichola."
+            },
+            "history": {
+              "en": "Construction began in 1559.",
+              "es": "Construcción iniciada en 1559.",
+              "pt": "Construção iniciada em 1559."
+            },
+            "architecture": {
+              "en": "Blend of medieval, European and Chinese architecture.",
+              "es": "Mezcla de arquitectura medieval, europea y china.",
+              "pt": "Mistura de arquitetura medieval, europeia e chinesa."
+            },
+            "timings": {
+              "en": "9:30 AM to 5:30 PM",
+              "es": "9:30 AM a 5:30 PM",
+              "pt": "9:30 às 17:30"
+            },
+            "info": {
+              "en": "Don't miss the Crystal Gallery and sunset views.",
+              "es": "No se pierda la Galería de Cristal.",
+              "pt": "Não perca a Galeria de Cristal."
+            },
+            "image": "/images/rajasthan_fort_sunset.png",
+            "gallery": [],
+            "faqs": []
+          },
+          {
+            "slug": "lake-pichola",
+            "name": {
+              "en": "Lake Pichola",
+              "es": "Lago Pichola",
+              "pt": "Lago Pichola"
+            },
+            "desc": {
+              "en": "An artificial freshwater lake created in 1362, surrounded by palaces, temples, and bathing ghats.",
+              "es": "Un lago artificial de agua dulce creado en 1362.",
+              "pt": "Um lago artificial de água doce criado em 1362."
+            },
+            "history": {
+              "en": "Created in 1362 by a tribal man named Pichhu Banjara.",
+              "es": "Creado en 1362.",
+              "pt": "Criado em 1362."
+            },
+            "architecture": {
+              "en": "Features Jag Mandir and Lake Palace on islands.",
+              "es": "Con Jag Mandir y Lake Palace en islas.",
+              "pt": "Com Jag Mandir e Lake Palace em ilhas."
+            },
+            "timings": {
+              "en": "Boat rides from 10 AM to sunset",
+              "es": "Paseos en barco de 10 AM al atardecer",
+              "pt": "Passeios de barco das 10h ao pôr do sol"
+            },
+            "info": {
+              "en": "Sunset boat ride is a must-do experience.",
+              "es": "El paseo en barco al atardecer es imprescindible.",
+              "pt": "O passeio de barco ao pôr do sol é imperdível."
+            },
+            "image": "/images/rajasthan_fort_sunset.png",
+            "gallery": [],
+            "faqs": []
+          }
+        ],
+        "thingsToDo": [
+          {
+            "en": "Sunset boat ride on Lake Pichola",
+            "es": "Paseo al atardecer en el lago",
+            "pt": "Passeio ao pôr do sol no lago"
+          },
+          {
+            "en": "Dinner at rooftop restaurant overlooking the lake",
+            "es": "Cena en terraza con vista al lago",
+            "pt": "Jantar em terraço com vista para o lago"
+          }
+        ],
+        "hotels": [
+          {
+            "name": "Taj Lake Palace",
+            "tier": "Luxury",
+            "desc": {
+              "en": "A floating palace hotel on Lake Pichola.",
+              "es": "Un hotel palacio flotante.",
+              "pt": "Um hotel palácio flutuante."
+            },
+            "image": ""
+          }
+        ],
+        "localFood": {
+          "en": "Dal Baati Churma, Gatte ki Sabzi, Kachori.",
+          "es": "Dal Baati Churma, Gatte ki Sabzi.",
+          "pt": "Dal Baati Churma, Gatte ki Sabzi."
+        },
+        "shopping": {
+          "en": "Hathi Pol for paintings, Bada Bazaar for silver jewelry.",
+          "es": "Hathi Pol para pinturas.",
+          "pt": "Hathi Pol para pinturas."
+        },
+        "weather": {
+          "en": "Pleasant year-round due to lakes. Best Oct-Mar.",
+          "es": "Agradable todo el año.",
+          "pt": "Agradável o ano todo."
+        },
+        "bestTime": {
+          "en": "September to March",
+          "es": "De septiembre a marzo",
+          "pt": "De setembro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [
+          {
+            "name": "Chittorgarh",
+            "distance": "112 km"
+          },
+          {
+            "name": "Kumbhalgarh",
+            "distance": "84 km"
+          }
+        ],
+        "suggestedItinerary": {
+          "en": "Day 1: City Palace & Lake Pichola sunset. Day 2: Saheliyon ki Bari, Jagdish Temple, evening puppet show.",
+          "es": "Día 1: Palacio y lago. Día 2: Jardines y templos.",
+          "pt": "Dia 1: Palácio e lago. Dia 2: Jardins e templos."
+        },
+        "faqs": []
+      },
+      {
+        "slug": "jodhpur",
+        "title": {
+          "en": "Jodhpur",
+          "es": "Jodhpur",
+          "pt": "Jodhpur"
+        },
+        "tagline": {
+          "en": "The Blue City & Mehrangarh Fortress",
+          "es": "La Ciudad Azul y la Fortaleza Mehrangarh",
+          "pt": "A Cidade Azul e a Fortaleza Mehrangarh"
+        },
+        "image": "/images/jodhpur.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "Known as the Blue City for its indigo-washed houses, dominated by the imposing Mehrangarh Fort. Gateway to the Thar Desert.",
+          "es": "Conocida como la Ciudad Azul por sus casas pintadas de añil, dominada por el imponente Fuerte Mehrangarh.",
+          "pt": "Conhecida como a Cidade Azul por suas casas pintadas de anil, dominada pelo imponente Forte Mehrangarh."
+        },
+        "history": {
+          "en": "Founded in 1459 by Rao Jodha, a Rajput chief of the Rathore clan.",
+          "es": "Fundada en 1459 por Rao Jodha.",
+          "pt": "Fundada em 1459 por Rao Jodha."
+        },
+        "culture": {
+          "en": "Marwari music, Rajasthani folk art, and vibrant textile markets.",
+          "es": "Música Marwari y mercados textiles.",
+          "pt": "Música Marwari e mercados têxteis."
+        },
+        "attractions": [
+          {
+            "slug": "mehrangarh-fort",
+            "name": {
+              "en": "Mehrangarh Fort",
+              "es": "Fuerte Mehrangarh",
+              "pt": "Forte Mehrangarh"
+            },
+            "desc": {
+              "en": "One of India's largest forts, rising 125 meters above the city with extraordinary carved panels and expansive courtyards.",
+              "es": "Uno de los fuertes más grandes de la India, a 125 metros sobre la ciudad.",
+              "pt": "Um dos maiores fortes da Índia, a 125 metros acima da cidade."
+            },
+            "history": {
+              "en": "Built in 1459 by Rao Jodha.",
+              "es": "Construido en 1459.",
+              "pt": "Construído em 1459."
+            },
+            "architecture": {
+              "en": "Massive stone walls with intricate lattice work and carved balconies.",
+              "es": "Muros masivos con celosías intrincadas.",
+              "pt": "Muros massivos com treliças intrincadas."
+            },
+            "timings": {
+              "en": "9:00 AM to 5:00 PM",
+              "es": "9:00 AM a 5:00 PM",
+              "pt": "9:00 às 17:00"
+            },
+            "info": {
+              "en": "Allow 3-4 hours. The zipline across the fort walls is thrilling.",
+              "es": "Reserve 3-4 horas. La tirolesa es emocionante.",
+              "pt": "Reserve 3-4 horas. A tirolesa é emocionante."
+            },
+            "image": "/images/jodhpur.jpg",
+            "gallery": [],
+            "faqs": []
+          }
+        ],
+        "thingsToDo": [
+          {
+            "en": "Zip-lining across Mehrangarh ramparts",
+            "es": "Tirolesa en las murallas",
+            "pt": "Tirolesa nas muralhas"
+          },
+          {
+            "en": "Blue City heritage walking tour",
+            "es": "Tour a pie por la Ciudad Azul",
+            "pt": "Tour a pé pela Cidade Azul"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Mirchi Bada, Mawa Kachori, Makhaniya Lassi.",
+          "es": "Mirchi Bada, Mawa Kachori.",
+          "pt": "Mirchi Bada, Mawa Kachori."
+        },
+        "shopping": {
+          "en": "Clock Tower market for spices, Nai Sarak for bandhani textiles.",
+          "es": "Mercado del reloj para especias.",
+          "pt": "Mercado do relógio para especiarias."
+        },
+        "weather": {
+          "en": "Extremely hot summers, pleasant winters.",
+          "es": "Veranos muy calurosos, inviernos agradables.",
+          "pt": "Verões muito quentes, invernos agradáveis."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [
+          {
+            "name": "Jaisalmer",
+            "distance": "285 km"
+          },
+          {
+            "name": "Bikaner",
+            "distance": "245 km"
+          }
+        ],
+        "suggestedItinerary": {
+          "en": "Day 1: Mehrangarh Fort, Jaswant Thada. Day 2: Blue City walk, Clock Tower, desert village excursion.",
+          "es": "Día 1: Fuerte. Día 2: Ciudad Azul.",
+          "pt": "Dia 1: Forte. Dia 2: Cidade Azul."
+        },
+        "faqs": []
+      },
+      {
+        "slug": "jaisalmer",
+        "title": {
+          "en": "Jaisalmer",
+          "es": "Jaisalmer",
+          "pt": "Jaisalmer"
+        },
+        "tagline": {
+          "en": "The Golden City & Living Desert Fort",
+          "es": "La Ciudad Dorada y Fuerte del Desierto",
+          "pt": "A Cidade Dourada e Forte do Deserto"
+        },
+        "image": "/images/jaisalmer.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A golden sandstone city rising from the Thar Desert, home to one of the world's few living forts where people still reside inside the ancient walls.",
+          "es": "Una ciudad de arenisca dorada que se eleva del desierto de Thar.",
+          "pt": "Uma cidade de arenito dourado que se ergue do deserto de Thar."
+        },
+        "history": {
+          "en": "Founded in 1156 by Rawal Jaisal on the ancient Silk Route.",
+          "es": "Fundada en 1156 en la antigua Ruta de la Seda.",
+          "pt": "Fundada em 1156 na antiga Rota da Seda."
+        },
+        "culture": {
+          "en": "Desert folk music, puppet shows, and camel leather crafts.",
+          "es": "Música folclórica del desierto y artesanía de cuero.",
+          "pt": "Música folclórica do deserto e artesanato de couro."
+        },
+        "attractions": [
+          {
+            "slug": "jaisalmer-fort",
+            "name": {
+              "en": "Jaisalmer Fort (Sonar Quila)",
+              "es": "Fuerte de Jaisalmer",
+              "pt": "Forte de Jaisalmer"
+            },
+            "desc": {
+              "en": "A UNESCO World Heritage living fort where 3,000+ people still live within its walls. Built entirely of golden sandstone.",
+              "es": "Un fuerte viviente UNESCO donde más de 3,000 personas aún viven.",
+              "pt": "Um forte vivo UNESCO onde mais de 3.000 pessoas ainda vivem."
+            },
+            "history": {
+              "en": "Built in 1156 AD by Bhati Rajput ruler Rawal Jaisal.",
+              "es": "Construido en 1156.",
+              "pt": "Construído em 1156."
+            },
+            "architecture": {
+              "en": "Honey-colored sandstone with intricate Jain temple carvings.",
+              "es": "Arenisca color miel con intrincados templos jainistas.",
+              "pt": "Arenito cor de mel com intrincados templos jainistas."
+            },
+            "timings": {
+              "en": "6:00 AM to 6:00 PM",
+              "es": "6:00 AM a 6:00 PM",
+              "pt": "6:00 às 18:00"
+            },
+            "info": {
+              "en": "Walk through the narrow lanes at sunrise for magical golden light.",
+              "es": "Camine al amanecer para la luz dorada.",
+              "pt": "Caminhe ao amanhecer para a luz dourada."
+            },
+            "image": "/images/jaisalmer.jpg",
+            "gallery": [],
+            "faqs": []
+          }
+        ],
+        "thingsToDo": [
+          {
+            "en": "Overnight desert camp with camel safari",
+            "es": "Campamento nocturno en el desierto",
+            "pt": "Acampamento noturno no deserto"
+          },
+          {
+            "en": "Sand dune sunset with folk music",
+            "es": "Atardecer en dunas con música",
+            "pt": "Pôr do sol nas dunas com música"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Ker Sangri, Dal Makhani with Baati, desert truffles.",
+          "es": "Ker Sangri, Dal Makhani.",
+          "pt": "Ker Sangri, Dal Makhani."
+        },
+        "shopping": {
+          "en": "Fort market for embroidered textiles and camel leather goods.",
+          "es": "Mercado del fuerte para textiles.",
+          "pt": "Mercado do forte para têxteis."
+        },
+        "weather": {
+          "en": "Extreme heat in summer, cool desert nights in winter.",
+          "es": "Calor extremo en verano.",
+          "pt": "Calor extremo no verão."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [
+          {
+            "name": "Sam Sand Dunes",
+            "distance": "42 km"
+          },
+          {
+            "name": "Kuldhara Ghost Village",
+            "distance": "18 km"
+          }
+        ],
+        "suggestedItinerary": {
+          "en": "Day 1: Fort, Patwon ki Haveli. Day 2: Sam Dunes camel safari & overnight camp.",
+          "es": "Día 1: Fuerte. Día 2: Safari y campamento.",
+          "pt": "Dia 1: Forte. Dia 2: Safári e acampamento."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "kerala",
+    "title": {
+      "en": "Kerala",
+      "es": "Kerala",
+      "pt": "Kerala"
+    },
+    "tagline": {
+      "en": "God's Own Country, Backwaters & Ayurvedic Wellness",
+      "es": "El propio país de Dios, canales y ayurveda",
+      "pt": "O próprio país de Deus, canais e ayurveda"
+    },
+    "region": "South",
+    "image": "/images/kerala 2.jpg",
+    "gallery": [],
+    "description": {
+      "en": "An emerald paradise of coconut plantations, spice hills and quiet backwater canals.",
+      "es": "Un paraíso esmeralda de plantaciones de coco y colinas de especias.",
+      "pt": "Um paraíso esmeralda de plantações de coco e colinas de especiarias."
+    },
+    "history": {
+      "en": "A global spice trade hub for Phoenicians, Romans and Arabs.",
+      "es": "Un centro de comercio de especias desde la antigüedad.",
+      "pt": "Um centro de comércio de especiarias desde a antiguidade."
+    },
+    "culture": {
+      "en": "Kathakali dance-drama, Kalaripayattu martial art, and temple festivals.",
+      "es": "Danza Kathakali y arte marcial Kalaripayattu.",
+      "pt": "Dança Kathakali e arte marcial Kalaripayattu."
+    },
+    "localFood": {
+      "en": "Karimeen Pollichathu, Idiyappam with curry and payasam.",
+      "es": "Frutos de mar con coco y arroz puttu.",
+      "pt": "Frutos do mar com coco e arroz puttu."
+    },
+    "bestTime": {
+      "en": "September to March.",
+      "es": "De septiembre a marzo.",
+      "pt": "De setembro a março."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "kochi",
+        "title": {
+          "en": "Kochi",
+          "es": "Kochi",
+          "pt": "Kochi"
+        },
+        "tagline": {
+          "en": "The Historic Spice Port Route",
+          "es": "La Ruta Histórica del Puerto de Especias",
+          "pt": "A Rota Histórica do Porto de Especiarias"
+        },
+        "image": "/images/kerala_backwaters_houseboat.png",
+        "gallery": [],
+        "overview": {
+          "en": "A charming port city blending Chinese fishing nets, Portuguese churches, Dutch palaces, and Jewish heritage along the Arabian Sea coast.",
+          "es": "Una encantadora ciudad portuaria con redes de pesca chinas e iglesias portuguesas.",
+          "pt": "Uma encantadora cidade portuária com redes de pesca chinesas e igrejas portuguesas."
+        },
+        "history": {
+          "en": "A major spice trading port since the 14th century, visited by Portuguese, Dutch, and British.",
+          "es": "Un puerto de especias desde el siglo XIV.",
+          "pt": "Um porto de especiarias desde o século XIV."
+        },
+        "culture": {
+          "en": "Kathakali dance, Kochi-Muziris Biennale art festival, and Chinese fishing nets.",
+          "es": "Danza Kathakali y festival de arte Biennale.",
+          "pt": "Dança Kathakali e festival de arte Biennale."
+        },
+        "attractions": [
+          {
+            "slug": "chinese-fishing-nets",
+            "name": {
+              "en": "Chinese Fishing Nets",
+              "es": "Redes de Pesca Chinas",
+              "pt": "Redes de Pesca Chinesas"
+            },
+            "desc": {
+              "en": "Iconic cantilevered fishing nets along Fort Kochi beach, used for over 500 years. Buy fresh catch and get it cooked at nearby stalls.",
+              "es": "Redes de pesca icónicas usadas por más de 500 años.",
+              "pt": "Redes de pesca icônicas usadas há mais de 500 anos."
+            },
+            "history": {
+              "en": "Introduced by Chinese explorer Zheng He in the 14th century.",
+              "es": "Introducidas por el explorador chino Zheng He.",
+              "pt": "Introduzidas pelo explorador chinês Zheng He."
+            },
+            "architecture": {
+              "en": "Wooden cantilever structures with stone counterweights.",
+              "es": "Estructuras de madera en voladizo.",
+              "pt": "Estruturas de madeira em balanço."
+            },
+            "timings": {
+              "en": "Best at sunrise and sunset",
+              "es": "Mejor al amanecer y atardecer",
+              "pt": "Melhor ao amanhecer e pôr do sol"
+            },
+            "info": {
+              "en": "Fishermen will let you help operate the nets.",
+              "es": "Los pescadores le dejarán ayudar.",
+              "pt": "Os pescadores deixarão você ajudar."
+            },
+            "image": "/images/kochi.jpg",
+            "gallery": [],
+            "faqs": []
+          },
+          {
+            "slug": "fort-kochi",
+            "name": {
+              "en": "Fort Kochi",
+              "es": "Fort Kochi",
+              "pt": "Fort Kochi"
+            },
+            "desc": {
+              "en": "A heritage precinct with colonial-era bungalows, street art, cozy cafes, and the oldest European church in India (St. Francis Church).",
+              "es": "Un barrio patrimonial con bungalows coloniales y arte callejero.",
+              "pt": "Um bairro patrimonial com bangalôs coloniais e arte de rua."
+            },
+            "history": {
+              "en": "Portuguese arrived in 1500, followed by Dutch and British.",
+              "es": "Los portugueses llegaron en 1500.",
+              "pt": "Os portugueses chegaram em 1500."
+            },
+            "architecture": {
+              "en": "Mix of Portuguese, Dutch, and British colonial styles.",
+              "es": "Mezcla de estilos coloniales.",
+              "pt": "Mistura de estilos coloniais."
+            },
+            "timings": {
+              "en": "Open area, visit anytime",
+              "es": "Zona abierta",
+              "pt": "Zona aberta"
+            },
+            "info": {
+              "en": "Best explored on foot or bicycle.",
+              "es": "Mejor explorar a pie o en bicicleta.",
+              "pt": "Melhor explorar a pé ou de bicicleta."
+            },
+            "image": "/images/kochi.jpg",
+            "gallery": [],
+            "faqs": []
+          }
+        ],
+        "thingsToDo": [
+          {
+            "en": "Kathakali dance performance",
+            "es": "Espectáculo de danza Kathakali",
+            "pt": "Espetáculo de dança Kathakali"
+          },
+          {
+            "en": "Spice market walking tour",
+            "es": "Tour por el mercado de especias",
+            "pt": "Tour pelo mercado de especiarias"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Kerala Fish Curry, Appam with Stew, Puttu & Kadala.",
+          "es": "Curry de pescado de Kerala, Appam.",
+          "pt": "Caril de peixe de Kerala, Appam."
+        },
+        "shopping": {
+          "en": "Jew Town for antiques and spices, Lulu Mall for modern shopping.",
+          "es": "Jew Town para antigüedades.",
+          "pt": "Jew Town para antiguidades."
+        },
+        "weather": {
+          "en": "Tropical. Hot and humid. Monsoon June-September.",
+          "es": "Tropical, cálido y húmedo.",
+          "pt": "Tropical, quente e úmido."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [
+          {
+            "en": "Take a ferry between Fort Kochi and Ernakulam — beautiful views.",
+            "es": "Tome un ferry entre Fort Kochi y Ernakulam.",
+            "pt": "Pegue uma balsa entre Fort Kochi e Ernakulam."
+          }
+        ],
+        "nearbyPlaces": [
+          {
+            "name": "Alleppey Backwaters",
+            "distance": "53 km"
+          },
+          {
+            "name": "Munnar",
+            "distance": "130 km"
+          }
+        ],
+        "suggestedItinerary": {
+          "en": "Day 1: Fort Kochi, Chinese Nets, Kathakali. Day 2: Spice market, Jewish Quarter, sunset cruise.",
+          "es": "Día 1: Fort Kochi. Día 2: Mercado de especias.",
+          "pt": "Dia 1: Fort Kochi. Dia 2: Mercado de especiarias."
+        },
+        "faqs": []
+      },
+      {
+        "slug": "alleppey",
+        "title": {
+          "en": "Alleppey (Alappuzha)",
+          "es": "Alleppey",
+          "pt": "Alleppey"
+        },
+        "tagline": {
+          "en": "Venice of the East — Backwater Paradise",
+          "es": "La Venecia del Este — Paraíso de Canales",
+          "pt": "A Veneza do Oriente — Paraíso dos Canais"
+        },
+        "image": "/images/alleppye.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "Famous for its palm-fringed backwater canals, luxury houseboats, coir villages, and rice paddy landscapes. The heart of Kerala's backwater experience.",
+          "es": "Famosa por sus canales, casas flotantes de lujo y paisajes de arrozales.",
+          "pt": "Famosa por seus canais, casas flutuantes de luxo e paisagens de arrozais."
+        },
+        "history": {
+          "en": "A major port and coir production center since ancient times.",
+          "es": "Un importante puerto desde la antigüedad.",
+          "pt": "Um importante porto desde a antiguidade."
+        },
+        "culture": {
+          "en": "Snake boat races (Nehru Trophy), coir weaving, and toddy tapping.",
+          "es": "Carreras de barcos serpiente y artesanía de coco.",
+          "pt": "Corridas de barcos serpente e artesanato de coco."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Overnight luxury houseboat cruise",
+            "es": "Crucero nocturno en casa flotante",
+            "pt": "Cruzeiro noturno em casa flutuante"
+          },
+          {
+            "en": "Village canoe tour through narrow canals",
+            "es": "Tour en canoa por los canales",
+            "pt": "Tour de canoa pelos canais"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Karimeen Pollichathu, Toddy Shop meals, Kerala Sadhya.",
+          "es": "Karimeen Pollichathu, comidas locales.",
+          "pt": "Karimeen Pollichathu, refeições locais."
+        },
+        "shopping": {
+          "en": "Coir products, handloom fabrics, and fresh spices.",
+          "es": "Productos de coco y especias.",
+          "pt": "Produtos de coco e especiarias."
+        },
+        "weather": {
+          "en": "Tropical humidity year-round. Monsoon rains June-August.",
+          "es": "Humedad tropical todo el año.",
+          "pt": "Umidade tropical o ano todo."
+        },
+        "bestTime": {
+          "en": "September to March (August for boat races)",
+          "es": "De septiembre a marzo",
+          "pt": "De setembro a março"
+        },
+        "travelTips": [
+          {
+            "en": "Book houseboats in advance during peak season (Dec-Jan).",
+            "es": "Reserve las casas flotantes con anticipación.",
+            "pt": "Reserve as casas flutuantes com antecedência."
+          }
+        ],
+        "nearbyPlaces": [
+          {
+            "name": "Kumarakom",
+            "distance": "30 km"
+          },
+          {
+            "name": "Kochi",
+            "distance": "53 km"
+          }
+        ],
+        "suggestedItinerary": {
+          "en": "Day 1: Board houseboat, cruise through backwaters, sunset on deck. Day 2: Village canoe tour, return.",
+          "es": "Día 1: Casa flotante. Día 2: Tour en canoa.",
+          "pt": "Dia 1: Casa flutuante. Dia 2: Tour de canoa."
+        },
+        "faqs": []
+      },
+      {
+        "slug": "munnar",
+        "title": {
+          "en": "Munnar",
+          "es": "Munnar",
+          "pt": "Munnar"
+        },
+        "tagline": {
+          "en": "Misty Tea Plantations in the Western Ghats",
+          "es": "Plantaciones de Té Brumosas en los Ghats Occidentales",
+          "pt": "Plantações de Chá Enevoadas nos Ghats Ocidentais"
+        },
+        "image": "/images/kerala 3.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A stunning hill station at 1,600m altitude, carpeted with emerald tea estates, spice gardens, and misty mountain peaks. South India's premier hill retreat.",
+          "es": "Una hermosa estación de montaña a 1.600m con plantaciones de té esmeralda.",
+          "pt": "Uma bela estação de montanha a 1.600m com plantações de chá esmeralda."
+        },
+        "history": {
+          "en": "Developed as a hill station by the British in the late 1800s for tea cultivation.",
+          "es": "Desarrollada como estación de montaña por los británicos.",
+          "pt": "Desenvolvida como estação de montanha pelos britânicos."
+        },
+        "culture": {
+          "en": "Tea plantation heritage, Eravikulam wildlife, and tribal communities.",
+          "es": "Patrimonio de plantaciones de té y vida silvestre.",
+          "pt": "Patrimônio de plantações de chá e vida selvagem."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Tea estate walk with expert taster",
+            "es": "Paseo por plantación de té",
+            "pt": "Passeio por plantação de chá"
+          },
+          {
+            "en": "Trek to Anamudi Peak (South India's highest)",
+            "es": "Trekking al Pico Anamudi",
+            "pt": "Trekking ao Pico Anamudi"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Cardamom tea, Kerala Porotta, fresh mountain honey.",
+          "es": "Té de cardamomo y miel de montaña.",
+          "pt": "Chá de cardamomo e mel de montanha."
+        },
+        "shopping": {
+          "en": "Fresh teas, cardamom, pepper, and homemade chocolates.",
+          "es": "Tés frescos y especias.",
+          "pt": "Chás frescos e especiarias."
+        },
+        "weather": {
+          "en": "Cool year-round (10-25°C). Foggy mornings common.",
+          "es": "Fresco todo el año (10-25°C).",
+          "pt": "Fresco o ano todo (10-25°C)."
+        },
+        "bestTime": {
+          "en": "September to May (avoid heavy monsoon Jun-Aug)",
+          "es": "De septiembre a mayo",
+          "pt": "De setembro a maio"
+        },
+        "travelTips": [
+          {
+            "en": "Carry warm layers — mornings can be cold even in summer.",
+            "es": "Lleve ropa de abrigo.",
+            "pt": "Leve roupas quentes."
+          }
+        ],
+        "nearbyPlaces": [
+          {
+            "name": "Thekkady",
+            "distance": "90 km"
+          },
+          {
+            "name": "Kochi",
+            "distance": "130 km"
+          }
+        ],
+        "suggestedItinerary": {
+          "en": "Day 1: Tea museum, tea estate walk. Day 2: Eravikulam National Park, Top Station views.",
+          "es": "Día 1: Museo del té. Día 2: Parque Nacional.",
+          "pt": "Dia 1: Museu do chá. Dia 2: Parque Nacional."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "goa",
+    "title": {
+      "en": "Goa",
+      "es": "Goa",
+      "pt": "Goa"
+    },
+    "tagline": {
+      "en": "Sun-Kissed Beaches, Portuguese Architecture & Spices",
+      "es": "Playas Soleadas, Arquitectura Portuguesa y Especias",
+      "pt": "Praias Ensolaradas, Arquitetura Portuguesa e Especiarias"
+    },
+    "region": "West",
+    "image": "/images/goa 2.jpg",
+    "gallery": [],
+    "description": {
+      "en": "A blend of Indian culture and Portuguese heritage on golden coastlines.",
+      "es": "Una fusión de cultura india y herencia portuguesa.",
+      "pt": "Uma fusão da cultura indiana e herança portuguesa."
+    },
+    "history": {
+      "en": "A Portuguese colony for over 450 years.",
+      "es": "Colonia portuguesa durante más de 450 años.",
+      "pt": "Colônia portuguesa por mais de 450 anos."
+    },
+    "culture": {
+      "en": "Famous for Goan carnival, church feasts, and beach vibes.",
+      "es": "Famoso por el carnaval y fiestas patronales.",
+      "pt": "Famoso pelo carnaval e festas de igrejas."
+    },
+    "localFood": {
+      "en": "Goan Fish Curry, Pork Vindaloo, Bebinca dessert.",
+      "es": "Vindaloo y curry de pescado goan.",
+      "pt": "Vindaloo e curry de peixe goano."
+    },
+    "bestTime": {
+      "en": "November to February.",
+      "es": "De noviembre a febrero.",
+      "pt": "De novembro a fevereiro."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "panaji",
+        "title": {
+          "en": "Panaji (Panjim)",
+          "es": "Panaji",
+          "pt": "Panaji"
+        },
+        "tagline": {
+          "en": "Portuguese Heritage Capital of Goa",
+          "es": "Capital del Patrimonio Portugués de Goa",
+          "pt": "Capital do Patrimônio Português de Goa"
+        },
+        "image": "/images/goa.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "The charming capital of Goa with Portuguese-era colorful houses in Fontainhas, riverside casinos, and heritage churches. A blend of Indian and European culture.",
+          "es": "La encantadora capital de Goa con casas portuguesas coloridas.",
+          "pt": "A encantadora capital de Goa com casas portuguesas coloridas."
+        },
+        "history": {
+          "en": "Portuguese colonial capital from the 16th century. Became Indian in 1961.",
+          "es": "Capital colonial portuguesa desde el siglo XVI.",
+          "pt": "Capital colonial portuguesa desde o século XVI."
+        },
+        "culture": {
+          "en": "Goan carnival, fado music influence, and Catholic feast traditions.",
+          "es": "Carnaval goanés y tradiciones católicas.",
+          "pt": "Carnaval goense e tradições católicas."
+        },
+        "attractions": [
+          {
+            "slug": "fontainhas",
+            "name": {
+              "en": "Fontainhas Latin Quarter",
+              "es": "Barrio Latino Fontainhas",
+              "pt": "Bairro Latino Fontainhas"
+            },
+            "desc": {
+              "en": "India's only surviving Portuguese Latin Quarter with pastel-colored villas, narrow cobbled lanes, art galleries, and cozy bakeries.",
+              "es": "El único barrio latino portugués de la India con villas de colores pastel.",
+              "pt": "O único bairro latino português da Índia com vilas em tons pastel."
+            },
+            "history": {
+              "en": "Established in the 18th century by Portuguese settlers.",
+              "es": "Establecido en el siglo XVIII.",
+              "pt": "Estabelecido no século XVIII."
+            },
+            "architecture": {
+              "en": "Portuguese colonial with colorful facades and tile roofs.",
+              "es": "Colonial portugués con fachadas coloridas.",
+              "pt": "Colonial português com fachadas coloridas."
+            },
+            "timings": {
+              "en": "Open area — visit anytime",
+              "es": "Zona abierta",
+              "pt": "Zona aberta"
+            },
+            "info": {
+              "en": "Best explored on foot. Visit early morning for best photos.",
+              "es": "Mejor explorar a pie por la mañana.",
+              "pt": "Melhor explorar a pé de manhã."
+            },
+            "image": "/images/goa.jpg",
+            "gallery": [],
+            "faqs": []
+          },
+          {
+            "slug": "basilica-bom-jesus",
+            "name": {
+              "en": "Basilica of Bom Jesus",
+              "es": "Basílica de Bom Jesus",
+              "pt": "Basílica de Bom Jesus"
+            },
+            "desc": {
+              "en": "A UNESCO World Heritage church housing the mortal remains of St. Francis Xavier. One of the oldest churches in India (1605).",
+              "es": "Una iglesia UNESCO con los restos de San Francisco Xavier.",
+              "pt": "Uma igreja UNESCO com os restos de São Francisco Xavier."
+            },
+            "history": {
+              "en": "Completed in 1605. Contains relics of St. Francis Xavier.",
+              "es": "Completada en 1605.",
+              "pt": "Concluída em 1605."
+            },
+            "architecture": {
+              "en": "Baroque architecture with Corinthian columns and gilded altars.",
+              "es": "Arquitectura barroca con columnas corintias.",
+              "pt": "Arquitetura barroca com colunas coríntias."
+            },
+            "timings": {
+              "en": "9:00 AM to 6:30 PM (Mon-Sat), 10:30 AM to 6:30 PM (Sun)",
+              "es": "9:00 AM a 6:30 PM",
+              "pt": "9:00 às 18:30"
+            },
+            "info": {
+              "en": "Photography not allowed inside. Free entry.",
+              "es": "No se permiten fotos dentro.",
+              "pt": "Fotos não permitidas dentro."
+            },
+            "image": "/images/goa.jpg",
+            "gallery": [],
+            "faqs": []
+          }
+        ],
+        "thingsToDo": [
+          {
+            "en": "Heritage walk through Fontainhas",
+            "es": "Paseo patrimonial por Fontainhas",
+            "pt": "Passeio patrimonial por Fontainhas"
+          },
+          {
+            "en": "Sunset cruise on Mandovi River",
+            "es": "Crucero al atardecer en el río Mandovi",
+            "pt": "Cruzeiro ao pôr do sol no rio Mandovi"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Goan Fish Curry Rice, Pork Vindaloo, Bebinca, Feni.",
+          "es": "Curry de pescado goanés, Vindaloo.",
+          "pt": "Caril de peixe goense, Vindaloo."
+        },
+        "shopping": {
+          "en": "Mapusa Friday Market for spices, cashews, and feni.",
+          "es": "Mercado de Mapusa para especias.",
+          "pt": "Mercado de Mapusa para especiarias."
+        },
+        "weather": {
+          "en": "Tropical. Hot (32-35°C) and humid. Monsoon Jun-Sep.",
+          "es": "Tropical, cálido y húmedo.",
+          "pt": "Tropical, quente e úmido."
+        },
+        "bestTime": {
+          "en": "November to February",
+          "es": "De noviembre a febrero",
+          "pt": "De novembro a fevereiro"
+        },
+        "travelTips": [
+          {
+            "en": "Rent a scooter to explore — most affordable and flexible way.",
+            "es": "Alquile una scooter para explorar.",
+            "pt": "Alugue uma scooter para explorar."
+          }
+        ],
+        "nearbyPlaces": [
+          {
+            "name": "Old Goa Churches",
+            "distance": "10 km"
+          },
+          {
+            "name": "Calangute Beach",
+            "distance": "15 km"
+          }
+        ],
+        "suggestedItinerary": {
+          "en": "Day 1: Fontainhas, Basilica Bom Jesus, Mandovi cruise. Day 2: North Goa beaches. Day 3: South Goa beach retreat.",
+          "es": "Día 1: Fontainhas. Día 2: Playas del norte. Día 3: Sur de Goa.",
+          "pt": "Dia 1: Fontainhas. Dia 2: Praias do norte. Dia 3: Sul de Goa."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "uttar-pradesh",
+    "title": {
+      "en": "Uttar Pradesh",
+      "es": "Uttar Pradesh",
+      "pt": "Uttar Pradesh"
+    },
+    "tagline": {
+      "en": "The Taj Mahal, Spiritual Ghats & Sacred River Banks",
+      "es": "El Taj Mahal, Ghats Espirituales y Ríos Sagrados",
+      "pt": "O Taj Mahal, Ghats Espirituais e Rios Sagrados"
+    },
+    "region": "North",
+    "image": "/images/uttar pradesh.jpg",
+    "gallery": [],
+    "description": {
+      "en": "The spiritual heartland of India, housing the Taj Mahal and ancient Varanasi.",
+      "es": "El corazón espiritual, hogar de Agra y Varanasi.",
+      "pt": "O coração espiritual, lar de Agra e Varanasi."
+    },
+    "history": {
+      "en": "The epicentre of the Mughal Empire and ancient Vedic civilisations.",
+      "es": "Epicentro del imperio mogol y cultura védica.",
+      "pt": "Epicentro do império mogol e cultura védica."
+    },
+    "culture": {
+      "en": "Kathak classical dance, Banarasi silk weavers and Ganga Aarti ceremonies.",
+      "es": "Ceremonias en el Ganges y tejidos de seda.",
+      "pt": "Cerimônias no Ganges e tecidos de seda."
+    },
+    "localFood": {
+      "en": "Petha sweet, Awadhi Biryani and Kebabs.",
+      "es": "Biryani aromático y dulces tradicionales.",
+      "pt": "Biryani aromático e doces tradicionais."
+    },
+    "bestTime": {
+      "en": "October to March.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a março."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "varanasi",
+        "title": {
+          "en": "Varanasi",
+          "es": "Varanasi",
+          "pt": "Varanasi"
+        },
+        "tagline": {
+          "en": "The Eternal City of Light & Spiritual Capital",
+          "es": "La Ciudad Eterna de la Luz",
+          "pt": "A Cidade Eterna da Luz"
+        },
+        "image": "/images/varanasi_ghats_aarti.png",
+        "gallery": [],
+        "overview": {
+          "en": "One of the world's oldest continuously inhabited cities (3,000+ years). The holiest city in Hinduism, famous for its ghats along the sacred Ganges, ancient temples, and the mesmerizing Ganga Aarti ceremony.",
+          "es": "Una de las ciudades más antiguas del mundo. La ciudad más sagrada del hinduismo.",
+          "pt": "Uma das cidades mais antigas do mundo. A cidade mais sagrada do hinduísmo."
+        },
+        "history": {
+          "en": "Believed to be founded by Lord Shiva 5,000 years ago. Continuous habitation since 1100 BCE.",
+          "es": "Fundada por Lord Shiva hace 5.000 años.",
+          "pt": "Fundada por Lord Shiva há 5.000 anos."
+        },
+        "culture": {
+          "en": "Banarasi silk weaving, classical music gharanas, Ganga Aarti rituals, and ancient wrestling traditions.",
+          "es": "Tejido de seda Banarasi y rituales del Ganges.",
+          "pt": "Tecelagem de seda Banarasi e rituais do Ganges."
+        },
+        "attractions": [
+          {
+            "slug": "dashashwamedh-ghat",
+            "name": {
+              "en": "Dashashwamedh Ghat",
+              "es": "Ghat Dashashwamedh",
+              "pt": "Ghat Dashashwamedh"
+            },
+            "desc": {
+              "en": "The main ghat of Varanasi where the spectacular Ganga Aarti fire ceremony takes place every evening with thousands of lamps, chanting, and incense.",
+              "es": "El ghat principal donde se realiza la ceremonia Ganga Aarti cada noche.",
+              "pt": "O ghat principal onde a cerimônia Ganga Aarti acontece todas as noites."
+            },
+            "history": {
+              "en": "Said to be created by Lord Brahma. Site of an ancient 10-horse sacrifice.",
+              "es": "Creado por Lord Brahma según la tradición.",
+              "pt": "Criado por Lord Brahma segundo a tradição."
+            },
+            "architecture": {
+              "en": "Stone stepped ghat descending to the Ganges.",
+              "es": "Ghat de piedra descendiendo al Ganges.",
+              "pt": "Ghat de pedra descendo ao Ganges."
+            },
+            "timings": {
+              "en": "Ganga Aarti: 6:30 PM - 7:30 PM daily",
+              "es": "Ganga Aarti: 6:30 PM - 7:30 PM",
+              "pt": "Ganga Aarti: 18:30 - 19:30"
+            },
+            "info": {
+              "en": "Arrive 30 mins early for front row. Boat viewing also available.",
+              "es": "Llegue 30 min antes. Vista desde barco disponible.",
+              "pt": "Chegue 30 min antes. Vista de barco disponível."
+            },
+            "image": "/images/varanasi_ghats_aarti.png",
+            "gallery": [],
+            "faqs": []
+          },
+          {
+            "slug": "kashi-vishwanath",
+            "name": {
+              "en": "Kashi Vishwanath Temple",
+              "es": "Templo Kashi Vishwanath",
+              "pt": "Templo Kashi Vishwanath"
+            },
+            "desc": {
+              "en": "One of the 12 Jyotirlingas and the most sacred Shiva temple in India, recently renovated with the grand Kashi Vishwanath Corridor.",
+              "es": "Uno de los 12 Jyotirlingas, el templo de Shiva más sagrado de la India.",
+              "pt": "Um dos 12 Jyotirlingas, o templo de Shiva mais sagrado da Índia."
+            },
+            "history": {
+              "en": "Original temple dates to 11th century. Rebuilt multiple times. Current structure from 1780.",
+              "es": "Templo original del siglo XI.",
+              "pt": "Templo original do século XI."
+            },
+            "architecture": {
+              "en": "Gold-plated dome (800 kg gold) with ornate stone carvings.",
+              "es": "Cúpula dorada con 800 kg de oro.",
+              "pt": "Cúpula dourada com 800 kg de ouro."
+            },
+            "timings": {
+              "en": "3:00 AM to 11:00 PM (various prayer timings)",
+              "es": "3:00 AM a 11:00 PM",
+              "pt": "3:00 às 23:00"
+            },
+            "info": {
+              "en": "Dress modestly. Electronics not allowed inside. Free entry.",
+              "es": "Vístase con modestia. Sin electrónicos.",
+              "pt": "Vista-se com modéstia. Eletrônicos não permitidos."
+            },
+            "image": "/images/varanasi_ghats_aarti.png",
+            "gallery": [],
+            "faqs": []
+          }
+        ],
+        "thingsToDo": [
+          {
+            "en": "Dawn boat ride on the Ganges",
+            "es": "Paseo en barco al amanecer",
+            "pt": "Passeio de barco ao amanhecer"
+          },
+          {
+            "en": "Silk weaving workshop visit",
+            "es": "Visita a taller de seda",
+            "pt": "Visita a oficina de seda"
+          },
+          {
+            "en": "Walk through ancient narrow lanes",
+            "es": "Caminar por los callejones antiguos",
+            "pt": "Caminhar pelos becos antigos"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Banarasi Paan, Thandai, Kachori-Sabzi, Malaiyo, Tamatar Chaat.",
+          "es": "Banarasi Paan, Thandai, Kachori.",
+          "pt": "Banarasi Paan, Thandai, Kachori."
+        },
+        "shopping": {
+          "en": "Banarasi silk sarees, brassware, wooden toys from Vishwanath Gali.",
+          "es": "Sarees de seda Banarasi.",
+          "pt": "Sarees de seda Banarasi."
+        },
+        "weather": {
+          "en": "Very hot summers (45°C+), cold winters (5-15°C), humid monsoon.",
+          "es": "Veranos muy calurosos, inviernos fríos.",
+          "pt": "Verões muito quentes, invernos frios."
+        },
+        "bestTime": {
+          "en": "October to March (especially during Dev Deepawali in November)",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [
+          {
+            "en": "Hire a local guide for the ghat walks — lanes are labyrinthine.",
+            "es": "Contrate un guía local para los ghats.",
+            "pt": "Contrate um guia local para os ghats."
+          }
+        ],
+        "nearbyPlaces": [
+          {
+            "name": "Sarnath",
+            "distance": "10 km"
+          },
+          {
+            "name": "Allahabad (Prayagraj)",
+            "distance": "120 km"
+          }
+        ],
+        "suggestedItinerary": {
+          "en": "Day 1: Evening Ganga Aarti at Dashashwamedh. Day 2: Sunrise boat ride, Kashi Vishwanath, Sarnath. Day 3: Silk weaving, old city food walk.",
+          "es": "Día 1: Ganga Aarti. Día 2: Paseo en barco. Día 3: Seda y comida.",
+          "pt": "Dia 1: Ganga Aarti. Dia 2: Passeio de barco. Dia 3: Seda e comida."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "himachal-pradesh",
+    "title": {
+      "en": "Himachal Pradesh",
+      "es": "Himachal Pradesh",
+      "pt": "Himachal Pradesh"
+    },
+    "tagline": {
+      "en": "Snowy Mountain Peaks, Pine Forests & Valleys",
+      "es": "Picos Nevados, Bosques de Pinos y Valles",
+      "pt": "Picos Nevados, Florestas de Pinheiros e Vales"
+    },
+    "region": "North",
+    "image": "/images/himachal pradesh.jpg",
+    "gallery": [],
+    "description": {
+      "en": "A majestic Himalayan sanctuary of hill stations, apple orchards and monasteries.",
+      "es": "Un santuario del Himalaya con vistas nevadas.",
+      "pt": "Um santuário do Himalaia com vistas nevadas."
+    },
+    "history": {
+      "en": "Former summer capital of British India and homeland of Tibetan monks.",
+      "es": "Antigua capital de verano británica.",
+      "pt": "Antiga capital de verão britânica."
+    },
+    "culture": {
+      "en": "Himachali shawls, wood carvings and Buddhist chanting.",
+      "es": "Tejidos tradicionales y cultura budista.",
+      "pt": "Tecidos tradicionais e cultura budista."
+    },
+    "localFood": {
+      "en": "Siddu bread, Madra chickpeas and Trout fish.",
+      "es": "Platos montañeses y pan casero siddu.",
+      "pt": "Pratos montanheses e pão caseiro siddu."
+    },
+    "bestTime": {
+      "en": "March to June & September to December.",
+      "es": "De marzo a junio y septiembre a diciembre.",
+      "pt": "De março a junho e setembro a dezembro."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "shimla",
+        "title": {
+          "en": "Shimla",
+          "es": "Shimla",
+          "pt": "Shimla"
+        },
+        "tagline": {
+          "en": "The Queen of Hill Stations",
+          "es": "La Reina de las Estaciones de Montaña",
+          "pt": "A Rainha das Estações de Montanha"
+        },
+        "image": "/images/himachal pradesh.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "Former summer capital of British India, set amidst pine forests with colonial architecture, a famous Mall Road, and the iconic toy train heritage railway.",
+          "es": "Antigua capital de verano de la India británica con arquitectura colonial.",
+          "pt": "Antiga capital de verão da Índia britânica com arquitetura colonial."
+        },
+        "history": {
+          "en": "Became the summer capital of British India in 1864. The Shimla Agreement was signed here in 1972.",
+          "es": "Capital de verano de la India británica desde 1864.",
+          "pt": "Capital de verão da Índia britânica desde 1864."
+        },
+        "culture": {
+          "en": "Colonial heritage, Himachali folk music, and apple orchards.",
+          "es": "Patrimonio colonial y huertos de manzanas.",
+          "pt": "Patrimônio colonial e pomares de maçãs."
+        },
+        "attractions": [
+          {
+            "slug": "mall-road-shimla",
+            "name": {
+              "en": "Mall Road & Ridge",
+              "es": "Mall Road y Ridge",
+              "pt": "Mall Road e Ridge"
+            },
+            "desc": {
+              "en": "The main promenade of Shimla with colonial-era buildings, shops, cafes, and stunning mountain views. Car-free zone for leisurely walks.",
+              "es": "El paseo principal con edificios coloniales y vistas a las montañas.",
+              "pt": "O passeio principal com edifícios coloniais e vistas às montanhas."
+            },
+            "history": {
+              "en": "Developed during British era as the social center.",
+              "es": "Desarrollado durante la era británica.",
+              "pt": "Desenvolvido durante a era britânica."
+            },
+            "architecture": {
+              "en": "Tudor and neo-Gothic colonial buildings.",
+              "es": "Edificios coloniales Tudor y neogóticos.",
+              "pt": "Edifícios coloniais Tudor e neogóticos."
+            },
+            "timings": {
+              "en": "Open 24 hours (shops 10 AM - 9 PM)",
+              "es": "Abierto 24 horas",
+              "pt": "Aberto 24 horas"
+            },
+            "info": {
+              "en": "Visit Christ Church at sunset for spectacular views.",
+              "es": "Visite la iglesia al atardecer.",
+              "pt": "Visite a igreja ao pôr do sol."
+            },
+            "image": "/images/himachal pradesh.jpg",
+            "gallery": [],
+            "faqs": []
+          }
+        ],
+        "thingsToDo": [
+          {
+            "en": "Heritage toy train ride (UNESCO)",
+            "es": "Paseo en tren de juguete UNESCO",
+            "pt": "Passeio no trem de brinquedo UNESCO"
+          },
+          {
+            "en": "Ice skating in winter at natural rink",
+            "es": "Patinaje sobre hielo en invierno",
+            "pt": "Patinação no gelo no inverno"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Tudkiya Bhath, Madra, Siddu bread, Babru.",
+          "es": "Tudkiya Bhath, Madra, pan Siddu.",
+          "pt": "Tudkiya Bhath, Madra, pão Siddu."
+        },
+        "shopping": {
+          "en": "Lakkar Bazaar for wooden crafts, Mall Road for shawls.",
+          "es": "Lakkar Bazaar para artesanía de madera.",
+          "pt": "Lakkar Bazaar para artesanato de madeira."
+        },
+        "weather": {
+          "en": "Cold winters (0-10°C with snowfall), mild summers (15-25°C).",
+          "es": "Inviernos fríos con nieve.",
+          "pt": "Invernos frios com neve."
+        },
+        "bestTime": {
+          "en": "March to June (summer), December-February (snow)",
+          "es": "Marzo a junio o diciembre a febrero",
+          "pt": "Março a junho ou dezembro a fevereiro"
+        },
+        "travelTips": [
+          {
+            "en": "Book toy train tickets well in advance.",
+            "es": "Reserve los boletos del tren con anticipación.",
+            "pt": "Reserve os bilhetes do trem com antecedência."
+          }
+        ],
+        "nearbyPlaces": [
+          {
+            "name": "Kufri",
+            "distance": "16 km"
+          },
+          {
+            "name": "Manali",
+            "distance": "250 km"
+          }
+        ],
+        "suggestedItinerary": {
+          "en": "Day 1: Mall Road, Ridge, Christ Church. Day 2: Toy train to Kalka, Jakhu Temple.",
+          "es": "Día 1: Mall Road. Día 2: Tren de juguete.",
+          "pt": "Dia 1: Mall Road. Dia 2: Trem de brinquedo."
+        },
+        "faqs": []
+      },
+      {
+        "slug": "manali",
+        "title": {
+          "en": "Manali",
+          "es": "Manali",
+          "pt": "Manali"
+        },
+        "tagline": {
+          "en": "Adventure Capital of the Himalayas",
+          "es": "Capital de la Aventura del Himalaya",
+          "pt": "Capital da Aventura do Himalaia"
+        },
+        "image": "/images/himachal pradesh.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A stunning mountain town at 2,050m in the Kullu Valley, gateway to Rohtang Pass and Ladakh. Famous for adventure sports, hot springs, and apple orchards.",
+          "es": "Una impresionante ciudad de montaña a 2.050m en el Valle de Kullu.",
+          "pt": "Uma impressionante cidade de montanha a 2.050m no Vale de Kullu."
+        },
+        "history": {
+          "en": "Named after Manu, the Hindu sage said to have recreated human life here after a flood.",
+          "es": "Nombrada en honor al sabio hindú Manu.",
+          "pt": "Nomeada em homenagem ao sábio hindu Manu."
+        },
+        "culture": {
+          "en": "Kullu shawls, Tibetan monasteries, and mountain folk traditions.",
+          "es": "Chales de Kullu y monasterios tibetanos.",
+          "pt": "Xales de Kullu e mosteiros tibetanos."
+        },
+        "attractions": [
+          {
+            "slug": "rohtang-pass",
+            "name": {
+              "en": "Rohtang Pass",
+              "es": "Paso Rohtang",
+              "pt": "Passo Rohtang"
+            },
+            "desc": {
+              "en": "A high mountain pass at 3,978m offering breathtaking views of glaciers, snow peaks, and the Lahaul Valley beyond. Open only May-October.",
+              "es": "Un paso de montaña a 3.978m con vistas impresionantes.",
+              "pt": "Um passo de montanha a 3.978m com vistas deslumbrantes."
+            },
+            "history": {
+              "en": "Ancient trade route between Kullu and Lahaul-Spiti.",
+              "es": "Antigua ruta comercial.",
+              "pt": "Antiga rota comercial."
+            },
+            "architecture": {
+              "en": "Natural mountain pass.",
+              "es": "Paso de montaña natural.",
+              "pt": "Passo de montanha natural."
+            },
+            "timings": {
+              "en": "Permits required. Open May-October only.",
+              "es": "Se requieren permisos. Abierto mayo-octubre.",
+              "pt": "Permissões necessárias. Aberto maio-outubro."
+            },
+            "info": {
+              "en": "Book permits online 1 day in advance. Carry warm clothing.",
+              "es": "Reserve permisos en línea. Lleve ropa de abrigo.",
+              "pt": "Reserve licenças online. Leve roupas quentes."
+            },
+            "image": "/images/himachal pradesh.jpg",
+            "gallery": [],
+            "faqs": []
+          }
+        ],
+        "thingsToDo": [
+          {
+            "en": "River rafting on Beas River",
+            "es": "Rafting en el río Beas",
+            "pt": "Rafting no rio Beas"
+          },
+          {
+            "en": "Paragliding in Solang Valley",
+            "es": "Parapente en el Valle Solang",
+            "pt": "Parapente no Vale Solang"
+          },
+          {
+            "en": "Trek to Jogini Waterfall",
+            "es": "Trekking a la cascada Jogini",
+            "pt": "Trekking à cascata Jogini"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Siddu, Trout fish, Dham feast, Babru.",
+          "es": "Siddu, trucha, festín Dham.",
+          "pt": "Siddu, truta, festim Dham."
+        },
+        "shopping": {
+          "en": "Kullu shawls, Tibetan handicrafts, dried fruits.",
+          "es": "Chales de Kullu y artesanía tibetana.",
+          "pt": "Xales de Kullu e artesanato tibetano."
+        },
+        "weather": {
+          "en": "Cold throughout (winters -5°C to 10°C, summers 10-25°C). Heavy snow Dec-Feb.",
+          "es": "Frío todo el año con nieve.",
+          "pt": "Frio o ano todo com neve."
+        },
+        "bestTime": {
+          "en": "March-June (summer), December-February (snow adventures)",
+          "es": "Marzo a junio o diciembre a febrero",
+          "pt": "Março a junho ou dezembro a fevereiro"
+        },
+        "travelTips": [
+          {
+            "en": "Acclimatize before heading to Rohtang. Altitude sickness possible.",
+            "es": "Aclimátese antes de ir a Rohtang.",
+            "pt": "Aclimate-se antes de ir a Rohtang."
+          }
+        ],
+        "nearbyPlaces": [
+          {
+            "name": "Solang Valley",
+            "distance": "13 km"
+          },
+          {
+            "name": "Kullu",
+            "distance": "40 km"
+          }
+        ],
+        "suggestedItinerary": {
+          "en": "Day 1: Old Manali, Hadimba Temple, Mall Road. Day 2: Solang Valley activities. Day 3: Rohtang Pass excursion.",
+          "es": "Día 1: Viejo Manali. Día 2: Valle Solang. Día 3: Rohtang.",
+          "pt": "Dia 1: Velho Manali. Dia 2: Vale Solang. Dia 3: Rohtang."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "maharashtra",
+    "title": {
+      "en": "Maharashtra",
+      "es": "Maharashtra",
+      "pt": "Maharashtra"
+    },
+    "tagline": {
+      "en": "Ancient Rock Caves, Hill Stations & Dynamic Mumbai",
+      "es": "Cuevas Antiguas, Colinas y el Dinámico Mumbai",
+      "pt": "Cavernas Antigas, Colinas e o Dinâmico Mumbai"
+    },
+    "region": "West",
+    "image": "/images/maharashtra.jpg",
+    "gallery": [],
+    "description": {
+      "en": "A massive state featuring the Ajanta-Ellora world heritage caves and bustling Mumbai.",
+      "es": "Hogar de las cuevas patrimonio mundial y Mumbai.",
+      "pt": "Lar das cavernas patrimônio mundial e Mumbai."
+    },
+    "history": {
+      "en": "The territory of the great Maratha Empire under Shivaji.",
+      "es": "Cuna del gran imperio guerrero Maratha.",
+      "pt": "Berço do grande império guerreiro Maratha."
+    },
+    "culture": {
+      "en": "Lavani folk dance, Warli paintings and Ganesh Chaturthi festival.",
+      "es": "Pinturas Warli y festivales dinámicos.",
+      "pt": "Pinturas Warli e festivais dinâmicos."
+    },
+    "localFood": {
+      "en": "Misal Pav, Vada Pav and Puran Poli dessert.",
+      "es": "Bocadillos picantes y postres locales.",
+      "pt": "Lanches condimentados e sobremesas locais."
+    },
+    "bestTime": {
+      "en": "October to March.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a março."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "mumbai",
+        "title": {
+          "en": "Mumbai",
+          "es": "Mumbai",
+          "pt": "Mumbai"
+        },
+        "tagline": {
+          "en": "City of Dreams & Gateway of India",
+          "es": "Descubre la magia de Mumbai",
+          "pt": "Descubra a magia de Mumbai"
+        },
+        "image": "/images/maharashtra.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A historical city in maharashtra known for heritage.",
+          "es": "Una ciudad histórica en maharashtra conocida por su patrimonio.",
+          "pt": "Uma cidade histórica em maharashtra conhecida por seu patrimônio."
+        },
+        "history": {
+          "en": "A rich past dating back centuries.",
+          "es": "Un pasado rico que se remonta a siglos.",
+          "pt": "Um passado rico que remonta a séculos."
+        },
+        "culture": {
+          "en": "Local arts, music and heritage crafts.",
+          "es": "Artes locales, música y artesanía.",
+          "pt": "Artes locais, música e artesanato."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Sightseeing",
+            "es": "Visitas guiadas",
+            "pt": "Visitas guiadas"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Traditional regional recipes.",
+          "es": "Recetas tradicionales de la región.",
+          "pt": "Receitas tradicionais da região."
+        },
+        "shopping": {
+          "en": "Heritage bazaars and local markets.",
+          "es": "Bazar histórico y mercados locales.",
+          "pt": "Bazar histórico e mercados locais."
+        },
+        "weather": {
+          "en": "Pleasant winters and warm summers.",
+          "es": "Inviernos agradables y veranos cálidos.",
+          "pt": "Invernos agradáveis e verões quentes."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "A detailed 2-day guide.",
+          "es": "Una guía detallada de 2 días.",
+          "pt": "Um guia detalhado de 2 dias."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "madhya-pradesh",
+    "title": {
+      "en": "Madhya Pradesh",
+      "es": "Madhya Pradesh",
+      "pt": "Madhya Pradesh"
+    },
+    "tagline": {
+      "en": "The Heart of India, Wildlife Tigers & Khajuraho Temples",
+      "es": "El Corazón de la India, Tigres de Bengala y Templos de Khajuraho",
+      "pt": "O Coração da Índia, Tigres de Bengala e Templos de Khajuraho"
+    },
+    "region": "Central",
+    "image": "/images/madhya pradesh.jpg",
+    "gallery": [],
+    "description": {
+      "en": "Central India's heartland, featuring massive tiger reserves and legendary UNESCO heritage temples.",
+      "es": "El corazón de la India central, que cuenta con reservas de tigres y templos históricos de la UNESCO.",
+      "pt": "O coração da Índia central, com reservas de tigres e templos históricos da UNESCO."
+    },
+    "history": {
+      "en": "Ruled by Chandela dynasty and Maurya empires.",
+      "es": "Gobernado por la dinastía Chandela y los imperios Maurya.",
+      "pt": "Governado pela dinastia Chandela e os impérios Maurya."
+    },
+    "culture": {
+      "en": "Tribal arts, ancient stone sculptures, and heritage music festivals.",
+      "es": "Arte tribal, antiguas esculturas de piedra y festivales de música.",
+      "pt": "Arte tribal, antiga escultura de pedra e festivais de música."
+    },
+    "localFood": {
+      "en": "Poha, Bhutte ka Kees, and Mawa Bati.",
+      "es": "Poha y Bhutte ka Kees tradicional.",
+      "pt": "Poha e Bhutte ka Kees tradicional."
+    },
+    "bestTime": {
+      "en": "October to April.",
+      "es": "De octubre a abril.",
+      "pt": "De outubro a abril."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "khajuraho",
+        "title": {
+          "en": "Khajuraho",
+          "es": "Khajuraho",
+          "pt": "Khajuraho"
+        },
+        "tagline": {
+          "en": "Ancient UNESCO Erotic Sculptured Temples",
+          "es": "Descubre la magia de Khajuraho",
+          "pt": "Descubra a magia de Khajuraho"
+        },
+        "image": "/images/madhya pradesh.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A historical city in madhya-pradesh known for heritage.",
+          "es": "Una ciudad histórica en madhya-pradesh conocida por su patrimonio.",
+          "pt": "Uma cidade histórica em madhya-pradesh conhecida por seu patrimônio."
+        },
+        "history": {
+          "en": "A rich past dating back centuries.",
+          "es": "Un pasado rico que se remonta a siglos.",
+          "pt": "Um passado rico que remonta a séculos."
+        },
+        "culture": {
+          "en": "Local arts, music and heritage crafts.",
+          "es": "Artes locales, música y artesanía.",
+          "pt": "Artes locais, música e artesanato."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Sightseeing",
+            "es": "Visitas guiadas",
+            "pt": "Visitas guiadas"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Traditional regional recipes.",
+          "es": "Recetas tradicionales de la región.",
+          "pt": "Receitas tradicionais da região."
+        },
+        "shopping": {
+          "en": "Heritage bazaars and local markets.",
+          "es": "Bazar histórico y mercados locales.",
+          "pt": "Bazar histórico e mercados locais."
+        },
+        "weather": {
+          "en": "Pleasant winters and warm summers.",
+          "es": "Inviernos agradables y veranos cálidos.",
+          "pt": "Invernos agradáveis e verões quentes."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "A detailed 2-day guide.",
+          "es": "Una guía detallada de 2 días.",
+          "pt": "Um guia detalhado de 2 dias."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "tamil-nadu",
+    "title": {
+      "en": "Tamil Nadu",
+      "es": "Tamil Nadu",
+      "pt": "Tamil Nadu"
+    },
+    "tagline": {
+      "en": "Dravidian Architectural Giants, Temples & Coastline",
+      "es": "Gigantes de la Arquitectura Dravidiana y Templos",
+      "pt": "Gigantes da Arquitetura Dravidiana e Templos"
+    },
+    "region": "South",
+    "image": "/images/ooty.jpg",
+    "gallery": [],
+    "description": {
+      "en": "The home of ancient Tamil culture, towering temple gopurams, and historical shore temples.",
+      "es": "El hogar de la antigua cultura tamil, imponentes templos gopurams y playas de la costa.",
+      "pt": "O lar da antiga cultura tamil, imponentes templos gopurams e praias da costa."
+    },
+    "history": {
+      "en": "Ruled by the Chola, Chera, and Pandya dynasties for thousands of years.",
+      "es": "Gobernado por las dinastías Chola, Chera y Pandya.",
+      "pt": "Governado pelas dinastias Chola, Chera e Pandya."
+    },
+    "culture": {
+      "en": "Classical Bharatanatyam dance, Carnatic music, and silk weaving.",
+      "es": "Danza clásica Bharatanatyam y música Carnática.",
+      "pt": "Dança clássica Bharatanatyam e música Carnática."
+    },
+    "localFood": {
+      "en": "Idli, Sambhar, Chettinad Chicken, and Filter Coffee.",
+      "es": "Idli, Sambhar y Pollo Chettinad.",
+      "pt": "Idli, Sambhar e Frango Chettinad."
+    },
+    "bestTime": {
+      "en": "November to March.",
+      "es": "De noviembre a marzo.",
+      "pt": "De novembro a março."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "madurai",
+        "title": {
+          "en": "Madurai",
+          "es": "Madurai",
+          "pt": "Madurai"
+        },
+        "tagline": {
+          "en": "The Athens of the East & Meenakshi Temple",
+          "es": "Descubre la magia de Madurai",
+          "pt": "Descubra a magia de Madurai"
+        },
+        "image": "/images/ooty.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A historical city in tamil-nadu known for heritage.",
+          "es": "Una ciudad histórica en tamil-nadu conocida por su patrimonio.",
+          "pt": "Uma cidade histórica em tamil-nadu conhecida por seu patrimônio."
+        },
+        "history": {
+          "en": "A rich past dating back centuries.",
+          "es": "Un pasado rico que se remonta a siglos.",
+          "pt": "Um passado rico que remonta a séculos."
+        },
+        "culture": {
+          "en": "Local arts, music and heritage crafts.",
+          "es": "Artes locales, música y artesanía.",
+          "pt": "Artes locais, música e artesanato."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Sightseeing",
+            "es": "Visitas guiadas",
+            "pt": "Visitas guiadas"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Traditional regional recipes.",
+          "es": "Recetas tradicionales de la región.",
+          "pt": "Receitas tradicionais da região."
+        },
+        "shopping": {
+          "en": "Heritage bazaars and local markets.",
+          "es": "Bazar histórico y mercados locales.",
+          "pt": "Bazar histórico e mercados locais."
+        },
+        "weather": {
+          "en": "Pleasant winters and warm summers.",
+          "es": "Inviernos agradables y veranos cálidos.",
+          "pt": "Invernos agradáveis e verões quentes."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "A detailed 2-day guide.",
+          "es": "Una guía detallada de 2 días.",
+          "pt": "Um guia detalhado de 2 dias."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "karnataka",
+    "title": {
+      "en": "Karnataka",
+      "es": "Karnataka",
+      "pt": "Karnataka"
+    },
+    "tagline": {
+      "en": "Ancient Ruins of Hampi, Coffee Plantations & Coastal Temples",
+      "es": "Ruinas Antiguas de Hampi, Plantaciones de Café y Templos Costeros",
+      "pt": "Ruinas Antigas de Hampi, Plantaçoes de Café e Templos Costeiros"
+    },
+    "region": "South",
+    "image": "/images/karanataka.jpg",
+    "gallery": [],
+    "description": {
+      "en": "From the dramatic boulder landscape of UNESCO Hampi to the misty coffee hills of Coorg, Karnataka blends royal history with natural wonders.",
+      "es": "Desde el paisaje de rocas de Hampi hasta las colinas de café de Coorg, Karnataka mezcla historia real con maravillas naturales.",
+      "pt": "Desde a paisagem de pedras de Hampi até as colinas de café de Coorg, Karnataka mistura história real com maravilhas naturais."
+    },
+    "history": {
+      "en": "Home to the Vijayanagara Empire, one of the richest kingdoms in world history.",
+      "es": "Hogar del Imperio Vijayanagara, uno de los reinos más ricos de la historia.",
+      "pt": "Lar do Império Vijayanagara, um dos reinos mais ricos da história."
+    },
+    "culture": {
+      "en": "Yakshagana folk theater, Mysore paintings, and sandalwood crafts.",
+      "es": "Teatro folclórico Yakshagana y pinturas de Mysore.",
+      "pt": "Teatro folclórico Yakshagana e pinturas de Mysore."
+    },
+    "localFood": {
+      "en": "Bisi Bele Bath, Mysore Masala Dosa, and Filter Coffee.",
+      "es": "Bisi Bele Bath y Dosa de Mysore.",
+      "pt": "Bisi Bele Bath e Dosa de Mysore."
+    },
+    "bestTime": {
+      "en": "October to February.",
+      "es": "De octubre a febrero.",
+      "pt": "De outubro a fevereiro."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "mysore",
+        "title": {
+          "en": "Mysore",
+          "es": "Mysore",
+          "pt": "Mysore"
+        },
+        "tagline": {
+          "en": "City of Royal Palaces & Sandalwood",
+          "es": "Descubre la magia de Mysore",
+          "pt": "Descubra a magia de Mysore"
+        },
+        "image": "/images/karanataka.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A historical city in karnataka known for heritage.",
+          "es": "Una ciudad histórica en karnataka conocida por su patrimonio.",
+          "pt": "Uma cidade histórica em karnataka conhecida por seu patrimônio."
+        },
+        "history": {
+          "en": "A rich past dating back centuries.",
+          "es": "Un pasado rico que se remonta a siglos.",
+          "pt": "Um passado rico que remonta a séculos."
+        },
+        "culture": {
+          "en": "Local arts, music and heritage crafts.",
+          "es": "Artes locales, música y artesanía.",
+          "pt": "Artes locais, música e artesanato."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Sightseeing",
+            "es": "Visitas guiadas",
+            "pt": "Visitas guiadas"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Traditional regional recipes.",
+          "es": "Recetas tradicionales de la región.",
+          "pt": "Receitas tradicionais da região."
+        },
+        "shopping": {
+          "en": "Heritage bazaars and local markets.",
+          "es": "Bazar histórico y mercados locales.",
+          "pt": "Bazar histórico e mercados locais."
+        },
+        "weather": {
+          "en": "Pleasant winters and warm summers.",
+          "es": "Inviernos agradables y veranos cálidos.",
+          "pt": "Invernos agradáveis e verões quentes."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "A detailed 2-day guide.",
+          "es": "Una guía detallada de 2 días.",
+          "pt": "Um guia detalhado de 2 dias."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "punjab",
+    "title": {
+      "en": "Punjab",
+      "es": "Punjab",
+      "pt": "Punjab"
+    },
+    "tagline": {
+      "en": "Golden Temple, Vibrant Culture & Hearty Cuisine",
+      "es": "Templo Dorado, Cultura Vibrante y Cocina Generosa",
+      "pt": "Templo Dourado, Cultura Vibrante e Culinária Generosa"
+    },
+    "region": "North",
+    "image": "/images/punjab.jpg",
+    "gallery": [],
+    "description": {
+      "en": "The land of five rivers, famous for the Golden Temple of Amritsar, Bhangra dance, and the most generous hospitality in India.",
+      "es": "La tierra de los cinco ríos, famosa por el Templo Dorado y la hospitalidad generosa.",
+      "pt": "A terra dos cinco rios, famosa pelo Templo Dourado e hospitalidade generosa."
+    },
+    "history": {
+      "en": "Heartland of Sikh warriors and the Mughal-Sikh empire conflicts.",
+      "es": "Cuna de los guerreros Sikh y el imperio Mogol.",
+      "pt": "Berço dos guerreiros Sikh e do império Mogol."
+    },
+    "culture": {
+      "en": "Bhangra and Giddha folk dances, Phulkari embroidery, and Punjabi music.",
+      "es": "Danzas Bhangra y Giddha, bordado Phulkari.",
+      "pt": "Danças Bhangra e Giddha, bordado Phulkari."
+    },
+    "localFood": {
+      "en": "Butter Chicken, Sarson Ka Saag, Makki Ki Roti, Lassi.",
+      "es": "Pollo con mantequilla y Sarson Ka Saag.",
+      "pt": "Frango com manteiga e Sarson Ka Saag."
+    },
+    "bestTime": {
+      "en": "October to March.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a março."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "amritsar",
+        "title": {
+          "en": "Amritsar",
+          "es": "Amritsar",
+          "pt": "Amritsar"
+        },
+        "tagline": {
+          "en": "The Sacred Golden Temple City",
+          "es": "Descubre la magia de Amritsar",
+          "pt": "Descubra a magia de Amritsar"
+        },
+        "image": "/images/punjab.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A historical city in punjab known for heritage.",
+          "es": "Una ciudad histórica en punjab conocida por su patrimonio.",
+          "pt": "Uma cidade histórica em punjab conhecida por seu patrimônio."
+        },
+        "history": {
+          "en": "A rich past dating back centuries.",
+          "es": "Un pasado rico que se remonta a siglos.",
+          "pt": "Um passado rico que remonta a séculos."
+        },
+        "culture": {
+          "en": "Local arts, music and heritage crafts.",
+          "es": "Artes locales, música y artesanía.",
+          "pt": "Artes locais, música e artesanato."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Sightseeing",
+            "es": "Visitas guiadas",
+            "pt": "Visitas guiadas"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Traditional regional recipes.",
+          "es": "Recetas tradicionales de la región.",
+          "pt": "Receitas tradicionais da região."
+        },
+        "shopping": {
+          "en": "Heritage bazaars and local markets.",
+          "es": "Bazar histórico y mercados locales.",
+          "pt": "Bazar histórico e mercados locais."
+        },
+        "weather": {
+          "en": "Pleasant winters and warm summers.",
+          "es": "Inviernos agradables y veranos cálidos.",
+          "pt": "Invernos agradáveis e verões quentes."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "A detailed 2-day guide.",
+          "es": "Una guía detallada de 2 días.",
+          "pt": "Um guia detalhado de 2 dias."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "west-bengal",
+    "title": {
+      "en": "West Bengal",
+      "es": "Bengala Occidental",
+      "pt": "Bengala Ocidental"
+    },
+    "tagline": {
+      "en": "Cultural Capital Kolkata, Darjeeling Tea Hills & Sundarbans",
+      "es": "Capital Cultural Calcuta, Colinas de Darjeeling y Sundarbans",
+      "pt": "Capital Cultural Calcutá, Colinas de Darjeeling e Sundarbans"
+    },
+    "region": "East",
+    "image": "/images/west bengal.jpg",
+    "gallery": [],
+    "description": {
+      "en": "A literary and artistic powerhouse. From colonial Kolkata to misty Darjeeling tea estates and the Royal Bengal Tiger territory of the Sundarbans.",
+      "es": "Una potencia literaria y artística. Desde la colonial Calcuta hasta las plantaciones de Darjeeling.",
+      "pt": "Uma potência literária e artística. Desde a colonial Calcutá até as plantações de Darjeeling."
+    },
+    "history": {
+      "en": "The seat of British India's capital and the Bengal Renaissance.",
+      "es": "Sede de la capital de la India Británica.",
+      "pt": "Sede da capital da Índia Britânica."
+    },
+    "culture": {
+      "en": "Durga Puja festival, Rabindra Sangeet music, and Bengali cinema.",
+      "es": "Festival Durga Puja y música Rabindra Sangeet.",
+      "pt": "Festival Durga Puja e música Rabindra Sangeet."
+    },
+    "localFood": {
+      "en": "Rasgulla, Macher Jhol, Sandesh, Mishti Doi.",
+      "es": "Rasgulla y curry de pescado bengalí.",
+      "pt": "Rasgulla e curry de peixe bengali."
+    },
+    "bestTime": {
+      "en": "October to March.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a março."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "kolkata",
+        "title": {
+          "en": "Kolkata",
+          "es": "Calcuta",
+          "pt": "Calcutá"
+        },
+        "tagline": {
+          "en": "The City of Joy & Cultural Capital",
+          "es": "Descubre la magia de Calcuta",
+          "pt": "Descubra a magia de Calcutá"
+        },
+        "image": "/images/west bengal.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A historical city in west-bengal known for heritage.",
+          "es": "Una ciudad histórica en west-bengal conocida por su patrimonio.",
+          "pt": "Uma cidade histórica em west-bengal conhecida por seu patrimônio."
+        },
+        "history": {
+          "en": "A rich past dating back centuries.",
+          "es": "Un pasado rico que se remonta a siglos.",
+          "pt": "Um passado rico que remonta a séculos."
+        },
+        "culture": {
+          "en": "Local arts, music and heritage crafts.",
+          "es": "Artes locales, música y artesanía.",
+          "pt": "Artes locais, música e artesanato."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Sightseeing",
+            "es": "Visitas guiadas",
+            "pt": "Visitas guiadas"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Traditional regional recipes.",
+          "es": "Recetas tradicionales de la región.",
+          "pt": "Receitas tradicionais da região."
+        },
+        "shopping": {
+          "en": "Heritage bazaars and local markets.",
+          "es": "Bazar histórico y mercados locales.",
+          "pt": "Bazar histórico e mercados locais."
+        },
+        "weather": {
+          "en": "Pleasant winters and warm summers.",
+          "es": "Inviernos agradables y veranos cálidos.",
+          "pt": "Invernos agradáveis e verões quentes."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "A detailed 2-day guide.",
+          "es": "Una guía detallada de 2 días.",
+          "pt": "Um guia detalhado de 2 dias."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "odisha",
+    "title": {
+      "en": "Odisha",
+      "es": "Odisha",
+      "pt": "Odisha"
+    },
+    "tagline": {
+      "en": "Sun Temple of Konark, Tribal Art & Pristine Coastline",
+      "es": "Templo del Sol de Konark, Arte Tribal y Costa Virgen",
+      "pt": "Templo do Sol de Konark, Arte Tribal e Costa Virgem"
+    },
+    "region": "East",
+    "image": "/images/odisha.jpg",
+    "gallery": [],
+    "description": {
+      "en": "Home to the Sun Temple of Konark, ancient Jagannath Temple, and one of India's longest undiscovered coastlines with pristine white sand beaches.",
+      "es": "Hogar del Templo del Sol de Konark y uno de las costas más vírgenes de la India.",
+      "pt": "Lar do Templo do Sol de Konark e uma das costas mais inexploradas da Índia."
+    },
+    "history": {
+      "en": "The ancient Kalinga empire and site of Emperor Ashoka's transformation.",
+      "es": "El antiguo imperio Kalinga y la transformación del emperador Ashoka.",
+      "pt": "O antigo império Kalinga e a transformação do imperador Ashoka."
+    },
+    "culture": {
+      "en": "Odissi classical dance, Pattachitra painting, and Rath Yatra festival.",
+      "es": "Danza Odissi y pintura Pattachitra.",
+      "pt": "Dança Odissi e pintura Pattachitra."
+    },
+    "localFood": {
+      "en": "Dalma, Chhena Poda, Machha Besara fish curry.",
+      "es": "Dalma y curry de pescado local.",
+      "pt": "Dalma e curry de peixe local."
+    },
+    "bestTime": {
+      "en": "October to March.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a março."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "bhubaneswar",
+        "title": {
+          "en": "Bhubaneswar",
+          "es": "Bhubaneswar",
+          "pt": "Bhubaneswar"
+        },
+        "tagline": {
+          "en": "Temple City of India",
+          "es": "Descubre la magia de Bhubaneswar",
+          "pt": "Descubra a magia de Bhubaneswar"
+        },
+        "image": "/images/odisha.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A historical city in odisha known for heritage.",
+          "es": "Una ciudad histórica en odisha conocida por su patrimonio.",
+          "pt": "Uma cidade histórica em odisha conhecida por seu patrimônio."
+        },
+        "history": {
+          "en": "A rich past dating back centuries.",
+          "es": "Un pasado rico que se remonta a siglos.",
+          "pt": "Um passado rico que remonta a séculos."
+        },
+        "culture": {
+          "en": "Local arts, music and heritage crafts.",
+          "es": "Artes locales, música y artesanía.",
+          "pt": "Artes locais, música e artesanato."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Sightseeing",
+            "es": "Visitas guiadas",
+            "pt": "Visitas guiadas"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Traditional regional recipes.",
+          "es": "Recetas tradicionales de la región.",
+          "pt": "Receitas tradicionais da região."
+        },
+        "shopping": {
+          "en": "Heritage bazaars and local markets.",
+          "es": "Bazar histórico y mercados locales.",
+          "pt": "Bazar histórico e mercados locais."
+        },
+        "weather": {
+          "en": "Pleasant winters and warm summers.",
+          "es": "Inviernos agradables y veranos cálidos.",
+          "pt": "Invernos agradáveis e verões quentes."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "A detailed 2-day guide.",
+          "es": "Una guía detallada de 2 días.",
+          "pt": "Um guia detalhado de 2 dias."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "gujarat",
+    "title": {
+      "en": "Gujarat",
+      "es": "Gujarat",
+      "pt": "Gujarat"
+    },
+    "tagline": {
+      "en": "Asiatic Lions, White Desert Rann & Textile Heritage",
+      "es": "Leones Asiáticos, Desierto Blanco y Patrimonio Textil",
+      "pt": "Leões Asiáticos, Deserto Branco e Patrimônio Têxtil"
+    },
+    "region": "West",
+    "image": "/images/gujarat.jpg",
+    "gallery": [],
+    "description": {
+      "en": "The last home of Asiatic lions, the surreal White Desert of Kutch, ancient stepwells, and one of India's richest textile and craft traditions.",
+      "es": "El último hogar de los leones asiáticos y el surrealista desierto blanco de Kutch.",
+      "pt": "O último lar dos leões asiáticos e o surreal Deserto Branco de Kutch."
+    },
+    "history": {
+      "en": "Birthplace of Mahatma Gandhi and ancient Indus Valley trade port.",
+      "es": "Lugar de nacimiento de Mahatma Gandhi.",
+      "pt": "Local de nascimento de Mahatma Gandhi."
+    },
+    "culture": {
+      "en": "Garba and Dandiya Raas dances, Patola silk weaving, and Rann Utsav festival.",
+      "es": "Danzas Garba y Dandiya, tejidos Patola.",
+      "pt": "Danças Garba e Dandiya, tecelagem Patola."
+    },
+    "localFood": {
+      "en": "Dhokla, Gujarati Thali, Undhiyu, Khandvi.",
+      "es": "Dhokla y Thali Gujarati.",
+      "pt": "Dhokla e Thali Gujarati."
+    },
+    "bestTime": {
+      "en": "November to February.",
+      "es": "De noviembre a febrero.",
+      "pt": "De novembro a fevereiro."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "ahmedabad",
+        "title": {
+          "en": "Ahmedabad",
+          "es": "Ahmedabad",
+          "pt": "Ahmedabad"
+        },
+        "tagline": {
+          "en": "UNESCO Heritage City & Gandhi Ashram",
+          "es": "Descubre la magia de Ahmedabad",
+          "pt": "Descubra a magia de Ahmedabad"
+        },
+        "image": "/images/gujarat.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A historical city in gujarat known for heritage.",
+          "es": "Una ciudad histórica en gujarat conocida por su patrimonio.",
+          "pt": "Uma cidade histórica em gujarat conhecida por seu patrimônio."
+        },
+        "history": {
+          "en": "A rich past dating back centuries.",
+          "es": "Un pasado rico que se remonta a siglos.",
+          "pt": "Um passado rico que remonta a séculos."
+        },
+        "culture": {
+          "en": "Local arts, music and heritage crafts.",
+          "es": "Artes locales, música y artesanía.",
+          "pt": "Artes locais, música e artesanato."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Sightseeing",
+            "es": "Visitas guiadas",
+            "pt": "Visitas guiadas"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Traditional regional recipes.",
+          "es": "Recetas tradicionales de la región.",
+          "pt": "Receitas tradicionais da região."
+        },
+        "shopping": {
+          "en": "Heritage bazaars and local markets.",
+          "es": "Bazar histórico y mercados locales.",
+          "pt": "Bazar histórico e mercados locais."
+        },
+        "weather": {
+          "en": "Pleasant winters and warm summers.",
+          "es": "Inviernos agradables y veranos cálidos.",
+          "pt": "Invernos agradáveis e verões quentes."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "A detailed 2-day guide.",
+          "es": "Una guía detallada de 2 días.",
+          "pt": "Um guia detalhado de 2 dias."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "assam",
+    "title": {
+      "en": "Assam",
+      "es": "Assam",
+      "pt": "Assam"
+    },
+    "tagline": {
+      "en": "One-Horned Rhinos, Tea Gardens & River Brahmaputra",
+      "es": "Rinocerontes, Jardines de Té y Río Brahmaputra",
+      "pt": "Rinocerontes, Jardins de Chá e Rio Brahmaputra"
+    },
+    "region": "North East",
+    "image": "/images/assam.jpg",
+    "gallery": [],
+    "description": {
+      "en": "The gateway to Northeast India, home to the mighty Brahmaputra river, Kaziranga's one-horned rhinos, and rolling tea garden estates.",
+      "es": "La puerta al noreste de la India, con rinocerontes de un cuerno y jardines de té.",
+      "pt": "A porta para o nordeste da Índia, com rinocerontes de um chifre e jardins de chá."
+    },
+    "history": {
+      "en": "Ruled by the Ahom dynasty for 600 years, the longest ruling dynasty in India.",
+      "es": "Gobernado por la dinastía Ahom durante 600 años.",
+      "pt": "Governado pela dinastia Ahom durante 600 anos."
+    },
+    "culture": {
+      "en": "Bihu folk dance, Assamese silk Muga weaving, and river boat racing.",
+      "es": "Danza Bihu y tejido de seda Muga.",
+      "pt": "Dança Bihu e tecelagem de seda Muga."
+    },
+    "localFood": {
+      "en": "Duck curry, bamboo shoot dishes, and Assam tea with pitha sweets.",
+      "es": "Curry de pato y platos de bambú.",
+      "pt": "Curry de pato e pratos de bambu."
+    },
+    "bestTime": {
+      "en": "November to April.",
+      "es": "De noviembre a abril.",
+      "pt": "De novembro a abril."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "guwahati",
+        "title": {
+          "en": "Guwahati",
+          "es": "Guwahati",
+          "pt": "Guwahati"
+        },
+        "tagline": {
+          "en": "Gateway to Northeast India",
+          "es": "Descubre la magia de Guwahati",
+          "pt": "Descubra a magia de Guwahati"
+        },
+        "image": "/images/assam.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A historical city in assam known for heritage.",
+          "es": "Una ciudad histórica en assam conocida por su patrimonio.",
+          "pt": "Uma cidade histórica em assam conhecida por seu patrimônio."
+        },
+        "history": {
+          "en": "A rich past dating back centuries.",
+          "es": "Un pasado rico que se remonta a siglos.",
+          "pt": "Um passado rico que remonta a séculos."
+        },
+        "culture": {
+          "en": "Local arts, music and heritage crafts.",
+          "es": "Artes locales, música y artesanía.",
+          "pt": "Artes locais, música e artesanato."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Sightseeing",
+            "es": "Visitas guiadas",
+            "pt": "Visitas guiadas"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Traditional regional recipes.",
+          "es": "Recetas tradicionales de la región.",
+          "pt": "Receitas tradicionais da região."
+        },
+        "shopping": {
+          "en": "Heritage bazaars and local markets.",
+          "es": "Bazar histórico y mercados locales.",
+          "pt": "Bazar histórico e mercados locais."
+        },
+        "weather": {
+          "en": "Pleasant winters and warm summers.",
+          "es": "Inviernos agradables y veranos cálidos.",
+          "pt": "Invernos agradáveis e verões quentes."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "A detailed 2-day guide.",
+          "es": "Una guía detallada de 2 días.",
+          "pt": "Um guia detalhado de 2 dias."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "andaman-islands",
+    "title": {
+      "en": "Andaman & Nicobar Islands",
+      "es": "Islas Andamán y Nicobar",
+      "pt": "Ilhas Andaman e Nicobar"
+    },
+    "tagline": {
+      "en": "Turquoise Waters, Coral Reefs & Pristine Tropical Beaches",
+      "es": "Aguas Turquesas, Arrecifes de Coral y Playas Tropicales",
+      "pt": "Águas Turquesas, Recifes de Coral e Praias Tropicais"
+    },
+    "region": "Islands",
+    "image": "/images/andaman islands.jpg",
+    "gallery": [],
+    "description": {
+      "en": "India's tropical island paradise in the Bay of Bengal. Crystal-clear waters, vibrant coral reefs, mangrove forests, and some of Asia's most untouched beaches.",
+      "es": "El paraíso tropical de la India en el Golfo de Bengala con playas vírgenes.",
+      "pt": "O paraíso tropical da Índia na Baía de Bengala com praias intocadas."
+    },
+    "history": {
+      "en": "Home to indigenous Sentinelese tribes and the historic Cellular Jail.",
+      "es": "Hogar de tribus indígenas y la histórica Cárcel Celular.",
+      "pt": "Lar de tribos indígenas e da histórica Prisão Celular."
+    },
+    "culture": {
+      "en": "Indigenous tribal heritage, colonial history, and marine biodiversity.",
+      "es": "Patrimonio tribal y biodiversidad marina.",
+      "pt": "Patrimônio tribal e biodiversidade marinha."
+    },
+    "localFood": {
+      "en": "Fresh seafood, coconut-based curries, and tropical fruit.",
+      "es": "Mariscos frescos y curries de coco.",
+      "pt": "Frutos do mar frescos e curries de coco."
+    },
+    "bestTime": {
+      "en": "October to May.",
+      "es": "De octubre a mayo.",
+      "pt": "De outubro a maio."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "port-blair",
+        "title": {
+          "en": "Port Blair",
+          "es": "Port Blair",
+          "pt": "Port Blair"
+        },
+        "tagline": {
+          "en": "Gateway to Pristine Island Paradise",
+          "es": "Descubre la magia de Port Blair",
+          "pt": "Descubra a magia de Port Blair"
+        },
+        "image": "/images/andaman islands.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A historical city in andaman-islands known for heritage.",
+          "es": "Una ciudad histórica en andaman-islands conocida por su patrimonio.",
+          "pt": "Uma cidade histórica em andaman-islands conhecida por seu patrimônio."
+        },
+        "history": {
+          "en": "A rich past dating back centuries.",
+          "es": "Un pasado rico que se remonta a siglos.",
+          "pt": "Um passado rico que remonta a séculos."
+        },
+        "culture": {
+          "en": "Local arts, music and heritage crafts.",
+          "es": "Artes locales, música y artesanía.",
+          "pt": "Artes locais, música e artesanato."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Sightseeing",
+            "es": "Visitas guiadas",
+            "pt": "Visitas guiadas"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Traditional regional recipes.",
+          "es": "Recetas tradicionales de la región.",
+          "pt": "Receitas tradicionais da região."
+        },
+        "shopping": {
+          "en": "Heritage bazaars and local markets.",
+          "es": "Bazar histórico y mercados locales.",
+          "pt": "Bazar histórico e mercados locais."
+        },
+        "weather": {
+          "en": "Pleasant winters and warm summers.",
+          "es": "Inviernos agradables y veranos cálidos.",
+          "pt": "Invernos agradáveis e verões quentes."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "A detailed 2-day guide.",
+          "es": "Una guía detallada de 2 días.",
+          "pt": "Um guia detalhado de 2 dias."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "uttarakhand",
+    "title": {
+      "en": "Uttarakhand",
+      "es": "Uttarakhand",
+      "pt": "Uttarakhand"
+    },
+    "tagline": {
+      "en": "Land of the Gods, Rishikesh Yoga & Himalayan Treks",
+      "es": "Tierra de los Dioses, Yoga en Rishikesh y Trekking",
+      "pt": "Terra dos Deuses, Yoga em Rishikesh e Trekking"
+    },
+    "region": "North",
+    "image": "/images/uttarakhand.jpg",
+    "gallery": [],
+    "description": {
+      "en": "The spiritual Himalayan state featuring sacred Char Dham pilgrimage, Rishikesh yoga capital, Jim Corbett tiger reserve, and spectacular mountain treks.",
+      "es": "El estado espiritual del Himalaya con peregrinación sagrada y yoga en Rishikesh.",
+      "pt": "O estado espiritual do Himalaia com peregrinação sagrada e yoga em Rishikesh."
+    },
+    "history": {
+      "en": "Ancient seat of Vedic learning and meditation ashrams.",
+      "es": "Antiguo centro de aprendizaje védico.",
+      "pt": "Antigo centro de aprendizado védico."
+    },
+    "culture": {
+      "en": "Ganga Aarti at Haridwar, yoga traditions, and Garhwali folk music.",
+      "es": "Ganga Aarti en Haridwar y tradiciones de yoga.",
+      "pt": "Ganga Aarti em Haridwar e tradições de yoga."
+    },
+    "localFood": {
+      "en": "Kafuli, Aloo Ke Gutke, Bal Mithai, and Gahat Dal.",
+      "es": "Kafuli y platos montañeses.",
+      "pt": "Kafuli e pratos montanheses."
+    },
+    "bestTime": {
+      "en": "March to June & September to November.",
+      "es": "De marzo a junio y septiembre a noviembre.",
+      "pt": "De março a junho e setembro a novembro."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "rishikesh",
+        "title": {
+          "en": "Rishikesh",
+          "es": "Rishikesh",
+          "pt": "Rishikesh"
+        },
+        "tagline": {
+          "en": "Yoga Capital of the World",
+          "es": "Descubre la magia de Rishikesh",
+          "pt": "Descubra a magia de Rishikesh"
+        },
+        "image": "/images/uttarakhand.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A historical city in uttarakhand known for heritage.",
+          "es": "Una ciudad histórica en uttarakhand conocida por su patrimonio.",
+          "pt": "Uma cidade histórica em uttarakhand conhecida por seu patrimônio."
+        },
+        "history": {
+          "en": "A rich past dating back centuries.",
+          "es": "Un pasado rico que se remonta a siglos.",
+          "pt": "Um passado rico que remonta a séculos."
+        },
+        "culture": {
+          "en": "Local arts, music and heritage crafts.",
+          "es": "Artes locales, música y artesanía.",
+          "pt": "Artes locais, música e artesanato."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Sightseeing",
+            "es": "Visitas guiadas",
+            "pt": "Visitas guiadas"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Traditional regional recipes.",
+          "es": "Recetas tradicionales de la región.",
+          "pt": "Receitas tradicionais da região."
+        },
+        "shopping": {
+          "en": "Heritage bazaars and local markets.",
+          "es": "Bazar histórico y mercados locales.",
+          "pt": "Bazar histórico e mercados locais."
+        },
+        "weather": {
+          "en": "Pleasant winters and warm summers.",
+          "es": "Inviernos agradables y veranos cálidos.",
+          "pt": "Invernos agradáveis e verões quentes."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "A detailed 2-day guide.",
+          "es": "Una guía detallada de 2 días.",
+          "pt": "Um guia detalhado de 2 dias."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "sikkim",
+    "title": {
+      "en": "Sikkim",
+      "es": "Sikkim",
+      "pt": "Sikkim"
+    },
+    "tagline": {
+      "en": "Kanchenjunga Views, Buddhist Monasteries & Organic Paradise",
+      "es": "Vistas del Kanchenjunga, Monasterios Budistas y Paraíso Orgánico",
+      "pt": "Vistas do Kanchenjunga, Mosteiros Budistas e Paraíso Orgânico"
+    },
+    "region": "North East",
+    "image": "/images/sikkim.jpg",
+    "gallery": [],
+    "description": {
+      "en": "India's cleanest and first fully organic state. Snow-capped Kanchenjunga, ancient Buddhist monasteries, alpine meadows, and colorful rhododendron forests.",
+      "es": "El estado más limpio de la India con vistas al Kanchenjunga y monasterios budistas.",
+      "pt": "O estado mais limpo da Índia com vistas ao Kanchenjunga e mosteiros budistas."
+    },
+    "history": {
+      "en": "A former Buddhist kingdom merged with India in 1975.",
+      "es": "Un antiguo reino budista unido a la India en 1975.",
+      "pt": "Um antigo reino budista unido à Índia em 1975."
+    },
+    "culture": {
+      "en": "Tibetan Buddhist monasteries, mask dances, and Lepcha tribal heritage.",
+      "es": "Monasterios budistas tibetanos y danzas de máscara.",
+      "pt": "Mosteiros budistas tibetanos e danças de máscara."
+    },
+    "localFood": {
+      "en": "Momos, Thukpa noodle soup, Gundruk, and Tongba millet beer.",
+      "es": "Momos y sopa Thukpa.",
+      "pt": "Momos e sopa Thukpa."
+    },
+    "bestTime": {
+      "en": "March to June & September to December.",
+      "es": "De marzo a junio y septiembre a diciembre.",
+      "pt": "De março a junho e setembro a dezembro."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "gangtok",
+        "title": {
+          "en": "Gangtok",
+          "es": "Gangtok",
+          "pt": "Gangtok"
+        },
+        "tagline": {
+          "en": "Mountain Capital with Kanchenjunga Views",
+          "es": "Descubre la magia de Gangtok",
+          "pt": "Descubra a magia de Gangtok"
+        },
+        "image": "/images/sikkim.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A historical city in sikkim known for heritage.",
+          "es": "Una ciudad histórica en sikkim conocida por su patrimonio.",
+          "pt": "Uma cidade histórica em sikkim conhecida por seu patrimônio."
+        },
+        "history": {
+          "en": "A rich past dating back centuries.",
+          "es": "Un pasado rico que se remonta a siglos.",
+          "pt": "Um passado rico que remonta a séculos."
+        },
+        "culture": {
+          "en": "Local arts, music and heritage crafts.",
+          "es": "Artes locales, música y artesanía.",
+          "pt": "Artes locais, música e artesanato."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Sightseeing",
+            "es": "Visitas guiadas",
+            "pt": "Visitas guiadas"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Traditional regional recipes.",
+          "es": "Recetas tradicionales de la región.",
+          "pt": "Receitas tradicionais da região."
+        },
+        "shopping": {
+          "en": "Heritage bazaars and local markets.",
+          "es": "Bazar histórico y mercados locales.",
+          "pt": "Bazar histórico e mercados locais."
+        },
+        "weather": {
+          "en": "Pleasant winters and warm summers.",
+          "es": "Inviernos agradables y veranos cálidos.",
+          "pt": "Invernos agradáveis e verões quentes."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "A detailed 2-day guide.",
+          "es": "Una guía detallada de 2 días.",
+          "pt": "Um guia detalhado de 2 dias."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "telangana",
+    "title": {
+      "en": "Telangana",
+      "es": "Telangana",
+      "pt": "Telangana"
+    },
+    "tagline": {
+      "en": "Hyderabad's Charminar, Biryani Capital & Golconda Fort",
+      "es": "Charminar de Hyderabad, Capital del Biryani y Fuerte Golconda",
+      "pt": "Charminar de Hyderabad, Capital do Biryani e Forte Golconda"
+    },
+    "region": "South",
+    "image": "/images/telangana.jpg",
+    "gallery": [],
+    "description": {
+      "en": "The Nizam's royal city of Hyderabad blends Mughal grandeur with modern tech culture. Famous for Charminar, Golconda diamonds, and the world's best biryani.",
+      "es": "La ciudad real de los Nizam combina grandeza mogol con cultura tecnológica moderna.",
+      "pt": "A cidade real dos Nizam combina grandeza mogol com cultura tecnológica moderna."
+    },
+    "history": {
+      "en": "Seat of the wealthy Nizam dynasty and the diamond trade capital.",
+      "es": "Sede de la rica dinastía Nizam y capital del comercio de diamantes.",
+      "pt": "Sede da rica dinastia Nizam e capital do comércio de diamantes."
+    },
+    "culture": {
+      "en": "Pearl and bangle markets, Qawwali music, and Deccan paintings.",
+      "es": "Mercados de perlas y música Qawwali.",
+      "pt": "Mercados de pérolas e música Qawwali."
+    },
+    "localFood": {
+      "en": "Hyderabadi Biryani, Haleem, Double Ka Meetha, and Irani Chai.",
+      "es": "Biryani de Hyderabad y Haleem.",
+      "pt": "Biryani de Hyderabad e Haleem."
+    },
+    "bestTime": {
+      "en": "October to March.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a março."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "hyderabad",
+        "title": {
+          "en": "Hyderabad",
+          "es": "Hyderabad",
+          "pt": "Hyderabad"
+        },
+        "tagline": {
+          "en": "City of Pearls & Biryani Capital",
+          "es": "Descubre la magia de Hyderabad",
+          "pt": "Descubra a magia de Hyderabad"
+        },
+        "image": "/images/telangana.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A historical city in telangana known for heritage.",
+          "es": "Una ciudad histórica en telangana conocida por su patrimonio.",
+          "pt": "Uma cidade histórica em telangana conhecida por seu patrimônio."
+        },
+        "history": {
+          "en": "A rich past dating back centuries.",
+          "es": "Un pasado rico que se remonta a siglos.",
+          "pt": "Um passado rico que remonta a séculos."
+        },
+        "culture": {
+          "en": "Local arts, music and heritage crafts.",
+          "es": "Artes locales, música y artesanía.",
+          "pt": "Artes locais, música e artesanato."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Sightseeing",
+            "es": "Visitas guiadas",
+            "pt": "Visitas guiadas"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Traditional regional recipes.",
+          "es": "Recetas tradicionales de la región.",
+          "pt": "Receitas tradicionais da região."
+        },
+        "shopping": {
+          "en": "Heritage bazaars and local markets.",
+          "es": "Bazar histórico y mercados locales.",
+          "pt": "Bazar histórico e mercados locais."
+        },
+        "weather": {
+          "en": "Pleasant winters and warm summers.",
+          "es": "Inviernos agradables y veranos cálidos.",
+          "pt": "Invernos agradáveis e verões quentes."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "A detailed 2-day guide.",
+          "es": "Una guía detallada de 2 días.",
+          "pt": "Um guia detalhado de 2 dias."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "ladakh",
+    "title": {
+      "en": "Ladakh",
+      "es": "Ladakh",
+      "pt": "Ladakh"
+    },
+    "tagline": {
+      "en": "Moonland Landscapes, Pangong Lake & Ancient Monasteries",
+      "es": "Paisajes Lunares, Lago Pangong y Monasterios Antiguos",
+      "pt": "Paisagens Lunares, Lago Pangong e Mosteiros Antigos"
+    },
+    "region": "North",
+    "image": "/images/ladakh.jpg",
+    "gallery": [],
+    "description": {
+      "en": "The land of high passes and dramatic barren landscapes. Crystal-blue Pangong Lake, Nubra Valley sand dunes, and 1000-year-old Buddhist monasteries perched on cliffs.",
+      "es": "La tierra de los pasos altos con paisajes desérticos dramáticos y lagos de cristal azul.",
+      "pt": "A terra dos passes altos com paisagens desérticas dramáticas e lagos de cristal azul."
+    },
+    "history": {
+      "en": "An ancient kingdom on the Silk Route, blending Tibetan and Indian cultures.",
+      "es": "Un antiguo reino en la Ruta de la Seda.",
+      "pt": "Um antigo reino na Rota da Seda."
+    },
+    "culture": {
+      "en": "Tibetan Buddhist traditions, Hemis festival, and Ladakhi folk music.",
+      "es": "Tradiciones budistas tibetanas y festival Hemis.",
+      "pt": "Tradições budistas tibetanas e festival Hemis."
+    },
+    "localFood": {
+      "en": "Thukpa, Skyu pasta, butter tea, and apricot jam.",
+      "es": "Thukpa y té con mantequilla.",
+      "pt": "Thukpa e chá com manteiga."
+    },
+    "bestTime": {
+      "en": "June to September.",
+      "es": "De junio a septiembre.",
+      "pt": "De junho a setembro."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "leh",
+        "title": {
+          "en": "Leh",
+          "es": "Leh",
+          "pt": "Leh"
+        },
+        "tagline": {
+          "en": "Gateway to the Roof of the World",
+          "es": "Descubre la magia de Leh",
+          "pt": "Descubra a magia de Leh"
+        },
+        "image": "/images/ladakh.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A historical city in ladakh known for heritage.",
+          "es": "Una ciudad histórica en ladakh conocida por su patrimonio.",
+          "pt": "Uma cidade histórica em ladakh conhecida por seu patrimônio."
+        },
+        "history": {
+          "en": "A rich past dating back centuries.",
+          "es": "Un pasado rico que se remonta a siglos.",
+          "pt": "Um passado rico que remonta a séculos."
+        },
+        "culture": {
+          "en": "Local arts, music and heritage crafts.",
+          "es": "Artes locales, música y artesanía.",
+          "pt": "Artes locais, música e artesanato."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Sightseeing",
+            "es": "Visitas guiadas",
+            "pt": "Visitas guiadas"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Traditional regional recipes.",
+          "es": "Recetas tradicionales de la región.",
+          "pt": "Receitas tradicionais da região."
+        },
+        "shopping": {
+          "en": "Heritage bazaars and local markets.",
+          "es": "Bazar histórico y mercados locales.",
+          "pt": "Bazar histórico e mercados locais."
+        },
+        "weather": {
+          "en": "Pleasant winters and warm summers.",
+          "es": "Inviernos agradables y veranos cálidos.",
+          "pt": "Invernos agradáveis e verões quentes."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "A detailed 2-day guide.",
+          "es": "Una guía detallada de 2 días.",
+          "pt": "Um guia detalhado de 2 dias."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "meghalaya",
+    "title": {
+      "en": "Meghalaya",
+      "es": "Meghalaya",
+      "pt": "Meghalaya"
+    },
+    "tagline": {
+      "en": "Living Root Bridges, Wettest Place on Earth & Crystal Caves",
+      "es": "Puentes de Raíces Vivas, Lugar Más Lluvioso y Cuevas de Cristal",
+      "pt": "Pontes de Raízes Vivas, Lugar Mais Chuvoso e Cavernas de Cristal"
+    },
+    "region": "North East",
+    "image": "/images/meghalaya.jpg",
+    "gallery": [],
+    "description": {
+      "en": "The Abode of Clouds with ancient living root bridges, the wettest place on Earth at Cherrapunji, crystal-clear river pools, and dramatic cliff-edge viewpoints.",
+      "es": "La Morada de las Nubes con puentes de raíces y el lugar más lluvioso del mundo.",
+      "pt": "A Morada das Nuvens com pontes de raízes e o lugar mais chuvoso do mundo."
+    },
+    "history": {
+      "en": "Home to the matrilineal Khasi tribe, one of few surviving matriarchal societies.",
+      "es": "Hogar de la tribu matrilineal Khasi.",
+      "pt": "Lar da tribo matrilinear Khasi."
+    },
+    "culture": {
+      "en": "Khasi tribal heritage, bamboo crafts, and Nongkrem dance festival.",
+      "es": "Patrimonio tribal Khasi y artesanía de bambú.",
+      "pt": "Patrimônio tribal Khasi e artesanato de bambu."
+    },
+    "localFood": {
+      "en": "Jadoh rice, Doh Khleh pork salad, and Ki Kpu rice beer.",
+      "es": "Arroz Jadoh y ensalada de cerdo.",
+      "pt": "Arroz Jadoh e salada de porco."
+    },
+    "bestTime": {
+      "en": "October to April.",
+      "es": "De octubre a abril.",
+      "pt": "De outubro a abril."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "shillong",
+        "title": {
+          "en": "Shillong",
+          "es": "Shillong",
+          "pt": "Shillong"
+        },
+        "tagline": {
+          "en": "Scotland of the East & Music Capital",
+          "es": "Descubre la magia de Shillong",
+          "pt": "Descubra a magia de Shillong"
+        },
+        "image": "/images/meghalaya.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A historical city in meghalaya known for heritage.",
+          "es": "Una ciudad histórica en meghalaya conocida por su patrimonio.",
+          "pt": "Uma cidade histórica em meghalaya conhecida por seu patrimônio."
+        },
+        "history": {
+          "en": "A rich past dating back centuries.",
+          "es": "Un pasado rico que se remonta a siglos.",
+          "pt": "Um passado rico que remonta a séculos."
+        },
+        "culture": {
+          "en": "Local arts, music and heritage crafts.",
+          "es": "Artes locales, música y artesanía.",
+          "pt": "Artes locais, música e artesanato."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Sightseeing",
+            "es": "Visitas guiadas",
+            "pt": "Visitas guiadas"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Traditional regional recipes.",
+          "es": "Recetas tradicionales de la región.",
+          "pt": "Receitas tradicionais da região."
+        },
+        "shopping": {
+          "en": "Heritage bazaars and local markets.",
+          "es": "Bazar histórico y mercados locales.",
+          "pt": "Bazar histórico e mercados locais."
+        },
+        "weather": {
+          "en": "Pleasant winters and warm summers.",
+          "es": "Inviernos agradables y veranos cálidos.",
+          "pt": "Invernos agradáveis e verões quentes."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "A detailed 2-day guide.",
+          "es": "Una guía detallada de 2 días.",
+          "pt": "Um guia detalhado de 2 dias."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "bihar",
+    "title": {
+      "en": "Bihar",
+      "es": "Bihar",
+      "pt": "Bihar"
+    },
+    "tagline": {
+      "en": "Birthplace of Buddhism, Nalanda University & Ancient Wisdom",
+      "es": "Cuna del Budismo, Universidad de Nalanda y Sabiduría Antigua",
+      "pt": "Berço do Budismo, Universidade de Nalanda e Sabedoria Antiga"
+    },
+    "region": "East",
+    "image": "/images/bihar.jpg",
+    "gallery": [],
+    "description": {
+      "en": "The cradle of civilization where Buddha attained enlightenment. Home to the ancient Nalanda University ruins and the sacred Mahabodhi Temple at Bodh Gaya.",
+      "es": "La cuna de la civilización donde Buda alcanzó la iluminación.",
+      "pt": "O berço da civilização onde Buda atingiu a iluminação."
+    },
+    "history": {
+      "en": "Seat of the Maurya and Gupta empires, India's greatest ancient dynasties.",
+      "es": "Sede de los imperios Maurya y Gupta.",
+      "pt": "Sede dos impérios Maurya e Gupta."
+    },
+    "culture": {
+      "en": "Madhubani painting, Chhath Puja sun worship, and Buddhist pilgrimage.",
+      "es": "Pintura Madhubani y peregrinación budista.",
+      "pt": "Pintura Madhubani e peregrinação budista."
+    },
+    "localFood": {
+      "en": "Litti Chokha, Sattu Paratha, and Khaja sweet.",
+      "es": "Litti Chokha y Sattu Paratha.",
+      "pt": "Litti Chokha e Sattu Paratha."
+    },
+    "bestTime": {
+      "en": "October to March.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a março."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "bodh-gaya",
+        "title": {
+          "en": "Bodh Gaya",
+          "es": "Bodh Gaya",
+          "pt": "Bodh Gaya"
+        },
+        "tagline": {
+          "en": "Where Buddha Attained Enlightenment",
+          "es": "Descubre la magia de Bodh Gaya",
+          "pt": "Descubra a magia de Bodh Gaya"
+        },
+        "image": "/images/bihar.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A historical city in bihar known for heritage.",
+          "es": "Una ciudad histórica en bihar conocida por su patrimonio.",
+          "pt": "Uma cidade histórica em bihar conhecida por seu patrimônio."
+        },
+        "history": {
+          "en": "A rich past dating back centuries.",
+          "es": "Un pasado rico que se remonta a siglos.",
+          "pt": "Um passado rico que remonta a séculos."
+        },
+        "culture": {
+          "en": "Local arts, music and heritage crafts.",
+          "es": "Artes locales, música y artesanía.",
+          "pt": "Artes locais, música e artesanato."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Sightseeing",
+            "es": "Visitas guiadas",
+            "pt": "Visitas guiadas"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Traditional regional recipes.",
+          "es": "Recetas tradicionales de la región.",
+          "pt": "Receitas tradicionais da região."
+        },
+        "shopping": {
+          "en": "Heritage bazaars and local markets.",
+          "es": "Bazar histórico y mercados locales.",
+          "pt": "Bazar histórico e mercados locais."
+        },
+        "weather": {
+          "en": "Pleasant winters and warm summers.",
+          "es": "Inviernos agradables y veranos cálidos.",
+          "pt": "Invernos agradáveis e verões quentes."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "A detailed 2-day guide.",
+          "es": "Una guía detallada de 2 días.",
+          "pt": "Um guia detalhado de 2 dias."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "andhra-pradesh",
+    "title": {
+      "en": "Andhra Pradesh",
+      "es": "Andhra Pradesh",
+      "pt": "Andhra Pradesh"
+    },
+    "tagline": {
+      "en": "Tirupati Temple, Araku Valley & Spicy Coastal Cuisine",
+      "es": "Templo de Tirupati, Valle de Araku y Cocina Costera Picante",
+      "pt": "Templo de Tirupati, Vale de Araku e Culinária Costeira Picante"
+    },
+    "region": "South",
+    "image": "/images/andhra pradesh.jpg",
+    "gallery": [],
+    "description": {
+      "en": "Home to the world's richest and most visited Hindu temple at Tirupati, the scenic Araku Valley coffee hills, and India's spiciest culinary traditions.",
+      "es": "Hogar del templo hindú más visitado del mundo y la cocina más picante de India.",
+      "pt": "Lar do templo hindu mais visitado do mundo e a culinária mais picante da Índia."
+    },
+    "history": {
+      "en": "Seat of the Satavahana dynasty and ancient Buddhist stupas at Amaravati.",
+      "es": "Sede de la dinastía Satavahana y estupas budistas.",
+      "pt": "Sede da dinastia Satavahana e estupas budistas."
+    },
+    "culture": {
+      "en": "Kuchipudi classical dance, Kalamkari textile art, and Kondapalli toys.",
+      "es": "Danza Kuchipudi y arte textil Kalamkari.",
+      "pt": "Dança Kuchipudi e arte têxtil Kalamkari."
+    },
+    "localFood": {
+      "en": "Hyderabadi Biryani, Gongura Pachadi, Pesarattu, Pulihora.",
+      "es": "Biryani y Pesarattu.",
+      "pt": "Biryani e Pesarattu."
+    },
+    "bestTime": {
+      "en": "October to March.",
+      "es": "De octubre a marzo.",
+      "pt": "De outubro a março."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "tirupati",
+        "title": {
+          "en": "Tirupati",
+          "es": "Tirupati",
+          "pt": "Tirupati"
+        },
+        "tagline": {
+          "en": "World's Most Visited Pilgrimage City",
+          "es": "Descubre la magia de Tirupati",
+          "pt": "Descubra a magia de Tirupati"
+        },
+        "image": "/images/andhra pradesh.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A historical city in andhra-pradesh known for heritage.",
+          "es": "Una ciudad histórica en andhra-pradesh conocida por su patrimonio.",
+          "pt": "Uma cidade histórica em andhra-pradesh conhecida por seu patrimônio."
+        },
+        "history": {
+          "en": "A rich past dating back centuries.",
+          "es": "Un pasado rico que se remonta a siglos.",
+          "pt": "Um passado rico que remonta a séculos."
+        },
+        "culture": {
+          "en": "Local arts, music and heritage crafts.",
+          "es": "Artes locales, música y artesanía.",
+          "pt": "Artes locais, música e artesanato."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Sightseeing",
+            "es": "Visitas guiadas",
+            "pt": "Visitas guiadas"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Traditional regional recipes.",
+          "es": "Recetas tradicionales de la región.",
+          "pt": "Receitas tradicionais da região."
+        },
+        "shopping": {
+          "en": "Heritage bazaars and local markets.",
+          "es": "Bazar histórico y mercados locales.",
+          "pt": "Bazar histórico e mercados locais."
+        },
+        "weather": {
+          "en": "Pleasant winters and warm summers.",
+          "es": "Inviernos agradables y veranos cálidos.",
+          "pt": "Invernos agradáveis e verões quentes."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "A detailed 2-day guide.",
+          "es": "Una guía detallada de 2 días.",
+          "pt": "Um guia detalhado de 2 dias."
+        },
+        "faqs": []
+      }
+    ]
+  },
+  {
+    "slug": "chhattisgarh",
+    "title": {
+      "en": "Chhattisgarh",
+      "es": "Chhattisgarh",
+      "pt": "Chhattisgarh"
+    },
+    "tagline": {
+      "en": "Tribal Heartland, Waterfalls & Unexplored Forests",
+      "es": "Corazón Tribal, Cascadas y Bosques Inexplorados",
+      "pt": "Coração Tribal, Cascatas e Florestas Inexploradas"
+    },
+    "region": "Central",
+    "image": "/images/chhattisgarh.jpg",
+    "gallery": [],
+    "description": {
+      "en": "India's best-kept secret. Dense sal forests, thundering Chitrakote waterfall (India's Niagara), ancient cave paintings, and vibrant tribal cultures untouched by time.",
+      "es": "El secreto mejor guardado de la India con cascadas y culturas tribales.",
+      "pt": "O segredo mais bem guardado da Índia com cascatas e culturas tribais."
+    },
+    "history": {
+      "en": "Ancient Dakshin Kosala kingdom and prehistoric cave art sites.",
+      "es": "Antiguo reino Dakshin Kosala y arte rupestre.",
+      "pt": "Antigo reino Dakshin Kosala e arte rupestre."
+    },
+    "culture": {
+      "en": "Gond and Bastar tribal art, Dhokra metal casting, and weekly haats.",
+      "es": "Arte tribal Gond y Bastar y fundición Dhokra.",
+      "pt": "Arte tribal Gond e Bastar e fundição Dhokra."
+    },
+    "localFood": {
+      "en": "Red rice dishes, wild mushroom curries, and mahua flower treats.",
+      "es": "Arroz rojo y curry de champiñones silvestres.",
+      "pt": "Arroz vermelho e curry de cogumelos silvestres."
+    },
+    "bestTime": {
+      "en": "November to March.",
+      "es": "De noviembre a marzo.",
+      "pt": "De novembro a março."
+    },
+    "travelTips": [],
+    "faqs": [],
+    "cities": [
+      {
+        "slug": "jagdalpur",
+        "title": {
+          "en": "Jagdalpur",
+          "es": "Jagdalpur",
+          "pt": "Jagdalpur"
+        },
+        "tagline": {
+          "en": "Gateway to Bastar Tribal Country",
+          "es": "Descubre la magia de Jagdalpur",
+          "pt": "Descubra a magia de Jagdalpur"
+        },
+        "image": "/images/chhattisgarh.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "A historical city in chhattisgarh known for heritage.",
+          "es": "Una ciudad histórica en chhattisgarh conocida por su patrimonio.",
+          "pt": "Uma cidade histórica em chhattisgarh conhecida por seu patrimônio."
+        },
+        "history": {
+          "en": "A rich past dating back centuries.",
+          "es": "Un pasado rico que se remonta a siglos.",
+          "pt": "Um passado rico que remonta a séculos."
+        },
+        "culture": {
+          "en": "Local arts, music and heritage crafts.",
+          "es": "Artes locales, música y artesanía.",
+          "pt": "Artes locais, música e artesanato."
+        },
+        "attractions": [],
+        "thingsToDo": [
+          {
+            "en": "Sightseeing",
+            "es": "Visitas guiadas",
+            "pt": "Visitas guiadas"
+          }
+        ],
+        "hotels": [],
+        "localFood": {
+          "en": "Traditional regional recipes.",
+          "es": "Recetas tradicionales de la región.",
+          "pt": "Receitas tradicionais da região."
+        },
+        "shopping": {
+          "en": "Heritage bazaars and local markets.",
+          "es": "Bazar histórico y mercados locales.",
+          "pt": "Bazar histórico e mercados locais."
+        },
+        "weather": {
+          "en": "Pleasant winters and warm summers.",
+          "es": "Inviernos agradables y veranos cálidos.",
+          "pt": "Invernos agradáveis e verões quentes."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [],
+        "nearbyPlaces": [],
+        "suggestedItinerary": {
+          "en": "A detailed 2-day guide.",
+          "es": "Una guía detallada de 2 días.",
+          "pt": "Um guia detalhado de 2 dias."
+        },
+        "faqs": []
+      }
+    ]
+  }
+]

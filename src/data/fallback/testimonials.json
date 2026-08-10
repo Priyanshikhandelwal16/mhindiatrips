@@ -1,0 +1,74 @@
+[
+  {
+    "id": "test-1",
+    "name": "Alvaro Gomez",
+    "location": "Madrid, Spain",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200",
+    "quote": {
+      "en": "The best travel experience of our lives! The private guides and luxury chauffeur cars made our Rajasthan journey absolutely perfect.",
+      "es": "¡La mejor experiencia de viaje de nuestras vidas! Los guías privados y los coches de lujo hicieron que nuestro viaje por Rajastán fuera perfecto.",
+      "pt": "A melhor experiência de viagem de nossas vidas! Os guias privados e os carros de luxo tornaram a nossa viagem pelo Rajastão perfeita."
+    },
+    "stars": 5
+  },
+  {
+    "id": "test-2",
+    "name": "Clara Santos",
+    "location": "Lisbon, Portugal",
+    "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200",
+    "quote": {
+      "en": "South India and the backwaters of Kerala were spectacular. The Ayurvedic wellness treatments and custom hotels exceeded our expectations.",
+      "es": "El sur de la India y los canales de Kerala fueron espectaculares. Los tratamientos de ayurveda superaron nuestras expectativas.",
+      "pt": "O sul da Índia e os canais de Kerala foram espetaculares. Os tratamentos de ayurveda superaram as nossas expectativas."
+    },
+    "stars": 5
+  },
+  {
+    "id": "test-3",
+    "name": "Sarah & Family",
+    "location": "London, United Kingdom",
+    "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200",
+    "quote": {
+      "en": "Traveling with children can be hectic, but MH India Trips made it seamless. The private vehicle was comfortable, and our driver was fantastic.",
+      "es": "Viajar con niños puede ser agitado, pero MH India Trips lo hizo impecable. El vehículo privado fue muy cómodo.",
+      "pt": "Viajar com crianças pode ser agitado, mas a MH India Trips tornou tudo impecável. O veículo privado era muito confortável."
+    },
+    "stars": 5
+  },
+  {
+    "id": "test-4",
+    "name": "Jean-Pierre & Marie",
+    "location": "Paris, France",
+    "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200",
+    "quote": {
+      "en": "A truly royal experience. We stayed in actual palace suites and had private sunrise tours of the Taj Mahal. Outstanding service!",
+      "es": "Una experiencia verdaderamente real. Nos alojamos en suites de palacios y tuvimos tours privados al Taj Mahal.",
+      "pt": "Uma experiência verdadeiramente real. Hospedamo-nos em suítes de palácios e tivemos tours privados ao Taj Mahal."
+    },
+    "stars": 5
+  },
+  {
+    "id": "test-5",
+    "name": "Ana Maria Silva",
+    "location": "São Paulo, Brazil",
+    "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200",
+    "quote": {
+      "en": "Incredible attention to detail. Every single guide spoke fluent Spanish/Portuguese, and the local cuisine recommendations were superb.",
+      "es": "Increíble atención al detalle. Cada guía hablaba español con fluidez y las recomendaciones de comida local fueron excelentes.",
+      "pt": "Incrível atenção aos detalhes. Cada guia falava espanhol fluentemente e as recomendações de comida local foram excelentes."
+    },
+    "stars": 5
+  },
+  {
+    "id": "test-6",
+    "name": "David Miller",
+    "location": "New York, USA",
+    "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200",
+    "quote": {
+      "en": "Their Ranthambore wildlife safari organization was top-notch. We spotted a tiger on our first game drive! Highly recommended concierge.",
+      "es": "La organización del safari en Ranthambore fue excelente. ¡Vimos un tigre en nuestro primer safari!",
+      "pt": "A organização do safári em Ranthambore foi excelente. Vimos um tigre no nosso primeiro safári! Muito recomendado."
+    },
+    "stars": 5
+  }
+]

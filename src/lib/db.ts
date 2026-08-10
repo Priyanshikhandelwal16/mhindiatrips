@@ -53,20 +53,24 @@ if (process.env.NEXT_PUBLIC_FIREBASE_API_KEY) {
 }
 
 const FALLBACK_DIR = path.join(process.cwd(), "src", "data", "fallback");
-if (!fs.existsSync(FALLBACK_DIR)) {
-  fs.mkdirSync(FALLBACK_DIR, { recursive: true });
+try {
+  if (!fs.existsSync(FALLBACK_DIR)) {
+    fs.mkdirSync(FALLBACK_DIR, { recursive: true });
+  }
+} catch (e) {
+  // fs might not be available on edge runtime (Netlify)
 }
 
 const getFilePath = (name: string) => path.join(FALLBACK_DIR, `${name}.json`);
 
 const loadLocalData = (name: string, defaultData: any) => {
-  const filePath = getFilePath(name);
-  if (!fs.existsSync(filePath)) {
-    // File doesn't exist - write default and return
-    fs.writeFileSync(filePath, JSON.stringify(defaultData, null, 2), "utf-8");
-    return defaultData;
-  }
   try {
+    const filePath = getFilePath(name);
+    if (!fs.existsSync(filePath)) {
+      // File doesn't exist - write default and return
+      fs.writeFileSync(filePath, JSON.stringify(defaultData, null, 2), "utf-8");
+      return defaultData;
+    }
     const raw = fs.readFileSync(filePath, "utf-8");
     const existing = JSON.parse(raw);
     // If default data has more items, merge new ones in (dev additions)
@@ -79,17 +83,17 @@ const loadLocalData = (name: string, defaultData: any) => {
     }
     return existing;
   } catch (e) {
-    console.error("Error reading JSON file " + name, e);
+    // fs operations might fail on serverless/edge — fall back to in-memory data
     return defaultData;
   }
 };
 
 const saveLocalData = (name: string, data: any) => {
-  const filePath = getFilePath(name);
   try {
+    const filePath = getFilePath(name);
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf-8");
   } catch (e) {
-    console.error("Error writing JSON file " + name, e);
+    // Silently fail on serverless/edge where fs is not available
   }
 };
 
