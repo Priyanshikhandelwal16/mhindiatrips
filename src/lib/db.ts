@@ -15,8 +15,15 @@ import {
   TourPackage,
   Testimonial
 } from "@/data/mockData";
+import { additionalStates, additionalPackages, additionalFoods, additionalBlogs } from "@/data/additionalData";
 import fs from "fs";
 import path from "path";
+
+// Merge additional data
+const mergedStates = [...statesData, ...additionalStates];
+const mergedFoods = [...foodsData, ...additionalFoods];
+const mergedBlogs = [...blogsData, ...additionalBlogs];
+const mergedPackages = [...initialTourPackages, ...additionalPackages];
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -55,12 +62,22 @@ const getFilePath = (name: string) => path.join(FALLBACK_DIR, `${name}.json`);
 const loadLocalData = (name: string, defaultData: any) => {
   const filePath = getFilePath(name);
   if (!fs.existsSync(filePath)) {
+    // File doesn't exist - write default and return
     fs.writeFileSync(filePath, JSON.stringify(defaultData, null, 2), "utf-8");
     return defaultData;
   }
   try {
     const raw = fs.readFileSync(filePath, "utf-8");
-    return JSON.parse(raw);
+    const existing = JSON.parse(raw);
+    // If default data has more items, merge new ones in (dev additions)
+    if (Array.isArray(defaultData) && Array.isArray(existing) && defaultData.length > existing.length) {
+      const existingSlugs = new Set(existing.map((item: any) => item.slug || item.id));
+      const newItems = defaultData.filter((item: any) => !existingSlugs.has(item.slug || item.id));
+      const merged = [...existing, ...newItems];
+      fs.writeFileSync(filePath, JSON.stringify(merged, null, 2), "utf-8");
+      return merged;
+    }
+    return existing;
   } catch (e) {
     console.error("Error reading JSON file " + name, e);
     return defaultData;
@@ -78,11 +95,11 @@ const saveLocalData = (name: string, data: any) => {
 
 // Initialize cache from local storage if available
 let inquiriesCache = loadLocalData("inquiries", []);
-let blogsCache = loadLocalData("blogs", blogsData);
-let statesCache = loadLocalData("states", statesData);
-let foodsCache = loadLocalData("foods", foodsData);
+let blogsCache = loadLocalData("blogs", mergedBlogs);
+let statesCache = loadLocalData("states", mergedStates);
+let foodsCache = loadLocalData("foods", mergedFoods);
 let testimonialsCache = loadLocalData("testimonials", initialTestimonials);
-let tourPackagesCache = loadLocalData("tour_packages", initialTourPackages);
+let tourPackagesCache = loadLocalData("tour_packages", mergedPackages);
 
 // Simple check to seed Firestore collection if it is empty
 async function ensureSeeded(collectionName: string, initialData: any[]) {
@@ -111,11 +128,11 @@ function checkSeeding() {
   if (!useFirestore) return Promise.resolve();
   if (!seedingPromise) {
     seedingPromise = Promise.all([
-      ensureSeeded("blogs", blogsData),
-      ensureSeeded("states", statesData),
-      ensureSeeded("foods", foodsData),
+      ensureSeeded("blogs", mergedBlogs),
+      ensureSeeded("states", mergedStates),
+      ensureSeeded("foods", mergedFoods),
       ensureSeeded("testimonials", initialTestimonials),
-      ensureSeeded("tour_packages", initialTourPackages),
+      ensureSeeded("tour_packages", mergedPackages),
     ]);
   }
   return seedingPromise;

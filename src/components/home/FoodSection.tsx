@@ -40,6 +40,16 @@ const foodImageMap: Record<string, string> = {
   "machher-jhol": "/images/macher jhol.jpg",
   "litti-chokha": "/images/litti chokha.jpg",
   "sandesh": "/images/sandesh.jpg",
+  "hyderabadi-biryani": "/images/indian_cuisine_feast.png",
+  "tandoori-chicken": "/images/tandoori chicken.jpg",
+  "vada-pav": "/images/vada pav.jpg",
+  "idli-sambhar": "/images/idli sambhar.jpg",
+  "dal-makhani": "/images/dal makhani.jpg",
+  "rasgulla": "/images/rasgulla.jpg",
+  "chettinad-chicken": "/images/ooty.jpg",
+  "awadhi-biryani": "/images/indian_cuisine_feast.png",
+  "samosa-delight": "/images/momos.jpg",
+  "rogan-josh": "/images/laal maas.jpg",
 };
 
 export default function FoodSection({ locale, foods, labels }: FoodSectionProps) {

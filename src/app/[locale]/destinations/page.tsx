@@ -17,7 +17,7 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
     pt: { sub: "Explorar Índia", title: "Destinos por Região", desc: "Cada estado é uma porta para um mundo cultural único. Descubra seu patrimônio, gastronomia e experiências de viagem.", cta: "Explorar Guia" }
   };
   const text = t[locale] || t.en;
-  const regions = ["North", "South", "East", "West", "Central", "Islands"];
+  const regions = ["North", "South", "East", "West", "Central", "North East", "Islands"];
 
   return (
     <div className="bg-ivory-100 min-h-screen font-sans text-charcoal-800">
@@ -68,7 +68,7 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-65" />
                         <div className="absolute top-5 left-5 bg-charcoal-900 text-sand-400 text-[9px] uppercase tracking-widest font-semibold px-3.5 py-1.5 rounded-full border border-sand-300/20">
-                          {state.region}ern
+                          {state.region === "Islands" ? "Islands" : `${state.region}ern`}
                         </div>
                       </div>
                       <div className="p-8 flex flex-col flex-grow justify-between bg-white">
