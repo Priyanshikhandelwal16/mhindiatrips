@@ -89,7 +89,7 @@ export default function Footer({ locale }: FooterProps) {
   };
 
   return (
-    <footer className="bg-[#1A1E1D] text-white/90 font-sans relative overflow-hidden border-t border-[#C5A862]/30">
+    <footer className="bg-[#FAF8F5] text-[#1B1B1B]/80 font-sans relative overflow-hidden border-t border-[#C5A862]/20">
       
       {/* Subtle luxury pattern */}
       <div className="absolute inset-0 opacity-[0.035] bg-[radial-gradient(#C5A862_1.5px,transparent_1.5px)] [background-size:24px_24px] pointer-events-none" />
@@ -113,7 +113,7 @@ export default function Footer({ locale }: FooterProps) {
                 {labels.tagline}
               </p>
             </div>
-            <p className="text-sm leading-relaxed text-white/70 max-w-sm font-light">
+            <p className="text-sm leading-relaxed text-[#1B1B1B]/60 max-w-sm font-light">
               {labels.aboutText}
             </p>
             
@@ -144,7 +144,7 @@ export default function Footer({ locale }: FooterProps) {
                 <li key={i}>
                   <Link
                     href={`/${locale}${link.url}`}
-                    className="hover:text-gold text-white/70 flex items-center gap-2 transition-colors duration-200"
+                    className="hover:text-gold text-[#1B1B1B]/60 flex items-center gap-2 transition-colors duration-200"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-gold" />
                     <span>{link.name}</span>
@@ -163,7 +163,7 @@ export default function Footer({ locale }: FooterProps) {
                 <li key={i}>
                   <Link
                     href={`/${locale}${st.url}`}
-                    className="hover:text-gold text-white/70 flex items-center gap-2 transition-colors duration-200"
+                    className="hover:text-gold text-[#1B1B1B]/60 flex items-center gap-2 transition-colors duration-200"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-gold" />
                     <span>{st.name}</span>
@@ -178,7 +178,7 @@ export default function Footer({ locale }: FooterProps) {
             <h4 className="text-xs uppercase tracking-[0.2em] text-gold font-bold pb-2.5 border-b border-white/10">
               {labels.newsletterTitle}
             </h4>
-            <p className="text-sm text-white/60 leading-relaxed font-light">
+            <p className="text-sm text-[#1B1B1B]/50 leading-relaxed font-light">
               {labels.newsletterDesc}
             </p>
             {submitted ? (
@@ -193,7 +193,7 @@ export default function Footer({ locale }: FooterProps) {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={labels.newsletterPlaceholder}
-                  className="bg-transparent text-xs pl-4 outline-none w-full text-white placeholder-white/40 font-light"
+                  className="bg-transparent text-xs pl-4 outline-none w-full text-[#1B1B1B] placeholder-[#1B1B1B]/40 font-light"
                   required
                   suppressHydrationWarning={true}
                 />

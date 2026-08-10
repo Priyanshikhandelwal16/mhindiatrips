@@ -32,14 +32,14 @@ export default function PageLoader() {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#0B0D0C] transition-opacity duration-600 ${
+      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#FAF8F5] transition-opacity duration-600 ${
         fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
       <div className="flex flex-col items-center gap-8">
         {/* Logo / Brand mark */}
         <div className="relative">
-          <div className="w-24 h-24 rounded-full border-2 border-[#C3AB85]/20 flex items-center justify-center overflow-hidden">
+          <div className="w-24 h-24 rounded-full border-2 border-[#C3AB85]/30 flex items-center justify-center overflow-hidden">
             <img src="/images/logo-transparent.png" alt="MH India Trips" className="h-16 w-auto" />
           </div>
           {/* Spinning ring */}
@@ -48,7 +48,7 @@ export default function PageLoader() {
 
         {/* Loading text */}
         <div className="flex flex-col items-center gap-2">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-[#C3AB85]/80 font-medium">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-[#1B1B1B]/50 font-medium">
             MH India Trips
           </p>
           {/* Animated dots */}
