@@ -89,7 +89,7 @@ export default function Footer({ locale }: FooterProps) {
   };
 
   return (
-    <footer className="bg-[#0A2A1E] text-white/90 font-sans relative overflow-hidden border-t border-[#C5A862]/30">
+    <footer className="bg-[#1A1E1D] text-white/90 font-sans relative overflow-hidden border-t border-[#C5A862]/30">
       
       {/* Subtle luxury pattern */}
       <div className="absolute inset-0 opacity-[0.035] bg-[radial-gradient(#C5A862_1.5px,transparent_1.5px)] [background-size:24px_24px] pointer-events-none" />

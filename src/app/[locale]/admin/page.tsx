@@ -550,53 +550,70 @@ export default function AdminDashboard() {
           {/* Website Pages Quick Access */}
           <div className="space-y-1">
             <p className="text-[9px] uppercase tracking-widest text-white/30 font-bold px-4 pb-2 pt-4">Website Pages</p>
-            <Link href={`/${locale}`} className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+            <a href={`/${locale}`} target="_blank" className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span>Homepage</span>
-            </Link>
-            <Link href={`/${locale}/destinations`} className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+            </a>
+            <a href={`/${locale}/destinations`} target="_blank" className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span>Destinations</span>
-            </Link>
-            <Link href={`/${locale}/packages`} className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+            </a>
+            <a href={`/${locale}/packages`} target="_blank" className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span>Tour Packages</span>
-            </Link>
-            <Link href={`/${locale}/monuments`} className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+            </a>
+            <a href={`/${locale}/monuments`} target="_blank" className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span>Monuments</span>
-            </Link>
-            <Link href={`/${locale}/blog`} className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+            </a>
+            <a href={`/${locale}/blog`} target="_blank" className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span>Blog</span>
-            </Link>
-            <Link href={`/${locale}/food`} className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+            </a>
+            <a href={`/${locale}/food`} target="_blank" className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span>Food Guide</span>
-            </Link>
-            <Link href={`/${locale}/about`} className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+            </a>
+            <a href={`/${locale}/plan-your-trip`} target="_blank" className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>Plan Your Trip</span>
+            </a>
+            <a href={`/${locale}/about`} target="_blank" className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span>About Us</span>
-            </Link>
-            <Link href={`/${locale}/contact`} className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+            </a>
+            <a href={`/${locale}/contact`} target="_blank" className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span>Contact</span>
-            </Link>
-            <Link href={`/${locale}/faq`} className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+            </a>
+            <a href={`/${locale}/faq`} target="_blank" className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span>FAQ</span>
-            </Link>
+            </a>
+            <a href={`/${locale}/gallery`} target="_blank" className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>Gallery</span>
+            </a>
+            <a href={`/${locale}/privacy`} target="_blank" className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>Privacy Policy</span>
+            </a>
+            <a href={`/${locale}/terms`} target="_blank" className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>Terms & Conditions</span>
+            </a>
           </div>
         </div>
 
         <div className="pt-4 border-t border-white/5 space-y-3">
-          <Link
+          <a
             href={`/${locale}`}
+            target="_blank"
             className="text-xs text-white/60 hover:text-gold flex items-center space-x-2 transition"
           >
             <Compass className="w-4 h-4" />
             <span>Go to Live Website</span>
-          </Link>
+          </a>
           <p className="text-[9px] text-white/20 font-light">MH India Trips Admin v2.0</p>
         </div>
       </aside>

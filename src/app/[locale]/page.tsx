@@ -568,6 +568,14 @@ export default async function HomePage({ params }: HomePageProps) {
       {/* SECTION 3.5: Expanding Monuments Accordion Row (Screenshot 2 Theme) */}
       <MonumentsAccordion locale={locale} />
 
+      {/* Monuments CTA */}
+      <section className="max-w-7xl mx-auto px-6 py-10 text-center">
+        <Link href={`/${locale}/monuments`} className="inline-flex items-center gap-2 bg-royal hover:bg-royal/90 text-white text-sm font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 shadow-xl">
+          <span>{locale === "es" ? "Ver Todos los Monumentos" : locale === "pt" ? "Ver Todos os Monumentos" : "View All Monuments"}</span>
+          <ArrowRight className="w-5 h-5 text-gold" />
+        </Link>
+      </section>
+
       {/* SECTION 4: Curated Packages (Signature Cards Grid) */}
       <section className="max-w-7xl mx-auto px-6 py-32 space-y-20 border-b border-gold/10">
         <div className="text-center space-y-4 max-w-2xl mx-auto">

@@ -39,11 +39,11 @@ export default function PageLoader() {
       <div className="flex flex-col items-center gap-8">
         {/* Logo / Brand mark */}
         <div className="relative">
-          <div className="w-20 h-20 rounded-full border-2 border-[#C3AB85]/20 flex items-center justify-center">
-            <span className="text-2xl font-bold text-[#C3AB85] tracking-wider">MH</span>
+          <div className="w-24 h-24 rounded-full border-2 border-[#C3AB85]/20 flex items-center justify-center overflow-hidden">
+            <img src="/images/logo-transparent.png" alt="MH India Trips" className="h-16 w-auto" />
           </div>
           {/* Spinning ring */}
-          <div className="absolute inset-0 w-20 h-20 rounded-full border-2 border-transparent border-t-[#C3AB85] animate-spin" style={{ animationDuration: "1.2s" }} />
+          <div className="absolute inset-0 w-24 h-24 rounded-full border-2 border-transparent border-t-[#C3AB85] animate-spin" style={{ animationDuration: "1.2s" }} />
         </div>
 
         {/* Loading text */}

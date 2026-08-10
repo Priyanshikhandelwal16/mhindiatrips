@@ -73,11 +73,17 @@ export default function Header({ locale }: HeaderProps) {
 
   const destinationsList = [
     { name: { en: "Rajasthan", es: "Rajastán", pt: "Rajastão" }, path: "/destinations/rajasthan" },
-    { name: { en: "Delhi & Agra", es: "Delhi y Uttar Pradesh (Agra)", pt: "Deli e Uttar Pradesh (Agra)" }, path: "/destinations/delhi-agra" },
+    { name: { en: "Uttar Pradesh", es: "Uttar Pradesh", pt: "Uttar Pradesh" }, path: "/destinations/uttar-pradesh" },
     { name: { en: "Kerala", es: "Kerala", pt: "Kerala" }, path: "/destinations/kerala" },
     { name: { en: "Goa", es: "Goa", pt: "Goa" }, path: "/destinations/goa" },
-    { name: { en: "Varanasi", es: "Benarés", pt: "Varanasi" }, path: "/destinations/varanasi" },
-    { name: { en: "Mumbai & Maharashtra", es: "Bombay y Maharashtra", pt: "Mumbai e Maharashtra" }, path: "/destinations/mumbai-maharashtra" }
+    { name: { en: "Himachal Pradesh", es: "Himachal Pradesh", pt: "Himachal Pradesh" }, path: "/destinations/himachal-pradesh" },
+    { name: { en: "Tamil Nadu", es: "Tamil Nadu", pt: "Tamil Nadu" }, path: "/destinations/tamil-nadu" },
+    { name: { en: "Karnataka", es: "Karnataka", pt: "Karnataka" }, path: "/destinations/karnataka" },
+    { name: { en: "Maharashtra", es: "Maharashtra", pt: "Maharashtra" }, path: "/destinations/maharashtra" },
+    { name: { en: "Gujarat", es: "Gujarat", pt: "Gujarat" }, path: "/destinations/gujarat" },
+    { name: { en: "Madhya Pradesh", es: "Madhya Pradesh", pt: "Madhya Pradesh" }, path: "/destinations/madhya-pradesh" },
+    { name: { en: "Punjab", es: "Punjab", pt: "Punjab" }, path: "/destinations/punjab" },
+    { name: { en: "Uttarakhand", es: "Uttarakhand", pt: "Uttarakhand" }, path: "/destinations/uttarakhand" },
   ];
 
   const infoList = [
