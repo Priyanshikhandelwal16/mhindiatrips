@@ -1,31 +1,41 @@
 @import "tailwindcss";
 
 :root {
-  /* Premium Color Palette - Inspired by Indian luxury & MH brand */
   --background: #FAF8F5;
-  --foreground: #1A1A1A;
+  --foreground: #1C1F1D;
   --card: #FFFFFF;
-  --card-foreground: #1A1A1A;
+  --card-foreground: #1C1F1D;
 
-  /* Primary Brand Colors */
-  --primary-saffron: #A5823C;
-  --primary-saffron-hover: #907133;
-  --forest-green: #143728;
-  --forest-green-light: #1c4d38;
-  --royal-blue: #143728;
-  --warm-gold: #A5823C;
-  --warm-gold-light: #bc984e;
-  --light-beige: #F0EBE3;
-  --very-light-gray: #FAF8F5;
+  /* Custom design token variables from template */
+  --ivory-50: #FCFBF9;
+  --ivory-100: #FAF8F5;
+  --ivory-200: #F3EDE2;
+  --ivory-300: #E8DEC9;
 
-  /* Accent Colors */
-  --terracotta: #A5823C;
-  --deep-burgundy: #6B2D3B;
-  --sage: #7A8F7E;
-  --cream: #FAF8F5;
-  --charcoal: #2C2C2C;
-  --muted-sand: #E8E2D8;
-  --ivory: #FFFEF9;
+  --charcoal-50: #F4F4F4;
+  --charcoal-100: #E9E9E9;
+  --charcoal-200: #C8C8C8;
+  --charcoal-800: #1C1F1D;
+  --charcoal-900: #0B0D0C;
+
+  --sand-50: #F9F7F3;
+  --sand-100: #F2ECE2;
+  --sand-200: #E5DAC6;
+  --sand-300: #D7C6AA;
+  --sand-400: #C3AB85;
+  --sand-500: #AA8F65;
+
+  --terracotta-100: #F9EBE6;
+  --terracotta-400: #DB8364;
+  --terracotta-500: #C56947;
+  --terracotta-600: #9E4E30;
+
+  --earthgreen-100: #EEF2EF;
+  --earthgreen-500: #4E6152;
+  --earthgreen-600: #3C4B3F;
+
+  --gold-400: #D5B467;
+  --gold-500: #B89643;
 }
 
 @theme {
@@ -34,26 +44,45 @@
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
 
-  --color-saffron: var(--primary-saffron);
-  --color-saffron-hover: var(--primary-saffron-hover);
-  --color-forest: var(--forest-green);
-  --color-forest-light: var(--forest-green-light);
-  --color-royal: var(--royal-blue);
-  --color-gold: var(--warm-gold);
-  --color-gold-light: var(--warm-gold-light);
-  --color-beige: var(--light-beige);
-  --color-light-gray: var(--very-light-gray);
-  --color-terracotta: var(--terracotta);
-  --color-burgundy: var(--deep-burgundy);
-  --color-sage: var(--sage);
-  --color-cream: var(--cream);
-  --color-charcoal: var(--charcoal);
-  --color-sand: var(--muted-sand);
-  --color-ivory: var(--ivory);
+  --color-ivory-50: var(--ivory-50);
+  --color-ivory-100: var(--ivory-100);
+  --color-ivory-200: var(--ivory-200);
+  --color-ivory-300: var(--ivory-300);
 
-  --font-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --color-charcoal-50: var(--charcoal-50);
+  --color-charcoal-100: var(--charcoal-100);
+  --color-charcoal-200: var(--charcoal-200);
+  --color-charcoal-800: var(--charcoal-800);
+  --color-charcoal-900: var(--charcoal-900);
+
+  --color-sand-50: var(--sand-50);
+  --color-sand-100: var(--sand-100);
+  --color-sand-200: var(--sand-200);
+  --color-sand-300: var(--sand-300);
+  --color-sand-400: var(--sand-400);
+  --color-sand-500: var(--sand-500);
+
+  --color-terracotta-100: var(--terracotta-100);
+  --color-terracotta-400: var(--terracotta-400);
+  --color-terracotta-500: var(--terracotta-500);
+  --color-terracotta-600: var(--terracotta-600);
+
+  --color-earthgreen-100: var(--earthgreen-100);
+  --color-earthgreen-500: var(--earthgreen-500);
+  --color-earthgreen-600: var(--earthgreen-600);
+
+  --color-gold-400: var(--gold-400);
+  --color-gold-500: var(--gold-500);
+
+  /* Fallback aliases for existing component color names */
+  --color-royal: var(--charcoal-800);
+  --color-forest: var(--earthgreen-600);
+  --color-gold: var(--sand-400);
+  --color-gold-light: var(--sand-300);
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Outfit', 'Inter', sans-serif;
+  --font-display: 'Playfair Display', serif;
 
   --animate-fade-up: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   --animate-fade-in: fade-in 0.6s ease-out forwards;
@@ -875,4 +904,70 @@ body {
   );
   pointer-events: none;
   z-index: 1;
+}
+
+/* Custom Template utility classes */
+.editorial-container {
+  max-width: 80rem; /* 1280px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (min-width: 768px) {
+  .editorial-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+@media (min-width: 1024px) {
+  .editorial-container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+.magnetic-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  border: 1px solid var(--charcoal-800);
+  color: var(--charcoal-800);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+  background: transparent;
+  cursor: pointer;
+}
+
+.magnetic-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--charcoal-800);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -10;
+}
+
+.magnetic-btn:hover {
+  color: var(--ivory-100);
+}
+
+.magnetic-btn:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.glass-card {
+  background: rgba(250, 248, 245, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(28, 31, 29, 0.05);
 }

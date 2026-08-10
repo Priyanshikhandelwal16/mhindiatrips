@@ -1,10 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { getTourPackagesAction } from "@/app/actions/queries";
-import Reveal from "@/components/home/Reveal";
-import { 
-  ArrowRight, Sparkles 
-} from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import PackagesFilterSection from "@/components/packages/PackagesFilterSection";
 
 interface PackagesPageProps {
@@ -14,12 +11,13 @@ interface PackagesPageProps {
 export default async function PackagesPage({ params }: PackagesPageProps) {
   const { locale } = await params;
   const packages = await getTourPackagesAction();
+  const lang = (locale === "es" || locale === "pt") ? locale : "en";
 
   const t: Record<string, any> = {
     en: {
       heroSub: "Curated Experiences",
       heroTitle: "Signature Tour Packages",
-      heroDesc: "Handcrafted luxury itineraries designed by local experts. Every journey is tailored to your pace, interests, and travel style.",
+      heroDesc: "Handcrafted luxury itineraries designed by local experts. Every journey is tailored to your personal pace, interests, and style.",
       allTitle: "All Tour Packages",
       allDesc: "Explore our collection of curated India journeys — from heritage palaces to spiritual retreats.",
       featuredSub: "Featured Journey",
@@ -43,7 +41,7 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
     es: {
       heroSub: "Experiencias Selectas",
       heroTitle: "Paquetes de Tour Exclusivos",
-      heroDesc: "Itinerarios de lujo diseñados por expertos locales. Cada viaje se adapta a su ritmo, intereses y estilo.",
+      heroDesc: "Itinerarios de lujo diseñados por expertos locales. Cada viaje se adapta a su ritmo, intereses y estilo personal.",
       allTitle: "Todos los Paquetes",
       allDesc: "Explore nuestra colección de viajes curados — desde palacios patrimoniales hasta retiros espirituales.",
       featuredSub: "Viaje Destacado",
@@ -67,7 +65,7 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
     pt: {
       heroSub: "Experiências Selecionadas",
       heroTitle: "Pacotes de Tour Exclusivos",
-      heroDesc: "Itinerários de luxo desenhados por especialistas locais. Cada viagem é adaptada ao seu ritmo, interesses e estilo.",
+      heroDesc: "Itinerários de luxo desenhados por especialistas locais. Cada viagem é adaptada ao seu ritmo, interesses e estilo pessoal.",
       allTitle: "Todos os Pacotes",
       allDesc: "Explore nossa coleção de viagens curadas — de palácios patrimoniais a retiros espirituais.",
       featuredSub: "Viagem em Destaque",
@@ -119,38 +117,38 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
   const featured = packages.find((p: any) => p.slug === "golden-triangle-luxury") || packages[0];
 
   return (
-    <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
+    <div className="bg-ivory-100 min-h-screen font-sans text-charcoal-800">
 
-      {/* SECTION 1: Hero Banner (Adjusted size parameters, unique image) */}
-      <section className="relative h-[78vh] min-h-[540px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
+      {/* SECTION 1: Hero Banner */}
+      <section className="relative h-[65vh] min-h-[480px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
         <img
           src="/images/luxury_palace_train.png"
           alt="Tour Packages India"
-          className="absolute inset-0 w-full h-full object-cover object-[center_35%] scale-100 animate-kenburns"
+          className="absolute inset-0 w-full h-full object-cover object-[center_35%] filter brightness-[0.70] contrast-[1.05]"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-black/45" />
-        <div className="relative z-10 text-center text-white space-y-6 px-6 max-w-4xl">
-          <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/65 via-transparent to-charcoal-900/40" />
+        <div className="relative z-10 text-center text-ivory-100 space-y-6 px-6 max-w-4xl animate-fade-in">
+          <span className="bg-charcoal-900/80 border border-sand-300/30 text-sand-300 text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full inline-block">
             {text.heroSub}
           </span>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-white">
+          <h1 className="text-4xl md:text-6xl font-serif font-normal tracking-tight leading-tight text-white">
             {text.heroTitle}
           </h1>
-          <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-sm md:text-base text-ivory-100/90 max-w-2xl mx-auto font-light leading-relaxed">
             {text.heroDesc}
           </p>
         </div>
       </section>
 
       {/* SECTION 2: Packages Grid */}
-      <section className="max-w-7xl mx-auto px-6 py-28 space-y-16">
-        <Reveal className="text-center space-y-3 max-w-2xl mx-auto">
-          <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold block">{text.heroSub}</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-royal tracking-tight">{text.allTitle}</h2>
-          <p className="text-sm text-foreground/50 leading-relaxed font-light">{text.allDesc}</p>
-          <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
-        </Reveal>
+      <section className="editorial-container py-24 space-y-16">
+        <div className="text-center space-y-3 max-w-2xl mx-auto">
+          <span className="text-xs uppercase tracking-widest text-sand-500 font-bold block">{text.heroSub}</span>
+          <h2 className="text-3xl md:text-4xl font-serif font-normal text-charcoal-800 tracking-tight">{text.allTitle}</h2>
+          <p className="text-sm text-charcoal-800/60 leading-relaxed font-sans font-light">{text.allDesc}</p>
+          <div className="h-px w-20 bg-sand-300 mx-auto mt-2" />
+        </div>
 
         <PackagesFilterSection 
           packages={packages} 
@@ -161,114 +159,101 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
       </section>
 
       {/* SECTION 3: Featured highlight */}
-      <section className="bg-royal text-white py-24 relative overflow-hidden border-t border-gold/10">
-        <div className="absolute inset-0 opacity-[0.015] bg-[radial-gradient(#B8964B_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <section className="bg-charcoal-900 text-ivory-100 py-24 relative overflow-hidden border-t border-ivory-100/5">
+        <div className="absolute inset-0 opacity-[0.015] bg-[radial-gradient(#C3AB85_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+        <div className="editorial-container relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <Reveal>
-              <div className="relative rounded-[2.5rem] overflow-hidden h-[420px] shadow-2xl border border-gold/15">
-                <img
-                  src={featured?.image}
-                  alt={featured?.title?.en}
-                  loading="lazy"
-                  className="w-full h-full object-cover animate-kenburns"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-royal/60 to-transparent" />
-                <div className="absolute bottom-6 left-6 flex items-center gap-3">
-                  <span className="bg-gold text-royal text-[9px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
-                    {locale === "es" ? "Más Popular" : locale === "pt" ? "Mais Popular" : "Most Popular"}
-                  </span>
-                  <span className="bg-white/10 backdrop-blur-sm text-white text-[9px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full border border-white/20">
-                    {featured?.durationDays} {text.days}
-                  </span>
-                </div>
+            
+            <div className="relative rounded-[2rem] overflow-hidden h-[420px] shadow-2xl border border-sand-300/10">
+              <img
+                src={featured?.image}
+                alt={featured?.title?.en}
+                loading="lazy"
+                className="w-full h-full object-cover filter brightness-[0.85]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/60 to-transparent" />
+              <div className="absolute bottom-6 left-6 flex items-center gap-3">
+                <span className="bg-sand-400 text-charcoal-900 text-[9px] font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full">
+                  {locale === "es" ? "Más Popular" : locale === "pt" ? "Mais Popular" : "Most Popular"}
+                </span>
+                <span className="bg-charcoal-900/80 text-white text-[9px] font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full border border-sand-300/20">
+                  {featured?.durationDays} {text.days}
+                </span>
               </div>
-            </Reveal>
-            <Reveal delay={150} className="space-y-6">
-              <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold block">{text.featuredSub}</span>
-              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-                {featured?.title?.[locale as "en" | "es" | "pt"] || featured?.title?.en}
+            </div>
+
+            <div className="space-y-6 text-left">
+              <span className="text-xs uppercase tracking-widest text-sand-400 font-bold block">{text.featuredSub}</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-normal leading-tight text-white">
+                {featured?.title?.[lang] || featured?.title?.en}
               </h2>
-              <p className="text-sm md:text-base text-white/70 leading-relaxed font-light">
+              <p className="text-xs md:text-sm text-ivory-200/60 leading-relaxed font-sans font-light">
                 {text.featuredDesc}
               </p>
               <div className="space-y-3 pt-2">
                 {featured?.highlights?.slice(0, 3).map((hl: any, idx: number) => (
-                  <div key={idx} className="flex items-start gap-3 text-xs text-white/75 font-light">
-                    <Sparkles className="w-4 h-4 text-gold shrink-0 mt-0.5 animate-pulse" />
-                    <span>{hl[locale as "en" | "es" | "pt"] || hl.en}</span>
+                  <div key={idx} className="flex items-start gap-3 text-xs text-ivory-200/75 font-sans font-light">
+                    <Sparkles className="w-4 h-4 text-sand-400 shrink-0 mt-0.5" />
+                    <span>{hl[lang] || hl.en}</span>
                   </div>
                 ))}
               </div>
-              <div className="pt-4">
+              <div className="pt-6">
                 <Link
                   href={`/${locale}/contact`}
-                  className="bg-gold hover:bg-gold-light text-royal text-xs font-bold uppercase tracking-widest py-4 px-8 rounded-full transition-transform hover:scale-105 inline-flex items-center gap-1.5 shadow-lg shadow-gold/25"
+                  className="px-10 py-4 bg-sand-400 hover:bg-sand-500 text-charcoal-900 text-xs font-semibold tracking-widest uppercase transition-all font-sans text-center inline-block rounded-md"
                 >
-                  <span>{text.featuredCta}</span>
-                  <ArrowRight className="w-4 h-4" />
+                  {text.featuredCta}
                 </Link>
               </div>
-            </Reveal>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* SECTION 4: Process timeline (Increased card size and font sizes) */}
-      <section className="bg-white border-y border-gold/15 py-28">
-        <div className="max-w-7xl mx-auto px-6 space-y-16">
-          <Reveal className="text-center space-y-3 max-w-2xl mx-auto">
-            <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold block">{text.processSub}</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-royal tracking-tight">{text.processTitle}</h2>
-            <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
-          </Reveal>
+      {/* SECTION 4: Simple process */}
+      <section className="py-24 border-t border-sand-300/30">
+        <div className="editorial-container">
+          <div className="text-center space-y-3 max-w-2xl mx-auto mb-16">
+            <span className="text-xs uppercase tracking-widest text-sand-500 font-bold block">{text.processSub}</span>
+            <h2 className="text-3xl md:text-4xl font-serif font-normal text-charcoal-800 tracking-tight">{text.processTitle}</h2>
+            <div className="h-px w-20 bg-sand-300 mx-auto mt-2" />
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {processSteps.map((step, i) => (
-              <Reveal key={i} delay={i * 100}>
-                <div className="relative p-10 rounded-[2rem] bg-[#FAF8F5] border border-gold/15 h-full transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md">
-                  <span className="text-6xl font-bold text-gold/10 absolute top-4 right-6">{step.step}</span>
-                  <div className="relative z-10 space-y-4">
-                    <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
-                      <span className="text-xs font-bold text-gold">{step.step}</span>
-                    </div>
-                    <h4 className="text-base font-bold text-royal uppercase tracking-wider">{step.title}</h4>
-                    <p className="text-sm text-foreground/60 leading-relaxed font-light">{step.desc}</p>
-                  </div>
-                </div>
-              </Reveal>
+            {processSteps.map((step, idx) => (
+              <div key={idx} className="p-8 bg-white border border-sand-300/40 rounded-[1.5rem] text-left space-y-4 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <span className="font-serif text-3xl font-bold text-sand-500 block">
+                  {step.step}
+                </span>
+                <h3 className="font-serif text-base font-bold text-charcoal-800">
+                  {step.title}
+                </h3>
+                <p className="text-xs text-charcoal-800/60 leading-relaxed font-sans font-light">
+                  {step.desc}
+                </p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 5: CTA Book (Point to Contact page) */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/images/rajasthan_fort_sunset.png"
-            alt=""
-            className="w-full h-full object-cover scale-100"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-royal/85" />
-        </div>
-        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center text-white space-y-6">
-          <Reveal>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">{text.ctaTitle}</h2>
-          </Reveal>
-          <Reveal delay={100}>
-            <p className="text-sm md:text-base text-white/70 font-light leading-relaxed max-w-lg mx-auto">{text.ctaDesc}</p>
-          </Reveal>
-          <Reveal delay={200} className="pt-4">
-            <Link
-              href={`/${locale}/contact`}
-              className="bg-gold hover:bg-gold-light text-royal text-xs font-bold uppercase tracking-widest py-4.5 px-10 rounded-full transition-transform hover:scale-105 inline-flex items-center gap-1.5 shadow-lg shadow-gold/25"
-            >
-              <span>{text.ctaBtn}</span>
-              <ArrowRight className="w-4 h-4 text-royal" />
-            </Link>
-          </Reveal>
+      {/* SECTION 5: Final CTA */}
+      <section className="py-24 bg-charcoal-900 text-ivory-100 text-center relative overflow-hidden">
+        <div className="relative z-10 editorial-container max-w-2xl">
+          <h2 className="font-serif text-3xl md:text-5xl font-bold mb-6 leading-tight text-white">
+            {text.ctaTitle}
+          </h2>
+          <p className="text-xs md:text-sm text-ivory-200/60 leading-relaxed font-sans font-light mb-10 max-w-md mx-auto">
+            {text.ctaDesc}
+          </p>
+          <Link
+            href={`/${locale}/contact`}
+            className="px-10 py-4 bg-sand-400 hover:bg-sand-500 text-charcoal-900 text-xs font-semibold tracking-widest uppercase transition-all font-sans text-center inline-block rounded-md"
+          >
+            {text.ctaBtn}
+          </Link>
         </div>
       </section>
 
