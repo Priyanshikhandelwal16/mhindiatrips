@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getTourPackagesAction } from "@/app/actions/queries";
 import { ArrowRight, Sparkles } from "lucide-react";
 import PackagesFilterSection from "@/components/packages/PackagesFilterSection";
+import Reveal from "@/components/home/Reveal";
 
 interface PackagesPageProps {
   params: Promise<{ locale: string }>;
@@ -120,24 +121,30 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
     <div className="bg-ivory-100 min-h-screen font-sans text-charcoal-800">
 
       {/* SECTION 1: Hero Banner */}
-      <section className="relative h-[65vh] min-h-[480px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
+      <section className="relative h-[70vh] min-h-[520px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
         <img
           src="/images/luxury_palace_train.png"
           alt="Tour Packages India"
-          className="absolute inset-0 w-full h-full object-cover object-[center_35%] filter brightness-[0.70] contrast-[1.05]"
+          className="absolute inset-0 w-full h-full object-cover object-[center_35%] filter brightness-[0.70] contrast-[1.05] animate-kenburns"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/65 via-transparent to-charcoal-900/40" />
-        <div className="relative z-10 text-center text-ivory-100 space-y-6 px-6 max-w-4xl animate-fade-in">
-          <span className="bg-charcoal-900/80 border border-sand-300/30 text-sand-300 text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full inline-block">
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/70 via-charcoal-900/20 to-charcoal-900/40" />
+        <div className="relative z-10 text-center text-ivory-100 space-y-7 px-6 max-w-4xl">
+          <span className="bg-charcoal-900/80 border border-sand-300/30 text-sand-300 text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full inline-block animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "both" }}>
             {text.heroSub}
           </span>
-          <h1 className="text-4xl md:text-6xl font-serif font-normal tracking-tight leading-tight text-white">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-white animate-fade-in" style={{ animationDelay: "0.4s", animationFillMode: "both" }}>
             {text.heroTitle}
           </h1>
-          <p className="text-sm md:text-base text-ivory-100/90 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-sm md:text-base text-ivory-100/90 max-w-2xl mx-auto font-light leading-relaxed animate-fade-in" style={{ animationDelay: "0.6s", animationFillMode: "both" }}>
             {text.heroDesc}
           </p>
+          <div className="animate-fade-in" style={{ animationDelay: "0.8s", animationFillMode: "both" }}>
+            <Link href={`/${locale}/contact`} className="inline-flex items-center gap-2 bg-sand-400 hover:bg-sand-500 text-charcoal-900 font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-lg">
+              <span>{text.ctaBtn}</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -223,17 +230,19 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((step, idx) => (
-              <div key={idx} className="p-8 bg-white border border-sand-300/40 rounded-[1.5rem] text-left space-y-4 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <span className="font-serif text-3xl font-bold text-sand-500 block">
-                  {step.step}
-                </span>
-                <h3 className="font-serif text-base font-bold text-charcoal-800">
-                  {step.title}
-                </h3>
-                <p className="text-xs text-charcoal-800/60 leading-relaxed font-sans font-light">
-                  {step.desc}
-                </p>
-              </div>
+              <Reveal key={idx} delay={idx * 120}>
+                <div className="p-8 bg-white border border-sand-300/40 rounded-[1.5rem] text-left space-y-4 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-500">
+                  <span className="text-3xl font-bold text-sand-500 block">
+                    {step.step}
+                  </span>
+                  <h3 className="text-base font-bold text-charcoal-800">
+                    {step.title}
+                  </h3>
+                  <p className="text-xs text-charcoal-800/60 leading-relaxed font-light">
+                    {step.desc}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>

@@ -101,17 +101,20 @@ let foodsCache = loadLocalData("foods", mergedFoods);
 let testimonialsCache = loadLocalData("testimonials", initialTestimonials);
 let tourPackagesCache = loadLocalData("tour_packages", mergedPackages);
 
-// Simple check to seed Firestore collection if it is empty
+// Simple check to seed Firestore collection if it has fewer items than source
 async function ensureSeeded(collectionName: string, initialData: any[]) {
   if (!useFirestore) return;
   try {
     const colRef = collection(firestore, collectionName);
     const snapshot = await getDocs(colRef);
-    if (snapshot.empty) {
-      console.log(`Seeding collection ${collectionName} in Firestore...`);
+    if (snapshot.size < initialData.length) {
+      console.log(`Seeding collection ${collectionName} in Firestore (${snapshot.size} < ${initialData.length})...`);
+      const existingIds = new Set(snapshot.docs.map(d => d.id));
       for (const item of initialData) {
         const docId = item.slug || item.id || Math.random().toString(36).substring(2, 11);
-        await setDoc(doc(firestore, collectionName, docId), item);
+        if (!existingIds.has(docId)) {
+          await setDoc(doc(firestore, collectionName, docId), item);
+        }
       }
     }
   } catch (err: any) {
@@ -213,22 +216,27 @@ export const db = {
 
   blogs: {
     findMany: async () => {
+      // Always start with merged local data to guarantee all content shows
+      const localData = mergedBlogs;
       if (useFirestore) {
         try {
           await checkSeeding();
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "blogs"));
-            return snapshot.docs.map(d => d.data() as BlogData);
+            const firestoreData = snapshot.docs.map(d => d.data() as BlogData);
+            // Merge: local data + any Firestore-only items (admin-created)
+            const localSlugs = new Set(localData.map((b: any) => b.slug));
+            const extraItems = firestoreData.filter((b: any) => !localSlugs.has(b.slug));
+            return [...localData, ...extraItems];
           }
         } catch (e: any) {
-          console.warn("Firestore blogs.findMany failed, falling back to local JSON:", e.message || e);
+          console.warn("Firestore blogs.findMany failed, falling back to local:", e.message || e);
           if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("disabled"))) {
             useFirestore = false;
           }
         }
       }
-      blogsCache = loadLocalData("blogs", blogsCache);
-      return blogsCache;
+      return localData;
     },
     findUnique: async (slug: string) => {
       if (useFirestore) {
@@ -302,22 +310,25 @@ export const db = {
 
   destinations: {
     findMany: async () => {
+      const localData = mergedStates;
       if (useFirestore) {
         try {
           await checkSeeding();
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "states"));
-            return snapshot.docs.map(d => d.data() as StateData);
+            const firestoreData = snapshot.docs.map(d => d.data() as StateData);
+            const localSlugs = new Set(localData.map((s: any) => s.slug));
+            const extraItems = firestoreData.filter((s: any) => !localSlugs.has(s.slug));
+            return [...localData, ...extraItems];
           }
         } catch (e: any) {
-          console.warn("Firestore states.findMany failed, falling back to local JSON:", e.message || e);
+          console.warn("Firestore states.findMany failed, falling back to local:", e.message || e);
           if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("disabled"))) {
             useFirestore = false;
           }
         }
       }
-      statesCache = loadLocalData("states", statesCache);
-      return statesCache;
+      return localData;
     },
     findUnique: async (slug: string) => {
       const states = await db.destinations.findMany();
@@ -375,22 +386,25 @@ export const db = {
 
   foods: {
     findMany: async () => {
+      const localData = mergedFoods;
       if (useFirestore) {
         try {
           await checkSeeding();
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "foods"));
-            return snapshot.docs.map(d => d.data() as FoodData);
+            const firestoreData = snapshot.docs.map(d => d.data() as FoodData);
+            const localSlugs = new Set(localData.map((f: any) => f.slug));
+            const extraItems = firestoreData.filter((f: any) => !localSlugs.has(f.slug));
+            return [...localData, ...extraItems];
           }
         } catch (e: any) {
-          console.warn("Firestore foods.findMany failed, falling back to local JSON:", e.message || e);
+          console.warn("Firestore foods.findMany failed, falling back to local:", e.message || e);
           if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("disabled"))) {
             useFirestore = false;
           }
         }
       }
-      foodsCache = loadLocalData("foods", foodsCache);
-      return foodsCache;
+      return localData;
     },
     findUnique: async (slug: string) => {
       if (useFirestore) {
@@ -453,22 +467,25 @@ export const db = {
 
   testimonials: {
     findMany: async () => {
+      const localData = initialTestimonials;
       if (useFirestore) {
         try {
           await checkSeeding();
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "testimonials"));
-            return snapshot.docs.map(d => d.data() as Testimonial);
+            const firestoreData = snapshot.docs.map(d => d.data() as Testimonial);
+            const localIds = new Set(localData.map((t: any) => t.id));
+            const extraItems = firestoreData.filter((t: any) => !localIds.has(t.id));
+            return [...localData, ...extraItems];
           }
         } catch (e: any) {
-          console.warn("Firestore testimonials.findMany failed, falling back to local JSON:", e.message || e);
+          console.warn("Firestore testimonials.findMany failed, falling back to local:", e.message || e);
           if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("disabled"))) {
             useFirestore = false;
           }
         }
       }
-      testimonialsCache = loadLocalData("testimonials", testimonialsCache);
-      return testimonialsCache;
+      return localData;
     },
     create: async (data: any) => {
       const id = Math.random().toString(36).substring(2, 11);
@@ -492,22 +509,25 @@ export const db = {
 
   tourPackages: {
     findMany: async () => {
+      const localData = mergedPackages;
       if (useFirestore) {
         try {
           await checkSeeding();
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "tour_packages"));
-            return snapshot.docs.map(d => d.data() as TourPackage);
+            const firestoreData = snapshot.docs.map(d => d.data() as TourPackage);
+            const localSlugs = new Set(localData.map((p: any) => p.slug));
+            const extraItems = firestoreData.filter((p: any) => !localSlugs.has(p.slug));
+            return [...localData, ...extraItems];
           }
         } catch (e: any) {
-          console.warn("Firestore tourPackages.findMany failed, falling back to local JSON:", e.message || e);
+          console.warn("Firestore tourPackages.findMany failed, falling back to local:", e.message || e);
           if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("disabled"))) {
             useFirestore = false;
           }
         }
       }
-      tourPackagesCache = loadLocalData("tour_packages", tourPackagesCache);
-      return tourPackagesCache;
+      return localData;
     },
     findUnique: async (slug: string) => {
       if (useFirestore) {

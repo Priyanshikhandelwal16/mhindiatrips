@@ -428,7 +428,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
       {/* SECTION 2: The Philosophy Section (Split screen layout) */}
       <section className="max-w-7xl mx-auto px-6 py-32 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center border-b border-gold/10">
-        <Reveal className="space-y-8">
+        <Reveal direction="left" className="space-y-8">
           <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold flex items-center gap-1.5">
             <Compass className="w-5 h-5" />
             <span>{text.whySub}</span>
@@ -453,7 +453,7 @@ export default async function HomePage({ params }: HomePageProps) {
         </Reveal>
         
         {/* Postcard frame */}
-        <Reveal delay={200} className="relative p-4 bg-white border border-gold/15 rounded-[2rem] shadow-2xl shadow-royal/5">
+        <Reveal direction="right" delay={200} className="relative p-4 bg-white border border-gold/15 rounded-[2rem] shadow-2xl shadow-royal/5">
           <div className="overflow-hidden rounded-2xl h-[480px]">
             <img src="/images/rajasthan_fort_sunset.png" alt="Philosophy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
           </div>
@@ -646,7 +646,7 @@ export default async function HomePage({ params }: HomePageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
             {/* Left: Header text */}
-            <Reveal className="space-y-8">
+            <Reveal direction="left" className="space-y-8">
               <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold">{text.inclusionsSub}</span>
               <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
                 {text.inclusionsTitle}
@@ -665,7 +665,7 @@ export default async function HomePage({ params }: HomePageProps) {
             </Reveal>
 
             {/* Right: Premium cards grid */}
-            <Reveal delay={200} className="grid grid-cols-2 gap-4">
+            <Reveal direction="right" delay={200} className="grid grid-cols-2 gap-4">
               {[
                 { icon: Compass, title: text.inc1Title, desc: text.inc1Desc, delay: 50 },
                 { icon: Landmark, title: text.inc2Title, desc: text.inc2Desc, delay: 120 },

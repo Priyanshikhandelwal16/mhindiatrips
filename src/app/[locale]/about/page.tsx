@@ -103,14 +103,14 @@ export default async function AboutPage({ params }: AboutPageProps) {
           loading="eager"
         />
         <div className="absolute inset-0 bg-black/45" />
-        <div className="relative z-10 text-center text-white space-y-6 px-6 max-w-4xl">
-          <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
+        <div className="relative z-10 text-center text-white space-y-7 px-6 max-w-4xl">
+          <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "both" }}>
             {text.heroSub}
           </span>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-white">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] text-white animate-fade-in" style={{ animationDelay: "0.4s", animationFillMode: "both" }}>
             {text.hero}
           </h1>
-          <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed animate-fade-in" style={{ animationDelay: "0.6s", animationFillMode: "both" }}>
             {text.heroDesc}
           </p>
         </div>
@@ -118,7 +118,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
       {/* SECTION 2: Story columns (Increased Paragraph Font Sizes) */}
       <section className="max-w-7xl mx-auto px-6 py-28 grid grid-cols-1 lg:grid-cols-2 gap-16 border-b border-gold/10">
-        <Reveal className="space-y-6">
+        <Reveal direction="left" className="space-y-6">
           <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold flex items-center gap-1">
             <Compass className="w-4 h-4" />
             <span>LEGACY</span>
@@ -135,7 +135,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
         </Reveal>
         
         {/* Mission Card (Increased Text Sizes) */}
-        <Reveal delay={200} className="bg-white border border-gold/25 p-10 rounded-3xl space-y-8 shadow-xl shadow-royal/5 relative overflow-hidden">
+        <Reveal direction="right" delay={200} className="bg-white border border-gold/25 p-10 rounded-3xl space-y-8 shadow-xl shadow-royal/5 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-[4px] bg-gold" />
           <div className="space-y-3">
             <h3 className="text-xl font-bold text-royal">{text.missionTitle}</h3>
