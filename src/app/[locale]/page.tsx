@@ -47,10 +47,10 @@ export default async function HomePage({ params }: HomePageProps) {
       foodDesc: "Taste the heritage of royal Mughal kitchens and aromatic local street spices.",
       testimonialsSub: "Traveler Whispers",
       testimonialsTitle: "What Our Guests Say",
-      blogsSub: "Travel Log",
-      blogsTitle: "Stories & Inspiration",
-      faqSub: "Concierge Guide",
-      faqTitle: "Planning Your Voyage",
+      blogsSub: "Travel Inspiration",
+      blogsTitle: "Travel Blogs",
+      faqSub: "Traveler Help Center",
+      faqTitle: "Your Travel Questions Answered",
       ctaBannerTitle: "Begin Your Private Passage",
       ctaBannerSub: "Speak to a luxury travel advisor to draft your tailored itinerary.",
       ctaBannerBtn: "Inquire Now",
@@ -110,10 +110,10 @@ export default async function HomePage({ params }: HomePageProps) {
       foodDesc: "Saboree el patrimonio de las cocinas reales mogoles y las especias locales.",
       testimonialsSub: "Ecos de Viajeros",
       testimonialsTitle: "Lo Que Dicen Nuestros Huéspedes",
-      blogsSub: "Diario de Viaje",
-      blogsTitle: "Historias e Inspiración",
-      faqSub: "Guía de Conserjería",
-      faqTitle: "Planificando Su Viaje",
+      blogsSub: "Inspiración de Viaje",
+      blogsTitle: "Blogs de Viaje",
+      faqSub: "Centro de Ayuda al Viajero",
+      faqTitle: "Sus Preguntas de Viaje",
       ctaBannerTitle: "Comience Su Viaje Privado",
       ctaBannerSub: "Hable con un asesor de viajes de lujo para diseñar su itinerario a medida.",
       ctaBannerBtn: "Planificar Ahora",
@@ -172,10 +172,10 @@ export default async function HomePage({ params }: HomePageProps) {
       foodDesc: "Saboreie o patrimônio das cozinhas reais mogóis e as especiarias locais.",
       testimonialsSub: "Sussurros de Viajantes",
       testimonialsTitle: "O Que Dizem Nossos Hóspedes",
-      blogsSub: "Diário de Viagem",
-      blogsTitle: "Histórias e Inspiração",
-      faqSub: "Guia de Concierge",
-      faqTitle: "Planejando Sua Viagem",
+      blogsSub: "Inspiração de Viagem",
+      blogsTitle: "Blogs de Viagem",
+      faqSub: "Central de Ajuda ao Viajante",
+      faqTitle: "Suas Perguntas de Viagem",
       ctaBannerTitle: "Comece Sua Viagem Privada",
       ctaBannerSub: "Fale com um consultor de viagens de luxo para desenhar seu itinerário sob medida.",
       ctaBannerBtn: "Planejar Agora",
@@ -280,9 +280,13 @@ export default async function HomePage({ params }: HomePageProps) {
       image: "/images/taj_mahal_sunrise.png",
       sub: text.heroSub,
       title: locale === "es" ? "Viaje a India en Lujo Absoluto" : locale === "pt" ? "Viaje para a Índia em Luxo Absoluto" : "Experience India in Absolute Luxury",
-      desc: text.heroDesc,
+      desc: locale === "es" ? "Itinerarios a medida con guías privados, hoteles palacio y servicios exclusivos." : locale === "pt" ? "Itinerários à medida com guias privados, hotéis palácio e serviços exclusivos." : "Curated itineraries featuring private guides, heritage palace hotels, and bespoke travel arrangements.",
       location: locale === "es" ? "Taj Mahal, Agra" : locale === "pt" ? "Taj Mahal, Agra" : "Taj Mahal, Agra",
-      objectPosition: "center 28%"
+      objectPosition: "center 28%",
+      cta1Text: locale === "es" ? "Ver Paquetes" : locale === "pt" ? "Ver Pacotes" : "See Our Packages",
+      cta1Link: "/packages",
+      cta2Text: locale === "es" ? "Consultar Ahora" : locale === "pt" ? "Consultar Agora" : "Inquire Now",
+      cta2Link: "/contact"
     },
     {
       image: "/images/rajasthan_fort_sunset.png",
@@ -290,7 +294,11 @@ export default async function HomePage({ params }: HomePageProps) {
       title: locale === "es" ? "La Magia Real de Rajastán" : locale === "pt" ? "A Magia Real do Rajastão" : "The Royal Magic of Rajasthan",
       desc: locale === "es" ? "Explore dunas de arena, fuertes medievales y cene dentro de auténticos palacios reales." : locale === "pt" ? "Explore dunas de areia, fortes medievais e jante dentro de autênticos palácios reais." : "Explore desert dunes, medieval forts, and dine inside authentic royal lakeside palaces.",
       location: locale === "es" ? "Fuerte Mehrangarh, Jodhpur" : locale === "pt" ? "Forte Mehrangarh, Jodhpur" : "Mehrangarh Fort, Jodhpur",
-      objectPosition: "center 35%"
+      objectPosition: "center 35%",
+      cta1Text: locale === "es" ? "Explorar Rajastán" : locale === "pt" ? "Explorar Rajastão" : "Explore Rajasthan",
+      cta1Link: "/destinations/rajasthan",
+      cta2Text: locale === "es" ? "Paquetes Reales" : locale === "pt" ? "Pacotes Reais" : "Royal Packages",
+      cta2Link: "/packages"
     },
     {
       image: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=1200",
@@ -298,12 +306,16 @@ export default async function HomePage({ params }: HomePageProps) {
       title: locale === "es" ? "Serenidad Tropical en Kerala" : locale === "pt" ? "Serenidade Tropical em Kerala" : "Tropical Serenity in Kerala",
       desc: locale === "es" ? "Navegue por canales de esmeralda y rejuvenezca con auténticos rituales ayurvédicos." : locale === "pt" ? "Navegue por canais de esmeralda e rejuveneça com autênticos rituais ayurvédicos." : "Cruise through emerald backwaters and rejuvenate with authentic wellness Ayurvedic rituals.",
       location: locale === "es" ? "Remansos de Alleppey, Kerala" : locale === "pt" ? "Canais de Alleppey, Kerala" : "Backwaters, Alleppey",
-      objectPosition: "center 40%"
+      objectPosition: "center 40%",
+      cta1Text: locale === "es" ? "Kerala Retiros" : locale === "pt" ? "Retiros Kerala" : "Kerala Retreats",
+      cta1Link: "/destinations/kerala",
+      cta2Text: locale === "es" ? "Planear mi Viaje" : locale === "pt" ? "Planear minha Viagem" : "Plan My Trip",
+      cta2Link: "/contact"
     }
   ];
 
   return (
-    <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
+    <div className="bg-[#FAF8F5] min-h-screen text-[#1B1B1B]" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
       
       {/* SECTION 1: Dynamic Hero Banner Slider */}
       <HeroSlider 
@@ -386,7 +398,7 @@ export default async function HomePage({ params }: HomePageProps) {
             <span>{text.whySub}</span>
           </span>
           {/* Section Heading: 40px–48px */}
-          <h2 className="text-4xl md:text-5xl font-bold text-royal leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-royal leading-tight" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
             {text.whyTitle}
           </h2>
           <p className="text-base md:text-lg text-foreground/60 leading-relaxed font-light">
@@ -416,78 +428,80 @@ export default async function HomePage({ params }: HomePageProps) {
         </Reveal>
       </section>
 
-      {/* SECTION 2.5: How It Works / Custom Tour Planning (Bespoke Agency Identity) */}
-      <section className="bg-cream border-t border-b border-sand/20 py-28 relative">
+      {/* SECTION 2.5: How It Works / Custom Tour Planning - Timeline Design */}
+      <section className="bg-[#FAF8F5] border-t border-b border-gold/10 py-28 relative overflow-hidden">
+        {/* Subtle background */}
+        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#C5A862_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
+        
         <div className="max-w-7xl mx-auto px-6 space-y-20">
-          
           {/* Header */}
           <Reveal className="text-center space-y-4 max-w-3xl mx-auto">
             <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.howItWorksSub}</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-royal tracking-tight">{text.howItWorksTitle}</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>{text.howItWorksTitle}</h2>
             <p className="text-sm md:text-base text-foreground/50 leading-relaxed font-light">{text.howItWorksDesc}</p>
             <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
           </Reveal>
 
-          {/* 3 Step Flowchart Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
-            
-            {/* Step 1 */}
-            <Reveal delay={50} className="relative space-y-4 bg-white border border-gold/10 p-8 rounded-[2.5rem] shadow-sm hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold text-lg font-black font-serif">
-                1
-              </div>
-              <h3 className="text-lg font-bold text-royal font-serif">{text.step1Title}</h3>
-              <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.step1Desc}</p>
-            </Reveal>
+          {/* Timeline Layout */}
+          <div className="relative">
+            {/* Horizontal connector line (desktop only) */}
+            <div className="hidden md:block absolute top-[2.75rem] left-[16%] right-[16%] h-[2px] bg-gradient-to-r from-transparent via-gold/30 to-transparent z-0" />
 
-            {/* Step 2 */}
-            <Reveal delay={150} className="relative space-y-4 bg-white border border-gold/10 p-8 rounded-[2.5rem] shadow-sm hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold text-lg font-black font-serif">
-                2
-              </div>
-              <h3 className="text-lg font-bold text-royal font-serif">{text.step2Title}</h3>
-              <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.step2Desc}</p>
-            </Reveal>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+              {[
+                { num: "01", title: text.step1Title, desc: text.step1Desc, icon: "✦", delay: 50 },
+                { num: "02", title: text.step2Title, desc: text.step2Desc, icon: "◆", delay: 150 },
+                { num: "03", title: text.step3Title, desc: text.step3Desc, icon: "★", delay: 250 }
+              ].map((step, i) => (
+                <Reveal key={step.num} delay={step.delay} className="relative flex flex-col items-center text-center">
+                  {/* Step circle */}
+                  <div className="relative mb-8">
+                    <div className="w-20 h-20 rounded-full bg-white border-2 border-gold/30 shadow-lg flex flex-col items-center justify-center group hover:bg-gold hover:border-gold transition-all duration-500 cursor-default">
+                      <span className="text-[10px] font-black uppercase tracking-widest text-gold group-hover:text-royal transition-colors">{step.num}</span>
+                    </div>
+                    {/* Gold dot connector */}
+                    <div className="hidden md:block absolute top-1/2 -right-6 w-3 h-3 rounded-full bg-gold/40 transform -translate-y-1/2" style={{ display: i === 2 ? 'none' : undefined }} />
+                  </div>
 
-            {/* Step 3 */}
-            <Reveal delay={250} className="relative space-y-4 bg-white border border-gold/10 p-8 rounded-[2.5rem] shadow-sm hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold text-lg font-black font-serif">
-                3
-              </div>
-              <h3 className="text-lg font-bold text-royal font-serif">{text.step3Title}</h3>
-              <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.step3Desc}</p>
-            </Reveal>
-
+                  {/* Content Card */}
+                  <div className="bg-white border border-gold/10 rounded-[2rem] p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 space-y-4 w-full">
+                    <h3 className="text-xl font-bold text-royal" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>{step.title}</h3>
+                    <div className="h-px w-10 bg-gold/30 mx-auto" />
+                    <p className="text-sm text-foreground/60 leading-relaxed font-light">{step.desc}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* SECTION 3: Custom Destinations (Postcards layout) */}
       <section id="destinations" className="max-w-7xl mx-auto px-6 py-32 space-y-20 border-b border-gold/10">
         <div className="text-center space-y-4 max-w-2xl mx-auto">
           <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.regionsSub}</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight">{text.regionsTitle}</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>{text.regionsTitle}</h2>
           <p className="text-base text-foreground/50 leading-relaxed font-light">{text.regionsDesc}</p>
           <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
         </div>
 
-        {/* Large, Beautiful Cards (Increased dimensions, larger padding) */}
+        {/* Large, Beautiful Cards - 6 cards, bigger heights */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {states.slice(0, 10).map((st: any, i: number) => (
+          {states.slice(0, 6).map((st: any, i: number) => (
             <Reveal key={st.slug} delay={i * 80}>
               <Link href={`/${locale}/destinations/${st.slug}`} className="group block h-full">
                 <div className="bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md transition-all duration-500 hover:-translate-y-3 hover:border-[#C5A862]/30 hover:shadow-xl flex flex-col h-full">
-                  <div className="h-72 overflow-hidden relative shrink-0">
+                  <div className="h-80 overflow-hidden relative shrink-0">
                     <img src={st.image} alt={st.title?.en} className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-80" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-90" />
                     <span className="absolute top-5 left-5 bg-royal/95 border border-gold/20 text-gold text-[9px] uppercase tracking-widest font-bold px-4 py-2 rounded-full shadow-md">
                       {st.region} India
                     </span>
                   </div>
-                  {/* Padding: p-8 */}
                   <div className="p-8 space-y-4 bg-white flex flex-col flex-grow justify-between">
                     <div className="space-y-2.5">
-                      <h3 className="text-xl md:text-2xl font-serif font-medium text-royal group-hover:text-gold transition-colors">
+                      <h3 className="text-xl md:text-2xl font-bold text-royal group-hover:text-gold transition-colors" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
                         {st.title?.[locale] || st.title?.en}
                       </h3>
                       <p className="text-xs md:text-sm text-foreground/60 line-clamp-3 leading-relaxed font-light">
@@ -507,12 +521,13 @@ export default async function HomePage({ params }: HomePageProps) {
 
         {/* VIEW ALL Destinations button */}
         <div className="text-center pt-8">
-          <Link href={`/${locale}/destinations`} className="inline-flex items-center gap-2 bg-royal hover:bg-royal/90 text-white text-base md:text-lg font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 shadow-xl">
+          <Link href={`/${locale}/destinations`} className="inline-flex items-center gap-2 bg-royal hover:bg-royal/90 text-white text-base font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 shadow-xl">
             <span>View All Destinations</span>
             <ArrowRight className="w-5 h-5 text-gold" />
           </Link>
         </div>
       </section>
+
 
       {/* SECTION 3.5: Expanding Monuments Accordion Row (Screenshot 2 Theme) */}
       <MonumentsAccordion locale={locale} />
@@ -586,60 +601,60 @@ export default async function HomePage({ params }: HomePageProps) {
       {/* SECTION 3.5: Interactive Bespoke Itinerary Planner */}
       <ItineraryPlanner locale={locale} />
 
-      {/* SECTION 4.5: Our Premium Inclusions (What We Do / Value Proposition) */}
-      <section className="bg-white border-b border-gold/10 py-32">
-        <div className="max-w-7xl mx-auto px-6 space-y-20">
-          
-          {/* Header */}
-          <Reveal className="text-center space-y-4 max-w-3xl mx-auto">
-            <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.inclusionsSub}</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-royal tracking-tight">{text.inclusionsTitle}</h2>
-            <p className="text-sm md:text-base text-foreground/50 leading-relaxed font-light">{text.inclusionsDesc}</p>
-            <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
-          </Reveal>
+      {/* SECTION 4.5: Our Premium Booking Standard - Premium Bento Grid */}
+      <section className="bg-[#0A2A1E] border-b border-gold/10 py-32 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.025] bg-[radial-gradient(#C5A862_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-80 h-80 bg-gold/5 rounded-full blur-3xl pointer-events-none" />
 
-          {/* Inclusions Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            
-            {/* Inc 1: Driver */}
-            <Reveal delay={50} className="space-y-4 border border-gold/10 bg-[#FAF8F5] p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-all duration-300">
-              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
-                <Compass className="w-6 h-6" />
-              </div>
-              <h4 className="text-base font-bold text-royal font-serif">{text.inc1Title}</h4>
-              <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.inc1Desc}</p>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+            {/* Left: Header text */}
+            <Reveal className="space-y-8">
+              <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold">{text.inclusionsSub}</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+                {text.inclusionsTitle}
+              </h2>
+              <p className="text-sm md:text-base text-white/60 leading-relaxed font-light max-w-md">
+                {text.inclusionsDesc}
+              </p>
+              <div className="h-[2px] w-20 bg-gold/30" />
+              <Link
+                href={`/${locale}/contact`}
+                className="inline-flex items-center gap-2 bg-gold hover:bg-gold/90 text-royal font-bold uppercase text-sm tracking-wider px-8 py-4 rounded-full transition-all duration-300 hover:scale-105"
+              >
+                <span>Start Planning</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </Reveal>
 
-            {/* Inc 2: Guides */}
-            <Reveal delay={120} className="space-y-4 border border-gold/10 bg-[#FAF8F5] p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-all duration-300">
-              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
-                <Landmark className="w-6 h-6" />
-              </div>
-              <h4 className="text-base font-bold text-royal font-serif">{text.inc2Title}</h4>
-              <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.inc2Desc}</p>
+            {/* Right: Premium cards grid */}
+            <Reveal delay={200} className="grid grid-cols-2 gap-4">
+              {[
+                { icon: Compass, title: text.inc1Title, desc: text.inc1Desc, delay: 50 },
+                { icon: Landmark, title: text.inc2Title, desc: text.inc2Desc, delay: 120 },
+                { icon: Coffee, title: text.inc3Title, desc: text.inc3Desc, delay: 190 },
+                { icon: Shield, title: text.inc4Title, desc: text.inc4Desc, delay: 260 }
+              ].map((inc, i) => {
+                const Icon = inc.icon;
+                return (
+                  <div
+                    key={i}
+                    className="group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-gold/30 p-6 rounded-[1.5rem] transition-all duration-500 space-y-4"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-gold/15 group-hover:bg-gold/25 flex items-center justify-center transition-all duration-300">
+                      <Icon className="w-5 h-5 text-gold" />
+                    </div>
+                    <h4 className="text-sm font-bold text-white leading-snug" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>{inc.title}</h4>
+                    <p className="text-[11px] text-white/50 leading-relaxed font-light">{inc.desc}</p>
+                  </div>
+                );
+              })}
             </Reveal>
-
-            {/* Inc 3: Hotels */}
-            <Reveal delay={190} className="space-y-4 border border-gold/10 bg-[#FAF8F5] p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-all duration-300">
-              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
-                <Coffee className="w-6 h-6" />
-              </div>
-              <h4 className="text-base font-bold text-royal font-serif">{text.inc3Title}</h4>
-              <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.inc3Desc}</p>
-            </Reveal>
-
-            {/* Inc 4: Support */}
-            <Reveal delay={260} className="space-y-4 border border-gold/10 bg-[#FAF8F5] p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-all duration-300">
-              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
-                <Shield className="w-6 h-6" />
-              </div>
-              <h4 className="text-base font-bold text-royal font-serif">{text.inc4Title}</h4>
-              <p className="text-xs text-foreground/60 leading-relaxed font-light">{text.inc4Desc}</p>
-            </Reveal>
-
           </div>
         </div>
       </section>
+
 
       {/* SECTION 5: Gastronomy Preview (Curated Culinary Card) */}
       <section className="max-w-7xl mx-auto px-6 py-32 border-b border-gold/10 space-y-16">
@@ -685,7 +700,7 @@ export default async function HomePage({ params }: HomePageProps) {
       <section className="max-w-4xl mx-auto px-6 py-32 space-y-20 border-b border-gold/10">
         <div className="text-center space-y-4 max-w-2xl mx-auto">
           <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.faqSub}</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight">{text.faqTitle}</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>{text.faqTitle}</h2>
           <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
         </div>
 
@@ -709,41 +724,53 @@ export default async function HomePage({ params }: HomePageProps) {
         <section className="max-w-7xl mx-auto px-6 py-32 space-y-20 border-b border-gold/10">
           <div className="text-center space-y-4 max-w-2xl mx-auto">
             <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.blogsSub}</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight">{text.blogsTitle}</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>{text.blogsTitle}</h2>
+            <p className="text-sm text-foreground/50 font-light">Curated stories, travel guides, and cultural insights from India's most enchanting destinations.</p>
             <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
           </div>
 
-          {/* Large, Beautiful Cards (Increased dimensions, larger padding) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {/* Large, Beautiful Cards with Read More */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {blogs.slice(0, 6).map((post: any, i: number) => (
               <Reveal key={post.slug} delay={i * 80}>
-                <Link href={`/${locale}/blog/${post.slug}`} className="group block h-full">
-                  <div className="bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md transition-all duration-500 hover:-translate-y-2 hover:border-[#C5A862]/30 hover:shadow-xl flex flex-col h-full">
-                    <div className="h-56 overflow-hidden shrink-0 relative">
-                      <img src={post.featuredImage} alt={post.title?.en} className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-65" />
+                <div className="group bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md transition-all duration-500 hover:-translate-y-2 hover:border-[#C5A862]/30 hover:shadow-xl flex flex-col h-full">
+                  <div className="h-56 overflow-hidden shrink-0 relative">
+                    <img src={post.featuredImage} alt={post.title?.en} className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-65" />
+                    <span className="absolute top-4 left-4 bg-gold text-royal text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full">
+                      {post.category}
+                    </span>
+                  </div>
+                  <div className="p-7 flex flex-col flex-grow justify-between space-y-5">
+                    <div className="space-y-3">
+                      <h3 className="text-base font-bold text-royal group-hover:text-gold transition-colors leading-snug line-clamp-2" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+                        {post.title?.[locale] || post.title?.en}
+                      </h3>
+                      <p className="text-xs text-foreground/55 leading-relaxed line-clamp-2 font-light">
+                        {post.excerpt?.[locale] || post.excerpt?.en}
+                      </p>
                     </div>
-                    {/* Padding: p-8 */}
-                    <div className="p-8 space-y-4 bg-white flex flex-col flex-grow justify-between">
-                      <div className="space-y-2.5">
-                        <span className="text-[9px] uppercase tracking-widest font-bold text-gold block">{post.category}</span>
-                        <h3 className="text-lg font-serif font-medium text-royal group-hover:text-gold transition-colors leading-snug line-clamp-2">
-                          {post.title?.[locale] || post.title?.en}
-                        </h3>
-                      </div>
-                      <span className="text-[9px] text-foreground/50 uppercase tracking-widest block pt-4 border-t border-[#C5A862]/10">
-                        {post.readingTime} Min Read &bull; By {post.author}
+                    <div className="flex items-center justify-between pt-4 border-t border-[#C5A862]/10">
+                      <span className="text-[9px] text-foreground/45 uppercase tracking-widest font-light">
+                        {post.readingTime} Min Read · {post.author}
                       </span>
+                      <Link
+                        href={`/${locale}/blog/${post.slug}`}
+                        className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-gold hover:text-royal transition-colors group/btn"
+                      >
+                        <span>Read More</span>
+                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
+                      </Link>
                     </div>
                   </div>
-                </Link>
+                </div>
               </Reveal>
             ))}
           </div>
 
           {/* VIEW ALL Blogs button */}
-          <div className="text-center pt-8">
-            <Link href={`/${locale}/blog`} className="inline-flex items-center gap-2 bg-royal hover:bg-royal/90 text-white text-base md:text-lg font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 shadow-xl">
+          <div className="text-center pt-4">
+            <Link href={`/${locale}/blog`} className="inline-flex items-center gap-2 bg-royal hover:bg-royal/90 text-white text-sm font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 shadow-xl">
               <span>View All Blogs</span>
               <ArrowRight className="w-5 h-5 text-gold" />
             </Link>

@@ -2,244 +2,179 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-
-interface CardItem {
-  id: string;
-  image: string;
-  title: { en: string; es: string; pt: string };
-  path: string;
-}
+import { ArrowRight, Shield, MapPin, Heart, Briefcase, Leaf, Clock } from "lucide-react";
 
 interface TravelerInfoCarouselProps {
   locale: string;
 }
 
 export default function TravelerInfoCarousel({ locale }: TravelerInfoCarouselProps) {
-  const [activeIdx, setActiveIdx] = useState(2); // Center on card index 2 initially
-
-  const cards: CardItem[] = [
-    {
-      id: "visa",
-      image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=600",
-      title: {
-        en: "Visa and Customs Formalities",
-        es: "Trámites de visado para la India",
-        pt: "Trâmites de visto para a Índia"
-      },
-      path: "/faq#questions"
-    },
-    {
-      id: "climate",
-      image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=600",
-      title: {
-        en: "Best Time to Visit & Weather",
-        es: "Cuándo viajar y Clima en la India",
-        pt: "Quando viajar e Clima na Índia"
-      },
-      path: "/faq#best-time"
-    },
-    {
-      id: "solo-travel",
-      image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=600",
-      title: {
-        en: "Solo Female Travel Safety",
-        es: "Mujer viajando sola por la India",
-        pt: "Mulher viajando sozinha na Índia"
-      },
-      path: "/faq#solo-female"
-    },
-    {
-      id: "vaccines",
-      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600",
-      title: {
-        en: "Vaccinations and Health Advice",
-        es: "Las vacunas para viajar a la India",
-        pt: "As vacinas para viajar para a Índia"
-      },
-      path: "/faq#health"
-    },
-    {
-      id: "packing",
-      image: "https://images.unsplash.com/photo-1473186578172-c141e6798cf4?q=80&w=600",
-      title: {
-        en: "Currency and Packing Guidelines",
-        es: "Moneda y Equipaje recomendado",
-        pt: "Moeda e Bagagem recomendada"
-      },
-      path: "/faq#packing"
-    }
-  ];
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   const labels: Record<string, any> = {
     en: {
-      title: "Traveler Information",
-      subtitle: "Concierge Guide"
+      subtitle: "Concierge Knowledge Hub",
+      title: "Your India Journey Guide",
+      desc: "Everything you need to know before, during, and after your private luxury travel experience across India.",
+      learnMore: "Learn More",
     },
     es: {
-      title: "Información para Viajeros",
-      subtitle: "Guía de Conserjería"
+      subtitle: "Centro de Conocimiento Concierge",
+      title: "Guía Esencial para su Viaje a la India",
+      desc: "Todo lo que necesitas saber antes, durante y después de tu experiencia de viaje de lujo privado por la India.",
+      learnMore: "Más Información",
     },
     pt: {
-      title: "Informações para Viajantes",
-      subtitle: "Guia de Concierge"
+      subtitle: "Centro de Conhecimento Concierge",
+      title: "Guia Essencial para a sua Viagem à Índia",
+      desc: "Tudo o que você precisa saber antes, durante e após a sua experiência de viagem de luxo privado pela Índia.",
+      learnMore: "Saiba Mais",
     }
   };
 
   const text = labels[locale] || labels.en;
 
-  const nextSlide = () => {
-    setActiveIdx((prev) => (prev + 1) % cards.length);
-  };
-
-  const prevSlide = () => {
-    setActiveIdx((prev) => (prev - 1 + cards.length) % cards.length);
-  };
+  const cards = [
+    {
+      id: "visa",
+      image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=900&auto=format",
+      icon: Briefcase,
+      title: { en: "Visa & Entry Requirements", es: "Visa y Requisitos de Entrada", pt: "Visto e Requisitos de Entrada" },
+      desc: { en: "e-Visa applications, processing time, and what documentation you need for a seamless India entry.", es: "Solicitudes de e-Visa, tiempo de procesamiento y documentación necesaria.", pt: "Solicitações de e-Visto, tempo de processamento e documentação necessária." },
+      path: "/faq#questions",
+      tag: { en: "Visa Info", es: "Visado", pt: "Visto" }
+    },
+    {
+      id: "climate",
+      image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=900&auto=format",
+      icon: Clock,
+      title: { en: "Best Time to Visit & Climate", es: "Mejor Época para Visitar", pt: "Melhor Época para Visitar" },
+      desc: { en: "October to March is prime season for heritage travel. Understand monsoons, temperatures, and region-specific advice.", es: "De octubre a marzo es la temporada principal. Comprende monzones y climas regionales.", pt: "De outubro a março é a temporada principal. Entenda monções e climas regionais." },
+      path: "/faq#best-time",
+      tag: { en: "Travel Season", es: "Temporada", pt: "Temporada" }
+    },
+    {
+      id: "solo-travel",
+      image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=900&auto=format",
+      icon: Heart,
+      title: { en: "Solo Female Travel Safety", es: "Mujer Viajando Sola por India", pt: "Mulher Viajando Sozinha na Índia" },
+      desc: { en: "India is welcoming and safe. Our private guides, verified drivers, and 24/7 concierge ensure complete safety for solo women.", es: "La India es acogedora. Nuestros guías privados y conserjería 24/7 garantizan seguridad total.", pt: "A Índia é acolhedora. Nossos guias privados e concierge 24/7 garantem segurança total." },
+      path: "/faq#solo-female",
+      tag: { en: "Safety Guide", es: "Seguridad", pt: "Segurança" }
+    },
+    {
+      id: "vaccines",
+      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=900&auto=format",
+      icon: Shield,
+      title: { en: "Vaccinations & Health Advice", es: "Vacunas y Salud en la India", pt: "Vacinação e Saúde na Índia" },
+      desc: { en: "Recommended vaccinations, medicines to carry, and how to stay healthy on your private India journey.", es: "Vacunas recomendadas, medicamentos y cómo mantenerse saludable en la India.", pt: "Vacinas recomendadas, medicamentos e como se manter saudável na Índia." },
+      path: "/faq#health",
+      tag: { en: "Health Guide", es: "Salud", pt: "Saúde" }
+    },
+    {
+      id: "packing",
+      image: "https://images.unsplash.com/photo-1473186578172-c141e6798cf4?q=80&w=900&auto=format",
+      icon: Leaf,
+      title: { en: "Packing List & Currency Tips", es: "Lista de Equipaje y Moneda", pt: "Lista de Mala e Moeda" },
+      desc: { en: "What to pack for each India season, INR currency exchange tips, and best cards to use across the regions.", es: "Qué empacar por temporada, cambio de rupias y mejores tarjetas para usar.", pt: "O que empacotar por estação, câmbio de rúpias e melhores cartões para usar." },
+      path: "/faq#packing",
+      tag: { en: "Packing", es: "Equipaje", pt: "Bagagem" }
+    },
+    {
+      id: "culture",
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=900&auto=format",
+      icon: MapPin,
+      title: { en: "Cultural Etiquette & Customs", es: "Etiqueta Cultural en India", pt: "Etiqueta Cultural na Índia" },
+      desc: { en: "Temple dress codes, greetings, dining etiquette, and essential dos and don'ts to respect Indian culture.", es: "Códigos de vestimenta en templos, saludos y comportamientos respetuosos en la India.", pt: "Códigos de vestimenta em templos, saudações e comportamentos respeitosos na Índia." },
+      path: "/faq#culture",
+      tag: { en: "Culture", es: "Cultura", pt: "Cultura" }
+    }
+  ];
 
   return (
-    <section className="relative py-28 bg-[#FAF8F5] border-b border-gold/10 overflow-hidden select-none">
-      
-      {/* Background Floating Travel Sketch SVGs (Screenshot 3 Theme) */}
-      <div className="absolute inset-0 opacity-[0.06] pointer-events-none z-0">
-        <svg className="absolute top-10 left-10 w-24 h-24 text-royal" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2">
-          {/* Compass Sketch */}
-          <circle cx="50" cy="50" r="35" />
-          <path d="M50 15 L50 85 M15 50 L85 50 M32 32 L68 68 M32 68 L68 32" strokeDasharray="3 3" />
-          <polygon points="50,25 58,50 50,75 42,50" fill="currentColor" />
-        </svg>
-        <svg className="absolute bottom-12 right-16 w-32 h-32 text-royal" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5">
-          {/* Anchor Sketch */}
-          <path d="M50 10 L50 75 M50 25 C40 25 35 35 35 45 M50 25 C60 25 65 35 65 45" />
-          <circle cx="50" cy="18" r="8" />
-          <path d="M20 50 C20 80 80 80 80 50" strokeWidth="3" />
-          <path d="M15 48 L25 48 M75 48 L85 48" />
-        </svg>
-        <svg className="absolute top-20 right-28 w-28 h-20 text-royal" viewBox="0 0 100 60" fill="none" stroke="currentColor" strokeWidth="2">
-          {/* Paper Plane Path Sketch */}
-          <path d="M10 50 C 30 10, 70 10, 90 30" strokeDasharray="4 4" />
-          <polygon points="90,30 80,32 87,22" fill="currentColor" />
-        </svg>
-      </div>
+    <section className="relative py-28 bg-[#0A2A1E] border-b border-gold/10 overflow-hidden">
+      {/* Subtle dot pattern */}
+      <div className="absolute inset-0 opacity-[0.025] bg-[radial-gradient(#C5A862_1.5px,transparent_1.5px)] [background-size:24px_24px] pointer-events-none" />
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-gold/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gold/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 space-y-16">
-        
-        {/* Title */}
-        <div className="text-center space-y-3">
-          <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.subtitle}</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-royal tracking-tight font-serif">
-            {text.title}
-          </h2>
-          <div className="h-[2px] w-20 bg-gold/30 mx-auto mt-2" />
+
+        {/* Section Header */}
+        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
+          <div className="space-y-4 max-w-2xl">
+            <span className="text-xs uppercase tracking-[0.3em] text-gold font-bold flex items-center gap-2">
+              <Shield className="w-4 h-4" />
+              {text.subtitle}
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+              {text.title}
+            </h2>
+            <p className="text-sm md:text-base text-white/60 leading-relaxed font-light">
+              {text.desc}
+            </p>
+          </div>
+          <Link
+            href={`/${locale}/faq`}
+            className="flex-shrink-0 inline-flex items-center gap-2 bg-gold hover:bg-gold/90 text-royal text-[11px] font-bold uppercase tracking-wider px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
+          >
+            <span>Full Travel Guide</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
-        {/* 3D Overlapping Card Deck Stack */}
-        <div className="relative flex justify-center items-center h-[460px] w-full max-w-5xl mx-auto px-12">
-          
+        {/* Large Info Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {cards.map((card, idx) => {
-            // Calculate distance from center active index
-            let offset = idx - activeIdx;
-            // Handle circular loop offset mapping
-            if (offset < -2) offset += cards.length;
-            if (offset > 2) offset -= cards.length;
-
-            const isCenter = offset === 0;
-            const isLeft = offset === -1 || offset === cards.length - 1;
-            const isRight = offset === 1 || offset === -(cards.length - 1);
-            const isFarLeft = offset === -2;
-            const isFarRight = offset === 2;
-
-            // Define scale, z-index, translate and opacity properties based on positioning offset
-            let scale = 0.8;
-            let zIndex = 0;
-            let translateX = 0;
-            let opacity = 0;
-            let blur = "blur(4px)";
-
-            if (isCenter) {
-              scale = 1.05;
-              zIndex = 30;
-              translateX = 0;
-              opacity = 1;
-              blur = "none";
-            } else if (isLeft) {
-              scale = 0.9;
-              zIndex = 20;
-              translateX = -140;
-              opacity = 0.75;
-            } else if (isRight) {
-              scale = 0.9;
-              zIndex = 20;
-              translateX = 140;
-              opacity = 0.75;
-            } else if (isFarLeft) {
-              scale = 0.75;
-              zIndex = 10;
-              translateX = -260;
-              opacity = 0.4;
-            } else if (isFarRight) {
-              scale = 0.75;
-              zIndex = 10;
-              translateX = 260;
-              opacity = 0.4;
-            }
-
-            const titleText = card.title[locale as "en" | "es" | "pt"] || card.title.en;
+            const Icon = card.icon;
+            const title = card.title[locale as "en" | "es" | "pt"] || card.title.en;
+            const desc = card.desc[locale as "en" | "es" | "pt"] || card.desc.en;
+            const tag = card.tag[locale as "en" | "es" | "pt"] || card.tag.en;
+            const isHovered = hoveredIdx === idx;
 
             return (
-              <div
+              <Link
                 key={card.id}
-                onClick={() => setActiveIdx(idx)}
-                className="absolute w-[240px] md:w-[280px] h-[380px] rounded-3xl overflow-hidden shadow-2xl border border-gold/10 transition-all duration-700 ease-out cursor-pointer"
-                style={{
-                  transform: `translateX(${translateX}px) scale(${scale})`,
-                  zIndex: zIndex,
-                  opacity: opacity,
-                  filter: blur,
-                }}
+                href={`/${locale}${card.path}`}
+                className="group block relative rounded-[1.5rem] overflow-hidden shadow-xl border border-white/5 transition-all duration-500 hover:border-gold/30 hover:-translate-y-2 hover:shadow-2xl"
+                onMouseEnter={() => setHoveredIdx(idx)}
+                onMouseLeave={() => setHoveredIdx(null)}
               >
-                <img
-                  src={card.image}
-                  alt={titleText}
-                  className="w-full h-full object-cover"
-                />
-                {/* Text Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent flex flex-col justify-end p-6 text-center">
-                  <h3 className="text-sm md:text-base font-bold text-white font-serif tracking-wide leading-snug">
-                    {titleText}
-                  </h3>
-                  {isCenter && (
-                    <Link
-                      href={`/${locale}${card.path}`}
-                      className="mt-3 text-[9px] font-bold uppercase tracking-wider text-gold hover:text-white transition-colors"
-                    >
-                      Read Detail →
-                    </Link>
-                  )}
+                {/* Image */}
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src={card.image}
+                    alt={title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
+                  {/* Tag badge */}
+                  <span className="absolute top-4 left-4 bg-gold text-royal text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full">
+                    {tag}
+                  </span>
                 </div>
-              </div>
+
+                {/* Content */}
+                <div className="bg-white/5 backdrop-blur-sm p-6 space-y-3 border-t border-white/5">
+                  <div className="flex items-start gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-gold/15 flex items-center justify-center shrink-0 mt-0.5">
+                      <Icon className="w-4 h-4 text-gold" />
+                    </div>
+                    <h3 className="text-base font-bold text-white leading-snug" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+                      {title}
+                    </h3>
+                  </div>
+                  <p className="text-xs text-white/60 leading-relaxed font-light pl-12">
+                    {desc}
+                  </p>
+                  <div className="flex items-center gap-1.5 text-gold text-[10px] font-bold uppercase tracking-wider pl-12 pt-1 transition-all duration-300 group-hover:gap-2.5">
+                    <span>{text.learnMore}</span>
+                    <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+                  </div>
+                </div>
+              </Link>
             );
           })}
-
-        </div>
-
-        {/* Navigation Arrows */}
-        <div className="flex justify-center items-center gap-6 pt-4 relative z-20">
-          <button
-            onClick={prevSlide}
-            aria-label="Previous card"
-            className="w-12 h-12 rounded-full border border-gold/25 bg-white text-royal hover:bg-gold hover:text-royal transition-all duration-300 flex items-center justify-center shadow"
-            suppressHydrationWarning
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={nextSlide}
-            aria-label="Next card"
-            className="w-12 h-12 rounded-full border border-gold/25 bg-white text-royal hover:bg-gold hover:text-royal transition-all duration-300 flex items-center justify-center shadow"
-            suppressHydrationWarning
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
         </div>
 
       </div>

@@ -103,7 +103,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
                 )}
 
                 {/* Title */}
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-serif font-normal tracking-tight leading-[1.05] text-center max-w-4xl">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-bold tracking-tight leading-[1.05] text-center max-w-4xl" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
                   {slide.title}
                 </h1>
 
@@ -112,20 +112,20 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
                   {slide.desc}
                 </p>
 
-                {/* CTAs */}
+                {/* CTAs - per slide if available, or global fallback */}
                 <div className="flex flex-wrap justify-center gap-4 pt-6">
                   <Link
-                    href={`/${locale}/destinations`}
+                    href={`/${locale}${(slide as any).cta1Link || "/destinations"}`}
                     className="group bg-gold hover:bg-gold-light text-[#0A2A1E] text-[11px] font-bold uppercase tracking-wider py-4 px-9 rounded-full transition-all duration-400 shadow-lg shadow-gold/20 hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center gap-2 border border-gold"
                   >
-                    <span>{ctaText}</span>
+                    <span>{(slide as any).cta1Text || ctaText}</span>
                     <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform text-[#0A2A1E]" />
                   </Link>
                   <Link
-                    href={`/${locale}#inquire-now`}
+                    href={`/${locale}${(slide as any).cta2Link || "#inquire-now"}`}
                     className="bg-white/10 hover:bg-white/20 backdrop-blur-xl text-white text-[11px] font-bold uppercase tracking-wider py-4 px-9 rounded-full transition-all duration-400 border border-white/25 hover:border-white/50"
                   >
-                    {inquireCTA}
+                    {(slide as any).cta2Text || inquireCTA}
                   </Link>
                 </div>
               </div>

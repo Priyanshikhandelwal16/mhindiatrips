@@ -487,6 +487,83 @@ export const tourPackages: TourPackage[] = [
     ],
     travelTips: [],
     faqs: []
+  },
+  {
+    slug: "golden-triangle-rajasthan-combo",
+    title: { en: "Golden Triangle + Royal Rajasthan Combo", es: "Triángulo de Oro + Rajastán Real Combo", pt: "Triângulo de Ouro + Rajastão Real Combo" },
+    tagline: { en: "Delhi, Agra, Jaipur, Jodhpur, Udaipur — The Grand India Circuit", es: "Delhi, Agra, Jaipur, Jodhpur, Udaipur — El Gran Circuito de India", pt: "Delhi, Agra, Jaipur, Jodhpur, Udaipur — O Grande Circuito da Índia" },
+    category: "Luxury Tours",
+    durationDays: 12,
+    image: "/images/rajasthan_fort_sunset.png",
+    gallery: [],
+    highlights: [
+      { en: "Private sunrise Taj Mahal access in Agra", es: "Acceso privado al amanecer en el Taj Mahal", pt: "Acesso privado ao amanhecer no Taj Mahal" },
+      { en: "Royal heritage palace hotel stays in Jaipur & Udaipur", es: "Hospedaje en palacios reales en Jaipur y Udaipur", pt: "Hospedagem em palácios reais em Jaipur e Udaipur" },
+      { en: "Mehrangarh Fort private heritage tour in Jodhpur", es: "Tour privado al Fuerte Mehrangarh en Jodhpur", pt: "Tour privado ao Forte Mehrangarh em Jodhpur" },
+      { en: "Sunset camel ride in Jaisalmer sand dunes", es: "Paseo en camello al atardecer en Jaisalmer", pt: "Passeio de camelo ao entardecer em Jaisalmer" }
+    ],
+    itinerary: [
+      { day: 1, title: { en: "Arrival in New Delhi — VIP Welcome", es: "Llegada a Nueva Delhi — Bienvenida VIP", pt: "Chegada a Nova Deli — Boas-vindas VIP" }, desc: { en: "Private airport pickup in luxury vehicle, check into 5-star heritage hotel.", es: "Recogida privada en aeropuerto, hotel de 5 estrellas.", pt: "Coleta privada no aeroporto, hotel de 5 estrelas." } },
+      { day: 2, title: { en: "Old Delhi & New Delhi Heritage Immersion", es: "Delhi Vieja y Nueva Delhi", pt: "Velho Delhi e Nova Delhi" }, desc: { en: "Private tour of Humayun's Tomb, Qutub Minar, Chandni Chowk spice market.", es: "Tour privado por los monumentos históricos de Delhi.", pt: "Tour privado pelos monumentos históricos de Delhi." } },
+      { day: 3, title: { en: "Agra — Taj Mahal Sunrise Experience", es: "Agra — Amanecer en el Taj Mahal", pt: "Agra — Amanhecer no Taj Mahal" }, desc: { en: "Pre-dawn private access to Taj Mahal for sunrise photography. Visit Agra Fort.", es: "Acceso privado al amanecer en el Taj Mahal.", pt: "Acesso privado ao amanhecer no Taj Mahal." } },
+      { day: 4, title: { en: "Jaipur — Pink City Arrival", es: "Jaipur — Ciudad Rosada", pt: "Jaipur — Cidade Rosa" }, desc: { en: "Private transfer to Jaipur. Check into heritage palace hotel.", es: "Traslado a Jaipur. Hotel palacio histórico.", pt: "Traslado para Jaipur. Hotel palácio histórico." } },
+      { day: 5, title: { en: "Jaipur — Amber Fort & City Palace", es: "Jaipur — Fuerte Amber y Palacio Real", pt: "Jaipur — Forte Amber e Palácio Real" }, desc: { en: "Private guided tour of Amber Fort, City Palace, and Hawa Mahal.", es: "Tour privado del Fuerte Amber y el Palacio Real.", pt: "Tour privado do Forte Amber e Palácio Real." } }
+    ],
+    includedExperiences: [
+      { en: "VIP luxury vehicle with private chauffeur throughout", es: "Vehículo de lujo VIP con chofer privado", pt: "Veículo de luxo VIP com motorista privado" },
+      { en: "Expert English/Spanish/Portuguese speaking guides", es: "Guías expertos en inglés/español/portugués", pt: "Guias especialistas em inglês/espanhol/português" },
+      { en: "Heritage palace & luxury 5-star hotel accommodations", es: "Alojamiento en palacios históricos y hoteles de 5 estrellas", pt: "Acomodação em palácios históricos e hotéis de 5 estrelas" }
+    ],
+    travelTips: [],
+    faqs: []
+  },
+  {
+    slug: "north-india-grand-heritage-tour",
+    title: { en: "North India Grand Heritage & Spiritual Tour", es: "Gran Tour de Patrimonio y Espiritualidad del Norte de India", pt: "Grande Tour de Patrimônio e Espiritualidade do Norte da Índia" },
+    tagline: { en: "Delhi, Varanasi, Khajuraho, Orchha, Agra & Jaipur", es: "Delhi, Varanasi, Khajuraho, Orchha, Agra y Jaipur", pt: "Delhi, Varanasi, Khajuraho, Orchha, Agra e Jaipur" },
+    category: "Heritage Tours",
+    durationDays: 14,
+    image: "/images/varanasi_ghats_aarti.png",
+    gallery: [],
+    highlights: [
+      { en: "Dawn boat ride on the sacred River Ganges in Varanasi", es: "Paseo en barco al amanecer en el sagrado río Ganges", pt: "Passeio de barco ao amanhecer no sagrado Rio Ganges" },
+      { en: "Attend the mesmerizing Ganga Aarti ceremony at sunset", es: "Asistir a la magnífica ceremonia del Ganga Aarti", pt: "Assistir à magnífica cerimônia do Ganga Aarti" },
+      { en: "UNESCO Khajuraho temple complex private walking tour", es: "Tour privado por el complejo de templos de Khajuraho", pt: "Tour privado pelo complexo de templos de Khajuraho" },
+      { en: "Medieval Orchha Fort & River island tour", es: "Fuerte medieval de Orchha y tour por la isla del río", pt: "Forte medieval de Orchha e tour pela ilha do rio" }
+    ],
+    itinerary: [
+      { day: 1, title: { en: "Arrival in New Delhi", es: "Llegada a Nueva Delhi", pt: "Chegada a Nova Deli" }, desc: { en: "VIP welcome and private transfer to 5-star hotel.", es: "Bienvenida VIP y traslado privado al hotel.", pt: "Boas-vindas VIP e traslado privado para o hotel." } }
+    ],
+    includedExperiences: [
+      { en: "Private Ganga Aarti ceremony front-row access", es: "Acceso de primera fila a la ceremonia Ganga Aarti", pt: "Acesso de primeira fila à cerimônia Ganga Aarti" },
+      { en: "Silk weaving workshop in Varanasi", es: "Taller de tejido de seda en Varanasi", pt: "Oficina de tecelagem de seda em Varanasi" }
+    ],
+    travelTips: [],
+    faqs: []
+  },
+  {
+    slug: "india-honeymoon-luxury",
+    title: { en: "India Honeymoon Luxury Experience", es: "Experiencia de Luna de Miel de Lujo en India", pt: "Experiência de Lua de Mel de Luxo na Índia" },
+    tagline: { en: "Taj Mahal, Palace Hotels, Kerala Houseboat & Goa Beach Villa", es: "Taj Mahal, Hoteles Palacio, Casa Flotante en Kerala y Villa en Goa", pt: "Taj Mahal, Hotéis Palácio, Casa Flutuante em Kerala e Vila em Goa" },
+    category: "Luxury Tours",
+    durationDays: 10,
+    image: "/images/taj_mahal_sunrise.png",
+    gallery: [],
+    highlights: [
+      { en: "Candlelit Taj Mahal private dinner arrangement", es: "Cena privada con velas frente al Taj Mahal", pt: "Jantar privado com velas em frente ao Taj Mahal" },
+      { en: "Suite at Taj Lake Palace on Lake Pichola, Udaipur", es: "Suite en el Taj Lake Palace en el lago Pichola", pt: "Suite no Taj Lake Palace no Lago Pichola" },
+      { en: "Kerala luxury houseboat private canal cruise", es: "Crucero privado en casa flotante de lujo en Kerala", pt: "Cruzeiro privado em casa flutuante de luxo em Kerala" },
+      { en: "Goa beachfront luxury villa with private pool", es: "Villa de lujo frente al mar en Goa con piscina privada", pt: "Villa de luxo frente ao mar em Goa com piscina privada" }
+    ],
+    itinerary: [
+      { day: 1, title: { en: "Delhi — Romantic Arrival", es: "Delhi — Llegada Romántica", pt: "Delhi — Chegada Romântica" }, desc: { en: "Luxury suite with rose petal welcome and champagne.", es: "Suite de lujo con bienvenida de pétalos de rosa y champán.", pt: "Suite de luxo com boas-vindas com pétalas de rosa e champanhe." } }
+    ],
+    includedExperiences: [
+      { en: "Sunset helicopter ride over Taj Mahal", es: "Paseo en helicóptero al atardecer sobre el Taj Mahal", pt: "Passeio de helicóptero ao entardecer sobre o Taj Mahal" },
+      { en: "Couples Ayurvedic spa ritual package", es: "Ritual de spa ayurvédico para parejas", pt: "Ritual de spa ayurvédico para casais" }
+    ],
+    travelTips: [],
+    faqs: []
   }
 ];
 

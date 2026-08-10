@@ -130,7 +130,7 @@ export default function Header({ locale }: HeaderProps) {
           scrolled ? "h-0 py-0 border-0 opacity-0 overflow-hidden" : "h-auto opacity-100"
         }`}
       >
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+        <div className="max-w-[1400px] w-full mx-auto px-6 xl:px-10 flex flex-col md:flex-row justify-between items-center gap-2">
           <div className="flex items-center gap-6">
             <a href="tel:+919782001006" className="flex items-center gap-1.5 hover:text-gold transition-colors">
               <Phone className="w-3.5 h-3.5 text-gold" />
@@ -166,7 +166,7 @@ export default function Header({ locale }: HeaderProps) {
             : "bg-white border-gold/10 py-4"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between gap-6">
+        <div className="max-w-[1400px] w-full mx-auto px-6 xl:px-10 flex items-center justify-between gap-4">
           
           {/* Logo */}
           <Link href={`/${locale}`} className="relative block shrink-0 z-20">

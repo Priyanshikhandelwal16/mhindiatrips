@@ -237,8 +237,8 @@ export default function ItineraryPlanner({ locale }: { locale: string }) {
             <Sparkles className="w-4 h-4 animate-pulse" />
             Interactive Bespoke Concierge
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight font-serif text-white">
-            Co-Design Your Royal Journey
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+            Design Your Perfect India Journey
           </h2>
           <p className="text-sm md:text-base text-white/70 font-light max-w-2xl mx-auto leading-relaxed">
             Select your style, duration, and luxury level to dynamically preview your day-by-day itinerary and VIP inclusions.
@@ -425,24 +425,17 @@ export default function ItineraryPlanner({ locale }: { locale: string }) {
 
             </div>
 
-            {/* Bottom: Pricing Tier & Book button */}
+            {/* Bottom: Book button only */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-2">
-              <div className="flex flex-col items-center sm:items-start gap-1">
-                <span className="text-[9px] uppercase tracking-wider text-foreground/40 font-bold">Estimated Cost</span>
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-xl md:text-2xl font-bold font-serif text-royal">
-                    {tier === "diamond" ? "$320" : "$190"}
-                  </span>
-                  <span className="text-[10px] text-foreground/50 font-light">/ day per guest</span>
-                </div>
-              </div>
-
+              <p className="text-xs text-foreground/50 font-light max-w-xs leading-relaxed">
+                Pricing varies based on group size, season, and hotel tier. Request a personalised quote.
+              </p>
               <button
                 onClick={handleBook}
                 className="w-full sm:w-auto bg-royal text-gold border border-gold/30 hover:bg-gold hover:text-royal transition-all duration-300 font-bold uppercase text-[10px] tracking-widest px-8 py-4 rounded-full flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:shadow-xl"
                 suppressHydrationWarning
               >
-                <span>Initiate Bespoke Booking</span>
+                <span>Request Bespoke Quote</span>
                 <ChevronRight className="w-4.5 h-4.5" />
               </button>
             </div>

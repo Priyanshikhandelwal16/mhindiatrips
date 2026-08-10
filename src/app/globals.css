@@ -485,18 +485,44 @@ body {
   animation: kenburns 25s ease-in-out infinite alternate;
 }
 
-/* === SCROLL REVEAL === */
+/* === SCROLL REVEAL - Enhanced with Modern Animations === */
 
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(32px);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* === PAGE LOAD ANIMATIONS === */
+@keyframes page-hero-in {
+  from { opacity: 0; transform: translateY(20px) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes section-slide-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-from-left {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fade-in-from-right {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-page-hero { animation: page-hero-in 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.animate-section-up { animation: section-slide-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.animate-from-left { animation: fade-in-from-left 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.animate-from-right { animation: fade-in-from-right 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
 
 /* === NAVIGATION === */
 
