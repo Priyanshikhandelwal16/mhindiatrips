@@ -68,8 +68,8 @@ export default function TripPlannerWizard({ locale }: TripPlannerWizardProps) {
 
   const handleSubmit = async () => {
     try {
-      const { submitInquiryAction } = await import("@/app/actions/inquiry");
-      await submitInquiryAction({
+      const { createInquiryAction } = await import("@/app/actions/inquiry");
+      await createInquiryAction({
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
