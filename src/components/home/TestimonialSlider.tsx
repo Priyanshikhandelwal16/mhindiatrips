@@ -74,14 +74,14 @@ export default function TestimonialSlider({ locale, reviews: initialReviews, lab
   const tripleReviews = [...reviewsList, ...reviewsList, ...reviewsList];
 
   return (
-    <section className="section-spacing bg-[#FAF8F5]/50 border-y border-gold/15 overflow-hidden py-32 relative">
+    <section className="section-spacing bg-[#FAF8F5]/50 border-y border-[#C5A862]/10 overflow-hidden py-32 relative">
       {/* Decorative Background Elements */}
-      <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#A5823C_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none" />
+      <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#C5A862_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6 space-y-12">
         <Reveal className="text-center space-y-4 max-w-2xl mx-auto">
           <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{labels.sub}</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-royal tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-normal text-royal tracking-tight">
             {labels.title}
           </h2>
           <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
@@ -89,7 +89,7 @@ export default function TestimonialSlider({ locale, reviews: initialReviews, lab
 
         {/* Premium Google Rating Summary Card */}
         <Reveal delay={100} className="flex justify-center">
-          <div className="bg-white border border-gold/15 px-8 py-5 rounded-[2rem] shadow-sm flex flex-col sm:flex-row items-center gap-6 select-none hover:shadow-md transition-shadow">
+          <div className="bg-white border border-[#C5A862]/20 px-8 py-5 rounded-[2rem] shadow-sm flex flex-col sm:flex-row items-center gap-6 select-none hover:shadow-md transition-shadow">
             <div className="flex items-center gap-2.5">
               <svg className="w-6 h-6 shrink-0" viewBox="0 0 24 24">
                 <path
@@ -112,7 +112,7 @@ export default function TestimonialSlider({ locale, reviews: initialReviews, lab
               <span className="font-bold text-royal text-sm uppercase tracking-wider">Google Rating</span>
             </div>
             
-            <div className="h-px w-8 sm:w-px sm:h-8 bg-gold/25" />
+            <div className="h-px w-8 sm:w-px sm:h-8 bg-[#C5A862]/20" />
 
             <div className="flex flex-col items-center sm:items-start gap-1">
               <div className="flex items-center gap-1.5">
@@ -128,9 +128,9 @@ export default function TestimonialSlider({ locale, reviews: initialReviews, lab
               </p>
             </div>
 
-            <div className="h-px w-8 sm:w-px sm:h-8 bg-gold/25" />
+            <div className="h-px w-8 sm:w-px sm:h-8 bg-[#C5A862]/20" />
 
-            <span className="text-[10px] bg-gold/10 text-gold-light border border-gold/15 uppercase font-bold tracking-widest px-3 py-1.5 rounded-full flex items-center gap-1.5">
+            <span className="text-[10px] bg-[#C5A862]/10 text-gold border border-[#C5A862]/20 uppercase font-bold tracking-widest px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
               <CheckCircle2 className="w-3.5 h-3.5 text-gold" />
               <span>Direct Google Sync</span>
             </span>
@@ -159,7 +159,7 @@ export default function TestimonialSlider({ locale, reviews: initialReviews, lab
                 key={`review-${i}`}
                 className="flex-shrink-0 w-[360px] md:w-[420px]"
               >
-                <div className="bg-white border border-gold/10 rounded-[2rem] p-8 h-full flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-gold/25 transition-all duration-500 relative group">
+                <div className="bg-white border border-[#C5A862]/10 rounded-[2rem] p-8 h-full flex flex-col justify-between shadow-md hover:shadow-xl hover:border-[#C5A862]/30 transition-all duration-500 relative group">
                   {/* Google review logo overlay */}
                   <div className="absolute top-8 right-8 text-black/10 group-hover:text-[#4285F4]/20 transition-colors">
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -184,13 +184,13 @@ export default function TestimonialSlider({ locale, reviews: initialReviews, lab
                   </div>
 
                   {/* Author */}
-                  <div className="flex items-center justify-between mt-8 pt-6 border-t border-gold/10">
+                  <div className="flex items-center justify-between mt-8 pt-6 border-t border-[#C5A862]/10">
                     <div className="flex items-center gap-3.5">
                       <img
                         src={review.image}
                         alt={review.name}
                         loading="lazy"
-                        className="w-11 h-11 rounded-full object-cover ring-2 ring-gold/10"
+                        className="w-11 h-11 rounded-full object-cover ring-2 ring-[#C5A862]/10"
                       />
                       <div>
                         <p className="text-sm font-semibold text-royal">{review.name}</p>

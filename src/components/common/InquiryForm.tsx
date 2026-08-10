@@ -112,122 +112,122 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
 
   if (success) {
     return (
-      <div className="bg-white border border-gold/25 p-12 text-center space-y-6 max-w-xl mx-auto rounded-3xl shadow-xl shadow-royal/5 animate-scale-up">
-        <div className="w-16 h-16 bg-gold/15 rounded-full flex items-center justify-center mx-auto">
+      <div className="bg-white border border-[#C5A862]/30 p-12 text-center space-y-6 max-w-xl mx-auto rounded-[2.5rem] shadow-2xl shadow-[#0A2A1E]/5 animate-scale-up">
+        <div className="w-16 h-16 bg-[#C5A862]/10 rounded-full flex items-center justify-center mx-auto">
           <CheckCircle2 className="w-8 h-8 text-gold" />
         </div>
-        <h3 className="text-3xl font-bold text-royal">{text.successTitle}</h3>
+        <h3 className="text-3xl font-serif text-royal">{text.successTitle}</h3>
         <p className="text-base text-foreground/60 leading-relaxed font-light">{text.successText}</p>
       </div>
     );
   }
 
   return (
-    <div className="bg-white border border-gold/20 rounded-3xl p-8 md:p-12 max-w-4xl mx-auto shadow-2xl shadow-royal/5 relative overflow-hidden" id="inquire-now">
+    <div className="bg-white border border-[#C5A862]/15 rounded-[2.5rem] p-8 md:p-16 max-w-4xl mx-auto shadow-2xl shadow-[#0A2A1E]/5 relative overflow-hidden" id="inquire-now">
       
       {/* Decorative corner accents */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-gold/10 via-transparent to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-gold/10 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-gold/5 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-gold/5 via-transparent to-transparent pointer-events-none" />
 
-      <div className="space-y-3 mb-10 text-center relative z-10">
+      <div className="space-y-3.5 mb-12 text-center relative z-10">
         <div className="flex items-center justify-center gap-2">
           <Sparkles className="w-4 h-4 text-gold" />
-          <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-gold">
+          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-gold">
             {locale === "es" ? "Boceto Personalizado" : locale === "pt" ? "Esboço Personalizado" : "Bespoke Journey Designer"}
           </span>
         </div>
-        <h3 className="text-3xl md:text-5xl font-bold text-royal tracking-tight">{text.title}</h3>
-        <p className="text-sm text-foreground/50 max-w-md mx-auto leading-relaxed font-light">{text.subtitle}</p>
+        <h3 className="text-3xl md:text-5xl font-serif font-normal text-royal tracking-tight">{text.title}</h3>
+        <p className="text-sm text-foreground/50 max-w-lg mx-auto leading-relaxed font-light">{text.subtitle}</p>
         <div className="h-px w-20 bg-gold/25 mx-auto mt-4" />
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+      <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
         {error && (
-          <div className="bg-red-50 text-red-700 text-xs p-4 rounded-xl flex items-center gap-2 border border-red-100">
+          <div className="bg-red-50/50 text-red-750 text-xs p-4 rounded-xl flex items-center gap-2 border border-red-100/40">
             <AlertCircle className="w-4 h-4 shrink-0" />
             <span>{error}</span>
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
           
-          <div className="space-y-1">
-            <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.name}</label>
+          <div className="space-y-1.5">
+            <label className="text-[10px] font-bold uppercase tracking-[0.16em] text-royal/65">{text.name}</label>
             <input 
               type="text" 
               value={form.name} 
               onChange={(e) => setForm({ ...form, name: e.target.value })} 
-              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors" 
+              className="w-full bg-[#FAF8F5]/80 border-b border-gold/25 focus:border-gold focus:bg-white px-4 py-3.5 text-sm text-royal outline-none transition-all duration-300 rounded-md" 
               required 
               suppressHydrationWarning={true}
             />
           </div>
 
-          <div className="space-y-1">
-            <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.email}</label>
+          <div className="space-y-1.5">
+            <label className="text-[10px] font-bold uppercase tracking-[0.16em] text-royal/65">{text.email}</label>
             <input 
               type="email" 
               value={form.email} 
               onChange={(e) => setForm({ ...form, email: e.target.value })} 
-              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors" 
+              className="w-full bg-[#FAF8F5]/80 border-b border-gold/25 focus:border-gold focus:bg-white px-4 py-3.5 text-sm text-royal outline-none transition-all duration-300 rounded-md" 
               required 
               suppressHydrationWarning={true}
             />
           </div>
 
-          <div className="space-y-1">
-            <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.phone}</label>
+          <div className="space-y-1.5">
+            <label className="text-[10px] font-bold uppercase tracking-[0.16em] text-royal/65">{text.phone}</label>
             <input 
               type="tel" 
               value={form.phone} 
               onChange={(e) => setForm({ ...form, phone: e.target.value })} 
-              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors" 
+              className="w-full bg-[#FAF8F5]/80 border-b border-gold/25 focus:border-gold focus:bg-white px-4 py-3.5 text-sm text-royal outline-none transition-all duration-300 rounded-md" 
               suppressHydrationWarning={true}
             />
           </div>
 
-          <div className="space-y-1">
-            <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.country}</label>
+          <div className="space-y-1.5">
+            <label className="text-[10px] font-bold uppercase tracking-[0.16em] text-royal/65">{text.country}</label>
             <input 
               type="text" 
               value={form.country} 
               onChange={(e) => setForm({ ...form, country: e.target.value })} 
-              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors" 
+              className="w-full bg-[#FAF8F5]/80 border-b border-gold/25 focus:border-gold focus:bg-white px-4 py-3.5 text-sm text-royal outline-none transition-all duration-300 rounded-md" 
               suppressHydrationWarning={true}
             />
           </div>
 
-          <div className="space-y-1">
-            <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.startDate}</label>
+          <div className="space-y-1.5">
+            <label className="text-[10px] font-bold uppercase tracking-[0.16em] text-royal/65">{text.startDate}</label>
             <input 
               type="text" 
               value={form.startDate} 
               placeholder={locale === "es" ? "Ej: Octubre 2026" : locale === "pt" ? "Ex: Outubro 2026" : "e.g. October 2026"} 
               onChange={(e) => setForm({ ...form, startDate: e.target.value })} 
-              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors" 
+              className="w-full bg-[#FAF8F5]/80 border-b border-gold/25 focus:border-gold focus:bg-white px-4 py-3.5 text-sm text-royal outline-none transition-all duration-300 rounded-md" 
               required 
               suppressHydrationWarning={true}
             />
           </div>
 
-          <div className="space-y-1">
-            <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.duration}</label>
+          <div className="space-y-1.5">
+            <label className="text-[10px] font-bold uppercase tracking-[0.16em] text-royal/65">{text.duration}</label>
             <input 
               type="number" 
               value={form.duration} 
               onChange={(e) => setForm({ ...form, duration: e.target.value })} 
-              className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors" 
+              className="w-full bg-[#FAF8F5]/80 border-b border-gold/25 focus:border-gold focus:bg-white px-4 py-3.5 text-sm text-royal outline-none transition-all duration-300 rounded-md" 
               suppressHydrationWarning={true}
             />
           </div>
 
-          <div className="space-y-1">
-            <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.travelers}</label>
+          <div className="space-y-1.5">
+            <label className="text-[10px] font-bold uppercase tracking-[0.16em] text-royal/65">{text.travelers}</label>
             <div className="relative">
               <select 
                 value={form.travelers} 
                 onChange={(e) => setForm({ ...form, travelers: e.target.value })} 
-                className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors appearance-none cursor-pointer"
+                className="w-full bg-[#FAF8F5]/80 border-b border-gold/25 focus:border-gold focus:bg-white px-4 py-3.5 text-sm text-royal outline-none transition-all duration-300 appearance-none cursor-pointer rounded-md"
                 suppressHydrationWarning={true}
               >
                 <option value="1">1</option>
@@ -238,13 +238,13 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
             </div>
           </div>
 
-          <div className="space-y-1">
-            <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.experience}</label>
+          <div className="space-y-1.5">
+            <label className="text-[10px] font-bold uppercase tracking-[0.16em] text-royal/65">{text.experience}</label>
             <div className="relative">
               <select 
                 value={form.experience} 
                 onChange={(e) => setForm({ ...form, experience: e.target.value })} 
-                className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors appearance-none cursor-pointer"
+                className="w-full bg-[#FAF8F5]/80 border-b border-gold/25 focus:border-gold focus:bg-white px-4 py-3.5 text-sm text-royal outline-none transition-all duration-300 appearance-none cursor-pointer rounded-md"
                 suppressHydrationWarning={true}
               >
                 <option value="Luxury">Luxury & Palaces</option>
@@ -256,13 +256,13 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
           </div>
 
           {/* New Required Destination select dropdown */}
-          <div className="space-y-1 md:col-span-2">
-            <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.destination} *</label>
+          <div className="space-y-1.5 md:col-span-2">
+            <label className="text-[10px] font-bold uppercase tracking-[0.16em] text-royal/65">{text.destination} *</label>
             <div className="relative">
               <select 
                 value={form.destinations} 
                 onChange={(e) => setForm({ ...form, destinations: e.target.value })} 
-                className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors appearance-none cursor-pointer font-semibold"
+                className="w-full bg-[#FAF8F5]/80 border-b border-gold/25 focus:border-gold focus:bg-white px-4 py-3.5 text-sm text-royal outline-none transition-all duration-300 appearance-none cursor-pointer rounded-md font-medium"
                 required
                 suppressHydrationWarning={true}
               >
@@ -278,13 +278,13 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
 
         </div>
 
-        <div className="space-y-1">
-          <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40">{text.message}</label>
+        <div className="space-y-1.5">
+          <label className="text-[10px] font-bold uppercase tracking-[0.16em] text-royal/65">{text.message}</label>
           <textarea 
             value={form.message} 
             onChange={(e) => setForm({ ...form, message: e.target.value })} 
             rows={4} 
-            className="w-full bg-[#FAF8F5]/50 border-b border-gold/20 focus:border-gold px-4 py-3.5 text-sm text-royal outline-none transition-colors resize-none font-light" 
+            className="w-full bg-[#FAF8F5]/80 border-b border-gold/25 focus:border-gold focus:bg-white px-4 py-3.5 text-sm text-royal outline-none transition-all duration-300 rounded-md resize-none font-light" 
             suppressHydrationWarning={true}
           />
         </div>
@@ -292,10 +292,10 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-gold hover:bg-gold-light text-royal text-base font-bold uppercase tracking-widest py-4.5 rounded-full transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-gold/10"
+          className="w-full bg-gold hover:bg-gold-light text-[#0A2A1E] text-[11px] font-bold uppercase tracking-[0.25em] py-5 rounded-full transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-gold/15 border border-gold"
           suppressHydrationWarning={true}
         >
-          <Send className="w-5 h-5 text-royal" />
+          <Send className="w-4 h-4 text-[#0A2A1E]" />
           <span>{loading ? text.submitting : text.submit}</span>
         </button>
       </form>

@@ -56,6 +56,7 @@ export default function ConciergeSeal({ locale }: { locale: string }) {
             <button 
               onClick={() => setIsOpen(false)}
               className="text-white/40 hover:text-white transition-colors cursor-pointer"
+              suppressHydrationWarning={true}
             >
               <X className="w-4 h-4" />
             </button>
@@ -68,6 +69,7 @@ export default function ConciergeSeal({ locale }: { locale: string }) {
             <button
               onClick={handleScrollToPlanner}
               className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-gold text-royal font-bold text-xs transition-all hover:scale-[1.02] cursor-pointer shadow-md"
+              suppressHydrationWarning={true}
             >
               <FileText className="w-4 h-4" />
               <span className="uppercase tracking-wider">Itinerary Planner</span>
@@ -125,6 +127,7 @@ export default function ConciergeSeal({ locale }: { locale: string }) {
           backgroundImage: "radial-gradient(circle, #A52A2A 0%, #7A1C1C 70%, #5C1313 100%)",
           boxShadow: "0 10px 25px -5px rgba(0,0,0,0.5), inset 0 2px 4px rgba(255,255,255,0.2)"
         }}
+        suppressHydrationWarning={true}
       >
         <span className="text-gold font-serif font-black tracking-widest text-[13px] pointer-events-none drop-shadow-md select-none">
           MH

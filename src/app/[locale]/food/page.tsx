@@ -56,27 +56,28 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
       {/* SECTION 1: Banner Header */}
-      <section className="relative h-[78vh] min-h-[540px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
+      <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
         <img 
           src="/images/indian_cuisine_feast.png" 
           alt="Indian Regional Cuisine" 
           className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns" 
           loading="eager" 
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50" />
         <div className="relative z-10 text-center text-white space-y-6 px-6 max-w-5xl">
-          <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
+          <span className="bg-[#0A2A1E]/80 border border-[#C5A862]/30 text-gold text-xs font-bold uppercase tracking-[0.25em] px-5 py-2.5 rounded-full inline-block shadow-lg">
             {text.sub}
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-none text-white font-serif">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-normal tracking-tight leading-none text-white">
             {text.title}
           </h1>
-          <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-sm md:text-base text-white/95 max-w-2xl mx-auto font-light leading-relaxed">
             {text.desc}
           </p>
         </div>
       </section>
-
+ 
       {/* SECTION 2: Regions lists */}
       <section className="max-w-7xl mx-auto px-6 py-28 space-y-24">
         {finalRegions.map((reg: string) => {
@@ -87,19 +88,19 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
             <div key={reg} className="space-y-12">
               
               {/* Region Section Header */}
-              <div className="flex items-center gap-3 border-b border-gold/15 pb-4">
+              <div className="flex items-center gap-3 border-b border-[#C5A862]/10 pb-4">
                 <Compass className="w-5 h-5 text-gold" />
-                <h2 className="text-xl font-serif font-bold text-royal tracking-wide uppercase">{reg}</h2>
+                <h2 className="text-xl font-serif font-medium text-royal tracking-wide uppercase">{reg}</h2>
                 <span className="text-[10px] text-foreground/45 ml-auto font-bold uppercase tracking-wider">
                   {regFoods.length} {text.items}
                 </span>
               </div>
-
+ 
               {/* Dishes Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {regFoods.map((food: FoodData) => (
                   <Link key={food.slug} href={`/${locale}/food/${food.slug}`} className="group block">
-                    <div className="bg-white border border-gold/10 rounded-3xl overflow-hidden shadow-lg flex flex-col h-[440px] transition-all duration-500 hover:-translate-y-2.5 hover:border-gold/25 hover:shadow-2xl">
+                    <div className="bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md flex flex-col h-[440px] transition-all duration-500 hover:-translate-y-2.5 hover:border-[#C5A862]/30 hover:shadow-xl">
                       
                       {/* Image Frame */}
                       <div className="h-56 overflow-hidden relative shrink-0">
@@ -107,20 +108,21 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
                           src={food.image} 
                           alt={food.title[locale as "en"|"es"|"pt"] || food.title.en} 
                           loading="lazy" 
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                          className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" 
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-65" />
                         <div className="absolute top-4 left-4">
-                          <span className="bg-white/95 backdrop-blur-sm text-royal text-[9px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-md">
+                          <span className="bg-white/95 backdrop-blur-sm text-royal text-[9px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-md border border-gold/5">
                             <Utensils className="w-3.5 h-3.5 text-gold" />
                             {food.category}
                           </span>
                         </div>
                       </div>
-
+ 
                       {/* Info Details Content */}
                       <div className="p-8 flex flex-col flex-grow justify-between bg-white space-y-4">
                         <div className="space-y-3">
-                          <h3 className="text-lg font-serif font-bold text-royal group-hover:text-gold transition-colors leading-snug line-clamp-1">
+                          <h3 className="text-lg font-serif font-medium text-royal group-hover:text-gold transition-colors leading-snug line-clamp-1">
                             {food.title[locale as "en"|"es"|"pt"] || food.title.en}
                           </h3>
                           <div className="flex items-center gap-1.5 text-[9px] text-gold font-bold uppercase tracking-wider">
@@ -131,19 +133,19 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
                             {food.history?.[locale as "en"|"es"|"pt"] || food.history?.en || ""}
                           </p>
                         </div>
-                        <div className="pt-4 border-t border-gold/10 flex items-center justify-between mt-auto">
-                          <span className="text-[10px] font-black uppercase tracking-wider text-gold group-hover:text-royal flex items-center gap-1 transition-colors">
+                        <div className="pt-4 border-t border-[#C5A862]/10 flex items-center justify-between mt-auto">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-gold group-hover:text-royal flex items-center gap-1 transition-colors">
                             <span>{text.cta}</span>
                             <ArrowRight className="w-3.5 h-3.5" />
                           </span>
                         </div>
                       </div>
-
+ 
                     </div>
                   </Link>
                 ))}
               </div>
-
+ 
             </div>
           );
         })}

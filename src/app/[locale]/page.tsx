@@ -314,62 +314,62 @@ export default async function HomePage({ params }: HomePageProps) {
       />
 
       {/* SECTION 1.5: Infographic Circular Stats (Screenshot 1 Theme) */}
-      <section className="bg-white py-24 border-b border-gold/10 relative overflow-hidden">
+      <section className="bg-cream py-24 border-b border-gold/10 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 justify-items-center">
             
             {/* Stat 1 */}
             <Reveal delay={50} className="text-center space-y-5">
-              <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-[#EBF5F8]/40 border border-orange-600/35 shadow-inner mx-auto">
-                <div className="absolute -inset-1 rounded-full border border-orange-600/25 scale-[1.04]" />
-                <div className="absolute bottom-4 right-1.5 w-2.5 h-2.5 rounded-full bg-orange-700/80 border border-white" />
-                <span className="text-4xl font-bold text-[#1B1B1B] font-serif">
+              <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-white border border-[#C5A862]/30 shadow-md mx-auto">
+                <div className="absolute -inset-1.5 rounded-full border border-[#C5A862]/10 scale-[1.04]" />
+                <div className="absolute bottom-4 right-2 w-3 h-3 rounded-full bg-gold border-2 border-white shadow-sm" />
+                <span className="text-4xl font-normal text-royal font-serif">
                   <StatCounter target={12} />
                 </span>
               </div>
-              <p className="text-xs uppercase tracking-wider text-royal font-bold max-w-[160px] mx-auto leading-snug">
+              <p className="text-[10px] uppercase tracking-[0.18em] text-royal/60 font-bold max-w-[160px] mx-auto leading-snug">
                 {locale === "es" ? "Años de experiencia" : locale === "pt" ? "Anos de experiência" : "Years of experience"}
               </p>
             </Reveal>
 
             {/* Stat 2 */}
             <Reveal delay={120} className="text-center space-y-5">
-              <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-[#EBF5F8]/40 border border-orange-600/35 shadow-inner mx-auto">
-                <div className="absolute -inset-1 rounded-full border border-orange-600/25 scale-[1.04]" />
-                <div className="absolute top-2 right-6 w-2.5 h-2.5 rounded-full bg-orange-700/80 border border-white" />
-                <span className="text-4xl font-bold text-[#1B1B1B] font-serif">
+              <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-white border border-[#C5A862]/30 shadow-md mx-auto">
+                <div className="absolute -inset-1.5 rounded-full border border-[#C5A862]/10 scale-[1.04]" />
+                <div className="absolute top-2 right-6.5 w-3 h-3 rounded-full bg-gold border-2 border-white shadow-sm" />
+                <span className="text-4xl font-normal text-royal font-serif">
                   <StatCounter target={97} suffix="%" />
                 </span>
               </div>
-              <p className="text-xs uppercase tracking-wider text-royal font-bold max-w-[160px] mx-auto leading-snug">
+              <p className="text-[10px] uppercase tracking-[0.18em] text-royal/60 font-bold max-w-[160px] mx-auto leading-snug">
                 {locale === "es" ? "Tasa de retención" : locale === "pt" ? "Taxa de retenção" : "Retention rate"}
               </p>
             </Reveal>
 
             {/* Stat 3 */}
             <Reveal delay={190} className="text-center space-y-5">
-              <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-[#EBF5F8]/40 border border-orange-600/35 shadow-inner mx-auto">
-                <div className="absolute -inset-1 rounded-full border border-orange-600/25 scale-[1.04]" />
-                <div className="absolute bottom-6 left-2 w-2.5 h-2.5 rounded-full bg-orange-700/80 border border-white" />
-                <span className="text-4xl font-bold text-[#1B1B1B] font-serif">
+              <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-white border border-[#C5A862]/30 shadow-md mx-auto">
+                <div className="absolute -inset-1.5 rounded-full border border-[#C5A862]/10 scale-[1.04]" />
+                <div className="absolute bottom-6.5 left-2 w-3 h-3 rounded-full bg-gold border-2 border-white shadow-sm" />
+                <span className="text-4xl font-normal text-royal font-serif">
                   <StatCounter target={8} suffix="k" />
                 </span>
               </div>
-              <p className="text-xs uppercase tracking-wider text-royal font-bold max-w-[160px] mx-auto leading-snug">
+              <p className="text-[10px] uppercase tracking-[0.18em] text-royal/60 font-bold max-w-[160px] mx-auto leading-snug">
                 {locale === "es" ? "Tour completado" : locale === "pt" ? "Tour completado" : "Tours completed"}
               </p>
             </Reveal>
 
             {/* Stat 4 */}
             <Reveal delay={260} className="text-center space-y-5">
-              <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-[#EBF5F8]/40 border border-orange-600/35 shadow-inner mx-auto">
-                <div className="absolute -inset-1 rounded-full border border-orange-600/25 scale-[1.04]" />
-                <div className="absolute top-3 right-5 w-2.5 h-2.5 rounded-full bg-orange-700/80 border border-white" />
-                <span className="text-4xl font-bold text-[#1B1B1B] font-serif">
+              <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-white border border-[#C5A862]/30 shadow-md mx-auto">
+                <div className="absolute -inset-1.5 rounded-full border border-[#C5A862]/10 scale-[1.04]" />
+                <div className="absolute top-3 right-5.5 w-3 h-3 rounded-full bg-gold border-2 border-white shadow-sm" />
+                <span className="text-4xl font-normal text-royal font-serif">
                   <StatCounter target={19} suffix="k" />
                 </span>
               </div>
-              <p className="text-xs uppercase tracking-wider text-royal font-bold max-w-[160px] mx-auto leading-snug">
+              <p className="text-[10px] uppercase tracking-[0.18em] text-royal/60 font-bold max-w-[160px] mx-auto leading-snug">
                 {locale === "es" ? "Cliente feliz" : locale === "pt" ? "Cliente feliz" : "Happy clients"}
               </p>
             </Reveal>
@@ -476,26 +476,27 @@ export default async function HomePage({ params }: HomePageProps) {
           {states.slice(0, 10).map((st: any, i: number) => (
             <Reveal key={st.slug} delay={i * 80}>
               <Link href={`/${locale}/destinations/${st.slug}`} className="group block h-full">
-                <div className="bg-white border border-gold/10 rounded-[2rem] overflow-hidden shadow-lg transition-all duration-500 hover:-translate-y-3 hover:border-gold/25 hover:shadow-2xl flex flex-col h-full">
+                <div className="bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md transition-all duration-500 hover:-translate-y-3 hover:border-[#C5A862]/30 hover:shadow-xl flex flex-col h-full">
                   <div className="h-72 overflow-hidden relative shrink-0">
-                    <img src={st.image} alt={st.title?.en} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <span className="absolute top-5 left-5 bg-royal text-gold text-[10px] uppercase tracking-wider font-bold px-4 py-2 rounded-full shadow-sm">
+                    <img src={st.image} alt={st.title?.en} className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-80" />
+                    <span className="absolute top-5 left-5 bg-royal/95 border border-gold/20 text-gold text-[9px] uppercase tracking-widest font-bold px-4 py-2 rounded-full shadow-md">
                       {st.region} India
                     </span>
                   </div>
                   {/* Padding: p-8 */}
                   <div className="p-8 space-y-4 bg-white flex flex-col flex-grow justify-between">
                     <div className="space-y-2.5">
-                      <h3 className="text-xl md:text-2xl font-bold text-royal group-hover:text-gold transition-colors">
+                      <h3 className="text-xl md:text-2xl font-serif font-medium text-royal group-hover:text-gold transition-colors">
                         {st.title?.[locale] || st.title?.en}
                       </h3>
-                      <p className="text-sm md:text-base text-foreground/55 line-clamp-3 leading-relaxed font-light">
+                      <p className="text-xs md:text-sm text-foreground/60 line-clamp-3 leading-relaxed font-light">
                         {st.tagline?.[locale] || st.tagline?.en}
                       </p>
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-gold flex items-center gap-1.5 pt-4 border-t border-gold/10 mt-auto">
+                    <span className="text-xs font-bold uppercase tracking-wider text-gold flex items-center gap-1.5 pt-4 border-t border-[#C5A862]/10 mt-auto transition-transform duration-300 group-hover:translate-x-1">
                       <span>Explore Region</span>
-                      <ArrowUpRight className="w-4 h-4" />
+                      <ArrowUpRight className="w-4 h-4 text-gold" />
                     </span>
                   </div>
                 </div>
@@ -530,16 +531,17 @@ export default async function HomePage({ params }: HomePageProps) {
           {tourPackages.slice(0, 10).map((pkg: any, i: number) => (
             <Reveal key={pkg.slug} delay={i * 80}>
               <Link href={`/${locale}/packages`} className="group block h-full">
-                <div className="bg-white border border-gold/10 rounded-[2rem] overflow-hidden shadow-lg flex flex-col h-full transition-all duration-500 hover:-translate-y-3 hover:border-gold/25 hover:shadow-2xl">
+                <div className="bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md flex flex-col h-full transition-all duration-500 hover:-translate-y-3 hover:border-[#C5A862]/30 hover:shadow-xl">
                   <div className="relative h-64 shrink-0 overflow-hidden">
-                    <img src={pkg.image} alt={pkg.title?.en} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <img src={pkg.image} alt={pkg.title?.en} className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-80" />
                     <div className="absolute top-4 left-4 flex flex-col gap-2">
-                      <span className="bg-royal text-gold text-[9px] uppercase font-bold tracking-wider px-3.5 py-1.5 rounded-full shadow-md border border-gold/10">
+                      <span className="bg-royal/95 text-gold text-[9px] uppercase font-bold tracking-widest px-3.5 py-1.5 rounded-full shadow-md border border-[#C5A862]/20">
                         {pkg.durationDays} {locale === "es" ? "Días" : locale === "pt" ? "Dias" : "Days"}
                       </span>
                     </div>
                     <div className="absolute bottom-4 left-4">
-                      <span className="bg-gold text-royal text-[8px] font-black uppercase tracking-widest px-3 py-1 rounded-md shadow-sm">
+                      <span className="bg-gold text-royal text-[8px] font-bold uppercase tracking-widest px-3 py-1 rounded-md shadow-sm">
                         {text.customizableText}
                       </span>
                     </div>
@@ -547,20 +549,20 @@ export default async function HomePage({ params }: HomePageProps) {
                   {/* Padding: p-8 */}
                   <div className="p-8 flex flex-col justify-between flex-grow bg-white space-y-6">
                     <div className="space-y-3">
-                      <h3 className="text-xl font-bold text-royal group-hover:text-gold transition-colors leading-snug">
+                      <h3 className="text-xl font-serif font-medium text-royal group-hover:text-gold transition-colors leading-snug">
                         {pkg.title?.[locale] || pkg.title?.en}
                       </h3>
-                      <p className="text-xs md:text-sm text-foreground/55 line-clamp-3 leading-relaxed font-light">
+                      <p className="text-xs md:text-sm text-foreground/60 line-clamp-3 leading-relaxed font-light">
                         {pkg.tagline?.[locale] || pkg.tagline?.en}
                       </p>
                     </div>
 
-                    <div className="pt-4 border-t border-gold/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-auto">
+                    <div className="pt-4 border-t border-[#C5A862]/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-auto">
                       <div className="flex flex-col">
                         <span className="text-[9px] uppercase tracking-wider text-foreground/45 font-bold">{locale === "es" ? "Tarifa Estándar" : "Standard Rate"}</span>
                         <span className="text-sm font-bold text-royal font-serif">{text.fromPrice}</span>
                       </div>
-                      <span className="bg-transparent hover:bg-gold border border-gold hover:border-gold text-gold hover:text-royal text-[9px] font-black uppercase tracking-wider py-2.5 px-4 rounded-full transition-all duration-300 inline-flex items-center gap-1">
+                      <span className="bg-transparent hover:bg-gold border border-gold hover:border-gold text-gold hover:text-[#0A2A1E] text-[9px] font-bold uppercase tracking-wider py-2.5 px-4 rounded-full transition-all duration-300 inline-flex items-center gap-1 shadow-sm">
                         <span>{text.exploreBtn}</span>
                         <ArrowRight className="w-3 h-3" />
                       </span>
@@ -716,19 +718,20 @@ export default async function HomePage({ params }: HomePageProps) {
             {blogs.slice(0, 6).map((post: any, i: number) => (
               <Reveal key={post.slug} delay={i * 80}>
                 <Link href={`/${locale}/blog/${post.slug}`} className="group block h-full">
-                  <div className="bg-white border border-gold/10 rounded-[2rem] overflow-hidden shadow-lg transition-all duration-500 hover:-translate-y-2 hover:border-gold/25 hover:shadow-2xl flex flex-col h-full">
-                    <div className="h-56 overflow-hidden shrink-0">
-                      <img src={post.featuredImage} alt={post.title?.en} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md transition-all duration-500 hover:-translate-y-2 hover:border-[#C5A862]/30 hover:shadow-xl flex flex-col h-full">
+                    <div className="h-56 overflow-hidden shrink-0 relative">
+                      <img src={post.featuredImage} alt={post.title?.en} className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-65" />
                     </div>
                     {/* Padding: p-8 */}
                     <div className="p-8 space-y-4 bg-white flex flex-col flex-grow justify-between">
                       <div className="space-y-2.5">
-                        <span className="text-[10px] uppercase tracking-wider font-bold text-gold block">{post.category}</span>
-                        <h3 className="text-lg font-bold text-royal group-hover:text-gold transition-colors leading-snug line-clamp-2">
+                        <span className="text-[9px] uppercase tracking-widest font-bold text-gold block">{post.category}</span>
+                        <h3 className="text-lg font-serif font-medium text-royal group-hover:text-gold transition-colors leading-snug line-clamp-2">
                           {post.title?.[locale] || post.title?.en}
                         </h3>
                       </div>
-                      <span className="text-[10px] text-foreground/45 uppercase tracking-wider block pt-4 border-t border-gold/10">
+                      <span className="text-[9px] text-foreground/50 uppercase tracking-widest block pt-4 border-t border-[#C5A862]/10">
                         {post.readingTime} Min Read &bull; By {post.author}
                       </span>
                     </div>

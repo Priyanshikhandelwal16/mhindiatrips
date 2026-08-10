@@ -1,86 +1,300 @@
 [
   {
     "slug": "essential-india-travel-tips",
-    "title": { "en": "First Time in India: 10 Essential Travel Tips", "es": "Primera Vez en la India: 10 Consejos Esenciales", "pt": "Primeira Vez na Índia: 10 Conselhos Essenciais" },
-    "excerpt": { "en": "A premium travel checklist to make your first journey across the Golden Triangle comfortable and stress-free.", "es": "Una lista de viaje premium para su primer viaje a la India.", "pt": "Uma lista de viagem premium para sua primeira viagem à Índia." },
-    "content": { "en": "Traveling to India is a sensory awakening. Opt for private chauffeur transport, stay in heritage properties, drink only bottled water, and pre-book monument entries.", "es": "Viajar a la India es un despertar sensorial. Opte por transporte privado, hoteles de palacio y agua embotellada.", "pt": "Viajar para a Índia é um despertar sensorial. Opte por transporte privado, hotéis-palácio e água engarrafada." },
+    "title": {
+      "en": "First Time in India: 10 Essential Travel Tips",
+      "es": "Primera Vez en la India: 10 Consejos",
+      "pt": "Primeira Vez na Índia: 10 Conselhos"
+    },
+    "excerpt": {
+      "en": "A premium travel checklist for your first journey.",
+      "es": "Una lista de viaje premium.",
+      "pt": "Uma lista de viagem premium."
+    },
+    "content": {
+      "en": "Traveling to India is a sensory awakening.",
+      "es": "Viajar a la India es un despertar sensorial.",
+      "pt": "Viajar para a Índia é um despertar sensorial."
+    },
     "featuredImage": "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800",
     "author": "Elena Rodriguez",
     "category": "Travel Guides",
-    "tags": ["India Guides", "Luxury Travel"],
+    "tags": [
+      "India Guides",
+      "Luxury Travel"
+    ],
     "readingTime": 6,
     "createdAt": "2026-05-12",
-    "seoTitle": { "en": "First Time India Travel Guide | MHIndiaTrips", "es": "Guía para Principiantes | MHIndiaTrips", "pt": "Guia para Iniciantes | MHIndiaTrips" },
-    "seoDescription": { "en": "Professional travel tips for India.", "es": "Consejos profesionales para India.", "pt": "Conselhos profissionais para a Índia." }
+    "seoTitle": {
+      "en": "First Time India Travel Guide | MHIndiaTrips",
+      "es": "Guía de Viaje a la India | MHIndiaTrips",
+      "pt": "Guia de Viagem para a Índia | MHIndiaTrips"
+    },
+    "seoDescription": {
+      "en": "Professional travel tips for a memorable India tour.",
+      "es": "Consejos profesionales para un viaje a la India.",
+      "pt": "Conselhos profissionais para uma viagem à Índia."
+    }
   },
   {
-    "slug": "rajasthan-royal-palaces-guide",
-    "title": { "en": "Rajasthan's Royal Palaces: A Heritage Lover's Guide", "es": "Palacios Reales de Rajastán: Guía para Amantes del Patrimonio", "pt": "Palácios Reais do Rajastão: Guia para Amantes do Patrimônio" },
-    "excerpt": { "en": "Explore the magnificent palace hotels of Rajasthan, from Udaipur's Lake Palace to Jaipur's Rambagh Palace.", "es": "Explore los magníficos hoteles-palacio de Rajastán.", "pt": "Explore os magníficos hotéis-palácio do Rajastão." },
-    "content": { "en": "Rajasthan is home to some of the world's most extraordinary heritage hotels. The Lake Palace in Udaipur floats like a white marble dream on Lake Pichola. Rambagh Palace in Jaipur offers unmatched royal luxury.", "es": "Rajastán alberga algunos de los hoteles patrimoniales más extraordinarios del mundo.", "pt": "O Rajastão abriga alguns dos mais extraordinários hotéis patrimônio do mundo." },
-    "featuredImage": "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=800",
-    "author": "MHIndiaTrips Editor",
-    "category": "Heritage",
-    "tags": ["Rajasthan", "Palaces", "Luxury"],
+    "slug": "solo-female-travel-india",
+    "title": {
+      "en": "Solo Female Travel in India: Practical Safety Guide",
+      "es": "Viajar Sola en la India: Guía Práctica de Seguridad",
+      "pt": "Viajar Sozinha na Índia: Guia Prático de Segurança"
+    },
+    "excerpt": {
+      "en": "Important considerations and safety tips for solo women travelers.",
+      "es": "Consideraciones importantes de seguridad para mujeres.",
+      "pt": "Considerações importantes de segurança para mulheres."
+    },
+    "content": {
+      "en": "Exploring India alone is incredibly empowering.",
+      "es": "Explorar la India sola es increíblemente empoderador.",
+      "pt": "Explorar a Índia sozinha é incrivelmente empoderador."
+    },
+    "featuredImage": "/images/team_anita.png",
+    "author": "Anita Sharma",
+    "category": "Safety & Tips",
+    "tags": [
+      "Solo Travel",
+      "Safety Guide"
+    ],
     "readingTime": 8,
-    "createdAt": "2026-04-20",
-    "seoTitle": { "en": "Rajasthan Palace Guide | MHIndiaTrips", "es": "Guía de Palacios | MHIndiaTrips", "pt": "Guia de Palácios | MHIndiaTrips" },
-    "seoDescription": { "en": "Guide to Rajasthan's royal palaces.", "es": "Guía de palacios de Rajastán.", "pt": "Guia dos palácios do Rajastão." }
+    "createdAt": "2026-06-01",
+    "seoTitle": {
+      "en": "Solo Female Travel Safety Guide India",
+      "es": "Guía de Seguridad para Viajar Sola",
+      "pt": "Guia de Segurança para Viajar Sozinha"
+    },
+    "seoDescription": {
+      "en": "Expert concierge tips and recommendations for women travel.",
+      "es": "Consejos de expertos para mujeres que viajan solas.",
+      "pt": "Conselhos de peritos para mulheres que viajam sozinhas."
+    }
   },
   {
-    "slug": "kerala-backwater-houseboat-experience",
-    "title": { "en": "Kerala Houseboats: Floating Through Paradise", "es": "Casas Flotantes de Kerala: Navegando por el Paraíso", "pt": "Casas Flutuantes de Kerala: Navegando pelo Paraíso" },
-    "excerpt": { "en": "Discover the magic of drifting along Kerala's emerald backwaters on a luxury kettuvallam houseboat.", "es": "Descubra la magia de navegar por los canales esmeralda de Kerala.", "pt": "Descubra a magia de navegar pelos canais esmeralda de Kerala." },
-    "content": { "en": "Kerala's backwaters are a network of interconnected canals, rivers, and lakes stretching over 900 km. A luxury houseboat cruise is the ultimate way to experience this tropical paradise.", "es": "Los canales de Kerala son una red de ríos y lagos que se extienden 900 km. Un crucero en casa flotante de lujo es la forma definitiva.", "pt": "Os canais de Kerala são uma rede de rios e lagos que se estendem por 900 km. Um cruzeiro em casa flutuante de luxo é a forma definitiva." },
-    "featuredImage": "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=800",
-    "author": "Priya Nair",
-    "category": "Experiences",
-    "tags": ["Kerala", "Houseboats", "Nature"],
+    "slug": "best-time-to-visit-india",
+    "title": {
+      "en": "Best Time to Visit India: Region-by-Region Guide",
+      "es": "Mejor Época para Visitar la India: Guía Regional",
+      "pt": "Melhor Época para Visitar a Índia: Guia Regional"
+    },
+    "excerpt": {
+      "en": "Choose the perfect month for your custom private tour.",
+      "es": "Elija el mes perfecto para su recorrido privado.",
+      "pt": "Escolha o mês perfeito para a sua viagem privada."
+    },
+    "content": {
+      "en": "With varying climates, timing is everything.",
+      "es": "Con climas tan diversos, el tiempo lo es todo.",
+      "pt": "Com climas tão diversos, o tempo é tudo."
+    },
+    "featuredImage": "/images/taj_mahal_sunrise.png",
+    "author": "Priya Patel",
+    "category": "Planning Guides",
+    "tags": [
+      "Weather Guide",
+      "Seasons"
+    ],
     "readingTime": 5,
-    "createdAt": "2026-03-18",
-    "seoTitle": { "en": "Kerala Houseboat Guide | MHIndiaTrips", "es": "Guía de Casas Flotantes | MHIndiaTrips", "pt": "Guia de Casas Flutuantes | MHIndiaTrips" },
-    "seoDescription": { "en": "Kerala houseboat experience guide.", "es": "Guía de experiencia en casas flotantes.", "pt": "Guia de experiência em casas flutuantes." }
+    "createdAt": "2026-06-15",
+    "seoTitle": {
+      "en": "When to Visit India | Best Weather Guides",
+      "es": "Cuándo viajar a la India | Mejor Clima",
+      "pt": "Quando viajar para a Índia | Melhor Clima"
+    },
+    "seoDescription": {
+      "en": "Learn about monsoon, winter, and summer tourism months.",
+      "es": "Infórmese sobre los meses de monzón, invierno y verano.",
+      "pt": "Informe-se sobre os meses de monção, inverno e verão."
+    }
   },
   {
-    "slug": "best-street-food-delhi",
-    "title": { "en": "Delhi Street Food: A Culinary Walking Tour", "es": "Comida Callejera de Delhi: Un Tour Culinario a Pie", "pt": "Comida de Rua de Deli: Um Tour Culinário a Pé" },
-    "excerpt": { "en": "From Chandni Chowk's legendary parathas to Old Delhi's kebab lanes, discover India's most vibrant food scene.", "es": "De los legendarios parathas de Chandni Chowk a los kebabs de Old Delhi.", "pt": "Dos lendários parathas de Chandni Chowk aos kebabs de Old Delhi." },
-    "content": { "en": "Delhi's street food scene is unmatched. Begin at Paranthe Wali Gali for stuffed parathas, move to Karim's for Mughlai kebabs, and end at Natraj for the best chaat in the city.", "es": "La escena de comida callejera de Delhi es incomparable. Comience en Paranthe Wali Gali y continúe hacia Karim's.", "pt": "A cena de comida de rua de Deli é incomparável. Comece em Paranthe Wali Gali e continue para Karim's." },
-    "featuredImage": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=800",
-    "author": "Rahul Sharma",
-    "category": "Indian Food",
-    "tags": ["Delhi", "Street Food", "Culinary"],
+    "slug": "understanding-indian-culture",
+    "title": {
+      "en": "Understanding Indian Culture & Traditions",
+      "es": "Entendiendo la Cultura y Tradiciones de la India",
+      "pt": "Entendendo a Cultura e Tradições da Índia"
+    },
+    "excerpt": {
+      "en": "A guide to local etiquette, dress codes, and greetings.",
+      "es": "Una guía de etiqueta local, vestimenta y saludos.",
+      "pt": "Um guia de etiqueta local, vestimentas e saudações."
+    },
+    "content": {
+      "en": "India's culture is a tapestry of deep heritage.",
+      "es": "La cultura de la India es un tapiz de herencia profunda.",
+      "pt": "A cultura da Índia é uma tapeçaria de herança profunda."
+    },
+    "featuredImage": "/images/varanasi_ghats_aarti.png",
+    "author": "Rajesh Kumar",
+    "category": "Culture & Arts",
+    "tags": [
+      "Culture",
+      "Etiquette"
+    ],
     "readingTime": 7,
-    "createdAt": "2026-02-28",
-    "seoTitle": { "en": "Delhi Street Food Guide | MHIndiaTrips", "es": "Guía de Comida Callejera | MHIndiaTrips", "pt": "Guia de Comida de Rua | MHIndiaTrips" },
-    "seoDescription": { "en": "Delhi street food walking tour guide.", "es": "Guía de tour culinario por Delhi.", "pt": "Guia de tour culinário por Deli." }
+    "createdAt": "2026-07-02",
+    "seoTitle": {
+      "en": "India Cultural Etiquette Travel Guide",
+      "es": "Guía de Etiqueta Cultural en la India",
+      "pt": "Guia de Etiqueta Cultural na Índia"
+    },
+    "seoDescription": {
+      "en": "Essential cultural rules for international tourists.",
+      "es": "Reglas culturales esenciales para turistas internacionales.",
+      "pt": "Regras culturais essenciais para turistas internacionais."
+    }
   },
   {
-    "slug": "spiritual-varanasi-ganga-aarti",
-    "title": { "en": "Varanasi's Ganga Aarti: A Spiritual Awakening", "es": "Ganga Aarti en Varanasi: Un Despertar Espiritual", "pt": "Ganga Aarti em Varanasi: Um Despertar Espiritual" },
-    "excerpt": { "en": "Witness the ancient fire ceremony on the sacred ghats of Varanasi as thousands gather at dusk.", "es": "Presencie la antigua ceremonia del fuego en los ghats sagrados de Varanasi.", "pt": "Presencie a antiga cerimônia do fogo nos ghats sagrados de Varanasi." },
-    "content": { "en": "Every evening at dusk, the ghats of Varanasi come alive with the mesmerizing Ganga Aarti ceremony. Priests perform elaborate fire rituals while chanting ancient Sanskrit hymns.", "es": "Cada atardecer, los ghats de Varanasi cobran vida con la ceremonia Ganga Aarti.", "pt": "Todas as noites ao entardecer, os ghats de Varanasi ganham vida com a cerimônia Ganga Aarti." },
-    "featuredImage": "/images/varanasi-aarti.jpg",
-    "author": "MHIndiaTrips Editor",
-    "category": "Spirituality",
-    "tags": ["Varanasi", "Spirituality", "Culture"],
-    "readingTime": 5,
-    "createdAt": "2026-01-15",
-    "seoTitle": { "en": "Varanasi Ganga Aarti Guide | MHIndiaTrips", "es": "Guía Ganga Aarti | MHIndiaTrips", "pt": "Guia Ganga Aarti | MHIndiaTrips" },
-    "seoDescription": { "en": "Varanasi Ganga Aarti spiritual experience.", "es": "Experiencia espiritual Ganga Aarti.", "pt": "Experiência espiritual Ganga Aarti." }
+    "slug": "south-vs-north-india",
+    "title": {
+      "en": "North vs South India: Differences in Experience",
+      "es": "Norte vs Sur de la India: Diferencias",
+      "pt": "Norte vs Sul da Índia: Diferenças"
+    },
+    "excerpt": {
+      "en": "Compare the landscapes, food, and culture of the two regions.",
+      "es": "Compare los paisajes, comida y cultura de ambas regiones.",
+      "pt": "Compare as paisagens, comida e cultura de ambas as regiões."
+    },
+    "content": {
+      "en": "Choosing between North and South India is a delightful dilemma.",
+      "es": "Elegir entre el norte y el sur de la India es un dilema encantador.",
+      "pt": "Escolher entre o norte e o sul da Índia é um dilema adorável."
+    },
+    "featuredImage": "/images/kerala 3.jpg",
+    "author": "Elena Rodriguez",
+    "category": "Travel Guides",
+    "tags": [
+      "North India",
+      "South India"
+    ],
+    "readingTime": 9,
+    "createdAt": "2026-07-20",
+    "seoTitle": {
+      "en": "North vs South India Travel Comparison Guide",
+      "es": "Comparación de Viaje: Norte vs Sur",
+      "pt": "Comparação de Viagem: Norte vs Sul"
+    },
+    "seoDescription": {
+      "en": "Find out which region fits your travel dreams.",
+      "es": "Descubra qué región se adapta a sus sueños de viaje.",
+      "pt": "Descubra qual região se adapta aos seus sonhos de viagem."
+    }
   },
   {
-    "slug": "wildlife-safari-ranthambore-tiger",
-    "title": { "en": "Ranthambore Tiger Safari: Into the Wild", "es": "Safari del Tigre en Ranthambore: En la Naturaleza", "pt": "Safari do Tigre em Ranthambore: Na Natureza" },
-    "excerpt": { "en": "Track the majestic Royal Bengal Tiger through the ancient fort ruins of Ranthambore National Park.", "es": "Rastree al majestuoso tigre real de Bengala en el Parque Nacional de Ranthambore.", "pt": "Rastreie o majestoso tigre real de Bengala no Parque Nacional de Ranthambore." },
-    "content": { "en": "Ranthambore National Park offers one of the best chances in India to spot the Royal Bengal Tiger in its natural habitat. The park's dramatic landscape of ancient ruins and dense forest makes every safari an adventure.", "es": "El Parque Nacional de Ranthambore ofrece una de las mejores oportunidades para ver al tigre de Bengala.", "pt": "O Parque Nacional de Ranthambore oferece uma das melhores oportunidades para ver o tigre de Bengala." },
-    "featuredImage": "/images/Wildlife & Tiger Safari.jpg",
-    "author": "Vikram Singh",
-    "category": "Wildlife",
-    "tags": ["Wildlife", "Tiger Safari", "Ranthambore"],
+    "slug": "luxury-trains-india",
+    "title": {
+      "en": "Luxury Trains of India: The Ultimate Railway Guides",
+      "es": "Trenes de Lujo en la India: Guía de Ferrocarriles",
+      "pt": "Trens de Luxo na Índia: Guia de Ferrovias"
+    },
+    "excerpt": {
+      "en": "Travel like a Maharaja inside palace cabins on wheels.",
+      "es": "Viaje como un Maharaja dentro de cabinas palacio.",
+      "pt": "Viaje como um Maharaja dentro de cabines palácio."
+    },
+    "content": {
+      "en": "Train travel in India can be an ultra-luxury affair.",
+      "es": "El viaje en tren en la India puede ser un asunto de ultra lujo.",
+      "pt": "A viagem de trem na Índia pode ser um caso de ultra luxo."
+    },
+    "featuredImage": "/images/luxury_palace_train.png",
+    "author": "Priya Patel",
+    "category": "Luxury Travel",
+    "tags": [
+      "Luxury Trains",
+      "Maharaja Express"
+    ],
     "readingTime": 6,
-    "createdAt": "2025-12-10",
-    "seoTitle": { "en": "Ranthambore Tiger Safari | MHIndiaTrips", "es": "Safari del Tigre | MHIndiaTrips", "pt": "Safari do Tigre | MHIndiaTrips" },
-    "seoDescription": { "en": "Ranthambore tiger safari guide.", "es": "Guía de safari de tigres.", "pt": "Guia de safari de tigres." }
+    "createdAt": "2026-08-01",
+    "seoTitle": {
+      "en": "Luxury Railway Palace Trains Guide India",
+      "es": "Guía de Trenes de Lujo de la India",
+      "pt": "Guia de Trens de Luxo da Índia"
+    },
+    "seoDescription": {
+      "en": "Experience Maharajas Express and Palace on Wheels.",
+      "es": "Experimente el Maharajas Express y el Palace on Wheels.",
+      "pt": "Experimente o Maharajas Express e o Palace on Wheels."
+    }
+  },
+  {
+    "slug": "cultural-festivals-india-calendar",
+    "title": {
+      "en": "Festivals of India: A Cultural Calendar of Colors",
+      "es": "Festivales de la India: Calendario Cultural de Colores",
+      "pt": "Festivais da Índia: Calendário Cultural de Cores"
+    },
+    "excerpt": {
+      "en": "A complete guide to experiencing Diwali, Holi, and temple festivals.",
+      "es": "Una guía completa para vivir Diwali y Holi.",
+      "pt": "Um guia completo para vivenciar Diwali e Holi."
+    },
+    "content": {
+      "en": "Indian festivals are massive celebrations of community, spirituality, and art.",
+      "es": "Los festivales indios son enormes celebraciones de espiritualidad.",
+      "pt": "Os festivais indianos são grandes celebrações de espiritualidade."
+    },
+    "featuredImage": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=800",
+    "author": "Rajesh Kumar",
+    "category": "Cultural Guides",
+    "tags": [
+      "Festivals",
+      "Diwali",
+      "Holi"
+    ],
+    "readingTime": 7,
+    "createdAt": "2026-08-05",
+    "seoTitle": {
+      "en": "India Festivals Calendar & Travel Tips",
+      "es": "Calendario de Festivales de la India",
+      "pt": "Calendário de Festivais da Índia"
+    },
+    "seoDescription": {
+      "en": "Explore cultural holidays and regional rituals in India.",
+      "es": "Explore las fiestas culturales en la India.",
+      "pt": "Explore os feriados culturais na Índia."
+    }
+  },
+  {
+    "slug": "top-luxury-palace-hotels",
+    "title": {
+      "en": "Top 5 Luxury Palace Hotels in India for Royalty Stays",
+      "es": "Los 5 Mejores Hoteles Palacio de Lujo en India",
+      "pt": "Os 5 Melhores Hotéis Palácio de Luxo na Índia"
+    },
+    "excerpt": {
+      "en": "Live like a King inside authentic Taj and Oberoi heritage properties.",
+      "es": "Viva como un rey en auténticos palacios reales.",
+      "pt": "Viva como um rey en auténticos palacios reales."
+    },
+    "content": {
+      "en": "India has masterfully restored medieval forts and royal residences into hotels.",
+      "es": "La India ha restaurado fortalezas y residencias reales.",
+      "pt": "A Índia restaurou fortalezas e residências reais."
+    },
+    "featuredImage": "/images/rajasthan_fort_sunset.png",
+    "author": "Elena Rodriguez",
+    "category": "Luxury Travel",
+    "tags": [
+      "Hotels",
+      "Heritage Palace",
+      "Taj Hotels"
+    ],
+    "readingTime": 5,
+    "createdAt": "2026-08-09",
+    "seoTitle": {
+      "en": "Best Heritage Palace Hotels in India | MHIndiaTrips",
+      "es": "Mejores Hoteles Palacio en India",
+      "pt": "Melhores Hotéis Palácio na Índia"
+    },
+    "seoDescription": {
+      "en": "Stay in Taj Lake Palace, Rambagh Palace, and Umaid Bhawan.",
+      "es": "Alójese en Taj Lake Palace y Rambagh Palace.",
+      "pt": "Hospede-se no Taj Lake Palace e Rambagh Palace."
+    }
   }
 ]

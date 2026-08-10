@@ -273,6 +273,38 @@ export const statesData: StateData[] = [
     travelTips: [],
     faqs: [],
     cities: [createMockCity("maharashtra", "mumbai", "Mumbai", "Mumbai", "Mumbai", "City of Dreams & Gateway of India", "/images/maharashtra.jpg")]
+  },
+  {
+    slug: "madhya-pradesh",
+    title: { en: "Madhya Pradesh", es: "Madhya Pradesh", pt: "Madhya Pradesh" },
+    tagline: { en: "The Heart of India, Wildlife Tigers & Khajuraho Temples", es: "El Corazón de la India, Tigres de Bengala y Templos de Khajuraho", pt: "O Coração da Índia, Tigres de Bengala e Templos de Khajuraho" },
+    region: "Central",
+    image: "/images/madhya pradesh.jpg",
+    gallery: [],
+    description: { en: "Central India's heartland, featuring massive tiger reserves and legendary UNESCO heritage temples.", es: "El corazón de la India central, que cuenta con reservas de tigres y templos históricos de la UNESCO.", pt: "O coração da Índia central, com reservas de tigres e templos históricos da UNESCO." },
+    history: { en: "Ruled by Chandela dynasty and Maurya empires.", es: "Gobernado por la dinastía Chandela y los imperios Maurya.", pt: "Governado pela dinastia Chandela e os impérios Maurya." },
+    culture: { en: "Tribal arts, ancient stone sculptures, and heritage music festivals.", es: "Arte tribal, antiguas esculturas de piedra y festivales de música.", pt: "Arte tribal, antiga escultura de pedra e festivais de música." },
+    localFood: { en: "Poha, Bhutte ka Kees, and Mawa Bati.", es: "Poha y Bhutte ka Kees tradicional.", pt: "Poha e Bhutte ka Kees tradicional." },
+    bestTime: { en: "October to April.", es: "De octubre a abril.", pt: "De outubro a abril." },
+    travelTips: [],
+    faqs: [],
+    cities: [createMockCity("madhya-pradesh", "khajuraho", "Khajuraho", "Khajuraho", "Khajuraho", "Ancient UNESCO Erotic Sculptured Temples", "/images/madhya pradesh.jpg")]
+  },
+  {
+    slug: "tamil-nadu",
+    title: { en: "Tamil Nadu", es: "Tamil Nadu", pt: "Tamil Nadu" },
+    tagline: { en: "Dravidian Architectural Giants, Temples & Coastline", es: "Gigantes de la Arquitectura Dravidiana y Templos", pt: "Gigantes da Arquitetura Dravidiana e Templos" },
+    region: "South",
+    image: "/images/ooty.jpg",
+    gallery: [],
+    description: { en: "The home of ancient Tamil culture, towering temple gopurams, and historical shore temples.", es: "El hogar de la antigua cultura tamil, imponentes templos gopurams y playas de la costa.", pt: "O lar da antiga cultura tamil, imponentes templos gopurams e praias da costa." },
+    history: { en: "Ruled by the Chola, Chera, and Pandya dynasties for thousands of years.", es: "Gobernado por las dinastías Chola, Chera y Pandya.", pt: "Governado pelas dinastias Chola, Chera e Pandya." },
+    culture: { en: "Classical Bharatanatyam dance, Carnatic music, and silk weaving.", es: "Danza clásica Bharatanatyam y música Carnática.", pt: "Dança clássica Bharatanatyam e música Carnática." },
+    localFood: { en: "Idli, Sambhar, Chettinad Chicken, and Filter Coffee.", es: "Idli, Sambhar y Pollo Chettinad.", pt: "Idli, Sambhar e Frango Chettinad." },
+    bestTime: { en: "November to March.", es: "De noviembre a marzo.", pt: "De novembro a março." },
+    travelTips: [],
+    faqs: [],
+    cities: [createMockCity("tamil-nadu", "madurai", "Madurai", "Madurai", "Madurai", "The Athens of the East & Meenakshi Temple", "/images/ooty.jpg")]
   }
 ];
 
@@ -411,6 +443,50 @@ export const tourPackages: TourPackage[] = [
     ],
     travelTips: [],
     faqs: []
+  },
+  {
+    slug: "gujarat-heritage-safari",
+    title: { en: "Royal Gujarat & Heritage Safari", es: "Gujarat Real y Safari de Patrimonio", pt: "Gujarat Real e Safári de Patrimônio" },
+    tagline: { en: "Encounter Asiatic Lions, Rann of Kutch & Textile Arts", es: "Leones Asiáticos, el Desierto Blanco y Arte Textil", pt: "Leões Asiáticos, o Deserto Branco e Arte Têxtil" },
+    category: "Heritage Tours",
+    durationDays: 9,
+    image: "/images/gujarat.jpg",
+    gallery: [],
+    highlights: [
+      { en: "Gir Forest Asiatic Lion private safaris", es: "Safari privado de leones en el bosque de Gir", pt: "Safári privado de leões na floresta de Gir" },
+      { en: "Stay in luxury tents at White Rann of Kutch", es: "Hospedaje en carpas de lujo en el Rann de Kutch", pt: "Hospedagem em tendas de luxo no Rann de Kutch" },
+      { en: "Explore stepwells and heritage wood mansions", es: "Exploración de antiguos aljibes y mansiones", pt: "Exploração de antigos poços e mansões de madeira" }
+    ],
+    itinerary: [
+      { day: 1, title: { en: "Arrival in Ahmedabad Heritage City", es: "Llegada a Ahmedabad Ciudad de Patrimonio", pt: "Chegada a Ahmedabad Cidade de Patrimônio" }, desc: { en: "Transfer to heritage hotel, visit Sabarmati Ashram.", es: "Traslado al hotel, visita al Ashram de Sabarmati.", pt: "Traslado para o hotel, visita ao Ashram de Sabarmati." } }
+    ],
+    includedExperiences: [
+      { en: "Private local artisan textile workshops", es: "Talleres textiles con artesanos locales", pt: "Oficinas têxteis com artesãos locais" }
+    ],
+    travelTips: [],
+    faqs: []
+  },
+  {
+    slug: "ladakh-himalayan-escape",
+    title: { en: "Himalayan Escape & Scenic Ladakh Tour", es: "Escapada al Himalaya y Tour de Ladakh", pt: "Escapada ao Himalaia e Tour de Ladakh" },
+    tagline: { en: "Breathtaking Mountain Lakes & High Altitude Passes", es: "Lagos de Montaña y Hermosos Monasterios", pt: "Lagos de Montanha e Belos Mosteiros" },
+    category: "Adventure Tours",
+    durationDays: 8,
+    image: "/images/himachal pradesh.jpg",
+    gallery: [],
+    highlights: [
+      { en: "Private excursion to Pangong Tso Lake", es: "Excursión privada al lago Pangong Tso", pt: "Excursão privada ao lago Pangong Tso" },
+      { en: "Explore Nubra Valley on double-humped camels", es: "Paseo en camello por el valle de Nubra", pt: "Passeio de camelo pelo vale de Nubra" },
+      { en: "Visit ancient cliffside Thiksey Monastery", es: "Visita al monasterio histórico de Thiksey", pt: "Visita ao mosteiro histórico de Thiksey" }
+    ],
+    itinerary: [
+      { day: 1, title: { en: "Arrival in Leh Airport (3,500m)", es: "Llegada al Aeropuerto de Leh", pt: "Chegada ao Aeropuerto de Leh" }, desc: { en: "Acclimatization day at a premium resort.", es: "Día de aclimatación en resort de primera clase.", pt: "Dia de aclimatação em resort de primeira classe." } }
+    ],
+    includedExperiences: [
+      { en: "Professional mountain rescue concierge line", es: "Línea de conserje de rescate de montaña profesional", pt: "Linha de concierge de resgate de montanha profissional" }
+    ],
+    travelTips: [],
+    faqs: []
   }
 ];
 
@@ -505,6 +581,51 @@ export const foodsData: FoodData[] = [
     region: "South India",
     bestCities: [{ en: "Kochi", es: "Kochi", pt: "Kochi" }, { en: "Trivandrum", es: "Trivandrum", pt: "Trivandrum" }],
     bestRestaurants: [{ name: "Paragon Restaurant", city: "Kochi" }],
+    travelTips: [],
+    faqs: []
+  },
+  {
+    slug: "awadhi-biryani",
+    title: { en: "Awadhi Dum Biryani", es: "Biryani Dum Awadhi", pt: "Dum Biryani Awadhi" },
+    category: "Mughlai Specialty",
+    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=800",
+    gallery: [],
+    history: { en: "The royal dish created in the Nawabi kitchens of Lucknow.", es: "El plato real creado en las cocinas de Lucknow.", pt: "O prato real criado nas cozinhas de Lucknow." },
+    ingredients: [{ en: "Basmati rice", es: "Arroz basmati", pt: "Arroz basmati" }, { en: "Saffron, cardamoms, and marinated meat", es: "Azafrán, cardamomo y carne marinada", pt: "Açafrão, cardamomo e carne marinada" }],
+    origin: { en: "Lucknow, Uttar Pradesh", es: "Lucknow, Uttar Pradesh", pt: "Lucknow, Uttar Pradesh" },
+    region: "North India",
+    bestCities: [{ en: "Lucknow", es: "Lucknow", pt: "Lucknow" }],
+    bestRestaurants: [{ name: "Tunday Kababi", city: "Lucknow" }],
+    travelTips: [],
+    faqs: []
+  },
+  {
+    slug: "samosa-delight",
+    title: { en: "Classic Vegetable Samosa", es: "Samosa Vegetal Clásica", pt: "Samosa de Vegetais Clássica" },
+    category: "Indian Street Snack",
+    image: "/images/momos.jpg",
+    gallery: [],
+    history: { en: "Introduced to India during the Delhi Sultanate from Central Asia.", es: "Introducido en la India durante el Sultanato de Delhi.", pt: "Introduzido na Índia durante o Sultanato de Deli." },
+    ingredients: [{ en: "Crispy pastry wrapper", es: "Hojaldre crujiente", pt: "Massa folhada crocante" }, { en: "Spiced potato & green peas filling", es: "Relleno de papa y guisantes con especias", pt: "Recheio de batata e ervilha com especiarias" }],
+    origin: { en: "Middle East / North India", es: "Medio Oriente / Norte de la India", pt: "Médio Oriente / Norte da Índia" },
+    region: "All India",
+    bestCities: [{ en: "Mumbai", es: "Mumbai", pt: "Mumbai" }, { en: "New Delhi", es: "Nueva Delhi", pt: "Nova Deli" }],
+    bestRestaurants: [{ name: "Tewari Bros", city: "Mumbai" }],
+    travelTips: [],
+    faqs: []
+  },
+  {
+    slug: "rogan-josh",
+    title: { en: "Kashmiri Rogan Josh", es: "Rogan Josh Cachemir", pt: "Rogan Josh Caxemira" },
+    category: "Traditional Kashmiri",
+    image: "/images/laal maas.jpg",
+    gallery: [],
+    history: { en: "An authentic Persian culinary gem introduced to Kashmir by Mughals.", es: "Una auténtica joya persa introducida en Cachemira.", pt: "Uma autêntica joia persa introduzida na Caxemira." },
+    ingredients: [{ en: "Tender lamb / mutton pieces", es: "Carne tierna de cordero", pt: "Carne macia de cordeiro" }, { en: "Kashmiri red chilies, ginger & yogurt", es: "Chiles rojos, jengibre y yogur", pt: "Pimentas vermelhas, gengibre e iogurte" }],
+    origin: { en: "Kashmir Valley, India", es: "Valle de Cachemira, India", pt: "Vale de Caxemira, Índia" },
+    region: "North India",
+    bestCities: [{ en: "Srinagar", es: "Srinagar", pt: "Srinagar" }],
+    bestRestaurants: [{ name: "Mughal Darbar", city: "Srinagar" }],
     travelTips: [],
     faqs: []
   }
@@ -615,6 +736,34 @@ export const blogsData: BlogData[] = [
     createdAt: "2026-08-01",
     seoTitle: { en: "Luxury Railway Palace Trains Guide India", es: "Guía de Trenes de Lujo de la India", pt: "Guia de Trens de Luxo da Índia" },
     seoDescription: { en: "Experience Maharajas Express and Palace on Wheels.", es: "Experimente el Maharajas Express y el Palace on Wheels.", pt: "Experimente o Maharajas Express e o Palace on Wheels." }
+  },
+  {
+    slug: "cultural-festivals-india-calendar",
+    title: { en: "Festivals of India: A Cultural Calendar of Colors", es: "Festivales de la India: Calendario Cultural de Colores", pt: "Festivais da Índia: Calendário Cultural de Cores" },
+    excerpt: { en: "A complete guide to experiencing Diwali, Holi, and temple festivals.", es: "Una guía completa para vivir Diwali y Holi.", pt: "Um guia completo para vivenciar Diwali e Holi." },
+    content: { en: "Indian festivals are massive celebrations of community, spirituality, and art.", es: "Los festivales indios son enormes celebraciones de espiritualidad.", pt: "Os festivais indianos são grandes celebrações de espiritualidade." },
+    featuredImage: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=800",
+    author: "Rajesh Kumar",
+    category: "Cultural Guides",
+    tags: ["Festivals", "Diwali", "Holi"],
+    readingTime: 7,
+    createdAt: "2026-08-05",
+    seoTitle: { en: "India Festivals Calendar & Travel Tips", es: "Calendario de Festivales de la India", pt: "Calendário de Festivais da Índia" },
+    seoDescription: { en: "Explore cultural holidays and regional rituals in India.", es: "Explore las fiestas culturales en la India.", pt: "Explore os feriados culturais na Índia." }
+  },
+  {
+    slug: "top-luxury-palace-hotels",
+    title: { en: "Top 5 Luxury Palace Hotels in India for Royalty Stays", es: "Los 5 Mejores Hoteles Palacio de Lujo en India", pt: "Os 5 Melhores Hotéis Palácio de Luxo na Índia" },
+    excerpt: { en: "Live like a King inside authentic Taj and Oberoi heritage properties.", es: "Viva como un rey en auténticos palacios reales.", pt: "Viva como um rey en auténticos palacios reales." },
+    content: { en: "India has masterfully restored medieval forts and royal residences into hotels.", es: "La India ha restaurado fortalezas y residencias reales.", pt: "A Índia restaurou fortalezas e residências reais." },
+    featuredImage: "/images/rajasthan_fort_sunset.png",
+    author: "Elena Rodriguez",
+    category: "Luxury Travel",
+    tags: ["Hotels", "Heritage Palace", "Taj Hotels"],
+    readingTime: 5,
+    createdAt: "2026-08-09",
+    seoTitle: { en: "Best Heritage Palace Hotels in India | MHIndiaTrips", es: "Mejores Hoteles Palacio en India", pt: "Melhores Hotéis Palácio na Índia" },
+    seoDescription: { en: "Stay in Taj Lake Palace, Rambagh Palace, and Umaid Bhawan.", es: "Alójese en Taj Lake Palace y Rambagh Palace.", pt: "Hospede-se no Taj Lake Palace e Rambagh Palace." }
   }
 ];
 
