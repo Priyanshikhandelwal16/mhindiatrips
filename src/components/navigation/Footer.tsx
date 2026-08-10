@@ -107,7 +107,7 @@ export default function Footer({ locale }: FooterProps) {
                 width={280}
                 height={84}
                 loading="lazy"
-                className="h-14 md:h-18 w-auto brightness-0 invert opacity-95"
+                className="h-14 md:h-18 w-auto"
               />
               <p className="text-[10px] uppercase tracking-[0.3em] text-gold font-bold">
                 {labels.tagline}
