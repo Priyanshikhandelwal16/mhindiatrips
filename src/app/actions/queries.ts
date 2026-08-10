@@ -30,6 +30,10 @@ export async function getTourPackagesAction() {
   return await db.tourPackages.findMany();
 }
 
+export async function getTourPackageBySlugAction(slug: string) {
+  return await db.tourPackages.findUnique(slug);
+}
+
 export async function getTestimonialsAction() {
   return await db.testimonials.findMany();
 }

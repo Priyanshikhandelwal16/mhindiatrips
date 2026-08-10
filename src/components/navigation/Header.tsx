@@ -174,10 +174,10 @@ export default function Header({ locale }: HeaderProps) {
             <Image
               src="/images/logo-transparent.png"
               alt="MH India Trips"
-              width={220}
-              height={65}
+              width={280}
+              height={80}
               priority
-              className="h-10 md:h-12 w-auto transition-all duration-300 hover:scale-[1.01]"
+              className="h-14 md:h-16 w-auto transition-all duration-300 hover:scale-[1.01]"
             />
           </Link>
 

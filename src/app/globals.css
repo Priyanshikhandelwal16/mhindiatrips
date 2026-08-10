@@ -1134,6 +1134,112 @@ body {
   border: 1px solid rgba(28, 31, 29, 0.05);
 }
 
+/* === 3D CARD EFFECTS === */
+
+.perspective-1000 {
+  perspective: 1200px;
+}
+
+.card-3d {
+  transform-style: preserve-3d;
+  transition: 
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s ease;
+  will-change: transform;
+}
+
+.card-3d:hover {
+  transform: translateY(-12px) rotateX(2deg) rotateY(-1deg) scale(1.01);
+  box-shadow: 
+    0 30px 60px -15px rgba(0, 0, 0, 0.12),
+    0 15px 35px -10px rgba(195, 171, 133, 0.1);
+  border-color: rgba(195, 171, 133, 0.3);
+}
+
+/* 3D Image parallax tilt on hover */
+.card-3d-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-3d-tilt:hover {
+  transform: rotateY(-5deg) rotateX(3deg) translateZ(20px);
+}
+
+/* Floating shadow for 3D depth */
+.shadow-3d {
+  box-shadow: 
+    0 2px 4px rgba(0,0,0,0.02),
+    0 8px 16px rgba(0,0,0,0.04),
+    0 20px 40px rgba(0,0,0,0.06),
+    0 40px 80px rgba(0,0,0,0.04);
+  transition: box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.shadow-3d:hover {
+  box-shadow: 
+    0 4px 8px rgba(0,0,0,0.02),
+    0 12px 24px rgba(0,0,0,0.06),
+    0 30px 60px rgba(0,0,0,0.08),
+    0 50px 100px rgba(0,0,0,0.05);
+}
+
+/* Depth layers for stacked look */
+.depth-card {
+  position: relative;
+}
+
+.depth-card::before,
+.depth-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.depth-card::before {
+  background: rgba(195, 171, 133, 0.05);
+  transform: translate(6px, 6px) scale(0.98);
+  z-index: -1;
+  border: 1px solid rgba(195, 171, 133, 0.1);
+}
+
+.depth-card::after {
+  background: rgba(195, 171, 133, 0.03);
+  transform: translate(12px, 12px) scale(0.96);
+  z-index: -2;
+  border: 1px solid rgba(195, 171, 133, 0.05);
+}
+
+.depth-card:hover::before {
+  transform: translate(8px, 8px) scale(0.98);
+}
+
+.depth-card:hover::after {
+  transform: translate(16px, 16px) scale(0.96);
+}
+
+/* Premium image reveal with clip-path */
+.img-reveal-3d {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.group:hover .img-reveal-3d {
+  clip-path: polygon(2% 2%, 98% 2%, 98% 98%, 2% 98%);
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(195, 171, 133, 0.15);
+}
+
 /* === FAQ ACCORDION SMOOTH ANIMATION === */
 details[open] summary ~ * {
   animation: details-open 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;

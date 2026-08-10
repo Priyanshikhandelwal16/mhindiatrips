@@ -455,7 +455,7 @@ export default async function HomePage({ params }: HomePageProps) {
         {/* Postcard frame */}
         <Reveal direction="right" delay={200} className="relative p-4 bg-white border border-gold/15 rounded-[2rem] shadow-2xl shadow-royal/5">
           <div className="overflow-hidden rounded-2xl h-[480px]">
-            <img src="/images/rajasthan_fort_sunset.png" alt="Philosophy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+            <img src="/images/rajasthan_fort_sunset.png" alt="Philosophy" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
           </div>
           <div className="absolute -bottom-6 -right-6 bg-royal text-white p-8 rounded-2xl max-w-sm space-y-3 shadow-2xl hidden md:block border border-gold/15">
             <h4 className="font-bold text-gold text-base">Palace Heritage</h4>
@@ -526,10 +526,10 @@ export default async function HomePage({ params }: HomePageProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {states.slice(0, 6).map((st: any, i: number) => (
             <Reveal key={st.slug} delay={i * 80}>
-              <Link href={`/${locale}/destinations/${st.slug}`} className="group block h-full">
-                <div className="bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md transition-all duration-500 hover:-translate-y-3 hover:border-[#C5A862]/30 hover:shadow-xl flex flex-col h-full">
+              <Link href={`/${locale}/destinations/${st.slug}`} className="group block h-full perspective-1000">
+                <div className="card-3d bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md flex flex-col h-full">
                   <div className="h-80 overflow-hidden relative shrink-0">
-                    <img src={st.image} alt={st.title?.en} className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
+                    <img src={st.image} alt={st.title?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-90" />
                     <span className="absolute top-5 left-5 bg-royal/95 border border-gold/20 text-gold text-[9px] uppercase tracking-widest font-bold px-4 py-2 rounded-full shadow-md">
                       {st.region} India
@@ -581,10 +581,10 @@ export default async function HomePage({ params }: HomePageProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {tourPackages.slice(0, 10).map((pkg: any, i: number) => (
             <Reveal key={pkg.slug} delay={i * 80}>
-              <Link href={`/${locale}/packages`} className="group block h-full">
-                <div className="bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md flex flex-col h-full transition-all duration-500 hover:-translate-y-3 hover:border-[#C5A862]/30 hover:shadow-xl">
+              <Link href={`/${locale}/packages/${pkg.slug}`} className="group block h-full perspective-1000">
+                <div className="card-3d bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md flex flex-col h-full">
                   <div className="relative h-64 shrink-0 overflow-hidden">
-                    <img src={pkg.image} alt={pkg.title?.en} className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
+                    <img src={pkg.image} alt={pkg.title?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-80" />
                     <div className="absolute top-4 left-4 flex flex-col gap-2">
                       <span className="bg-royal/95 text-gold text-[9px] uppercase font-bold tracking-widest px-3.5 py-1.5 rounded-full shadow-md border border-[#C5A862]/20">
@@ -696,7 +696,7 @@ export default async function HomePage({ params }: HomePageProps) {
       <section className="max-w-7xl mx-auto px-6 py-32 border-b border-gold/10 space-y-16">
         <div className="bg-royal border border-gold/15 rounded-[2.5rem] overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 relative shadow-2xl">
           <div className="lg:col-span-5 h-[400px] lg:h-auto relative overflow-hidden">
-            <img src="/images/indian_cuisine_feast.png" alt="Culinary Spices" className="w-full h-full object-cover absolute inset-0 animate-kenburns" />
+            <img src="/images/indian_cuisine_feast.png" alt="Culinary Spices" loading="lazy" className="w-full h-full object-cover absolute inset-0 animate-kenburns" />
           </div>
           <div className="lg:col-span-7 p-10 md:p-20 flex flex-col justify-center space-y-8 text-white bg-royal relative">
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-gold/5 via-transparent to-transparent pointer-events-none" />
@@ -769,9 +769,9 @@ export default async function HomePage({ params }: HomePageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {blogs.slice(0, 6).map((post: any, i: number) => (
               <Reveal key={post.slug} delay={i * 80}>
-                <div className="group bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md transition-all duration-500 hover:-translate-y-2 hover:border-[#C5A862]/30 hover:shadow-xl flex flex-col h-full">
+                <div className="group card-3d bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md flex flex-col h-full perspective-1000">
                   <div className="h-56 overflow-hidden shrink-0 relative">
-                    <img src={post.featuredImage} alt={post.title?.en} className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
+                    <img src={post.featuredImage} alt={post.title?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-65" />
                     <span className="absolute top-4 left-4 bg-gold text-royal text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full">
                       {post.category}

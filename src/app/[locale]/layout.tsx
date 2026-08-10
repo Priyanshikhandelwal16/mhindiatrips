@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Header from "@/components/navigation/Header";
 import Footer from "@/components/navigation/Footer";
 import PageTransition from "@/components/common/PageTransition";
-import ConciergeSeal from "@/components/common/ConciergeSeal";
+import PageLoader from "@/components/common/PageLoader";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
@@ -32,6 +32,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className="bg-background text-foreground antialiased min-h-screen flex flex-col justify-between font-sans" suppressHydrationWarning>
+        <PageLoader />
         <Header locale={locale} />
         <main className="flex-grow flex flex-col">
           <PageTransition>
@@ -39,7 +40,6 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           </PageTransition>
         </main>
         <Footer locale={locale} />
-        <ConciergeSeal locale={locale} />
       </body>
     </html>
   );

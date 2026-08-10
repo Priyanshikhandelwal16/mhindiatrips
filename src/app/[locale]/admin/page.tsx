@@ -387,10 +387,8 @@ export default function AdminDashboard() {
           <div className="absolute top-0 left-0 w-full h-[6px] bg-[#8B2626]" />
           
           <div className="text-center space-y-2">
-            <span className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold mx-auto mb-2">
-              <Lock className="w-6 h-6" />
-            </span>
-            <h1 className="text-2xl font-bold text-royal font-serif">MH Admin Console</h1>
+            <img src="/images/logo-transparent.png" alt="MH India Trips" className="h-14 w-auto mx-auto mb-4" />
+            <h1 className="text-2xl font-bold text-royal">Admin Console</h1>
             <p className="text-xs text-foreground/50">Authorize credentials to access live CMS content databases.</p>
           </div>
 
@@ -445,13 +443,17 @@ export default function AdminDashboard() {
     <div className="min-h-screen bg-[#FCFAF6] flex font-sans text-[#1A1E1D]">
       
       {/* Sidebar Navigation */}
-      <aside className="w-64 bg-[#1A1E1D] text-white shrink-0 hidden md:flex flex-col justify-between py-8 px-6 border-r border-white/5">
-        <div className="space-y-10">
-          <Link href={`/${locale}`} className="text-xl font-bold tracking-widest text-[#FCFAF6] block">
-            MH<span className="text-gold font-semibold">ADMIN</span>
+      <aside className="w-64 bg-[#1A1E1D] text-white shrink-0 hidden md:flex flex-col justify-between py-6 px-5 border-r border-white/5 overflow-y-auto">
+        <div className="space-y-8">
+          {/* Logo */}
+          <Link href={`/${locale}`} className="block">
+            <img src="/images/logo-transparent.png" alt="MH India Trips" className="h-12 w-auto opacity-90" />
           </Link>
- 
-          <nav className="space-y-2">
+
+          {/* CMS Navigation */}
+          <div className="space-y-1">
+            <p className="text-[9px] uppercase tracking-widest text-white/30 font-bold px-4 pb-2">Content Management</p>
+          <nav className="space-y-1">
             <button
               onClick={() => {
                 setActiveTab("dashboard");
@@ -543,9 +545,51 @@ export default function AdminDashboard() {
               <span>Testimonials</span>
             </button>
           </nav>
+          </div>
+
+          {/* Website Pages Quick Access */}
+          <div className="space-y-1">
+            <p className="text-[9px] uppercase tracking-widest text-white/30 font-bold px-4 pb-2 pt-4">Website Pages</p>
+            <Link href={`/${locale}`} className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>Homepage</span>
+            </Link>
+            <Link href={`/${locale}/destinations`} className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>Destinations</span>
+            </Link>
+            <Link href={`/${locale}/packages`} className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>Tour Packages</span>
+            </Link>
+            <Link href={`/${locale}/monuments`} className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>Monuments</span>
+            </Link>
+            <Link href={`/${locale}/blog`} className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>Blog</span>
+            </Link>
+            <Link href={`/${locale}/food`} className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>Food Guide</span>
+            </Link>
+            <Link href={`/${locale}/about`} className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>About Us</span>
+            </Link>
+            <Link href={`/${locale}/contact`} className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>Contact</span>
+            </Link>
+            <Link href={`/${locale}/faq`} className="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-xs text-white/50 hover:text-white hover:bg-white/5 transition">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>FAQ</span>
+            </Link>
+          </div>
         </div>
 
-        <div className="pt-6 border-t border-white/5">
+        <div className="pt-4 border-t border-white/5 space-y-3">
           <Link
             href={`/${locale}`}
             className="text-xs text-white/60 hover:text-gold flex items-center space-x-2 transition"
@@ -553,6 +597,7 @@ export default function AdminDashboard() {
             <Compass className="w-4 h-4" />
             <span>Go to Live Website</span>
           </Link>
+          <p className="text-[9px] text-white/20 font-light">MH India Trips Admin v2.0</p>
         </div>
       </aside>
 
@@ -561,14 +606,17 @@ export default function AdminDashboard() {
         
         {/* Upper header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-10 border-b border-beige/40 pb-6">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight text-royal font-serif uppercase">
-              CMS Console: <span className="text-gold font-sans font-light">{activeTab}</span>
-            </h1>
-          <p className="text-xs text-foreground/50 font-light uppercase tracking-wider mt-1">
-            Signed in as {user.email}
-          </p>
-        </div>
+          <div className="flex items-center gap-4">
+            <img src="/images/logo-transparent.png" alt="MH India Trips" className="h-10 w-auto md:hidden" />
+            <div>
+              <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-royal uppercase">
+                CMS: <span className="text-gold font-light">{activeTab}</span>
+              </h1>
+              <p className="text-xs text-foreground/50 font-light uppercase tracking-wider mt-1">
+                Signed in as {user.email}
+              </p>
+            </div>
+          </div>
         <button 
           onClick={handleLogout}
           className="bg-red-50 hover:bg-red-100 text-red-700 font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 rounded-xl flex items-center gap-1.5 border border-red-200 transition cursor-pointer"

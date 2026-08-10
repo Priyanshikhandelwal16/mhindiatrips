@@ -98,8 +98,8 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {regionStates.map((state: any, i: number) => (
                   <Reveal key={state.slug} delay={i * 100}>
-                    <Link href={`/${locale}/destinations/${state.slug}`} className="group block h-full">
-                      <div className="bg-white border border-[#C3AB85]/10 rounded-[2rem] overflow-hidden shadow-md flex flex-col h-full transition-all duration-500 hover:-translate-y-3 hover:border-[#C3AB85]/30 hover:shadow-2xl">
+                    <Link href={`/${locale}/destinations/${state.slug}`} className="group block h-full perspective-1000">
+                      <div className="card-3d bg-white border border-[#C3AB85]/10 rounded-[2rem] overflow-hidden shadow-md flex flex-col h-full transition-all duration-500 hover:shadow-2xl">
                         <div className="h-64 md:h-72 overflow-hidden relative shrink-0">
                           <img 
                             src={state.image} 
@@ -107,19 +107,24 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
                             loading="lazy" 
                             className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" 
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                          <div className="absolute top-5 left-5 bg-[#0B0D0C]/85 backdrop-blur-sm text-[#C3AB85] text-[9px] uppercase tracking-widest font-bold px-3.5 py-1.5 rounded-full border border-[#C3AB85]/20">
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                          {/* 3D floating badge */}
+                          <div className="absolute top-5 left-5 bg-[#0B0D0C]/85 backdrop-blur-sm text-[#C3AB85] text-[9px] uppercase tracking-widest font-bold px-3.5 py-1.5 rounded-full border border-[#C3AB85]/20 shadow-lg">
                             {state.region === "Islands" ? "Islands" : state.region === "North East" ? "Northeast" : `${state.region}ern`}
                           </div>
-                          <div className="absolute bottom-5 right-5 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 border border-white/20">
-                            <ArrowRight className="w-4 h-4 text-white" />
+                          {/* Hover reveal arrow */}
+                          <div className="absolute bottom-5 right-5 w-12 h-12 rounded-full bg-[#C3AB85] flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-500 shadow-xl">
+                            <ArrowRight className="w-5 h-5 text-[#0B0D0C]" />
                           </div>
-                        </div>
-                        <div className="p-7 flex flex-col flex-grow justify-between bg-white">
-                          <div className="space-y-3">
-                            <h3 className="text-xl md:text-2xl font-bold text-[#0B0D0C] group-hover:text-[#C3AB85] transition-colors duration-300 leading-snug">
+                          {/* Bottom overlay text on image */}
+                          <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 className="text-xl md:text-2xl font-bold text-white leading-snug drop-shadow-lg">
                               {state.title[locale as "en"|"es"|"pt"] || state.title.en}
                             </h3>
+                          </div>
+                        </div>
+                        <div className="p-6 flex flex-col flex-grow justify-between bg-white">
+                          <div className="space-y-3">
                             <p className="text-xs md:text-sm text-[#0B0D0C]/55 leading-relaxed line-clamp-3 font-light">
                               {state.description?.[locale as "en"|"es"|"pt"] || state.description?.en || state.tagline?.[locale as "en"|"es"|"pt"] || state.tagline?.en || ""}
                             </p>

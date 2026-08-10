@@ -59,7 +59,7 @@ export default function PackagesFilterSection({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {filteredPackages.map((pkg: any, i: number) => (
           <Reveal key={pkg.slug} delay={i * 80}>
-            <div id={pkg.slug} className="bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md flex flex-col h-full transition-all duration-500 hover:-translate-y-2 hover:border-[#C5A862]/30 hover:shadow-xl scroll-mt-28 group">
+            <div id={pkg.slug} className="card-3d bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md flex flex-col h-full transition-all duration-500 hover:border-[#C5A862]/30 scroll-mt-28 group perspective-1000">
               
               <div className="relative h-64 overflow-hidden shrink-0">
                 <img
@@ -134,7 +134,7 @@ export default function PackagesFilterSection({
                     {text.priceOnRequest}
                   </span>
                   <Link
-                    href={`/${locale}/contact`}
+                    href={`/${locale}/packages/${pkg.slug}`}
                     className="text-xs font-bold uppercase tracking-wider text-royal hover:text-gold flex items-center gap-1 transition-colors"
                   >
                     <span>{text.inquire}</span>
