@@ -254,29 +254,6 @@ export default async function HomePage({ params }: HomePageProps) {
     }
   ];
 
-  const homepageFaqs = [
-    {
-      q: locale === "es" ? "¿Es seguro viajar a la India?" : locale === "pt" ? "É seguro viajar para a Índia?" : "Is it safe to travel to India?",
-      a: locale === "es" ? "Sí, la India es generalmente segura para turistas. Nuestros guías expertos aseguran su comodidad y seguridad en todo momento." : locale === "pt" ? "Sim, a Índia é geralmente segura para turistas. Nossos guias especialistas garantem seu conforto e segurança em todos os momentos." : "Yes, India is generally safe for tourists. Our expert guides ensure your comfort and security at all times. We carefully plan routes and accommodations for the safest experience.",
-    },
-    {
-      q: locale === "es" ? "¿Cuál es la mejor época para visitar la India?" : locale === "pt" ? "Qual é a melhor época para visitar a Índia?" : "What is the best time to visit India?",
-      a: locale === "es" ? "Octubre a marzo es ideal para la mayoría de regiones. El sur se puede visitar todo el año. Le ayudaremos a elegir según su itinerario." : locale === "pt" ? "Outubro a março é ideal para a maioria das regiões. O sul pode ser visitado durante todo o ano." : "October to March is ideal for most regions. South India can be visited year-round. We'll help you choose the perfect timing based on your itinerary and interests.",
-    },
-    {
-      q: locale === "es" ? "¿Necesito visa para la India?" : locale === "pt" ? "Preciso de visto para a Índia?" : "Do I need a visa for India?",
-      a: locale === "es" ? "Sí, la mayoría de nacionalidades necesitan visa. La e-Visa online es la opción más fácil y la procesamos en 72 horas." : locale === "pt" ? "Sim, a maioria das nacionalidades precisa de visto. O e-Visa online é a opção mais fácil." : "Yes, most nationalities require a visa. The e-Visa (online) is the easiest option and is typically processed within 72 hours. We provide guidance on the application process.",
-    },
-    {
-      q: locale === "es" ? "¿Puedo personalizar mi viaje?" : locale === "pt" ? "Posso personalizar a minha viagem?" : "Can I fully customize my travel package?",
-      a: locale === "es" ? "Por supuesto. Cada detalle se diseña desde cero de acuerdo con sus especificaciones de lujo, ritmo y preferencias de hotel." : locale === "pt" ? "Certamente. Cada detalhe é planejado a partir do zero de acordo com suas especificações de luxo, ritmo e preferências." : "Absolutely. Every detail of your journey is tailormade from scratch. You can customize the route, duration, hotel tiers (heritage palaces, luxury boutique wellness retreats), and private activities.",
-    },
-    {
-      q: locale === "es" ? "¿Cómo se gestiona el transporte?" : locale === "pt" ? "Como é gerido o transporte?" : "How is local transportation managed?",
-      a: locale === "es" ? "Proporcionamos vehículos privados de lujo con aire acondicionado y conductores altamente experimentados durante todo el viaje." : locale === "pt" ? "Oferecemos veículos de luxo particulares com ar-condicionado e motoristas experientes para todo o trajeto." : "We provide private, premium air-conditioned luxury SUVs (e.g., Toyota Innova Crysta or luxury sedans) with experienced English-speaking tourist drivers for all intercity transfers and local sightseeing.",
-    }
-  ];
-
   const dbContent = pageData?.content || {};
   const mergedLabels: Record<string, any> = {};
   for (const lang of ["en", "es", "pt"]) {
@@ -324,6 +301,19 @@ export default async function HomePage({ params }: HomePageProps) {
   const cmsFoodSection = cms.foodSection || {};
   // CMS CTA banner
   const cmsCtaBanner = cms.ctaBanner || {};
+  // CMS FAQs
+  const defaultFaqs = [
+    { q: { en: "Is it safe to travel to India?", es: "¿Es seguro viajar a la India?", pt: "É seguro viajar para a Índia?" }, a: { en: "Yes, India is generally safe for tourists. Our expert guides ensure your comfort and security at all times.", es: "Sí, la India es generalmente segura para turistas.", pt: "Sim, a Índia é geralmente segura para turistas." } },
+    { q: { en: "What is the best time to visit India?", es: "¿Cuál es la mejor época para visitar la India?", pt: "Qual é a melhor época para visitar a Índia?" }, a: { en: "October to March is ideal for most regions. South India can be visited year-round.", es: "Octubre a marzo es ideal para la mayoría de regiones.", pt: "Outubro a março é ideal para a maioria das regiões." } },
+    { q: { en: "Do I need a visa for India?", es: "¿Necesito visa para la India?", pt: "Preciso de visto para a Índia?" }, a: { en: "Yes, most nationalities require a visa. The e-Visa online is processed within 72 hours.", es: "Sí, la mayoría de nacionalidades necesitan visa.", pt: "Sim, a maioria das nacionalidades precisa de visto." } },
+    { q: { en: "Can I fully customize my travel package?", es: "¿Puedo personalizar mi viaje?", pt: "Posso personalizar a minha viagem?" }, a: { en: "Absolutely. Every detail is tailormade — route, duration, hotels, and activities.", es: "Por supuesto. Cada detalle se diseña desde cero.", pt: "Certamente. Cada detalhe é planejado a partir do zero." } },
+    { q: { en: "How is local transportation managed?", es: "¿Cómo se gestiona el transporte?", pt: "Como é gerido o transporte?" }, a: { en: "We provide private luxury SUVs with experienced English-speaking drivers for all transfers.", es: "Proporcionamos vehículos privados de lujo con conductores experimentados.", pt: "Oferecemos veículos de luxo particulares com motoristas experientes." } }
+  ];
+  const cmsFaqs = cms.faqs || [];
+  const homepageFaqs = (cmsFaqs.length > 0 ? cmsFaqs : defaultFaqs).map((f: any) => ({
+    q: f.q?.[lang] || f.q?.en || f.q,
+    a: f.a?.[lang] || f.a?.en || f.a
+  }));
 
   return (
     <div className="bg-[#FAF8F5] min-h-screen text-[#1B1B1B]" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
@@ -340,63 +330,25 @@ export default async function HomePage({ params }: HomePageProps) {
       <section className="bg-cream py-24 border-b border-gold/10 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 justify-items-center">
-            
-            {/* Stat 1 */}
-            <Reveal delay={50} className="text-center space-y-5">
-              <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-white border border-[#C5A862]/30 shadow-md mx-auto">
-                <div className="absolute -inset-1.5 rounded-full border border-[#C5A862]/10 scale-[1.04]" />
-                <div className="absolute bottom-4 right-2 w-3 h-3 rounded-full bg-gold border-2 border-white shadow-sm" />
-                <span className="text-4xl font-normal text-royal font-serif">
-                  <StatCounter target={12} />
-                </span>
-              </div>
-              <p className="text-[10px] uppercase tracking-[0.18em] text-royal/60 font-bold max-w-[160px] mx-auto leading-snug">
-                {locale === "es" ? "Años de experiencia" : locale === "pt" ? "Anos de experiência" : "Years of experience"}
-              </p>
-            </Reveal>
-
-            {/* Stat 2 */}
-            <Reveal delay={120} className="text-center space-y-5">
-              <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-white border border-[#C5A862]/30 shadow-md mx-auto">
-                <div className="absolute -inset-1.5 rounded-full border border-[#C5A862]/10 scale-[1.04]" />
-                <div className="absolute top-2 right-6.5 w-3 h-3 rounded-full bg-gold border-2 border-white shadow-sm" />
-                <span className="text-4xl font-normal text-royal font-serif">
-                  <StatCounter target={97} suffix="%" />
-                </span>
-              </div>
-              <p className="text-[10px] uppercase tracking-[0.18em] text-royal/60 font-bold max-w-[160px] mx-auto leading-snug">
-                {locale === "es" ? "Tasa de retención" : locale === "pt" ? "Taxa de retenção" : "Retention rate"}
-              </p>
-            </Reveal>
-
-            {/* Stat 3 */}
-            <Reveal delay={190} className="text-center space-y-5">
-              <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-white border border-[#C5A862]/30 shadow-md mx-auto">
-                <div className="absolute -inset-1.5 rounded-full border border-[#C5A862]/10 scale-[1.04]" />
-                <div className="absolute bottom-6.5 left-2 w-3 h-3 rounded-full bg-gold border-2 border-white shadow-sm" />
-                <span className="text-4xl font-normal text-royal font-serif">
-                  <StatCounter target={8} suffix="k" />
-                </span>
-              </div>
-              <p className="text-[10px] uppercase tracking-[0.18em] text-royal/60 font-bold max-w-[160px] mx-auto leading-snug">
-                {locale === "es" ? "Tour completado" : locale === "pt" ? "Tour completado" : "Tours completed"}
-              </p>
-            </Reveal>
-
-            {/* Stat 4 */}
-            <Reveal delay={260} className="text-center space-y-5">
-              <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-white border border-[#C5A862]/30 shadow-md mx-auto">
-                <div className="absolute -inset-1.5 rounded-full border border-[#C5A862]/10 scale-[1.04]" />
-                <div className="absolute top-3 right-5.5 w-3 h-3 rounded-full bg-gold border-2 border-white shadow-sm" />
-                <span className="text-4xl font-normal text-royal font-serif">
-                  <StatCounter target={19} suffix="k" />
-                </span>
-              </div>
-              <p className="text-[10px] uppercase tracking-[0.18em] text-royal/60 font-bold max-w-[160px] mx-auto leading-snug">
-                {locale === "es" ? "Cliente feliz" : locale === "pt" ? "Cliente feliz" : "Happy clients"}
-              </p>
-            </Reveal>
-
+            {(cmsStats.length > 0 ? cmsStats : [
+              { value: 12, suffix: "", label: { en: "Years of experience", es: "Años de experiencia", pt: "Anos de experiência" } },
+              { value: 97, suffix: "%", label: { en: "Retention rate", es: "Tasa de retención", pt: "Taxa de retenção" } },
+              { value: 8, suffix: "k", label: { en: "Tours completed", es: "Tour completado", pt: "Tour completado" } },
+              { value: 19, suffix: "k", label: { en: "Happy clients", es: "Cliente feliz", pt: "Cliente feliz" } }
+            ]).map((stat: any, i: number) => (
+              <Reveal key={i} delay={50 + i * 70} className="text-center space-y-5">
+                <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-white border border-[#C5A862]/30 shadow-md mx-auto">
+                  <div className="absolute -inset-1.5 rounded-full border border-[#C5A862]/10 scale-[1.04]" />
+                  <div className="absolute bottom-4 right-2 w-3 h-3 rounded-full bg-gold border-2 border-white shadow-sm" />
+                  <span className="text-4xl font-normal text-royal font-serif">
+                    <StatCounter target={stat.value} suffix={stat.suffix || ""} />
+                  </span>
+                </div>
+                <p className="text-[10px] uppercase tracking-[0.18em] text-royal/60 font-bold max-w-[160px] mx-auto leading-snug">
+                  {stat.label?.[lang] || stat.label?.en || stat.label}
+                </p>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -430,7 +382,7 @@ export default async function HomePage({ params }: HomePageProps) {
         {/* Postcard frame */}
         <Reveal direction="right" delay={200} className="relative p-4 bg-white border border-gold/15 shadow-2xl shadow-royal/5">
           <div className="overflow-hidden h-[480px]">
-            <img src="/images/rajasthan_fort_sunset.png" alt="Philosophy" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+            <img src={cmsPhilosophy.image || "/images/rajasthan_fort_sunset.png"} alt="Philosophy" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
           </div>
           <div className="absolute -bottom-6 -right-6 bg-royal text-white p-8 max-w-sm space-y-3 shadow-2xl hidden md:block border border-gold/15">
             <h4 className="font-bold text-gold text-base">Palace Heritage</h4>
@@ -679,7 +631,7 @@ export default async function HomePage({ params }: HomePageProps) {
       <section className="max-w-7xl mx-auto px-6 py-32 border-b border-gold/10 space-y-16">
         <div className="bg-royal border border-gold/15 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 relative shadow-2xl">
           <div className="lg:col-span-5 h-[400px] lg:h-auto relative overflow-hidden">
-            <img src="/images/indian_cuisine_feast.png" alt="Culinary Spices" loading="lazy" className="w-full h-full object-cover absolute inset-0 animate-kenburns" />
+            <img src={cmsFoodSection.image || "/images/indian_cuisine_feast.png"} alt="Culinary Spices" loading="lazy" className="w-full h-full object-cover absolute inset-0 animate-kenburns" />
           </div>
           <div className="lg:col-span-7 p-10 md:p-20 flex flex-col justify-center space-y-8 text-white bg-royal relative">
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-gold/5 via-transparent to-transparent pointer-events-none" />
@@ -724,7 +676,7 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
 
         <div className="space-y-6">
-          {homepageFaqs.map((f, i) => (
+          {homepageFaqs.map((f: any, i: number) => (
             <details key={i} className="group border-b border-gold/10 pb-6" open={i === 0}>
               <summary className="flex justify-between items-center font-bold text-royal cursor-pointer list-none text-lg md:text-xl">
                 <span>{f.q}</span>

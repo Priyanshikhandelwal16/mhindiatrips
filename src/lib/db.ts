@@ -150,7 +150,14 @@ const defaultSystemPages = [
         title: { en: "Begin Your Private Passage", es: "Comience Su Viaje Privado", pt: "Comece Sua Viagem Privada" },
         subtitle: { en: "Speak to a luxury travel advisor to draft your tailored itinerary.", es: "Hable con un asesor de viajes de lujo.", pt: "Fale com um consultor de viagens de luxo." },
         btnText: { en: "Inquire Now", es: "Planificar Ahora", pt: "Planejar Agora" }
-      }
+      },
+      faqs: [
+        { q: { en: "Is it safe to travel to India?", es: "¿Es seguro viajar a la India?", pt: "É seguro viajar para a Índia?" }, a: { en: "Yes, India is generally safe for tourists. Our expert guides ensure your comfort and security at all times.", es: "Sí, generalmente segura para turistas.", pt: "Sim, geralmente segura para turistas." } },
+        { q: { en: "What is the best time to visit India?", es: "¿Cuál es la mejor época?", pt: "Qual é a melhor época?" }, a: { en: "October to March is ideal for most regions. South India can be visited year-round.", es: "Octubre a marzo es ideal.", pt: "Outubro a março é ideal." } },
+        { q: { en: "Do I need a visa for India?", es: "¿Necesito visa?", pt: "Preciso de visto?" }, a: { en: "Yes, most nationalities require a visa. The e-Visa online is processed within 72 hours.", es: "Sí, la mayoría necesitan visa.", pt: "Sim, a maioria precisa de visto." } },
+        { q: { en: "Can I customize my travel package?", es: "¿Puedo personalizar mi viaje?", pt: "Posso personalizar?" }, a: { en: "Absolutely. Every detail is tailormade — route, duration, hotels, and activities.", es: "Por supuesto, todo se personaliza.", pt: "Certamente, tudo é personalizado." } },
+        { q: { en: "How is local transportation managed?", es: "¿Cómo es el transporte?", pt: "Como é o transporte?" }, a: { en: "We provide private luxury SUVs with experienced English-speaking drivers.", es: "Vehículos privados de lujo con conductores.", pt: "Veículos de luxo com motoristas." } }
+      ]
     }
   },
   {
