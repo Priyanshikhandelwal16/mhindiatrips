@@ -795,6 +795,39 @@ body {
   }
 }
 
+/* === RESPONSIVE OVERFLOW FIXES === */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+@media (max-width: 768px) {
+  /* Prevent horizontal scroll from any oversized elements */
+  .max-w-7xl, .max-w-5xl, .max-w-4xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Fix stat circles on mobile */
+  .relative.w-44.h-44 {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small screen fixes */
+  h1 {
+    font-size: 1.75rem !important;
+    line-height: 1.15 !important;
+  }
+  
+  .editorial-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 /* === UNIQUE TRAVEL-THEMED ANIMATIONS === */
 
 /* Slow spin for compass rose */

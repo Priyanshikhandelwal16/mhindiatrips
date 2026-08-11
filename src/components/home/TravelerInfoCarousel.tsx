@@ -41,7 +41,7 @@ export default function TravelerInfoCarousel({ locale }: TravelerInfoCarouselPro
       icon: Briefcase,
       title: { en: "Visa & Entry Requirements", es: "Visa y Requisitos de Entrada", pt: "Visto e Requisitos de Entrada" },
       desc: { en: "e-Visa applications, processing time, and what documentation you need for a seamless India entry.", es: "Solicitudes de e-Visa, tiempo de procesamiento y documentación necesaria.", pt: "Solicitações de e-Visto, tempo de processamento e documentação necessária." },
-      path: "/faq#questions",
+      path: "/travel-info/visa-entry-requirements",
       tag: { en: "Visa Info", es: "Visado", pt: "Visto" }
     },
     {
@@ -50,7 +50,7 @@ export default function TravelerInfoCarousel({ locale }: TravelerInfoCarouselPro
       icon: Clock,
       title: { en: "Best Time to Visit & Climate", es: "Mejor Época para Visitar", pt: "Melhor Época para Visitar" },
       desc: { en: "October to March is prime season for heritage travel. Understand monsoons, temperatures, and region-specific advice.", es: "De octubre a marzo es la temporada principal. Comprende monzones y climas regionales.", pt: "De outubro a março é a temporada principal. Entenda monções e climas regionais." },
-      path: "/faq#best-time",
+      path: "/travel-info/best-time-climate",
       tag: { en: "Travel Season", es: "Temporada", pt: "Temporada" }
     },
     {
@@ -59,7 +59,7 @@ export default function TravelerInfoCarousel({ locale }: TravelerInfoCarouselPro
       icon: Heart,
       title: { en: "Solo Female Travel Safety", es: "Mujer Viajando Sola por India", pt: "Mulher Viajando Sozinha na Índia" },
       desc: { en: "India is welcoming and safe. Our private guides, verified drivers, and 24/7 concierge ensure complete safety for solo women.", es: "La India es acogedora. Nuestros guías privados y conserjería 24/7 garantizan seguridad total.", pt: "A Índia é acolhedora. Nossos guias privados e concierge 24/7 garantem segurança total." },
-      path: "/faq#solo-female",
+      path: "/travel-info/solo-female-travel",
       tag: { en: "Safety Guide", es: "Seguridad", pt: "Segurança" }
     },
     {
@@ -68,7 +68,7 @@ export default function TravelerInfoCarousel({ locale }: TravelerInfoCarouselPro
       icon: Shield,
       title: { en: "Vaccinations & Health Advice", es: "Vacunas y Salud en la India", pt: "Vacinação e Saúde na Índia" },
       desc: { en: "Recommended vaccinations, medicines to carry, and how to stay healthy on your private India journey.", es: "Vacunas recomendadas, medicamentos y cómo mantenerse saludable en la India.", pt: "Vacinas recomendadas, medicamentos e como se manter saudável na Índia." },
-      path: "/faq#health",
+      path: "/travel-info/vaccinations-health",
       tag: { en: "Health Guide", es: "Salud", pt: "Saúde" }
     },
     {
@@ -77,7 +77,7 @@ export default function TravelerInfoCarousel({ locale }: TravelerInfoCarouselPro
       icon: Leaf,
       title: { en: "Packing List & Currency Tips", es: "Lista de Equipaje y Moneda", pt: "Lista de Mala e Moeda" },
       desc: { en: "What to pack for each India season, INR currency exchange tips, and best cards to use across the regions.", es: "Qué empacar por temporada, cambio de rupias y mejores tarjetas para usar.", pt: "O que empacotar por estação, câmbio de rúpias e melhores cartões para usar." },
-      path: "/faq#packing",
+      path: "/travel-info/packing-currency",
       tag: { en: "Packing", es: "Equipaje", pt: "Bagagem" }
     },
     {

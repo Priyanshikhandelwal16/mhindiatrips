@@ -82,13 +82,13 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/55" />
 
-          {/* Content (Centered vertically and horizontally) */}
-          <div className="relative z-10 h-full flex items-center justify-center">
-            <div className="max-w-5xl mx-auto text-center px-6 w-full flex flex-col items-center">
-              <div className="space-y-6 text-white text-center flex flex-col items-center max-w-4xl">
+          {/* Content (Left aligned) */}
+          <div className="relative z-10 h-full flex items-center">
+            <div className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16">
+              <div className="space-y-5 text-white max-w-2xl">
                 
                 {/* Location Badge */}
-                <div className="inline-block animate-fade-in">
+                <div className="animate-fade-in">
                   <span className="inline-flex items-center gap-2 bg-[#0A2A1E]/60 backdrop-blur-xl border border-[#C5A862]/30 rounded-full px-5 py-2 text-[10px] uppercase tracking-[0.25em] font-semibold text-white/95 shadow-lg">
                     <MapPin className="w-3.5 h-3.5 text-gold animate-pulse" />
                     <span>{slide.location}</span>
@@ -97,33 +97,33 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
 
                 {/* Subtitle */}
                 {slide.sub && (
-                  <p className="text-[11px] uppercase tracking-[0.22em] text-gold font-bold text-center block">
+                  <p className="text-[11px] uppercase tracking-[0.22em] text-gold font-bold block">
                     {slide.sub}
                   </p>
                 )}
 
                 {/* Title */}
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-bold tracking-tight leading-[1.05] text-center max-w-4xl" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4.5rem] font-bold tracking-tight leading-[1.08]" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
                   {slide.title}
                 </h1>
 
                 {/* Description */}
-                <p className="text-sm md:text-base lg:text-lg text-white/95 max-w-2xl leading-relaxed font-light text-center">
+                <p className="text-sm md:text-base lg:text-lg text-white/90 max-w-xl leading-relaxed font-light">
                   {slide.desc}
                 </p>
 
-                {/* CTAs - per slide if available, or global fallback */}
-                <div className="flex flex-wrap justify-center gap-4 pt-6">
+                {/* CTAs */}
+                <div className="flex flex-wrap gap-3 pt-4">
                   <Link
                     href={`/${locale}${(slide as any).cta1Link || "/destinations"}`}
-                    className="group bg-gold hover:bg-gold-light text-[#0A2A1E] text-[11px] font-bold uppercase tracking-wider py-4 px-9 rounded-full transition-all duration-400 shadow-lg shadow-gold/20 hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center gap-2 border border-gold"
+                    className="group bg-gold hover:bg-gold-light text-[#0A2A1E] text-[11px] font-bold uppercase tracking-wider py-4 px-8 rounded-full transition-all duration-400 shadow-lg shadow-gold/20 hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center gap-2 border border-gold"
                   >
                     <span>{(slide as any).cta1Text || ctaText}</span>
                     <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform text-[#0A2A1E]" />
                   </Link>
                   <Link
                     href={`/${locale}${(slide as any).cta2Link || "#inquire-now"}`}
-                    className="bg-white/10 hover:bg-white/20 backdrop-blur-xl text-white text-[11px] font-bold uppercase tracking-wider py-4 px-9 rounded-full transition-all duration-400 border border-white/25 hover:border-white/50"
+                    className="bg-white/10 hover:bg-white/20 backdrop-blur-xl text-white text-[11px] font-bold uppercase tracking-wider py-4 px-8 rounded-full transition-all duration-400 border border-white/25 hover:border-white/50"
                   >
                     {(slide as any).cta2Text || inquireCTA}
                   </Link>

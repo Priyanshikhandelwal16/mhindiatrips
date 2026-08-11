@@ -7,20 +7,18 @@ export default function PageLoader() {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // Wait for page to fully load
+    // Immediately start fading out once page is interactive
     const handleLoad = () => {
-      setTimeout(() => {
-        setFadeOut(true);
-        setTimeout(() => setLoading(false), 600);
-      }, 800);
+      setFadeOut(true);
+      setTimeout(() => setLoading(false), 300);
     };
 
     if (document.readyState === "complete") {
       handleLoad();
     } else {
       window.addEventListener("load", handleLoad);
-      // Fallback: hide loader after 3s max
-      const fallback = setTimeout(handleLoad, 3000);
+      // Fallback: hide loader after 1.2s max
+      const fallback = setTimeout(handleLoad, 1200);
       return () => {
         window.removeEventListener("load", handleLoad);
         clearTimeout(fallback);
@@ -32,7 +30,7 @@ export default function PageLoader() {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#FAF8F5] transition-opacity duration-600 ${
+      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#FAF8F5] transition-opacity duration-300 ${
         fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >

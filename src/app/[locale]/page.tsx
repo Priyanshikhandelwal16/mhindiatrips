@@ -1,18 +1,21 @@
 import React from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { getStatesAction, getTourPackagesAction, getBlogsAction, getTestimonialsAction, getFoodsAction, getPageByIdAction } from "@/app/actions/queries";
 import InquiryForm from "@/components/common/InquiryForm";
 import Reveal from "@/components/home/Reveal";
 import HeroSlider from "@/components/home/HeroSlider";
-import TestimonialSlider from "@/components/home/TestimonialSlider";
-import MonumentsAccordion from "@/components/home/MonumentsAccordion";
-import TravelerInfoCarousel from "@/components/home/TravelerInfoCarousel";
 import StatCounter from "@/components/home/StatCounter";
-import ItineraryPlanner from "@/components/home/ItineraryPlanner";
 import { 
   MapPin, Clock, ArrowRight, Star, Heart, Compass, Sparkles, 
   Award, Shield, Calendar, BookOpen, Coffee, Landmark, ArrowUpRight 
 } from "lucide-react";
+
+// Lazy load heavy interactive components
+const TestimonialSlider = dynamic(() => import("@/components/home/TestimonialSlider"), { ssr: true });
+const MonumentsAccordion = dynamic(() => import("@/components/home/MonumentsAccordion"), { ssr: true });
+const TravelerInfoCarousel = dynamic(() => import("@/components/home/TravelerInfoCarousel"), { ssr: true });
+const ItineraryPlanner = dynamic(() => import("@/components/home/ItineraryPlanner"), { ssr: true });
 
 interface HomePageProps {
   params: Promise<{ locale: string }>;
@@ -323,42 +326,6 @@ export default async function HomePage({ params }: HomePageProps) {
       cta2Text: locale === "es" ? "Planear mi Viaje" : locale === "pt" ? "Planear minha Viagem" : "Plan My Trip",
       cta2Link: "/contact"
     },
-    {
-      image: "/images/varanasi_ghats_aarti.png",
-      sub: locale === "es" ? "ESPIRITUALIDAD ETERNA" : locale === "pt" ? "ESPIRITUALIDADE ETERNA" : "ETERNAL SPIRITUALITY",
-      title: locale === "es" ? "Los Ghats Sagrados de Varanasi" : locale === "pt" ? "Os Ghats Sagrados de Varanasi" : "The Sacred Ghats of Varanasi",
-      desc: locale === "es" ? "Navegue por el sagrado río Ganges al amanecer y viva la ceremonia Ganga Aarti." : locale === "pt" ? "Navegue pelo sagrado rio Ganges ao amanhecer e viva a cerimônia Ganga Aarti." : "Sail the sacred Ganges at dawn and witness the mesmerizing Ganga Aarti fire ceremony at sunset.",
-      location: locale === "es" ? "Varanasi, Uttar Pradesh" : locale === "pt" ? "Varanasi, Uttar Pradesh" : "Varanasi, Uttar Pradesh",
-      objectPosition: "center 45%",
-      cta1Text: locale === "es" ? "Explorar Varanasi" : locale === "pt" ? "Explorar Varanasi" : "Explore Varanasi",
-      cta1Link: "/destinations/uttar-pradesh",
-      cta2Text: locale === "es" ? "Tours Espirituales" : locale === "pt" ? "Tours Espirituais" : "Spiritual Tours",
-      cta2Link: "/packages"
-    },
-    {
-      image: "/images/himachal pradesh.jpg",
-      sub: locale === "es" ? "AVENTURA EN MONTAÑA" : locale === "pt" ? "AVENTURA NA MONTANHA" : "MOUNTAIN ADVENTURE",
-      title: locale === "es" ? "Picos del Himalaya y Valles Verdes" : locale === "pt" ? "Picos do Himalaia e Vales Verdes" : "Himalayan Peaks & Lush Green Valleys",
-      desc: locale === "es" ? "Descubra estaciones de montaña, monasterios budistas y senderos nevados del Himalaya." : locale === "pt" ? "Descubra estações de montanha, mosteiros budistas e trilhos nevados do Himalaia." : "Discover hill stations, Buddhist monasteries, and snow-capped Himalayan trekking trails.",
-      location: locale === "es" ? "Manali, Himachal Pradesh" : locale === "pt" ? "Manali, Himachal Pradesh" : "Manali, Himachal Pradesh",
-      objectPosition: "center 30%",
-      cta1Text: locale === "es" ? "Montañas del Norte" : locale === "pt" ? "Montanhas do Norte" : "Northern Mountains",
-      cta1Link: "/destinations/himachal-pradesh",
-      cta2Text: locale === "es" ? "Aventura Premium" : locale === "pt" ? "Aventura Premium" : "Premium Adventure",
-      cta2Link: "/packages"
-    },
-    {
-      image: "/images/goa 2.jpg",
-      sub: locale === "es" ? "PARAÍSO COSTERO" : locale === "pt" ? "PARAÍSO COSTEIRO" : "COASTAL PARADISE",
-      title: locale === "es" ? "Playas Doradas y Atardeceres de Goa" : locale === "pt" ? "Praias Douradas e Entardeceres de Goa" : "Golden Beaches & Goan Sunsets",
-      desc: locale === "es" ? "Villas de lujo frente al mar, cruceros en yate privado y la vibrante cultura portuguesa de Goa." : locale === "pt" ? "Villas de luxo à beira-mar, cruzeiros de iate privado e a vibrante cultura portuguesa de Goa." : "Beachfront luxury villas, private yacht cruises, and the vibrant Portuguese heritage culture of Goa.",
-      location: locale === "es" ? "Palolem Beach, Goa" : locale === "pt" ? "Praia de Palolem, Goa" : "Palolem Beach, Goa",
-      objectPosition: "center 50%",
-      cta1Text: locale === "es" ? "Descubrir Goa" : locale === "pt" ? "Descobrir Goa" : "Discover Goa",
-      cta1Link: "/destinations/goa",
-      cta2Text: locale === "es" ? "Vacaciones de Playa" : locale === "pt" ? "Férias de Praia" : "Beach Vacations",
-      cta2Link: "/packages"
-    }
   ];
 
   return (
