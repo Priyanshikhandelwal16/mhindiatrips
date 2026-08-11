@@ -289,44 +289,41 @@ export default async function HomePage({ params }: HomePageProps) {
   }
   const text = mergedLabels[locale] || mergedLabels.en;
 
-  const slides = [
-    {
-      image: "/images/taj_mahal_sunrise.png",
-      sub: text.heroSub,
-      title: locale === "es" ? "Viaje a India en Lujo Absoluto" : locale === "pt" ? "Viaje para a Índia em Luxo Absoluto" : "Experience India in Absolute Luxury",
-      desc: locale === "es" ? "Itinerarios a medida con guías privados, hoteles palacio y servicios exclusivos." : locale === "pt" ? "Itinerários à medida com guias privados, hotéis palácio e serviços exclusivos." : "Curated itineraries featuring private guides, heritage palace hotels, and bespoke travel arrangements.",
-      location: locale === "es" ? "Taj Mahal, Agra" : locale === "pt" ? "Taj Mahal, Agra" : "Taj Mahal, Agra",
-      objectPosition: "center 28%",
-      cta1Text: locale === "es" ? "Ver Paquetes" : locale === "pt" ? "Ver Pacotes" : "See Our Packages",
-      cta1Link: "/packages",
-      cta2Text: locale === "es" ? "Consultar Ahora" : locale === "pt" ? "Consultar Agora" : "Inquire Now",
-      cta2Link: "/contact"
-    },
-    {
-      image: "/images/rajasthan_fort_sunset.png",
-      sub: locale === "es" ? "PALACIOS HISTÓRICOS" : locale === "pt" ? "PALÁCIOS HISTÓRICOS" : "HERITAGE PALACES",
-      title: locale === "es" ? "La Magia Real de Rajastán" : locale === "pt" ? "A Magia Real do Rajastão" : "The Royal Magic of Rajasthan",
-      desc: locale === "es" ? "Explore dunas de arena, fuertes medievales y cene dentro de auténticos palacios reales." : locale === "pt" ? "Explore dunas de areia, fortes medievais e jante dentro de autênticos palácios reais." : "Explore desert dunes, medieval forts, and dine inside authentic royal lakeside palaces.",
-      location: locale === "es" ? "Fuerte Mehrangarh, Jodhpur" : locale === "pt" ? "Forte Mehrangarh, Jodhpur" : "Mehrangarh Fort, Jodhpur",
-      objectPosition: "center 35%",
-      cta1Text: locale === "es" ? "Explorar Rajastán" : locale === "pt" ? "Explorar Rajastão" : "Explore Rajasthan",
-      cta1Link: "/destinations/rajasthan",
-      cta2Text: locale === "es" ? "Paquetes Reales" : locale === "pt" ? "Pacotes Reais" : "Royal Packages",
-      cta2Link: "/packages"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=1200",
-      sub: locale === "es" ? "RETIROS HOLÍSTICOS" : locale === "pt" ? "RETIROS HOLÍSTICOS" : "HOLISTIC RETREATS",
-      title: locale === "es" ? "Serenidad Tropical en Kerala" : locale === "pt" ? "Serenidade Tropical em Kerala" : "Tropical Serenity in Kerala",
-      desc: locale === "es" ? "Navegue por canales de esmeralda y rejuvenezca con auténticos rituales ayurvédicos." : locale === "pt" ? "Navegue por canais de esmeralda e rejuveneça com autênticos rituais ayurvédicos." : "Cruise through emerald backwaters and rejuvenate with authentic wellness Ayurvedic rituals.",
-      location: locale === "es" ? "Remansos de Alleppey, Kerala" : locale === "pt" ? "Canais de Alleppey, Kerala" : "Backwaters, Alleppey",
-      objectPosition: "center 40%",
-      cta1Text: locale === "es" ? "Kerala Retiros" : locale === "pt" ? "Retiros Kerala" : "Kerala Retreats",
-      cta1Link: "/destinations/kerala",
-      cta2Text: locale === "es" ? "Planear mi Viaje" : locale === "pt" ? "Planear minha Viagem" : "Plan My Trip",
-      cta2Link: "/contact"
-    },
+  // CMS-driven content (read from database, fallback to defaults)
+  const cms = pageData?.content || {};
+  const lang = (locale === "es" || locale === "pt") ? locale : "en";
+
+  // Build slides from CMS data
+  const cmsSlides = cms.slides || [];
+  const slides = cmsSlides.length > 0 ? cmsSlides.map((s: any) => ({
+    image: s.image,
+    sub: s.sub?.[lang] || s.sub?.en || text.heroSub,
+    title: s.title?.[lang] || s.title?.en || text.heroTitle,
+    desc: s.desc?.[lang] || s.desc?.en || text.heroDesc,
+    location: s.location?.[lang] || s.location?.en || "",
+    objectPosition: s.objectPosition || "center 30%",
+    cta1Text: s.cta1Text?.[lang] || s.cta1Text?.en || text.cta,
+    cta1Link: s.cta1Link || "/destinations",
+    cta2Text: s.cta2Text?.[lang] || s.cta2Text?.en || text.inquireCTA,
+    cta2Link: s.cta2Link || "/contact"
+  })) : [
+    { image: "/images/taj_mahal_sunrise.png", sub: text.heroSub, title: text.heroTitle, desc: text.heroDesc, location: "Taj Mahal, Agra", objectPosition: "center 28%", cta1Text: text.cta, cta1Link: "/packages", cta2Text: text.inquireCTA, cta2Link: "/contact" },
+    { image: "/images/rajasthan_fort_sunset.png", sub: "HERITAGE PALACES", title: "The Royal Magic of Rajasthan", desc: "Explore desert dunes, medieval forts, and dine inside authentic royal palaces.", location: "Mehrangarh Fort, Jodhpur", objectPosition: "center 35%", cta1Text: "Explore Rajasthan", cta1Link: "/destinations/rajasthan", cta2Text: "Royal Packages", cta2Link: "/packages" },
+    { image: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=1200", sub: "HOLISTIC RETREATS", title: "Tropical Serenity in Kerala", desc: "Cruise through emerald backwaters and rejuvenate with Ayurvedic rituals.", location: "Backwaters, Alleppey", objectPosition: "center 40%", cta1Text: "Kerala Retreats", cta1Link: "/destinations/kerala", cta2Text: "Plan My Trip", cta2Link: "/contact" }
   ];
+
+  // CMS stats
+  const cmsStats = cms.stats || [];
+  // CMS how-it-works
+  const cmsHowItWorks = cms.howItWorks || [];
+  // CMS inclusions
+  const cmsInclusions = cms.inclusions || [];
+  // CMS philosophy
+  const cmsPhilosophy = cms.philosophy || {};
+  // CMS food section
+  const cmsFoodSection = cms.foodSection || {};
+  // CMS CTA banner
+  const cmsCtaBanner = cms.ctaBanner || {};
 
   return (
     <div className="bg-[#FAF8F5] min-h-screen text-[#1B1B1B]" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>

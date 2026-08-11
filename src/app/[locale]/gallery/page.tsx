@@ -28,7 +28,7 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
   }
   const text = mergedT[locale] || mergedT.en;
 
-  const images = [
+  const images = dbContent.images || [
     { src: "/images/taj_mahal_sunrise.png", alt: "Taj Mahal", span: "col-span-2 row-span-2" },
     { src: "/images/rajasthan_fort_sunset.png", alt: "Jaipur Palace", span: "col-span-1 row-span-1" },
     { src: "/images/kerala_backwaters_houseboat.png", alt: "Kerala Backwaters", span: "col-span-1 row-span-2" },
@@ -47,7 +47,7 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
     <div className="font-sans bg-[#FAF8F5] min-h-screen text-[#1B1B1B]">
       {/* Hero */}
       <section className="relative h-[80vh] min-h-[580px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
-        <img src="/images/rajasthan_fort_sunset.png" alt="Gallery" className="absolute inset-0 w-full h-full object-cover animate-kenburns" />
+        <img src={pageData?.heroImage || "/images/rajasthan_fort_sunset.png"} alt="Gallery" className="absolute inset-0 w-full h-full object-cover animate-kenburns" />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center text-white px-6 max-w-5xl space-y-6">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">{text.heroSub}</span>
@@ -60,7 +60,7 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
       <section className="section-spacing">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[200px] gap-4">
-            {images.map((img, i) => (
+            {images.map((img: any, i: number) => (
               <Reveal key={i} delay={i * 50} className={`${img.span} overflow-hidden image-zoom-container border border-gold/10 hover:border-gold/25 transition-colors`}>
                 <img
                   src={img.src}

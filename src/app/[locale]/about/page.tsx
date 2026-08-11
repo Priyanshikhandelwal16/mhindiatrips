@@ -96,7 +96,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
     { number: "98%", label: "Rebooking Rate" },
   ];
 
-  const team = [
+  const team = dbContent.team || [
     { name: "Rahul Sharma", role: "Founder & Lead Travel Designer", img: "/images/team_rahul.png" },
     { name: "Priya Kapoor", role: "Senior Destination Expert", img: "/images/team_priya.png" },
     { name: "Vikram Singh", role: "Heritage & Culture Specialist", img: "/images/team_vikram.png" },
@@ -208,7 +208,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {team.map((member, i) => (
+          {team.map((member: any, i: number) => (
             <Reveal key={i} delay={i * 80} className="bg-white border border-gold/10 overflow-hidden shadow-md transition-all duration-350 hover:-translate-y-2">
               <div className="h-72 overflow-hidden relative">
                 <img src={member.img} alt={member.name} className="w-full h-full object-cover" />

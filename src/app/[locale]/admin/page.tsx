@@ -1653,47 +1653,167 @@ export default function AdminDashboard() {
                   {/* Content Fields */}
                   <div className="space-y-6">
                     <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Page Content Fields</span>
-                    <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
+                    <div className="space-y-4 max-h-[70vh] overflow-y-auto pr-2">
                       {Object.keys(editPage.content || {}).map((key) => {
                         const val = editPage.content[key];
-                        const sampleText = val?.en || "";
-                        const isLongText = sampleText.length > 80 || key === "body";
-                        const isHtml = key === "body" || sampleText.includes("<");
-                        return (
-                          <div key={key} className="border border-gold/10 p-5 space-y-3 bg-[#FAF8F5]">
-                            <div className="flex items-center justify-between">
-                              <span className="font-bold text-[10px] text-gold uppercase tracking-wider">{key.replace(/([A-Z])/g, " $1").trim()}</span>
-                              {isHtml && <span className="text-[8px] bg-royal/10 text-royal px-2 py-0.5 rounded uppercase font-bold">HTML</span>}
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                              {["en", "es", "pt"].map((lang) => (
-                                <div key={lang} className="space-y-1">
-                                  <label className="font-semibold text-[10px] uppercase text-royal/60">{lang.toUpperCase()}</label>
-                                  {isLongText ? (
-                                    <textarea
-                                      value={editPage.content[key]?.[lang] || ""}
-                                      onChange={(e) => {
-                                        const updatedContent = { ...editPage.content };
-                                        updatedContent[key] = { ...updatedContent[key], [lang]: e.target.value };
-                                        setEditPage({ ...editPage, content: updatedContent });
-                                      }}
-                                      className={`w-full bg-white border border-gold/15 p-3 outline-none ${isHtml ? "h-40 font-mono text-[11px]" : "h-24"}`}
-                                    />
-                                  ) : (
-                                    <input
-                                      type="text"
-                                      value={editPage.content[key]?.[lang] || ""}
-                                      onChange={(e) => {
-                                        const updatedContent = { ...editPage.content };
-                                        updatedContent[key] = { ...updatedContent[key], [lang]: e.target.value };
-                                        setEditPage({ ...editPage, content: updatedContent });
-                                      }}
-                                      className="w-full bg-white border border-gold/15 px-3 py-2 outline-none"
-                                    />
-                                  )}
+                        
+                        // ARRAY FIELDS (slides, stats, howItWorks, inclusions)
+                        if (Array.isArray(val)) {
+                          return (
+                            <div key={key} className="border border-gold/20 p-5 space-y-4 bg-[#FAF8F5]">
+                              <div className="flex items-center justify-between">
+                                <span className="font-bold text-[10px] text-gold uppercase tracking-wider">{key.replace(/([A-Z])/g, " $1").trim()} ({val.length} items)</span>
+                                <button type="button" onClick={() => {
+                                  const updatedContent = { ...editPage.content };
+                                  const newItem = key === "slides" 
+                                    ? { image: "", title: { en: "", es: "", pt: "" }, desc: { en: "", es: "", pt: "" }, location: { en: "", es: "", pt: "" }, sub: { en: "", es: "", pt: "" }, cta1Text: { en: "", es: "", pt: "" }, cta1Link: "/", cta2Text: { en: "", es: "", pt: "" }, cta2Link: "/" }
+                                    : key === "stats"
+                                    ? { value: 0, suffix: "", label: { en: "", es: "", pt: "" } }
+                                    : { title: { en: "", es: "", pt: "" }, desc: { en: "", es: "", pt: "" } };
+                                  updatedContent[key] = [...val, newItem];
+                                  setEditPage({ ...editPage, content: updatedContent });
+                                }} className="text-[9px] bg-gold/10 text-gold px-2 py-1 font-bold uppercase tracking-wider cursor-pointer hover:bg-gold/20">+ Add Item</button>
+                              </div>
+                              {val.map((item: any, idx: number) => (
+                                <div key={idx} className="border border-gold/10 p-4 bg-white space-y-3 relative">
+                                  <div className="flex items-center justify-between pb-2 border-b border-gold/10">
+                                    <span className="text-[9px] font-bold text-royal/60 uppercase">Item #{idx + 1}</span>
+                                    <button type="button" onClick={() => {
+                                      const updatedContent = { ...editPage.content };
+                                      updatedContent[key] = val.filter((_: any, i: number) => i !== idx);
+                                      setEditPage({ ...editPage, content: updatedContent });
+                                    }} className="text-[9px] text-red-500 font-bold uppercase cursor-pointer hover:text-red-700">Remove</button>
+                                  </div>
+                                  {Object.keys(item).map((field) => {
+                                    const fieldVal = item[field];
+                                    // Translatable object field
+                                    if (fieldVal && typeof fieldVal === "object" && fieldVal.en !== undefined) {
+                                      return (
+                                        <div key={field} className="space-y-1">
+                                          <label className="text-[9px] font-bold uppercase tracking-wider text-royal/50">{field}</label>
+                                          <div className="grid grid-cols-3 gap-2">
+                                            {["en", "es", "pt"].map((l) => (
+                                              <input key={l} type="text" placeholder={l.toUpperCase()} value={fieldVal[l] || ""} onChange={(e) => {
+                                                const updatedContent = { ...editPage.content };
+                                                updatedContent[key] = [...val];
+                                                updatedContent[key][idx] = { ...item, [field]: { ...fieldVal, [l]: e.target.value } };
+                                                setEditPage({ ...editPage, content: updatedContent });
+                                              }} className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1.5 outline-none text-[11px]" />
+                                            ))}
+                                          </div>
+                                        </div>
+                                      );
+                                    }
+                                    // Simple string/number field
+                                    return (
+                                      <div key={field} className="space-y-1">
+                                        <label className="text-[9px] font-bold uppercase tracking-wider text-royal/50">{field}</label>
+                                        <input type={typeof fieldVal === "number" ? "number" : "text"} value={fieldVal ?? ""} onChange={(e) => {
+                                          const updatedContent = { ...editPage.content };
+                                          updatedContent[key] = [...val];
+                                          updatedContent[key][idx] = { ...item, [field]: typeof fieldVal === "number" ? Number(e.target.value) : e.target.value };
+                                          setEditPage({ ...editPage, content: updatedContent });
+                                        }} className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1.5 outline-none text-[11px]" />
+                                      </div>
+                                    );
+                                  })}
                                 </div>
                               ))}
                             </div>
+                          );
+                        }
+                        
+                        // OBJECT FIELDS (philosophy, foodSection, ctaBanner)
+                        if (val && typeof val === "object" && !val.en && !Array.isArray(val)) {
+                          return (
+                            <div key={key} className="border border-gold/20 p-5 space-y-4 bg-[#FAF8F5]">
+                              <span className="font-bold text-[10px] text-gold uppercase tracking-wider block">{key.replace(/([A-Z])/g, " $1").trim()}</span>
+                              {Object.keys(val).map((subKey) => {
+                                const subVal = val[subKey];
+                                if (subVal && typeof subVal === "object" && subVal.en !== undefined) {
+                                  return (
+                                    <div key={subKey} className="space-y-1">
+                                      <label className="text-[9px] font-bold uppercase tracking-wider text-royal/50">{subKey}</label>
+                                      <div className="grid grid-cols-3 gap-2">
+                                        {["en", "es", "pt"].map((l) => (
+                                          <input key={l} type="text" placeholder={l.toUpperCase()} value={subVal[l] || ""} onChange={(e) => {
+                                            const updatedContent = { ...editPage.content };
+                                            updatedContent[key] = { ...val, [subKey]: { ...subVal, [l]: e.target.value } };
+                                            setEditPage({ ...editPage, content: updatedContent });
+                                          }} className="w-full bg-white border border-gold/10 px-2 py-1.5 outline-none text-[11px]" />
+                                        ))}
+                                      </div>
+                                    </div>
+                                  );
+                                }
+                                return (
+                                  <div key={subKey} className="space-y-1">
+                                    <label className="text-[9px] font-bold uppercase tracking-wider text-royal/50">{subKey}</label>
+                                    <input type="text" value={subVal || ""} onChange={(e) => {
+                                      const updatedContent = { ...editPage.content };
+                                      updatedContent[key] = { ...val, [subKey]: e.target.value };
+                                      setEditPage({ ...editPage, content: updatedContent });
+                                    }} className="w-full bg-white border border-gold/10 px-2 py-1.5 outline-none text-[11px]" />
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          );
+                        }
+                        
+                        // TRANSLATABLE TEXT FIELDS (simple {en, es, pt} objects)
+                        if (val && typeof val === "object" && val.en !== undefined) {
+                          const sampleText = val.en || "";
+                          const isLongText = sampleText.length > 80 || key === "body";
+                          const isHtml = key === "body" || sampleText.includes("<");
+                          return (
+                            <div key={key} className="border border-gold/10 p-5 space-y-3 bg-[#FAF8F5]">
+                              <div className="flex items-center justify-between">
+                                <span className="font-bold text-[10px] text-gold uppercase tracking-wider">{key.replace(/([A-Z])/g, " $1").trim()}</span>
+                                {isHtml && <span className="text-[8px] bg-royal/10 text-royal px-2 py-0.5 rounded uppercase font-bold">HTML</span>}
+                              </div>
+                              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                {["en", "es", "pt"].map((lng) => (
+                                  <div key={lng} className="space-y-1">
+                                    <label className="font-semibold text-[10px] uppercase text-royal/60">{lng.toUpperCase()}</label>
+                                    {isLongText ? (
+                                      <textarea
+                                        value={val?.[lng] || ""}
+                                        onChange={(e) => {
+                                          const updatedContent = { ...editPage.content };
+                                          updatedContent[key] = { ...val, [lng]: e.target.value };
+                                          setEditPage({ ...editPage, content: updatedContent });
+                                        }}
+                                        className={`w-full bg-white border border-gold/15 p-3 outline-none ${isHtml ? "h-40 font-mono text-[11px]" : "h-24"}`}
+                                      />
+                                    ) : (
+                                      <input
+                                        type="text"
+                                        value={val?.[lng] || ""}
+                                        onChange={(e) => {
+                                          const updatedContent = { ...editPage.content };
+                                          updatedContent[key] = { ...val, [lng]: e.target.value };
+                                          setEditPage({ ...editPage, content: updatedContent });
+                                        }}
+                                        className="w-full bg-white border border-gold/15 px-3 py-2 outline-none"
+                                      />
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          );
+                        }
+
+                        // PRIMITIVE FIELDS (string/number)
+                        return (
+                          <div key={key} className="border border-gold/10 p-5 space-y-3 bg-[#FAF8F5]">
+                            <span className="font-bold text-[10px] text-gold uppercase tracking-wider block">{key}</span>
+                            <input type="text" value={val || ""} onChange={(e) => {
+                              const updatedContent = { ...editPage.content };
+                              updatedContent[key] = e.target.value;
+                              setEditPage({ ...editPage, content: updatedContent });
+                            }} className="w-full bg-white border border-gold/15 px-3 py-2 outline-none" />
                           </div>
                         );
                       })}

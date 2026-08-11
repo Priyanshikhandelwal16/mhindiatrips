@@ -86,8 +86,8 @@ export default async function MonumentsPage({ params }: MonumentsPageProps) {
   }
   const text = mergedT[locale] || mergedT.en;
 
-  // Featured monuments data (hardcoded iconic ones)
-  const featuredMonuments = [
+  // Featured monuments from CMS (editable from admin) with fallback
+  const featuredMonuments = dbContent.featuredMonuments || [
     { name: "Taj Mahal", city: "Agra", state: "Uttar Pradesh", era: "1632 AD", image: "/images/taj_mahal_sunrise.png", desc: "A UNESCO World Heritage ivory-white marble mausoleum, widely considered the finest example of Mughal architecture and one of the New Seven Wonders of the World." },
     { name: "Amber Fort", city: "Jaipur", state: "Rajasthan", era: "1592 AD", image: "/images/Jaipur.jpg", desc: "A majestic sandstone and marble fortress perched on a hillside, featuring stunning mirror work, elephant rides, and panoramic views of Maota Lake." },
     { name: "Mehrangarh Fort", city: "Jodhpur", state: "Rajasthan", era: "1459 AD", image: "/images/rajasthan_fort_sunset.png", desc: "One of India's largest forts towering 125 meters above the Blue City, with intricate carvings, expansive courtyards, and a museum of royal artifacts." },
@@ -102,7 +102,7 @@ export default async function MonumentsPage({ params }: MonumentsPageProps) {
       {/* Hero Banner */}
       <section className="relative h-[75vh] min-h-[520px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
         <img
-          src="/images/rajasthan_fort_sunset.png"
+          src={pageData?.heroImage || "/images/rajasthan_fort_sunset.png"}
           alt="Monuments of India"
           className="absolute inset-0 w-full h-full object-cover object-[center_40%] animate-kenburns"
           loading="eager"
@@ -133,7 +133,7 @@ export default async function MonumentsPage({ params }: MonumentsPageProps) {
 
         {/* Bento grid layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featuredMonuments.map((mon, i) => (
+          {featuredMonuments.map((mon: any, i: number) => (
             <Reveal key={i} delay={i * 80}>
               <div className={`perspective-1000 ${i === 0 ? "md:col-span-2 md:row-span-2" : ""}`}>
                 <div className="card-3d group relative bg-white border border-[#C3AB85]/10 overflow-hidden shadow-md h-full flex flex-col">
