@@ -1,4 +1,5 @@
 import React from "react";
+import { getPageByIdAction } from "@/app/actions/queries";
 import Reveal from "@/components/home/Reveal";
 import InquiryForm from "@/components/common/InquiryForm";
 import { Phone, Mail, MapPin, Clock, MessageSquare, Compass } from "lucide-react";
@@ -9,6 +10,7 @@ interface ContactPageProps {
 
 export default async function ContactPage({ params }: ContactPageProps) {
   const { locale } = await params;
+  const pageData = await getPageByIdAction("contact");
 
   const t: Record<string, any> = {
     en: {
@@ -46,7 +48,17 @@ export default async function ContactPage({ params }: ContactPageProps) {
     }
   };
 
-  const text = t[locale] || t.en;
+  const dbContent = pageData?.content || {};
+  const mergedT: Record<string, any> = {};
+  for (const lang of ["en", "es", "pt"]) {
+    mergedT[lang] = { ...t[lang] };
+    for (const key in dbContent) {
+      if (dbContent[key]?.[lang] !== undefined) {
+        mergedT[lang][key] = dbContent[key][lang];
+      }
+    }
+  }
+  const text = mergedT[locale] || mergedT.en;
 
   return (
     <div className="font-sans bg-[#FAF8F5] min-h-screen text-[#1B1B1B]">

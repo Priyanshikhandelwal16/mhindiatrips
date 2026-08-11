@@ -37,3 +37,11 @@ export async function getTourPackageBySlugAction(slug: string) {
 export async function getTestimonialsAction() {
   return await db.testimonials.findMany();
 }
+
+export async function getPagesAction() {
+  return await db.pages.findMany();
+}
+
+export async function getPageByIdAction(id: string) {
+  return await db.pages.findUnique(id);
+}

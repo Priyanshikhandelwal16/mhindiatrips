@@ -59,7 +59,7 @@ export default function PackagesFilterSection({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {filteredPackages.map((pkg: any, i: number) => (
           <Reveal key={pkg.slug} delay={i * 80}>
-            <div id={pkg.slug} className="card-3d bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md flex flex-col h-full transition-all duration-500 hover:border-[#C5A862]/30 scroll-mt-28 group perspective-1000">
+            <div id={pkg.slug} className="card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full transition-all duration-500 hover:border-[#C5A862]/30 scroll-mt-28 group perspective-1000">
               
               <div className="relative h-64 overflow-hidden shrink-0">
                 <img

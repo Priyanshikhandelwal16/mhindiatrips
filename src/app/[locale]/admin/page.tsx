@@ -18,20 +18,24 @@ import {
   createFoodAction,
   updateFoodAction,
   createStateAction,
-  updateStateAction
+  updateStateAction,
+  createPageAction,
+  updatePageAction,
+  deletePageAction
 } from "@/app/actions/admin";
 import { 
   getBlogsAction,
   getTourPackagesAction,
   getFoodsAction,
   getStatesAction,
-  getTestimonialsAction
+  getTestimonialsAction,
+  getPagesAction
 } from "@/app/actions/queries";
 import { 
   BarChart, Users, FileText, Compass, CheckCircle, Trash2, 
   Mail, Phone, MapPin, Calendar, Plus, Edit2, Upload, Lock, 
   CheckCircle2, Star, Eye, Utensils, Sparkles, LogOut, Map,
-  LayoutDashboard
+  LayoutDashboard, Layers
 } from "lucide-react";
 import { signInWithEmailAndPassword, onAuthStateChanged, signOut, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase";
@@ -97,6 +101,7 @@ export default function AdminDashboard() {
   const [foods, setFoods] = useState<any[]>([]);
   const [states, setStates] = useState<any[]>([]);
   const [testimonials, setTestimonials] = useState<any[]>([]);
+  const [pages, setPages] = useState<any[]>([]);
 
   // Editing state trackers
   const [editBlog, setEditBlog] = useState<any>(null);
@@ -104,6 +109,8 @@ export default function AdminDashboard() {
   const [editFood, setEditFood] = useState<any>(null);
   const [editState, setEditState] = useState<any>(null);
   const [newTestimonial, setNewTestimonial] = useState<any>(null);
+  const [editPage, setEditPage] = useState<any>(null);
+  const [newCustomPage, setNewCustomPage] = useState<any>(null);
 
   const params = useParams();
   const locale = params?.locale || "en";
@@ -153,13 +160,14 @@ export default function AdminDashboard() {
   const loadCMSData = async () => {
     setLoading(true);
     try {
-      const [inqs, blgs, pkgs, fds, sts, tsts] = await Promise.all([
+      const [inqs, blgs, pkgs, fds, sts, tsts, pgs] = await Promise.all([
         getInquiriesAction(),
         getBlogsAction(),
         getTourPackagesAction(),
         getFoodsAction(),
         getStatesAction(),
-        getTestimonialsAction()
+        getTestimonialsAction(),
+        getPagesAction()
       ]);
       setInquiries(inqs || []);
       setBlogs(blgs || []);
@@ -167,6 +175,7 @@ export default function AdminDashboard() {
       setFoods(fds || []);
       setStates(sts || []);
       setTestimonials(tsts || []);
+      setPages(pgs || []);
     } catch (e) {
       console.error("Error loading CMS collections:", e);
     } finally {
@@ -369,6 +378,65 @@ export default function AdminDashboard() {
     }
   };
 
+  // PAGES ACTIONS
+  const handleSavePage = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editPage.title?.en) return alert("Title is required.");
+
+    setLoading(true);
+    const res = await updatePageAction(editPage.id, editPage);
+
+    if (res.success) {
+      alert("Page saved successfully!");
+      setEditPage(null);
+      await loadCMSData();
+    } else {
+      alert(res.error || "Failed to save page.");
+      setLoading(false);
+    }
+  };
+
+  const handleCreatePage = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newCustomPage.id || !newCustomPage.title?.en) return alert("Slug and Title are required.");
+    // Force lowercase slug without spaces
+    const slug = newCustomPage.id.toLowerCase().replace(/[^a-z0-9-_]/g, "-");
+    
+    setLoading(true);
+    const pageData = {
+      ...newCustomPage,
+      id: slug,
+      isCustom: true,
+      content: {
+        body: newCustomPage.content?.body || { en: "", es: "", pt: "" }
+      }
+    };
+    const res = await createPageAction(pageData);
+
+    if (res.success) {
+      alert("Custom Page created successfully!");
+      setNewCustomPage(null);
+      await loadCMSData();
+    } else {
+      alert(res.error || "Failed to create page.");
+      setLoading(false);
+    }
+  };
+
+  const handleDeletePage = async (id: string) => {
+    if (window.confirm("Are you sure you want to delete this custom page?")) {
+      setLoading(true);
+      const res = await deletePageAction(id);
+      if (res.success) {
+        alert("Page deleted successfully!");
+        await loadCMSData();
+      } else {
+        alert(res.error || "Failed to delete page.");
+        setLoading(false);
+      }
+    }
+  };
+
   // GATES: Authentication checking
   if (authLoading) {
     return (
@@ -543,6 +611,19 @@ export default function AdminDashboard() {
             >
               <Star className="w-5 h-5 text-gold shrink-0" />
               <span>Testimonials</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setActiveTab("pages");
+                window.location.hash = "pages";
+              }}
+              className={`flex items-center space-x-3 px-4 py-3 rounded-xl w-full text-left text-sm font-semibold transition cursor-pointer ${
+                activeTab === "pages" ? "bg-white/10 text-white font-bold" : "hover:bg-white/5 text-white/70"
+              }`}
+            >
+              <Layers className="w-5 h-5 text-gold shrink-0" />
+              <span>Manage Pages</span>
             </button>
           </nav>
           </div>
@@ -1439,6 +1520,269 @@ export default function AdminDashboard() {
                         <p className="text-xs font-bold text-royal">{t.name}</p>
                         <p className="text-[10px] text-foreground/45 uppercase tracking-wider font-semibold">{t.location}</p>
                       </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* TAB 8: MANAGE PAGES */}
+          {activeTab === "pages" && (
+            <div className="space-y-6">
+              <div className="flex justify-between items-center">
+                <h2 className="text-lg font-bold text-royal font-serif">Manage Website Pages</h2>
+                <button
+                  onClick={() => setNewCustomPage({ id: "", title: { en: "", es: "", pt: "" }, heroImage: "", content: { body: { en: "", es: "", pt: "" } } })}
+                  className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 rounded-xl flex items-center gap-1.5 transition cursor-pointer"
+                >
+                  <Plus className="w-4 h-4" />
+                  <span>Add Custom Page</span>
+                </button>
+              </div>
+
+              {/* Create Custom Page Form */}
+              {newCustomPage && (
+                <form onSubmit={handleCreatePage} className="bg-white border border-gold/20 rounded-[2rem] p-8 shadow-md space-y-6 text-xs text-royal">
+                  <h3 className="text-base font-bold font-serif">Create New Custom Page</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-1.5">
+                      <label className="font-bold uppercase tracking-wider block">Page Slug (e.g. exclusive-tours)</label>
+                      <input 
+                        type="text" 
+                        required
+                        value={newCustomPage.id}
+                        onChange={e => setNewCustomPage({...newCustomPage, id: e.target.value})}
+                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        placeholder="my-page-slug"
+                      />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="font-bold uppercase tracking-wider block">Hero Banner Image URL (Optional)</label>
+                      <input 
+                        type="text" 
+                        value={newCustomPage.heroImage || ""}
+                        onChange={e => setNewCustomPage({...newCustomPage, heroImage: e.target.value})}
+                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        placeholder="/images/luxury_palace_train.png"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Title (Translatable) */}
+                  <div className="space-y-3">
+                    <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Page Title Translations</span>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      {["en", "es", "pt"].map((lang) => (
+                        <div key={lang} className="space-y-1">
+                          <label className="font-bold uppercase tracking-wider">Title ({lang.toUpperCase()})</label>
+                          <input 
+                            type="text" 
+                            required
+                            value={newCustomPage.title?.[lang] || ""}
+                            onChange={e => setNewCustomPage({
+                              ...newCustomPage, 
+                              title: { ...newCustomPage.title, [lang]: e.target.value }
+                            })}
+                            className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-3 py-2.5 outline-none"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Body Content HTML (Translatable) */}
+                  <div className="space-y-3">
+                    <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Page HTML Content</span>
+                    <div className="grid grid-cols-1 gap-4">
+                      {["en", "es", "pt"].map((lang) => (
+                        <div key={lang} className="space-y-1.5">
+                          <label className="font-bold uppercase tracking-wider">HTML Body ({lang.toUpperCase()})</label>
+                          <textarea 
+                            required={lang === "en"}
+                            value={newCustomPage.content?.body?.[lang] || ""}
+                            onChange={e => setNewCustomPage({
+                              ...newCustomPage, 
+                              content: { 
+                                ...newCustomPage.content, 
+                                body: { ...newCustomPage.content?.body, [lang]: e.target.value } 
+                              }
+                            })}
+                            className="w-full h-32 bg-[#FAF8F5] border border-gold/15 rounded-xl p-4 outline-none font-mono text-[11px]"
+                            placeholder="<p>Welcome to our custom page content...</p>"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 pt-4">
+                    <button type="submit" className="bg-royal text-white px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider cursor-pointer">
+                      Create Page
+                    </button>
+                    <button type="button" onClick={() => setNewCustomPage(null)} className="bg-beige/35 text-royal px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider cursor-pointer">
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              )}
+
+              {/* Edit Page Form */}
+              {editPage && (
+                <form onSubmit={handleSavePage} className="bg-white border border-gold/20 rounded-[2rem] p-8 shadow-md space-y-6 text-xs text-royal">
+                  <div className="flex justify-between items-center border-b border-beige/40 pb-4">
+                    <h3 className="text-base font-bold font-serif">Editing Page: <span className="text-gold font-light">/{editPage.id}</span></h3>
+                    <span className="bg-royal/10 text-royal px-2.5 py-1 rounded text-[10px] uppercase font-bold tracking-wider">{editPage.isCustom ? "Custom Page" : "System Page"}</span>
+                  </div>
+
+                  {/* Title (Translatable for all pages) */}
+                  <div className="space-y-3">
+                    <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Page Header Title</span>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      {["en", "es", "pt"].map((lang) => (
+                        <div key={lang} className="space-y-1">
+                          <label className="font-bold uppercase tracking-wider">Title ({lang.toUpperCase()})</label>
+                          <input 
+                            type="text" 
+                            required
+                            value={editPage.title?.[lang] || ""}
+                            onChange={e => setEditPage({
+                              ...editPage, 
+                              title: { ...editPage.title, [lang]: e.target.value }
+                            })}
+                            className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-3 py-2.5 outline-none"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Render content inputs based on page type */}
+                  {((editPage.id === "privacy" || editPage.id === "terms" || editPage.isCustom)) ? (
+                    <div className="space-y-6">
+                      <div className="space-y-1.5">
+                        <label className="font-bold uppercase tracking-wider block">Hero Banner Image URL (Optional)</label>
+                        <input 
+                          type="text" 
+                          value={editPage.heroImage || ""}
+                          onChange={e => setEditPage({...editPage, heroImage: e.target.value})}
+                          className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        />
+                      </div>
+                      <div className="space-y-3">
+                        <span className="font-black uppercase tracking-widest text-[9px] text-gold block">HTML Page Body</span>
+                        {["en", "es", "pt"].map((lang) => (
+                          <div key={lang} className="space-y-1.5">
+                            <label className="font-bold uppercase tracking-wider">Body ({lang.toUpperCase()})</label>
+                            <textarea 
+                              required={lang === "en"}
+                              value={editPage.content?.body?.[lang] || ""}
+                              onChange={e => setEditPage({
+                                ...editPage, 
+                                content: { 
+                                  ...editPage.content, 
+                                  body: { ...editPage.content?.body, [lang]: e.target.value } 
+                                }
+                              })}
+                              className="w-full h-64 bg-[#FAF8F5] border border-gold/15 rounded-xl p-4 outline-none font-mono text-[11px] leading-relaxed"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="space-y-6">
+                      <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Content Text Fields</span>
+                      <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
+                        {Object.keys(editPage.content || {}).map((key) => {
+                          const isLongText = (editPage.content[key]?.en || "").length > 80;
+                          return (
+                            <div key={key} className="border border-gold/10 p-5 rounded-2xl space-y-3 bg-[#FAF8F5]">
+                              <span className="font-bold text-[10px] text-gold uppercase tracking-wider block">{key}</span>
+                              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                {["en", "es", "pt"].map((lang) => (
+                                  <div key={lang} className="space-y-1">
+                                    <label className="font-semibold text-[10px] uppercase text-royal/60">{lang.toUpperCase()}</label>
+                                    {isLongText ? (
+                                      <textarea
+                                        value={editPage.content[key]?.[lang] || ""}
+                                        onChange={(e) => {
+                                          const updatedContent = { ...editPage.content };
+                                          updatedContent[key] = { ...updatedContent[key], [lang]: e.target.value };
+                                          setEditPage({ ...editPage, content: updatedContent });
+                                        }}
+                                        className="w-full h-24 bg-white border border-gold/15 rounded-xl p-3 outline-none"
+                                      />
+                                    ) : (
+                                      <input
+                                        type="text"
+                                        value={editPage.content[key]?.[lang] || ""}
+                                        onChange={(e) => {
+                                          const updatedContent = { ...editPage.content };
+                                          updatedContent[key] = { ...updatedContent[key], [lang]: e.target.value };
+                                          setEditPage({ ...editPage, content: updatedContent });
+                                        }}
+                                        className="w-full bg-white border border-gold/15 rounded-xl px-3 py-2 outline-none"
+                                      />
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="flex gap-4 pt-4 border-t border-beige/40">
+                    <button type="submit" className="bg-royal text-white px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider cursor-pointer">
+                      Save Changes
+                    </button>
+                    <button type="button" onClick={() => setEditPage(null)} className="bg-beige/35 text-royal px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider cursor-pointer">
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              )}
+
+              {/* Pages Directory List */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {pages.map((p) => (
+                  <div key={p.id} className="bg-white border border-beige/45 rounded-3xl p-6 shadow-sm flex flex-col justify-between space-y-4">
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[9px] uppercase tracking-wider font-extrabold text-gold">/{p.id}</span>
+                        {p.isCustom ? (
+                          <span className="bg-royal/10 text-royal px-2 py-0.5 rounded text-[8px] uppercase font-bold">Custom</span>
+                        ) : (
+                          <span className="bg-beige/40 text-royal/60 px-2 py-0.5 rounded text-[8px] uppercase font-bold">System</span>
+                        )}
+                      </div>
+                      <h4 className="text-base font-bold text-royal font-serif line-clamp-1">{p.title?.en}</h4>
+                      <p className="text-xs text-foreground/50 font-light">
+                        {p.isCustom ? "Rich HTML page created by administrator." : `Core system page containing ${Object.keys(p.content || {}).length} editable text fields.`}
+                      </p>
+                    </div>
+
+                    <div className="flex justify-between items-center pt-4 border-t border-beige/20 text-xs">
+                      <button
+                        onClick={() => setEditPage(p)}
+                        className="text-royal hover:text-gold flex items-center gap-1 font-bold uppercase tracking-wider cursor-pointer"
+                      >
+                        <Edit2 className="w-3.5 h-3.5" />
+                        <span>Edit Content</span>
+                      </button>
+
+                      {p.isCustom && (
+                        <button
+                          onClick={() => handleDeletePage(p.id)}
+                          className="text-red-600 hover:text-red-700 flex items-center gap-1 font-bold uppercase tracking-wider cursor-pointer"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                          <span>Delete</span>
+                        </button>
+                      )}
                     </div>
                   </div>
                 ))}

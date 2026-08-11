@@ -1,4 +1,5 @@
 import React from "react";
+import { getPageByIdAction } from "@/app/actions/queries";
 import Reveal from "@/components/home/Reveal";
 
 interface GalleryPageProps {
@@ -7,6 +8,7 @@ interface GalleryPageProps {
 
 export default async function GalleryPage({ params }: GalleryPageProps) {
   const { locale } = await params;
+  const pageData = await getPageByIdAction("gallery");
 
   const t: Record<string, any> = {
     en: { hero: "Gallery", heroSub: "Visual Stories", heroDesc: "A curated collection of moments from India's most incredible destinations." },
@@ -14,7 +16,17 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
     pt: { hero: "Galeria", heroSub: "Histórias Visuais", heroDesc: "Uma coleção curada de momentos dos destinos mais incríveis da Índia." },
   };
 
-  const text = t[locale] || t.en;
+  const dbContent = pageData?.content || {};
+  const mergedT: Record<string, any> = {};
+  for (const lang of ["en", "es", "pt"]) {
+    mergedT[lang] = { ...t[lang] };
+    for (const key in dbContent) {
+      if (dbContent[key]?.[lang] !== undefined) {
+        mergedT[lang][key] = dbContent[key][lang];
+      }
+    }
+  }
+  const text = mergedT[locale] || mergedT.en;
 
   const images = [
     { src: "/images/taj_mahal_sunrise.png", alt: "Taj Mahal", span: "col-span-2 row-span-2" },

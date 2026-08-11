@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { getStatesAction, getTourPackagesAction, getBlogsAction, getTestimonialsAction, getFoodsAction } from "@/app/actions/queries";
+import { getStatesAction, getTourPackagesAction, getBlogsAction, getTestimonialsAction, getFoodsAction, getPageByIdAction } from "@/app/actions/queries";
 import InquiryForm from "@/components/common/InquiryForm";
 import Reveal from "@/components/home/Reveal";
 import HeroSlider from "@/components/home/HeroSlider";
@@ -26,6 +26,7 @@ export default async function HomePage({ params }: HomePageProps) {
   const tourPackages = await getTourPackagesAction();
   const blogs = await getBlogsAction();
   const testimonials = await getTestimonialsAction();
+  const pageData = await getPageByIdAction("homepage");
 
   const labels: Record<string, any> = {
     en: {
@@ -273,7 +274,17 @@ export default async function HomePage({ params }: HomePageProps) {
     }
   ];
 
-  const text = labels[locale] || labels.en;
+  const dbContent = pageData?.content || {};
+  const mergedLabels: Record<string, any> = {};
+  for (const lang of ["en", "es", "pt"]) {
+    mergedLabels[lang] = { ...labels[lang] };
+    for (const key in dbContent) {
+      if (dbContent[key]?.[lang] !== undefined) {
+        mergedLabels[lang][key] = dbContent[key][lang];
+      }
+    }
+  }
+  const text = mergedLabels[locale] || mergedLabels.en;
 
   const slides = [
     {

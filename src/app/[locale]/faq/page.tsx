@@ -1,4 +1,5 @@
 import React from "react";
+import { getPageByIdAction } from "@/app/actions/queries";
 import Reveal from "@/components/home/Reveal";
 import Link from "next/link";
 import { ArrowRight, Shield, Calendar, Heart, Compass, Wallet, Briefcase } from "lucide-react";
@@ -9,6 +10,7 @@ interface FAQPageProps {
 
 export default async function FAQPage({ params }: FAQPageProps) {
   const { locale } = await params;
+  const pageData = await getPageByIdAction("faq");
 
   const t: Record<string, any> = {
     en: {
@@ -76,7 +78,17 @@ export default async function FAQPage({ params }: FAQPageProps) {
     }
   };
 
-  const text = t[locale] || t.en;
+  const dbContent = pageData?.content || {};
+  const mergedT: Record<string, any> = {};
+  for (const lang of ["en", "es", "pt"]) {
+    mergedT[lang] = { ...t[lang] };
+    for (const key in dbContent) {
+      if (dbContent[key]?.[lang] !== undefined) {
+        mergedT[lang][key] = dbContent[key][lang];
+      }
+    }
+  }
+  const text = mergedT[locale] || mergedT.en;
 
   const faqs = [
     {

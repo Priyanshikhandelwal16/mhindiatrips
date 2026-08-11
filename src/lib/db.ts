@@ -104,6 +104,7 @@ let statesCache = loadLocalData("states", mergedStates);
 let foodsCache = loadLocalData("foods", mergedFoods);
 let testimonialsCache = loadLocalData("testimonials", initialTestimonials);
 let tourPackagesCache = loadLocalData("tour_packages", mergedPackages);
+let pagesCache = loadLocalData("pages", []);
 
 // Simple check to seed Firestore collection if it has fewer items than source
 async function ensureSeeded(collectionName: string, initialData: any[]) {
@@ -140,6 +141,7 @@ function checkSeeding() {
       ensureSeeded("foods", mergedFoods),
       ensureSeeded("testimonials", initialTestimonials),
       ensureSeeded("tour_packages", mergedPackages),
+      ensureSeeded("pages", pagesCache),
     ]);
   }
   return seedingPromise;
@@ -598,6 +600,96 @@ export const db = {
       tourPackagesCache = tourPackagesCache.filter((p: any) => p.slug !== slug);
       saveLocalData("tour_packages", tourPackagesCache);
       return { slug };
+    }
+  },
+  pages: {
+    findMany: async () => {
+      if (useFirestore) {
+        try {
+          await checkSeeding();
+          if (useFirestore) {
+            const snapshot = await getDocs(collection(firestore, "pages"));
+            const firestoreData = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+            const localIds = new Set(pagesCache.map((p: any) => p.id));
+            const extraItems = firestoreData.filter((p: any) => !localIds.has(p.id));
+            return [...pagesCache, ...extraItems];
+          }
+        } catch (e: any) {
+          console.warn("Firestore pages.findMany failed, falling back to local:", e.message || e);
+        }
+      }
+      pagesCache = loadLocalData("pages", pagesCache);
+      return pagesCache;
+    },
+    findUnique: async (id: string) => {
+      if (useFirestore) {
+        try {
+          await checkSeeding();
+          if (useFirestore) {
+            const docRef = doc(firestore, "pages", id);
+            const snapshot = await getDoc(docRef);
+            if (snapshot.exists()) {
+              return { id: snapshot.id, ...snapshot.data() } as any;
+            }
+          }
+        } catch (e: any) {
+          console.warn("Firestore pages.findUnique failed, falling back to local:", e.message || e);
+        }
+      }
+      pagesCache = loadLocalData("pages", pagesCache);
+      return pagesCache.find((p: any) => p.id === id) || null;
+    },
+    create: async (data: any) => {
+      const id = data.id || Math.random().toString(36).substring(2, 11);
+      const newPage = {
+        id,
+        isCustom: true,
+        title: { en: "", es: "", pt: "" },
+        content: {},
+        ...data
+      };
+      if (useFirestore) {
+        try {
+          await setDoc(doc(firestore, "pages", id), newPage);
+          return newPage;
+        } catch (e: any) {
+          console.warn("Firestore pages.create failed, falling back to local JSON:", e.message || e);
+        }
+      }
+      pagesCache.push(newPage);
+      saveLocalData("pages", pagesCache);
+      return newPage;
+    },
+    update: async (id: string, data: any) => {
+      if (useFirestore) {
+        try {
+          const docRef = doc(firestore, "pages", id);
+          await updateDoc(docRef, data);
+          return { id, ...data };
+        } catch (e: any) {
+          console.warn("Firestore pages.update failed, falling back to local JSON:", e.message || e);
+        }
+      }
+      const idx = pagesCache.findIndex((p: any) => p.id === id);
+      if (idx !== -1) {
+        pagesCache[idx] = { ...pagesCache[idx], ...data };
+        saveLocalData("pages", pagesCache);
+        return pagesCache[idx];
+      }
+      return null;
+    },
+    delete: async (id: string) => {
+      if (useFirestore) {
+        try {
+          await deleteDoc(doc(firestore, "pages", id));
+          return { id };
+        } catch (e: any) {
+          console.warn("Firestore pages.delete failed, falling back to local JSON:", e.message || e);
+        }
+      }
+      pagesCache = pagesCache.filter((p: any) => p.id !== id);
+      saveLocalData("pages", pagesCache);
+      return { id };
     }
   }
 };

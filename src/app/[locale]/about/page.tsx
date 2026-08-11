@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Compass, Users, Heart, Star, Shield, Award, ArrowRight } from "lucide-react";
+import { getPageByIdAction } from "@/app/actions/queries";
 import Reveal from "@/components/home/Reveal";
 
 interface AboutPageProps {
@@ -9,6 +10,7 @@ interface AboutPageProps {
 
 export default async function AboutPage({ params }: AboutPageProps) {
   const { locale } = await params;
+  const pageData = await getPageByIdAction("about");
 
   const t: Record<string, any> = {
     en: {
@@ -67,7 +69,17 @@ export default async function AboutPage({ params }: AboutPageProps) {
     }
   };
 
-  const text = t[locale] || t.en;
+  const dbContent = pageData?.content || {};
+  const mergedT: Record<string, any> = {};
+  for (const lang of ["en", "es", "pt"]) {
+    mergedT[lang] = { ...t[lang] };
+    for (const key in dbContent) {
+      if (dbContent[key]?.[lang] !== undefined) {
+        mergedT[lang][key] = dbContent[key][lang];
+      }
+    }
+  }
+  const text = mergedT[locale] || mergedT.en;
 
   const values = [
     { icon: Shield, title: locale === "es" ? "Seguridad y Confianza" : locale === "pt" ? "Segurança e Confiança" : "Safety & Trust", desc: locale === "es" ? "Conductores experimentados y guías certificados en todo momento." : locale === "pt" ? "Motoristas experientes e guias certificados em todos os momentos." : "Fully certified bilingual guides and highly vetted private tourist drivers." },

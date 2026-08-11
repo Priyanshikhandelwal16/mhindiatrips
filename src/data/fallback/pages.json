@@ -1,0 +1,700 @@
+[
+  {
+    "id": "homepage",
+    "isCustom": false,
+    "title": {
+      "en": "Home",
+      "es": "Inicio",
+      "pt": "Início"
+    },
+    "content": {
+      "heroSub": {
+        "en": "BESPOKE PRIVATE TOURS",
+        "es": "TOURS PRIVADOS A MEDIDA",
+        "pt": "TOURS PRIVADOS SOB MEDIDA"
+      },
+      "heroTitle": {
+        "en": "Experience India in Absolute Luxury",
+        "es": "Experimente la India con Lujo Absoluto",
+        "pt": "Experience India in Absolute Luxury"
+      },
+      "heroDesc": {
+        "en": "Curated itineraries featuring private guides, heritage palace hotels, and custom travel arrangements.",
+        "es": "Itinerarios curados con guías privados, hoteles palacio históricos y traslados personalizados.",
+        "pt": "Itinerários selecionados com guias privados, hotéis palácio históricos e traslados personalizados."
+      },
+      "cta": {
+        "en": "Explore Our Regions",
+        "es": "Explorar Regiones",
+        "pt": "Explorar Regiões"
+      },
+      "inquireCTA": {
+        "en": "Plan Your Journey",
+        "es": "Planificar Viaje",
+        "pt": "Planejar Viagem"
+      },
+      "whySub": {
+        "en": "Our Philosophy",
+        "es": "Nuestra Filosofía",
+        "pt": "Nossa Filosofia"
+      },
+      "whyTitle": {
+        "en": "Why Travelers Choose MH India Trips",
+        "es": "Por Qué Elegir MH India Trips",
+        "pt": "Por Que Escolher a MH India Trips"
+      },
+      "regionsSub": {
+        "en": "Custom Destinations",
+        "es": "Destinos Personalizados",
+        "pt": "Destinos Personalizados"
+      },
+      "regionsTitle": {
+        "en": "Explore Diverse Horizons",
+        "es": "Explore Horizontes Diversos",
+        "pt": "Explore Horizontes Diversos"
+      },
+      "regionsDesc": {
+        "en": "From the grand palaces of Rajasthan to the serene canals of Kerala, discover a tailored world.",
+        "es": "Desde los grandes palacios de Rajasthan hasta los serenos canales de Kerala.",
+        "pt": "Dos grandes palácios do Rajastão aos canais serenos de Kerala."
+      },
+      "packagesSub": {
+        "en": "Featured Journeys",
+        "es": "Viajes Destacados",
+        "pt": "Viagens Em Destaque"
+      },
+      "packagesTitle": {
+        "en": "Signature Travel Packages",
+        "es": "Paquetes de Viajes Exclusivos",
+        "pt": "Pacotes de Viagens Exclusivos"
+      },
+      "packagesDesc": {
+        "en": "Elite itineraries hand-designed by our specialist destination managers.",
+        "es": "Itinerarios de élite diseñados a mano por nuestros directores de destino.",
+        "pt": "Itinerários de elite desenhados à mão pelos nossos especialistas de destino."
+      },
+      "foodSub": {
+        "en": "Culinary Heritage",
+        "es": "Patrimonio Culinario",
+        "pt": "Patrimônio Culinário"
+      },
+      "foodTitle": {
+        "en": "Flavor Journeys",
+        "es": "Viajes de Sabor",
+        "pt": "Viagens de Sabor"
+      },
+      "foodDesc": {
+        "en": "Taste the heritage of royal Mughal kitchens and aromatic local street spices.",
+        "es": "Saboree el patrimonio de las cocinas reales mogoles y las especias locales.",
+        "pt": "Saboreie o patrimônio das cozinhas reais mogóis e as especiarias locais."
+      },
+      "testimonialsSub": {
+        "en": "Traveler Whispers",
+        "es": "Ecos de Viajeros",
+        "pt": "Sussurros de Viajantes"
+      },
+      "testimonialsTitle": {
+        "en": "What Our Guests Say",
+        "es": "Lo Que Dicen Nuestros Huéspedes",
+        "pt": "O Que Dizem Nossos Hóspedes"
+      },
+      "blogsSub": {
+        "en": "Travel Inspiration",
+        "es": "Inspiración de Viaje",
+        "pt": "Inspiração de Viaje"
+      },
+      "blogsTitle": {
+        "en": "Travel Blogs",
+        "es": "Blogs de Viaje",
+        "pt": "Blogs de Viagem"
+      },
+      "faqSub": {
+        "en": "Traveler Help Center",
+        "es": "Centro de Ayuda al Viajero",
+        "pt": "Central de Ajuda ao Viajante"
+      },
+      "faqTitle": {
+        "en": "Your Travel Questions Answered",
+        "es": "Sus Preguntas de Viaje",
+        "pt": "Suas Preguntas de Viagem"
+      },
+      "ctaBannerTitle": {
+        "en": "Begin Your Private Passage",
+        "es": "Comience Su Viaje Privado",
+        "pt": "Comece Sua Viagem Privada"
+      },
+      "ctaBannerSub": {
+        "en": "Speak to a luxury travel advisor to draft your tailored itinerary.",
+        "es": "Hable con un asesor de viajes de lujo para diseñar su itinerario a medida.",
+        "pt": "Fale com um consultor de viagens de luxo para desenhar seu itinerário sob medida."
+      },
+      "ctaBannerBtn": {
+        "en": "Inquire Now",
+        "es": "Planificar Ahora",
+        "pt": "Planejar Agora"
+      },
+      "viewAll": {
+        "en": "View All Experiences",
+        "es": "Ver Todas las Experiencias",
+        "pt": "Ver Todas as Experiências"
+      },
+      "guideSub": {
+        "en": "Traveler Resources",
+        "es": "Recursos para Viajeros",
+        "pt": "Recursos para Viajantes"
+      },
+      "guideTitle": {
+        "en": "Essential India Guides",
+        "es": "Guías Esenciales de India",
+        "pt": "Guias Essenciais da Índia"
+      },
+      "guideDesc": {
+        "en": "Practical travel intelligence to plan your journey with confidence.",
+        "es": "Información práctica y detallada para planificar su viaje con total tranquilidad.",
+        "pt": "Informações práticas e detalhadas para planear sua viagem com total tranquilidade."
+      },
+      "guide1Title": {
+        "en": "Solo Female Travel",
+        "es": "Mujer viajando sola",
+        "pt": "Mulher viajando sozinha"
+      },
+      "guide1Desc": {
+        "en": "India is welcoming and safe. We provide dedicated private drivers, licensed local guides, and 24/7 concierge support.",
+        "es": "La India es acogedora y segura. Brindamos choferes privados, guías certificados y asistencia activa las 24 horas.",
+        "pt": "A Índia é acolhedora e segura. Oferecemos motoristas particulares, guias certificados e assistência 24/7."
+      },
+      "guide2Title": {
+        "en": "Best Time to Visit",
+        "es": "Cuándo viajar a la India",
+        "pt": "Quando viajar para a Índia"
+      },
+      "guide2Desc": {
+        "en": "October to March offers cool, pleasant days. Ideal for exploring heritage forts and desert safaris.",
+        "es": "De octubre a marzo es la época dorada, ideal para explorar fortalezas imperiales sin calor extremo.",
+        "pt": "De outubro a março é a época de ouro, ideal para explorar palácios históricos e safáris no deserto."
+      },
+      "guide3Title": {
+        "en": "Vaccines & Health",
+        "es": "Vacunas y Salud",
+        "pt": "Vacinas e Saúde"
+      },
+      "guide3Desc": {
+        "en": "Simple precautions ensure a safe trip. We provide up-to-date health guides for all regions.",
+        "es": "Precauciones simples aseguran un viaje saludable. Ofrecemos recomendaciones de salud actualizadas.",
+        "pt": "Precauções simples garantem uma viagem saudável. Oferecemos diretrizes atualizadas por região."
+      },
+      "guide4Title": {
+        "en": "Currency & Payments",
+        "es": "Moneda en la India",
+        "pt": "Moneda na Índia"
+      },
+      "guide4Desc": {
+        "en": "Cards are widely accepted, but carrying some Rupees is useful for local markets and small vendors.",
+        "es": "Las tarjetas de crédito son comunes, pero llevar rupias en efectivo es ideal para pequeños mercados.",
+        "pt": "Cartões são aceitos, mas ter rúpias em mãos é ideal para feiras de artesanato e mercados locais."
+      },
+      "howItWorksSub": {
+        "en": "Our Process",
+        "es": "Nuestro Proceso",
+        "pt": "Nosso Processo"
+      },
+      "howItWorksTitle": {
+        "en": "How to Design Your Custom Tour",
+        "es": "Cómo Diseñar Su Viaje a Medida",
+        "pt": "Como Planejar Sua Viagem sob Medida"
+      },
+      "howItWorksDesc": {
+        "en": "Three simple steps to unlock a perfectly tailormade premium travel experience in India.",
+        "es": "Tres pasos sencillos para desbloquear una experiencia de viaje premium y personalizada en la India.",
+        "pt": "Três passos simples para desbloquear uma experiência de viagem premium e personalizada na Índia."
+      },
+      "step1Title": {
+        "en": "1. Select or Customize",
+        "es": "1. Seleccione o Personalice",
+        "pt": "1. Selecione ou Personalize"
+      },
+      "step1Desc": {
+        "en": "Browse our signature routes or share your bucket-list regions with our specialist desk.",
+        "es": "Examine nuestras rutas exclusivas o comparta sus regiones deseadas con nuestro equipo de especialistas.",
+        "pt": "Examine nossas rotas exclusivas ou compartilhe suas regiões desejadas com nossa equipe de especialistas."
+      },
+      "step2Title": {
+        "en": "2. Co-Design with an Advisor",
+        "es": "2. Co-diseñe con un Asesor",
+        "pt": "2. Co-desenhe com um Consultor"
+      },
+      "step2Desc": {
+        "en": "Your dedicated destination expert builds the details: hotel classes, private vehicles, and local guides.",
+        "es": "Un especialista diseña sus detalles: categoría de hoteles, vehículos privados y guías locales.",
+        "pt": "Um especialista constrói os detalhes: categoria de hotéis, transporte particular e guias locais."
+      },
+      "step3Title": {
+        "en": "3. Board & Travel in Peace",
+        "es": "3. Viaje con Total Tranquilidad",
+        "pt": "3. Viaje com Total Tranquilidade"
+      },
+      "step3Desc": {
+        "en": "Our on-ground ops desk coordinates all logistics, including professional private drivers and 24/7 concierge.",
+        "es": "Nuestro equipo gestiona toda la logística terrestre, con choferes profesionales y asistencia 24/7.",
+        "pt": "Nossa equipe coordena toda a logística terrestre, com motoristas profissionais e suporte 24/7."
+      },
+      "inclusionsSub": {
+        "en": "Luxury Standard",
+        "es": "Servicio de Lujo",
+        "pt": "Serviço de Luxo"
+      },
+      "inclusionsTitle": {
+        "en": "Our Premium Booking Standard",
+        "es": "Qué Incluye Cada Viaje Privado",
+        "pt": "O Que Inclui Cada Viagem Privada"
+      },
+      "inclusionsDesc": {
+        "en": "What we guarantee in every bespoke private package booking.",
+        "es": "Nuestras garantías de calidad en todas las reservas de paquetes privados.",
+        "pt": "Nossas garantias de qualidade em todas as reservas de pacotes privados."
+      },
+      "inc1Title": {
+        "en": "Private Professional Chauffeur",
+        "es": "Chofer Profesional Privado",
+        "pt": "Motorista Profissional Particular"
+      },
+      "inc1Desc": {
+        "en": "Air-conditioned luxury SUVs or spacious sedans with verified drivers at your disposal for all regional transits.",
+        "es": "SUVs premium con aire acondicionado y choferes verificados a su disposición para traslados regionales.",
+        "pt": "SUVs premium com ar-condicionado e motoristas verificados à sua disposição para traslados regionais."
+      },
+      "inc2Title": {
+        "en": "Licensed Local Guides",
+        "es": "Guías Certificados Oficiales",
+        "pt": "Guias Credenciados Oficiais"
+      },
+      "inc2Desc": {
+        "en": "Official government-certified guides at every heritage fort, lake palace, and monument checkout.",
+        "es": "Guías locales oficiales en cada monumento histórico, palacio y templo.",
+        "pt": "Guias locais oficiais em cada monumento histórico, palácio e templo."
+      },
+      "inc3Title": {
+        "en": "Boutique & Heritage Stays",
+        "es": "Hoteles de Patrimonio y Lujo",
+        "pt": "Hotéis de Patrimônio e Luxo"
+      },
+      "inc3Desc": {
+        "en": "Hand-curated bookings inside restored royal fortresses, wellness resorts, or luxury safari camps.",
+        "es": "Estancias seleccionadas a mano en palacios reales restaurados o retiros de bienestar de alta gama.",
+        "pt": "Estadias selecionadas em palácios reais restaurados ou resorts de bem-estar de alto padrão."
+      },
+      "inc4Title": {
+        "en": "24/7 Concierge Support",
+        "es": "Soporte Concierge 24/7",
+        "pt": "Suporte Concierge 24/7"
+      },
+      "inc4Desc": {
+        "en": "Direct active connection line to our operations desk via WhatsApp for real-time schedule adjustments.",
+        "es": "Contacto directo por WhatsApp con nuestro departamento de operaciones para cualquier ajuste en tiempo real.",
+        "pt": "Contato direto por WhatsApp com nossa equipe de operações para ajustes de roteiro em tempo real."
+      },
+      "exploreBtn": {
+        "en": "Build Custom Package",
+        "es": "Personalizar Este Viaje",
+        "pt": "Personalizar Esta Viagem"
+      },
+      "fromPrice": {
+        "en": "From $180 / day per guest",
+        "es": "Desde $180 / día por persona",
+        "pt": "A partir de $180 / dia por pessoa"
+      },
+      "customizableText": {
+        "en": "100% Customizable Private Itinerary",
+        "es": "Itinerario Privado 100% Personalizable",
+        "pt": "Itinerário Privado 100% Personalizável"
+      }
+    }
+  },
+  {
+    "id": "about",
+    "isCustom": false,
+    "title": {
+      "en": "About Us",
+      "es": "Sobre Nosotros",
+      "pt": "Sobre Nós"
+    },
+    "content": {
+      "heroSub": {
+        "en": "Our Story",
+        "es": "Nuestra Historia",
+        "pt": "Nossa História"
+      },
+      "hero": {
+        "en": "Pioneers of Bespoke Indian Safaris",
+        "es": "Pioneros de Viajes a Medida en la India",
+        "pt": "Pioneiros de Viagens Sob Medida na Índia"
+      },
+      "heroDesc": {
+        "en": "Creating elite private journeys across the Indian subcontinent since 2010. Our passion is authentic local story-telling and unparalleled service.",
+        "es": "Creando itinerarios privados de lujo desde 2010. Nuestra pasión es el servicio inigualable y la autenticidad local.",
+        "pt": "Criando itinerários privados de luxo desde 2010. Nossa paixão é o serviço incomparável e a autenticidade local."
+      },
+      "storyTitle": {
+        "en": "Our Heritage & Philosophy",
+        "es": "Nuestra Filosofía y Legado",
+        "pt": "Nossa Filosofia e Legado"
+      },
+      "storyP1": {
+        "en": "Founded over a decade ago, MH India Trips was born from a simple vision: to showcase the rich heritage, vibrant colors, and spiritual depth of India without compromising on comfort. We believe that travel should be slow, immersive, and custom-tailored to the individual traveler.",
+        "es": "Fundada hace más de una década, MH India Trips nació de una visión simple: mostrar el rico patrimonio, los colores vibrantes y la profundidad espiritual de la India sin comprometer el confort.",
+        "pt": "Fundada há mais de uma década, a MH India Trips nasceu de uma visão simples: mostrar o rico patrimônio, as cores vibrantes e a profundidade espiritual da Índia sem comprometer o conforto."
+      },
+      "storyP2": {
+        "en": "From private dinners inside medieval desert forts to custom houseboat tours on Kerala's tranquil backwaters, our on-ground concierge team works tirelessly to ensure every detail is absolute perfection. We don't just book tours; we curate life-defining memories.",
+        "es": "Desde cenas privadas en fuertes medievales del desierto hasta paseos a medida en casas flotantes por los canales de Kerala, nuestro equipo trabaja incansablemente para que cada detalle sea perfecto.",
+        "pt": "De jantares privados em fortes medievais do deserto a passeios sob medida em barcos nos canais de Kerala, nossa equipe trabalha incansavelmente para que cada detalhe seja perfeito."
+      },
+      "missionTitle": {
+        "en": "Our Mission",
+        "es": "Nuestra Misión",
+        "pt": "Nossa Missão"
+      },
+      "missionText": {
+        "en": "To bridge the gap between luxury comfort and authentic local encounters, offering absolute peace of mind through hand-picked experts.",
+        "es": "Unir el confort de lujo con encuentros locales auténticos, ofreciendo total tranquilidad a través de expertos locales.",
+        "pt": "Unir o conforto de luxo com encontros locais autênticos, oferecendo total tranquilidade através de especialistas."
+      },
+      "visionTitle": {
+        "en": "Our Vision",
+        "es": "Nuestra Visión",
+        "pt": "Nossa Visão"
+      },
+      "visionText": {
+        "en": "To remain India's premier private travel designer, recognized globally for outstanding service, sustainability, and unique palace stays.",
+        "es": "Seguir siendo el diseñador de viajes privados líder en la India, reconocido por nuestro servicio sobresaliente y estancias en palacios reales.",
+        "pt": "Seguir sendo o designer de viagens privadas líder na Índia, reconhecido pelo nosso serviço excepcional e estadias em palácios reais."
+      },
+      "valuesTitle": {
+        "en": "Our Core Values",
+        "es": "Nuestros Valores Core",
+        "pt": "Nossos Valores Core"
+      },
+      "teamTitle": {
+        "en": "Our Expert Team",
+        "es": "Nuestro Equipo de Expertos",
+        "pt": "Nossa Equipe de Especialistas"
+      },
+      "teamDesc": {
+        "en": "Meet our bilingual destination managers, heritage researchers, and logistics coordinators.",
+        "es": "Conozca a nuestros asesores de destino bilingües y coordinadores de logística.",
+        "pt": "Conheça nossos consultores de destino bilíngues e coordenadores de logística."
+      },
+      "ctaTitle": {
+        "en": "Ready to Plan Your Indian Safari?",
+        "es": "¿Listo Para Diseñar Su Viaje a la India?",
+        "pt": "Pronto Para Planejar Sua Viagem à Índia?"
+      },
+      "ctaDesc": {
+        "en": "Contact our luxury travel advisors today to begin drafting your custom custom-tailored itinerary.",
+        "es": "Contacte a nuestros asesores de viajes de lujo hoy para comenzar a planificar su itinerario a medida.",
+        "pt": "Entre em contato com nossos consultores de viagens de luxo hoje para começar a planejar seu itinerário sob medida."
+      },
+      "ctaBtn": {
+        "en": "Inquire Now",
+        "es": "Planificar Ahora",
+        "pt": "Fale Conosco"
+      }
+    }
+  },
+  {
+    "id": "contact",
+    "isCustom": false,
+    "title": {
+      "en": "Contact Us",
+      "es": "Contacto",
+      "pt": "Contato"
+    },
+    "content": {
+      "heroSub": {
+        "en": "Concierge Contact",
+        "es": "Contacto de Conserjería",
+        "pt": "Contacto de Concierge"
+      },
+      "hero": {
+        "en": "Speak with Our Specialists",
+        "es": "Hable con Nuestros Especialistas",
+        "pt": "Fale com Nossos Especialistas"
+      },
+      "heroDesc": {
+        "en": "Connect with our expert travel designers to begin crafting your private customized India itinerary.",
+        "es": "Conéctese con nuestros diseñadores de viajes para comenzar a crear su itinerario personalizado.",
+        "pt": "Entre em contato com nossos designers de viagens para começar a planejar seu itinerário personalizado."
+      },
+      "infoTitle": {
+        "en": "Concierge Desk",
+        "es": "Mesa de Conserjería",
+        "pt": "Mesa de Concierge"
+      },
+      "phone": {
+        "en": "+91 98765 43210",
+        "es": "+91 98765 43210",
+        "pt": "+91 98765 43210"
+      },
+      "email": {
+        "en": "hello@mhindiatrips.com",
+        "es": "hello@mhindiatrips.com",
+        "pt": "hello@mhindiatrips.com"
+      },
+      "address": {
+        "en": "New Delhi, India",
+        "es": "Nueva Delhi, India",
+        "pt": "Nova Deli, Índia"
+      },
+      "hours": {
+        "en": "Mon - Sat: 9:00 AM - 7:00 PM IST",
+        "es": "Lun - Sáb: 9:00 AM - 7:00 PM IST",
+        "pt": "Seg - Sáb: 9:00 AM - 7:00 PM IST"
+      },
+      "whatsappBtn": {
+        "en": "Chat on WhatsApp",
+        "es": "Chat en WhatsApp",
+        "pt": "Conversar no WhatsApp"
+      }
+    }
+  },
+  {
+    "id": "faq",
+    "isCustom": false,
+    "title": {
+      "en": "Traveler Info",
+      "es": "Información para Viajeros",
+      "pt": "Informações para Viajantes"
+    },
+    "content": {
+      "heroSub": {
+        "en": "Practical Advice",
+        "es": "Consejos Prácticos",
+        "pt": "Conselhos Práticos"
+      },
+      "heroTitle": {
+        "en": "Traveler Information",
+        "es": "Información para Viajeros",
+        "pt": "Informações para Viajantes"
+      },
+      "heroDesc": {
+        "en": "All essential guidelines, logistic parameters, safety precautions, and advice to prepare for your journey to India.",
+        "es": "Todas las directrices esenciales, parámetros logísticos, precauciones de seguridad y consejos para preparar su viaje a la India.",
+        "pt": "Todas as diretrizes essenciais, parâmetros logísticos, precauções de segurança e conselhos para preparar sua viagem à Índia."
+      },
+      "sectionTitle": {
+        "en": "Essential Guides",
+        "es": "Guías Esenciales",
+        "pt": "Guias Essenciais"
+      },
+      "sectionDesc": {
+        "en": "Important advice categorized for high-end bespoke traveler peace of mind.",
+        "es": "Consejos importantes categorizados para la tranquilidad del viajero.",
+        "pt": "Conselhos importantes categorizados para a tranquilidade do viajante."
+      },
+      "faqTitle": {
+        "en": "Frequently Asked Questions",
+        "es": "Preguntas Frecuentes",
+        "pt": "Perguntas Frequentes"
+      },
+      "faqDesc": {
+        "en": "Find answers to typical concierge queries before your departure.",
+        "es": "Encuentre respuestas a las consultas más comunes de conserjería antes de su partida.",
+        "pt": "Encontre respostas para as dúvidas mais comuns de concierge antes de sua partida."
+      },
+      "ctaTitle": {
+        "en": "Have custom requests?",
+        "es": "¿Tiene requisitos específicos?",
+        "pt": "Tem requisitos específicos?"
+      },
+      "ctaBtn": {
+        "en": "Inquire Now",
+        "es": "Consultar Ahora",
+        "pt": "Fale Conosco"
+      },
+      "guide1Title": {
+        "en": "Solo Female Travel",
+        "es": "Mujer viajando sola por la India",
+        "pt": "Mulher viajando sozinha"
+      },
+      "guide1Desc": {
+        "en": "India is highly welcoming to foreign guests. For female travelers, we guarantee private transfers with verified professional chauffeurs, government-certified local guides at all monument check-points, and 24/7 active concierge helpline support.",
+        "es": "La India es muy acogedora con los viajeros. Para las mujeres que viajan solas, garantizamos traslados privados con choferes profesionales verificados, guías locales certificados y asistencia telefónica activa las 24 horas.",
+        "pt": "A Índia é acolhedora para os visitantes. Para mulheres viajando sozinhas, garantizamos traslados privados com motoristas profissionais verificados, guias locais credenciados e assistência de concierge ativa 24/7."
+      },
+      "guide2Title": {
+        "en": "Best Time to Visit & Climate",
+        "es": "Cuándo viajar y Clima",
+        "pt": "Quando viajar e Clima"
+      },
+      "guide2Desc": {
+        "en": "October to March is the ideal season for most of India, featuring warm days and cool evenings. The Himalayan ranges are perfect in summer, and South India remains lush and beautiful year-round.",
+        "es": "De octubre a marzo es la temporada ideal para la mayor parte de la India, con días templados y noches frescas. Las regiones del Himalaya son perfectas en verano y el sur permanece verde todo el año.",
+        "pt": "De outubro a março é a temporada ideal para a maioria das regiões, com dias amenos e noites frescas. O Himalaia é perfeito no verão e o sul permanece verde e exuberante o ano todo."
+      },
+      "guide3Title": {
+        "en": "Vaccinations & Health",
+        "es": "Vacunas y Salud en India",
+        "pt": "Vacinas e Saúde na Índia"
+      },
+      "guide3Desc": {
+        "en": "Basic precautions ensure an amazing holiday. Up-to-date routine vaccines are recommended. Drink only sealed bottled water, eat at vetted hygiene-inspected dining rooms, and pack standard traveler first-aid guides.",
+        "es": "Precauciones básicas aseguran unas vacaciones perfectas. Se recomiendan vacunas de rutina actualizadas. Beba solo agua embotellada, coma en restaurantes seleccionados e higiénicos, y lleve un botiquín básico.",
+        "pt": "Precauções básicas garantem férias perfeitas. Recomendamos vacinas de rotina atualizadas. Beba apenas água mineral engarrafada, coma em locais higiênicos selecionados e leve itens básicos de saúde."
+      },
+      "guide4Title": {
+        "en": "Currency & Payments",
+        "es": "Moneda y Pagos",
+        "pt": "Moeda e Pagamentos"
+      },
+      "guide4Desc": {
+        "en": "The local currency is the Indian Rupee (INR). International credit cards are widely used in luxury hotels, boutiques, and high-end dining. Carrying some cash is helpful for tips and local heritage craft markets.",
+        "es": "La moneda local es la Rupia India (INR). Las tarjetas de crédito internacionales son ampliamente aceptadas en hoteles de lujo, boutiques y restaurantes. Llevar algo de efectivo es útil para propinas y mercados.",
+        "pt": "A moeda local é a Rúpia Indiana (INR). Cartões de crédito internacionais são amplamente aceitos em hotéis de luxo, boutiques e restaurantes. Ter dinheiro em mãos é útil para gorjetas e mercados locais."
+      },
+      "guide5Title": {
+        "en": "Packing & Clothing",
+        "es": "Equipaje y Ropa",
+        "pt": "Bagagem e Roupas"
+      },
+      "guide5Desc": {
+        "en": "Wear light, breathable cotton layers. It is respectful to dress modestly when visiting temples and spiritual shrines (shoulders and knees covered). Slip-on shoes are ideal as shoes are removed at holy sites.",
+        "es": "Lleve ropa ligera de algodón. Es respetuoso vestir con modestia al visitar templos y lugares espirituales (hombros y rodillas cubiertos). Los zapatos fáciles de quitar son ideales, ya que se retiran en templos.",
+        "pt": "Use roupas leves de algodão. Vista-se de maneira respeitosa ao visitar templos e locais sagrados (ombros e joelhos cobertos). Sapatos fáceis de tirar são ideais, pois são retirados nos tempos."
+      }
+    }
+  },
+  {
+    "id": "gallery",
+    "isCustom": false,
+    "title": {
+      "en": "Gallery",
+      "es": "Galería",
+      "pt": "Galeria"
+    },
+    "content": {
+      "heroSub": {
+        "en": "Visual Stories",
+        "es": "Historias Visuales",
+        "pt": "Histórias Visuais"
+      },
+      "hero": {
+        "en": "Gallery",
+        "es": "Galería",
+        "pt": "Galeria"
+      },
+      "heroDesc": {
+        "en": "A curated collection of moments from India's most incredible destinations.",
+        "es": "Una colección curada de momentos de los destinos más increíbles de la India.",
+        "pt": "Uma coleção curada de momentos dos destinos mais incríveis da Índia."
+      }
+    }
+  },
+  {
+    "id": "monuments",
+    "isCustom": false,
+    "title": {
+      "en": "Monuments",
+      "es": "Monumentos",
+      "pt": "Monumentos"
+    },
+    "content": {
+      "heroSub": {
+        "en": "Heritage & Architecture",
+        "es": "Patrimonio y Arquitectura",
+        "pt": "Patrimônio e Arquitetura"
+      },
+      "heroTitle": {
+        "en": "Iconic Monuments of India",
+        "es": "Monumentos Icónicos de la India",
+        "pt": "Monumentos Icônicos da Índia"
+      },
+      "heroDesc": {
+        "en": "Discover centuries-old palaces, grand Mughal forts, ancient temples, and UNESCO World Heritage sites that tell India's extraordinary story.",
+        "es": "Descubra palacios centenarios, grandes fuertes mogoles, templos antiguos y sitios del Patrimonio Mundial de la UNESCO.",
+        "pt": "Descubra palácios centenários, grandes fortes mogóis, templos antigos e locais do Patrimônio Mundial da UNESCO."
+      },
+      "sectionSub": {
+        "en": "Explore Heritage",
+        "es": "Explorar Patrimonio",
+        "pt": "Explorar Patrimônio"
+      },
+      "sectionTitle": {
+        "en": "Architectural Masterpieces",
+        "es": "Obras Maestras Arquitectónicas",
+        "pt": "Obras-Primas Arquitetônicas"
+      },
+      "sectionDesc": {
+        "en": "Each monument is a chapter in India's living history book. Private guided tours available for every site.",
+        "es": "Cada monumento es un capítulo en el libro de la historia viva de la India. Tours privados guiados disponibles.",
+        "pt": "Cada monumento é um capítulo no livro da história viva da Índia. Tours privados guiados disponíveis."
+      },
+      "viewDetails": {
+        "en": "Explore Monument",
+        "es": "Explorar Monumento",
+        "pt": "Explorar Monumento"
+      },
+      "exploreCity": {
+        "en": "View City Guide",
+        "es": "Ver Guía de Ciudad",
+        "pt": "Ver Guia da Cidade"
+      },
+      "noMonuments": {
+        "en": "More monuments coming soon. We are expanding our heritage catalogue.",
+        "es": "Más monumentos próximamente. Estamos ampliando nuestro catálogo.",
+        "pt": "Mais monumentos em breve. Estamos expandindo nosso catálogo."
+      },
+      "ctaTitle": {
+        "en": "Include These in Your Journey",
+        "es": "Incluya Estos en Su Viaje",
+        "pt": "Inclua Estes na Sua Viagem"
+      },
+      "ctaDesc": {
+        "en": "Our heritage specialists can build a custom itinerary around India's most iconic monuments with private guided access.",
+        "es": "Nuestros especialistas en patrimonio pueden crear un itinerario personalizado con acceso privado guiado.",
+        "pt": "Nossos especialistas em patrimônio podem criar um itinerário personalizado com acesso privado guiado."
+      },
+      "ctaBtn": {
+        "en": "Plan Heritage Tour",
+        "es": "Planear Tour de Patrimonio",
+        "pt": "Planejar Tour de Patrimônio"
+      },
+      "featured": {
+        "en": "Featured Heritage",
+        "es": "Patrimonio Destacado",
+        "pt": "Patrimônio em Destaque"
+      }
+    }
+  },
+  {
+    "id": "privacy",
+    "isCustom": false,
+    "title": {
+      "en": "Privacy Policy",
+      "es": "Política de Privacidad",
+      "pt": "Política de Privacidade"
+    },
+    "content": {
+      "body": {
+        "en": "<p class=\"text-xs uppercase tracking-wider font-bold text-gold\">Last updated: August 2026</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">1. Information We Collect</h2><p class=\"text-[15px]\">We collect personal information you provide when making inquiries, booking tours, or subscribing to our newsletter. This includes your name, email, phone number, travel preferences, and passport information when required for bookings.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">2. How We Use Your Information</h2><p class=\"text-[15px]\">Your information is used to: plan and customize your travel itinerary, communicate about your booking, send relevant travel updates and offers (with your consent), and improve our services.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">3. Data Protection</h2><p class=\"text-[15px]\">We implement industry-standard security measures to protect your personal data. Your information is stored securely and is only accessible to authorized team members who need it to provide our services.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">4. Third-Party Sharing</h2><p class=\"text-[15px]\">We share your information only with trusted partners directly involved in delivering your travel experience (hotels, transport providers, guides). We never sell your personal data to third parties.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">5. Cookies</h2><p class=\"text-[15px]\">Our website uses cookies to enhance your browsing experience and analyze website traffic. You can manage cookie preferences through your browser settings.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">6. Your Rights</h2><p class=\"text-[15px]\">You have the right to access, correct, or delete your personal information at any time. Contact us at hello@mhindiatrips.com for any data-related requests.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">7. Contact</h2><p class=\"text-[15px]\">For questions about this privacy policy, contact us at hello@mhindiatrips.com or +91 98765 43210.</p>",
+        "es": "<p class=\"text-xs uppercase tracking-wider font-bold text-gold\">Última actualización: agosto de 2026</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">1. Información que recopilamos</h2><p class=\"text-[15px]\">Recopilamos la información personal que proporciona al realizar consultas, reservar viajes o suscribirse a nuestro boletín. Esto incluye su nombre, correo electrónico, número de teléfono, preferencias de viaje e información de pasaporte cuando sea necesario para las reservas.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">2. Cómo utilizamos su información</h2><p class=\"text-[15px]\">Su información se utiliza para: planificar y personalizar su itinerario de viaje, comunicarnos sobre su reserva, enviar ofertas y actualizaciones de viaje relevantes (con su consentimiento) y mejorar nuestros servicios.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">3. Protección de datos</h2><p class=\"text-[15px]\">Implementamos medidas de seguridad estándar de la industria para proteger sus datos personales. Su información se almacena de forma segura y solo es accesible para los miembros autorizados del equipo que la necesitan para brindar nuestros servicios.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">4. Compartir con terceros</h2><p class=\"text-[15px]\">Compartimos su información únicamente con socios de confianza que participan directamente en la entrega de su experiencia de viaje (hoteles, proveedores de transporte, guías). Nunca vendemos sus datos personales a terceros.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">5. Cookies</h2><p class=\"text-[15px]\">Nuestro sitio web utiliza cookies para mejorar su experiencia de navegación y analizar el tráfico del sitio web. Puede administrar las preferencias de cookies a través de la configuración de su navegador.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">6. Sus derechos</h2><p class=\"text-[15px]\">Tiene derecho a acceder, corregir o eliminar su información personal en cualquier momento. Póngase en contacto con nosotros en hello@mhindiatrips.com para cualquier solicitud relacionada con datos.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">7. Contacto</h2><p class=\"text-[15px]\">Si tiene preguntas sobre esta política de privacidad, contáctenos en hello@mhindiatrips.com o al +91 98765 43210.</p>",
+        "pt": "<p class=\"text-xs uppercase tracking-wider font-bold text-gold\">Última atualização: agosto de 2026</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">1. Informações que coletamos</h2><p class=\"text-[15px]\">Coletamos informações pessoais que você fornece ao fazer consultas, reservar excursões ou assinar nosso boletim informativo. Isso inclui seu nome, e-mail, número de telefone, preferências de viagem e informações de passaporte quando necessário para reservas.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">2. Como usamos suas informações</h2><p class=\"text-[15px]\">Suas informações são usadas para: planejar e personalizar seu itinerário de viagem, comunicar-se sobre sua reserva, enviar atualizações e ofertas de viagens relevantes (com seu consentimento) e melhorar nossos serviços.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">3. Proteção de dados</h2><p class=\"text-[15px]\">Implementamos medidas de segurança padrão do setor para proteger seus dados pessoais. Suas informações são armazenadas com segurança e só são acessíveis a membros autorizados da equipe que precisam delas para fornecer nossos serviços.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">4. Compartilhamento com terceiros</h2><p class=\"text-[15px]\">Compartilhamos suas informações apenas com parceiros de confiança diretamente envolvidos na entrega de sua experiência de viagem (hotéis, provedores de transporte, guias). Nunca vendemos seus dados pessoais a terceiros.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">5. Cookies</h2><p class=\"text-[15px]\">Nosso site usa cookies para melhorar sua experiência de navegação e analisar o tráfego do site. Você pode gerenciar as preferências de cookies por meio das configurações do seu navegador.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">6. Seus direitos</h2><p class=\"text-[15px]\">Você tem o direito de acessar, corrigir ou excluir suas informações pessoais a qualquer momento. Entre em contato conosco pelo e-mail hello@mhindiatrips.com para qualquer solicitação relacionada a dados.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">7. Contato</h2><p class=\"text-[15px]\">Para dúvidas sobre esta política de privacidade, entre em contato conosco pelo e-mail hello@mhindiatrips.com ou pelo telefone +91 98765 43210.</p>"
+      }
+    }
+  },
+  {
+    "id": "terms",
+    "isCustom": false,
+    "title": {
+      "en": "Terms & Conditions",
+      "es": "Términos y Condiciones",
+      "pt": "Termos e Condições"
+    },
+    "content": {
+      "body": {
+        "en": "<p class=\"text-xs uppercase tracking-wider font-bold text-gold\">Last updated: August 2026</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">1. Booking & Payments</h2><p class=\"text-[15px]\">A 30% deposit is required to confirm your booking. The remaining balance is due 30 days before the trip start date. All payments are processed securely through our authorized payment partners.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">2. Cancellation Policy</h2><p class=\"text-[15px]\">Cancellations made 60+ days before departure: full refund minus processing fees. 30-59 days: 50% refund. Less than 30 days: no refund. We recommend travel insurance for all bookings.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">3. Itinerary Changes</h2><p class=\"text-[15px]\">We reserve the right to modify itineraries due to unforeseen circumstances (weather, political situations, natural disasters). Alternative arrangements of equal or higher quality will be provided.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">4. Travel Insurance</h2><p class=\"text-[15px]\">We strongly recommend comprehensive travel insurance covering trip cancellation, medical emergencies, and personal belongings. This is the traveler's responsibility.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">5. Liability</h2><p class=\"text-[15px]\">MH India Trips acts as an intermediary between travelers and service providers. While we carefully vet all partners, we are not liable for acts of third-party service providers, natural disasters, or force majeure events.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">6. Health & Vaccinations</h2><p class=\"text-[15px]\">Travelers are responsible for ensuring they have appropriate vaccinations and health clearances. We provide guidance but recommend consulting your doctor before travel.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">7. Code of Conduct</h2><p class=\"text-[15px]\">Travelers are expected to respect local customs, cultural sites, and communities. We reserve the right to terminate services without refund in cases of inappropriate behavior.</p>",
+        "es": "<p class=\"text-xs uppercase tracking-wider font-bold text-gold\">Última actualización: agosto de 2026</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">1. Reservas y Pagos</h2><p class=\"text-[15px]\">Se requiere un depósito del 30% para confirmar su reserva. El saldo restante debe pagarse 30 días antes de la fecha de inicio del viaje. Todos los pagos se procesan de forma segura a través de nuestros socios autorizados.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">2. Política de Cancelación</h2><p class=\"text-[15px]\">Cancelaciones realizadas con más de 60 días de antelación al inicio: reembolso completo menos gastos de gestión. De 30 a 59 días: reembolso del 50%. Menos de 30 días: sin reembolso. Recomendamos un seguro de viaje.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">3. Cambios en el Itinerario</h2><p class=\"text-[15px]\">Nos reservamos el derecho de modificar itinerarios debido a circunstancias imprevistas (clima, situaciones políticas, desastres naturales). Se proporcionarán alternativas de igual o mayor calidad.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">4. Seguro de Viaje</h2><p class=\"text-[15px]\">Recomendamos encarecidamente un seguro de viaje completo que cubra cancelación del viaje, emergencias médicas y equipaje personal. Esto es responsabilidad del viajero.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">5. Responsabilidad</h2><p class=\"text-[15px]\">MH India Trips actúa como intermediario entre los viajeros y los proveedores de servicios. No somos responsables por los actos de los proveedores, desastres naturales o eventos de fuerza mayor.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">6. Salud y Vacunas</h2><p class=\"text-[15px]\">Los viajeros son responsables de asegurarse de tener las vacunas y autorizaciones de salud adecuadas. Brindamos orientación pero recomendamos consultar a su médico antes de viajar.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">7. Código de Conducta</h2><p class=\"text-[15px]\">Se espera que los viajeros respeten las costumbres locales, los sitios culturales y las comunidades. Nos reservamos el derecho de rescindir los servicios sin reembolso en caso de comportamiento inapropiado.</p>",
+        "pt": "<p class=\"text-xs uppercase tracking-wider font-bold text-gold\">Última atualização: agosto de 2026</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">1. Reservas e Pagamentos</h2><p class=\"text-[15px]\">É necessário um depósito de 30% para confirmar sua reserva. O saldo restante deve ser pago 30 dias antes da data de início da viagem. Todos os pagamentos são processados com segurança por meio de nossos parceiros de pagamento autorizados.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">2. Política de Cancelamento</h2><p class=\"text-[15px]\">Cancelamentos feitos com mais de 60 dias de antecedência: reembolso total menos taxas de processamento. De 30 a 59 dias: reembolso de 50%. Menos de 30 dias: sem reembolso. Recomendamos seguro de viagem.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">3. Alterações de Roteiro</h2><p class=\"text-[15px]\">Reservamo-nos o direito de modificar os roteiros devido a circunstâncias imprevistas (clima, situações políticas, desastres naturais). Serão fornecidas alternativas de qualidade igual ou superior.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">4. Seguro de Viagem</h2><p class=\"text-[15px]\">Recomendamos fortemente um seguro de viagem abrangente cobrindo cancelamento de viagem, emergências médicas e bagagem pessoal. Isso é de responsabilidade do viajante.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">5. Responsabilidade</h2><p class=\"text-[15px]\">A MH India Trips atua como intermediária entre viajantes e prestadores de serviços. Não somos responsáveis por atos de terceiros, desastres naturais ou eventos de força maior.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">6. Saúde e Vacinas</h2><p class=\"text-[15px]\">Os viajantes são responsáveis por garantir que tenham as vacinas e autorizações de saúde adequadas. Fornecemos orientações mas recomendamos consultar seu médico antes de viajar.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">7. Código de Conduta</h2><p class=\"text-[15px]\">Espera-se que os viajantes respeitem os costumes locais, locais históricos e comunidades. Reservamo-nos o direito de rescindir os serviços sem reembolso em casos de comportamento inadequado.</p>"
+      }
+    }
+  }
+]

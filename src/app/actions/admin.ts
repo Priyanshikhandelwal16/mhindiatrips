@@ -138,3 +138,44 @@ export async function updateStateAction(slug: string, data: any) {
     return { success: false, error: error.message || "Failed to update destination state" };
   }
 }
+
+// PAGE ACTIONS
+export async function createPageAction(data: any) {
+  try {
+    const page = await db.pages.create(data);
+    revalidatePath("/[locale]/[slug]", "page");
+    revalidatePath("/[locale]", "layout");
+    return { success: true, page };
+  } catch (error: any) {
+    return { success: false, error: error.message || "Failed to create page" };
+  }
+}
+
+export async function updatePageAction(id: string, data: any) {
+  try {
+    const page = await db.pages.update(id, data);
+    revalidatePath("/[locale]", "layout");
+    revalidatePath(`/[locale]/${id}`, "page");
+    revalidatePath(`/[locale]/about`, "page");
+    revalidatePath(`/[locale]/contact`, "page");
+    revalidatePath(`/[locale]/faq`, "page");
+    revalidatePath(`/[locale]/gallery`, "page");
+    revalidatePath(`/[locale]/monuments`, "page");
+    revalidatePath(`/[locale]/privacy`, "page");
+    revalidatePath(`/[locale]/terms`, "page");
+    return { success: true, page };
+  } catch (error: any) {
+    return { success: false, error: error.message || "Failed to update page" };
+  }
+}
+
+export async function deletePageAction(id: string) {
+  try {
+    await db.pages.delete(id);
+    revalidatePath("/[locale]", "layout");
+    revalidatePath(`/[locale]/${id}`, "page");
+    return { success: true };
+  } catch (error: any) {
+    return { success: false, error: error.message || "Failed to delete page" };
+  }
+}

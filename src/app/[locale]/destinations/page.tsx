@@ -99,7 +99,7 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
                 {regionStates.map((state: any, i: number) => (
                   <Reveal key={state.slug} delay={i * 100}>
                     <Link href={`/${locale}/destinations/${state.slug}`} className="group block h-full perspective-1000">
-                      <div className="card-3d bg-white border border-[#C3AB85]/10 rounded-[2rem] overflow-hidden shadow-md flex flex-col h-full transition-all duration-500 hover:shadow-2xl">
+                      <div className="card-3d bg-white border border-[#C3AB85]/10 overflow-hidden shadow-md flex flex-col h-full transition-all duration-500 hover:shadow-2xl">
                         <div className="h-64 md:h-72 overflow-hidden relative shrink-0">
                           <img 
                             src={state.image} 

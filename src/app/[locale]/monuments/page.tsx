@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { getStatesAction } from "@/app/actions/queries";
+import { getStatesAction, getPageByIdAction } from "@/app/actions/queries";
 import Reveal from "@/components/home/Reveal";
 import { MapPin, ArrowRight, Landmark, Clock, Camera, Calendar, Compass } from "lucide-react";
 
@@ -11,6 +11,7 @@ interface MonumentsPageProps {
 export default async function MonumentsPage({ params }: MonumentsPageProps) {
   const { locale } = await params;
   const states = await getStatesAction();
+  const pageData = await getPageByIdAction("monuments");
 
   // Extract all attractions from all cities under all states
   const monuments = states.flatMap((state: any) =>
@@ -73,7 +74,17 @@ export default async function MonumentsPage({ params }: MonumentsPageProps) {
     }
   };
 
-  const text = t[locale] || t.en;
+  const dbContent = pageData?.content || {};
+  const mergedT: Record<string, any> = {};
+  for (const lang of ["en", "es", "pt"]) {
+    mergedT[lang] = { ...t[lang] };
+    for (const key in dbContent) {
+      if (dbContent[key]?.[lang] !== undefined) {
+        mergedT[lang][key] = dbContent[key][lang];
+      }
+    }
+  }
+  const text = mergedT[locale] || mergedT.en;
 
   // Featured monuments data (hardcoded iconic ones)
   const featuredMonuments = [
