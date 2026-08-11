@@ -81,7 +81,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
           
           {/* Postcard Details box */}
-          <Reveal className="bg-white border border-gold/25 p-8 rounded-3xl space-y-8 shadow-xl shadow-royal/5 relative overflow-hidden lg:sticky lg:top-24">
+          <Reveal className="bg-white border border-gold/25 p-8 space-y-8 shadow-xl shadow-royal/5 relative overflow-hidden lg:sticky lg:top-24">
             <div className="absolute top-0 left-0 w-full h-[4px] bg-gold" />
             <div className="space-y-2">
               <span className="text-[9px] uppercase tracking-wider font-bold text-gold flex items-center gap-1.5">

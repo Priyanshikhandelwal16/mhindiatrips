@@ -147,7 +147,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
         </Reveal>
         
         {/* Mission Card (Increased Text Sizes) */}
-        <Reveal direction="right" delay={200} className="bg-white border border-gold/25 p-10 rounded-3xl space-y-8 shadow-xl shadow-royal/5 relative overflow-hidden">
+        <Reveal direction="right" delay={200} className="bg-white border border-gold/25 p-10 space-y-8 shadow-xl shadow-royal/5 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-[4px] bg-gold" />
           <div className="space-y-3">
             <h3 className="text-xl font-bold text-royal">{text.missionTitle}</h3>
@@ -173,7 +173,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
           {values.map((val, i) => {
             const Icon = val.icon;
             return (
-              <Reveal key={i} delay={i * 60} className="bg-white border border-gold/10 p-10 rounded-3xl shadow-sm space-y-5">
+              <Reveal key={i} delay={i * 60} className="bg-white border border-gold/10 p-10 shadow-sm space-y-5">
                 <span className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
                   <Icon className="w-6 h-6" />
                 </span>
@@ -209,7 +209,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {team.map((member, i) => (
-            <Reveal key={i} delay={i * 80} className="bg-white border border-gold/10 rounded-3xl overflow-hidden shadow-md transition-all duration-350 hover:-translate-y-2">
+            <Reveal key={i} delay={i * 80} className="bg-white border border-gold/10 overflow-hidden shadow-md transition-all duration-350 hover:-translate-y-2">
               <div className="h-72 overflow-hidden relative">
                 <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
               </div>

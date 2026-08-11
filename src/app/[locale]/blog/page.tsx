@@ -87,7 +87,7 @@ export default async function BlogIndexPage({ params }: BlogIndexPageProps) {
             <div className="h-px w-20 bg-gold/25" />
           </Reveal>
           <Reveal>
-            <div className="bg-white border border-gold/10 rounded-[2.5rem] overflow-hidden shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-0 relative">
+            <div className="bg-white border border-gold/10 overflow-hidden shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-0 relative">
               <div className="lg:col-span-6 h-[350px] lg:h-[500px] relative overflow-hidden">
                 <img src={featuredBlog.featuredImage} alt={featuredBlog.title.en} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <span className="absolute top-5 left-5 bg-royal text-gold text-[10px] uppercase font-bold tracking-wider px-4 py-2 rounded-full">
@@ -144,7 +144,7 @@ export default async function BlogIndexPage({ params }: BlogIndexPageProps) {
           {remainingBlogs.map((blog: BlogData, i: number) => (
             <Reveal key={blog.slug} delay={i * 80}>
               <Link href={`/${locale}/blog/${blog.slug}`} className="group block h-full">
-                <div className="bg-white border border-gold/10 rounded-[2rem] overflow-hidden shadow-lg flex flex-col h-full transition-all duration-500 hover:-translate-y-3 hover:border-gold/25 hover:shadow-2xl">
+                <div className="bg-white border border-gold/10 overflow-hidden shadow-lg flex flex-col h-full transition-all duration-500 hover:-translate-y-3 hover:border-gold/25 hover:shadow-2xl">
                   <div className="h-60 overflow-hidden relative shrink-0">
                     <img src={blog.featuredImage} alt={blog.title[locale as "en"|"es"|"pt"] || blog.title.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     <span className="absolute top-5 left-5 bg-royal text-gold text-[9px] uppercase font-bold tracking-wider px-3.5 py-1.5 rounded-full">
@@ -187,7 +187,7 @@ export default async function BlogIndexPage({ params }: BlogIndexPageProps) {
             <div className="space-y-8">
               {blogs.slice(0, 3).map((blog: any, idx: number) => (
                 <Link key={idx} href={`/${locale}/blog/${blog.slug}`} className="flex gap-6 group">
-                  <div className="w-24 h-24 rounded-2xl overflow-hidden shrink-0">
+                  <div className="w-24 h-24 overflow-hidden shrink-0">
                     <img src={blog.featuredImage} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <div className="space-y-1">
@@ -202,7 +202,7 @@ export default async function BlogIndexPage({ params }: BlogIndexPageProps) {
           </div>
 
           {/* SECTION 6: Private Newsletter Box */}
-          <div className="bg-[#FAF8F5] border border-gold/20 p-10 rounded-[2rem] space-y-6 shadow-md h-fit">
+          <div className="bg-[#FAF8F5] border border-gold/20 p-10 space-y-6 shadow-md h-fit">
             <span className="text-xs uppercase tracking-wider font-bold text-gold block">{text.newsletterTitle}</span>
             <h3 className="text-xl font-bold text-royal">{text.newsletterTitle}</h3>
             <p className="text-xs text-foreground/50 leading-relaxed font-light">{text.newsletterDesc}</p>

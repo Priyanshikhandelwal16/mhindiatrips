@@ -140,7 +140,7 @@ export default function TripPlannerWizard({ locale }: TripPlannerWizardProps) {
                   <button
                     key={dest}
                     onClick={() => toggleDestination(dest)}
-                    className={`px-4 py-3 rounded-xl text-sm font-medium border transition-all duration-300 cursor-pointer ${
+                    className={`px-4 py-3 text-sm font-medium border transition-all duration-300 cursor-pointer ${
                       formData.destinations.includes(dest)
                         ? "bg-[#0B0D0C] text-white border-[#0B0D0C]"
                         : "bg-white text-[#1B1B1B]/70 border-[#C3AB85]/20 hover:border-[#C3AB85]/50"
@@ -165,7 +165,7 @@ export default function TripPlannerWizard({ locale }: TripPlannerWizardProps) {
                   <button
                     key={dur}
                     onClick={() => setFormData(prev => ({ ...prev, duration: dur }))}
-                    className={`px-4 py-4 rounded-xl text-sm font-medium border transition-all duration-300 cursor-pointer ${
+                    className={`px-4 py-4 text-sm font-medium border transition-all duration-300 cursor-pointer ${
                       formData.duration === dur
                         ? "bg-[#0B0D0C] text-white border-[#0B0D0C]"
                         : "bg-white text-[#1B1B1B]/70 border-[#C3AB85]/20 hover:border-[#C3AB85]/50"
@@ -190,7 +190,7 @@ export default function TripPlannerWizard({ locale }: TripPlannerWizardProps) {
                   <button
                     key={grp}
                     onClick={() => setFormData(prev => ({ ...prev, travelers: grp }))}
-                    className={`px-4 py-4 rounded-xl text-sm font-medium border transition-all duration-300 cursor-pointer ${
+                    className={`px-4 py-4 text-sm font-medium border transition-all duration-300 cursor-pointer ${
                       formData.travelers === grp
                         ? "bg-[#0B0D0C] text-white border-[#0B0D0C]"
                         : "bg-white text-[#1B1B1B]/70 border-[#C3AB85]/20 hover:border-[#C3AB85]/50"
@@ -215,7 +215,7 @@ export default function TripPlannerWizard({ locale }: TripPlannerWizardProps) {
                   <button
                     key={style.id}
                     onClick={() => setFormData(prev => ({ ...prev, style: style.id }))}
-                    className={`px-4 py-5 rounded-xl text-sm font-medium border transition-all duration-300 cursor-pointer flex flex-col items-center gap-2 ${
+                    className={`px-4 py-5 text-sm font-medium border transition-all duration-300 cursor-pointer flex flex-col items-center gap-2 ${
                       formData.style === style.id
                         ? "bg-[#0B0D0C] text-white border-[#0B0D0C]"
                         : "bg-white text-[#1B1B1B]/70 border-[#C3AB85]/20 hover:border-[#C3AB85]/50"
@@ -241,7 +241,7 @@ export default function TripPlannerWizard({ locale }: TripPlannerWizardProps) {
                   <button
                     key={interest}
                     onClick={() => toggleInterest(interest)}
-                    className={`px-4 py-3 rounded-xl text-xs font-medium border transition-all duration-300 cursor-pointer ${
+                    className={`px-4 py-3 text-xs font-medium border transition-all duration-300 cursor-pointer ${
                       formData.interests.includes(interest)
                         ? "bg-[#0B0D0C] text-white border-[#0B0D0C]"
                         : "bg-white text-[#1B1B1B]/70 border-[#C3AB85]/20 hover:border-[#C3AB85]/50"
@@ -266,7 +266,7 @@ export default function TripPlannerWizard({ locale }: TripPlannerWizardProps) {
                   <button
                     key={dt}
                     onClick={() => setFormData(prev => ({ ...prev, dates: dt }))}
-                    className={`px-4 py-4 rounded-xl text-sm font-medium border transition-all duration-300 cursor-pointer ${
+                    className={`px-4 py-4 text-sm font-medium border transition-all duration-300 cursor-pointer ${
                       formData.dates === dt
                         ? "bg-[#0B0D0C] text-white border-[#0B0D0C]"
                         : "bg-white text-[#1B1B1B]/70 border-[#C3AB85]/20 hover:border-[#C3AB85]/50"
@@ -292,7 +292,7 @@ export default function TripPlannerWizard({ locale }: TripPlannerWizardProps) {
                   placeholder="Full Name *"
                   value={formData.name}
                   onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                  className="w-full bg-white border border-[#C3AB85]/20 rounded-xl px-5 py-4 text-sm outline-none focus:border-[#C3AB85] transition-colors"
+                  className="w-full bg-white border border-[#C3AB85]/20 px-5 py-4 text-sm outline-none focus:border-[#C3AB85] transition-colors"
                   required
                 />
                 <input
@@ -300,7 +300,7 @@ export default function TripPlannerWizard({ locale }: TripPlannerWizardProps) {
                   placeholder="Email Address *"
                   value={formData.email}
                   onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                  className="w-full bg-white border border-[#C3AB85]/20 rounded-xl px-5 py-4 text-sm outline-none focus:border-[#C3AB85] transition-colors"
+                  className="w-full bg-white border border-[#C3AB85]/20 px-5 py-4 text-sm outline-none focus:border-[#C3AB85] transition-colors"
                   required
                 />
                 <input
@@ -308,14 +308,14 @@ export default function TripPlannerWizard({ locale }: TripPlannerWizardProps) {
                   placeholder="Phone / WhatsApp Number"
                   value={formData.phone}
                   onChange={e => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                  className="w-full bg-white border border-[#C3AB85]/20 rounded-xl px-5 py-4 text-sm outline-none focus:border-[#C3AB85] transition-colors"
+                  className="w-full bg-white border border-[#C3AB85]/20 px-5 py-4 text-sm outline-none focus:border-[#C3AB85] transition-colors"
                 />
                 <textarea
                   placeholder="Any special requests or notes? (Optional)"
                   value={formData.message}
                   onChange={e => setFormData(prev => ({ ...prev, message: e.target.value }))}
                   rows={3}
-                  className="w-full bg-white border border-[#C3AB85]/20 rounded-xl px-5 py-4 text-sm outline-none focus:border-[#C3AB85] transition-colors resize-none"
+                  className="w-full bg-white border border-[#C3AB85]/20 px-5 py-4 text-sm outline-none focus:border-[#C3AB85] transition-colors resize-none"
                 />
               </div>
             </div>

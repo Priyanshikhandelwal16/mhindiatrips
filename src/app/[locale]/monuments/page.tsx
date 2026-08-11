@@ -136,7 +136,7 @@ export default async function MonumentsPage({ params }: MonumentsPageProps) {
           {featuredMonuments.map((mon, i) => (
             <Reveal key={i} delay={i * 80}>
               <div className={`perspective-1000 ${i === 0 ? "md:col-span-2 md:row-span-2" : ""}`}>
-                <div className="card-3d group relative bg-white border border-[#C3AB85]/10 rounded-2xl overflow-hidden shadow-md h-full flex flex-col">
+                <div className="card-3d group relative bg-white border border-[#C3AB85]/10 overflow-hidden shadow-md h-full flex flex-col">
                   <div className={`relative overflow-hidden shrink-0 ${i === 0 ? "h-80 md:h-[450px]" : "h-56 md:h-64"}`}>
                     <img
                       src={mon.image}
@@ -205,7 +205,7 @@ export default async function MonumentsPage({ params }: MonumentsPageProps) {
                 return (
                   <Reveal key={mon.slug || i} delay={i * 80}>
                     <div className="perspective-1000">
-                      <div className="card-3d group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-[#C3AB85]/30 transition-all duration-500">
+                      <div className="card-3d group bg-white/5 border border-white/10 overflow-hidden hover:border-[#C3AB85]/30 transition-all duration-500">
                         <div className="relative h-52 overflow-hidden">
                           <img
                             src={mon.image}

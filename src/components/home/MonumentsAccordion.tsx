@@ -155,7 +155,7 @@ export default function MonumentsAccordion({ locale }: MonumentsAccordionProps) 
                 <div
                   key={item.id}
                   onMouseEnter={() => setActiveIdx(idx)}
-                  className={`relative overflow-hidden rounded-[2rem] transition-all duration-700 ease-out cursor-pointer shadow-lg border border-gold/5 flex flex-col justify-end ${
+                  className={`relative overflow-hidden transition-all duration-700 ease-out cursor-pointer shadow-lg border border-gold/5 flex flex-col justify-end ${
                     isActive ? "flex-grow-[4.5]" : "flex-grow-[1]"
                   }`}
                   style={{
@@ -227,7 +227,7 @@ export default function MonumentsAccordion({ locale }: MonumentsAccordionProps) 
           onClick={() => setDetailsOpen(false)}
         >
           <div
-            className="relative w-full max-w-3xl bg-white rounded-[2rem] overflow-hidden shadow-2xl border border-gold/15 max-h-[90vh] overflow-y-auto"
+            className="relative w-full max-w-3xl bg-white overflow-hidden shadow-2xl border border-gold/15 max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Hero Image */}
@@ -265,21 +265,21 @@ export default function MonumentsAccordion({ locale }: MonumentsAccordionProps) 
 
               {/* Quick Info Row */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-[#FAF8F5] rounded-2xl p-5 space-y-1 border border-gold/10">
+                <div className="bg-[#FAF8F5] p-5 space-y-1 border border-gold/10">
                   <div className="flex items-center gap-2 text-gold">
                     <Clock className="w-4 h-4" />
                     <span className="text-[10px] uppercase tracking-wider font-bold">Timings</span>
                   </div>
                   <p className="text-xs text-royal font-medium">{selectedMonument.details.timings}</p>
                 </div>
-                <div className="bg-[#FAF8F5] rounded-2xl p-5 space-y-1 border border-gold/10">
+                <div className="bg-[#FAF8F5] p-5 space-y-1 border border-gold/10">
                   <div className="flex items-center gap-2 text-gold">
                     <Calendar className="w-4 h-4" />
                     <span className="text-[10px] uppercase tracking-wider font-bold">Best Time</span>
                   </div>
                   <p className="text-xs text-royal font-medium">{selectedMonument.details.bestTime}</p>
                 </div>
-                <div className="bg-[#FAF8F5] rounded-2xl p-5 space-y-1 border border-gold/10">
+                <div className="bg-[#FAF8F5] p-5 space-y-1 border border-gold/10">
                   <div className="flex items-center gap-2 text-gold">
                     <Star className="w-4 h-4" />
                     <span className="text-[10px] uppercase tracking-wider font-bold">Entry Fee</span>

@@ -250,7 +250,7 @@ export default function ItineraryPlanner({ locale }: { locale: string }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Left panel: Selectors */}
-          <div className="lg:col-span-4 space-y-8 bg-black/20 backdrop-blur-md p-8 rounded-[2.5rem] border border-gold/15 shadow-2xl">
+          <div className="lg:col-span-4 space-y-8 bg-black/20 backdrop-blur-md p-8 border border-gold/15 shadow-2xl">
             
             {/* Control 1: Travel Vibe */}
             <div className="space-y-4">
@@ -270,7 +270,7 @@ export default function ItineraryPlanner({ locale }: { locale: string }) {
                         setStyle(item.id);
                         setActiveTab(1);
                       }}
-                      className={`flex items-center gap-4 px-5 py-4 rounded-2xl border text-left text-xs font-bold transition-all duration-300 w-full cursor-pointer ${
+                      className={`flex items-center gap-4 px-5 py-4 border text-left text-xs font-bold transition-all duration-300 w-full cursor-pointer ${
                         active
                           ? "bg-gold border-gold text-royal shadow-lg scale-[1.02]"
                           : "bg-white/5 border-white/10 text-white/80 hover:bg-white/10 hover:border-gold/30"
@@ -302,7 +302,7 @@ export default function ItineraryPlanner({ locale }: { locale: string }) {
                         setDuration(item.id);
                         setActiveTab(1);
                       }}
-                      className={`py-3.5 rounded-xl border text-[10px] font-bold text-center transition-all duration-300 cursor-pointer ${
+                      className={`py-3.5 border text-[10px] font-bold text-center transition-all duration-300 cursor-pointer ${
                         active
                           ? "bg-gold border-gold text-royal shadow-md"
                           : "bg-white/5 border-white/10 text-white/80 hover:bg-white/10"
@@ -329,7 +329,7 @@ export default function ItineraryPlanner({ locale }: { locale: string }) {
                     <button
                       key={item.id}
                       onClick={() => setTier(item.id as "gold" | "diamond")}
-                      className={`px-4 py-3.5 rounded-xl border text-left transition-all duration-300 cursor-pointer ${
+                      className={`px-4 py-3.5 border text-left transition-all duration-300 cursor-pointer ${
                         active
                           ? "bg-gold border-gold text-royal shadow-md"
                           : "bg-white/5 border-white/10 text-white/80 hover:bg-white/10"
@@ -347,7 +347,7 @@ export default function ItineraryPlanner({ locale }: { locale: string }) {
           </div>
 
           {/* Right panel: Dynamic Itinerary Card */}
-          <div className="lg:col-span-8 space-y-8 bg-white text-royal p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-gold/25 relative overflow-hidden flex flex-col justify-between min-h-[580px]">
+          <div className="lg:col-span-8 space-y-8 bg-white text-royal p-8 md:p-12 shadow-2xl border border-gold/25 relative overflow-hidden flex flex-col justify-between min-h-[580px]">
             
             {/* Header / Meta */}
             <div className="space-y-4">
@@ -394,7 +394,7 @@ export default function ItineraryPlanner({ locale }: { locale: string }) {
                   ))}
                 </div>
 
-                <div className="bg-[#FAF8F5] border border-gold/10 p-5 rounded-2xl min-h-[120px] flex flex-col justify-center">
+                <div className="bg-[#FAF8F5] border border-gold/10 p-5 min-h-[120px] flex flex-col justify-center">
                   {currentItinerary.days.map((d) => {
                     if (d.day !== activeTab) return null;
                     return (

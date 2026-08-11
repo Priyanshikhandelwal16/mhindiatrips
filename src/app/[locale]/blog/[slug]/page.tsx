@@ -186,7 +186,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
             {/* Author Bio Card */}
             <Reveal delay={250}>
-              <div className="bg-white border border-[#C3AB85]/15 rounded-2xl p-8 flex items-start gap-5">
+              <div className="bg-white border border-[#C3AB85]/15 p-8 flex items-start gap-5">
                 <div className="w-14 h-14 rounded-full bg-[#C3AB85]/10 flex items-center justify-center shrink-0">
                   <User className="w-7 h-7 text-[#C3AB85]" />
                 </div>
@@ -204,7 +204,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
           <aside className="lg:col-span-4 space-y-8 lg:sticky lg:top-24 lg:self-start">
             
             {/* Quick Info */}
-            <div className="bg-white border border-[#C3AB85]/15 rounded-2xl p-6 space-y-5">
+            <div className="bg-white border border-[#C3AB85]/15 p-6 space-y-5">
               <h4 className="text-xs font-bold uppercase tracking-wider text-[#C3AB85] flex items-center gap-1.5">
                 <BookOpen className="w-4 h-4" />
                 {text.tableOfContents}
@@ -226,7 +226,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
             </div>
 
             {/* CTA Card */}
-            <div className="bg-[#0B0D0C] rounded-2xl p-6 space-y-4 text-white">
+            <div className="bg-[#0B0D0C] p-6 space-y-4 text-white">
               <h4 className="text-base font-bold">{text.ctaTitle}</h4>
               <p className="text-xs text-white/50 font-light leading-relaxed">{text.ctaDesc}</p>
               <Link href={`/${locale}/contact`} className="block w-full bg-[#C3AB85] hover:bg-[#D5C49A] text-[#0B0D0C] text-[10px] font-bold uppercase tracking-widest px-5 py-3 rounded-full text-center transition-colors">
@@ -235,7 +235,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
             </div>
 
             {/* Category */}
-            <div className="bg-white border border-[#C3AB85]/15 rounded-2xl p-6 space-y-3">
+            <div className="bg-white border border-[#C3AB85]/15 p-6 space-y-3">
               <span className="text-[10px] uppercase tracking-wider font-bold text-[#1B1B1B]/40">{text.category}</span>
               <Link href={`/${locale}/blog`} className="block text-sm font-bold text-[#0B0D0C] hover:text-[#C3AB85] transition-colors">
                 {blog.category}
@@ -258,7 +258,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
               {related.map((post: any, i: number) => (
                 <Reveal key={post.slug} delay={i * 100}>
                   <Link href={`/${locale}/blog/${post.slug}`} className="group block perspective-1000">
-                    <div className="card-3d bg-white border border-[#C3AB85]/10 rounded-2xl overflow-hidden h-full flex flex-col">
+                    <div className="card-3d bg-white border border-[#C3AB85]/10 overflow-hidden h-full flex flex-col">
                       <div className="h-48 overflow-hidden relative">
                         <img 
                           src={post.featuredImage} 

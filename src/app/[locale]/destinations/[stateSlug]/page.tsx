@@ -111,7 +111,7 @@ export default async function StateDetailPage({ params }: StatePageProps) {
             </p>
             
             {/* Quick stats box */}
-            <div className="p-6 bg-sand-50/50 border border-sand-300 grid grid-cols-2 gap-6 text-xs mt-8 rounded-lg">
+            <div className="p-6 bg-sand-50/50 border border-sand-300 grid grid-cols-2 gap-6 text-xs mt-8">
               <div>
                 <span className="text-sand-500 font-bold block mb-1 uppercase tracking-wider">{text.regionLabel}</span>
                 <span className="text-charcoal-800 uppercase tracking-wider font-semibold">{state.region} India</span>
@@ -167,7 +167,7 @@ export default async function StateDetailPage({ params }: StatePageProps) {
                 return (
                   <div 
                     key={dest.slug}
-                    className="bg-white border border-sand-300 rounded-[1.5rem] overflow-hidden group hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                    className="bg-white border border-sand-300 overflow-hidden group hover:shadow-md transition-all duration-300 flex flex-col justify-between"
                   >
                     <div>
                       <div className="h-64 overflow-hidden relative">
@@ -228,7 +228,7 @@ export default async function StateDetailPage({ params }: StatePageProps) {
                 return (
                   <div 
                     key={pkg.slug}
-                    className="bg-white border border-sand-300 rounded-[1.5rem] overflow-hidden group hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                    className="bg-white border border-sand-300 overflow-hidden group hover:shadow-md transition-all duration-300 flex flex-col justify-between"
                   >
                     <div>
                       <div className="h-56 overflow-hidden relative">

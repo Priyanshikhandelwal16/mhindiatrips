@@ -87,7 +87,7 @@ export default function FoodSection({ locale, foods, labels }: FoodSectionProps)
               <Reveal key={food.slug} delay={idx * 80}>
                 <Link
                   href={`/${locale}/food/${food.slug}`}
-                  className="group relative block h-80 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500"
+                  className="group relative block h-80 overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500"
                 >
                   <img
                     src={imageUrl}

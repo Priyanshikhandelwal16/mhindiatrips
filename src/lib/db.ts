@@ -104,7 +104,120 @@ let statesCache = loadLocalData("states", mergedStates);
 let foodsCache = loadLocalData("foods", mergedFoods);
 let testimonialsCache = loadLocalData("testimonials", initialTestimonials);
 let tourPackagesCache = loadLocalData("tour_packages", mergedPackages);
-let pagesCache = loadLocalData("pages", []);
+
+// Default system pages that every website has
+const defaultSystemPages = [
+  {
+    id: "homepage",
+    isCustom: false,
+    title: { en: "Homepage", es: "Página Principal", pt: "Página Inicial" },
+    heroImage: "/images/rajasthan_fort_sunset.png",
+    content: {
+      heroTitle: { en: "Discover India's Timeless Beauty", es: "Descubre la belleza atemporal de India", pt: "Descubra a beleza atemporal da Índia" },
+      heroSubtitle: { en: "Luxury Private Tours", es: "Tours Privados de Lujo", pt: "Tours Privados de Luxo" },
+      philosophyTitle: { en: "Our Philosophy", es: "Nuestra Filosofía", pt: "Nossa Filosofia" },
+      philosophyText: { en: "We craft bespoke journeys that reveal the soul of India — from palace heritage to hidden temples.", es: "Creamos viajes a medida que revelan el alma de India.", pt: "Criamos viagens sob medida que revelam a alma da Índia." },
+    }
+  },
+  {
+    id: "about",
+    isCustom: false,
+    title: { en: "About Us", es: "Sobre Nosotros", pt: "Sobre Nós" },
+    heroImage: "/images/kerala_backwaters_houseboat.png",
+    content: {
+      heroTitle: { en: "About MH India Trips", es: "Sobre MH India Trips", pt: "Sobre MH India Trips" },
+      heroSubtitle: { en: "Your Trusted India Travel Partner", es: "Tu socio de viajes de confianza en India", pt: "Seu parceiro de viagem confiável na Índia" },
+      missionTitle: { en: "Our Mission", es: "Nuestra Misión", pt: "Nossa Missão" },
+      missionText: { en: "To create transformative travel experiences that connect discerning travelers with the authentic soul of India.", es: "Crear experiencias de viaje transformadoras.", pt: "Criar experiências de viagem transformadoras." },
+    }
+  },
+  {
+    id: "contact",
+    isCustom: false,
+    title: { en: "Contact Us", es: "Contáctenos", pt: "Fale Conosco" },
+    heroImage: "/images/Jaipur.jpg",
+    content: {
+      heroTitle: { en: "Get In Touch", es: "Ponte en Contacto", pt: "Entre em Contato" },
+      heroSubtitle: { en: "Plan your dream India journey", es: "Planifica tu viaje soñado a India", pt: "Planeje sua viagem dos sonhos à Índia" },
+      addressLine: { en: "New Delhi, India", es: "Nueva Delhi, India", pt: "Nova Delhi, Índia" },
+      email: { en: "info@mhindiatrips.com", es: "info@mhindiatrips.com", pt: "info@mhindiatrips.com" },
+      phone: { en: "+91 98765 43210", es: "+91 98765 43210", pt: "+91 98765 43210" },
+    }
+  },
+  {
+    id: "faq",
+    isCustom: false,
+    title: { en: "FAQ", es: "Preguntas Frecuentes", pt: "Perguntas Frequentes" },
+    heroImage: "/images/rajasthan.jpg",
+    content: {
+      heroTitle: { en: "Frequently Asked Questions", es: "Preguntas Frecuentes", pt: "Perguntas Frequentes" },
+      heroSubtitle: { en: "Everything you need to know before visiting India", es: "Todo lo que necesitas saber antes de visitar India", pt: "Tudo o que precisa saber antes de visitar a Índia" },
+    }
+  },
+  {
+    id: "gallery",
+    isCustom: false,
+    title: { en: "Gallery", es: "Galería", pt: "Galeria" },
+    heroImage: "/images/udaipur.jpg",
+    content: {
+      heroTitle: { en: "India Through Our Lens", es: "India a través de nuestro lente", pt: "Índia através das nossas lentes" },
+      heroSubtitle: { en: "A visual journey across the subcontinent", es: "Un viaje visual por el subcontinente", pt: "Uma jornada visual pelo subcontinente" },
+    }
+  },
+  {
+    id: "monuments",
+    isCustom: false,
+    title: { en: "Monuments", es: "Monumentos", pt: "Monumentos" },
+    heroImage: "/images/taj mahal.jpg",
+    content: {
+      heroTitle: { en: "India's Iconic Monuments", es: "Monumentos Icónicos de India", pt: "Monumentos Icônicos da Índia" },
+      heroSubtitle: { en: "Timeless heritage wonders waiting to be explored", es: "Maravillas del patrimonio atemporales esperando ser exploradas", pt: "Maravilhas patrimoniais atemporais à espera de serem exploradas" },
+    }
+  },
+  {
+    id: "privacy",
+    isCustom: false,
+    title: { en: "Privacy Policy", es: "Política de Privacidad", pt: "Política de Privacidade" },
+    heroImage: "",
+    content: {
+      body: { en: "<p>Your privacy is important to us. This policy explains how we collect and use your data.</p>", es: "<p>Su privacidad es importante para nosotros.</p>", pt: "<p>A sua privacidade é importante para nós.</p>" },
+    }
+  },
+  {
+    id: "terms",
+    isCustom: false,
+    title: { en: "Terms & Conditions", es: "Términos y Condiciones", pt: "Termos e Condições" },
+    heroImage: "",
+    content: {
+      body: { en: "<p>These terms govern your use of MH India Trips services.</p>", es: "<p>Estos términos rigen el uso de los servicios de MH India Trips.</p>", pt: "<p>Estes termos regem a utilização dos serviços da MH India Trips.</p>" },
+    }
+  },
+  {
+    id: "plan-your-trip",
+    isCustom: false,
+    title: { en: "Plan Your Trip", es: "Planifica tu Viaje", pt: "Planeje sua Viagem" },
+    heroImage: "/images/rajasthan_fort_sunset.png",
+    content: {
+      heroTitle: { en: "Plan Your Perfect India Trip", es: "Planifica tu viaje perfecto a India", pt: "Planeje sua viagem perfeita à Índia" },
+      heroSubtitle: { en: "Use our trip planner to build your dream itinerary", es: "Usa nuestro planificador de viajes", pt: "Use nosso planejador de viagens" },
+    }
+  },
+];
+
+// Merge system pages into pagesCache ensuring system pages always exist
+const rawPagesCache = loadLocalData("pages", []);
+const existingPageIds = new Set(rawPagesCache.map((p: any) => p.id));
+const missingSystemPages = defaultSystemPages.filter(p => !existingPageIds.has(p.id));
+let pagesCache = [...defaultSystemPages.map(sp => {
+  // If page exists in stored data, merge stored data over defaults (user edits take priority)
+  const existing = rawPagesCache.find((p: any) => p.id === sp.id);
+  return existing ? { ...sp, ...existing, isCustom: false } : sp;
+}), ...rawPagesCache.filter((p: any) => !defaultSystemPages.some(sp => sp.id === p.id))];
+
+// Save merged pages if there were missing system pages
+if (missingSystemPages.length > 0) {
+  saveLocalData("pages", pagesCache);
+}
 
 // Simple check to seed Firestore collection if it has fewer items than source
 async function ensureSeeded(collectionName: string, initialData: any[]) {

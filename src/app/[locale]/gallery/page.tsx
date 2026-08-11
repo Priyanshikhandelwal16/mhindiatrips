@@ -61,7 +61,7 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[200px] gap-4">
             {images.map((img, i) => (
-              <Reveal key={i} delay={i * 50} className={`${img.span} rounded-2xl overflow-hidden image-zoom-container border border-gold/10 hover:border-gold/25 transition-colors`}>
+              <Reveal key={i} delay={i * 50} className={`${img.span} overflow-hidden image-zoom-container border border-gold/10 hover:border-gold/25 transition-colors`}>
                 <img
                   src={img.src}
                   alt={img.alt}

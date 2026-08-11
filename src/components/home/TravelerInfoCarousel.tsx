@@ -136,7 +136,7 @@ export default function TravelerInfoCarousel({ locale }: TravelerInfoCarouselPro
               <Link
                 key={card.id}
                 href={`/${locale}${card.path}`}
-                className="group block relative rounded-[1.5rem] overflow-hidden shadow-xl border border-white/5 transition-all duration-500 hover:border-gold/30 hover:-translate-y-2 hover:shadow-2xl"
+                className="group block relative overflow-hidden shadow-xl border border-white/5 transition-all duration-500 hover:border-gold/30 hover:-translate-y-2 hover:shadow-2xl"
                 onMouseEnter={() => setHoveredIdx(idx)}
                 onMouseLeave={() => setHoveredIdx(null)}
               >
@@ -157,7 +157,7 @@ export default function TravelerInfoCarousel({ locale }: TravelerInfoCarouselPro
                 {/* Content */}
                 <div className="bg-white/5 backdrop-blur-sm p-6 space-y-3 border-t border-white/5">
                   <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-gold/15 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-9 h-9 bg-gold/15 flex items-center justify-center shrink-0 mt-0.5">
                       <Icon className="w-4 h-4 text-gold" />
                     </div>
                     <h3 className="text-base font-bold text-white leading-snug" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>

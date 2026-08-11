@@ -209,8 +209,8 @@ export default async function PackageDetailPage({ params }: PackageDetailProps) 
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {pkg.highlights.map((hl: any, i: number) => (
-                  <div key={i} className="group bg-white border border-[#C3AB85]/10 rounded-2xl p-6 space-y-3 hover:border-[#C3AB85]/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-500">
-                    <div className="w-10 h-10 rounded-xl bg-[#C3AB85]/10 flex items-center justify-center group-hover:bg-[#C3AB85]/20 transition-colors">
+                  <div key={i} className="group bg-white border border-[#C3AB85]/10 p-6 space-y-3 hover:border-[#C3AB85]/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-500">
+                    <div className="w-10 h-10 bg-[#C3AB85]/10 flex items-center justify-center group-hover:bg-[#C3AB85]/20 transition-colors">
                       <CheckCircle className="w-5 h-5 text-[#C3AB85]" />
                     </div>
                     <p className="text-sm text-[#1B1B1B]/80 font-light leading-relaxed">
@@ -249,7 +249,7 @@ export default async function PackageDetailPage({ params }: PackageDetailProps) 
                         </div>
 
                         {/* Day content card */}
-                        <div className="flex-grow bg-white border border-[#C3AB85]/10 rounded-2xl p-6 md:p-8 space-y-3 hover:border-[#C3AB85]/25 hover:shadow-md transition-all duration-300">
+                        <div className="flex-grow bg-white border border-[#C3AB85]/10 p-6 md:p-8 space-y-3 hover:border-[#C3AB85]/25 hover:shadow-md transition-all duration-300">
                           <div className="flex items-center gap-3 md:hidden mb-2">
                             <span className="bg-[#0B0D0C] text-white text-[10px] font-bold px-3 py-1 rounded-full">
                               {text.dayLabel} {day.day < 10 ? `0${day.day}` : day.day}
@@ -285,9 +285,9 @@ export default async function PackageDetailPage({ params }: PackageDetailProps) 
         {/* Inclusions & Exclusions */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <Reveal direction="left">
-            <div className="bg-white border border-emerald-200/50 rounded-2xl p-8 space-y-6 h-full">
+            <div className="bg-white border border-emerald-200/50 p-8 space-y-6 h-full">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center">
+                <div className="w-10 h-10 bg-emerald-50 flex items-center justify-center">
                   <CheckCircle className="w-5 h-5 text-emerald-600" />
                 </div>
                 <h3 className="text-lg font-bold text-[#0B0D0C]">{text.inclusions}</h3>
@@ -311,9 +311,9 @@ export default async function PackageDetailPage({ params }: PackageDetailProps) 
           </Reveal>
 
           <Reveal direction="right">
-            <div className="bg-white border border-red-200/50 rounded-2xl p-8 space-y-6 h-full">
+            <div className="bg-white border border-red-200/50 p-8 space-y-6 h-full">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center">
+                <div className="w-10 h-10 bg-red-50 flex items-center justify-center">
                   <XCircle className="w-5 h-5 text-red-500" />
                 </div>
                 <h3 className="text-lg font-bold text-[#0B0D0C]">{text.exclusions}</h3>
@@ -338,7 +338,7 @@ export default async function PackageDetailPage({ params }: PackageDetailProps) 
               <h2 className="text-2xl font-bold text-[#0B0D0C]">{text.faqs}</h2>
               <div className="space-y-4">
                 {pkg.faqs.map((faq: any, i: number) => (
-                  <details key={i} className="group border border-[#C3AB85]/15 rounded-xl overflow-hidden" open={i === 0}>
+                  <details key={i} className="group border border-[#C3AB85]/15 overflow-hidden" open={i === 0}>
                     <summary className="flex justify-between items-center p-5 cursor-pointer font-bold text-[#0B0D0C] text-sm hover:bg-[#FAF8F5] transition-colors">
                       <span>{faq.q?.[lang] || faq.q?.en}</span>
                       <span className="w-6 h-6 rounded-full bg-[#C3AB85]/10 flex items-center justify-center text-[#C3AB85] text-xs group-open:rotate-45 transition-transform duration-300">+</span>
@@ -357,7 +357,7 @@ export default async function PackageDetailPage({ params }: PackageDetailProps) 
 
         {/* CTA Section */}
         <Reveal direction="scale">
-          <section className="bg-[#0B0D0C] rounded-3xl p-10 md:p-16 text-center text-white space-y-6 relative overflow-hidden">
+          <section className="bg-[#0B0D0C] p-10 md:p-16 text-center text-white space-y-6 relative overflow-hidden">
             <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#C3AB85_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
             <div className="relative z-10 space-y-6">
               <h2 className="text-2xl md:text-4xl font-bold">{text.customizeCta}</h2>
@@ -382,7 +382,7 @@ export default async function PackageDetailPage({ params }: PackageDetailProps) 
               {related.map((rel: any, i: number) => (
                 <Reveal key={rel.slug} delay={i * 100}>
                   <Link href={`/${locale}/packages/${rel.slug}`} className="group block">
-                    <div className="bg-white border border-[#C3AB85]/10 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
+                    <div className="bg-white border border-[#C3AB85]/10 overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
                       <div className="h-48 overflow-hidden relative">
                         <img src={rel.image} alt={rel.title?.en} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                         <span className="absolute top-3 left-3 bg-[#0B0D0C]/80 text-[#C3AB85] text-[9px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">{rel.durationDays} {text.daysLabel}</span>

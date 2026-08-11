@@ -86,7 +86,7 @@ export default async function AttractionDetailPage({ params }: AttractionPagePro
         </div>
 
         {/* Right Column: Postcard Essentials Box */}
-        <div className="bg-white border border-sand-300 p-8 rounded-[1.5rem] h-fit space-y-6 shadow-sm relative overflow-hidden text-left">
+        <div className="bg-white border border-sand-300 p-8 h-fit space-y-6 shadow-sm relative overflow-hidden text-left">
           <div className="absolute top-0 left-0 w-full h-[4px] bg-sand-400" />
           <h3 className="text-[10px] uppercase tracking-widest font-bold text-charcoal-800 border-b border-sand-200 pb-4">
             Visitor Dossier

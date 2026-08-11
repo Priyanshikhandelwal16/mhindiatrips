@@ -89,7 +89,7 @@ export default function TestimonialSlider({ locale, reviews: initialReviews, lab
 
         {/* Premium Google Rating Summary Card */}
         <Reveal delay={100} className="flex justify-center">
-          <div className="bg-white border border-[#C5A862]/20 px-8 py-5 rounded-[2rem] shadow-sm flex flex-col sm:flex-row items-center gap-6 select-none hover:shadow-md transition-shadow">
+          <div className="bg-white border border-[#C5A862]/20 px-8 py-5 shadow-sm flex flex-col sm:flex-row items-center gap-6 select-none hover:shadow-md transition-shadow">
             <div className="flex items-center gap-2.5">
               <svg className="w-6 h-6 shrink-0" viewBox="0 0 24 24">
                 <path
@@ -159,7 +159,7 @@ export default function TestimonialSlider({ locale, reviews: initialReviews, lab
                 key={`review-${i}`}
                 className="flex-shrink-0 w-[360px] md:w-[420px]"
               >
-                <div className="bg-white border border-[#C5A862]/10 rounded-[2rem] p-8 h-full flex flex-col justify-between shadow-md hover:shadow-xl hover:border-[#C5A862]/30 transition-all duration-500 relative group">
+                <div className="bg-white border border-[#C5A862]/10 p-8 h-full flex flex-col justify-between shadow-md hover:shadow-xl hover:border-[#C5A862]/30 transition-all duration-500 relative group">
                   {/* Google review logo overlay */}
                   <div className="absolute top-8 right-8 text-black/10 group-hover:text-[#4285F4]/20 transition-colors">
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">

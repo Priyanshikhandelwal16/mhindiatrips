@@ -76,7 +76,7 @@ function CloudinaryUpload({ onUploadComplete, label = "Upload Image" }: { onUplo
 
   return (
     <div className="flex items-center gap-3">
-      <label className="bg-gold/10 hover:bg-gold/20 border border-gold/30 text-royal hover:text-gold font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 rounded-xl cursor-pointer transition flex items-center gap-1.5">
+      <label className="bg-gold/10 hover:bg-gold/20 border border-gold/30 text-royal hover:text-gold font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 cursor-pointer transition flex items-center gap-1.5">
         <Upload className="w-3.5 h-3.5" />
         <span>{uploading ? "Uploading..." : label}</span>
         <input type="file" onChange={onChange} className="hidden" accept="image/*" disabled={uploading} />
@@ -451,7 +451,7 @@ export default function AdminDashboard() {
   if (!user) {
     return (
       <div className="bg-[#FAF8F5] min-h-screen py-24 flex items-center justify-center px-6">
-        <div className="bg-white border border-gold/15 p-8 md:p-12 rounded-[2.5rem] shadow-2xl max-w-md w-full space-y-8 relative">
+        <div className="bg-white border border-gold/15 p-8 md:p-12 shadow-2xl max-w-md w-full space-y-8 relative">
           <div className="absolute top-0 left-0 w-full h-[6px] bg-[#8B2626]" />
           
           <div className="text-center space-y-2">
@@ -469,7 +469,7 @@ export default function AdminDashboard() {
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 placeholder="admin@mhindiatrips.com"
-                className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none focus:border-gold"
+                className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none focus:border-gold"
               />
             </div>
             
@@ -481,13 +481,13 @@ export default function AdminDashboard() {
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none focus:border-gold"
+                className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none focus:border-gold"
               />
             </div>
 
             <button 
               type="submit" 
-              className="w-full bg-royal hover:bg-gold text-white hover:text-royal transition duration-300 font-bold uppercase tracking-wider py-4 rounded-xl shadow-lg mt-2 cursor-pointer"
+              className="w-full bg-royal hover:bg-gold text-white hover:text-royal transition duration-300 font-bold uppercase tracking-wider py-4 shadow-lg mt-2 cursor-pointer"
             >
               {isSignUp ? "Create Admin Credentials" : "Authorize Console Access"}
             </button>
@@ -527,7 +527,7 @@ export default function AdminDashboard() {
                 setActiveTab("dashboard");
                 window.location.hash = "";
               }}
-              className={`flex items-center space-x-3 px-4 py-3 rounded-xl w-full text-left text-sm font-semibold transition cursor-pointer ${
+              className={`flex items-center space-x-3 px-4 py-3 w-full text-left text-sm font-semibold transition cursor-pointer ${
                 activeTab === "dashboard" ? "bg-white/10 text-white font-bold" : "hover:bg-white/5 text-white/70"
               }`}
             >
@@ -540,7 +540,7 @@ export default function AdminDashboard() {
                 setActiveTab("leads");
                 window.location.hash = "leads";
               }}
-              className={`flex items-center space-x-3 px-4 py-3 rounded-xl w-full text-left text-sm font-semibold transition cursor-pointer ${
+              className={`flex items-center space-x-3 px-4 py-3 w-full text-left text-sm font-semibold transition cursor-pointer ${
                 activeTab === "leads" ? "bg-white/10 text-white font-bold" : "hover:bg-white/5 text-white/70"
               }`}
             >
@@ -550,10 +550,36 @@ export default function AdminDashboard() {
 
             <button
               onClick={() => {
+                setActiveTab("pages");
+                window.location.hash = "pages";
+              }}
+              className={`flex items-center space-x-3 px-4 py-3 w-full text-left text-sm font-semibold transition cursor-pointer ${
+                activeTab === "pages" ? "bg-white/10 text-white font-bold" : "hover:bg-white/5 text-white/70"
+              }`}
+            >
+              <Layers className="w-5 h-5 text-gold shrink-0" />
+              <span>Website Pages</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setActiveTab("destinations");
+                window.location.hash = "destinations";
+              }}
+              className={`flex items-center space-x-3 px-4 py-3 w-full text-left text-sm font-semibold transition cursor-pointer ${
+                activeTab === "destinations" ? "bg-white/10 text-white font-bold" : "hover:bg-white/5 text-white/70"
+              }`}
+            >
+              <MapPin className="w-5 h-5 text-gold shrink-0" />
+              <span>Destinations</span>
+            </button>
+
+            <button
+              onClick={() => {
                 setActiveTab("packages");
                 window.location.hash = "packages";
               }}
-              className={`flex items-center space-x-3 px-4 py-3 rounded-xl w-full text-left text-sm font-semibold transition cursor-pointer ${
+              className={`flex items-center space-x-3 px-4 py-3 w-full text-left text-sm font-semibold transition cursor-pointer ${
                 activeTab === "packages" ? "bg-white/10 text-white font-bold" : "hover:bg-white/5 text-white/70"
               }`}
             >
@@ -566,7 +592,7 @@ export default function AdminDashboard() {
                 setActiveTab("blogs");
                 window.location.hash = "blogs";
               }}
-              className={`flex items-center space-x-3 px-4 py-3 rounded-xl w-full text-left text-sm font-semibold transition cursor-pointer ${
+              className={`flex items-center space-x-3 px-4 py-3 w-full text-left text-sm font-semibold transition cursor-pointer ${
                 activeTab === "blogs" ? "bg-white/10 text-white font-bold" : "hover:bg-white/5 text-white/70"
               }`}
             >
@@ -579,7 +605,7 @@ export default function AdminDashboard() {
                 setActiveTab("cuisines");
                 window.location.hash = "cuisines";
               }}
-              className={`flex items-center space-x-3 px-4 py-3 rounded-xl w-full text-left text-sm font-semibold transition cursor-pointer ${
+              className={`flex items-center space-x-3 px-4 py-3 w-full text-left text-sm font-semibold transition cursor-pointer ${
                 activeTab === "cuisines" ? "bg-white/10 text-white font-bold" : "hover:bg-white/5 text-white/70"
               }`}
             >
@@ -589,72 +615,17 @@ export default function AdminDashboard() {
 
             <button
               onClick={() => {
-                setActiveTab("destinations");
-                window.location.hash = "destinations";
-              }}
-              className={`flex items-center space-x-3 px-4 py-3 rounded-xl w-full text-left text-sm font-semibold transition cursor-pointer ${
-                activeTab === "destinations" ? "bg-white/10 text-white font-bold" : "hover:bg-white/5 text-white/70"
-              }`}
-            >
-              <MapPin className="w-5 h-5 text-gold shrink-0" />
-              <span>Destinations</span>
-            </button>
-
-            <button
-              onClick={() => {
                 setActiveTab("testimonials");
                 window.location.hash = "testimonials";
               }}
-              className={`flex items-center space-x-3 px-4 py-3 rounded-xl w-full text-left text-sm font-semibold transition cursor-pointer ${
+              className={`flex items-center space-x-3 px-4 py-3 w-full text-left text-sm font-semibold transition cursor-pointer ${
                 activeTab === "testimonials" ? "bg-white/10 text-white font-bold" : "hover:bg-white/5 text-white/70"
               }`}
             >
               <Star className="w-5 h-5 text-gold shrink-0" />
               <span>Testimonials</span>
             </button>
-
-            <button
-              onClick={() => {
-                setActiveTab("pages");
-                window.location.hash = "pages";
-              }}
-              className={`flex items-center space-x-3 px-4 py-3 rounded-xl w-full text-left text-sm font-semibold transition cursor-pointer ${
-                activeTab === "pages" ? "bg-white/10 text-white font-bold" : "hover:bg-white/5 text-white/70"
-              }`}
-            >
-              <Layers className="w-5 h-5 text-gold shrink-0" />
-              <span>Manage Pages</span>
-            </button>
           </nav>
-          </div>
-
-          {/* Website Pages Quick Access */}
-          <div className="space-y-1">
-            <p className="text-[9px] uppercase tracking-widest text-white/30 font-bold px-4 pb-2 pt-4">Website Pages</p>
-            <button onClick={() => { setActiveTab("edit-homepage"); window.location.hash = "edit-homepage"; }} className={`flex items-center space-x-3 px-4 py-2.5 rounded-xl w-full text-left text-xs transition ${activeTab === "edit-homepage" ? "bg-white/10 text-white font-bold" : "text-white/60 hover:text-white hover:bg-white/5"}`}>
-              <svg className="w-4 h-4 text-gold shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
-              <span>Homepage</span>
-            </button>
-            <button onClick={() => { setActiveTab("destinations"); window.location.hash = "destinations"; }} className={`flex items-center space-x-3 px-4 py-2.5 rounded-xl w-full text-left text-xs transition ${activeTab === "destinations" ? "bg-white/10 text-white font-bold" : "text-white/60 hover:text-white hover:bg-white/5"}`}>
-              <svg className="w-4 h-4 text-gold shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-              <span>Destinations</span>
-            </button>
-            <button onClick={() => { setActiveTab("packages"); window.location.hash = "packages"; }} className={`flex items-center space-x-3 px-4 py-2.5 rounded-xl w-full text-left text-xs transition ${activeTab === "packages" ? "bg-white/10 text-white font-bold" : "text-white/60 hover:text-white hover:bg-white/5"}`}>
-              <svg className="w-4 h-4 text-gold shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
-              <span>Tour Packages</span>
-            </button>
-            <button onClick={() => { setActiveTab("blogs"); window.location.hash = "blogs"; }} className={`flex items-center space-x-3 px-4 py-2.5 rounded-xl w-full text-left text-xs transition ${activeTab === "blogs" ? "bg-white/10 text-white font-bold" : "text-white/60 hover:text-white hover:bg-white/5"}`}>
-              <svg className="w-4 h-4 text-gold shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>
-              <span>Blog</span>
-            </button>
-            <button onClick={() => { setActiveTab("cuisines"); window.location.hash = "cuisines"; }} className={`flex items-center space-x-3 px-4 py-2.5 rounded-xl w-full text-left text-xs transition ${activeTab === "cuisines" ? "bg-white/10 text-white font-bold" : "text-white/60 hover:text-white hover:bg-white/5"}`}>
-              <svg className="w-4 h-4 text-gold shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
-              <span>Food Guide</span>
-            </button>
-            <button onClick={() => { setActiveTab("testimonials"); window.location.hash = "testimonials"; }} className={`flex items-center space-x-3 px-4 py-2.5 rounded-xl w-full text-left text-xs transition ${activeTab === "testimonials" ? "bg-white/10 text-white font-bold" : "text-white/60 hover:text-white hover:bg-white/5"}`}>
-              <svg className="w-4 h-4 text-gold shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
-              <span>Testimonials</span>
-            </button>
           </div>
         </div>
 
@@ -689,7 +660,7 @@ export default function AdminDashboard() {
           </div>
         <button 
           onClick={handleLogout}
-          className="bg-red-50 hover:bg-red-100 text-red-700 font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 rounded-xl flex items-center gap-1.5 border border-red-200 transition cursor-pointer"
+          className="bg-red-50 hover:bg-red-100 text-red-700 font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 flex items-center gap-1.5 border border-red-200 transition cursor-pointer"
         >
           <LogOut className="w-3.5 h-3.5" />
           <span>Exit Console</span>
@@ -719,8 +690,8 @@ export default function AdminDashboard() {
                 ].map((stat, i) => {
                   const Icon = stat.icon;
                   return (
-                    <div key={i} className="bg-white border border-beige/45 rounded-3xl p-5 shadow-sm flex items-center space-x-3">
-                      <div className={`${stat.color} p-2.5 rounded-xl`}>
+                    <div key={i} className="bg-white border border-beige/45 p-5 shadow-sm flex items-center space-x-3">
+                      <div className={`${stat.color} p-2.5`}>
                         <Icon className="w-5 h-5" />
                       </div>
                       <div>
@@ -743,7 +714,7 @@ export default function AdminDashboard() {
                 ) : (
                   <div className="space-y-3">
                     {inquiries.slice(0, 5).map((inq) => (
-                      <div key={inq.id} className="flex flex-col sm:flex-row items-start sm:items-center justify-between border border-beige/25 p-4 rounded-2xl hover:bg-beige/5 transition text-xs gap-4">
+                      <div key={inq.id} className="flex flex-col sm:flex-row items-start sm:items-center justify-between border border-beige/25 p-4 hover:bg-beige/5 transition text-xs gap-4">
                         <div className="space-y-1">
                           <p className="font-bold text-royal">{inq.name} ({inq.country || "Intl"})</p>
                           <p className="text-foreground/60 text-[11px]">{inq.email} • {inq.phone || "No phone"}</p>
@@ -764,7 +735,7 @@ export default function AdminDashboard() {
 
           {/* TAB 2: TRAVEL LEADS */}
           {activeTab === "leads" && (
-            <div className="bg-white border border-beige/45 rounded-3xl p-6 shadow-sm space-y-6">
+            <div className="bg-white border border-beige/45 p-6 shadow-sm space-y-6">
               <h2 className="text-lg font-bold text-royal font-serif">Active Traveler Leads & Bookings</h2>
               {inquiries.length === 0 ? (
                 <p className="text-xs text-foreground/40 text-center py-10">No inquiries found.</p>
@@ -803,7 +774,7 @@ export default function AdminDashboard() {
                             <select
                               value={inq.status}
                               onChange={(e) => handleStatusChange(inq.id, e.target.value)}
-                              className="bg-beige/25 border border-beige/80 rounded-lg px-2.5 py-1 text-xs font-semibold focus:border-gold outline-none cursor-pointer"
+                              className="bg-beige/25 border border-beige/80 px-2.5 py-1 text-xs font-semibold focus:border-gold outline-none cursor-pointer"
                             >
                               <option value="NEW">New Lead</option>
                               <option value="IN_PROGRESS">In Progress</option>
@@ -814,7 +785,7 @@ export default function AdminDashboard() {
                           <td className="p-4 text-right">
                             <button
                               onClick={() => handleDeleteInquiry(inq.id)}
-                              className="p-1.5 text-red-600 hover:bg-red-50 rounded-lg transition cursor-pointer"
+                              className="p-1.5 text-red-600 hover:bg-red-50 transition cursor-pointer"
                             >
                               <Trash2 className="w-4 h-4" />
                             </button>
@@ -835,7 +806,7 @@ export default function AdminDashboard() {
                 <h2 className="text-lg font-bold text-royal font-serif">Manage Travel Blogs</h2>
                 <button
                   onClick={() => setEditBlog({ title: { en: "", es: "", pt: "" }, excerpt: { en: "", es: "", pt: "" }, content: { en: "", es: "", pt: "" }, slug: "", category: "Culture", featuredImage: "" })}
-                  className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 rounded-xl flex items-center gap-1.5 transition cursor-pointer"
+                  className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 flex items-center gap-1.5 transition cursor-pointer"
                 >
                   <Plus className="w-4 h-4" />
                   <span>Add New Blog</span>
@@ -855,7 +826,7 @@ export default function AdminDashboard() {
                         value={editBlog.slug}
                         onChange={e => setEditBlog({...editBlog, slug: e.target.value})}
                         placeholder="explore-rajasthan" 
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none focus:border-gold"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none focus:border-gold"
                       />
                     </div>
                     <div className="space-y-1.5">
@@ -864,7 +835,7 @@ export default function AdminDashboard() {
                         type="text" 
                         value={editBlog.category || "Culture"}
                         onChange={e => setEditBlog({...editBlog, category: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                       />
                     </div>
                   </div>
@@ -884,7 +855,7 @@ export default function AdminDashboard() {
                               ...editBlog, 
                               title: { ...editBlog.title, [lang]: e.target.value }
                             })}
-                            className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-3 py-2.5 outline-none"
+                            className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2.5 outline-none"
                           />
                         </div>
                       ))}
@@ -904,7 +875,7 @@ export default function AdminDashboard() {
                               ...editBlog, 
                               excerpt: { ...editBlog.excerpt, [lang]: e.target.value }
                             })}
-                            className="w-full h-16 bg-[#FAF8F5] border border-gold/15 rounded-xl px-3 py-2 outline-none"
+                            className="w-full h-16 bg-[#FAF8F5] border border-gold/15 px-3 py-2 outline-none"
                           />
                         </div>
                       ))}
@@ -919,7 +890,7 @@ export default function AdminDashboard() {
                         type="text" 
                         value={editBlog.featuredImage}
                         onChange={e => setEditBlog({...editBlog, featuredImage: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                       />
                     </div>
                     <div className="md:col-span-4 pb-0.5">
@@ -940,16 +911,16 @@ export default function AdminDashboard() {
                         ...editBlog,
                         content: { ...editBlog.content, en: e.target.value }
                       })}
-                      className="w-full h-32 bg-[#FAF8F5] border border-gold/15 rounded-xl p-4 outline-none font-mono"
+                      className="w-full h-32 bg-[#FAF8F5] border border-gold/15 p-4 outline-none font-mono"
                     />
                   </div>
 
                   {/* Form CTA actions */}
                   <div className="flex gap-4 pt-4">
-                    <button type="submit" className="bg-royal text-white px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider cursor-pointer">
+                    <button type="submit" className="bg-royal text-white px-6 py-3.5 font-bold uppercase tracking-wider cursor-pointer">
                       Save Blog Post
                     </button>
-                    <button type="button" onClick={() => setEditBlog(null)} className="bg-beige/35 text-royal px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider cursor-pointer">
+                    <button type="button" onClick={() => setEditBlog(null)} className="bg-beige/35 text-royal px-6 py-3.5 font-bold uppercase tracking-wider cursor-pointer">
                       Cancel
                     </button>
                   </div>
@@ -959,7 +930,7 @@ export default function AdminDashboard() {
               {/* Blogs List */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {blogs.map((b) => (
-                  <div key={b.slug} className="bg-white border border-beige/45 rounded-3xl overflow-hidden shadow-sm flex flex-col justify-between">
+                  <div key={b.slug} className="bg-white border border-beige/45 overflow-hidden shadow-sm flex flex-col justify-between">
                     <img src={b.featuredImage} alt={b.title?.en} className="h-40 w-full object-cover" />
                     <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">
                       <div className="space-y-2">
@@ -998,7 +969,7 @@ export default function AdminDashboard() {
                 <h2 className="text-lg font-bold text-royal font-serif">Manage Tour Packages</h2>
                 <button
                   onClick={() => setEditPackage({ title: { en: "", es: "", pt: "" }, tagline: { en: "", es: "", pt: "" }, slug: "", category: "Luxury", durationDays: 7, image: "", highlights: [] })}
-                  className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 rounded-xl flex items-center gap-1.5 transition cursor-pointer"
+                  className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 flex items-center gap-1.5 transition cursor-pointer"
                 >
                   <Plus className="w-4 h-4" />
                   <span>Add New Package</span>
@@ -1018,7 +989,7 @@ export default function AdminDashboard() {
                         required
                         value={editPackage.slug}
                         onChange={e => setEditPackage({...editPackage, slug: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                       />
                     </div>
                     <div className="space-y-1.5">
@@ -1027,7 +998,7 @@ export default function AdminDashboard() {
                         type="text" 
                         value={editPackage.category}
                         onChange={e => setEditPackage({...editPackage, category: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                       />
                     </div>
                     <div className="space-y-1.5">
@@ -1036,7 +1007,7 @@ export default function AdminDashboard() {
                         type="number" 
                         value={editPackage.durationDays}
                         onChange={e => setEditPackage({...editPackage, durationDays: parseInt(e.target.value) || 5})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                       />
                     </div>
                   </div>
@@ -1056,7 +1027,7 @@ export default function AdminDashboard() {
                               ...editPackage, 
                               title: { ...editPackage.title, [lang]: e.target.value }
                             })}
-                            className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-3 py-2.5 outline-none"
+                            className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2.5 outline-none"
                           />
                         </div>
                       ))}
@@ -1077,7 +1048,7 @@ export default function AdminDashboard() {
                               ...editPackage, 
                               tagline: { ...editPackage.tagline, [lang]: e.target.value }
                             })}
-                            className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-3 py-2.5 outline-none"
+                            className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2.5 outline-none"
                           />
                         </div>
                       ))}
@@ -1092,7 +1063,7 @@ export default function AdminDashboard() {
                         type="text" 
                         value={editPackage.image}
                         onChange={e => setEditPackage({...editPackage, image: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                       />
                     </div>
                     <div className="md:col-span-4 pb-0.5">
@@ -1105,10 +1076,10 @@ export default function AdminDashboard() {
 
                   {/* Actions */}
                   <div className="flex gap-4 pt-4">
-                    <button type="submit" className="bg-royal text-white px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider cursor-pointer">
+                    <button type="submit" className="bg-royal text-white px-6 py-3.5 font-bold uppercase tracking-wider cursor-pointer">
                       Save Tour Package
                     </button>
-                    <button type="button" onClick={() => setEditPackage(null)} className="bg-beige/35 text-royal px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider cursor-pointer">
+                    <button type="button" onClick={() => setEditPackage(null)} className="bg-beige/35 text-royal px-6 py-3.5 font-bold uppercase tracking-wider cursor-pointer">
                       Cancel
                     </button>
                   </div>
@@ -1118,7 +1089,7 @@ export default function AdminDashboard() {
               {/* Packages Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {packages.map((pkg) => (
-                  <div key={pkg.slug} className="bg-white border border-beige/45 rounded-3xl overflow-hidden shadow-sm flex flex-col justify-between">
+                  <div key={pkg.slug} className="bg-white border border-beige/45 overflow-hidden shadow-sm flex flex-col justify-between">
                     <img src={pkg.image} alt={pkg.title?.en} className="h-40 w-full object-cover" />
                     <div className="p-6 space-y-3 flex-grow flex flex-col justify-between">
                       <div className="space-y-1.5">
@@ -1160,7 +1131,7 @@ export default function AdminDashboard() {
                 <h2 className="text-lg font-bold text-royal font-serif">Manage Food Catalog</h2>
                 <button
                   onClick={() => setEditFood({ title: { en: "", es: "", pt: "" }, tagline: { en: "", es: "", pt: "" }, description: { en: "", es: "", pt: "" }, slug: "", category: "North India", image: "" })}
-                  className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 rounded-xl flex items-center gap-1.5 transition cursor-pointer"
+                  className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 flex items-center gap-1.5 transition cursor-pointer"
                 >
                   <Plus className="w-4 h-4" />
                   <span>Add Food Item</span>
@@ -1179,7 +1150,7 @@ export default function AdminDashboard() {
                         required
                         value={editFood.slug}
                         onChange={e => setEditFood({...editFood, slug: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                       />
                     </div>
                     <div className="space-y-1.5">
@@ -1188,7 +1159,7 @@ export default function AdminDashboard() {
                         type="text" 
                         value={editFood.category}
                         onChange={e => setEditFood({...editFood, category: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                       />
                     </div>
                   </div>
@@ -1208,7 +1179,7 @@ export default function AdminDashboard() {
                               ...editFood, 
                               title: { ...editFood.title, [lang]: e.target.value }
                             })}
-                            className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-3 py-2.5 outline-none"
+                            className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2.5 outline-none"
                           />
                         </div>
                       ))}
@@ -1223,7 +1194,7 @@ export default function AdminDashboard() {
                         type="text" 
                         value={editFood.image}
                         onChange={e => setEditFood({...editFood, image: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                       />
                     </div>
                     <div className="md:col-span-4 pb-0.5">
@@ -1236,10 +1207,10 @@ export default function AdminDashboard() {
 
                   {/* Action Buttons */}
                   <div className="flex gap-4 pt-4">
-                    <button type="submit" className="bg-royal text-white px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider cursor-pointer">
+                    <button type="submit" className="bg-royal text-white px-6 py-3.5 font-bold uppercase tracking-wider cursor-pointer">
                       Save Food Item
                     </button>
-                    <button type="button" onClick={() => setEditFood(null)} className="bg-beige/35 text-royal px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider cursor-pointer">
+                    <button type="button" onClick={() => setEditFood(null)} className="bg-beige/35 text-royal px-6 py-3.5 font-bold uppercase tracking-wider cursor-pointer">
                       Cancel
                     </button>
                   </div>
@@ -1249,7 +1220,7 @@ export default function AdminDashboard() {
               {/* Foods List */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {foods.map((food) => (
-                  <div key={food.slug} className="bg-white border border-beige/45 rounded-3xl overflow-hidden shadow-sm flex flex-col justify-between">
+                  <div key={food.slug} className="bg-white border border-beige/45 overflow-hidden shadow-sm flex flex-col justify-between">
                     <img src={food.image} alt={food.title?.en} className="h-40 w-full object-cover" />
                     <div className="p-6 space-y-3 flex-grow flex flex-col justify-between">
                       <div className="space-y-1.5">
@@ -1281,7 +1252,7 @@ export default function AdminDashboard() {
                 <h2 className="text-lg font-bold text-royal font-serif">Manage Destinations (States)</h2>
                 <button
                   onClick={() => setEditState({ title: { en: "", es: "", pt: "" }, tagline: { en: "", es: "", pt: "" }, description: { en: "", es: "", pt: "" }, slug: "", region: "North", image: "" })}
-                  className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 rounded-xl flex items-center gap-1.5 transition cursor-pointer"
+                  className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 flex items-center gap-1.5 transition cursor-pointer"
                 >
                   <Plus className="w-4 h-4" />
                   <span>Add State Destination</span>
@@ -1300,7 +1271,7 @@ export default function AdminDashboard() {
                         required
                         value={editState.slug}
                         onChange={e => setEditState({...editState, slug: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                       />
                     </div>
                     <div className="space-y-1.5">
@@ -1309,7 +1280,7 @@ export default function AdminDashboard() {
                         type="text" 
                         value={editState.region}
                         onChange={e => setEditState({...editState, region: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                       />
                     </div>
                   </div>
@@ -1329,7 +1300,7 @@ export default function AdminDashboard() {
                               ...editState, 
                               title: { ...editState.title, [lang]: e.target.value }
                             })}
-                            className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-3 py-2.5 outline-none"
+                            className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2.5 outline-none"
                           />
                         </div>
                       ))}
@@ -1344,7 +1315,7 @@ export default function AdminDashboard() {
                         type="text" 
                         value={editState.image}
                         onChange={e => setEditState({...editState, image: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                       />
                     </div>
                     <div className="md:col-span-4 pb-0.5">
@@ -1357,10 +1328,10 @@ export default function AdminDashboard() {
 
                   {/* Action Buttons */}
                   <div className="flex gap-4 pt-4">
-                    <button type="submit" className="bg-royal text-white px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider cursor-pointer">
+                    <button type="submit" className="bg-royal text-white px-6 py-3.5 font-bold uppercase tracking-wider cursor-pointer">
                       Save State Destination
                     </button>
-                    <button type="button" onClick={() => setEditState(null)} className="bg-beige/35 text-royal px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider cursor-pointer">
+                    <button type="button" onClick={() => setEditState(null)} className="bg-beige/35 text-royal px-6 py-3.5 font-bold uppercase tracking-wider cursor-pointer">
                       Cancel
                     </button>
                   </div>
@@ -1370,7 +1341,7 @@ export default function AdminDashboard() {
               {/* States List */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {states.map((st) => (
-                  <div key={st.slug} className="bg-white border border-beige/45 rounded-3xl overflow-hidden shadow-sm flex flex-col justify-between">
+                  <div key={st.slug} className="bg-white border border-beige/45 overflow-hidden shadow-sm flex flex-col justify-between">
                     <img src={st.image} alt={st.title?.en} className="h-40 w-full object-cover" />
                     <div className="p-6 space-y-3 flex-grow flex flex-col justify-between">
                       <div className="space-y-1.5">
@@ -1402,7 +1373,7 @@ export default function AdminDashboard() {
                 <h2 className="text-lg font-bold text-royal font-serif">Customer Testimonials</h2>
                 <button
                   onClick={() => setNewTestimonial({ name: "", location: "", stars: 5, image: "", quote: { en: "", es: "", pt: "" } })}
-                  className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 rounded-xl flex items-center gap-1.5 transition cursor-pointer"
+                  className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 flex items-center gap-1.5 transition cursor-pointer"
                 >
                   <Plus className="w-4 h-4" />
                   <span>Add Testimonial</span>
@@ -1422,7 +1393,7 @@ export default function AdminDashboard() {
                         required
                         value={newTestimonial.name}
                         onChange={e => setNewTestimonial({...newTestimonial, name: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                       />
                     </div>
                     <div className="space-y-1.5">
@@ -1431,7 +1402,7 @@ export default function AdminDashboard() {
                         type="text" 
                         value={newTestimonial.location}
                         onChange={e => setNewTestimonial({...newTestimonial, location: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                       />
                     </div>
                     <div className="space-y-1.5">
@@ -1442,7 +1413,7 @@ export default function AdminDashboard() {
                         max="5"
                         value={newTestimonial.stars}
                         onChange={e => setNewTestimonial({...newTestimonial, stars: parseInt(e.target.value) || 5})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                       />
                     </div>
                   </div>
@@ -1461,7 +1432,7 @@ export default function AdminDashboard() {
                               ...newTestimonial, 
                               quote: { ...newTestimonial.quote, [lang]: e.target.value }
                             })}
-                            className="w-full h-20 bg-[#FAF8F5] border border-gold/15 rounded-xl p-3 outline-none"
+                            className="w-full h-20 bg-[#FAF8F5] border border-gold/15 p-3 outline-none"
                           />
                         </div>
                       ))}
@@ -1476,7 +1447,7 @@ export default function AdminDashboard() {
                         type="text" 
                         value={newTestimonial.image}
                         onChange={e => setNewTestimonial({...newTestimonial, image: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                       />
                     </div>
                     <div className="md:col-span-4 pb-0.5">
@@ -1489,10 +1460,10 @@ export default function AdminDashboard() {
 
                   {/* Form actions */}
                   <div className="flex gap-4 pt-4">
-                    <button type="submit" className="bg-royal text-white px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider cursor-pointer">
+                    <button type="submit" className="bg-royal text-white px-6 py-3.5 font-bold uppercase tracking-wider cursor-pointer">
                       Save Review
                     </button>
-                    <button type="button" onClick={() => setNewTestimonial(null)} className="bg-beige/35 text-royal px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider cursor-pointer">
+                    <button type="button" onClick={() => setNewTestimonial(null)} className="bg-beige/35 text-royal px-6 py-3.5 font-bold uppercase tracking-wider cursor-pointer">
                       Cancel
                     </button>
                   </div>
@@ -1502,7 +1473,7 @@ export default function AdminDashboard() {
               {/* Reviews List */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {testimonials.map((t, idx) => (
-                  <div key={t.id || idx} className="bg-white border border-beige/45 rounded-3xl p-6 shadow-sm flex flex-col justify-between space-y-4">
+                  <div key={t.id || idx} className="bg-white border border-beige/45 p-6 shadow-sm flex flex-col justify-between space-y-4">
                     <div className="space-y-3">
                       <div className="flex items-center gap-0.5">
                         {Array.from({ length: t.stars }).map((_, idx) => (
@@ -1531,10 +1502,10 @@ export default function AdminDashboard() {
           {activeTab === "pages" && (
             <div className="space-y-6">
               <div className="flex justify-between items-center">
-                <h2 className="text-lg font-bold text-royal font-serif">Manage Website Pages</h2>
+                <h2 className="text-lg font-bold text-royal font-serif">Website Pages</h2>
                 <button
                   onClick={() => setNewCustomPage({ id: "", title: { en: "", es: "", pt: "" }, heroImage: "", content: { body: { en: "", es: "", pt: "" } } })}
-                  className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 rounded-xl flex items-center gap-1.5 transition cursor-pointer"
+                  className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 flex items-center gap-1.5 transition cursor-pointer"
                 >
                   <Plus className="w-4 h-4" />
                   <span>Add Custom Page</span>
@@ -1543,7 +1514,7 @@ export default function AdminDashboard() {
 
               {/* Create Custom Page Form */}
               {newCustomPage && (
-                <form onSubmit={handleCreatePage} className="bg-white border border-gold/20 rounded-[2rem] p-8 shadow-md space-y-6 text-xs text-royal">
+                <form onSubmit={handleCreatePage} className="bg-white border border-gold/20 p-8 shadow-md space-y-6 text-xs text-royal">
                   <h3 className="text-base font-bold font-serif">Create New Custom Page</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-1.5">
@@ -1553,7 +1524,7 @@ export default function AdminDashboard() {
                         required
                         value={newCustomPage.id}
                         onChange={e => setNewCustomPage({...newCustomPage, id: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                         placeholder="my-page-slug"
                       />
                     </div>
@@ -1563,7 +1534,7 @@ export default function AdminDashboard() {
                         type="text" 
                         value={newCustomPage.heroImage || ""}
                         onChange={e => setNewCustomPage({...newCustomPage, heroImage: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
+                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                         placeholder="/images/luxury_palace_train.png"
                       />
                     </div>
@@ -1584,7 +1555,7 @@ export default function AdminDashboard() {
                               ...newCustomPage, 
                               title: { ...newCustomPage.title, [lang]: e.target.value }
                             })}
-                            className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-3 py-2.5 outline-none"
+                            className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2.5 outline-none"
                           />
                         </div>
                       ))}
@@ -1608,7 +1579,7 @@ export default function AdminDashboard() {
                                 body: { ...newCustomPage.content?.body, [lang]: e.target.value } 
                               }
                             })}
-                            className="w-full h-32 bg-[#FAF8F5] border border-gold/15 rounded-xl p-4 outline-none font-mono text-[11px]"
+                            className="w-full h-32 bg-[#FAF8F5] border border-gold/15 p-4 outline-none font-mono text-[11px]"
                             placeholder="<p>Welcome to our custom page content...</p>"
                           />
                         </div>
@@ -1617,10 +1588,10 @@ export default function AdminDashboard() {
                   </div>
 
                   <div className="flex gap-4 pt-4">
-                    <button type="submit" className="bg-royal text-white px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider cursor-pointer">
+                    <button type="submit" className="bg-royal text-white px-6 py-3.5 font-bold uppercase tracking-wider cursor-pointer">
                       Create Page
                     </button>
-                    <button type="button" onClick={() => setNewCustomPage(null)} className="bg-beige/35 text-royal px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider cursor-pointer">
+                    <button type="button" onClick={() => setNewCustomPage(null)} className="bg-beige/35 text-royal px-6 py-3.5 font-bold uppercase tracking-wider cursor-pointer">
                       Cancel
                     </button>
                   </div>
@@ -1629,15 +1600,37 @@ export default function AdminDashboard() {
 
               {/* Edit Page Form */}
               {editPage && (
-                <form onSubmit={handleSavePage} className="bg-white border border-gold/20 rounded-[2rem] p-8 shadow-md space-y-6 text-xs text-royal">
+                <form onSubmit={handleSavePage} className="bg-white border border-gold/20 p-8 shadow-md space-y-6 text-xs text-royal">
                   <div className="flex justify-between items-center border-b border-beige/40 pb-4">
-                    <h3 className="text-base font-bold font-serif">Editing Page: <span className="text-gold font-light">/{editPage.id}</span></h3>
+                    <h3 className="text-base font-bold font-serif">Editing: <span className="text-gold font-light">/{editPage.id}</span></h3>
                     <span className="bg-royal/10 text-royal px-2.5 py-1 rounded text-[10px] uppercase font-bold tracking-wider">{editPage.isCustom ? "Custom Page" : "System Page"}</span>
+                  </div>
+
+                  {/* Hero Image - Available for ALL pages */}
+                  <div className="space-y-3">
+                    <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Hero / Banner Image</span>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-end">
+                      <div className="space-y-1.5">
+                        <label className="font-bold uppercase tracking-wider block">Image URL</label>
+                        <input 
+                          type="text" 
+                          value={editPage.heroImage || ""}
+                          onChange={e => setEditPage({...editPage, heroImage: e.target.value})}
+                          className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
+                          placeholder="/images/your-image.jpg"
+                        />
+                      </div>
+                      {editPage.heroImage && (
+                        <div className="h-24 w-full overflow-hidden border border-gold/10 bg-[#FAF8F5]">
+                          <img src={editPage.heroImage} alt="Hero preview" className="w-full h-full object-cover" />
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                   {/* Title (Translatable for all pages) */}
                   <div className="space-y-3">
-                    <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Page Header Title</span>
+                    <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Page Title</span>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                       {["en", "es", "pt"].map((lang) => (
                         <div key={lang} className="space-y-1">
@@ -1650,96 +1643,87 @@ export default function AdminDashboard() {
                               ...editPage, 
                               title: { ...editPage.title, [lang]: e.target.value }
                             })}
-                            className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-3 py-2.5 outline-none"
+                            className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2.5 outline-none"
                           />
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  {/* Render content inputs based on page type */}
-                  {((editPage.id === "privacy" || editPage.id === "terms" || editPage.isCustom)) ? (
-                    <div className="space-y-6">
-                      <div className="space-y-1.5">
-                        <label className="font-bold uppercase tracking-wider block">Hero Banner Image URL (Optional)</label>
-                        <input 
-                          type="text" 
-                          value={editPage.heroImage || ""}
-                          onChange={e => setEditPage({...editPage, heroImage: e.target.value})}
-                          className="w-full bg-[#FAF8F5] border border-gold/15 rounded-xl px-4 py-3 outline-none"
-                        />
-                      </div>
-                      <div className="space-y-3">
-                        <span className="font-black uppercase tracking-widest text-[9px] text-gold block">HTML Page Body</span>
-                        {["en", "es", "pt"].map((lang) => (
-                          <div key={lang} className="space-y-1.5">
-                            <label className="font-bold uppercase tracking-wider">Body ({lang.toUpperCase()})</label>
-                            <textarea 
-                              required={lang === "en"}
-                              value={editPage.content?.body?.[lang] || ""}
-                              onChange={e => setEditPage({
-                                ...editPage, 
-                                content: { 
-                                  ...editPage.content, 
-                                  body: { ...editPage.content?.body, [lang]: e.target.value } 
-                                }
-                              })}
-                              className="w-full h-64 bg-[#FAF8F5] border border-gold/15 rounded-xl p-4 outline-none font-mono text-[11px] leading-relaxed"
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="space-y-6">
-                      <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Content Text Fields</span>
-                      <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
-                        {Object.keys(editPage.content || {}).map((key) => {
-                          const isLongText = (editPage.content[key]?.en || "").length > 80;
-                          return (
-                            <div key={key} className="border border-gold/10 p-5 rounded-2xl space-y-3 bg-[#FAF8F5]">
-                              <span className="font-bold text-[10px] text-gold uppercase tracking-wider block">{key}</span>
-                              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                {["en", "es", "pt"].map((lang) => (
-                                  <div key={lang} className="space-y-1">
-                                    <label className="font-semibold text-[10px] uppercase text-royal/60">{lang.toUpperCase()}</label>
-                                    {isLongText ? (
-                                      <textarea
-                                        value={editPage.content[key]?.[lang] || ""}
-                                        onChange={(e) => {
-                                          const updatedContent = { ...editPage.content };
-                                          updatedContent[key] = { ...updatedContent[key], [lang]: e.target.value };
-                                          setEditPage({ ...editPage, content: updatedContent });
-                                        }}
-                                        className="w-full h-24 bg-white border border-gold/15 rounded-xl p-3 outline-none"
-                                      />
-                                    ) : (
-                                      <input
-                                        type="text"
-                                        value={editPage.content[key]?.[lang] || ""}
-                                        onChange={(e) => {
-                                          const updatedContent = { ...editPage.content };
-                                          updatedContent[key] = { ...updatedContent[key], [lang]: e.target.value };
-                                          setEditPage({ ...editPage, content: updatedContent });
-                                        }}
-                                        className="w-full bg-white border border-gold/15 rounded-xl px-3 py-2 outline-none"
-                                      />
-                                    )}
-                                  </div>
-                                ))}
-                              </div>
+                  {/* Content Fields */}
+                  <div className="space-y-6">
+                    <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Page Content Fields</span>
+                    <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
+                      {Object.keys(editPage.content || {}).map((key) => {
+                        const val = editPage.content[key];
+                        const sampleText = val?.en || "";
+                        const isLongText = sampleText.length > 80 || key === "body";
+                        const isHtml = key === "body" || sampleText.includes("<");
+                        return (
+                          <div key={key} className="border border-gold/10 p-5 space-y-3 bg-[#FAF8F5]">
+                            <div className="flex items-center justify-between">
+                              <span className="font-bold text-[10px] text-gold uppercase tracking-wider">{key.replace(/([A-Z])/g, " $1").trim()}</span>
+                              {isHtml && <span className="text-[8px] bg-royal/10 text-royal px-2 py-0.5 rounded uppercase font-bold">HTML</span>}
                             </div>
-                          );
-                        })}
-                      </div>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                              {["en", "es", "pt"].map((lang) => (
+                                <div key={lang} className="space-y-1">
+                                  <label className="font-semibold text-[10px] uppercase text-royal/60">{lang.toUpperCase()}</label>
+                                  {isLongText ? (
+                                    <textarea
+                                      value={editPage.content[key]?.[lang] || ""}
+                                      onChange={(e) => {
+                                        const updatedContent = { ...editPage.content };
+                                        updatedContent[key] = { ...updatedContent[key], [lang]: e.target.value };
+                                        setEditPage({ ...editPage, content: updatedContent });
+                                      }}
+                                      className={`w-full bg-white border border-gold/15 p-3 outline-none ${isHtml ? "h-40 font-mono text-[11px]" : "h-24"}`}
+                                    />
+                                  ) : (
+                                    <input
+                                      type="text"
+                                      value={editPage.content[key]?.[lang] || ""}
+                                      onChange={(e) => {
+                                        const updatedContent = { ...editPage.content };
+                                        updatedContent[key] = { ...updatedContent[key], [lang]: e.target.value };
+                                        setEditPage({ ...editPage, content: updatedContent });
+                                      }}
+                                      className="w-full bg-white border border-gold/15 px-3 py-2 outline-none"
+                                    />
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
-                  )}
+
+                    {/* Add new content field */}
+                    <div className="border-t border-beige/30 pt-4">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const fieldName = prompt("Enter field name (e.g. sectionTitle, bannerText):");
+                          if (fieldName && fieldName.trim()) {
+                            const updatedContent = { ...editPage.content };
+                            updatedContent[fieldName.trim()] = { en: "", es: "", pt: "" };
+                            setEditPage({ ...editPage, content: updatedContent });
+                          }
+                        }}
+                        className="text-gold hover:text-royal text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 cursor-pointer"
+                      >
+                        <Plus className="w-3.5 h-3.5" />
+                        <span>Add Content Field</span>
+                      </button>
+                    </div>
+                  </div>
 
                   <div className="flex gap-4 pt-4 border-t border-beige/40">
-                    <button type="submit" className="bg-royal text-white px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider cursor-pointer">
+                    <button type="submit" className="bg-royal text-white px-6 py-3.5 font-bold uppercase tracking-wider cursor-pointer">
                       Save Changes
                     </button>
-                    <button type="button" onClick={() => setEditPage(null)} className="bg-beige/35 text-royal px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider cursor-pointer">
+                    <button type="button" onClick={() => setEditPage(null)} className="bg-beige/35 text-royal px-6 py-3.5 font-bold uppercase tracking-wider cursor-pointer">
                       Cancel
                     </button>
                   </div>
@@ -1747,46 +1731,87 @@ export default function AdminDashboard() {
               )}
 
               {/* Pages Directory List */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {pages.map((p) => (
-                  <div key={p.id} className="bg-white border border-beige/45 rounded-3xl p-6 shadow-sm flex flex-col justify-between space-y-4">
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <span className="text-[9px] uppercase tracking-wider font-extrabold text-gold">/{p.id}</span>
-                        {p.isCustom ? (
-                          <span className="bg-royal/10 text-royal px-2 py-0.5 rounded text-[8px] uppercase font-bold">Custom</span>
-                        ) : (
-                          <span className="bg-beige/40 text-royal/60 px-2 py-0.5 rounded text-[8px] uppercase font-bold">System</span>
-                        )}
-                      </div>
-                      <h4 className="text-base font-bold text-royal font-serif line-clamp-1">{p.title?.en}</h4>
-                      <p className="text-xs text-foreground/50 font-light">
-                        {p.isCustom ? "Rich HTML page created by administrator." : `Core system page containing ${Object.keys(p.content || {}).length} editable text fields.`}
-                      </p>
-                    </div>
-
-                    <div className="flex justify-between items-center pt-4 border-t border-beige/20 text-xs">
-                      <button
-                        onClick={() => setEditPage(p)}
-                        className="text-royal hover:text-gold flex items-center gap-1 font-bold uppercase tracking-wider cursor-pointer"
-                      >
-                        <Edit2 className="w-3.5 h-3.5" />
-                        <span>Edit Content</span>
-                      </button>
-
-                      {p.isCustom && (
-                        <button
-                          onClick={() => handleDeletePage(p.id)}
-                          className="text-red-600 hover:text-red-700 flex items-center gap-1 font-bold uppercase tracking-wider cursor-pointer"
-                        >
-                          <Trash2 className="w-3.5 h-3.5" />
-                          <span>Delete</span>
-                        </button>
-                      )}
+              {!editPage && !newCustomPage && (
+                <div className="space-y-6">
+                  {/* System Pages */}
+                  <div className="space-y-3">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-royal/60">System Pages</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                      {pages.filter((p: any) => !p.isCustom).map((p: any) => (
+                        <div key={p.id} className="bg-white border border-beige/45 overflow-hidden shadow-sm flex flex-col justify-between">
+                          {p.heroImage && (
+                            <div className="h-32 overflow-hidden bg-[#FAF8F5]">
+                              <img src={p.heroImage} alt={p.title?.en} className="w-full h-full object-cover" />
+                            </div>
+                          )}
+                          <div className="p-5 space-y-3 flex-grow flex flex-col justify-between">
+                            <div className="space-y-2">
+                              <div className="flex items-center justify-between">
+                                <span className="text-[9px] uppercase tracking-wider font-extrabold text-gold">/{p.id}</span>
+                                <span className="bg-beige/40 text-royal/60 px-2 py-0.5 rounded text-[8px] uppercase font-bold">System</span>
+                              </div>
+                              <h4 className="text-sm font-bold text-royal font-serif line-clamp-1">{p.title?.en}</h4>
+                              <p className="text-[10px] text-foreground/50 font-light">
+                                {Object.keys(p.content || {}).length} editable content fields
+                              </p>
+                            </div>
+                            <button
+                              onClick={() => setEditPage(p)}
+                              className="w-full mt-3 py-2.5 border border-royal/15 hover:bg-royal hover:text-white text-royal text-[10px] font-bold uppercase tracking-wider transition cursor-pointer flex items-center justify-center gap-1.5"
+                            >
+                              <Edit2 className="w-3 h-3" />
+                              <span>Edit Page</span>
+                            </button>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                ))}
-              </div>
+
+                  {/* Custom Pages */}
+                  {pages.filter((p: any) => p.isCustom).length > 0 && (
+                    <div className="space-y-3 pt-6 border-t border-beige/30">
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-royal/60">Custom Pages</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                        {pages.filter((p: any) => p.isCustom).map((p: any) => (
+                          <div key={p.id} className="bg-white border border-beige/45 overflow-hidden shadow-sm flex flex-col justify-between">
+                            {p.heroImage && (
+                              <div className="h-32 overflow-hidden bg-[#FAF8F5]">
+                                <img src={p.heroImage} alt={p.title?.en} className="w-full h-full object-cover" />
+                              </div>
+                            )}
+                            <div className="p-5 space-y-3 flex-grow flex flex-col justify-between">
+                              <div className="space-y-2">
+                                <div className="flex items-center justify-between">
+                                  <span className="text-[9px] uppercase tracking-wider font-extrabold text-gold">/{p.id}</span>
+                                  <span className="bg-royal/10 text-royal px-2 py-0.5 rounded text-[8px] uppercase font-bold">Custom</span>
+                                </div>
+                                <h4 className="text-sm font-bold text-royal font-serif line-clamp-1">{p.title?.en}</h4>
+                              </div>
+                              <div className="flex justify-between items-center pt-3 border-t border-beige/20 mt-3">
+                                <button
+                                  onClick={() => setEditPage(p)}
+                                  className="text-royal hover:text-gold flex items-center gap-1 font-bold text-[10px] uppercase tracking-wider cursor-pointer"
+                                >
+                                  <Edit2 className="w-3 h-3" />
+                                  <span>Edit</span>
+                                </button>
+                                <button
+                                  onClick={() => handleDeletePage(p.id)}
+                                  className="text-red-600 hover:text-red-700 flex items-center gap-1 font-bold text-[10px] uppercase tracking-wider cursor-pointer"
+                                >
+                                  <Trash2 className="w-3 h-3" />
+                                  <span>Delete</span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           )}
 

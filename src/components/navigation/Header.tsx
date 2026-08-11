@@ -214,7 +214,7 @@ export default function Header({ locale }: HeaderProps) {
               </Link>
               
               {/* Dropdown Container */}
-              <div className="absolute left-0 mt-3 w-64 bg-white border border-gold/15 rounded-2xl shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
+              <div className="absolute left-0 mt-3 w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
                 <Link
                   href={`/${locale}/packages`}
                   className="block px-5 py-2 text-[10px] font-bold uppercase tracking-wider text-royal/60 border-b border-gold/5 hover:text-gold hover:bg-gold/5 mb-1.5 pb-2"
@@ -257,7 +257,7 @@ export default function Header({ locale }: HeaderProps) {
               </Link>
               
               {/* Dropdown Container */}
-              <div className="absolute left-0 mt-3 w-64 bg-white border border-gold/15 rounded-2xl shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
+              <div className="absolute left-0 mt-3 w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
                 <Link
                   href={`/${locale}/destinations`}
                   className="block px-5 py-2 text-[10px] font-bold uppercase tracking-wider text-royal/60 border-b border-gold/5 hover:text-gold hover:bg-gold/5 mb-1.5 pb-2"
@@ -300,7 +300,7 @@ export default function Header({ locale }: HeaderProps) {
               </Link>
               
               {/* Dropdown Container */}
-              <div className="absolute left-0 mt-3 w-64 bg-white border border-gold/15 rounded-2xl shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
+              <div className="absolute left-0 mt-3 w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
                 {infoList.map((info, idx) => (
                   <Link
                     key={idx}
@@ -355,7 +355,7 @@ export default function Header({ locale }: HeaderProps) {
               {langMenuOpen && (
                 <>
                   <div className="fixed inset-0 z-30" onClick={() => setLangMenuOpen(false)} />
-                  <div className="absolute right-0 mt-3 w-40 bg-white border border-gold/15 rounded-2xl shadow-2xl z-40 py-2.5 overflow-hidden animate-scale-up">
+                  <div className="absolute right-0 mt-3 w-40 bg-white border border-gold/15 shadow-2xl z-40 py-2.5 overflow-hidden animate-scale-up">
                     {languages.map((lang) => (
                       <Link
                         key={lang.code}
@@ -399,7 +399,7 @@ export default function Header({ locale }: HeaderProps) {
             {langMenuOpen && (
               <>
                 <div className="fixed inset-0 z-30" onClick={() => setLangMenuOpen(false)} />
-                <div className="absolute right-16 mt-32 w-36 bg-white border border-gold/15 rounded-xl shadow-xl z-40 py-2 overflow-hidden animate-scale-up">
+                <div className="absolute right-16 mt-32 w-36 bg-white border border-gold/15 shadow-xl z-40 py-2 overflow-hidden animate-scale-up">
                   {languages.map((lang) => (
                     <Link
                       key={lang.code}

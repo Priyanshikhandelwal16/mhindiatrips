@@ -78,7 +78,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
                 <div className="relative">
                   <span className="absolute -left-[29px] top-1 w-2.5 h-2.5 rounded-full bg-sand-400 border border-ivory-100" />
                   <h4 className="text-xs font-bold text-charcoal-800 uppercase tracking-wider">Suggested Exploration Plan</h4>
-                  <p className="text-xs text-charcoal-800/70 mt-3 leading-relaxed bg-white border border-sand-300/40 p-6 rounded-2xl font-sans font-light shadow-sm">
+                  <p className="text-xs text-charcoal-800/70 mt-3 leading-relaxed bg-white border border-sand-300/40 p-6 font-sans font-light shadow-sm">
                     {city.suggestedItinerary?.[lang] || city.suggestedItinerary?.en}
                   </p>
                 </div>
@@ -89,7 +89,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
         </div>
 
         {/* Sidebar travel essentials */}
-        <div className="bg-white border border-sand-300 p-8 rounded-[1.5rem] h-fit space-y-6 shadow-sm relative overflow-hidden text-left">
+        <div className="bg-white border border-sand-300 p-8 h-fit space-y-6 shadow-sm relative overflow-hidden text-left">
           <div className="absolute top-0 left-0 w-full h-[4px] bg-sand-400" />
           <h3 className="text-[10px] uppercase tracking-widest font-bold text-charcoal-800 border-b border-sand-200 pb-4">
             Travel Essentials
@@ -132,7 +132,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
 
               return (
                 <Link key={att.slug || idx} href={`/${locale}/destinations/${stateSlug}/${citySlug}/${att.slug}`} className="group block">
-                  <div className="bg-white border border-sand-300/40 rounded-[1.5rem] overflow-hidden flex flex-col md:flex-row h-72 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-sand-400">
+                  <div className="bg-white border border-sand-300/40 overflow-hidden flex flex-col md:flex-row h-72 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-sand-400">
                     <div className="md:w-5/12 h-48 md:h-full shrink-0 overflow-hidden relative">
                       <img 
                         src={att.image} 

@@ -464,11 +464,11 @@ export default async function HomePage({ params }: HomePageProps) {
         </Reveal>
         
         {/* Postcard frame */}
-        <Reveal direction="right" delay={200} className="relative p-4 bg-white border border-gold/15 rounded-[2rem] shadow-2xl shadow-royal/5">
-          <div className="overflow-hidden rounded-2xl h-[480px]">
+        <Reveal direction="right" delay={200} className="relative p-4 bg-white border border-gold/15 shadow-2xl shadow-royal/5">
+          <div className="overflow-hidden h-[480px]">
             <img src="/images/rajasthan_fort_sunset.png" alt="Philosophy" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
           </div>
-          <div className="absolute -bottom-6 -right-6 bg-royal text-white p-8 rounded-2xl max-w-sm space-y-3 shadow-2xl hidden md:block border border-gold/15">
+          <div className="absolute -bottom-6 -right-6 bg-royal text-white p-8 max-w-sm space-y-3 shadow-2xl hidden md:block border border-gold/15">
             <h4 className="font-bold text-gold text-base">Palace Heritage</h4>
             <p className="text-xs text-white/70 leading-relaxed font-light">We organize private dinners inside authentic lake palaces and medieval desert forts.</p>
           </div>
@@ -511,7 +511,7 @@ export default async function HomePage({ params }: HomePageProps) {
                   </div>
 
                   {/* Content Card */}
-                  <div className="bg-white border border-gold/10 rounded-[2rem] p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 space-y-4 w-full">
+                  <div className="bg-white border border-gold/10 p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 space-y-4 w-full">
                     <h3 className="text-xl font-bold text-royal" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>{step.title}</h3>
                     <div className="h-px w-10 bg-gold/30 mx-auto" />
                     <p className="text-sm text-foreground/60 leading-relaxed font-light">{step.desc}</p>
@@ -538,7 +538,7 @@ export default async function HomePage({ params }: HomePageProps) {
           {states.slice(0, 6).map((st: any, i: number) => (
             <Reveal key={st.slug} delay={i * 80}>
               <Link href={`/${locale}/destinations/${st.slug}`} className="group block h-full perspective-1000">
-                <div className="card-3d bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md flex flex-col h-full">
+                <div className="card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full">
                   <div className="h-80 overflow-hidden relative shrink-0">
                     <img src={st.image} alt={st.title?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-90" />
@@ -601,7 +601,7 @@ export default async function HomePage({ params }: HomePageProps) {
           {tourPackages.slice(0, 10).map((pkg: any, i: number) => (
             <Reveal key={pkg.slug} delay={i * 80}>
               <Link href={`/${locale}/packages/${pkg.slug}`} className="group block h-full perspective-1000">
-                <div className="card-3d bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md flex flex-col h-full">
+                <div className="card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full">
                   <div className="relative h-64 shrink-0 overflow-hidden">
                     <img src={pkg.image} alt={pkg.title?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-80" />
@@ -695,9 +695,9 @@ export default async function HomePage({ params }: HomePageProps) {
                 return (
                   <div
                     key={i}
-                    className="group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-gold/30 p-6 rounded-[1.5rem] transition-all duration-500 space-y-4"
+                    className="group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-gold/30 p-6 transition-all duration-500 space-y-4"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-gold/15 group-hover:bg-gold/25 flex items-center justify-center transition-all duration-300">
+                    <div className="w-10 h-10 bg-gold/15 group-hover:bg-gold/25 flex items-center justify-center transition-all duration-300">
                       <Icon className="w-5 h-5 text-gold" />
                     </div>
                     <h4 className="text-sm font-bold text-white leading-snug" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>{inc.title}</h4>
@@ -713,7 +713,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
       {/* SECTION 5: Gastronomy Preview (Curated Culinary Card) */}
       <section className="max-w-7xl mx-auto px-6 py-32 border-b border-gold/10 space-y-16">
-        <div className="bg-royal border border-gold/15 rounded-[2.5rem] overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 relative shadow-2xl">
+        <div className="bg-royal border border-gold/15 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 relative shadow-2xl">
           <div className="lg:col-span-5 h-[400px] lg:h-auto relative overflow-hidden">
             <img src="/images/indian_cuisine_feast.png" alt="Culinary Spices" loading="lazy" className="w-full h-full object-cover absolute inset-0 animate-kenburns" />
           </div>
@@ -788,7 +788,7 @@ export default async function HomePage({ params }: HomePageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {blogs.slice(0, 6).map((post: any, i: number) => (
               <Reveal key={post.slug} delay={i * 80}>
-                <div className="group card-3d bg-white border border-[#C5A862]/10 rounded-[2rem] overflow-hidden shadow-md flex flex-col h-full perspective-1000">
+                <div className="group card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full perspective-1000">
                   <div className="h-56 overflow-hidden shrink-0 relative">
                     <img src={post.featuredImage} alt={post.title?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-65" />

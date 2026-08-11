@@ -65,7 +65,7 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
 
       {/* Quick region navigation pills */}
       <Reveal className="max-w-7xl mx-auto px-6 py-8 -mt-6 relative z-20">
-        <div className="bg-white/90 backdrop-blur-xl border border-[#C3AB85]/15 rounded-2xl p-4 shadow-xl flex flex-wrap justify-center gap-3">
+        <div className="bg-white/90 backdrop-blur-xl border border-[#C3AB85]/15 p-4 shadow-xl flex flex-wrap justify-center gap-3">
           {regions.map((reg) => {
             const count = states.filter((s: any) => s.region?.toLowerCase() === reg.toLowerCase()).length;
             if (count === 0) return null;

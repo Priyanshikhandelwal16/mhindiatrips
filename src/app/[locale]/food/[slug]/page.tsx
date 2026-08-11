@@ -76,7 +76,7 @@ export default async function FoodDetailPage({ params }: FoodDetailPageProps) {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {food.bestRestaurants.map((res: any, idx: number) => (
-                  <div key={idx} className="bg-white border border-gold/10 p-5 rounded-2xl flex justify-between items-center shadow-sm hover:border-gold/25 transition-colors">
+                  <div key={idx} className="bg-white border border-gold/10 p-5 flex justify-between items-center shadow-sm hover:border-gold/25 transition-colors">
                     <div className="space-y-1">
                       <span className="text-xs font-bold text-royal block">{res.name}</span>
                       <span className="text-[9px] text-foreground/45 flex items-center gap-1">
@@ -96,7 +96,7 @@ export default async function FoodDetailPage({ params }: FoodDetailPageProps) {
         </div>
 
         {/* Postcard Details box */}
-        <div className="bg-white border border-gold/25 p-8 rounded-3xl h-fit space-y-6 shadow-xl shadow-royal/5 relative overflow-hidden">
+        <div className="bg-white border border-gold/25 p-8 h-fit space-y-6 shadow-xl shadow-royal/5 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-[4px] bg-gold" />
           <h3 className="text-[10px] uppercase tracking-[0.25em] font-black text-royal border-b border-gold/10 pb-4">
             Culinary Dossier

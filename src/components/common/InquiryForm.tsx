@@ -112,7 +112,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
 
   if (success) {
     return (
-      <div className="bg-white border border-[#C5A862]/30 p-12 text-center space-y-6 max-w-xl mx-auto rounded-[2.5rem] shadow-2xl shadow-[#0A2A1E]/5 animate-scale-up">
+      <div className="bg-white border border-[#C5A862]/30 p-12 text-center space-y-6 max-w-xl mx-auto shadow-2xl shadow-[#0A2A1E]/5 animate-scale-up">
         <div className="w-16 h-16 bg-[#C5A862]/10 rounded-full flex items-center justify-center mx-auto">
           <CheckCircle2 className="w-8 h-8 text-gold" />
         </div>
@@ -123,7 +123,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
   }
 
   return (
-    <div className="bg-white border border-[#C5A862]/15 rounded-[2.5rem] p-8 md:p-16 max-w-4xl mx-auto shadow-2xl shadow-[#0A2A1E]/5 relative overflow-hidden" id="inquire-now">
+    <div className="bg-white border border-[#C5A862]/15 p-8 md:p-16 max-w-4xl mx-auto shadow-2xl shadow-[#0A2A1E]/5 relative overflow-hidden" id="inquire-now">
       
       {/* Decorative corner accents */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-gold/5 via-transparent to-transparent pointer-events-none" />
@@ -143,7 +143,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
 
       <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
         {error && (
-          <div className="bg-red-50/50 text-red-750 text-xs p-4 rounded-xl flex items-center gap-2 border border-red-100/40">
+          <div className="bg-red-50/50 text-red-750 text-xs p-4 flex items-center gap-2 border border-red-100/40">
             <AlertCircle className="w-4 h-4 shrink-0" />
             <span>{error}</span>
           </div>

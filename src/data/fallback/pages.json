@@ -7,6 +7,7 @@
       "es": "Inicio",
       "pt": "Início"
     },
+    "heroImage": "/images/rajasthan_fort_sunset.png",
     "content": {
       "heroSub": {
         "en": "BESPOKE PRIVATE TOURS",
@@ -318,6 +319,7 @@
       "es": "Sobre Nosotros",
       "pt": "Sobre Nós"
     },
+    "heroImage": "/images/kerala_backwaters_houseboat.png",
     "content": {
       "heroSub": {
         "en": "Our Story",
@@ -409,6 +411,7 @@
       "es": "Contacto",
       "pt": "Contato"
     },
+    "heroImage": "/images/Jaipur.jpg",
     "content": {
       "heroSub": {
         "en": "Concierge Contact",
@@ -465,6 +468,7 @@
       "es": "Información para Viajeros",
       "pt": "Informações para Viajantes"
     },
+    "heroImage": "/images/rajasthan.jpg",
     "content": {
       "heroSub": {
         "en": "Practical Advice",
@@ -571,6 +575,7 @@
       "es": "Galería",
       "pt": "Galeria"
     },
+    "heroImage": "/images/udaipur.jpg",
     "content": {
       "heroSub": {
         "en": "Visual Stories",
@@ -597,6 +602,7 @@
       "es": "Monumentos",
       "pt": "Monumentos"
     },
+    "heroImage": "/images/taj mahal.jpg",
     "content": {
       "heroSub": {
         "en": "Heritage & Architecture",
@@ -673,6 +679,7 @@
       "es": "Política de Privacidad",
       "pt": "Política de Privacidade"
     },
+    "heroImage": "",
     "content": {
       "body": {
         "en": "<p class=\"text-xs uppercase tracking-wider font-bold text-gold\">Last updated: August 2026</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">1. Information We Collect</h2><p class=\"text-[15px]\">We collect personal information you provide when making inquiries, booking tours, or subscribing to our newsletter. This includes your name, email, phone number, travel preferences, and passport information when required for bookings.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">2. How We Use Your Information</h2><p class=\"text-[15px]\">Your information is used to: plan and customize your travel itinerary, communicate about your booking, send relevant travel updates and offers (with your consent), and improve our services.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">3. Data Protection</h2><p class=\"text-[15px]\">We implement industry-standard security measures to protect your personal data. Your information is stored securely and is only accessible to authorized team members who need it to provide our services.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">4. Third-Party Sharing</h2><p class=\"text-[15px]\">We share your information only with trusted partners directly involved in delivering your travel experience (hotels, transport providers, guides). We never sell your personal data to third parties.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">5. Cookies</h2><p class=\"text-[15px]\">Our website uses cookies to enhance your browsing experience and analyze website traffic. You can manage cookie preferences through your browser settings.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">6. Your Rights</h2><p class=\"text-[15px]\">You have the right to access, correct, or delete your personal information at any time. Contact us at hello@mhindiatrips.com for any data-related requests.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">7. Contact</h2><p class=\"text-[15px]\">For questions about this privacy policy, contact us at hello@mhindiatrips.com or +91 98765 43210.</p>",
@@ -689,11 +696,34 @@
       "es": "Términos y Condiciones",
       "pt": "Termos e Condições"
     },
+    "heroImage": "",
     "content": {
       "body": {
         "en": "<p class=\"text-xs uppercase tracking-wider font-bold text-gold\">Last updated: August 2026</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">1. Booking & Payments</h2><p class=\"text-[15px]\">A 30% deposit is required to confirm your booking. The remaining balance is due 30 days before the trip start date. All payments are processed securely through our authorized payment partners.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">2. Cancellation Policy</h2><p class=\"text-[15px]\">Cancellations made 60+ days before departure: full refund minus processing fees. 30-59 days: 50% refund. Less than 30 days: no refund. We recommend travel insurance for all bookings.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">3. Itinerary Changes</h2><p class=\"text-[15px]\">We reserve the right to modify itineraries due to unforeseen circumstances (weather, political situations, natural disasters). Alternative arrangements of equal or higher quality will be provided.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">4. Travel Insurance</h2><p class=\"text-[15px]\">We strongly recommend comprehensive travel insurance covering trip cancellation, medical emergencies, and personal belongings. This is the traveler's responsibility.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">5. Liability</h2><p class=\"text-[15px]\">MH India Trips acts as an intermediary between travelers and service providers. While we carefully vet all partners, we are not liable for acts of third-party service providers, natural disasters, or force majeure events.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">6. Health & Vaccinations</h2><p class=\"text-[15px]\">Travelers are responsible for ensuring they have appropriate vaccinations and health clearances. We provide guidance but recommend consulting your doctor before travel.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">7. Code of Conduct</h2><p class=\"text-[15px]\">Travelers are expected to respect local customs, cultural sites, and communities. We reserve the right to terminate services without refund in cases of inappropriate behavior.</p>",
         "es": "<p class=\"text-xs uppercase tracking-wider font-bold text-gold\">Última actualización: agosto de 2026</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">1. Reservas y Pagos</h2><p class=\"text-[15px]\">Se requiere un depósito del 30% para confirmar su reserva. El saldo restante debe pagarse 30 días antes de la fecha de inicio del viaje. Todos los pagos se procesan de forma segura a través de nuestros socios autorizados.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">2. Política de Cancelación</h2><p class=\"text-[15px]\">Cancelaciones realizadas con más de 60 días de antelación al inicio: reembolso completo menos gastos de gestión. De 30 a 59 días: reembolso del 50%. Menos de 30 días: sin reembolso. Recomendamos un seguro de viaje.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">3. Cambios en el Itinerario</h2><p class=\"text-[15px]\">Nos reservamos el derecho de modificar itinerarios debido a circunstancias imprevistas (clima, situaciones políticas, desastres naturales). Se proporcionarán alternativas de igual o mayor calidad.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">4. Seguro de Viaje</h2><p class=\"text-[15px]\">Recomendamos encarecidamente un seguro de viaje completo que cubra cancelación del viaje, emergencias médicas y equipaje personal. Esto es responsabilidad del viajero.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">5. Responsabilidad</h2><p class=\"text-[15px]\">MH India Trips actúa como intermediario entre los viajeros y los proveedores de servicios. No somos responsables por los actos de los proveedores, desastres naturales o eventos de fuerza mayor.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">6. Salud y Vacunas</h2><p class=\"text-[15px]\">Los viajeros son responsables de asegurarse de tener las vacunas y autorizaciones de salud adecuadas. Brindamos orientación pero recomendamos consultar a su médico antes de viajar.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">7. Código de Conducta</h2><p class=\"text-[15px]\">Se espera que los viajeros respeten las costumbres locales, los sitios culturales y las comunidades. Nos reservamos el derecho de rescindir los servicios sin reembolso en caso de comportamiento inapropiado.</p>",
         "pt": "<p class=\"text-xs uppercase tracking-wider font-bold text-gold\">Última atualização: agosto de 2026</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">1. Reservas e Pagamentos</h2><p class=\"text-[15px]\">É necessário um depósito de 30% para confirmar sua reserva. O saldo restante deve ser pago 30 dias antes da data de início da viagem. Todos os pagamentos são processados com segurança por meio de nossos parceiros de pagamento autorizados.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">2. Política de Cancelamento</h2><p class=\"text-[15px]\">Cancelamentos feitos com mais de 60 dias de antecedência: reembolso total menos taxas de processamento. De 30 a 59 dias: reembolso de 50%. Menos de 30 dias: sem reembolso. Recomendamos seguro de viagem.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">3. Alterações de Roteiro</h2><p class=\"text-[15px]\">Reservamo-nos o direito de modificar os roteiros devido a circunstâncias imprevistas (clima, situações políticas, desastres naturais). Serão fornecidas alternativas de qualidade igual ou superior.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">4. Seguro de Viagem</h2><p class=\"text-[15px]\">Recomendamos fortemente um seguro de viagem abrangente cobrindo cancelamento de viagem, emergências médicas e bagagem pessoal. Isso é de responsabilidade do viajante.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">5. Responsabilidade</h2><p class=\"text-[15px]\">A MH India Trips atua como intermediária entre viajantes e prestadores de serviços. Não somos responsáveis por atos de terceiros, desastres naturais ou eventos de força maior.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">6. Saúde e Vacinas</h2><p class=\"text-[15px]\">Os viajantes são responsáveis por garantir que tenham as vacinas e autorizações de saúde adequadas. Fornecemos orientações mas recomendamos consultar seu médico antes de viajar.</p><h2 class=\"text-xl font-serif font-bold text-royal !mt-10\">7. Código de Conduta</h2><p class=\"text-[15px]\">Espera-se que os viajantes respeitem os costumes locais, locais históricos e comunidades. Reservamo-nos o direito de rescindir os serviços sem reembolso em casos de comportamento inadequado.</p>"
+      }
+    }
+  },
+  {
+    "id": "plan-your-trip",
+    "isCustom": false,
+    "title": {
+      "en": "Plan Your Trip",
+      "es": "Planifica tu Viaje",
+      "pt": "Planeje sua Viagem"
+    },
+    "heroImage": "/images/rajasthan_fort_sunset.png",
+    "content": {
+      "heroTitle": {
+        "en": "Plan Your Perfect India Trip",
+        "es": "Planifica tu viaje perfecto a India",
+        "pt": "Planeje sua viagem perfeita à Índia"
+      },
+      "heroSubtitle": {
+        "en": "Use our trip planner to build your dream itinerary",
+        "es": "Usa nuestro planificador de viajes",
+        "pt": "Use nosso planejador de viagens"
       }
     }
   }

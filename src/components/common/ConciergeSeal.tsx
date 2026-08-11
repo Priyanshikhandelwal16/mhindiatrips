@@ -35,7 +35,7 @@ export default function ConciergeSeal({ locale }: { locale: string }) {
       
       {/* Floating Concierge Assistant Card */}
       {isOpen && (
-        <div className="absolute bottom-16 right-0 w-80 bg-[#102A1E]/95 backdrop-blur-md border border-gold/30 rounded-[2rem] shadow-2xl p-6 text-white space-y-5 animate-fade-in">
+        <div className="absolute bottom-16 right-0 w-80 bg-[#102A1E]/95 backdrop-blur-md border border-gold/30 shadow-2xl p-6 text-white space-y-5 animate-fade-in">
           
           {/* Header */}
           <div className="flex items-center justify-between border-b border-gold/15 pb-4">
@@ -68,7 +68,7 @@ export default function ConciergeSeal({ locale }: { locale: string }) {
             {/* Itinerary planner */}
             <button
               onClick={handleScrollToPlanner}
-              className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-gold text-royal font-bold text-xs transition-all hover:scale-[1.02] cursor-pointer shadow-md"
+              className="w-full flex items-center gap-3 px-4 py-3 bg-gold text-royal font-bold text-xs transition-all hover:scale-[1.02] cursor-pointer shadow-md"
               suppressHydrationWarning={true}
             >
               <FileText className="w-4 h-4" />
@@ -80,7 +80,7 @@ export default function ConciergeSeal({ locale }: { locale: string }) {
               href="https://wa.me/919999999999" // Premium placeholder
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-[#25D366] text-white font-bold text-xs transition-all hover:scale-[1.02] cursor-pointer shadow-md"
+              className="w-full flex items-center gap-3 px-4 py-3 bg-[#25D366] text-white font-bold text-xs transition-all hover:scale-[1.02] cursor-pointer shadow-md"
             >
               <MessageSquare className="w-4 h-4 fill-white text-[#25D366]" />
               <span className="uppercase tracking-wider">Chat on WhatsApp</span>
@@ -90,7 +90,7 @@ export default function ConciergeSeal({ locale }: { locale: string }) {
             <Link
               href={`/${locale}/contact`}
               onClick={() => setIsOpen(false)}
-              className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-gold/30 font-bold text-xs transition-all cursor-pointer"
+              className="w-full flex items-center gap-3 px-4 py-3 bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-gold/30 font-bold text-xs transition-all cursor-pointer"
             >
               <Phone className="w-4 h-4 text-gold" />
               <span className="uppercase tracking-wider">Request Callback</span>
@@ -100,7 +100,7 @@ export default function ConciergeSeal({ locale }: { locale: string }) {
             <Link
               href={`/${locale}/faq`}
               onClick={() => setIsOpen(false)}
-              className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-gold/30 font-bold text-xs transition-all cursor-pointer"
+              className="w-full flex items-center gap-3 px-4 py-3 bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-gold/30 font-bold text-xs transition-all cursor-pointer"
             >
               <HelpCircle className="w-4 h-4 text-gold" />
               <span className="uppercase tracking-wider">Practical FAQ Info</span>

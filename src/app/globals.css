@@ -259,7 +259,7 @@ body {
 .luxury-card {
   background: #ffffff;
   border: 1px solid rgba(184, 150, 75, 0.08);
-  border-radius: 1.25rem;
+  border-radius: 0;
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.03),
     0 10px 15px -3px rgba(0, 0, 0, 0.03);
@@ -278,7 +278,7 @@ body {
 .card-elevated {
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.04);
-  border-radius: 1.5rem;
+  border-radius: 0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 4px 16px rgba(0, 0, 0, 0.02);
   transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -294,7 +294,7 @@ body {
 .image-zoom-container {
   position: relative;
   overflow: hidden;
-  border-radius: 1rem;
+  border-radius: 0;
 }
 
 .image-zoom-container img {

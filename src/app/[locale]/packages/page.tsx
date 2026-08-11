@@ -171,7 +171,7 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
         <div className="editorial-container relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
-            <div className="relative rounded-[2rem] overflow-hidden h-[420px] shadow-2xl border border-sand-300/10">
+            <div className="relative overflow-hidden h-[420px] shadow-2xl border border-sand-300/10">
               <img
                 src={featured?.image}
                 alt={featured?.title?.en}
@@ -231,7 +231,7 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((step, idx) => (
               <Reveal key={idx} delay={idx * 120}>
-                <div className="p-8 bg-white border border-sand-300/40 rounded-[1.5rem] text-left space-y-4 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-500">
+                <div className="p-8 bg-white border border-sand-300/40 text-left space-y-4 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-500">
                   <span className="text-3xl font-bold text-sand-500 block">
                     {step.step}
                   </span>
