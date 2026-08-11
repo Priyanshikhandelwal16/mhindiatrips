@@ -1610,7 +1610,7 @@ export default function AdminDashboard() {
                   <div className="space-y-3">
                     <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Hero / Banner Image</span>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-end">
-                      <div className="space-y-1.5">
+                      <div className="space-y-2">
                         <label className="font-bold uppercase tracking-wider block">Image URL</label>
                         <input 
                           type="text" 
@@ -1619,6 +1619,7 @@ export default function AdminDashboard() {
                           className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                           placeholder="/images/your-image.jpg"
                         />
+                        <CloudinaryUpload label="Upload Hero Image" onUploadComplete={(url) => setEditPage({...editPage, heroImage: url})} />
                       </div>
                       {editPage.heroImage && (
                         <div className="h-24 w-full overflow-hidden border border-gold/10 bg-[#FAF8F5]">
@@ -1714,6 +1715,19 @@ export default function AdminDashboard() {
                                           updatedContent[key][idx] = { ...item, [field]: typeof fieldVal === "number" ? Number(e.target.value) : e.target.value };
                                           setEditPage({ ...editPage, content: updatedContent });
                                         }} className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1.5 outline-none text-[11px]" />
+                                        {(field === "image" || field === "img" || field === "src") && (
+                                          <CloudinaryUpload label="Upload" onUploadComplete={(url) => {
+                                            const updatedContent = { ...editPage.content };
+                                            updatedContent[key] = [...val];
+                                            updatedContent[key][idx] = { ...item, [field]: url };
+                                            setEditPage({ ...editPage, content: updatedContent });
+                                          }} />
+                                        )}
+                                        {(field === "image" || field === "img" || field === "src") && fieldVal && (
+                                          <div className="h-16 w-24 overflow-hidden border border-gold/10 mt-1">
+                                            <img src={fieldVal} alt="" className="w-full h-full object-cover" />
+                                          </div>
+                                        )}
                                       </div>
                                     );
                                   })}
@@ -1754,6 +1768,18 @@ export default function AdminDashboard() {
                                       updatedContent[key] = { ...val, [subKey]: e.target.value };
                                       setEditPage({ ...editPage, content: updatedContent });
                                     }} className="w-full bg-white border border-gold/10 px-2 py-1.5 outline-none text-[11px]" />
+                                    {(subKey === "image" || subKey === "img" || subKey === "src") && (
+                                      <CloudinaryUpload label="Upload" onUploadComplete={(url) => {
+                                        const updatedContent = { ...editPage.content };
+                                        updatedContent[key] = { ...val, [subKey]: url };
+                                        setEditPage({ ...editPage, content: updatedContent });
+                                      }} />
+                                    )}
+                                    {(subKey === "image" || subKey === "img" || subKey === "src") && subVal && (
+                                      <div className="h-16 w-24 overflow-hidden border border-gold/10 mt-1">
+                                        <img src={subVal} alt="" className="w-full h-full object-cover" />
+                                      </div>
+                                    )}
                                   </div>
                                 );
                               })}
