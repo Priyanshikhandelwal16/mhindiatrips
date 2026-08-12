@@ -157,7 +157,29 @@ const defaultSystemPages = [
         { q: { en: "Do I need a visa for India?", es: "¿Necesito visa?", pt: "Preciso de visto?" }, a: { en: "Yes, most nationalities require a visa. The e-Visa online is processed within 72 hours.", es: "Sí, la mayoría necesitan visa.", pt: "Sim, a maioria precisa de visto." } },
         { q: { en: "Can I customize my travel package?", es: "¿Puedo personalizar mi viaje?", pt: "Posso personalizar?" }, a: { en: "Absolutely. Every detail is tailormade — route, duration, hotels, and activities.", es: "Por supuesto, todo se personaliza.", pt: "Certamente, tudo é personalizado." } },
         { q: { en: "How is local transportation managed?", es: "¿Cómo es el transporte?", pt: "Como é o transporte?" }, a: { en: "We provide private luxury SUVs with experienced English-speaking drivers.", es: "Vehículos privados de lujo con conductores.", pt: "Veículos de luxo com motoristas." } }
-      ]
+      ],
+      destinationsSection: {
+        subtitle: { en: "Custom Destinations", es: "Destinos Personalizados", pt: "Destinos Personalizados" },
+        title: { en: "Explore Diverse Horizons", es: "Explore Horizontes Diversos", pt: "Explore Horizontes Diversos" },
+        desc: { en: "From the grand palaces of Rajasthan to the serene canals of Kerala, discover a tailored world.", es: "Desde los palacios de Rajasthan hasta los canales de Kerala.", pt: "Dos palácios do Rajastão aos canais de Kerala." }
+      },
+      packagesSection: {
+        subtitle: { en: "Featured Journeys", es: "Viajes Destacados", pt: "Viagens Em Destaque" },
+        title: { en: "Signature Travel Packages", es: "Paquetes de Viajes Exclusivos", pt: "Pacotes de Viagens Exclusivos" },
+        desc: { en: "Elite itineraries hand-designed by our specialist destination managers.", es: "Itinerarios de élite diseñados por especialistas.", pt: "Itinerários de elite desenhados por especialistas." }
+      },
+      testimonialsSection: {
+        subtitle: { en: "Traveler Whispers", es: "Ecos de Viajeros", pt: "Sussurros de Viajantes" },
+        title: { en: "What Our Guests Say", es: "Lo Que Dicen Nuestros Huéspedes", pt: "O Que Dizem Nossos Hóspedes" }
+      },
+      blogsSection: {
+        subtitle: { en: "Travel Inspiration", es: "Inspiración de Viaje", pt: "Inspiração de Viagem" },
+        title: { en: "Travel Blogs", es: "Blogs de Viaje", pt: "Blogs de Viagem" },
+        desc: { en: "Curated stories, travel guides, and cultural insights from India's most enchanting destinations.", es: "Historias, guías y perspectivas culturales.", pt: "Histórias, guias e perspectivas culturais." }
+      },
+      monumentsSection: {
+        btnText: { en: "View All Monuments", es: "Ver Todos los Monumentos", pt: "Ver Todos os Monumentos" }
+      }
     }
   },
   {

@@ -39,8 +39,66 @@
       "es": "De octubre a marzo.",
       "pt": "De outubro a março."
     },
-    "travelTips": [],
-    "faqs": [],
+    "travelTips": [
+      {
+        "en": "Buy composite ticket at first monument for multi-site discounts.",
+        "es": "Compre boleto combinado.",
+        "pt": "Compre bilhete combinado."
+      },
+      {
+        "en": "Carry water and sunscreen — can reach 45°C in summer.",
+        "es": "Lleve agua y protector solar.",
+        "pt": "Leve água e protetor solar."
+      },
+      {
+        "en": "Book desert safari camps in Jaisalmer a week ahead.",
+        "es": "Reserve safaris con una semana.",
+        "pt": "Reserve safaris com uma semana."
+      },
+      {
+        "en": "Bargain in markets — initial prices are 3x actual value.",
+        "es": "Regatee en los mercados.",
+        "pt": "Regateie nos mercados."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "How many days for Rajasthan?",
+          "es": "¿Cuántos días?",
+          "pt": "Quantos dias?"
+        },
+        "a": {
+          "en": "7-10 days for Jaipur (2-3), Jodhpur (2), Udaipur (2-3), Jaisalmer (2).",
+          "es": "7-10 días.",
+          "pt": "7-10 dias."
+        }
+      },
+      {
+        "q": {
+          "en": "Best month for desert safari?",
+          "es": "¿Mejor mes?",
+          "pt": "Melhor mês?"
+        },
+        "a": {
+          "en": "November to February — cool nights, clear skies.",
+          "es": "Noviembre a febrero.",
+          "pt": "Novembro a fevereiro."
+        }
+      },
+      {
+        "q": {
+          "en": "Is Rajasthan safe?",
+          "es": "¿Es seguro?",
+          "pt": "É seguro?"
+        },
+        "a": {
+          "en": "Yes, very tourist-friendly with hospitable locals and excellent tourism infrastructure.",
+          "es": "Sí, muy amigable.",
+          "pt": "Sim, muito amigável."
+        }
+      }
+    ],
     "cities": [
       {
         "slug": "jaipur",
@@ -746,8 +804,66 @@
       "es": "De septiembre a marzo.",
       "pt": "De setembro a março."
     },
-    "travelTips": [],
-    "faqs": [],
+    "travelTips": [
+      {
+        "en": "Book houseboats on weekdays for better rates.",
+        "es": "Reserve casas flotantes entre semana.",
+        "pt": "Reserve casas flutuantes durante a semana."
+      },
+      {
+        "en": "Ayurveda treatments need 7-14 days minimum.",
+        "es": "Ayurveda necesita 7-14 días mínimo.",
+        "pt": "Ayurveda precisa de 7-14 dias."
+      },
+      {
+        "en": "Monsoon (Jun-Sep) offers lush scenery and spa deals.",
+        "es": "El monzón ofrece paisajes verdes.",
+        "pt": "A monção oferece paisagens verdes."
+      },
+      {
+        "en": "Carry mosquito repellent for backwater areas.",
+        "es": "Lleve repelente de mosquitos.",
+        "pt": "Leve repelente de mosquitos."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "Best time to visit Kerala?",
+          "es": "¿Mejor época?",
+          "pt": "Melhor época?"
+        },
+        "a": {
+          "en": "October to March for sightseeing. Jun-Sep for Ayurveda retreats.",
+          "es": "Octubre a marzo.",
+          "pt": "Outubro a março."
+        }
+      },
+      {
+        "q": {
+          "en": "How many days for Kerala?",
+          "es": "¿Cuántos días?",
+          "pt": "Quantos dias?"
+        },
+        "a": {
+          "en": "7-10 days: Kochi (2), Munnar (2), Thekkady (1-2), Alleppey houseboat (1-2), beach (2).",
+          "es": "7-10 días.",
+          "pt": "7-10 dias."
+        }
+      },
+      {
+        "q": {
+          "en": "Is Kerala safe for solo women?",
+          "es": "¿Seguro para mujeres?",
+          "pt": "Seguro para mulheres?"
+        },
+        "a": {
+          "en": "Yes, one of India's safest states with high literacy and progressive culture.",
+          "es": "Sí, muy seguro.",
+          "pt": "Sim, muito seguro."
+        }
+      }
+    ],
     "cities": [
       {
         "slug": "kochi",
@@ -1125,8 +1241,49 @@
       "es": "De noviembre a febrero.",
       "pt": "De novembro a fevereiro."
     },
-    "travelTips": [],
-    "faqs": [],
+    "travelTips": [
+      {
+        "en": "North Goa for nightlife, South Goa for quiet luxury.",
+        "es": "Norte para fiestas, Sur para lujo.",
+        "pt": "Norte para festas, Sul para luxo."
+      },
+      {
+        "en": "Rent a scooter — most flexible way to explore.",
+        "es": "Alquile una moto.",
+        "pt": "Alugue uma moto."
+      },
+      {
+        "en": "Visit Old Goa churches on weekday mornings.",
+        "es": "Visite iglesias entre semana.",
+        "pt": "Visite igrejas durante a semana."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "North or South Goa?",
+          "es": "¿Norte o Sur?",
+          "pt": "Norte ou Sul?"
+        },
+        "a": {
+          "en": "North for markets and nightlife, South for luxury and quiet. We recommend both.",
+          "es": "Norte para vida nocturna, Sur para lujo.",
+          "pt": "Norte para vida noturna, Sul para luxo."
+        }
+      },
+      {
+        "q": {
+          "en": "Best time for Goa?",
+          "es": "¿Mejor época?",
+          "pt": "Melhor época?"
+        },
+        "a": {
+          "en": "November to February. Monsoon (Jun-Sep) has lush green charm and resort discounts.",
+          "es": "Noviembre a febrero.",
+          "pt": "Novembro a fevereiro."
+        }
+      }
+    ],
     "cities": [
       {
         "slug": "panaji",
@@ -1330,8 +1487,66 @@
       "es": "De octubre a marzo.",
       "pt": "De outubro a março."
     },
-    "travelTips": [],
-    "faqs": [],
+    "travelTips": [
+      {
+        "en": "Book a sunrise boat ride on the Ganges at least a day in advance.",
+        "es": "Reserve un paseo en barco al amanecer con un día de antelación.",
+        "pt": "Reserve um passeio de barco ao amanhecer com um dia de antecedência."
+      },
+      {
+        "en": "Carry comfortable shoes — many heritage sites involve walking on uneven surfaces.",
+        "es": "Lleve zapatos cómodos para los sitios históricos.",
+        "pt": "Leve sapatos confortáveis para os locais históricos."
+      },
+      {
+        "en": "Agra is best visited as a 2-day trip from Delhi (200 km).",
+        "es": "Agra se visita mejor en 2 días desde Delhi.",
+        "pt": "Agra é melhor visitada em 2 dias a partir de Delhi."
+      },
+      {
+        "en": "Respect photography rules inside the Taj Mahal complex.",
+        "es": "Respete las reglas de fotografía en el Taj Mahal.",
+        "pt": "Respeite as regras de fotografia no Taj Mahal."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "How many days needed for Uttar Pradesh?",
+          "es": "¿Cuántos días se necesitan?",
+          "pt": "Quantos dias são necessários?"
+        },
+        "a": {
+          "en": "5-7 days to cover Agra (2 days), Varanasi (3 days), and Lucknow (2 days). For just Agra + Varanasi, 4-5 days is sufficient.",
+          "es": "5-7 días para cubrir Agra, Varanasi y Lucknow.",
+          "pt": "5-7 dias para cobrir Agra, Varanasi e Lucknow."
+        }
+      },
+      {
+        "q": {
+          "en": "Is Varanasi safe for tourists?",
+          "es": "¿Es seguro Varanasi?",
+          "pt": "Varanasi é segura?"
+        },
+        "a": {
+          "en": "Yes, Varanasi is safe for tourists. The narrow lanes can feel overwhelming but are generally safe. Our private guides navigate these easily.",
+          "es": "Sí, Varanasi es segura para turistas.",
+          "pt": "Sim, Varanasi é segura para turistas."
+        }
+      },
+      {
+        "q": {
+          "en": "What is the best time to see the Taj Mahal?",
+          "es": "¿Cuál es la mejor hora para el Taj Mahal?",
+          "pt": "Qual a melhor hora para o Taj Mahal?"
+        },
+        "a": {
+          "en": "Sunrise offers the best light and fewer crowds. The Taj Mahal is closed on Fridays. Full moon nights offer special viewing (book in advance).",
+          "es": "El amanecer ofrece la mejor luz. Cerrado los viernes.",
+          "pt": "O amanhecer oferece a melhor luz. Fechado às sextas."
+        }
+      }
+    ],
     "cities": [
       {
         "slug": "varanasi",
@@ -1497,6 +1712,457 @@
           "pt": "Dia 1: Ganga Aarti. Dia 2: Passeio de barco. Dia 3: Seda e comida."
         },
         "faqs": []
+      },
+      {
+        "slug": "agra",
+        "title": {
+          "en": "Agra",
+          "es": "Agra",
+          "pt": "Agra"
+        },
+        "tagline": {
+          "en": "Home of the Taj Mahal & Mughal Splendor",
+          "es": "Hogar del Taj Mahal y Esplendor Mogol",
+          "pt": "Lar do Taj Mahal e Esplendor Mogol"
+        },
+        "image": "/images/taj_mahal_sunrise.png",
+        "gallery": [],
+        "overview": {
+          "en": "Agra is home to three UNESCO World Heritage Sites — the Taj Mahal, Agra Fort, and Fatehpur Sikri. Once the capital of the Mughal Empire, this city showcases some of the finest examples of Mughal architecture in the world. The Taj Mahal, built by Emperor Shah Jahan for his beloved wife Mumtaz, draws over 7 million visitors annually.",
+          "es": "Agra alberga tres sitios del Patrimonio Mundial de la UNESCO — el Taj Mahal, el Fuerte de Agra y Fatehpur Sikri.",
+          "pt": "Agra abriga três locais do Patrimônio Mundial da UNESCO — o Taj Mahal, o Forte de Agra e Fatehpur Sikri."
+        },
+        "history": {
+          "en": "Capital of the Mughal Empire from 1526-1658 under Babur, Akbar, Jahangir, and Shah Jahan. The city reached its zenith during Akbar's reign.",
+          "es": "Capital del Imperio Mogol de 1526 a 1658.",
+          "pt": "Capital do Império Mogol de 1526 a 1658."
+        },
+        "culture": {
+          "en": "Marble inlay work (Pietra Dura), Mughal miniature paintings, leather crafts, and Zardozi embroidery.",
+          "es": "Trabajo de incrustación en mármol y pintura mogol en miniatura.",
+          "pt": "Trabalho de incrustação em mármore e pintura mogol em miniatura."
+        },
+        "attractions": [
+          {
+            "slug": "taj-mahal",
+            "name": {
+              "en": "Taj Mahal",
+              "es": "Taj Mahal",
+              "pt": "Taj Mahal"
+            },
+            "desc": {
+              "en": "The iconic ivory-white marble mausoleum, built 1632-1653 by Emperor Shah Jahan. A UNESCO World Heritage Site and one of the New Seven Wonders of the World. The symmetrical gardens, reflecting pools, and intricate calligraphy make it architecture's greatest love poem.",
+              "es": "El icónico mausoleo de mármol blanco marfil, construido entre 1632-1653.",
+              "pt": "O icônico mausoléu de mármore branco marfim, construído entre 1632-1653."
+            },
+            "history": {
+              "en": "Commissioned by Emperor Shah Jahan in memory of wife Mumtaz Mahal who died in 1631. Took 22 years and 20,000 artisans to complete.",
+              "es": "Encargado por el emperador Shah Jahan en memoria de su esposa.",
+              "pt": "Encomendado pelo imperador Shah Jahan em memória da esposa."
+            },
+            "architecture": {
+              "en": "Symmetrical white marble with precious stone inlay (pietra dura). Central dome rises 73 meters. Four minarets, mosque, and guest house.",
+              "es": "Mármol blanco simétrico con incrustaciones de piedras preciosas.",
+              "pt": "Mármore branco simétrico com incrustações de pedras preciosas."
+            },
+            "timings": {
+              "en": "Sunrise to Sunset (6:00 AM - 6:30 PM). Closed Fridays.",
+              "es": "Amanecer a atardecer. Cerrado viernes.",
+              "pt": "Nascer ao pôr do sol. Fechado sextas."
+            },
+            "info": {
+              "en": "Visit at sunrise for best photos and smallest crowds. Allow 2-3 hours. No tripods allowed.",
+              "es": "Visite al amanecer. Reserve 2-3 horas.",
+              "pt": "Visite ao amanhecer. Reserve 2-3 horas."
+            },
+            "image": "/images/taj_mahal_sunrise.png",
+            "gallery": [],
+            "faqs": []
+          },
+          {
+            "slug": "agra-fort",
+            "name": {
+              "en": "Agra Fort",
+              "es": "Fuerte de Agra",
+              "pt": "Forte de Agra"
+            },
+            "desc": {
+              "en": "A massive 16th-century red sandstone fortress and UNESCO World Heritage Site. Houses beautiful palaces, audience halls, and mosques within its 2.5 km walls. Shah Jahan was imprisoned here by his son Aurangzeb, gazing at the Taj Mahal until death.",
+              "es": "Una masiva fortaleza de arenisca roja del siglo XVI y Patrimonio Mundial.",
+              "pt": "Uma massiva fortaleza de arenito vermelho do século XVI e Patrimônio Mundial."
+            },
+            "history": {
+              "en": "Built by Emperor Akbar in 1565. Expanded by Shah Jahan with white marble additions.",
+              "es": "Construido por el emperador Akbar en 1565.",
+              "pt": "Construído pelo imperador Akbar em 1565."
+            },
+            "architecture": {
+              "en": "Red sandstone and white marble. Blend of Islamic and Hindu architectural styles.",
+              "es": "Arenisca roja y mármol blanco. Mezcla islámica e hindú.",
+              "pt": "Arenito vermelho e mármore branco. Mistura islâmica e hindu."
+            },
+            "timings": {
+              "en": "6:00 AM to 6:00 PM daily",
+              "es": "6:00 AM a 6:00 PM diario",
+              "pt": "6:00 às 18:00 diariamente"
+            },
+            "info": {
+              "en": "Allow 2 hours. Don't miss Musamman Burj (where Shah Jahan was imprisoned) for Taj views.",
+              "es": "Reserve 2 horas. No pierda las vistas del Taj.",
+              "pt": "Reserve 2 horas. Não perca as vistas do Taj."
+            },
+            "image": "/images/taj_mahal_sunrise.png",
+            "gallery": [],
+            "faqs": []
+          },
+          {
+            "slug": "fatehpur-sikri",
+            "name": {
+              "en": "Fatehpur Sikri",
+              "es": "Fatehpur Sikri",
+              "pt": "Fatehpur Sikri"
+            },
+            "desc": {
+              "en": "Emperor Akbar's abandoned red sandstone capital city, 37 km from Agra. A UNESCO World Heritage Site perfectly preserved as a ghost city, featuring Buland Darwaza (the tallest gateway in the world) and the tomb of Sufi saint Salim Chishti.",
+              "es": "La capital abandonada del emperador Akbar, a 37 km de Agra.",
+              "pt": "A capital abandonada do imperador Akbar, a 37 km de Agra."
+            },
+            "history": {
+              "en": "Built 1571-1585 by Emperor Akbar. Abandoned after 15 years due to water scarcity.",
+              "es": "Construida 1571-1585. Abandonada por escasez de agua.",
+              "pt": "Construída 1571-1585. Abandonada por escassez de água."
+            },
+            "architecture": {
+              "en": "Pristine red sandstone with intricate carved screens and courtyards.",
+              "es": "Arenisca roja con pantallas talladas.",
+              "pt": "Arenito vermelho com telas esculpidas."
+            },
+            "timings": {
+              "en": "Sunrise to Sunset daily",
+              "es": "Amanecer a atardecer",
+              "pt": "Nascer ao pôr do sol"
+            },
+            "info": {
+              "en": "Half-day trip from Agra. Hire a guide to understand the ruins' history.",
+              "es": "Medio día desde Agra. Contrate un guía.",
+              "pt": "Meio dia a partir de Agra. Contrate um guia."
+            },
+            "image": "/images/taj_mahal_sunrise.png",
+            "gallery": [],
+            "faqs": []
+          }
+        ],
+        "thingsToDo": [
+          {
+            "en": "Sunrise visit to Taj Mahal",
+            "es": "Visita al amanecer al Taj Mahal",
+            "pt": "Visita ao amanhecer ao Taj Mahal"
+          },
+          {
+            "en": "Marble inlay workshop experience",
+            "es": "Taller de incrustación en mármol",
+            "pt": "Oficina de incrustação em mármore"
+          },
+          {
+            "en": "Sunset view from Mehtab Bagh (across the river from Taj)",
+            "es": "Atardecer desde Mehtab Bagh",
+            "pt": "Pôr do sol no Mehtab Bagh"
+          },
+          {
+            "en": "Street food walk in Sadar Bazaar",
+            "es": "Paseo gastronómico en Sadar Bazaar",
+            "pt": "Passeio gastronômico no Sadar Bazaar"
+          },
+          {
+            "en": "Day trip to Fatehpur Sikri ghost city",
+            "es": "Excursión a Fatehpur Sikri",
+            "pt": "Excursão a Fatehpur Sikri"
+          }
+        ],
+        "hotels": [
+          {
+            "name": "The Oberoi Amarvilas",
+            "tier": "Luxury",
+            "desc": {
+              "en": "India's finest Taj-facing hotel. Every room has unobstructed views of the Taj Mahal. 600m from the monument.",
+              "es": "El mejor hotel con vista al Taj Mahal.",
+              "pt": "O melhor hotel com vista para o Taj Mahal."
+            },
+            "image": ""
+          },
+          {
+            "name": "ITC Mughal",
+            "tier": "Luxury",
+            "desc": {
+              "en": "A luxury hotel set in Mughal-inspired gardens with award-winning spa.",
+              "es": "Hotel de lujo con jardines mogoles.",
+              "pt": "Hotel de luxo com jardins mogóis."
+            },
+            "image": ""
+          }
+        ],
+        "localFood": {
+          "en": "Petha (sweet), Dalmoth, Bedai-Jalebi breakfast, Mughlai kebabs, Paratha, and the famous Agra ka Petha.",
+          "es": "Petha, Dalmoth, kebabs mogoles.",
+          "pt": "Petha, Dalmoth, kebabs mogóis."
+        },
+        "shopping": {
+          "en": "Marble inlay items from Subhash Emporium, leather goods from Sadar Bazaar, Zardozi embroidery.",
+          "es": "Artículos de mármol y cuero de Sadar Bazaar.",
+          "pt": "Artigos de mármore e couro de Sadar Bazaar."
+        },
+        "weather": {
+          "en": "Very hot summers (45°C+), pleasant winters (5-25°C). Avoid May-June.",
+          "es": "Veranos muy calurosos, inviernos agradables.",
+          "pt": "Verões muito quentes, invernos agradáveis."
+        },
+        "bestTime": {
+          "en": "October to March (peak: November-February for mild weather)",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [
+          {
+            "en": "Buy a composite ticket for Taj Mahal + Agra Fort + Fatehpur Sikri to save money.",
+            "es": "Compre boleto combinado para ahorrar.",
+            "pt": "Compre bilhete combinado para economizar."
+          },
+          {
+            "en": "The Taj Mahal is less crowded at sunrise. Enter from the South Gate for shortest queues.",
+            "es": "El Taj está menos lleno al amanecer.",
+            "pt": "O Taj está menos lotado ao amanhecer."
+          }
+        ],
+        "nearbyPlaces": [
+          {
+            "name": "Delhi",
+            "distance": "200 km"
+          },
+          {
+            "name": "Jaipur",
+            "distance": "240 km"
+          },
+          {
+            "name": "Mathura-Vrindavan",
+            "distance": "58 km"
+          }
+        ],
+        "suggestedItinerary": {
+          "en": "Day 1: Sunrise Taj Mahal, afternoon Agra Fort, evening Mehtab Bagh sunset. Day 2: Morning Fatehpur Sikri, afternoon marble workshop, evening depart.",
+          "es": "Día 1: Taj Mahal al amanecer, Fuerte de Agra. Día 2: Fatehpur Sikri.",
+          "pt": "Dia 1: Taj Mahal ao amanhecer, Forte de Agra. Dia 2: Fatehpur Sikri."
+        },
+        "faqs": [
+          {
+            "q": {
+              "en": "How to reach Agra from Delhi?",
+              "es": "¿Cómo llegar desde Delhi?",
+              "pt": "Como chegar de Delhi?"
+            },
+            "a": {
+              "en": "By road: 3-4 hours via Yamuna Expressway. By train: Gatimaan Express (1h 40min) or Shatabdi (2h). We arrange private chauffeurs.",
+              "es": "Por carretera: 3-4 horas. En tren: 1h 40min.",
+              "pt": "Por estrada: 3-4 horas. De trem: 1h 40min."
+            }
+          },
+          {
+            "q": {
+              "en": "Is one day enough for Agra?",
+              "es": "¿Basta un día?",
+              "pt": "Um dia é suficiente?"
+            },
+            "a": {
+              "en": "You can see the Taj Mahal and Agra Fort in one long day, but 2 days allows Fatehpur Sikri and a more relaxed pace.",
+              "es": "Se puede en un día largo, pero 2 días es mejor.",
+              "pt": "É possível num dia longo, mas 2 dias é melhor."
+            }
+          }
+        ]
+      },
+      {
+        "slug": "lucknow",
+        "title": {
+          "en": "Lucknow",
+          "es": "Lucknow",
+          "pt": "Lucknow"
+        },
+        "tagline": {
+          "en": "City of Nawabs, Kebabs & Mughal Elegance",
+          "es": "Ciudad de Nawabs, Kebabs y Elegancia Mogol",
+          "pt": "Cidade de Nawabs, Kebabs e Elegância Mogol"
+        },
+        "image": "/images/uttar pradesh.jpg",
+        "gallery": [],
+        "overview": {
+          "en": "The capital of Uttar Pradesh and former seat of the Nawabs of Awadh. Lucknow is famous for its refined Awadhi cuisine (world-renowned kebabs and biryanis), Mughal-era monuments, and the distinctive Lucknowi chikan embroidery. Known as the 'City of Tehzeeb' (culture and etiquette).",
+          "es": "La capital de Uttar Pradesh y antigua sede de los Nawabs de Awadh.",
+          "pt": "A capital de Uttar Pradesh e antiga sede dos Nawabs de Awadh."
+        },
+        "history": {
+          "en": "Rose to prominence as capital of Awadh Nawabs in the 18th century. Site of the 1857 Indian Rebellion siege at Residency.",
+          "es": "Capital de los Nawabs de Awadh en el siglo XVIII.",
+          "pt": "Capital dos Nawabs de Awadh no século XVIII."
+        },
+        "culture": {
+          "en": "Awadhi culinary arts, Lucknowi chikan embroidery, Kathak dance, Urdu poetry (mushairas), and ittar (natural perfumes).",
+          "es": "Artes culinarias Awadhi y bordado chikan.",
+          "pt": "Artes culinárias Awadhi e bordado chikan."
+        },
+        "attractions": [
+          {
+            "slug": "bara-imambara",
+            "name": {
+              "en": "Bara Imambara",
+              "es": "Bara Imambara",
+              "pt": "Bara Imambara"
+            },
+            "desc": {
+              "en": "An 18th-century architectural marvel with the world's largest hall without external support beams. Features the mysterious Bhulbhulaiya labyrinth on the upper floors.",
+              "es": "Una maravilla arquitectónica del siglo XVIII con el salón más grande del mundo sin vigas externas.",
+              "pt": "Uma maravilha arquitetônica do século XVIII com o maior salão do mundo sem vigas externas."
+            },
+            "history": {
+              "en": "Built in 1784 by Nawab Asaf-ud-Daula as a famine relief project employing 20,000 workers.",
+              "es": "Construido en 1784 como proyecto contra la hambruna.",
+              "pt": "Construído em 1784 como projeto contra a fome."
+            },
+            "architecture": {
+              "en": "Mughal architecture. Central hall spans 50m without any pillar or beam.",
+              "es": "Arquitectura mogol. Salón central de 50m sin pilares.",
+              "pt": "Arquitetura mogol. Salão central de 50m sem pilares."
+            },
+            "timings": {
+              "en": "6:00 AM to 5:00 PM daily",
+              "es": "6:00 AM a 5:00 PM",
+              "pt": "6:00 às 17:00"
+            },
+            "info": {
+              "en": "Explore the Bhulbhulaiya maze on the upper floors — fascinating acoustics.",
+              "es": "Explore el laberinto Bhulbhulaiya.",
+              "pt": "Explore o labirinto Bhulbhulaiya."
+            },
+            "image": "/images/uttar pradesh.jpg",
+            "gallery": [],
+            "faqs": []
+          },
+          {
+            "slug": "british-residency",
+            "name": {
+              "en": "British Residency",
+              "es": "Residencia Británica",
+              "pt": "Residência Britânica"
+            },
+            "desc": {
+              "en": "The ruins of the British Residency, site of the famous 1857 siege during the Indian Rebellion. The bullet-ridden buildings stand as a powerful reminder of India's freedom struggle.",
+              "es": "Las ruinas de la Residencia Británica, sitio del famoso asedio de 1857.",
+              "pt": "As ruínas da Residência Britânica, local do famoso cerco de 1857."
+            },
+            "history": {
+              "en": "Built in 1800. Site of 87-day siege during 1857 rebellion.",
+              "es": "Construida en 1800. Sitio del asedio de 87 días.",
+              "pt": "Construída em 1800. Local do cerco de 87 dias."
+            },
+            "architecture": {
+              "en": "Colonial-era brick buildings with visible cannon ball and bullet marks.",
+              "es": "Edificios coloniales con marcas de balas de cañón.",
+              "pt": "Edifícios coloniais com marcas de balas de canhão."
+            },
+            "timings": {
+              "en": "Sunrise to Sunset daily",
+              "es": "Amanecer a atardecer",
+              "pt": "Nascer ao pôr do sol"
+            },
+            "info": {
+              "en": "Evening sound and light show tells the story of the siege.",
+              "es": "Show de luz y sonido por la noche.",
+              "pt": "Show de luz e som à noite."
+            },
+            "image": "/images/uttar pradesh.jpg",
+            "gallery": [],
+            "faqs": []
+          }
+        ],
+        "thingsToDo": [
+          {
+            "en": "Tunday Kababi kebab tasting (operating since 1905)",
+            "es": "Degustación de kebabs Tunday Kababi",
+            "pt": "Degustação de kebabs Tunday Kababi"
+          },
+          {
+            "en": "Chikan embroidery shopping in Aminabad",
+            "es": "Compras de bordado chikan en Aminabad",
+            "pt": "Compras de bordado chikan em Aminabad"
+          },
+          {
+            "en": "Heritage walk through Hussainabad area",
+            "es": "Caminata patrimonial por Hussainabad",
+            "pt": "Caminhada patrimonial por Hussainabad"
+          },
+          {
+            "en": "Evening food trail through old Lucknow",
+            "es": "Ruta gastronómica nocturna",
+            "pt": "Rota gastronômica noturna"
+          }
+        ],
+        "hotels": [
+          {
+            "name": "Taj Mahal Lucknow",
+            "tier": "Luxury",
+            "desc": {
+              "en": "A luxury heritage hotel with Awadhi-themed interiors and rooftop dining.",
+              "es": "Hotel de lujo con interiores Awadhi.",
+              "pt": "Hotel de luxo com interiores Awadhi."
+            },
+            "image": ""
+          }
+        ],
+        "localFood": {
+          "en": "Tunday Kebabs, Lucknowi Biryani, Sheermal bread, Kulfi-Falooda, Basket Chaat, Makhan Malai.",
+          "es": "Tunday Kebabs, Biryani, Sheermal.",
+          "pt": "Tunday Kebabs, Biryani, Sheermal."
+        },
+        "shopping": {
+          "en": "Chikan embroidery from Aminabad, ittar perfumes from Akbari Gate, silver jewelry.",
+          "es": "Bordado chikan y perfumes ittar.",
+          "pt": "Bordado chikan e perfumes ittar."
+        },
+        "weather": {
+          "en": "Very hot summers, cool winters (4-22°C). Best Oct-Mar.",
+          "es": "Veranos muy calurosos, inviernos frescos.",
+          "pt": "Verões muito quentes, invernos frescos."
+        },
+        "bestTime": {
+          "en": "October to March",
+          "es": "De octubre a marzo",
+          "pt": "De outubro a março"
+        },
+        "travelTips": [
+          {
+            "en": "Don't miss the street food — Lucknow is India's kebab capital.",
+            "es": "No se pierda la comida callejera.",
+            "pt": "Não perca a comida de rua."
+          }
+        ],
+        "nearbyPlaces": [
+          {
+            "name": "Varanasi",
+            "distance": "320 km"
+          },
+          {
+            "name": "Agra",
+            "distance": "330 km"
+          },
+          {
+            "name": "Delhi",
+            "distance": "500 km"
+          }
+        ],
+        "suggestedItinerary": {
+          "en": "Day 1: Bara Imambara, Chota Imambara, evening food trail. Day 2: Residency, Aminabad shopping, Hazratganj walk.",
+          "es": "Día 1: Imambaras y comida. Día 2: Residencia y compras.",
+          "pt": "Dia 1: Imambaras e comida. Dia 2: Residência e compras."
+        },
+        "faqs": []
       }
     ]
   },
@@ -1540,8 +2206,49 @@
       "es": "De marzo a junio y septiembre a diciembre.",
       "pt": "De março a junho e setembro a dezembro."
     },
-    "travelTips": [],
-    "faqs": [],
+    "travelTips": [
+      {
+        "en": "Roads can be winding and slow — plan for extra travel time between destinations.",
+        "es": "Las carreteras son sinuosas — planifique tiempo extra.",
+        "pt": "As estradas são sinuosas — planeje tempo extra."
+      },
+      {
+        "en": "Carry warm layers even in summer — temperatures drop significantly at night.",
+        "es": "Lleve capas cálidas incluso en verano.",
+        "pt": "Leve camadas quentes mesmo no verão."
+      },
+      {
+        "en": "Check road conditions before traveling to Manali/Rohtang — roads close in winter.",
+        "es": "Verifique el estado de las carreteras en invierno.",
+        "pt": "Verifique as condições das estradas no inverno."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "When does it snow in Himachal Pradesh?",
+          "es": "¿Cuándo nieva?",
+          "pt": "Quando neva?"
+        },
+        "a": {
+          "en": "Heavy snowfall in December-February in Shimla, Manali, and higher areas. Light snow possible in November and March.",
+          "es": "Nieve fuerte en diciembre-febrero.",
+          "pt": "Neve forte em dezembro-fevereiro."
+        }
+      },
+      {
+        "q": {
+          "en": "Is Himachal Pradesh safe for solo travelers?",
+          "es": "¿Es seguro para viajeros solos?",
+          "pt": "É seguro para viajantes sozinhos?"
+        },
+        "a": {
+          "en": "Yes, Himachal is one of India's safest states. Popular trekking routes and hill stations are well-traveled and friendly.",
+          "es": "Sí, es uno de los estados más seguros.",
+          "pt": "Sim, é um dos estados mais seguros."
+        }
+      }
+    ],
     "cities": [
       {
         "slug": "shimla",
@@ -1838,8 +2545,49 @@
       "es": "De octubre a marzo.",
       "pt": "De outubro a março."
     },
-    "travelTips": [],
-    "faqs": [],
+    "travelTips": [
+      {
+        "en": "Mumbai local trains are fastest — avoid 8-10 AM and 6-8 PM rush.",
+        "es": "Trenes locales más rápidos — evite horas pico.",
+        "pt": "Trens locais mais rápidos — evite horários de pico."
+      },
+      {
+        "en": "Ajanta-Ellora caves need a full day each from Aurangabad.",
+        "es": "Las cuevas necesitan un día cada una.",
+        "pt": "As cavernas precisam de um dia cada."
+      },
+      {
+        "en": "Mumbai street food is legendary — try vada pav and pav bhaji.",
+        "es": "Comida callejera legendaria.",
+        "pt": "Comida de rua lendária."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "How many days for Mumbai?",
+          "es": "¿Cuántos días?",
+          "pt": "Quantos dias?"
+        },
+        "a": {
+          "en": "2-3 days for Mumbai, add 2 for Ajanta-Ellora from Aurangabad.",
+          "es": "2-3 días + 2 para Ajanta-Ellora.",
+          "pt": "2-3 dias + 2 para Ajanta-Ellora."
+        }
+      },
+      {
+        "q": {
+          "en": "Best time for Maharashtra?",
+          "es": "¿Mejor época?",
+          "pt": "Melhor época?"
+        },
+        "a": {
+          "en": "October to March. Monsoon beautiful for Western Ghats.",
+          "es": "Octubre a marzo.",
+          "pt": "Outubro a março."
+        }
+      }
+    ],
     "cities": [
       {
         "slug": "mumbai",
@@ -2062,8 +2810,49 @@
       "es": "De noviembre a marzo.",
       "pt": "De novembro a março."
     },
-    "travelTips": [],
-    "faqs": [],
+    "travelTips": [
+      {
+        "en": "Temple dress code strict — cover shoulders and knees, remove shoes.",
+        "es": "Código de vestimenta estricto en templos.",
+        "pt": "Código de vestimenta rigoroso nos templos."
+      },
+      {
+        "en": "South Indian breakfast (idli, dosa, vada) is a must-try.",
+        "es": "El desayuno sudindio es imprescindible.",
+        "pt": "O café da manhã sul-indiano é imperdível."
+      },
+      {
+        "en": "Hire a guide at Meenakshi Temple for the rich symbolism.",
+        "es": "Contrate guía en Meenakshi.",
+        "pt": "Contrate guia em Meenakshi."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "Best time for Tamil Nadu?",
+          "es": "¿Mejor época?",
+          "pt": "Melhor época?"
+        },
+        "a": {
+          "en": "November to March (post-monsoon). Hill stations great year-round.",
+          "es": "Noviembre a marzo.",
+          "pt": "Novembro a março."
+        }
+      },
+      {
+        "q": {
+          "en": "Is Tamil Nadu vegetarian-friendly?",
+          "es": "¿Es vegetariano?",
+          "pt": "É vegetariano?"
+        },
+        "a": {
+          "en": "Absolutely! South India has world-class vegetarian food — dosas, idlis, sambar.",
+          "es": "¡Sí! Excelente comida vegetariana.",
+          "pt": "Sim! Excelente comida vegetariana."
+        }
+      }
+    ],
     "cities": [
       {
         "slug": "madurai",
@@ -2174,8 +2963,49 @@
       "es": "De octubre a febrero.",
       "pt": "De outubro a fevereiro."
     },
-    "travelTips": [],
-    "faqs": [],
+    "travelTips": [
+      {
+        "en": "Hampi needs 2 full days — ruins spread across 26 sq km.",
+        "es": "Hampi necesita 2 días completos.",
+        "pt": "Hampi precisa de 2 dias completos."
+      },
+      {
+        "en": "Mysore Palace is illuminated Sundays — do not miss.",
+        "es": "Palacio de Mysore iluminado los domingos.",
+        "pt": "Palácio de Mysore iluminado aos domingos."
+      },
+      {
+        "en": "Coorg coffee plantations make perfect 2-day retreats.",
+        "es": "Plantaciones de café de Coorg son retiros perfectos.",
+        "pt": "Plantações de café de Coorg são retiros perfeitos."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "How to reach Hampi?",
+          "es": "¿Cómo llegar a Hampi?",
+          "pt": "Como chegar a Hampi?"
+        },
+        "a": {
+          "en": "Fly to Hubli (40km) or overnight train from Bangalore to Hospet.",
+          "es": "Vuelo a Hubli o tren desde Bangalore.",
+          "pt": "Voo para Hubli ou trem de Bangalore."
+        }
+      },
+      {
+        "q": {
+          "en": "Best time for Karnataka?",
+          "es": "¿Mejor época?",
+          "pt": "Melhor época?"
+        },
+        "a": {
+          "en": "October to March. Coorg beautiful in monsoon too.",
+          "es": "Octubre a marzo.",
+          "pt": "Outubro a março."
+        }
+      }
+    ],
     "cities": [
       {
         "slug": "mysore",
@@ -2622,8 +3452,49 @@
       "es": "De noviembre a febrero.",
       "pt": "De novembro a fevereiro."
     },
-    "travelTips": [],
-    "faqs": [],
+    "travelTips": [
+      {
+        "en": "Rann Utsav festival (Nov-Feb) is a must — book tent stays early.",
+        "es": "Reserve Rann Utsav con anticipación.",
+        "pt": "Reserve Rann Utsav com antecedência."
+      },
+      {
+        "en": "Gujarat is a dry state — no alcohol available publicly.",
+        "es": "Estado seco — sin alcohol.",
+        "pt": "Estado seco — sem álcool."
+      },
+      {
+        "en": "Try the Gujarati thali — unlimited vegetarian dishes.",
+        "es": "Pruebe el thali gujarati.",
+        "pt": "Prove o thali gujarati."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "When is Rann Utsav?",
+          "es": "¿Cuándo es?",
+          "pt": "Quando é?"
+        },
+        "a": {
+          "en": "November to February. Full moon nights most spectacular on white salt desert.",
+          "es": "Noviembre a febrero.",
+          "pt": "Novembro a fevereiro."
+        }
+      },
+      {
+        "q": {
+          "en": "Is Gujarat worth visiting?",
+          "es": "¿Vale la pena?",
+          "pt": "Vale a visita?"
+        },
+        "a": {
+          "en": "Yes! Gir lions, Rann of Kutch, UNESCO stepwells, and incredible vegetarian cuisine.",
+          "es": "¡Sí! Leones, Kutch y gastronomía.",
+          "pt": "Sim! Leões, Kutch e gastronomia."
+        }
+      }
+    ],
     "cities": [
       {
         "slug": "ahmedabad",
@@ -2958,8 +3829,49 @@
       "es": "De marzo a junio y septiembre a noviembre.",
       "pt": "De março a junho e setembro a novembro."
     },
-    "travelTips": [],
-    "faqs": [],
+    "travelTips": [
+      {
+        "en": "Rishikesh is India's yoga capital — book ashram stays in advance.",
+        "es": "Rishikesh es la capital del yoga.",
+        "pt": "Rishikesh é a capital do yoga."
+      },
+      {
+        "en": "Char Dham opens May-October — book helicopter services early.",
+        "es": "Char Dham abre mayo a octubre.",
+        "pt": "Char Dham abre maio a outubro."
+      },
+      {
+        "en": "Jim Corbett safaris book fast — reserve 2-3 months ahead.",
+        "es": "Reserve safaris con 2-3 meses.",
+        "pt": "Reserve safaris com 2-3 meses."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "Best time for Uttarakhand?",
+          "es": "¿Mejor época?",
+          "pt": "Melhor época?"
+        },
+        "a": {
+          "en": "March-June and September-November. Winter for snow in Auli.",
+          "es": "Marzo-junio y sept-nov.",
+          "pt": "Março-junho e set-nov."
+        }
+      },
+      {
+        "q": {
+          "en": "Is rafting in Rishikesh safe?",
+          "es": "¿Es seguro el rafting?",
+          "pt": "O rafting é seguro?"
+        },
+        "a": {
+          "en": "Yes with certified operators. Grade 3-4 rapids are safe with proper equipment.",
+          "es": "Sí, con operadores certificados.",
+          "pt": "Sim, com operadores certificados."
+        }
+      }
+    ],
     "cities": [
       {
         "slug": "rishikesh",
