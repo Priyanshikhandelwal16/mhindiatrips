@@ -35,14 +35,14 @@ import {
   BarChart, Users, FileText, Compass, CheckCircle, Trash2, 
   Mail, Phone, MapPin, Calendar, Plus, Edit2, Upload, Lock, 
   CheckCircle2, Star, Eye, Utensils, Sparkles, LogOut, Map,
-  LayoutDashboard, Layers
+  LayoutDashboard, Layers, AlertCircle
 } from "lucide-react";
 import { signInWithEmailAndPassword, onAuthStateChanged, signOut, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { useParams } from "next/navigation";
 
 // Cloudinary image uploader client-side helper
-function CloudinaryUpload({ onUploadComplete, label = "Upload Image" }: { onUploadComplete: (url: string) => void, label?: string }) {
+function CloudinaryUpload({ onUploadComplete, label = "Upload Image", showStatus }: { onUploadComplete: (url: string) => void, label?: string, showStatus?: (text: string, type: "success" | "error") => void }) {
   const [uploading, setUploading] = useState(false);
 
   const onChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,13 +62,23 @@ function CloudinaryUpload({ onUploadComplete, label = "Upload Image" }: { onUplo
       const data = await res.json();
       if (data.secure_url) {
         onUploadComplete(data.secure_url);
-        alert("Image uploaded successfully!");
+        if (showStatus) {
+          showStatus("Image uploaded successfully!", "success");
+        } else {
+          console.log("Image uploaded successfully!");
+        }
       } else {
-        alert("Upload failed. Verifypreset/Cloudinary configs.");
+        if (showStatus) {
+          showStatus("Upload failed. Verify preset/Cloudinary configs.", "error");
+        } else {
+          console.error("Upload failed.");
+        }
       }
     } catch (err) {
       console.error(err);
-      alert("Error uploading image.");
+      if (showStatus) {
+        showStatus("Error uploading image.", "error");
+      }
     } finally {
       setUploading(false);
     }
@@ -92,6 +102,15 @@ export default function AdminDashboard() {
   const [password, setPassword] = useState("");
   const [isSignUp, setIsSignUp] = useState(false);
 
+  const [statusMessage, setStatusMessage] = useState<{ text: string; type: "success" | "error" } | null>(null);
+
+  const showStatus = (text: string, type: "success" | "error" = "success") => {
+    setStatusMessage({ text, type });
+    setTimeout(() => {
+      setStatusMessage(null);
+    }, 4000);
+  };
+
   // CMS state
   const [activeTab, setActiveTab] = useState("dashboard");
   const [loading, setLoading] = useState(true);
@@ -108,6 +127,9 @@ export default function AdminDashboard() {
   const [editPackage, setEditPackage] = useState<any>(null);
   const [editFood, setEditFood] = useState<any>(null);
   const [editState, setEditState] = useState<any>(null);
+  const [destSubTab, setDestSubTab] = useState<"general" | "travelTips" | "faqs" | "cities">("general");
+  const [editingCityIdx, setEditingCityIdx] = useState<number | null>(null);
+  const [editingAttractionIdx, setEditingAttractionIdx] = useState<number | null>(null);
   const [newTestimonial, setNewTestimonial] = useState<any>(null);
   const [editPage, setEditPage] = useState<any>(null);
   const [newCustomPage, setNewCustomPage] = useState<any>(null);
@@ -205,14 +227,14 @@ export default function AdminDashboard() {
     }
 
     if (!auth) {
-      alert("Firebase configuration is missing and custom credentials mismatch.");
+      showStatus("Firebase configuration is missing and custom credentials mismatch.", "error");
       return;
     }
     setAuthLoading(true);
     try {
       if (isSignUp) {
         await createUserWithEmailAndPassword(auth, email, password);
-        alert("Admin account created successfully!");
+        showStatus("Admin account created successfully!", "success");
       } else {
         const credential = await signInWithEmailAndPassword(auth, email, password);
         const firebaseUser = { email: credential.user.email, uid: credential.user.uid };
@@ -220,7 +242,7 @@ export default function AdminDashboard() {
         localStorage.setItem("admin_user", JSON.stringify(firebaseUser));
       }
     } catch (err: any) {
-      alert(err.message || "Authentication failed.");
+      showStatus(err.message || "Authentication failed.", "error");
     } finally {
       setAuthLoading(false);
     }
@@ -254,7 +276,7 @@ export default function AdminDashboard() {
   // BLOG ACTIONS
   const handleSaveBlog = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editBlog.slug || !editBlog.title?.en) return alert("Slug and title are required.");
+    if (!editBlog.slug || !editBlog.title?.en) return showStatus("Slug and title are required.", "error");
 
     setLoading(true);
     const isNew = !blogs.find(b => b.slug === editBlog.slug);
@@ -263,11 +285,11 @@ export default function AdminDashboard() {
       : await updateBlogAction(editBlog.slug, editBlog);
 
     if (res.success) {
-      alert("Blog post saved successfully!");
+      showStatus("Blog post saved successfully!", "success");
       setEditBlog(null);
       await loadCMSData();
     } else {
-      alert(res.error || "Failed to save blog.");
+      showStatus(res.error || "Failed to save blog.", "error");
       setLoading(false);
     }
   };
@@ -279,7 +301,7 @@ export default function AdminDashboard() {
       if (res.success) {
         await loadCMSData();
       } else {
-        alert(res.error || "Failed to delete.");
+        showStatus(res.error || "Failed to delete.", "error");
         setLoading(false);
       }
     }
@@ -288,7 +310,7 @@ export default function AdminDashboard() {
   // PACKAGE ACTIONS
   const handleSavePackage = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editPackage.slug || !editPackage.title?.en) return alert("Slug and title are required.");
+    if (!editPackage.slug || !editPackage.title?.en) return showStatus("Slug and title are required.", "error");
 
     setLoading(true);
     const isNew = !packages.find(p => p.slug === editPackage.slug);
@@ -297,11 +319,11 @@ export default function AdminDashboard() {
       : await updateTourPackageAction(editPackage.slug, editPackage);
 
     if (res.success) {
-      alert("Package saved successfully!");
+      showStatus("Package saved successfully!", "success");
       setEditPackage(null);
       await loadCMSData();
     } else {
-      alert(res.error || "Failed to save package.");
+      showStatus(res.error || "Failed to save package.", "error");
       setLoading(false);
     }
   };
@@ -313,7 +335,7 @@ export default function AdminDashboard() {
       if (res.success) {
         await loadCMSData();
       } else {
-        alert(res.error || "Failed to delete.");
+        showStatus(res.error || "Failed to delete.", "error");
         setLoading(false);
       }
     }
@@ -322,7 +344,7 @@ export default function AdminDashboard() {
   // CUISINES ACTIONS
   const handleSaveFood = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editFood.slug || !editFood.title?.en) return alert("Slug and title are required.");
+    if (!editFood.slug || !editFood.title?.en) return showStatus("Slug and title are required.", "error");
 
     setLoading(true);
     const isNew = !foods.find(f => f.slug === editFood.slug);
@@ -331,11 +353,11 @@ export default function AdminDashboard() {
       : await updateFoodAction(editFood.slug, editFood);
 
     if (res.success) {
-      alert("Food guide saved successfully!");
+      showStatus("Food guide saved successfully!", "success");
       setEditFood(null);
       await loadCMSData();
     } else {
-      alert(res.error || "Failed to save food catalog.");
+      showStatus(res.error || "Failed to save food catalog.", "error");
       setLoading(false);
     }
   };
@@ -343,7 +365,7 @@ export default function AdminDashboard() {
   // DESTINATIONS ACTIONS
   const handleSaveState = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editState.slug || !editState.title?.en) return alert("Slug and title are required.");
+    if (!editState.slug || !editState.title?.en) return showStatus("Slug and title are required.", "error");
 
     setLoading(true);
     const isNew = !states.find(s => s.slug === editState.slug);
@@ -352,11 +374,11 @@ export default function AdminDashboard() {
       : await updateStateAction(editState.slug, editState);
 
     if (res.success) {
-      alert("Destination state saved successfully!");
+      showStatus("Destination state saved successfully!", "success");
       setEditState(null);
       await loadCMSData();
     } else {
-      alert(res.error || "Failed to save state.");
+      showStatus(res.error || "Failed to save state.", "error");
       setLoading(false);
     }
   };
@@ -364,16 +386,16 @@ export default function AdminDashboard() {
   // TESTIMONIALS ACTIONS
   const handleSaveTestimonial = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newTestimonial.name || !newTestimonial.quote?.en) return alert("Name and english quote are required.");
+    if (!newTestimonial.name || !newTestimonial.quote?.en) return showStatus("Name and English quote are required.", "error");
 
     setLoading(true);
     const res = await createTestimonialAction(newTestimonial);
     if (res.success) {
-      alert("Testimonial added successfully!");
+      showStatus("Testimonial added successfully!", "success");
       setNewTestimonial(null);
       await loadCMSData();
     } else {
-      alert(res.error || "Failed to save testimonial.");
+      showStatus(res.error || "Failed to save testimonial.", "error");
       setLoading(false);
     }
   };
@@ -381,24 +403,24 @@ export default function AdminDashboard() {
   // PAGES ACTIONS
   const handleSavePage = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editPage.title?.en) return alert("Title is required.");
+    if (!editPage.title?.en) return showStatus("Title is required.", "error");
 
     setLoading(true);
     const res = await updatePageAction(editPage.id, editPage);
 
     if (res.success) {
-      alert("Page saved successfully!");
+      showStatus("Page saved successfully!", "success");
       setEditPage(null);
       await loadCMSData();
     } else {
-      alert(res.error || "Failed to save page.");
+      showStatus(res.error || "Failed to save page.", "error");
       setLoading(false);
     }
   };
 
   const handleCreatePage = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newCustomPage.id || !newCustomPage.title?.en) return alert("Slug and Title are required.");
+    if (!newCustomPage.id || !newCustomPage.title?.en) return showStatus("Slug and Title are required.", "error");
     // Force lowercase slug without spaces
     const slug = newCustomPage.id.toLowerCase().replace(/[^a-z0-9-_]/g, "-");
     
@@ -414,11 +436,11 @@ export default function AdminDashboard() {
     const res = await createPageAction(pageData);
 
     if (res.success) {
-      alert("Custom Page created successfully!");
+      showStatus("Custom Page created successfully!", "success");
       setNewCustomPage(null);
       await loadCMSData();
     } else {
-      alert(res.error || "Failed to create page.");
+      showStatus(res.error || "Failed to create page.", "error");
       setLoading(false);
     }
   };
@@ -428,10 +450,10 @@ export default function AdminDashboard() {
       setLoading(true);
       const res = await deletePageAction(id);
       if (res.success) {
-        alert("Page deleted successfully!");
+        showStatus("Page deleted successfully!", "success");
         await loadCMSData();
       } else {
-        alert(res.error || "Failed to delete page.");
+        showStatus(res.error || "Failed to delete page.", "error");
         setLoading(false);
       }
     }
@@ -450,7 +472,21 @@ export default function AdminDashboard() {
 
   if (!user) {
     return (
-      <div className="bg-[#FAF8F5] min-h-screen py-24 flex items-center justify-center px-6">
+      <div className="bg-[#FAF8F5] min-h-screen py-24 flex items-center justify-center px-6 relative">
+        {statusMessage && (
+          <div className={`fixed top-5 right-5 z-50 p-4 shadow-xl border flex items-center gap-3 transition-all duration-300 ${
+            statusMessage.type === "success" 
+              ? "bg-emerald-50 border-emerald-200 text-emerald-800" 
+              : "bg-red-50 border-red-200 text-red-800"
+          }`}>
+            {statusMessage.type === "success" ? (
+              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+            ) : (
+              <AlertCircle className="w-5 h-5 text-red-600 shrink-0" />
+            )}
+            <span className="text-xs font-bold uppercase tracking-wider">{statusMessage.text}</span>
+          </div>
+        )}
         <div className="bg-white border border-gold/15 p-8 md:p-12 shadow-2xl max-w-md w-full space-y-8 relative">
           <div className="absolute top-0 left-0 w-full h-[6px] bg-[#8B2626]" />
           
@@ -508,7 +544,21 @@ export default function AdminDashboard() {
 
   // Dashboard content renderer
   return (
-    <div className="min-h-screen bg-[#FCFAF6] flex font-sans text-[#1A1E1D]">
+    <div className="min-h-screen bg-[#FCFAF6] flex font-sans text-[#1A1E1D] relative">
+      {statusMessage && (
+        <div className={`fixed top-5 right-5 z-50 p-4 shadow-xl border flex items-center gap-3 transition-all duration-300 ${
+          statusMessage.type === "success" 
+            ? "bg-emerald-50 border-emerald-200 text-emerald-800" 
+            : "bg-red-50 border-red-200 text-red-800"
+        }`}>
+          {statusMessage.type === "success" ? (
+            <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+          ) : (
+            <AlertCircle className="w-5 h-5 text-red-600 shrink-0" />
+          )}
+          <span className="text-xs font-bold uppercase tracking-wider">{statusMessage.text}</span>
+        </div>
+      )}
       
       {/* Sidebar Navigation */}
       <aside className="w-64 bg-[#1A1E1D] text-white shrink-0 hidden md:flex flex-col justify-between py-6 px-5 border-r border-white/5 fixed left-0 top-0 bottom-0 z-40 overflow-y-auto">
@@ -647,15 +697,38 @@ export default function AdminDashboard() {
         
         {/* Upper header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-10 border-b border-beige/40 pb-6">
-          <div className="flex items-center gap-4">
-            <img src="/images/logo-transparent.png" alt="MH India Trips" className="h-10 w-auto md:hidden" />
-            <div>
-              <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-royal uppercase">
-                CMS: <span className="text-gold font-light">{activeTab}</span>
-              </h1>
-              <p className="text-xs text-foreground/50 font-light uppercase tracking-wider mt-1">
-                Signed in as {user.email}
-              </p>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 w-full md:w-auto">
+            <div className="flex items-center gap-4">
+              <img src="/images/logo-transparent.png" alt="MH India Trips" className="h-10 w-auto md:hidden" />
+              <div>
+                <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-royal uppercase">
+                  CMS: <span className="text-gold font-light">{activeTab}</span>
+                </h1>
+                <p className="text-xs text-foreground/50 font-light uppercase tracking-wider mt-1">
+                  Signed in as {user.email}
+                </p>
+              </div>
+            </div>
+
+            {/* Mobile Tab Selector */}
+            <div className="md:hidden w-full sm:w-48">
+              <select
+                value={activeTab}
+                onChange={(e) => {
+                  setActiveTab(e.target.value);
+                  window.location.hash = e.target.value === "dashboard" ? "" : e.target.value;
+                }}
+                className="w-full bg-white border border-gold/25 px-3 py-2 text-xs font-bold uppercase tracking-wider text-royal focus:border-gold outline-none rounded-md"
+              >
+                <option value="dashboard">Dashboard</option>
+                <option value="leads">Travel Leads</option>
+                <option value="pages">Website Pages</option>
+                <option value="destinations">Destinations</option>
+                <option value="packages">Tour Packages</option>
+                <option value="blogs">Manage Blogs</option>
+                <option value="cuisines">Food Catalog</option>
+                <option value="testimonials">Testimonials</option>
+              </select>
             </div>
           </div>
         <button 
@@ -1251,7 +1324,26 @@ export default function AdminDashboard() {
               <div className="flex justify-between items-center">
                 <h2 className="text-lg font-bold text-royal font-serif">Manage Destinations (States)</h2>
                 <button
-                  onClick={() => setEditState({ title: { en: "", es: "", pt: "" }, tagline: { en: "", es: "", pt: "" }, description: { en: "", es: "", pt: "" }, slug: "", region: "North", image: "" })}
+                  onClick={() => {
+                    setEditState({
+                      title: { en: "", es: "", pt: "" },
+                      tagline: { en: "", es: "", pt: "" },
+                      description: { en: "", es: "", pt: "" },
+                      history: { en: "", es: "", pt: "" },
+                      culture: { en: "", es: "", pt: "" },
+                      localFood: { en: "", es: "", pt: "" },
+                      bestTime: { en: "", es: "", pt: "" },
+                      slug: "",
+                      region: "North",
+                      image: "",
+                      travelTips: [],
+                      faqs: [],
+                      cities: []
+                    });
+                    setDestSubTab("general");
+                    setEditingCityIdx(null);
+                    setEditingAttractionIdx(null);
+                  }}
                   className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 flex items-center gap-1.5 transition cursor-pointer"
                 >
                   <Plus className="w-4 h-4" />
@@ -1263,71 +1355,967 @@ export default function AdminDashboard() {
               {editState && (
                 <form onSubmit={handleSaveState} className="bg-white border border-gold/20 rounded-[2rem] p-8 shadow-md space-y-6 text-xs text-royal">
                   <h3 className="text-base font-bold font-serif">{editState.slug ? "Edit State Destination" : "Create New Destination State"}</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-1.5">
-                      <label className="font-bold uppercase tracking-wider block">Slug</label>
-                      <input 
-                        type="text" 
-                        required
-                        value={editState.slug}
-                        onChange={e => setEditState({...editState, slug: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
-                      />
-                    </div>
-                    <div className="space-y-1.5">
-                      <label className="font-bold uppercase tracking-wider block">Region (e.g. North, South)</label>
-                      <input 
-                        type="text" 
-                        value={editState.region}
-                        onChange={e => setEditState({...editState, region: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
-                      />
-                    </div>
+
+                  {/* Destination Sub-Tabs */}
+                  <div className="flex border-b border-gold/10 pb-2 mb-6 gap-2 flex-wrap">
+                    {[
+                      { id: "general", label: "General Details" },
+                      { id: "travelTips", label: "Why Visit Points" },
+                      { id: "faqs", label: "FAQs" },
+                      { id: "cities", label: "Manage Cities & Attractions" }
+                    ].map((tab) => (
+                      <button
+                        key={tab.id}
+                        type="button"
+                        onClick={() => {
+                          setDestSubTab(tab.id as any);
+                          setEditingCityIdx(null);
+                          setEditingAttractionIdx(null);
+                        }}
+                        className={`px-4 py-2 text-[10px] font-bold uppercase tracking-wider transition ${
+                          destSubTab === tab.id ? "bg-royal text-white" : "bg-[#FAF8F5] text-royal/60 border border-gold/10 hover:text-royal"
+                        }`}
+                      >
+                        {tab.label}
+                      </button>
+                    ))}
                   </div>
 
-                  {/* Title Translations */}
-                  <div className="space-y-3">
-                    <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Title Translations</span>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      {["en", "es", "pt"].map((lang) => (
-                        <div key={lang} className="space-y-1">
-                          <label className="font-bold uppercase tracking-wider">Title ({lang.toUpperCase()})</label>
+                  {/* TAB 1: GENERAL DETAILS */}
+                  {destSubTab === "general" && (
+                    <div className="space-y-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-1.5">
+                          <label className="font-bold uppercase tracking-wider block">Slug</label>
                           <input 
-                            type="text" 
-                            required
-                            value={editState.title?.[lang] || ""}
-                            onChange={e => setEditState({
-                              ...editState, 
-                              title: { ...editState.title, [lang]: e.target.value }
-                            })}
-                            className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2.5 outline-none"
+                            type="text" required value={editState.slug || ""}
+                            onChange={e => setEditState({...editState, slug: e.target.value})}
+                            className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
                           />
+                        </div>
+                        <div className="space-y-1.5">
+                          <label className="font-bold uppercase tracking-wider block">Region</label>
+                          <select
+                            value={editState.region || "North"}
+                            onChange={e => setEditState({...editState, region: e.target.value})}
+                            className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
+                          >
+                            {["North", "South", "East", "West", "Central", "North East", "Islands"].map((reg) => (
+                              <option key={reg} value={reg}>{reg}</option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+
+                      {/* Image URL */}
+                      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
+                        <div className="md:col-span-8 space-y-1.5">
+                          <label className="font-bold uppercase tracking-wider block">Image URL</label>
+                          <input 
+                            type="text" value={editState.image || ""}
+                            onChange={e => setEditState({...editState, image: e.target.value})}
+                            className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
+                          />
+                        </div>
+                        <div className="md:col-span-4 pb-0.5">
+                          <CloudinaryUpload 
+                            onUploadComplete={(url) => setEditState({ ...editState, image: url })} 
+                            label="Upload State Banner"
+                            showStatus={showStatus}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Translatable text fields helper */}
+                      {["title", "tagline", "bestTime"].map((field) => (
+                        <div key={field} className="space-y-3">
+                          <span className="font-black uppercase tracking-widest text-[9px] text-gold block">{field.replace(/([A-Z])/g, " $1").trim()} Translations</span>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            {["en", "es", "pt"].map((lang) => (
+                              <div key={lang} className="space-y-1">
+                                <label className="font-bold uppercase tracking-wider">{field} ({lang.toUpperCase()})</label>
+                                <input 
+                                  type="text"
+                                  value={editState[field]?.[lang] || ""}
+                                  onChange={e => setEditState({
+                                    ...editState, 
+                                    [field]: { ...editState[field], [lang]: e.target.value }
+                                  })}
+                                  className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2.5 outline-none"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+
+                      {/* Textareas translations */}
+                      {["description", "history", "culture", "localFood"].map((field) => (
+                        <div key={field} className="space-y-3">
+                          <span className="font-black uppercase tracking-widest text-[9px] text-gold block">{field.replace(/([A-Z])/g, " $1").trim()} Translations</span>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            {["en", "es", "pt"].map((lang) => (
+                              <div key={lang} className="space-y-1">
+                                <label className="font-bold uppercase tracking-wider">{field} ({lang.toUpperCase()})</label>
+                                <textarea 
+                                  value={editState[field]?.[lang] || ""}
+                                  onChange={e => setEditState({
+                                    ...editState, 
+                                    [field]: { ...editState[field], [lang]: e.target.value }
+                                  })}
+                                  className="w-full h-24 bg-[#FAF8F5] border border-gold/15 p-3 outline-none"
+                                />
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       ))}
                     </div>
-                  </div>
+                  )}
 
-                  {/* Image URL */}
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
-                    <div className="md:col-span-8 space-y-1.5">
-                      <label className="font-bold uppercase tracking-wider block">Image URL</label>
-                      <input 
-                        type="text" 
-                        value={editState.image}
-                        onChange={e => setEditState({...editState, image: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none"
-                      />
+                  {/* TAB 2: WHY VISIT POINTS (TRAVEL TIPS) */}
+                  {destSubTab === "travelTips" && (
+                    <div className="space-y-6">
+                      <div className="flex justify-between items-center border-b border-gold/10 pb-3">
+                        <span className="font-bold text-[10px] text-gold uppercase tracking-wider">Why Visit / Travel Tips list</span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setEditState({
+                              ...editState,
+                              travelTips: [...(editState.travelTips || []), { en: "", es: "", pt: "" }]
+                            });
+                          }}
+                          className="bg-gold/10 hover:bg-gold/20 border border-gold/30 text-royal px-3 py-1.5 text-[9px] font-bold uppercase tracking-wider"
+                        >
+                          + Add Why Visit Point
+                        </button>
+                      </div>
+                      <div className="space-y-4">
+                        {(editState.travelTips || []).map((tip: any, idx: number) => (
+                          <div key={idx} className="border border-gold/10 p-4 bg-[#FAF8F5] space-y-3 relative rounded-md">
+                            <div className="flex items-center justify-between pb-2 border-b border-gold/5">
+                              <span className="font-bold text-royal/60 text-[9px] uppercase">Point #{idx + 1}</span>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setEditState({
+                                    ...editState,
+                                    travelTips: editState.travelTips.filter((_: any, i: number) => i !== idx)
+                                  });
+                                }}
+                                className="text-red-500 hover:text-red-700 font-bold uppercase text-[9px] cursor-pointer"
+                              >
+                                Remove
+                              </button>
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                              {["en", "es", "pt"].map((lang) => (
+                                <div key={lang} className="space-y-1">
+                                  <label className="font-semibold text-royal/50 uppercase text-[9px]">Text ({lang.toUpperCase()})</label>
+                                  <input
+                                    type="text"
+                                    value={tip[lang] || ""}
+                                    onChange={(e) => {
+                                      const updatedTips = [...editState.travelTips];
+                                      updatedTips[idx] = { ...tip, [lang]: e.target.value };
+                                      setEditState({ ...editState, travelTips: updatedTips });
+                                    }}
+                                    className="w-full bg-white border border-gold/10 px-3 py-2 outline-none text-[11px]"
+                                  />
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <div className="md:col-span-4 pb-0.5">
-                      <CloudinaryUpload 
-                        onUploadComplete={(url) => setEditState({ ...editState, image: url })} 
-                        label="Upload State Banner"
-                      />
-                    </div>
-                  </div>
+                  )}
 
-                  {/* Action Buttons */}
-                  <div className="flex gap-4 pt-4">
+                  {/* TAB 3: FAQs */}
+                  {destSubTab === "faqs" && (
+                    <div className="space-y-6">
+                      <div className="flex justify-between items-center border-b border-gold/10 pb-3">
+                        <span className="font-bold text-[10px] text-gold uppercase tracking-wider">State Frequently Asked Questions</span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setEditState({
+                              ...editState,
+                              faqs: [...(editState.faqs || []), { q: { en: "", es: "", pt: "" }, a: { en: "", es: "", pt: "" } }]
+                            });
+                          }}
+                          className="bg-gold/10 hover:bg-gold/20 border border-gold/30 text-royal px-3 py-1.5 text-[9px] font-bold uppercase tracking-wider"
+                        >
+                          + Add State FAQ
+                        </button>
+                      </div>
+                      <div className="space-y-6">
+                        {(editState.faqs || []).map((faq: any, idx: number) => (
+                          <div key={idx} className="border border-gold/10 p-5 bg-[#FAF8F5] space-y-4 relative rounded-md">
+                            <div className="flex items-center justify-between pb-2 border-b border-gold/5">
+                              <span className="font-bold text-royal/60 text-[9px] uppercase">FAQ #{idx + 1}</span>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setEditState({
+                                    ...editState,
+                                    faqs: editState.faqs.filter((_: any, i: number) => i !== idx)
+                                  });
+                                }}
+                                className="text-red-500 hover:text-red-700 font-bold uppercase text-[9px] cursor-pointer"
+                              >
+                                Remove FAQ
+                              </button>
+                            </div>
+                            {/* Question */}
+                            <div className="space-y-1">
+                              <span className="font-bold text-royal/40 uppercase text-[9px] block">Question</span>
+                              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                {["en", "es", "pt"].map((lang) => (
+                                  <input
+                                    key={lang} type="text" placeholder={`Question in ${lang.toUpperCase()}`}
+                                    value={faq.q?.[lang] || ""}
+                                    onChange={(e) => {
+                                      const updatedFaqs = [...editState.faqs];
+                                      updatedFaqs[idx] = { ...faq, q: { ...faq.q, [lang]: e.target.value } };
+                                      setEditState({ ...editState, faqs: updatedFaqs });
+                                    }}
+                                    className="w-full bg-white border border-gold/10 px-3 py-2 outline-none text-[11px]"
+                                  />
+                                ))}
+                              </div>
+                            </div>
+                            {/* Answer */}
+                            <div className="space-y-1">
+                              <span className="font-bold text-royal/40 uppercase text-[9px] block">Answer</span>
+                              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                {["en", "es", "pt"].map((lang) => (
+                                  <textarea
+                                    key={lang} placeholder={`Answer in ${lang.toUpperCase()}`}
+                                    value={faq.a?.[lang] || ""}
+                                    onChange={(e) => {
+                                      const updatedFaqs = [...editState.faqs];
+                                      updatedFaqs[idx] = { ...faq, a: { ...faq.a, [lang]: e.target.value } };
+                                      setEditState({ ...editState, faqs: updatedFaqs });
+                                    }}
+                                    className="w-full h-16 bg-white border border-gold/10 p-3 outline-none text-[11px]"
+                                  />
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* TAB 4: MANAGE CITIES & ATTRACTIONS */}
+                  {destSubTab === "cities" && (
+                    <div className="space-y-6">
+                      {editingCityIdx === null ? (
+                        /* Case A: List of Cities */
+                        <div className="space-y-4">
+                          <div className="flex justify-between items-center border-b border-gold/10 pb-3">
+                            <h4 className="font-bold text-royal text-sm font-serif">Cities in {editState.title?.en || "State"}</h4>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const newCity = {
+                                  slug: `new-city-${Math.random().toString(36).substring(2, 7)}`,
+                                  title: { en: "", es: "", pt: "" },
+                                  tagline: { en: "", es: "", pt: "" },
+                                  overview: { en: "", es: "", pt: "" },
+                                  history: { en: "", es: "", pt: "" },
+                                  culture: { en: "", es: "", pt: "" },
+                                  localFood: { en: "", es: "", pt: "" },
+                                  shopping: { en: "", es: "", pt: "" },
+                                  weather: { en: "", es: "", pt: "" },
+                                  bestTime: { en: "", es: "", pt: "" },
+                                  suggestedItinerary: { en: "", es: "", pt: "" },
+                                  image: "",
+                                  attractions: [],
+                                  thingsToDo: [],
+                                  hotels: [],
+                                  faqs: [],
+                                  nearbyPlaces: []
+                                };
+                                const updatedCities = [...(editState.cities || []), newCity];
+                                setEditState({ ...editState, cities: updatedCities });
+                                setEditingCityIdx(updatedCities.length - 1);
+                                setEditingAttractionIdx(null);
+                              }}
+                              className="bg-royal text-white font-bold text-[9px] uppercase tracking-wider px-3.5 py-2 flex items-center gap-1.5 transition hover:bg-gold hover:text-royal border border-gold/25"
+                            >
+                              <Plus className="w-3.5 h-3.5" />
+                              <span>Add New City</span>
+                            </button>
+                          </div>
+
+                          {(editState.cities || []).length === 0 ? (
+                            <p className="text-xs text-royal/40 py-6 text-center italic">No cities added in this state yet.</p>
+                          ) : (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                              {(editState.cities || []).map((city: any, idx: number) => (
+                                <div key={idx} className="bg-white border border-gold/10 p-5 flex items-center justify-between shadow-sm rounded-lg">
+                                  <div className="flex items-center gap-3">
+                                    {city.image ? (
+                                      <img src={city.image} alt={city.title?.en} className="w-14 h-14 object-cover rounded-md border border-gold/10" />
+                                    ) : (
+                                      <div className="w-14 h-14 bg-[#FAF8F5] border border-gold/10 flex items-center justify-center text-royal/30 font-bold uppercase tracking-widest text-[9px]">City</div>
+                                    )}
+                                    <div>
+                                      <h5 className="font-bold text-royal text-xs font-serif">{city.title?.en || "(Untitled City)"}</h5>
+                                      <p className="text-[9px] text-royal/45">Slug: {city.slug} • {city.attractions?.length || 0} Attractions</p>
+                                    </div>
+                                  </div>
+                                  <div className="flex gap-2">
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        setEditingCityIdx(idx);
+                                        setEditingAttractionIdx(null);
+                                      }}
+                                      className="text-royal hover:text-gold font-bold uppercase text-[9px] border border-gold/20 px-2.5 py-1.5 hover:bg-gold/5"
+                                    >
+                                      Edit City
+                                    </button>
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        if (window.confirm(`Are you sure you want to remove the city ${city.title?.en || city.slug}?`)) {
+                                          setEditState({
+                                            ...editState,
+                                            cities: editState.cities.filter((_: any, i: number) => i !== idx)
+                                          });
+                                        }
+                                      }}
+                                      className="text-red-500 hover:text-red-700 font-bold uppercase text-[9px]"
+                                    >
+                                      Remove
+                                    </button>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ) : (
+                        /* Case B: City Sub-editor */
+                        <div className="space-y-8 bg-[#FAF8F5]/30 p-6 border border-gold/10 rounded-xl">
+                          <div className="flex items-center justify-between border-b border-gold/15 pb-4">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setEditingCityIdx(null);
+                                setEditingAttractionIdx(null);
+                              }}
+                              className="text-gold hover:text-royal font-bold uppercase text-[10px] flex items-center gap-1 cursor-pointer"
+                            >
+                              ← Back to Cities list
+                            </button>
+                            <h4 className="font-bold text-royal text-sm font-serif uppercase tracking-wider">
+                              Editing City: <span className="text-gold">{editState.cities[editingCityIdx].title?.en || editState.cities[editingCityIdx].slug}</span>
+                            </h4>
+                          </div>
+
+                          {editingAttractionIdx === null ? (
+                            /* Sub-editor Case 1: Edit City Details */
+                            <div className="space-y-6">
+                              {/* City General Inputs */}
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="space-y-1.5">
+                                  <label className="font-bold uppercase tracking-wider block">City Slug</label>
+                                  <input
+                                    type="text"
+                                    value={editState.cities[editingCityIdx].slug || ""}
+                                    onChange={(e) => {
+                                      const updatedCities = [...editState.cities];
+                                      updatedCities[editingCityIdx] = { ...updatedCities[editingCityIdx], slug: e.target.value };
+                                      setEditState({ ...editState, cities: updatedCities });
+                                    }}
+                                    className="w-full bg-white border border-gold/15 px-3 py-2 outline-none text-[11px]"
+                                  />
+                                </div>
+                                <div className="space-y-1.5">
+                                  <label className="font-bold uppercase tracking-wider block">City Cover Image</label>
+                                  <div className="flex gap-2 items-center">
+                                    <input
+                                      type="text"
+                                      value={editState.cities[editingCityIdx].image || ""}
+                                      onChange={(e) => {
+                                        const updatedCities = [...editState.cities];
+                                        updatedCities[editingCityIdx] = { ...updatedCities[editingCityIdx], image: e.target.value };
+                                        setEditState({ ...editState, cities: updatedCities });
+                                      }}
+                                      className="w-full bg-white border border-gold/15 px-3 py-2 outline-none text-[11px] flex-grow"
+                                    />
+                                    <CloudinaryUpload
+                                      onUploadComplete={(url) => {
+                                        const updatedCities = [...editState.cities];
+                                        updatedCities[editingCityIdx] = { ...updatedCities[editingCityIdx], image: url };
+                                        setEditState({ ...editState, cities: updatedCities });
+                                      }}
+                                      label="Upload"
+                                      showStatus={showStatus}
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* City Translatables */}
+                              {["title", "tagline", "overview", "history", "culture", "localFood", "shopping", "weather", "bestTime", "suggestedItinerary"].map((field) => {
+                                const val = editState.cities[editingCityIdx][field];
+                                const isLongText = field === "overview" || field === "history" || field === "culture" || field === "suggestedItinerary";
+                                return (
+                                  <div key={field} className="space-y-2 border-b border-gold/5 pb-4">
+                                    <span className="font-bold uppercase tracking-wider text-[10px] text-royal/60 block">{field.replace(/([A-Z])/g, " $1").trim()} Translations</span>
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                      {["en", "es", "pt"].map((lang) => (
+                                        <div key={lang} className="space-y-1">
+                                          <label className="font-semibold text-royal/40 uppercase text-[9px]">{lang.toUpperCase()}</label>
+                                          {isLongText ? (
+                                            <textarea
+                                              value={val?.[lang] || ""}
+                                              onChange={(e) => {
+                                                const updatedCities = [...editState.cities];
+                                                updatedCities[editingCityIdx] = {
+                                                  ...updatedCities[editingCityIdx],
+                                                  [field]: { ...val, [lang]: e.target.value }
+                                                };
+                                                setEditState({ ...editState, cities: updatedCities });
+                                              }}
+                                              className="w-full h-20 bg-white border border-gold/10 p-2 outline-none text-[11px]"
+                                            />
+                                          ) : (
+                                            <input
+                                              type="text"
+                                              value={val?.[lang] || ""}
+                                              onChange={(e) => {
+                                                const updatedCities = [...editState.cities];
+                                                updatedCities[editingCityIdx] = {
+                                                  ...updatedCities[editingCityIdx],
+                                                  [field]: { ...val, [lang]: e.target.value }
+                                                };
+                                                setEditState({ ...editState, cities: updatedCities });
+                                              }}
+                                              className="w-full bg-white border border-gold/10 px-3 py-2 outline-none text-[11px]"
+                                            />
+                                          )}
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                );
+                              })}
+
+                              {/* City Things To Do */}
+                              <div className="space-y-3 pt-4 border-t border-gold/10">
+                                <div className="flex justify-between items-center">
+                                  <span className="font-bold text-[10px] text-gold uppercase tracking-wider">Things To Do inside City</span>
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      const updatedCities = [...editState.cities];
+                                      const things = updatedCities[editingCityIdx].thingsToDo || [];
+                                      updatedCities[editingCityIdx] = {
+                                        ...updatedCities[editingCityIdx],
+                                        thingsToDo: [...things, { en: "", es: "", pt: "" }]
+                                      };
+                                      setEditState({ ...editState, cities: updatedCities });
+                                    }}
+                                    className="bg-gold/10 text-royal px-2.5 py-1 text-[8px] font-bold uppercase tracking-wider rounded cursor-pointer"
+                                  >
+                                    + Add Activity
+                                  </button>
+                                </div>
+                                <div className="space-y-2">
+                                  {(editState.cities[editingCityIdx].thingsToDo || []).map((thing: any, idx: number) => (
+                                    <div key={idx} className="flex items-center gap-3 bg-white p-3 border border-gold/5 rounded">
+                                      <div className="grid grid-cols-3 gap-2 flex-grow">
+                                        {["en", "es", "pt"].map((lang) => (
+                                          <input
+                                            key={lang} type="text" placeholder={lang.toUpperCase()}
+                                            value={thing[lang] || ""}
+                                            onChange={(e) => {
+                                              const updatedCities = [...editState.cities];
+                                              const things = [...updatedCities[editingCityIdx].thingsToDo];
+                                              things[idx] = { ...thing, [lang]: e.target.value };
+                                              updatedCities[editingCityIdx] = { ...updatedCities[editingCityIdx], thingsToDo: things };
+                                              setEditState({ ...editState, cities: updatedCities });
+                                            }}
+                                            className="w-full bg-[#FAF8F5] border border-gold/5 px-2 py-1 outline-none text-[11px]"
+                                          />
+                                        ))}
+                                      </div>
+                                      <button
+                                        type="button"
+                                        onClick={() => {
+                                          const updatedCities = [...editState.cities];
+                                          updatedCities[editingCityIdx] = {
+                                            ...updatedCities[editingCityIdx],
+                                            thingsToDo: updatedCities[editingCityIdx].thingsToDo.filter((_: any, i: number) => i !== idx)
+                                          };
+                                          setEditState({ ...editState, cities: updatedCities });
+                                        }}
+                                        className="text-red-500 hover:text-red-700 text-[9px] font-bold uppercase cursor-pointer"
+                                      >
+                                        Delete
+                                      </button>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+
+                              {/* City Hotels */}
+                              <div className="space-y-3 pt-4 border-t border-gold/10">
+                                <div className="flex justify-between items-center">
+                                  <span className="font-bold text-[10px] text-gold uppercase tracking-wider">Hotels & Stays</span>
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      const updatedCities = [...editState.cities];
+                                      const hotels = updatedCities[editingCityIdx].hotels || [];
+                                      updatedCities[editingCityIdx] = {
+                                        ...updatedCities[editingCityIdx],
+                                        hotels: [...hotels, { name: "", tier: "Luxury", desc: { en: "", es: "", pt: "" } }]
+                                      };
+                                      setEditState({ ...editState, cities: updatedCities });
+                                    }}
+                                    className="bg-gold/10 text-royal px-2.5 py-1 text-[8px] font-bold uppercase tracking-wider rounded cursor-pointer"
+                                  >
+                                    + Add Hotel
+                                  </button>
+                                </div>
+                                <div className="space-y-3">
+                                  {(editState.cities[editingCityIdx].hotels || []).map((hotel: any, idx: number) => (
+                                    <div key={idx} className="border border-gold/5 p-4 bg-white space-y-3 rounded">
+                                      <div className="flex items-center justify-between pb-2 border-b border-gold/5">
+                                        <span className="font-bold text-royal/60 text-[9px] uppercase">Hotel #{idx + 1}</span>
+                                        <button
+                                          type="button"
+                                          onClick={() => {
+                                            const updatedCities = [...editState.cities];
+                                            updatedCities[editingCityIdx] = {
+                                              ...updatedCities[editingCityIdx],
+                                              hotels: updatedCities[editingCityIdx].hotels.filter((_: any, i: number) => i !== idx)
+                                            };
+                                            setEditState({ ...editState, cities: updatedCities });
+                                          }}
+                                          className="text-red-500 hover:text-red-700 text-[9px] font-bold uppercase cursor-pointer"
+                                        >
+                                          Remove Hotel
+                                        </button>
+                                      </div>
+                                      <div className="grid grid-cols-2 gap-3">
+                                        <div className="space-y-1">
+                                          <label className="font-semibold text-royal/40 uppercase text-[9px]">Hotel Name</label>
+                                          <input
+                                            type="text" value={hotel.name || ""}
+                                            onChange={(e) => {
+                                              const updatedCities = [...editState.cities];
+                                              const hotels = [...updatedCities[editingCityIdx].hotels];
+                                              hotels[idx] = { ...hotel, name: e.target.value };
+                                              updatedCities[editingCityIdx] = { ...updatedCities[editingCityIdx], hotels };
+                                              setEditState({ ...editState, cities: updatedCities });
+                                            }}
+                                            className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-1.5 outline-none text-[11px]"
+                                          />
+                                        </div>
+                                        <div className="space-y-1">
+                                          <label className="font-semibold text-royal/40 uppercase text-[9px]">Tier</label>
+                                          <select
+                                            value={hotel.tier || "Luxury"}
+                                            onChange={(e) => {
+                                              const updatedCities = [...editState.cities];
+                                              const hotels = [...updatedCities[editingCityIdx].hotels];
+                                              hotels[idx] = { ...hotel, tier: e.target.value };
+                                              updatedCities[editingCityIdx] = { ...updatedCities[editingCityIdx], hotels };
+                                              setEditState({ ...editState, cities: updatedCities });
+                                            }}
+                                            className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-1.5 outline-none text-[11px]"
+                                          >
+                                            {["Luxury", "Heritage", "Boutique"].map(t => (
+                                              <option key={t} value={t}>{t}</option>
+                                            ))}
+                                          </select>
+                                        </div>
+                                      </div>
+                                      {/* Hotel Description Translations */}
+                                      <div className="space-y-1">
+                                        <span className="font-semibold text-royal/40 uppercase text-[9px] block">Description Translations</span>
+                                        <div className="grid grid-cols-3 gap-2">
+                                          {["en", "es", "pt"].map((lang) => (
+                                            <input
+                                              key={lang} type="text" placeholder={lang.toUpperCase()}
+                                              value={hotel.desc?.[lang] || ""}
+                                              onChange={(e) => {
+                                                const updatedCities = [...editState.cities];
+                                                const hotels = [...updatedCities[editingCityIdx].hotels];
+                                                hotels[idx] = { ...hotel, desc: { ...hotel.desc, [lang]: e.target.value } };
+                                                updatedCities[editingCityIdx] = { ...updatedCities[editingCityIdx], hotels };
+                                                setEditState({ ...editState, cities: updatedCities });
+                                              }}
+                                              className="w-full bg-[#FAF8F5] border border-gold/5 px-2 py-1 outline-none text-[11px]"
+                                            />
+                                          ))}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+
+                              {/* City FAQs */}
+                              <div className="space-y-3 pt-4 border-t border-gold/10">
+                                <div className="flex justify-between items-center">
+                                  <span className="font-bold text-[10px] text-gold uppercase tracking-wider">City FAQs</span>
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      const updatedCities = [...editState.cities];
+                                      const faqs = updatedCities[editingCityIdx].faqs || [];
+                                      updatedCities[editingCityIdx] = {
+                                        ...updatedCities[editingCityIdx],
+                                        faqs: [...faqs, { q: { en: "", es: "", pt: "" }, a: { en: "", es: "", pt: "" } }]
+                                      };
+                                      setEditState({ ...editState, cities: updatedCities });
+                                    }}
+                                    className="bg-gold/10 text-royal px-2.5 py-1 text-[8px] font-bold uppercase tracking-wider rounded cursor-pointer"
+                                  >
+                                    + Add FAQ
+                                  </button>
+                                </div>
+                                <div className="space-y-3">
+                                  {(editState.cities[editingCityIdx].faqs || []).map((faq: any, idx: number) => (
+                                    <div key={idx} className="border border-gold/5 p-4 bg-white space-y-3 rounded">
+                                      <div className="flex items-center justify-between pb-2 border-b border-gold/5">
+                                        <span className="font-bold text-royal/60 text-[9px] uppercase">FAQ #{idx + 1}</span>
+                                        <button
+                                          type="button"
+                                          onClick={() => {
+                                            const updatedCities = [...editState.cities];
+                                            updatedCities[editingCityIdx] = {
+                                              ...updatedCities[editingCityIdx],
+                                              faqs: updatedCities[editingCityIdx].faqs.filter((_: any, i: number) => i !== idx)
+                                            };
+                                            setEditState({ ...editState, cities: updatedCities });
+                                          }}
+                                          className="text-red-500 hover:text-red-700 text-[9px] font-bold uppercase cursor-pointer"
+                                        >
+                                          Remove
+                                        </button>
+                                      </div>
+                                      <div className="space-y-1">
+                                        <label className="font-semibold text-royal/40 uppercase text-[9px]">Question</label>
+                                        <div className="grid grid-cols-3 gap-2">
+                                          {["en", "es", "pt"].map((lang) => (
+                                            <input
+                                              key={lang} type="text" placeholder={lang.toUpperCase()}
+                                              value={faq.q?.[lang] || ""}
+                                              onChange={(e) => {
+                                                const updatedCities = [...editState.cities];
+                                                const faqs = [...updatedCities[editingCityIdx].faqs];
+                                                faqs[idx] = { ...faq, q: { ...faq.q, [lang]: e.target.value } };
+                                                updatedCities[editingCityIdx] = { ...updatedCities[editingCityIdx], faqs };
+                                                setEditState({ ...editState, cities: updatedCities });
+                                              }}
+                                              className="w-full bg-[#FAF8F5] border border-gold/5 px-2 py-1.5 outline-none text-[11px]"
+                                            />
+                                          ))}
+                                        </div>
+                                      </div>
+                                      <div className="space-y-1">
+                                        <label className="font-semibold text-royal/40 uppercase text-[9px]">Answer</label>
+                                        <div className="grid grid-cols-3 gap-2">
+                                          {["en", "es", "pt"].map((lang) => (
+                                            <textarea
+                                              key={lang} placeholder={lang.toUpperCase()}
+                                              value={faq.a?.[lang] || ""}
+                                              onChange={(e) => {
+                                                const updatedCities = [...editState.cities];
+                                                const faqs = [...updatedCities[editingCityIdx].faqs];
+                                                faqs[idx] = { ...faq, a: { ...faq.a, [lang]: e.target.value } };
+                                                updatedCities[editingCityIdx] = { ...updatedCities[editingCityIdx], faqs };
+                                                setEditState({ ...editState, cities: updatedCities });
+                                              }}
+                                              className="w-full h-12 bg-[#FAF8F5] border border-gold/5 p-2 outline-none text-[11px]"
+                                            />
+                                          ))}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+
+                              {/* City Nearby Places */}
+                              <div className="space-y-3 pt-4 border-t border-gold/10">
+                                <div className="flex justify-between items-center">
+                                  <span className="font-bold text-[10px] text-gold uppercase tracking-wider">Nearby Places / Day Trips</span>
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      const updatedCities = [...editState.cities];
+                                      const nearby = updatedCities[editingCityIdx].nearbyPlaces || [];
+                                      updatedCities[editingCityIdx] = {
+                                        ...updatedCities[editingCityIdx],
+                                        nearbyPlaces: [...nearby, { name: "", distance: "" }]
+                                      };
+                                      setEditState({ ...editState, cities: updatedCities });
+                                    }}
+                                    className="bg-gold/10 text-royal px-2.5 py-1 text-[8px] font-bold uppercase tracking-wider rounded cursor-pointer"
+                                  >
+                                    + Add Place
+                                  </button>
+                                </div>
+                                <div className="space-y-2">
+                                  {(editState.cities[editingCityIdx].nearbyPlaces || []).map((place: any, idx: number) => (
+                                    <div key={idx} className="flex items-center gap-3 bg-white p-3 border border-gold/5 rounded">
+                                      <div className="grid grid-cols-2 gap-2 flex-grow">
+                                        <input
+                                          type="text" placeholder="Place Name (e.g. Sarnath)" value={place.name || ""}
+                                          onChange={(e) => {
+                                            const updatedCities = [...editState.cities];
+                                            const nearby = [...updatedCities[editingCityIdx].nearbyPlaces];
+                                            nearby[idx] = { ...place, name: e.target.value };
+                                            updatedCities[editingCityIdx] = { ...updatedCities[editingCityIdx], nearbyPlaces: nearby };
+                                            setEditState({ ...editState, cities: updatedCities });
+                                          }}
+                                          className="w-full bg-[#FAF8F5] border border-gold/5 px-2 py-1 outline-none text-[11px]"
+                                        />
+                                        <input
+                                          type="text" placeholder="Distance (e.g. 10 km)" value={place.distance || ""}
+                                          onChange={(e) => {
+                                            const updatedCities = [...editState.cities];
+                                            const nearby = [...updatedCities[editingCityIdx].nearbyPlaces];
+                                            nearby[idx] = { ...place, distance: e.target.value };
+                                            updatedCities[editingCityIdx] = { ...updatedCities[editingCityIdx], nearbyPlaces: nearby };
+                                            setEditState({ ...editState, cities: updatedCities });
+                                          }}
+                                          className="w-full bg-[#FAF8F5] border border-gold/5 px-2 py-1 outline-none text-[11px]"
+                                        />
+                                      </div>
+                                      <button
+                                        type="button"
+                                        onClick={() => {
+                                          const updatedCities = [...editState.cities];
+                                          updatedCities[editingCityIdx] = {
+                                            ...updatedCities[editingCityIdx],
+                                            nearbyPlaces: updatedCities[editingCityIdx].nearbyPlaces.filter((_: any, i: number) => i !== idx)
+                                          };
+                                          setEditState({ ...editState, cities: updatedCities });
+                                        }}
+                                        className="text-red-500 hover:text-red-700 text-[9px] font-bold uppercase cursor-pointer"
+                                      >
+                                        Delete
+                                      </button>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+
+                              {/* City Attractions list inside City details page */}
+                              <div className="space-y-4 pt-6 border-t border-gold/15">
+                                <div className="flex justify-between items-center border-b border-gold/10 pb-3">
+                                  <h5 className="font-bold text-royal text-xs font-serif uppercase tracking-wider">Attractions / Monuments in {editState.cities[editingCityIdx].title?.en}</h5>
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      const updatedCities = [...editState.cities];
+                                      const city = updatedCities[editingCityIdx];
+                                      const newAtt = {
+                                        slug: `new-attraction-${Math.random().toString(36).substring(2, 7)}`,
+                                        name: { en: "", es: "", pt: "" },
+                                        desc: { en: "", es: "", pt: "" },
+                                        history: { en: "", es: "", pt: "" },
+                                        architecture: { en: "", es: "", pt: "" },
+                                        timings: { en: "", es: "", pt: "" },
+                                        info: { en: "", es: "", pt: "" },
+                                        image: "",
+                                        gallery: [],
+                                        faqs: []
+                                      };
+                                      const attractions = [...(city.attractions || []), newAtt];
+                                      updatedCities[editingCityIdx] = { ...city, attractions };
+                                      setEditState({ ...editState, cities: updatedCities });
+                                      setEditingAttractionIdx(attractions.length - 1);
+                                    }}
+                                    className="bg-royal text-white font-bold text-[9px] uppercase tracking-wider px-3 py-1.5 flex items-center gap-1 transition hover:bg-gold hover:text-royal border border-gold/25 cursor-pointer"
+                                  >
+                                    <Plus className="w-3.5 h-3.5" />
+                                    <span>Add Attraction</span>
+                                  </button>
+                                </div>
+
+                                {(editState.cities[editingCityIdx].attractions || []).length === 0 ? (
+                                  <p className="text-xs text-royal/40 py-4 text-center italic">No attractions added in this city yet.</p>
+                                ) : (
+                                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    {(editState.cities[editingCityIdx].attractions || []).map((att: any, attIdx: number) => (
+                                      <div key={attIdx} className="bg-white border border-gold/5 p-4 flex items-center justify-between rounded shadow-xs">
+                                        <div className="flex items-center gap-3">
+                                          {att.image ? (
+                                            <img src={att.image} alt={att.name?.en} className="w-12 h-12 object-cover rounded border border-gold/5" />
+                                          ) : (
+                                            <div className="w-12 h-12 bg-[#FAF8F5] border border-gold/10 flex items-center justify-center text-royal/30 font-bold uppercase tracking-widest text-[8px]">Sight</div>
+                                          )}
+                                          <div>
+                                            <h6 className="font-bold text-royal text-xs">{att.name?.en || "(Untitled Site)"}</h6>
+                                            <p className="text-[9px] text-royal/45">Slug: {att.slug}</p>
+                                          </div>
+                                        </div>
+                                        <div className="flex gap-2">
+                                          <button
+                                            type="button"
+                                            onClick={() => setEditingAttractionIdx(attIdx)}
+                                            className="text-royal hover:text-gold font-bold uppercase text-[9px] border border-gold/10 px-2 py-1 cursor-pointer"
+                                          >
+                                            Edit
+                                          </button>
+                                          <button
+                                            type="button"
+                                            onClick={() => {
+                                              if (window.confirm(`Remove attraction ${att.name?.en || att.slug}?`)) {
+                                                const updatedCities = [...editState.cities];
+                                                updatedCities[editingCityIdx] = {
+                                                  ...updatedCities[editingCityIdx],
+                                                  attractions: updatedCities[editingCityIdx].attractions.filter((_: any, i: number) => i !== attIdx)
+                                                };
+                                                setEditState({ ...editState, cities: updatedCities });
+                                              }
+                                            }}
+                                            className="text-red-500 hover:text-red-700 font-bold uppercase text-[9px] cursor-pointer"
+                                          >
+                                            Remove
+                                          </button>
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          ) : (
+                            /* Sub-editor Case 2: Edit Attraction Details */
+                            <div className="space-y-6 bg-white p-5 border border-gold/5 rounded shadow-sm">
+                              <div className="flex items-center justify-between border-b border-gold/10 pb-3">
+                                <button
+                                  type="button"
+                                  onClick={() => setEditingAttractionIdx(null)}
+                                  className="text-gold hover:text-royal font-bold uppercase text-[9px] flex items-center gap-1 cursor-pointer"
+                                >
+                                  ← Back to Attractions
+                                </button>
+                                <span className="font-bold text-royal text-[11px] font-serif uppercase tracking-wider">
+                                  Monument: <span className="text-gold">{editState.cities[editingCityIdx].attractions[editingAttractionIdx].name?.en || editState.cities[editingCityIdx].attractions[editingAttractionIdx].slug}</span>
+                                </span>
+                              </div>
+
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="space-y-1.5">
+                                  <label className="font-bold uppercase tracking-wider block">Attraction Slug</label>
+                                  <input
+                                    type="text"
+                                    value={editState.cities[editingCityIdx].attractions[editingAttractionIdx].slug || ""}
+                                    onChange={(e) => {
+                                      const updatedCities = [...editState.cities];
+                                      const attractions = [...updatedCities[editingCityIdx].attractions];
+                                      attractions[editingAttractionIdx] = { ...attractions[editingAttractionIdx], slug: e.target.value };
+                                      updatedCities[editingCityIdx] = { ...updatedCities[editingCityIdx], attractions };
+                                      setEditState({ ...editState, cities: updatedCities });
+                                    }}
+                                    className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2 outline-none text-[11px]"
+                                  />
+                                </div>
+                                <div className="space-y-1.5">
+                                  <label className="font-bold uppercase tracking-wider block">Attraction Image</label>
+                                  <div className="flex gap-2 items-center">
+                                    <input
+                                      type="text"
+                                      value={editState.cities[editingCityIdx].attractions[editingAttractionIdx].image || ""}
+                                      onChange={(e) => {
+                                        const updatedCities = [...editState.cities];
+                                        const attractions = [...updatedCities[editingCityIdx].attractions];
+                                        attractions[editingAttractionIdx] = { ...attractions[editingAttractionIdx], image: e.target.value };
+                                        updatedCities[editingCityIdx] = { ...updatedCities[editingCityIdx], attractions };
+                                        setEditState({ ...editState, cities: updatedCities });
+                                      }}
+                                      className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2 outline-none text-[11px] flex-grow"
+                                    />
+                                    <CloudinaryUpload
+                                      onUploadComplete={(url) => {
+                                        const updatedCities = [...editState.cities];
+                                        const attractions = [...updatedCities[editingCityIdx].attractions];
+                                        attractions[editingAttractionIdx] = { ...attractions[editingAttractionIdx], image: url };
+                                        updatedCities[editingCityIdx] = { ...updatedCities[editingCityIdx], attractions };
+                                        setEditState({ ...editState, cities: updatedCities });
+                                      }}
+                                      label="Upload"
+                                      showStatus={showStatus}
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Attraction Translatables */}
+                              {["name", "desc", "history", "architecture", "timings", "info"].map((field) => {
+                                const val = editState.cities[editingCityIdx].attractions[editingAttractionIdx][field];
+                                const isLongText = field === "desc" || field === "history" || field === "architecture";
+                                return (
+                                  <div key={field} className="space-y-2 border-b border-gold/5 pb-3">
+                                    <span className="font-bold uppercase tracking-wider text-[9px] text-royal/60 block">{field} Translations</span>
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                      {["en", "es", "pt"].map((lang) => (
+                                        <div key={lang} className="space-y-1">
+                                          <label className="font-semibold text-royal/40 uppercase text-[8px]">{lang.toUpperCase()}</label>
+                                          {isLongText ? (
+                                            <textarea
+                                              value={val?.[lang] || ""}
+                                              onChange={(e) => {
+                                                const updatedCities = [...editState.cities];
+                                                const attractions = [...updatedCities[editingCityIdx].attractions];
+                                                attractions[editingAttractionIdx] = {
+                                                  ...attractions[editingAttractionIdx],
+                                                  [field]: { ...val, [lang]: e.target.value }
+                                                };
+                                                updatedCities[editingCityIdx] = { ...updatedCities[editingCityIdx], attractions };
+                                                setEditState({ ...editState, cities: updatedCities });
+                                              }}
+                                              className="w-full h-20 bg-[#FAF8F5] border border-gold/10 p-2 outline-none text-[11px]"
+                                            />
+                                          ) : (
+                                            <input
+                                              type="text"
+                                              value={val?.[lang] || ""}
+                                              onChange={(e) => {
+                                                const updatedCities = [...editState.cities];
+                                                const attractions = [...updatedCities[editingCityIdx].attractions];
+                                                attractions[editingAttractionIdx] = {
+                                                  ...attractions[editingAttractionIdx],
+                                                  [field]: { ...val, [lang]: e.target.value }
+                                                };
+                                                updatedCities[editingCityIdx] = { ...updatedCities[editingCityIdx], attractions };
+                                                setEditState({ ...editState, cities: updatedCities });
+                                              }}
+                                              className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none text-[11px]"
+                                            />
+                                          )}
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Main Action Buttons */}
+                  <div className="flex gap-4 pt-4 border-t border-gold/10">
                     <button type="submit" className="bg-royal text-white px-6 py-3.5 font-bold uppercase tracking-wider cursor-pointer">
                       Save State Destination
                     </button>
@@ -1352,7 +2340,12 @@ export default function AdminDashboard() {
 
                       <div className="flex justify-between items-center pt-4 border-t border-beige/20 text-xs">
                         <button
-                          onClick={() => setEditState(st)}
+                          onClick={() => {
+                            setEditState(st);
+                            setDestSubTab("general");
+                            setEditingCityIdx(null);
+                            setEditingAttractionIdx(null);
+                          }}
                           className="text-royal hover:text-gold flex items-center gap-1 font-bold uppercase tracking-wider cursor-pointer"
                         >
                           <Edit2 className="w-3.5 h-3.5" />
