@@ -272,6 +272,12 @@ export default function PagesTab({
                               ? { value: 0, suffix: "", label: { en: "", es: "", pt: "" } }
                               : key === "faqs" || key === "howItWorks" || key === "inclusions"
                               ? { title: { en: "", es: "", pt: "" }, desc: { en: "", es: "", pt: "" }, icon: "" }
+                              : key === "featuredMonuments"
+                              ? { name: "", city: "", state: "", era: "", image: "", desc: "" }
+                              : key === "images"
+                              ? { src: "", alt: "", span: "col-span-1 row-span-1" }
+                              : key === "team"
+                              ? { name: "", role: "", img: "" }
                               : { q: { en: "", es: "", pt: "" }, a: { en: "", es: "", pt: "" } };
                             updatedContent[key] = [...val, newItem];
                             setEditPage({ ...editPage, content: updatedContent });
@@ -377,6 +383,21 @@ export default function PagesTab({
 
                     {openSections[key] && (
                       <div className="p-6 space-y-6 bg-white">
+                        {key === "destinationsSection" && (
+                          <div className="p-3.5 bg-gold/10 border border-gold/25 text-royal rounded-xl text-[10px] uppercase font-bold tracking-wider leading-relaxed mb-4">
+                            ℹ️ Note: The image cards shown in the "Explore Diverse Horizons" section on the homepage are pulled dynamically from the "Destinations" tab in the admin sidebar. To change their images or descriptions, edit the corresponding State under the "Destinations" tab.
+                          </div>
+                        )}
+                        {key === "packagesSection" && (
+                          <div className="p-3.5 bg-gold/10 border border-gold/25 text-royal rounded-xl text-[10px] uppercase font-bold tracking-wider leading-relaxed mb-4">
+                            ℹ️ Note: The packages and images shown here are pulled dynamically from the "Tour Packages" tab in the admin sidebar. To add or change package images, go to the "Tour Packages" tab.
+                          </div>
+                        )}
+                        {key === "monumentsSection" && (
+                          <div className="p-3.5 bg-gold/10 border border-gold/25 text-royal rounded-xl text-[10px] uppercase font-bold tracking-wider leading-relaxed mb-4">
+                            ℹ️ Note: The featured list of monuments can be edited in the "Website Pages" → "Monuments" section, and state attractions are managed under the "Destinations" tab.
+                          </div>
+                        )}
                         {Object.keys(val).map((subKey) => {
                           const subVal = val[subKey];
                           if (subVal && typeof subVal === "object" && subVal.en !== undefined) {

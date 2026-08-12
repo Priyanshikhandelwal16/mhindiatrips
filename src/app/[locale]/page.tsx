@@ -30,6 +30,8 @@ export default async function HomePage({ params }: HomePageProps) {
   const blogs = await getBlogsAction();
   const testimonials = await getTestimonialsAction();
   const pageData = await getPageByIdAction("homepage");
+  const monumentsPageData = await getPageByIdAction("monuments");
+  const accordionMonuments = monumentsPageData?.content?.featuredMonuments || [];
 
   const labels: Record<string, any> = {
     en: {
@@ -504,7 +506,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
 
       {/* SECTION 3.5: Expanding Monuments Accordion Row (Screenshot 2 Theme) */}
-      <MonumentsAccordion locale={locale} />
+      <MonumentsAccordion locale={locale} monuments={accordionMonuments} />
 
       {/* Monuments CTA */}
       <section className="max-w-7xl mx-auto px-6 py-10 text-center">

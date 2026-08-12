@@ -178,13 +178,10 @@ export default function Header({ locale }: HeaderProps) {
           
           {/* Logo */}
           <Link href={`/${locale}`} className="relative block shrink-0 z-20">
-            <Image
+            <img
               src="/images/logo-transparent.png"
               alt="MH India Trips"
-              width={280}
-              height={80}
-              priority
-              className="h-14 md:h-16 w-auto transition-all duration-300 hover:scale-[1.01]"
+              className="h-12 md:h-16 w-auto transition-all duration-300 hover:scale-[1.01]"
             />
           </Link>
 
@@ -444,7 +441,7 @@ export default function Header({ locale }: HeaderProps) {
 
       {/* Mobile Menu Panel */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-[#0A2A1E]/98 backdrop-blur-xl z-10 flex flex-col justify-center px-8 space-y-6 animate-fade-in lg:hidden text-white">
+        <div className="fixed inset-0 bg-[#0A2A1E]/98 backdrop-blur-xl z-40 flex flex-col justify-start pt-28 px-8 pb-10 space-y-6 animate-fade-in lg:hidden text-white overflow-y-auto">
           <nav className="flex flex-col space-y-4 text-center">
             
             <Link

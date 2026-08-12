@@ -89,36 +89,33 @@ export default function Footer({ locale }: FooterProps) {
   };
 
   return (
-    <footer className="bg-[#FAF8F5] text-[#1B1B1B]/80 font-sans relative overflow-hidden border-t border-[#C5A862]/20">
+    <footer className="bg-[#0A2A1E] text-white/80 font-sans relative overflow-hidden border-t border-gold/25">
       
       {/* Subtle luxury pattern */}
       <div className="absolute inset-0 opacity-[0.035] bg-[radial-gradient(#C5A862_1.5px,transparent_1.5px)] [background-size:24px_24px] pointer-events-none" />
 
       {/* Main Footer layout */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-28">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 md:py-28">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-12">
 
           {/* Logo & Intro Column (Spans 5) */}
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-4">
-              <Image
+              <img
                 src="/images/logo-transparent.png"
                 alt="MH India Trips"
-                width={280}
-                height={84}
-                loading="lazy"
-                className="h-14 md:h-18 w-auto"
+                className="h-12 md:h-16 w-auto"
               />
               <p className="text-[10px] uppercase tracking-[0.3em] text-gold font-bold">
                 {labels.tagline}
               </p>
             </div>
-            <p className="text-sm leading-relaxed text-[#1B1B1B]/60 max-w-sm font-light">
+            <p className="text-sm leading-relaxed text-white/60 max-w-sm font-light">
               {labels.aboutText}
             </p>
             
             {/* Social Grid */}
-            <div className="flex items-center gap-4 pt-2 text-[#0A2A1E]">
+            <div className="flex items-center gap-4 pt-2 text-white">
               <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-[#0A2A1E] text-gold transition-all duration-300 shadow-md border border-white/10" aria-label="Facebook">
                 <svg className="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
               </a>
@@ -144,7 +141,7 @@ export default function Footer({ locale }: FooterProps) {
                 <li key={i}>
                   <Link
                     href={`/${locale}${link.url}`}
-                    className="hover:text-gold text-[#1B1B1B]/60 flex items-center gap-2 transition-colors duration-200"
+                    className="hover:text-gold text-white/70 flex items-center gap-2 transition-colors duration-200"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-gold" />
                     <span>{link.name}</span>
@@ -163,7 +160,7 @@ export default function Footer({ locale }: FooterProps) {
                 <li key={i}>
                   <Link
                     href={`/${locale}${st.url}`}
-                    className="hover:text-gold text-[#1B1B1B]/60 flex items-center gap-2 transition-colors duration-200"
+                    className="hover:text-gold text-white/70 flex items-center gap-2 transition-colors duration-200"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-gold" />
                     <span>{st.name}</span>
@@ -178,7 +175,7 @@ export default function Footer({ locale }: FooterProps) {
             <h4 className="text-xs uppercase tracking-[0.2em] text-gold font-bold pb-2.5 border-b border-white/10">
               {labels.newsletterTitle}
             </h4>
-            <p className="text-sm text-[#1B1B1B]/50 leading-relaxed font-light">
+            <p className="text-sm text-white/50 leading-relaxed font-light">
               {labels.newsletterDesc}
             </p>
             {submitted ? (
@@ -193,7 +190,7 @@ export default function Footer({ locale }: FooterProps) {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={labels.newsletterPlaceholder}
-                  className="bg-transparent text-xs pl-4 outline-none w-full text-[#1B1B1B] placeholder-[#1B1B1B]/40 font-light"
+                  className="bg-transparent text-xs pl-4 outline-none w-full text-white placeholder-white/40 font-light"
                   required
                   suppressHydrationWarning={true}
                 />
@@ -205,11 +202,11 @@ export default function Footer({ locale }: FooterProps) {
 
             {/* Support info */}
             <div className="space-y-3.5 pt-4 border-t border-white/10 text-sm font-semibold">
-              <a href={`tel:${labels.phone}`} className="flex items-center gap-2.5 text-black hover:text-gold transition-colors">
+              <a href={`tel:${labels.phone}`} className="flex items-center gap-2.5 text-white hover:text-gold transition-colors">
                 <Phone className="w-4 h-4 text-gold" />
                 <span>+91 98765 43210</span>
               </a>
-              <a href="mailto:hello@mhindiatrips.com" className="flex items-center gap-2.5 text-black hover:text-gold transition-colors">
+              <a href="mailto:hello@mhindiatrips.com" className="flex items-center gap-2.5 text-white hover:text-gold transition-colors">
                 <Mail className="w-4 h-4 text-gold" />
                 <span>hello@mhindiatrips.com</span>
               </a>
@@ -220,10 +217,10 @@ export default function Footer({ locale }: FooterProps) {
         </div>
 
         {/* Bottom copyright details bar */}
-        <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/40 font-light">
+        <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/55 font-light">
           <p>&copy; {labels.copyright}</p>
           <div className="flex flex-wrap justify-center gap-6">
-            <Link href={`/${locale}/terms`} className="hover:text-gold transition-colors">{labels.terms}</Link>
+            <Link href={`/${locale}/terms`} className="hover:text-gold/90 transition-colors">{labels.terms}</Link>
             <Link href={`/${locale}/privacy`} className="hover:text-gold transition-colors">{labels.privacy}</Link>
             <Link href={`/${locale}/faq`} className="hover:text-gold transition-colors">{labels.faq}</Link>
           </div>

@@ -23,14 +23,15 @@ interface MonumentItem {
 
 interface MonumentsAccordionProps {
   locale: string;
+  monuments?: any[];
 }
 
-export default function MonumentsAccordion({ locale }: MonumentsAccordionProps) {
+export default function MonumentsAccordion({ locale, monuments }: MonumentsAccordionProps) {
   const [activeIdx, setActiveIdx] = useState(0);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [selectedMonument, setSelectedMonument] = useState<MonumentItem | null>(null);
 
-  const items: MonumentItem[] = [
+  const defaultItems: MonumentItem[] = [
     {
       id: "taj-mahal",
       slug: "taj-mahal",
@@ -44,7 +45,7 @@ export default function MonumentsAccordion({ locale }: MonumentsAccordionProps) 
         description: {
           en: "Built by Mughal emperor Shah Jahan in memory of his beloved wife Mumtaz Mahal, the Taj Mahal is a UNESCO World Heritage Site and one of the Seven Wonders of the World. This white marble mausoleum, completed in 1653, stands as the pinnacle of Mughal architecture and India's most iconic monument.",
           es: "Construido por el emperador mogol Shah Jahan en memoria de su amada esposa Mumtaz Mahal, el Taj Mahal es Patrimonio de la Humanidad de la UNESCO y una de las Siete Maravillas del Mundo.",
-          pt: "Construído pelo imperador mogol Shah Jahan em memória de sua amada esposa Mumtaz Mahal, o Taj Mahal é Patrimônio Mundial da UNESCO e uma das Sete Maravilhas do Mundo."
+          pt: "Construído pelo imperador mogol Shah Jahan em memória de sua amada esposa Mumtaz Mahal, o Taj Mahal é Patrimônio Mundial da UNESCO e uma das Siete Maravilhas do Mundo."
         },
         timings: "Sunrise to Sunset (Closed on Fridays)",
         bestTime: "October to March (Sunrise for best light)",
@@ -117,6 +118,24 @@ export default function MonumentsAccordion({ locale }: MonumentsAccordionProps) 
     }
   ] as any;
 
+  const items = monuments && monuments.length > 0 ? monuments.map((mon: any) => ({
+    id: mon.slug || mon.name.toLowerCase().replace(/[^a-z0-9]/g, "-"),
+    slug: mon.slug || mon.name.toLowerCase().replace(/[^a-z0-9]/g, "-"),
+    image: mon.image,
+    title: { en: mon.name, es: mon.name, pt: mon.name },
+    verticalTitle: { en: mon.name.split(",")[0], es: mon.name.split(",")[0], pt: mon.name.split(",")[0] },
+    city: mon.city || "",
+    state: mon.state || "",
+    path: "/monuments",
+    details: {
+      description: { en: mon.desc, es: mon.desc, pt: mon.desc },
+      timings: mon.timings || "Sunrise to Sunset",
+      bestTime: mon.bestTime || "October to March",
+      entryFee: mon.entryFee || "Standard fees apply",
+      highlights: mon.highlights || ["Heritage Monument", "Photo Hotspot", "Guided Tour Available"]
+    }
+  })) : defaultItems;
+
   const labels: Record<string, any> = {
     en: { sectionTitle: "Monuments of India", moreInfo: "More Info", viewDetails: "View Complete Details", close: "Close" },
     es: { sectionTitle: "Monumentos de la India", moreInfo: "Más Info", viewDetails: "Ver Detalles Completos", close: "Cerrar" },
@@ -145,7 +164,7 @@ export default function MonumentsAccordion({ locale }: MonumentsAccordionProps) 
           </div>
 
           {/* Expanding Row Container */}
-          <div className="flex flex-col md:flex-row gap-4 h-[600px] w-full items-stretch">
+          <div className="flex flex-col md:flex-row gap-4 h-auto md:h-[600px] w-full items-stretch">
             {items.map((item: any, idx: number) => {
               const isActive = idx === activeIdx;
               const titleText = item.title[locale as "en" | "es" | "pt"] || item.title.en;
@@ -155,14 +174,15 @@ export default function MonumentsAccordion({ locale }: MonumentsAccordionProps) 
                 <div
                   key={item.id}
                   onMouseEnter={() => setActiveIdx(idx)}
-                  className={`relative overflow-hidden transition-all duration-700 ease-out cursor-pointer shadow-lg border border-gold/5 flex flex-col justify-end ${
-                    isActive ? "flex-grow-[4.5]" : "flex-grow-[1]"
+                  className={`relative overflow-hidden transition-all duration-700 ease-out cursor-pointer shadow-lg border border-gold/5 flex flex-col justify-end w-full md:w-auto rounded-2xl ${
+                    isActive 
+                      ? "flex-grow-[4.5] h-[280px] md:h-full md:min-w-[320px]" 
+                      : "flex-grow-[1] h-[70px] md:h-full md:min-w-[80px]"
                   }`}
                   style={{
                     backgroundImage: `url(${item.image})`,
                     backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    minWidth: isActive ? "300px" : "80px"
+                    backgroundPosition: "center"
                   }}
                 >
                   {/* Dark gradient overlay */}
