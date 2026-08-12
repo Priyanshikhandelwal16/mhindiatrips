@@ -95,7 +95,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
   const itineraryDays = parseItineraryDays(city.suggestedItinerary?.[lang] || city.suggestedItinerary?.en || "");
 
   return (
-    <div className="bg-[#FAF8F5] min-h-screen text-royal font-sans relative overflow-hidden" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+    <div className="bg-[#FAF8F5] min-h-screen text-royal font-sans relative overflow-hidden">
       {/* Soft background grid texture */}
       <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#C5A862_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 

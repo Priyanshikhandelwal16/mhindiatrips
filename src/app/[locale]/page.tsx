@@ -327,7 +327,7 @@ export default async function HomePage({ params }: HomePageProps) {
   }));
 
   return (
-    <div className="bg-[#FAF8F5] min-h-screen text-[#1B1B1B]" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+    <div className="bg-[#FAF8F5] min-h-screen text-[#1B1B1B]">
       
       {/* SECTION 1: Dynamic Hero Banner Slider */}
       <HeroSlider 
@@ -372,7 +372,7 @@ export default async function HomePage({ params }: HomePageProps) {
             <span>{text.whySub}</span>
           </span>
           {/* Section Heading: 40px–48px */}
-          <h2 className="text-4xl md:text-5xl font-bold text-royal leading-tight" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-bold text-royal leading-tight font-serif">
             {text.whyTitle}
           </h2>
           <p className="text-base md:text-lg text-foreground/60 leading-relaxed font-light">
@@ -411,7 +411,7 @@ export default async function HomePage({ params }: HomePageProps) {
           {/* Header */}
           <Reveal className="text-center space-y-4 max-w-3xl mx-auto">
             <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.howItWorksSub}</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>{text.howItWorksTitle}</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight font-serif">{text.howItWorksTitle}</h2>
             <p className="text-sm md:text-base text-foreground/50 leading-relaxed font-light">{text.howItWorksDesc}</p>
             <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
           </Reveal>
@@ -439,7 +439,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
                   {/* Content Card */}
                   <div className="bg-white border border-gold/10 p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 space-y-4 w-full">
-                    <h3 className="text-xl font-bold text-royal" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>{step.title}</h3>
+                    <h3 className="text-xl font-bold text-royal font-serif">{step.title}</h3>
                     <div className="h-px w-10 bg-gold/30 mx-auto" />
                     <p className="text-sm text-foreground/60 leading-relaxed font-light">{step.desc}</p>
                   </div>
@@ -455,7 +455,7 @@ export default async function HomePage({ params }: HomePageProps) {
       <section id="destinations" className="max-w-7xl mx-auto px-6 py-32 space-y-20 border-b border-gold/10">
         <div className="text-center space-y-4 max-w-2xl mx-auto">
           <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.regionsSub}</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>{text.regionsTitle}</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight font-serif">{text.regionsTitle}</h2>
           <p className="text-base text-foreground/50 leading-relaxed font-light">{text.regionsDesc}</p>
           <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
         </div>
@@ -475,7 +475,7 @@ export default async function HomePage({ params }: HomePageProps) {
                   </div>
                   <div className="p-8 space-y-4 bg-white flex flex-col flex-grow justify-between">
                     <div className="space-y-2.5">
-                      <h3 className="text-xl md:text-2xl font-bold text-royal group-hover:text-gold transition-colors" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+                      <h3 className="text-xl md:text-2xl font-bold text-royal group-hover:text-gold transition-colors font-serif">
                         {st.title?.[locale] || st.title?.en}
                       </h3>
                       <p className="text-xs md:text-sm text-foreground/60 line-clamp-3 leading-relaxed font-light">
@@ -594,7 +594,7 @@ export default async function HomePage({ params }: HomePageProps) {
             {/* Left: Header text */}
             <Reveal direction="left" className="space-y-8">
               <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold">{text.inclusionsSub}</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight font-serif">
                 {text.inclusionsTitle}
               </h2>
               <p className="text-sm md:text-base text-white/60 leading-relaxed font-light max-w-md">
@@ -627,7 +627,7 @@ export default async function HomePage({ params }: HomePageProps) {
                     <div className="w-10 h-10 bg-gold/15 group-hover:bg-gold/25 flex items-center justify-center transition-all duration-300">
                       <Icon className="w-5 h-5 text-gold" />
                     </div>
-                    <h4 className="text-sm font-bold text-white leading-snug" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>{inc.title}</h4>
+                    <h4 className="text-sm font-bold text-white leading-snug font-serif">{inc.title}</h4>
                     <p className="text-[11px] text-white/50 leading-relaxed font-light">{inc.desc}</p>
                   </div>
                 );
@@ -682,7 +682,7 @@ export default async function HomePage({ params }: HomePageProps) {
       <section className="max-w-4xl mx-auto px-6 py-32 space-y-20 border-b border-gold/10">
         <div className="text-center space-y-4 max-w-2xl mx-auto">
           <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.faqSub}</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>{text.faqTitle}</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight font-serif">{text.faqTitle}</h2>
           <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
         </div>
 
@@ -706,7 +706,7 @@ export default async function HomePage({ params }: HomePageProps) {
         <section className="max-w-7xl mx-auto px-6 py-32 space-y-20 border-b border-gold/10">
           <div className="text-center space-y-4 max-w-2xl mx-auto">
             <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.blogsSub}</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>{text.blogsTitle}</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight font-serif">{text.blogsTitle}</h2>
             <p className="text-sm text-foreground/50 font-light">Curated stories, travel guides, and cultural insights from India's most enchanting destinations.</p>
             <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
           </div>
@@ -725,7 +725,7 @@ export default async function HomePage({ params }: HomePageProps) {
                   </div>
                   <div className="p-7 flex flex-col flex-grow justify-between space-y-5">
                     <div className="space-y-3">
-                      <h3 className="text-base font-bold text-royal group-hover:text-gold transition-colors leading-snug line-clamp-2" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+                      <h3 className="text-base font-bold text-royal group-hover:text-gold transition-colors leading-snug line-clamp-2 font-serif">
                         {post.title?.[locale] || post.title?.en}
                       </h3>
                       <p className="text-xs text-foreground/55 leading-relaxed line-clamp-2 font-light">
