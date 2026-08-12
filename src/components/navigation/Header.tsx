@@ -87,11 +87,12 @@ export default function Header({ locale }: HeaderProps) {
   ];
 
   const infoList = [
-    { name: { en: "Solo Female Traveler", es: "Mujer viajando sola por la India", pt: "Mulher viajando sozinha na Índia" }, path: "/faq#solo-female" },
-    { name: { en: "Frequently Asked Questions", es: "Preguntas Frecuentes", pt: "Perguntas Frequentes" }, path: "/faq#questions" },
-    { name: { en: "Best Time to Visit", es: "Cuando viajar a la India", pt: "Quando viajar para a Índia" }, path: "/faq#best-time" },
-    { name: { en: "Currency Guide", es: "Moneda en India", pt: "Moeda na Índia" }, path: "/faq#currency" },
-    { name: { en: "Luggage & Packing", es: "Equipaje en India", pt: "Bagagem na Índia" }, path: "/faq#packing" }
+    { name: { en: "Solo Female Traveler", es: "Mujer viajando sola por la India", pt: "Mulher viajando sozinha na Índia" }, path: "/travel-info/solo-female-travel" },
+    { name: { en: "Visa & Entry Requirements", es: "Requisitos de Visa y Entrada", pt: "Visto e Requisitos de Entrada" }, path: "/travel-info/visa-entry-requirements" },
+    { name: { en: "Best Time to Visit", es: "Cuando viajar a la India", pt: "Quando viajar para a Índia" }, path: "/travel-info/best-time-climate" },
+    { name: { en: "Health & Vaccinations", es: "Salud y Vacunas", pt: "Saúde e Vacinas" }, path: "/travel-info/vaccinations-health" },
+    { name: { en: "Packing & Currency Guide", es: "Guía de Equipaje y Moneda", pt: "/travel-info/packing-currency" }, path: "/travel-info/packing-currency" },
+    { name: { en: "Frequently Asked Questions", es: "Preguntas Frecuentes", pt: "Perguntas Frequentes" }, path: "/faq" }
   ];
 
   const languages = [

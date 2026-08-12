@@ -204,12 +204,12 @@ export default function Footer({ locale }: FooterProps) {
             )}
 
             {/* Support info */}
-            <div className="space-y-3.5 pt-4 border-t border-white/10 text-sm">
-              <a href={`tel:${labels.phone}`} className="flex items-center gap-2.5 text-white/70 hover:text-gold transition-colors">
+            <div className="space-y-3.5 pt-4 border-t border-white/10 text-sm font-semibold">
+              <a href={`tel:${labels.phone}`} className="flex items-center gap-2.5 text-black hover:text-gold transition-colors">
                 <Phone className="w-4 h-4 text-gold" />
                 <span>+91 98765 43210</span>
               </a>
-              <a href="mailto:hello@mhindiatrips.com" className="flex items-center gap-2.5 text-white/70 hover:text-gold transition-colors">
+              <a href="mailto:hello@mhindiatrips.com" className="flex items-center gap-2.5 text-black hover:text-gold transition-colors">
                 <Mail className="w-4 h-4 text-gold" />
                 <span>hello@mhindiatrips.com</span>
               </a>

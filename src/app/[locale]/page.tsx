@@ -272,18 +272,29 @@ export default async function HomePage({ params }: HomePageProps) {
 
   // Build slides from CMS data
   const cmsSlides = cms.slides || [];
-  const slides = cmsSlides.length > 0 ? cmsSlides.map((s: any) => ({
-    image: s.image,
-    sub: s.sub?.[lang] || s.sub?.en || text.heroSub,
-    title: s.title?.[lang] || s.title?.en || text.heroTitle,
-    desc: s.desc?.[lang] || s.desc?.en || text.heroDesc,
-    location: s.location?.[lang] || s.location?.en || "",
-    objectPosition: s.objectPosition || "center 30%",
-    cta1Text: s.cta1Text?.[lang] || s.cta1Text?.en || text.cta,
-    cta1Link: s.cta1Link || "/destinations",
-    cta2Text: s.cta2Text?.[lang] || s.cta2Text?.en || text.inquireCTA,
-    cta2Link: s.cta2Link || "/contact"
-  })) : [
+  const slides = cmsSlides.length > 0 ? cmsSlides.map((s: any) => {
+    const resolveField = (fieldVal: any, fallbackVal: string) => {
+      if (!fieldVal) return fallbackVal;
+      if (typeof fieldVal === "string") return fieldVal;
+      if (typeof fieldVal === "object") {
+        return fieldVal[lang] || fieldVal.en || fallbackVal;
+      }
+      return fallbackVal;
+    };
+
+    return {
+      image: s.image,
+      sub: resolveField(s.sub, text.heroSub),
+      title: resolveField(s.title, text.heroTitle),
+      desc: resolveField(s.desc, text.heroDesc),
+      location: resolveField(s.location, ""),
+      objectPosition: s.objectPosition || "center 30%",
+      cta1Text: resolveField(s.cta1Text, text.cta),
+      cta1Link: s.cta1Link || "/destinations",
+      cta2Text: resolveField(s.cta2Text, text.inquireCTA),
+      cta2Link: s.cta2Link || "/contact"
+    };
+  }) : [
     { image: "/images/taj_mahal_sunrise.png", sub: text.heroSub, title: text.heroTitle, desc: text.heroDesc, location: "Taj Mahal, Agra", objectPosition: "center 28%", cta1Text: text.cta, cta1Link: "/packages", cta2Text: text.inquireCTA, cta2Link: "/contact" },
     { image: "/images/rajasthan_fort_sunset.png", sub: "HERITAGE PALACES", title: "The Royal Magic of Rajasthan", desc: "Explore desert dunes, medieval forts, and dine inside authentic royal palaces.", location: "Mehrangarh Fort, Jodhpur", objectPosition: "center 35%", cta1Text: "Explore Rajasthan", cta1Link: "/destinations/rajasthan", cta2Text: "Royal Packages", cta2Link: "/packages" },
     { image: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=1200", sub: "HOLISTIC RETREATS", title: "Tropical Serenity in Kerala", desc: "Cruise through emerald backwaters and rejuvenate with Ayurvedic rituals.", location: "Backwaters, Alleppey", objectPosition: "center 40%", cta1Text: "Kerala Retreats", cta1Link: "/destinations/kerala", cta2Text: "Plan My Trip", cta2Link: "/contact" }

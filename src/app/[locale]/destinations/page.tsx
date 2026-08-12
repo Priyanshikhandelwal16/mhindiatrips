@@ -126,7 +126,7 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
             return (
               <Reveal 
                 key={state.slug}
-                className="bg-white border border-beige/45 rounded-3xl overflow-hidden group hover:shadow-xl hover:border-gold/30 transition-all duration-300 flex flex-col justify-between"
+                className="bg-white border border-gold/15 rounded-3xl overflow-hidden group shadow-md hover:shadow-2xl hover:border-gold/45 transition-all duration-500 flex flex-col justify-between"
               >
                 <div>
                   {/* cover image */}
@@ -134,18 +134,18 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
                     <img 
                       src={state.image} 
                       alt={rawName} 
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[1200ms]"
+                      className="w-full h-full object-cover transform group-hover:scale-105 group-hover:rotate-0.5 transition-transform duration-[1500ms]"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-royal/50 to-transparent opacity-80 pointer-events-none" />
-                    <div className="absolute bottom-4 left-4 bg-royal/95 text-gold text-[9px] uppercase tracking-wider font-extrabold px-3 py-1 rounded-lg border border-gold/15">
+                    <div className="absolute inset-0 bg-gradient-to-t from-royal/70 via-transparent to-black/20 opacity-90 pointer-events-none" />
+                    <div className="absolute bottom-4 left-4 bg-royal/95 text-gold text-[9px] uppercase tracking-wider font-extrabold px-3 py-1.5 rounded-lg border border-gold/20 shadow-md">
                       {citiesCount} {citiesCount === 1 ? (locale === "es" ? "Ciudad" : "City") : (locale === "es" ? "Ciudades" : "Cities")}
                     </div>
                   </div>
                   
                   {/* card body */}
-                  <div className="p-6 text-left space-y-3.5">
-                    <h3 className="font-serif text-xl font-bold text-royal group-hover:text-gold transition-colors duration-300 leading-snug">
+                  <div className="p-6 text-left space-y-4">
+                    <h3 className="font-serif text-2xl font-bold text-royal group-hover:text-gold transition-colors duration-300 leading-snug">
                       {formattedName}
                     </h3>
                     <p className="text-xs text-royal/60 leading-relaxed font-light line-clamp-3">
@@ -153,8 +153,8 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
                     </p>
                     
                     {bestTime && (
-                      <div className="flex items-center gap-1.5 text-[9px] font-bold text-royal/40 uppercase tracking-widest pt-1.5">
-                        <Calendar size={12} className="text-gold" />
+                      <div className="inline-flex items-center gap-1.5 text-[9px] font-bold text-gold uppercase tracking-wider bg-gold/10 px-3.5 py-1.5 rounded-full border border-gold/20">
+                        <Calendar size={11} />
                         <span>Best: {bestTime}</span>
                       </div>
                     )}
@@ -165,7 +165,7 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
                 <div className="p-6 pt-0 text-left">
                   <Link
                     href={`/${locale}/destinations/${state.slug}`}
-                    className="w-full block text-center py-3 border border-royal/20 hover:border-royal hover:bg-royal hover:text-white text-royal text-[10px] tracking-wider uppercase font-bold transition-all rounded-xl cursor-pointer"
+                    className="w-full block text-center py-3.5 bg-royal text-white hover:bg-gold hover:text-royal text-[10px] tracking-widest uppercase font-extrabold transition-all duration-300 rounded-xl cursor-pointer shadow-md hover:shadow-lg"
                   >
                     {text.readMore}
                   </Link>

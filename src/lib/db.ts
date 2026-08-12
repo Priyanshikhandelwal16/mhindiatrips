@@ -338,9 +338,11 @@ async function ensureSeeded(collectionName: string, initialData: any[]) {
 
 // Perform background seeding check
 let seedingPromise: Promise<any> | null = null;
+let isSeeded = false;
 function checkSeeding() {
-  if (!useFirestore) return Promise.resolve();
+  if (!useFirestore || isSeeded) return;
   if (!seedingPromise) {
+    console.log("Starting Firestore database seeding check in background...");
     seedingPromise = Promise.all([
       ensureSeeded("blogs", blogsCache),
       ensureSeeded("states", statesCache),
@@ -348,9 +350,14 @@ function checkSeeding() {
       ensureSeeded("testimonials", testimonialsCache),
       ensureSeeded("tour_packages", tourPackagesCache),
       ensureSeeded("pages", pagesCache),
-    ]);
+    ]).then(() => {
+      isSeeded = true;
+      console.log("Firestore database seeding check completed successfully.");
+    }).catch(err => {
+      console.warn("Firestore database seeding check failed:", err.message || err);
+      seedingPromise = null;
+    });
   }
-  return seedingPromise;
 }
 
 export const db = {
@@ -433,7 +440,7 @@ export const db = {
       const localData = blogsCache;
       if (useFirestore) {
         try {
-          await checkSeeding();
+          checkSeeding();
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "blogs"));
             const firestoreData = snapshot.docs.map(d => d.data() as BlogData);
@@ -454,7 +461,7 @@ export const db = {
     findUnique: async (slug: string) => {
       if (useFirestore) {
         try {
-          await checkSeeding();
+          checkSeeding();
           if (useFirestore) {
             const docRef = doc(firestore, "blogs", slug);
             const snapshot = await getDoc(docRef);
@@ -528,7 +535,7 @@ export const db = {
       const localData = statesCache;
       if (useFirestore) {
         try {
-          await checkSeeding();
+          checkSeeding();
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "states"));
             const firestoreData = snapshot.docs.map(d => d.data() as StateData);
@@ -619,7 +626,7 @@ export const db = {
       const localData = foodsCache;
       if (useFirestore) {
         try {
-          await checkSeeding();
+          checkSeeding();
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "foods"));
             const firestoreData = snapshot.docs.map(d => d.data() as FoodData);
@@ -639,7 +646,7 @@ export const db = {
     findUnique: async (slug: string) => {
       if (useFirestore) {
         try {
-          await checkSeeding();
+          checkSeeding();
           if (useFirestore) {
             const docRef = doc(firestore, "foods", slug);
             const snapshot = await getDoc(docRef);
@@ -715,7 +722,7 @@ export const db = {
       const localData = testimonialsCache;
       if (useFirestore) {
         try {
-          await checkSeeding();
+          checkSeeding();
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "testimonials"));
             const firestoreData = snapshot.docs.map(d => d.data() as Testimonial);
@@ -790,7 +797,7 @@ export const db = {
       const localData = tourPackagesCache;
       if (useFirestore) {
         try {
-          await checkSeeding();
+          checkSeeding();
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "tour_packages"));
             const firestoreData = snapshot.docs.map(d => d.data() as TourPackage);
@@ -810,7 +817,7 @@ export const db = {
     findUnique: async (slug: string) => {
       if (useFirestore) {
         try {
-          await checkSeeding();
+          checkSeeding();
           if (useFirestore) {
             const docRef = doc(firestore, "tour_packages", slug);
             const snapshot = await getDoc(docRef);
@@ -878,7 +885,7 @@ export const db = {
     findMany: async () => {
       if (useFirestore) {
         try {
-          await checkSeeding();
+          checkSeeding();
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "pages"));
             const firestoreData = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
@@ -896,7 +903,7 @@ export const db = {
     findUnique: async (id: string) => {
       if (useFirestore) {
         try {
-          await checkSeeding();
+          checkSeeding();
           if (useFirestore) {
             const docRef = doc(firestore, "pages", id);
             const snapshot = await getDoc(docRef);
