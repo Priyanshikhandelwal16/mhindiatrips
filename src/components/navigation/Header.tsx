@@ -258,21 +258,34 @@ export default function Header({ locale }: HeaderProps) {
               
               {/* Dropdown Container */}
               <div className="absolute left-0 mt-3 w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
-                <Link
-                  href={`/${locale}/destinations`}
-                  className="block px-5 py-2 text-[10px] font-bold uppercase tracking-wider text-royal/60 border-b border-gold/5 hover:text-gold hover:bg-gold/5 mb-1.5 pb-2"
-                >
-                  All Destinations
-                </Link>
-                {destinationsList.map((dest, idx) => (
-                  <Link
-                    key={idx}
-                    href={`/${locale}${dest.path}`}
-                    className="block px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold hover:bg-gold/5 transition-colors"
-                  >
-                    {dest.name[locale as 'en'|'es'|'pt'] || dest.name.en}
-                  </Link>
-                ))}
+                {destinationsList.map((dest, idx) => {
+                  const rawName = dest.name[locale as 'en'|'es'|'pt'] || dest.name.en;
+                  let formattedName = rawName;
+                  if (locale === "es") {
+                    if (["kerala", "goa", "maharashtra", "karnataka"].includes(dest.name.en.toLowerCase())) {
+                      formattedName = `Viaje a ${rawName}`;
+                    } else {
+                      formattedName = `Turismo en ${rawName}`;
+                    }
+                  } else if (locale === "pt") {
+                    if (["kerala", "goa", "maharashtra", "karnataka"].includes(dest.name.en.toLowerCase())) {
+                      formattedName = `Viajar para ${rawName}`;
+                    } else {
+                      formattedName = `Turismo em ${rawName}`;
+                    }
+                  } else {
+                    formattedName = `${rawName} Travel Guide`;
+                  }
+                  return (
+                    <Link
+                      key={idx}
+                      href={`/${locale}${dest.path}`}
+                      className="block px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold hover:bg-gold/5 transition-colors"
+                    >
+                      {formattedName}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
 

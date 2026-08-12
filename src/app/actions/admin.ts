@@ -179,3 +179,45 @@ export async function deletePageAction(id: string) {
     return { success: false, error: error.message || "Failed to delete page" };
   }
 }
+
+export async function deleteStateAction(slug: string) {
+  try {
+    await db.destinations.delete(slug);
+    revalidatePath("/[locale]/destinations", "layout");
+    revalidatePath(`/[locale]/destinations/${slug}`, "page");
+    return { success: true };
+  } catch (error: any) {
+    return { success: false, error: error.message || "Failed to delete destination state" };
+  }
+}
+
+export async function deleteFoodAction(slug: string) {
+  try {
+    await db.foods.delete(slug);
+    revalidatePath("/[locale]/food", "layout");
+    revalidatePath(`/[locale]/food/${slug}`, "page");
+    return { success: true };
+  } catch (error: any) {
+    return { success: false, error: error.message || "Failed to delete food catalog item" };
+  }
+}
+
+export async function updateTestimonialAction(id: string, data: any) {
+  try {
+    const testimonial = await db.testimonials.update(id, data);
+    revalidatePath("/[locale]", "page");
+    return { success: true, testimonial };
+  } catch (error: any) {
+    return { success: false, error: error.message || "Failed to update testimonial" };
+  }
+}
+
+export async function deleteTestimonialAction(id: string) {
+  try {
+    await db.testimonials.delete(id);
+    revalidatePath("/[locale]", "page");
+    return { success: true };
+  } catch (error: any) {
+    return { success: false, error: error.message || "Failed to delete testimonial" };
+  }
+}

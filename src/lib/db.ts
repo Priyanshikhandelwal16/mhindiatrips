@@ -73,14 +73,6 @@ const loadLocalData = (name: string, defaultData: any) => {
     }
     const raw = fs.readFileSync(filePath, "utf-8");
     const existing = JSON.parse(raw);
-    // If default data has more items, merge new ones in (dev additions)
-    if (Array.isArray(defaultData) && Array.isArray(existing) && defaultData.length > existing.length) {
-      const existingSlugs = new Set(existing.map((item: any) => item.slug || item.id));
-      const newItems = defaultData.filter((item: any) => !existingSlugs.has(item.slug || item.id));
-      const merged = [...existing, ...newItems];
-      fs.writeFileSync(filePath, JSON.stringify(merged, null, 2), "utf-8");
-      return merged;
-    }
     return existing;
   } catch (e) {
     // fs operations might fail on serverless/edge — fall back to in-memory data
@@ -313,13 +305,26 @@ async function ensureSeeded(collectionName: string, initialData: any[]) {
   try {
     const colRef = collection(firestore, collectionName);
     const snapshot = await getDocs(colRef);
-    if (snapshot.size < initialData.length) {
-      console.log(`Seeding collection ${collectionName} in Firestore (${snapshot.size} < ${initialData.length})...`);
-      const existingIds = new Set(snapshot.docs.map(d => d.id));
-      for (const item of initialData) {
-        const docId = item.slug || item.id || Math.random().toString(36).substring(2, 11);
-        if (!existingIds.has(docId)) {
-          await setDoc(doc(firestore, collectionName, docId), item);
+    const existingIds = new Set(snapshot.docs.map(d => d.id));
+    
+    // Add missing
+    for (const item of initialData) {
+      const docId = item.slug || item.id;
+      if (docId && !existingIds.has(docId)) {
+        console.log(`Seeding missing document ${docId} in collection ${collectionName} in Firestore...`);
+        await setDoc(doc(firestore, collectionName, docId), item);
+      }
+    }
+
+    // Delete extras (clean up removed local entries from remote Firestore)
+    const allowedIds = new Set(initialData.map(item => item.slug || item.id).filter(Boolean));
+    for (const docSnap of snapshot.docs) {
+      if (!allowedIds.has(docSnap.id)) {
+        console.log(`Deleting extra document ${docSnap.id} from collection ${collectionName} in Firestore...`);
+        try {
+          await deleteDoc(doc(firestore, collectionName, docSnap.id));
+        } catch (e: any) {
+          console.warn(`Failed to delete extra document ${docSnap.id} in collection ${collectionName}:`, e.message || e);
         }
       }
     }
@@ -337,11 +342,11 @@ function checkSeeding() {
   if (!useFirestore) return Promise.resolve();
   if (!seedingPromise) {
     seedingPromise = Promise.all([
-      ensureSeeded("blogs", mergedBlogs),
-      ensureSeeded("states", mergedStates),
-      ensureSeeded("foods", mergedFoods),
-      ensureSeeded("testimonials", initialTestimonials),
-      ensureSeeded("tour_packages", mergedPackages),
+      ensureSeeded("blogs", blogsCache),
+      ensureSeeded("states", statesCache),
+      ensureSeeded("foods", foodsCache),
+      ensureSeeded("testimonials", testimonialsCache),
+      ensureSeeded("tour_packages", tourPackagesCache),
       ensureSeeded("pages", pagesCache),
     ]);
   }
@@ -423,8 +428,9 @@ export const db = {
 
   blogs: {
     findMany: async () => {
-      // Always start with merged local data to guarantee all content shows
-      const localData = mergedBlogs;
+      // Load latest cached JSON data
+      blogsCache = loadLocalData("blogs", mergedBlogs);
+      const localData = blogsCache;
       if (useFirestore) {
         try {
           await checkSeeding();
@@ -517,7 +523,9 @@ export const db = {
 
   destinations: {
     findMany: async () => {
-      const localData = mergedStates;
+      // Load latest cached JSON data
+      statesCache = loadLocalData("states", mergedStates);
+      const localData = statesCache;
       if (useFirestore) {
         try {
           await checkSeeding();
@@ -588,12 +596,27 @@ export const db = {
         return statesCache[idx];
       }
       return null;
+    },
+    delete: async (slug: string) => {
+      if (useFirestore) {
+        try {
+          await deleteDoc(doc(firestore, "states", slug));
+          return { slug };
+        } catch (e: any) {
+          console.warn("Firestore states.delete failed, falling back to local JSON:", e.message || e);
+        }
+      }
+      statesCache = statesCache.filter((s: any) => s.slug !== slug);
+      saveLocalData("states", statesCache);
+      return { slug };
     }
   },
 
   foods: {
     findMany: async () => {
-      const localData = mergedFoods;
+      // Load latest cached JSON data
+      foodsCache = loadLocalData("foods", mergedFoods);
+      const localData = foodsCache;
       if (useFirestore) {
         try {
           await checkSeeding();
@@ -669,12 +692,27 @@ export const db = {
         return foodsCache[idx];
       }
       return null;
+    },
+    delete: async (slug: string) => {
+      if (useFirestore) {
+        try {
+          await deleteDoc(doc(firestore, "foods", slug));
+          return { slug };
+        } catch (e: any) {
+          console.warn("Firestore foods.delete failed, falling back to local JSON:", e.message || e);
+        }
+      }
+      foodsCache = foodsCache.filter((f: any) => f.slug !== slug);
+      saveLocalData("foods", foodsCache);
+      return { slug };
     }
   },
 
   testimonials: {
     findMany: async () => {
-      const localData = initialTestimonials;
+      // Load latest cached JSON data
+      testimonialsCache = loadLocalData("testimonials", initialTestimonials);
+      const localData = testimonialsCache;
       if (useFirestore) {
         try {
           await checkSeeding();
@@ -695,7 +733,7 @@ export const db = {
       return localData;
     },
     create: async (data: any) => {
-      const id = Math.random().toString(36).substring(2, 11);
+      const id = data.id || Math.random().toString(36).substring(2, 11);
       const newTestimonial = {
         id,
         ...data
@@ -711,12 +749,45 @@ export const db = {
       testimonialsCache.push(newTestimonial);
       saveLocalData("testimonials", testimonialsCache);
       return newTestimonial;
+    },
+    update: async (id: string, data: any) => {
+      if (useFirestore) {
+        try {
+          const docRef = doc(firestore, "testimonials", id);
+          await updateDoc(docRef, data);
+          return { id, ...data };
+        } catch (e: any) {
+          console.warn("Firestore testimonials.update failed, falling back to local JSON:", e.message || e);
+        }
+      }
+      const idx = testimonialsCache.findIndex((t: any) => t.id === id);
+      if (idx !== -1) {
+        testimonialsCache[idx] = { ...testimonialsCache[idx], ...data };
+        saveLocalData("testimonials", testimonialsCache);
+        return testimonialsCache[idx];
+      }
+      return null;
+    },
+    delete: async (id: string) => {
+      if (useFirestore) {
+        try {
+          await deleteDoc(doc(firestore, "testimonials", id));
+          return { id };
+        } catch (e: any) {
+          console.warn("Firestore testimonials.delete failed, falling back to local JSON:", e.message || e);
+        }
+      }
+      testimonialsCache = testimonialsCache.filter((t: any) => t.id !== id);
+      saveLocalData("testimonials", testimonialsCache);
+      return { id };
     }
   },
 
   tourPackages: {
     findMany: async () => {
-      const localData = mergedPackages;
+      // Load latest cached JSON data
+      tourPackagesCache = loadLocalData("tour_packages", mergedPackages);
+      const localData = tourPackagesCache;
       if (useFirestore) {
         try {
           await checkSeeding();

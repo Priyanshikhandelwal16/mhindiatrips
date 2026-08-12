@@ -1,8 +1,15 @@
+// Dynamic City Detail Page Template
 import React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getStateBySlugAction, getTourPackagesAction } from "@/app/actions/queries";
-import { Calendar, Landmark, Compass, Clock, ArrowRight, MapPin, Utensils, ShoppingBag, Sun, Users, Hotel, HelpCircle, Navigation } from "lucide-react";
+import SidebarInquiryForm from "@/components/common/SidebarInquiryForm";
+import { 
+  Calendar, Landmark, Compass, Clock, ArrowRight, ArrowLeft, MapPin, 
+  Utensils, ShoppingBag, Sun, Users, Hotel, HelpCircle, Navigation,
+  Phone, MessageSquare
+} from "lucide-react";
+import Reveal from "@/components/home/Reveal";
 
 interface CityPageProps {
   params: Promise<{ locale: string; stateSlug: string; citySlug: string }>;
@@ -30,270 +37,307 @@ export default async function CityDetailPage({ params }: CityPageProps) {
     const pkgTitle = (pkg.title?.en || "").toLowerCase();
     const pkgDesc = (pkg.tagline?.en || "").toLowerCase();
     return pkgTitle.includes(citySlug) || pkgTitle.includes(stateSlug) || pkgDesc.includes(cityTitle?.toLowerCase()) || pkgDesc.includes(stateTitle?.toLowerCase());
-  }).slice(0, 3) || [];
+  }).slice(0, 6) || [];
 
   // Calculate days needed based on attractions count
   const attractionsCount = city.attractions?.length || 0;
   const daysNeeded = attractionsCount <= 2 ? "1-2" : attractionsCount <= 4 ? "2-3" : attractionsCount <= 6 ? "3-4" : "4-5";
 
   const text = {
-    overview: locale === "es" ? "Descripci\u00f3n General" : locale === "pt" ? "Vis\u00e3o Geral" : "Overview",
+    backToState: locale === "es" ? `Volver a ${stateTitle}` : locale === "pt" ? `Voltar para ${stateTitle}` : `Back to ${stateTitle}`,
+    overview: locale === "es" ? "Descripción General" : locale === "pt" ? "Visão Geral" : "Overview",
     placesToVisit: locale === "es" ? "Lugares para Visitar" : locale === "pt" ? "Lugares para Visitar" : "Places to Visit",
-    thingsToDo: locale === "es" ? "Qu\u00e9 Hacer" : locale === "pt" ? "O que Fazer" : "Things to Do",
-    daysNeeded: locale === "es" ? "D\u00edas Necesarios" : locale === "pt" ? "Dias Necess\u00e1rios" : "Days Needed",
-    bestTime: locale === "es" ? "Mejor \u00c9poca" : locale === "pt" ? "Melhor \u00c9poca" : "Best Time to Visit",
-    food: locale === "es" ? "Gastronom\u00eda Local" : locale === "pt" ? "Gastronomia Local" : "Local Food",
+    thingsToDo: locale === "es" ? "Qué Hacer" : locale === "pt" ? "O que Fazer" : "Things to Do",
+    daysNeeded: locale === "es" ? "Días Necesarios" : locale === "pt" ? "Dias Necessários" : "Days Needed",
+    bestTime: locale === "es" ? "Mejor Época" : locale === "pt" ? "Melhor Época" : "Best Time to Visit",
+    food: locale === "es" ? "Gastronomía Local" : locale === "pt" ? "Gastronomia Local" : "Local Food Highlight",
     shopping: locale === "es" ? "Compras" : locale === "pt" ? "Compras" : "Shopping Guide",
     weather: locale === "es" ? "Clima" : locale === "pt" ? "Clima" : "Weather & Climate",
-    itinerary: locale === "es" ? "Itinerario Sugerido" : locale === "pt" ? "Itiner\u00e1rio Sugerido" : "Suggested Itinerary",
-    history: locale === "es" ? "Historia" : locale === "pt" ? "Hist\u00f3ria" : "History & Heritage",
+    itinerary: locale === "es" ? "Itinerario Sugerido" : locale === "pt" ? "Itinerário Sugerido" : "Suggested Itinerary",
+    history: locale === "es" ? "Historia" : locale === "pt" ? "História" : "History & Heritage",
     culture: locale === "es" ? "Cultura" : locale === "pt" ? "Cultura" : "Culture & Arts",
-    packages: locale === "es" ? "Paquetes Recomendados" : locale === "pt" ? "Pacotes Recomendados" : "Recommended Packages",
-    nearby: locale === "es" ? "Lugares Cercanos" : locale === "pt" ? "Lugares Pr\u00f3ximos" : "Nearby Places",
+    packages: locale === "es" ? "Paquetes de Viajes" : locale === "pt" ? "Pacotes de Viagens" : "Recommended Tour Packages",
+    nearby: locale === "es" ? "Lugares Cercanos" : locale === "pt" ? "Lugares Próximos" : "Nearby Places",
     faqs: locale === "es" ? "Preguntas Frecuentes" : locale === "pt" ? "Perguntas Frequentes" : "FAQs",
     tips: locale === "es" ? "Consejos de Viaje" : locale === "pt" ? "Dicas de Viagem" : "Travel Tips",
-    hotels: locale === "es" ? "D\u00f3nde Alojarse" : locale === "pt" ? "Onde Ficar" : "Where to Stay",
+    hotels: locale === "es" ? "Hoteles sugeridos en " + cityTitle : locale === "pt" ? "Hotéis sugeridos em " + cityTitle : "Recommended Boutique Hotels",
     inquireCta: locale === "es" ? "Planificar Viaje" : locale === "pt" ? "Planejar Viagem" : "Plan Your Journey",
-    days: locale === "es" ? "d\u00edas" : locale === "pt" ? "dias" : "days",
+    days: locale === "es" ? "días" : locale === "pt" ? "dias" : "days",
   };
 
+  // Helper to parse text itinerary into structured steps
+  const parseItineraryDays = (itineraryText: string) => {
+    if (!itineraryText) return [];
+    const normalized = itineraryText
+      .replace(/Day (\d+):/gi, "||Day $1:")
+      .replace(/Día (\d+):/gi, "||Día $1:")
+      .replace(/Dia (\d+):/gi, "||Dia $1:");
+    
+    return normalized
+      .split("||")
+      .map(dayStr => dayStr.trim())
+      .filter(Boolean)
+      .map(dayStr => {
+        const match = dayStr.match(/^(Day \d+|Día \d+|Dia \d+):(.*)$/i);
+        if (match) {
+          return {
+            dayTitle: match[1].trim(),
+            dayDesc: match[2].trim()
+          };
+        }
+        return {
+          dayTitle: "Itinerary Plan",
+          dayDesc: dayStr
+        };
+      });
+  };
+
+  const itineraryDays = parseItineraryDays(city.suggestedItinerary?.[lang] || city.suggestedItinerary?.en || "");
+
   return (
-    <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1A1E1D]">
-      
-      {/* HERO BANNER */}
-      <section className="relative h-[60vh] min-h-[420px] lg:h-[70vh] flex items-end overflow-hidden">
+    <div className="bg-[#FAF8F5] min-h-screen text-royal font-sans relative overflow-hidden" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+      {/* Soft background grid texture */}
+      <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#C5A862_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+
+      {/* Hero Banner Section */}
+      <section className="relative h-[65vh] min-h-[440px] lg:h-[70vh] flex items-end overflow-hidden pt-28">
         <img 
           src={city.image} 
           alt={cityTitle} 
-          className="absolute inset-0 w-full h-full object-cover" 
+          className="absolute inset-0 w-full h-full object-cover filter brightness-[0.55] contrast-[1.05]" 
           loading="eager" 
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-royal/95 via-royal/35 to-black/35" />
         
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pb-10 md:pb-16 space-y-4">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-[10px] text-white/60 uppercase tracking-wider font-medium">
-            <Link href={`/${locale}/destinations`} className="hover:text-white transition">Destinations</Link>
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-12 space-y-6">
+          <Link 
+            href={`/${locale}/destinations/${stateSlug}`} 
+            className="inline-flex items-center gap-2 text-white/75 hover:text-gold text-[10px] uppercase tracking-wider font-bold transition-colors bg-royal/50 backdrop-blur-md border border-white/15 px-4 py-2.5 rounded-xl shadow-lg w-fit animate-fade-in"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>{text.backToState}</span>
+          </Link>
+          <div className="flex items-center gap-2 text-[10px] text-white/60 uppercase tracking-widest font-bold">
+            <Link href={`/${locale}/destinations`} className="hover:text-gold transition-colors">Destinations</Link>
             <span>/</span>
-            <Link href={`/${locale}/destinations/${stateSlug}`} className="hover:text-white transition">{stateTitle}</Link>
+            <Link href={`/${locale}/destinations/${stateSlug}`} className="hover:text-gold transition-colors">{stateTitle}</Link>
             <span>/</span>
-            <span className="text-white/90">{cityTitle}</span>
+            <span className="text-white">{cityTitle}</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-normal text-white leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
             {cityTitle}
           </h1>
-          <p className="text-sm md:text-base text-white/80 max-w-2xl font-light leading-relaxed">
+          <p className="text-xs md:text-sm text-white/80 max-w-xl font-light leading-relaxed">
             {cityTagline}
           </p>
-          {/* Quick Stats */}
-          <div className="flex flex-wrap gap-3 pt-2">
-            <span className="bg-white/10 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider px-4 py-2 flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5" /> {daysNeeded} {text.days}
+          
+          {/* Quick Info Tags */}
+          <div className="flex flex-wrap gap-2.5 pt-2">
+            <span className="bg-white/10 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider px-4 py-2 rounded-xl flex items-center gap-1.5 shadow-sm">
+              <Clock className="w-3.5 h-3.5 text-gold" /> {daysNeeded} {text.days}
             </span>
-            <span className="bg-white/10 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider px-4 py-2 flex items-center gap-1.5">
-              <Landmark className="w-3.5 h-3.5" /> {attractionsCount} {locale === "es" ? "Lugares" : locale === "pt" ? "Lugares" : "Attractions"}
+            <span className="bg-white/10 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider px-4 py-2 rounded-xl flex items-center gap-1.5 shadow-sm">
+              <Landmark className="w-3.5 h-3.5 text-gold" /> {attractionsCount} {locale === "es" ? "Lugares" : locale === "pt" ? "Lugares" : "Attractions"}
             </span>
             {city.bestTime && (
-              <span className="bg-white/10 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider px-4 py-2 flex items-center gap-1.5">
-                <Sun className="w-3.5 h-3.5" /> {city.bestTime?.[lang] || city.bestTime?.en}
+              <span className="bg-white/10 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider px-4 py-2 rounded-xl flex items-center gap-1.5 shadow-sm">
+                <Sun className="w-3.5 h-3.5 text-gold" /> {city.bestTime?.[lang] || city.bestTime?.en}
               </span>
             )}
           </div>
         </div>
       </section>
 
-      {/* MAIN CONTENT */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+      {/* Main Content Workspace Split */}
+      <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           
-          {/* LEFT: Main Content */}
-          <div className="lg:col-span-2 space-y-12 md:space-y-16">
+          {/* Left: Main Editorial Content */}
+          <div className="lg:col-span-8 space-y-12 md:space-y-16">
             
             {/* Overview */}
-            <section className="space-y-5">
+            <Reveal className="space-y-4">
               <div className="flex items-center gap-2">
-                <Compass className="w-5 h-5 text-[#C5A862]" />
-                <h2 className="text-xs font-bold uppercase tracking-widest text-[#C5A862]">{text.overview}</h2>
+                <Compass className="w-5 h-5 text-gold" />
+                <h2 className="text-[10px] font-bold uppercase tracking-widest text-gold">{text.overview}</h2>
               </div>
-              <h3 className="text-2xl md:text-3xl font-serif text-[#1A1E1D]">
-                Discover {cityTitle}
+              <h3 className="text-2xl md:text-3xl font-serif font-bold text-royal">
+                {cityTitle} - Overview
               </h3>
-              <p className="text-sm md:text-base text-[#1A1E1D]/70 leading-relaxed font-light">
+              <p className="text-sm md:text-base text-royal/70 leading-relaxed font-light whitespace-pre-wrap">
                 {cityOverview}
               </p>
-            </section>
+            </Reveal>
 
-            {/* History & Culture */}
+            {/* History & Culture columns */}
             {(cityHistory || cityCulture) && (
-              <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Reveal className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
                 {cityHistory && (
-                  <div className="bg-white border border-[#C5A862]/10 p-6 md:p-8 space-y-3">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#C5A862]">{text.history}</h4>
-                    <p className="text-xs text-[#1A1E1D]/70 leading-relaxed font-light">{cityHistory}</p>
+                  <div className="bg-white border border-beige/45 p-6 md:p-8 space-y-3 rounded-3xl shadow-sm">
+                    <h4 className="text-[10px] font-bold uppercase tracking-wider text-gold">{text.history}</h4>
+                    <p className="text-xs text-royal/70 leading-relaxed font-light">{cityHistory}</p>
                   </div>
                 )}
                 {cityCulture && (
-                  <div className="bg-white border border-[#C5A862]/10 p-6 md:p-8 space-y-3">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#C5A862]">{text.culture}</h4>
-                    <p className="text-xs text-[#1A1E1D]/70 leading-relaxed font-light">{cityCulture}</p>
+                  <div className="bg-white border border-beige/45 p-6 md:p-8 space-y-3 rounded-3xl shadow-sm">
+                    <h4 className="text-[10px] font-bold uppercase tracking-wider text-gold">{text.culture}</h4>
+                    <p className="text-xs text-royal/70 leading-relaxed font-light">{cityCulture}</p>
                   </div>
                 )}
-              </section>
+              </Reveal>
             )}
 
-            {/* Places to Visit */}
+            {/* Attractions Vertical Timeline Stepper */}
             {city.attractions?.length > 0 && (
-              <section className="space-y-6">
+              <section className="space-y-8 pt-4">
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-[#C5A862]" />
-                  <h2 className="text-xs font-bold uppercase tracking-widest text-[#C5A862]">{text.placesToVisit}</h2>
+                  <MapPin className="w-5 h-5 text-gold" />
+                  <h2 className="text-[10px] font-bold uppercase tracking-widest text-gold">{text.placesToVisit}</h2>
                 </div>
-                <h3 className="text-xl md:text-2xl font-serif text-[#1A1E1D]">
-                  {attractionsCount} Must-Visit Places in {cityTitle}
+                <h3 className="text-xl md:text-2xl font-serif font-bold text-royal">
+                  {attractionsCount} Landmark Sights in {cityTitle}
                 </h3>
-                <div className="space-y-4">
+                
+                {/* Timeline connector line */}
+                <div className="relative border-l border-gold/25 ml-4 md:ml-6 pl-8 md:pl-10 space-y-12 py-2">
                   {city.attractions.map((att: any, idx: number) => {
-                    const attName = att.name?.[lang] || att.name?.en;
+                    const attName = att.name?.[lang] || att.name?.en || att.name;
                     const attDesc = att.desc?.[lang] || att.desc?.en;
                     const attTimings = att.timings?.[lang] || att.timings?.en;
                     const attInfo = att.info?.[lang] || att.info?.en;
+                    
                     return (
-                      <Link key={att.slug || idx} href={`/${locale}/destinations/${stateSlug}/${citySlug}/${att.slug}`} className="group block">
-                        <div className="bg-white border border-[#C5A862]/10 overflow-hidden flex flex-col sm:flex-row hover:border-[#C5A862]/30 hover:shadow-md transition-all duration-300">
-                          <div className="sm:w-40 md:w-48 h-40 sm:h-auto shrink-0 overflow-hidden">
-                            <img src={att.image} alt={attName} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                          </div>
-                          <div className="p-4 sm:p-6 flex flex-col justify-between flex-grow space-y-2">
-                            <div>
-                              <div className="flex items-center justify-between gap-2">
-                                <h4 className="text-sm md:text-base font-bold text-[#1A1E1D] group-hover:text-[#C5A862] transition-colors">{attName}</h4>
-                                <span className="text-[9px] bg-[#C5A862]/10 text-[#C5A862] px-2 py-0.5 font-bold uppercase shrink-0">#{idx + 1}</span>
+                      <div key={att.slug || idx} className="relative group">
+                        {/* Timeline Step Badge */}
+                        <div className="absolute -left-[45px] md:-left-[53px] top-1.5 w-8 h-8 rounded-full bg-gold border border-gold/15 text-royal flex items-center justify-center font-bold text-xs shadow-md group-hover:bg-gold-light transition-colors z-10">
+                          {idx + 1}
+                        </div>
+                        
+                        <div className="bg-white border border-beige/45 overflow-hidden flex flex-col sm:flex-row hover:border-gold/30 hover:shadow-xl transition-all duration-300 rounded-3xl">
+                          {att.image && (
+                            <div className="sm:w-44 md:w-52 h-44 sm:h-auto shrink-0 overflow-hidden relative">
+                              <img src={att.image} alt={attName} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            </div>
+                          )}
+                          <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
+                            <div className="space-y-2">
+                              <h4 className="text-base font-bold text-royal font-serif">{attName}</h4>
+                              {att.era && (
+                                <span className="text-[9px] font-bold uppercase tracking-wider text-gold block">
+                                  {locale === "es" ? "Época" : locale === "pt" ? "Época" : "Era"}: {att.era}
+                                </span>
+                              )}
+                              <p className="text-xs text-royal/60 leading-relaxed font-light">{attDesc}</p>
+                            </div>
+                            {(attTimings || attInfo) && (
+                              <div className="flex flex-wrap items-center gap-3 pt-3 border-t border-beige/25 text-[9px] font-bold text-royal/40 uppercase tracking-wider">
+                                {attTimings && (
+                                  <span className="flex items-center gap-1">
+                                    <Clock className="w-3.5 h-3.5 text-gold" /> {attTimings}
+                                  </span>
+                                )}
+                                {attInfo && (
+                                  <span className="flex items-center gap-1">
+                                    <HelpCircle className="w-3.5 h-3.5 text-gold" /> {attInfo}
+                                  </span>
+                                )}
                               </div>
-                              <p className="text-xs text-[#1A1E1D]/60 leading-relaxed mt-1.5 line-clamp-2">{attDesc}</p>
-                            </div>
-                            <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-[#C5A862]/10 text-[10px]">
-                              {attTimings && (
-                                <span className="flex items-center gap-1 text-[#1A1E1D]/50 font-medium">
-                                  <Clock className="w-3 h-3" /> {attTimings}
-                                </span>
-                              )}
-                              {attInfo && (
-                                <span className="flex items-center gap-1 text-[#1A1E1D]/50 font-medium">
-                                  <HelpCircle className="w-3 h-3" /> {attInfo}
-                                </span>
-                              )}
-                            </div>
+                            )}
                           </div>
                         </div>
-                      </Link>
+                      </div>
                     );
                   })}
                 </div>
               </section>
             )}
 
-            {/* Things to Do */}
+            {/* Things to Do activity cards */}
             {city.thingsToDo?.length > 0 && (
-              <section className="space-y-5">
+              <section className="space-y-6 pt-4">
                 <div className="flex items-center gap-2">
-                  <Compass className="w-5 h-5 text-[#C5A862]" />
-                  <h2 className="text-xs font-bold uppercase tracking-widest text-[#C5A862]">{text.thingsToDo}</h2>
+                  <Compass className="w-5 h-5 text-gold" />
+                  <h2 className="text-[10px] font-bold uppercase tracking-widest text-gold">{text.thingsToDo}</h2>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {city.thingsToDo.map((item: any, idx: number) => (
-                    <div key={idx} className="bg-white border border-[#C5A862]/10 p-5 flex items-start gap-3">
-                      <span className="text-[#C5A862] text-lg font-serif font-bold shrink-0">{idx + 1}.</span>
-                      <p className="text-xs text-[#1A1E1D]/75 leading-relaxed font-light">{item?.[lang] || item?.en}</p>
+                    <div key={idx} className="bg-white border border-beige/45 p-6 flex items-start gap-3.5 rounded-3xl shadow-sm">
+                      <span className="text-gold text-xl font-serif font-extrabold shrink-0">0{idx + 1}.</span>
+                      <p className="text-xs text-royal/80 leading-relaxed font-light">{item?.[lang] || item?.en}</p>
                     </div>
                   ))}
                 </div>
               </section>
             )}
 
-            {/* Suggested Itinerary */}
-            {city.suggestedItinerary && (
-              <section className="space-y-5">
+            {/* Suggested Itinerary Timeline Stepper */}
+            {itineraryDays.length > 0 && (
+              <section className="space-y-8 pt-4">
                 <div className="flex items-center gap-2">
-                  <Calendar className="w-5 h-5 text-[#C5A862]" />
-                  <h2 className="text-xs font-bold uppercase tracking-widest text-[#C5A862]">{text.itinerary}</h2>
+                  <Calendar className="w-5 h-5 text-gold" />
+                  <h2 className="text-[10px] font-bold uppercase tracking-widest text-gold">{text.itinerary}</h2>
                 </div>
-                <div className="bg-white border border-[#C5A862]/15 p-6 md:p-8 space-y-4">
-                  <div className="flex items-center gap-3 pb-3 border-b border-[#C5A862]/10">
-                    <span className="bg-[#C5A862]/10 text-[#C5A862] text-[10px] font-bold uppercase tracking-wider px-3 py-1.5">{daysNeeded} {text.days}</span>
-                    <span className="text-xs text-[#1A1E1D]/50 font-light">Recommended duration</span>
-                  </div>
-                  <p className="text-sm text-[#1A1E1D]/75 leading-relaxed font-light whitespace-pre-line">
-                    {(city.suggestedItinerary?.[lang] || city.suggestedItinerary?.en)?.replace(/Day /g, "\nDay ").replace(/D\u00eda /g, "\nD\u00eda ").replace(/Dia /g, "\nDia ").trim()}
-                  </p>
+                <h3 className="text-xl md:text-2xl font-serif font-bold text-royal">
+                  Day Package Itinerary for {cityTitle}
+                </h3>
+                
+                {/* Stepper timeline line */}
+                <div className="relative border-l border-gold/25 ml-4 md:ml-6 pl-8 md:pl-10 space-y-8 py-2">
+                  {itineraryDays.map((item, idx) => (
+                    <div key={idx} className="relative group text-left">
+                      {/* Step circle */}
+                      <div className="absolute -left-[41px] md:-left-[49px] top-1.5 w-6 h-6 rounded-full bg-royal border border-gold/45 text-gold flex items-center justify-center font-bold text-[9px] shadow-md z-10">
+                        D{idx + 1}
+                      </div>
+                      
+                      <div className="space-y-1.5">
+                        <h4 className="text-sm font-bold text-royal font-serif tracking-tight">{item.dayTitle}</h4>
+                        <p className="text-xs text-royal/70 leading-relaxed font-light bg-white border border-beige/35 p-5 rounded-2xl shadow-sm">
+                          {item.dayDesc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </section>
             )}
 
-            {/* Where to Stay */}
+            {/* Boutique & Heritage Hotels stays */}
             {city.hotels?.length > 0 && (
-              <section className="space-y-5">
+              <section className="space-y-6 pt-4">
                 <div className="flex items-center gap-2">
-                  <Hotel className="w-5 h-5 text-[#C5A862]" />
-                  <h2 className="text-xs font-bold uppercase tracking-widest text-[#C5A862]">{text.hotels}</h2>
+                  <Hotel className="w-5 h-5 text-gold" />
+                  <h2 className="text-[10px] font-bold uppercase tracking-widest text-gold">{text.hotels}</h2>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {city.hotels.map((hotel: any, idx: number) => (
-                    <div key={idx} className="bg-white border border-[#C5A862]/10 p-5 space-y-2">
+                    <div key={idx} className="bg-white border border-beige/45 p-6 space-y-3 rounded-3xl shadow-sm">
                       <div className="flex items-center justify-between">
-                        <h4 className="text-sm font-bold text-[#1A1E1D]">{hotel.name}</h4>
-                        <span className="text-[9px] bg-[#C5A862]/10 text-[#C5A862] px-2 py-0.5 font-bold uppercase">{hotel.tier}</span>
+                        <h4 className="text-sm font-bold text-royal font-serif">{hotel.name}</h4>
+                        <span className="text-[8px] bg-royal/10 text-royal px-2.5 py-0.5 rounded font-extrabold border border-gold/15 uppercase">{hotel.tier}</span>
                       </div>
-                      <p className="text-xs text-[#1A1E1D]/60 font-light">{hotel.desc?.[lang] || hotel.desc?.en}</p>
+                      <p className="text-xs text-royal/60 font-light leading-relaxed">{hotel.desc?.[lang] || hotel.desc?.en}</p>
                     </div>
                   ))}
                 </div>
               </section>
             )}
 
-            {/* Recommended Packages */}
-            {relatedPackages.length > 0 && (
-              <section className="space-y-5">
-                <div className="flex items-center gap-2">
-                  <Navigation className="w-5 h-5 text-[#C5A862]" />
-                  <h2 className="text-xs font-bold uppercase tracking-widest text-[#C5A862]">{text.packages}</h2>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {relatedPackages.map((pkg: any) => (
-                    <Link key={pkg.slug} href={`/${locale}/packages/${pkg.slug}`} className="group block">
-                      <div className="bg-white border border-[#C5A862]/10 overflow-hidden hover:border-[#C5A862]/30 transition-all">
-                        <div className="h-32 overflow-hidden">
-                          <img src={pkg.image} alt={pkg.title?.en} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                        </div>
-                        <div className="p-4 space-y-1.5">
-                          <h4 className="text-xs font-bold text-[#1A1E1D] group-hover:text-[#C5A862] transition-colors line-clamp-1">{pkg.title?.[lang] || pkg.title?.en}</h4>
-                          <div className="flex items-center gap-2 text-[10px] text-[#1A1E1D]/50">
-                            <span>{pkg.durationDays} {text.days}</span>
-                            <span className="w-1 h-1 rounded-full bg-[#C5A862]/40" />
-                            <span>{pkg.category}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* FAQs */}
+            {/* City FAQs */}
             {city.faqs?.length > 0 && (
-              <section className="space-y-5">
+              <section className="space-y-6 pt-4">
                 <div className="flex items-center gap-2">
-                  <HelpCircle className="w-5 h-5 text-[#C5A862]" />
-                  <h2 className="text-xs font-bold uppercase tracking-widest text-[#C5A862]">{text.faqs}</h2>
+                  <HelpCircle className="w-5 h-5 text-gold" />
+                  <h2 className="text-[10px] font-bold uppercase tracking-widest text-gold">{text.faqs}</h2>
                 </div>
                 <div className="space-y-3">
                   {city.faqs.map((faq: any, idx: number) => (
-                    <details key={idx} className="group bg-white border border-[#C5A862]/10 overflow-hidden" open={idx === 0}>
-                      <summary className="flex items-center justify-between p-5 cursor-pointer text-sm font-bold text-[#1A1E1D] hover:bg-[#FAF8F5] transition-colors list-none">
+                    <details key={idx} className="group bg-white border border-beige/45 overflow-hidden rounded-2xl shadow-sm" open={idx === 0}>
+                      <summary className="flex items-center justify-between p-5 cursor-pointer text-xs font-bold text-royal hover:bg-[#FAF8F5] transition-colors list-none">
                         <span>{faq.q?.[lang] || faq.q?.en}</span>
-                        <ArrowRight className="w-4 h-4 text-[#C5A862] transition-transform group-open:rotate-90 shrink-0 ml-2" />
+                        <ArrowRight className="w-4 h-4 text-gold transition-transform group-open:rotate-90 shrink-0 ml-2" />
                       </summary>
-                      <div className="px-5 pb-5 text-xs text-[#1A1E1D]/70 leading-relaxed font-light border-t border-[#C5A862]/5 pt-4">
+                      <div className="px-5 pb-5 text-xs text-royal/60 leading-relaxed font-light border-t border-beige/25 pt-4">
                         {faq.a?.[lang] || faq.a?.en}
                       </div>
                     </details>
@@ -304,54 +348,115 @@ export default async function CityDetailPage({ params }: CityPageProps) {
 
           </div>
 
-          {/* RIGHT: Sidebar */}
-          <div className="space-y-6 lg:sticky lg:top-24 h-fit">
+          {/* Right Column: Sticky Sidebar metadata */}
+          <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-28 h-fit">
             
-            {/* Quick Info Card */}
-            <div className="bg-white border border-[#C5A862]/15 p-6 space-y-5 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-[4px] bg-[#C5A862]" />
-              <h3 className="text-[10px] uppercase tracking-widest font-bold text-[#1A1E1D] border-b border-[#C5A862]/10 pb-3">
-                Quick Guide
+            {/* 1. Sidebar Contact Enquiry Form (Book Now) at the very top */}
+            <SidebarInquiryForm locale={locale} defaultDestination={`${stateTitle} - ${cityTitle}`} />
+
+            {/* 2. "Paquetes de Viajes" (Recommended Tour Packages) links list */}
+            {relatedPackages.length > 0 && (
+              <div className="bg-white border border-beige/45 p-6 rounded-3xl shadow-sm space-y-4">
+                <h3 className="text-[10px] uppercase tracking-wider font-extrabold text-royal border-b border-beige/25 pb-3">
+                  {text.packages}
+                </h3>
+                <ul className="space-y-3">
+                  {relatedPackages.map((pkg: any) => {
+                    const pkgTitle = pkg.title?.[lang] || pkg.title?.en;
+                    return (
+                      <li key={pkg.slug}>
+                        <Link 
+                          href={`/${locale}/packages/${pkg.slug}`}
+                          className="flex items-start gap-2.5 text-xs text-royal/70 hover:text-gold transition-colors font-serif leading-relaxed"
+                        >
+                          <Compass className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+                          <span className="hover:underline">{pkgTitle}</span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+
+            {/* 3. Need Help Support Callout widget */}
+            <div className="bg-royal border border-gold/15 p-6 rounded-3xl shadow-lg relative overflow-hidden text-white space-y-5">
+              <div className="absolute top-0 left-0 w-full h-[4px] bg-gold" />
+              <div className="space-y-2">
+                <h4 className="text-lg font-serif font-bold text-white tracking-tight">
+                  {locale === "es" ? "¿Necesitas Ayuda?" : locale === "pt" ? "Precisa de Ajuda?" : "Need Help?"}
+                </h4>
+                <p className="text-[11px] text-white/70 font-light leading-relaxed">
+                  {locale === "es" 
+                    ? "Estamos aquí para asistirte en línea las 24 horas." 
+                    : locale === "pt" 
+                    ? "Estamos aqui para ajudá-lo online 24 horas por dia." 
+                    : "We are here to help you. Online support is available 24/7."}
+                </p>
+              </div>
+
+              <a 
+                href="tel:+919782001006" 
+                className="flex items-center gap-3 bg-white/10 border border-white/20 px-4 py-3 rounded-xl hover:bg-white/20 transition-all text-xs font-bold"
+              >
+                <Phone className="w-4 h-4 text-gold shrink-0" />
+                <span>+91 9782001006</span>
+              </a>
+
+              <a 
+                href={`/${locale}/contact`}
+                className="w-full text-center bg-gold hover:bg-gold-light text-royal font-bold text-[10px] uppercase tracking-wider py-3.5 rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-1.5"
+              >
+                <MessageSquare className="w-3.5 h-3.5" />
+                <span>{locale === "es" ? "Contactar" : locale === "pt" ? "Contate-nos" : "Contact Support"}</span>
+              </a>
+            </div>
+
+            {/* 4. Quick Intel Guide card */}
+            <div className="bg-white border border-beige/45 p-6 space-y-5 rounded-3xl shadow-sm relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-[4px] bg-gold" />
+              <h3 className="text-[10px] uppercase tracking-wider font-extrabold text-royal border-b border-beige/25 pb-3">
+                Quick Intel Guide
               </h3>
               
-              <div className="space-y-4 text-xs">
+              <div className="space-y-4 text-xs text-royal">
                 <div>
-                  <span className="text-[9px] uppercase tracking-wider font-bold text-[#1A1E1D]/40 block mb-1">{text.daysNeeded}</span>
-                  <span className="text-[#1A1E1D]/80 font-semibold">{daysNeeded} {text.days}</span>
+                  <span className="text-[9px] uppercase tracking-wider font-bold text-royal/40 block mb-1">{text.daysNeeded}</span>
+                  <span className="text-royal font-extrabold text-sm">{daysNeeded} {text.days}</span>
                 </div>
-                <div className="border-t border-[#C5A862]/10 pt-3">
-                  <span className="text-[9px] uppercase tracking-wider font-bold text-[#1A1E1D]/40 block mb-1">{text.bestTime}</span>
-                  <span className="text-[#1A1E1D]/80 font-semibold">{city.bestTime?.[lang] || city.bestTime?.en}</span>
+                <div className="border-t border-beige/25 pt-3">
+                  <span className="text-[9px] uppercase tracking-wider font-bold text-royal/40 block mb-1">{text.bestTime}</span>
+                  <span className="text-royal font-bold">{city.bestTime?.[lang] || city.bestTime?.en}</span>
                 </div>
                 {city.weather && (
-                  <div className="border-t border-[#C5A862]/10 pt-3">
-                    <span className="text-[9px] uppercase tracking-wider font-bold text-[#1A1E1D]/40 block mb-1">{text.weather}</span>
-                    <span className="text-[#1A1E1D]/70 font-light leading-relaxed block">{city.weather?.[lang] || city.weather?.en}</span>
+                  <div className="border-t border-beige/25 pt-3">
+                    <span className="text-[9px] uppercase tracking-wider font-bold text-royal/40 block mb-1">{text.weather}</span>
+                    <span className="text-royal/70 font-light leading-relaxed block">{city.weather?.[lang] || city.weather?.en}</span>
                   </div>
                 )}
                 {city.localFood && (
-                  <div className="border-t border-[#C5A862]/10 pt-3">
-                    <span className="text-[9px] uppercase tracking-wider font-bold text-[#1A1E1D]/40 block mb-1 flex items-center gap-1"><Utensils className="w-3 h-3" /> {text.food}</span>
-                    <span className="text-[#1A1E1D]/70 font-light leading-relaxed block">{city.localFood?.[lang] || city.localFood?.en}</span>
+                  <div className="border-t border-beige/25 pt-3">
+                    <span className="text-[9px] uppercase tracking-wider font-bold text-royal/40 block mb-1 flex items-center gap-1"><Utensils className="w-3.5 h-3.5 text-gold" /> {text.food}</span>
+                    <span className="text-royal/70 font-light leading-relaxed block">{city.localFood?.[lang] || city.localFood?.en}</span>
                   </div>
                 )}
                 {city.shopping && (
-                  <div className="border-t border-[#C5A862]/10 pt-3">
-                    <span className="text-[9px] uppercase tracking-wider font-bold text-[#1A1E1D]/40 block mb-1 flex items-center gap-1"><ShoppingBag className="w-3 h-3" /> {text.shopping}</span>
-                    <span className="text-[#1A1E1D]/70 font-light leading-relaxed block">{city.shopping?.[lang] || city.shopping?.en}</span>
+                  <div className="border-t border-beige/25 pt-3">
+                    <span className="text-[9px] uppercase tracking-wider font-bold text-royal/40 block mb-1 flex items-center gap-1"><ShoppingBag className="w-3.5 h-3.5 text-gold" /> {text.shopping}</span>
+                    <span className="text-royal/70 font-light leading-relaxed block">{city.shopping?.[lang] || city.shopping?.en}</span>
                   </div>
                 )}
               </div>
             </div>
 
-            {/* Travel Tips */}
+            {/* 5. Travel tips */}
             {city.travelTips?.length > 0 && (
-              <div className="bg-white border border-[#C5A862]/15 p-6 space-y-4">
-                <h3 className="text-[10px] uppercase tracking-widest font-bold text-[#1A1E1D]">{text.tips}</h3>
-                <ul className="space-y-2.5">
+              <div className="bg-white border border-beige/45 p-6 space-y-4 rounded-3xl shadow-sm">
+                <h3 className="text-[10px] uppercase tracking-wider font-extrabold text-royal border-b border-beige/25 pb-3">{text.tips}</h3>
+                <ul className="space-y-3">
                   {city.travelTips.map((tip: any, idx: number) => (
-                    <li key={idx} className="text-xs text-[#1A1E1D]/70 font-light leading-relaxed flex gap-2">
-                      <span className="text-[#C5A862] font-bold shrink-0">&bull;</span>
+                    <li key={idx} className="text-xs text-royal/75 font-light leading-relaxed flex gap-2">
+                      <span className="text-gold font-bold shrink-0">•</span>
                       <span>{tip?.[lang] || tip?.en}</span>
                     </li>
                   ))}
@@ -359,34 +464,20 @@ export default async function CityDetailPage({ params }: CityPageProps) {
               </div>
             )}
 
-            {/* Nearby Places */}
+            {/* 6. Nearby Places */}
             {city.nearbyPlaces?.length > 0 && (
-              <div className="bg-white border border-[#C5A862]/15 p-6 space-y-4">
-                <h3 className="text-[10px] uppercase tracking-widest font-bold text-[#1A1E1D]">{text.nearby}</h3>
-                <div className="space-y-2.5">
+              <div className="bg-white border border-beige/45 p-6 space-y-4 rounded-3xl shadow-sm">
+                <h3 className="text-[10px] uppercase tracking-wider font-extrabold text-royal border-b border-beige/25 pb-3">{text.nearby}</h3>
+                <div className="space-y-3">
                   {city.nearbyPlaces.map((place: any, idx: number) => (
-                    <div key={idx} className="flex items-center justify-between text-xs border-b border-[#C5A862]/5 pb-2 last:border-0 last:pb-0">
-                      <span className="text-[#1A1E1D]/75 font-medium">{place.name}</span>
-                      <span className="text-[#1A1E1D]/40 text-[10px]">{place.distance}</span>
+                    <div key={idx} className="flex items-center justify-between text-xs border-b border-beige/25 pb-2 last:border-0 last:pb-0 font-light text-royal">
+                      <span className="font-medium text-royal/80">{place.name}</span>
+                      <span className="text-royal/40 text-[9px] font-bold">{place.distance}</span>
                     </div>
                   ))}
                 </div>
               </div>
             )}
-
-            {/* CTA */}
-            <div className="bg-[#0A2A1E] p-6 space-y-4 text-white">
-              <h4 className="text-sm font-bold">Explore {cityTitle}?</h4>
-              <p className="text-[11px] text-white/60 font-light leading-relaxed">
-                Let us craft a personalized itinerary for your visit to {cityTitle} and {stateTitle}.
-              </p>
-              <Link 
-                href={`/${locale}/contact`} 
-                className="block w-full text-center bg-[#C5A862] text-[#0A2A1E] text-[10px] font-bold uppercase tracking-wider py-3 hover:bg-[#D8BE83] transition-colors"
-              >
-                {text.inquireCta}
-              </Link>
-            </div>
 
           </div>
         </div>
