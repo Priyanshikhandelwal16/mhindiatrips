@@ -261,7 +261,7 @@ export default function BlogsTab({
       {/* BLOGS DIRECTORY LIST */}
       {!editBlog && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {blogs.map((b) => (
+          {(blogs || []).map((b) => (
             <div key={b.slug} className="bg-white border border-beige/45 rounded-3xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-gold/30 transition">
               <div className="h-40 w-full overflow-hidden bg-light-gray relative">
                 <img src={b.featuredImage} alt={b.title?.en} className="h-full w-full object-cover" />

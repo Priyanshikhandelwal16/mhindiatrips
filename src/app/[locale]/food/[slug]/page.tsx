@@ -46,7 +46,7 @@ export default async function FoodDetailPage({ params }: FoodDetailPageProps) {
             <h2 className="text-2xl font-serif font-bold text-royal">
               Heritage Culinary Chronicle
             </h2>
-            <p className="text-xs md:text-sm text-foreground/60 leading-relaxed font-light">
+            <p className="text-sm md:text-base text-foreground/70 leading-relaxed font-light">
               {food.history?.[locale as "en"|"es"|"pt"] || food.history?.en}
             </p>
           </div>
@@ -57,7 +57,7 @@ export default async function FoodDetailPage({ params }: FoodDetailPageProps) {
               <h3 className="text-lg font-serif font-bold text-royal">
                 {locale === "es" ? "Ingredientes Clave" : locale === "pt" ? "Ingredientes Chave" : "Key Spices & Ingredients"}
               </h3>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-light">
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-light text-foreground/80">
                 {food.ingredients.map((ing: any, idx: number) => (
                   <li key={idx} className="flex items-center gap-2.5 text-foreground/75">
                     <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
@@ -78,8 +78,8 @@ export default async function FoodDetailPage({ params }: FoodDetailPageProps) {
                 {food.bestRestaurants.map((res: any, idx: number) => (
                   <div key={idx} className="bg-white border border-gold/10 p-5 flex justify-between items-center shadow-sm hover:border-gold/25 transition-colors">
                     <div className="space-y-1">
-                      <span className="text-xs font-bold text-royal block">{res.name}</span>
-                      <span className="text-[9px] text-foreground/45 flex items-center gap-1">
+                      <span className="text-sm font-serif font-bold text-royal block">{res.name}</span>
+                      <span className="text-xs text-foreground/50 flex items-center gap-1">
                         <MapPin className="w-3 h-3 text-gold" />
                         {res.city}
                       </span>
@@ -98,16 +98,16 @@ export default async function FoodDetailPage({ params }: FoodDetailPageProps) {
         {/* Postcard Details box */}
         <div className="bg-white border border-gold/25 p-8 h-fit space-y-6 shadow-xl shadow-royal/5 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-[4px] bg-gold" />
-          <h3 className="text-[10px] uppercase tracking-[0.25em] font-black text-royal border-b border-gold/10 pb-4">
+          <h3 className="text-xs uppercase tracking-[0.25em] font-black text-royal border-b border-gold/10 pb-4">
             Culinary Dossier
           </h3>
-          <div className="space-y-5 text-xs">
+          <div className="space-y-5 text-sm">
             <div>
-              <span className="text-[9px] uppercase tracking-wider font-bold text-foreground/40 block mb-1">Place of Origin</span>
+              <span className="text-xs uppercase tracking-wider font-bold text-foreground/45 block mb-1">Place of Origin</span>
               <span className="text-foreground/75 font-semibold block">{food.origin?.[locale as "en"|"es"|"pt"] || food.origin?.en}</span>
             </div>
             <div className="pt-4 border-t border-gold/10">
-              <span className="text-[9px] uppercase tracking-wider font-bold text-foreground/40 block mb-1">Culinary Region</span>
+              <span className="text-xs uppercase tracking-wider font-bold text-foreground/45 block mb-1">Culinary Region</span>
               <span className="text-foreground/75 font-semibold block">{food.region} India</span>
             </div>
           </div>

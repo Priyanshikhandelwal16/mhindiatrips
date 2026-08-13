@@ -137,12 +137,12 @@ export default async function MonumentsPage({ params }: MonumentsPageProps) {
             <Reveal key={i} delay={i * 80}>
               <div className="perspective-1000">
                 <div className="card-3d group relative bg-white border border-[#C3AB85]/10 overflow-hidden shadow-md h-full flex flex-col">
-                  <div className="relative overflow-hidden shrink-0 h-64 bg-[#F5F2EB]">
+                  <div className="relative overflow-hidden shrink-0 h-64">
                     <img
                       src={mon.image}
                       alt={mon.name}
                       loading="lazy"
-                      className="w-full h-full object-contain transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                     
@@ -206,12 +206,12 @@ export default async function MonumentsPage({ params }: MonumentsPageProps) {
                   <Reveal key={mon.slug || i} delay={i * 80}>
                     <div className="perspective-1000">
                       <div className="card-3d group bg-white/5 border border-white/10 overflow-hidden hover:border-[#C3AB85]/30 transition-all duration-500">
-                        <div className="relative h-64 overflow-hidden bg-[#121212]">
+                        <div className="relative h-64 overflow-hidden">
                           <img
                             src={mon.image}
                             loading="lazy"
                             alt={attractionName}
-                            className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                           <div className="absolute top-4 left-4">

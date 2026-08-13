@@ -668,7 +668,7 @@ export default function DestinationsTab({
       {/* STATES LIST (WITHOUT ACTIVE FORM) */}
       {!editState && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {states.map((st) => (
+          {(states || []).map((st) => (
             <div key={st.slug} className="bg-white border border-beige/45 rounded-3xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-gold/30 transition">
               <div className="h-40 w-full overflow-hidden bg-light-gray relative">
                 <img src={st.image} alt={st.title?.en} className="h-full w-full object-cover" />

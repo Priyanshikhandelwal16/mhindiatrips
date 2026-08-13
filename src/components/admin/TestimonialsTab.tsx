@@ -244,7 +244,7 @@ export default function TestimonialsTab({
       {/* TESTIMONIALS DIRECTORY GRID */}
       {!newTestimonial && !editTestimonial && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((t, idx) => (
+          {(testimonials || []).map((t, idx) => (
             <div key={t.id || idx} className="bg-white border border-beige/45 p-6 rounded-3xl shadow-sm flex flex-col justify-between space-y-4 hover:border-gold/30 transition">
               <div className="space-y-3">
                 <div className="flex items-center justify-between">

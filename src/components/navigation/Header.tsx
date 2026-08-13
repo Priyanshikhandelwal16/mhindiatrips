@@ -42,6 +42,7 @@ export default function Header({ locale }: HeaderProps) {
       about: "About Us",
       destinations: "Destinations in India",
       monuments: "Monuments",
+      food: "Food Guide",
       info: "Traveler Info",
       contact: "Contact",
       blog: "Blog",
@@ -53,6 +54,7 @@ export default function Header({ locale }: HeaderProps) {
       about: "Sobre Nosotros",
       destinations: "Destinos en India",
       monuments: "Monumentos",
+      food: "Guía de Comida",
       info: "Información para viajeros",
       contact: "Contacto",
       blog: "Blog",
@@ -64,6 +66,7 @@ export default function Header({ locale }: HeaderProps) {
       about: "Sobre Nós",
       destinations: "Destinos na Índia",
       monuments: "Monumentos",
+      food: "Guia Gastronômico",
       info: "Informações para viajantes",
       contact: "Contato",
       blog: "Blog",
@@ -313,6 +316,17 @@ export default function Header({ locale }: HeaderProps) {
               )}
             </Link>
 
+            {/* Food Guide */}
+            <Link
+              href={`/${locale}/food`}
+              className={linkClass("/food")}
+            >
+              <span>{labels.food}</span>
+              {isActive("/food") && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full" />
+              )}
+            </Link>
+
             {/* Traveler Info Dropdown */}
             <div className="relative group py-1">
               <Link
@@ -505,6 +519,14 @@ export default function Header({ locale }: HeaderProps) {
               className="text-lg font-bold text-white hover:text-gold transition-colors"
             >
               {labels.monuments}
+            </Link>
+
+            <Link
+              href={`/${locale}/food`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-lg font-bold text-white hover:text-gold transition-colors"
+            >
+              {labels.food}
             </Link>
 
             <Link
