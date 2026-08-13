@@ -52,10 +52,10 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
                 <p className="text-[15px]">Our website uses cookies to enhance your browsing experience and analyze website traffic. You can manage cookie preferences through your browser settings.</p>
 
                 <h2 className="text-xl font-serif font-bold text-royal !mt-10">6. Your Rights</h2>
-                <p className="text-[15px]">You have the right to access, correct, or delete your personal information at any time. Contact us at hello@mhindiatrips.com for any data-related requests.</p>
+                <p className="text-[15px]">You have the right to access, correct, or delete your personal information at any time. Contact us at info@mhindiatrips.com for any data-related requests.</p>
 
                 <h2 className="text-xl font-serif font-bold text-royal !mt-10">7. Contact</h2>
-                <p className="text-[15px]">For questions about this privacy policy, contact us at hello@mhindiatrips.com or +91 98765 43210.</p>
+                <p className="text-[15px]">For questions about this privacy policy, contact us at info@mhindiatrips.com or +91 9782001006.</p>
               </>
             )}
           </Reveal>

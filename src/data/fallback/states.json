@@ -2682,7 +2682,7 @@
       "pt": "Templo Dourado, Cultura Vibrante e Culinária Generosa"
     },
     "region": "North",
-    "image": "/images/punjab.jpg",
+    "image": "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?q=80&w=800",
     "gallery": [],
     "description": {
       "en": "The land of five rivers, famous for the Golden Temple of Amritsar, Bhangra dance, and the most generous hospitality in India.",
@@ -2730,7 +2730,7 @@
           "es": "La ciudad sagrada del Templo Dorado",
           "pt": "A cidade sagrada do Templo Dourado"
         },
-        "image": "/images/punjab.jpg",
+        "image": "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?q=80&w=800",
         "gallery": [],
         "overview": {
           "en": "Amritsar is Punjab's cultural capital, housing the Harmandir Sahib (Golden Temple), the spiritual center of the Sikh religion.",
@@ -2780,7 +2780,7 @@
               "es": "Cubra la cabeza.",
               "pt": "Cubra a cabeça."
             },
-            "image": "/images/punjab.jpg",
+            "image": "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?q=80&w=800",
             "gallery": [],
             "faqs": []
           }

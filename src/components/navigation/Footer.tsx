@@ -25,6 +25,7 @@ export default function Footer({ locale }: FooterProps) {
       newsletterPlaceholder: "Enter your email address",
       newsletterSuccess: "Subscription confirmed.",
       copyright: "2026 MH India Trips. Crafted for luxury.",
+      designedBy: "Designed & Developed by",
       terms: "Terms of Service",
       privacy: "Privacy Policy",
       faq: "FAQs"
@@ -40,6 +41,7 @@ export default function Footer({ locale }: FooterProps) {
       newsletterPlaceholder: "Introduzca su dirección de correo electrónico",
       newsletterSuccess: "Suscripción confirmada.",
       copyright: "2026 MH India Trips. Creado para el lujo.",
+      designedBy: "Diseñado y Desarrollado por",
       terms: "Términos de Servicio",
       privacy: "Política de Privacidad",
       faq: "Preguntas Frecuentes"
@@ -55,6 +57,7 @@ export default function Footer({ locale }: FooterProps) {
       newsletterPlaceholder: "Introduza o seu endereço de e-mail",
       newsletterSuccess: "Subscrição confirmada.",
       copyright: "2026 MH India Trips. Feito para o luxo.",
+      designedBy: "Design e Desenvolvimento por",
       terms: "Termos de Serviço",
       privacy: "Política de Privacidade",
       faq: "FAQs"
@@ -104,7 +107,7 @@ export default function Footer({ locale }: FooterProps) {
               <img
                 src="/images/logo-transparent.png"
                 alt="MH India Trips"
-                className="h-12 md:h-16 w-auto"
+                className="h-12 md:h-16 w-auto brightness-0 invert"
               />
               <p className="text-[10px] uppercase tracking-[0.3em] text-gold font-bold">
                 {labels.tagline}
@@ -202,13 +205,13 @@ export default function Footer({ locale }: FooterProps) {
 
             {/* Support info */}
             <div className="space-y-3.5 pt-4 border-t border-white/10 text-sm font-semibold">
-              <a href={`tel:${labels.phone}`} className="flex items-center gap-2.5 text-white hover:text-gold transition-colors">
+              <a href="tel:+919782001006" className="flex items-center gap-2.5 text-white hover:text-gold transition-colors">
                 <Phone className="w-4 h-4 text-gold" />
-                <span>+91 98765 43210</span>
+                <span>+91 9782001006</span>
               </a>
-              <a href="mailto:hello@mhindiatrips.com" className="flex items-center gap-2.5 text-white hover:text-gold transition-colors">
+              <a href="mailto:info@mhindiatrips.com" className="flex items-center gap-2.5 text-white hover:text-gold transition-colors">
                 <Mail className="w-4 h-4 text-gold" />
-                <span>hello@mhindiatrips.com</span>
+                <span>info@mhindiatrips.com</span>
               </a>
             </div>
 
@@ -218,7 +221,12 @@ export default function Footer({ locale }: FooterProps) {
 
         {/* Bottom copyright details bar */}
         <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/55 font-light">
-          <p>&copy; {labels.copyright}</p>
+          <div>
+            <span>&copy; {labels.copyright} | {labels.designedBy} </span>
+            <a href="https://jainup.com" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold-light hover:underline font-semibold transition-colors duration-200">
+              Jainup
+            </a>
+          </div>
           <div className="flex flex-wrap justify-center gap-6">
             <Link href={`/${locale}/terms`} className="hover:text-gold/90 transition-colors">{labels.terms}</Link>
             <Link href={`/${locale}/privacy`} className="hover:text-gold transition-colors">{labels.privacy}</Link>

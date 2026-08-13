@@ -53,7 +53,7 @@ export const additionalStates: StateData[] = [
     title: { en: "Punjab", es: "Punjab", pt: "Punjab" },
     tagline: { en: "Golden Temple, Vibrant Culture & Hearty Cuisine", es: "Templo Dorado, Cultura Vibrante y Cocina Generosa", pt: "Templo Dourado, Cultura Vibrante e Culinária Generosa" },
     region: "North",
-    image: "/images/punjab.jpg",
+    image: "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?q=80&w=800",
     gallery: [],
     description: { en: "The land of five rivers, famous for the Golden Temple of Amritsar, Bhangra dance, and the most generous hospitality in India.", es: "La tierra de los cinco ríos, famosa por el Templo Dorado y la hospitalidad generosa.", pt: "A terra dos cinco rios, famosa pelo Templo Dourado e hospitalidade generosa." },
     history: { en: "Heartland of Sikh warriors and the Mughal-Sikh empire conflicts.", es: "Cuna de los guerreros Sikh y el imperio Mogol.", pt: "Berço dos guerreiros Sikh e do império Mogol." },
@@ -62,7 +62,7 @@ export const additionalStates: StateData[] = [
     bestTime: { en: "October to March.", es: "De octubre a marzo.", pt: "De outubro a março." },
     travelTips: [],
     faqs: [],
-    cities: [createMockCity("punjab", "amritsar", "Amritsar", "Amritsar", "Amritsar", "The Sacred Golden Temple City", "/images/punjab.jpg")]
+    cities: [createMockCity("punjab", "amritsar", "Amritsar", "Amritsar", "Amritsar", "The Sacred Golden Temple City", "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?q=80&w=800")]
   },
   {
     slug: "west-bengal",
@@ -165,7 +165,7 @@ export const additionalStates: StateData[] = [
     title: { en: "Sikkim", es: "Sikkim", pt: "Sikkim" },
     tagline: { en: "Kanchenjunga Views, Buddhist Monasteries & Organic Paradise", es: "Vistas del Kanchenjunga, Monasterios Budistas y Paraíso Orgánico", pt: "Vistas do Kanchenjunga, Mosteiros Budistas e Paraíso Orgânico" },
     region: "North East",
-    image: "/images/sikkim.jpg",
+    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=800",
     gallery: [],
     description: { en: "India's cleanest and first fully organic state. Snow-capped Kanchenjunga, ancient Buddhist monasteries, alpine meadows, and colorful rhododendron forests.", es: "El estado más limpio de la India con vistas al Kanchenjunga y monasterios budistas.", pt: "O estado mais limpo da Índia com vistas ao Kanchenjunga e mosteiros budistas." },
     history: { en: "A former Buddhist kingdom merged with India in 1975.", es: "Un antiguo reino budista unido a la India en 1975.", pt: "Um antigo reino budista unido à Índia em 1975." },
@@ -174,7 +174,7 @@ export const additionalStates: StateData[] = [
     bestTime: { en: "March to June & September to December.", es: "De marzo a junio y septiembre a diciembre.", pt: "De março a junho e setembro a dezembro." },
     travelTips: [],
     faqs: [],
-    cities: [createMockCity("sikkim", "gangtok", "Gangtok", "Gangtok", "Gangtok", "Mountain Capital with Kanchenjunga Views", "/images/sikkim.jpg")]
+    cities: [createMockCity("sikkim", "gangtok", "Gangtok", "Gangtok", "Gangtok", "Mountain Capital with Kanchenjunga Views", "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=800")]
   },
   {
     slug: "telangana",
@@ -197,7 +197,7 @@ export const additionalStates: StateData[] = [
     title: { en: "Ladakh", es: "Ladakh", pt: "Ladakh" },
     tagline: { en: "Moonland Landscapes, Pangong Lake & Ancient Monasteries", es: "Paisajes Lunares, Lago Pangong y Monasterios Antiguos", pt: "Paisagens Lunares, Lago Pangong e Mosteiros Antigos" },
     region: "North",
-    image: "/images/ladakh.jpg",
+    image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?q=80&w=800",
     gallery: [],
     description: { en: "The land of high passes and dramatic barren landscapes. Crystal-blue Pangong Lake, Nubra Valley sand dunes, and 1000-year-old Buddhist monasteries perched on cliffs.", es: "La tierra de los pasos altos con paisajes desérticos dramáticos y lagos de cristal azul.", pt: "A terra dos passes altos com paisagens desérticas dramáticas e lagos de cristal azul." },
     history: { en: "An ancient kingdom on the Silk Route, blending Tibetan and Indian cultures.", es: "Un antiguo reino en la Ruta de la Seda.", pt: "Um antigo reino na Rota da Seda." },
@@ -206,7 +206,7 @@ export const additionalStates: StateData[] = [
     bestTime: { en: "June to September.", es: "De junio a septiembre.", pt: "De junho a setembro." },
     travelTips: [],
     faqs: [],
-    cities: [createMockCity("ladakh", "leh", "Leh", "Leh", "Leh", "Gateway to the Roof of the World", "/images/ladakh.jpg")]
+    cities: [createMockCity("ladakh", "leh", "Leh", "Leh", "Leh", "Gateway to the Roof of the World", "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?q=80&w=800")]
   },
   {
     slug: "meghalaya",
@@ -261,7 +261,7 @@ export const additionalStates: StateData[] = [
     title: { en: "Chhattisgarh", es: "Chhattisgarh", pt: "Chhattisgarh" },
     tagline: { en: "Tribal Heartland, Waterfalls & Unexplored Forests", es: "Corazón Tribal, Cascadas y Bosques Inexplorados", pt: "Coração Tribal, Cascatas e Florestas Inexploradas" },
     region: "Central",
-    image: "/images/chhattisgarh.jpg",
+    image: "https://images.unsplash.com/photo-1477584308802-e9c37c0f1676?q=80&w=800",
     gallery: [],
     description: { en: "India's best-kept secret. Dense sal forests, thundering Chitrakote waterfall (India's Niagara), ancient cave paintings, and vibrant tribal cultures untouched by time.", es: "El secreto mejor guardado de la India con cascadas y culturas tribales.", pt: "O segredo mais bem guardado da Índia com cascatas e culturas tribais." },
     history: { en: "Ancient Dakshin Kosala kingdom and prehistoric cave art sites.", es: "Antiguo reino Dakshin Kosala y arte rupestre.", pt: "Antigo reino Dakshin Kosala e arte rupestre." },
@@ -270,7 +270,7 @@ export const additionalStates: StateData[] = [
     bestTime: { en: "November to March.", es: "De noviembre a marzo.", pt: "De novembro a março." },
     travelTips: [],
     faqs: [],
-    cities: [createMockCity("chhattisgarh", "jagdalpur", "Jagdalpur", "Jagdalpur", "Jagdalpur", "Gateway to Bastar Tribal Country", "/images/chhattisgarh.jpg")]
+    cities: [createMockCity("chhattisgarh", "jagdalpur", "Jagdalpur", "Jagdalpur", "Jagdalpur", "Gateway to Bastar Tribal Country", "https://images.unsplash.com/photo-1477584308802-e9c37c0f1676?q=80&w=800")]
   }
 ];
 
@@ -357,7 +357,7 @@ export const additionalPackages: TourPackage[] = [
     tagline: { en: "Golden Temple, Wagah Border Ceremony & Punjabi Feasts", es: "Templo Dorado, Ceremonia de Wagah y Festines Punjabis", pt: "Templo Dourado, Cerimônia de Wagah e Banquetes Punjabis" },
     category: "Cultural Tours",
     durationDays: 5,
-    image: "/images/punjab.jpg",
+    image: "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?q=80&w=800",
     gallery: [],
     highlights: [
       { en: "Golden Temple sunrise visit and langar meal", es: "Visita al amanecer al Templo Dorado", pt: "Visita ao amanhecer ao Templo Dourado" },
@@ -393,7 +393,7 @@ export const additionalPackages: TourPackage[] = [
     tagline: { en: "Kanchenjunga Sunrise, Tea Estates & Buddhist Monasteries", es: "Amanecer en Kanchenjunga, Plantaciones de Té y Monasterios", pt: "Amanhecer no Kanchenjunga, Plantações de Chá e Mosteiros" },
     category: "Mountain Tours",
     durationDays: 9,
-    image: "/images/sikkim.jpg",
+    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=800",
     gallery: [],
     highlights: [
       { en: "Kanchenjunga sunrise from Tiger Hill", es: "Amanecer del Kanchenjunga desde Tiger Hill", pt: "Amanhecer do Kanchenjunga de Tiger Hill" },

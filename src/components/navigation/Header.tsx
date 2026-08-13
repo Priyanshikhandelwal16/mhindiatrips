@@ -24,6 +24,17 @@ export default function Header({ locale }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [mobileMenuOpen]);
+
   const menuTranslations: Record<string, any> = {
     en: {
       home: "Home",
@@ -144,9 +155,9 @@ export default function Header({ locale }: HeaderProps) {
               <Phone className="w-3.5 h-3.5 text-gold" />
               <span>+91 9782001006</span>
             </a>
-            <a href="mailto:info@indiasinvitation.com" className="flex items-center gap-1.5 hover:text-gold transition-colors">
+            <a href="mailto:info@mhindiatrips.com" className="flex items-center gap-1.5 hover:text-gold transition-colors">
               <Mail className="w-3.5 h-3.5 text-gold" />
-              <span>info@indiasinvitation.com</span>
+              <span>info@mhindiatrips.com</span>
             </a>
           </div>
           <div className="flex items-center gap-4 text-white/70">
@@ -168,10 +179,12 @@ export default function Header({ locale }: HeaderProps) {
 
       {/* Main Premium Sticky Header (Full-width, clean white background, viajeaindia.com style) */}
       <div 
-        className={`w-full transition-all duration-300 border-b ${
-          scrolled 
-            ? "bg-white/95 backdrop-blur-lg border-gold/15 shadow-md py-2" 
-            : "bg-white border-gold/10 py-4"
+        className={`w-full transition-all duration-300 border-b relative z-50 ${
+          mobileMenuOpen
+            ? "bg-[#0A2A1E] border-white/10 py-4"
+            : scrolled 
+              ? "bg-white/95 backdrop-blur-lg border-gold/15 shadow-md py-2" 
+              : "bg-white border-gold/10 py-4"
         }`}
       >
         <div className="max-w-[1400px] w-full mx-auto px-6 xl:px-10 flex items-center justify-between gap-4">
@@ -181,7 +194,9 @@ export default function Header({ locale }: HeaderProps) {
             <img
               src="/images/logo-transparent.png"
               alt="MH India Trips"
-              className="h-12 md:h-16 w-auto transition-all duration-300 hover:scale-[1.01]"
+              className={`h-12 md:h-16 w-auto transition-all duration-300 hover:scale-[1.01] ${
+                mobileMenuOpen ? "brightness-0 invert" : ""
+              }`}
             />
           </Link>
 
@@ -400,7 +415,11 @@ export default function Header({ locale }: HeaderProps) {
             {/* Lang Button */}
             <button
               onClick={() => setLangMenuOpen(!langMenuOpen)}
-              className="p-2 border border-gold/15 text-royal hover:border-gold rounded-full transition-colors"
+              className={`p-2 border rounded-full transition-colors ${
+                mobileMenuOpen 
+                  ? "border-white/20 text-white hover:border-gold" 
+                  : "border-gold/15 text-royal hover:border-gold"
+              }`}
               aria-label="Language Mobile Menu"
               suppressHydrationWarning={true}
             >
@@ -428,11 +447,15 @@ export default function Header({ locale }: HeaderProps) {
             {/* Mobile Nav Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 border border-gold/15 text-royal hover:border-gold rounded-full transition-colors"
+              className={`p-2 border rounded-full transition-colors ${
+                mobileMenuOpen 
+                  ? "border-white/20 text-white hover:border-gold" 
+                  : "border-gold/15 text-royal hover:border-gold"
+              }`}
               aria-label="Toggle Mobile Menu"
               suppressHydrationWarning={true}
             >
-              {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+              {mobileMenuOpen ? <X className="w-4 h-4 text-white" /> : <Menu className="w-4 h-4" />}
             </button>
           </div>
 
