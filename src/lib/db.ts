@@ -412,26 +412,14 @@ async function ensureSeeded(collectionName: string, initialData: any[]) {
   try {
     const colRef = collection(firestore, collectionName);
     const snapshot = await getDocs(colRef);
-    const existingIds = new Set(snapshot.docs.map(d => d.id));
     
-    // Add missing
-    for (const item of initialData) {
-      const docId = item.slug || item.id;
-      if (docId && !existingIds.has(docId)) {
-        console.log(`Seeding missing document ${docId} in collection ${collectionName} in Firestore...`);
-        await setDoc(doc(firestore, collectionName, docId), item);
-      }
-    }
-
-    // Delete extras (clean up removed local entries from remote Firestore)
-    const allowedIds = new Set(initialData.map(item => item.slug || item.id).filter(Boolean));
-    for (const docSnap of snapshot.docs) {
-      if (!allowedIds.has(docSnap.id)) {
-        console.log(`Deleting extra document ${docSnap.id} from collection ${collectionName} in Firestore...`);
-        try {
-          await deleteDoc(doc(firestore, collectionName, docSnap.id));
-        } catch (e: any) {
-          console.warn(`Failed to delete extra document ${docSnap.id} in collection ${collectionName}:`, e.message || e);
+    // Only seed if the Firestore collection is completely empty
+    if (snapshot.empty) {
+      console.log(`Collection ${collectionName} is empty. Seeding ${initialData.length} default documents in Firestore...`);
+      for (const item of initialData) {
+        const docId = item.slug || item.id;
+        if (docId) {
+          await setDoc(doc(firestore, collectionName, docId), item);
         }
       }
     }
