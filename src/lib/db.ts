@@ -131,7 +131,7 @@ const defaultSystemPages = [
         {
           image: "/images/kerala_backwaters_houseboat.png",
           title: { en: "Tropical Serenity in Kerala", es: "Serenidad Tropical en Kerala", pt: "Serenidade Tropical em Kerala" },
-          desc: { en: "Cruise through emerald backwaters and rejuvenate with authentic wellness Ayurvedic rituals.", es: "Navegue por canales de esmeralda y rejuvenezca con auténticos rituales ayurvédicos.", pt: "Navegue por canais de esmeralda e rejuvenesça com autênticos rituais ayurvédicos." },
+          desc: { en: "Cruise through emerald backwaters and rejuvenate with authentic wellness Ayurvedic rituals.", es: "Navegue por canales de esmeralda y rejuvenezca con auténticos rituales ayurvédicos.", pt: "Navegue por canais de esmeralda e rejuveneça com autênticos rituais ayurvédicos." },
           location: { en: "Backwaters, Alleppey", es: "Remansos de Alleppey, Kerala", pt: "Canais de Alleppey, Kerala" },
           sub: { en: "HOLISTIC RETREATS", es: "RETIROS HOLÍSTICOS", pt: "RETIROS HOLÍSTICOS" },
           cta1Text: { en: "Kerala Retreats", es: "Kerala Retiros", pt: "Retiros Kerala" },
@@ -142,7 +142,7 @@ const defaultSystemPages = [
         {
           image: "/images/Jaipur.jpg",
           title: { en: "Pink City Wonders of Jaipur", es: "Maravillas de la Ciudad Rosa de Jaipur", pt: "Maravilhas da Cidade Rosa de Jaipur" },
-          desc: { en: "Marvel at the astronomical Jantar Mantar and the beautiful honeycomb structure of Hawa Mahal.", es: "Maravíllate con el astronómico Jantar Mantar y la hermosa estructura de Hawa Mahal.", pt: "Maravilhe-se com o astronômico Jantar Mantar e a bela estrutura de Hawa Mahal." },
+          desc: { en: "Marvel at the astronomical Jantar Mantar and the beautiful honeycomb structure of Hawa Mahal.", es: "Maravíllate con el astronómico Jantar Mantar y la hermosa estructura de Hawa Mahal.", pt: "Maravilhe-se con el astronómico Jantar Mantar y la hermosa estructura de Hawa Mahal." },
           location: { en: "Hawa Mahal, Jaipur", es: "Hawa Mahal, Jaipur", pt: "Hawa Mahal, Jaipur" },
           sub: { en: "ROYAL ARCHITECTURE", es: "ARQUITECTURA REAL", pt: "ARQUITETURA REAL" },
           cta1Text: { en: "Explore Jaipur", es: "Explorar Jaipur", pt: "Explorar Jaipur" },
@@ -184,56 +184,12 @@ const defaultSystemPages = [
           cta2Link: "/contact"
         },
         {
-          image: "/images/hampi-ruins.jpg",
-          title: { en: "Hampi: Ruins of an Ancient Empire", es: "Hampi: Ruinas de un Antiguo Imperio", pt: "Hampi: Ruínas de um Antigo Império" },
-          desc: { en: "Step back in time among bouldered landscapes, royal pavilions, and monolithic stone carvings.", es: "Retroceda en el tiempo entre paisajes de rocas, pabellones reales y tallas monolíticas.", pt: "Volte no tempo entre paisagens de rochas, pavilhões reais e esculturas monolíticas." },
-          location: { en: "UNESCO Ruins, Hampi", es: "Ruinas de Hampi, Karnataka", pt: "Ruínas de Hampi, Karnataka" },
-          sub: { en: "LOST KINGDOMS", es: "REINOS PERDIDOS", pt: "REINOS PERDIDOS" },
-          cta1Text: { en: "Heritage Tours", es: "Tours de Patrimonio", pt: "Tours de Patrimônio" },
-          cta1Link: "/packages",
-          cta2Text: { en: "Inquire Now", es: "Planear Ahora", pt: "Planejar Agora" },
-          cta2Link: "/contact"
-        },
-        {
           image: "/images/munnar.jpg",
           title: { en: "Misty Tea Hills of Munnar", es: "Colinas de Té de Munnar", pt: "Colinas de Chá de Munnar" },
           desc: { en: "Breathe the fresh mountain air of rolling tea estates and misty peaks in South India.", es: "Respire el aire fresco de la montaña en las plantaciones de té en el sur de la India.", pt: "Respire o ar fresco da montanha nas plantações de chá no sul da Índia." },
           location: { en: "Munnar Tea Estates, Kerala", es: "Plantaciones de Munnar, Kerala", pt: "Plantações de Munnar, Kerala" },
           sub: { en: "HIMALAYAS & HILLS", es: "MONTAÑAS Y COLINAS", pt: "MONTANHAS E COLINAS" },
           cta1Text: { en: "Kerala Guides", es: "Guías de Kerala", pt: "Guias de Kerala" },
-          cta1Link: "/destinations/kerala",
-          cta2Text: { en: "Inquire Now", es: "Planear Ahora", pt: "Planejar Agora" },
-          cta2Link: "/contact"
-        },
-        {
-          image: "/images/jaisalmer.jpg",
-          title: { en: "The Golden Desert of Jaisalmer", es: "El Desierto Dorado de Jaisalmer", pt: "O Deserto Dourado de Jaisalmer" },
-          desc: { en: "Ride camels through golden sand dunes and explore the living fortress of the Thar Desert.", es: "Pasee en camello por dunas doradas y explore la fortaleza viva del desierto de Thar.", pt: "Passeie de camelo por dunas douradas e explore a fortaleza viva do deserto de Thar." },
-          location: { en: "Thar Desert, Jaisalmer", es: "Desierto de Thar, Jaisalmer", pt: "Deserto de Thar, Jaisalmer" },
-          sub: { en: "DESERT SAFARIS", es: "SAFARIS POR EL DESIERTO", pt: "SAFÁRIS NO DESERTO" },
-          cta1Text: { en: "Desert Tours", es: "Tours del Desierto", pt: "Tours do Deserto" },
-          cta1Link: "/packages",
-          cta2Text: { en: "Inquire Now", es: "Planear Ahora", pt: "Planejar Agora" },
-          cta2Link: "/contact"
-        },
-        {
-          image: "/images/bikaner.jpg",
-          title: { en: "Bikaner: Red Sandstone Palaces", es: "Bikaner: Palacios de Arenisca Roja", pt: "Bikaner: Palácios de Arenito Vermelho" },
-          desc: { en: "Discover the massive Junagarh Fort and the exquisite heritage architectural designs of Rajasthan.", es: "Descubra el enorme Fuerte Junagarh y los exquisitos diseños arquitectónicos de Rajastán.", pt: "Descubra o enorme Forte Junagarh e os requintados designs arquitetônicos do Rajastão." },
-          location: { en: "Junagarh Palace, Bikaner", es: "Fuerte Junagarh, Bikaner", pt: "Forte Junagarh, Bikaner" },
-          sub: { en: "RAJASTHAN SECRETS", es: "SECRETOS DE RAJASTÁN", pt: "SEGREDOS DO RAJASTÃO" },
-          cta1Text: { en: "Explore Bikaner", es: "Explorar Bikaner", pt: "Explorar Bikaner" },
-          cta1Link: "/destinations/rajasthan",
-          cta2Text: { en: "Inquire Now", es: "Planear Ahora", pt: "Planejar Agora" },
-          cta2Link: "/contact"
-        },
-        {
-          image: "/images/kovalam.jpg",
-          title: { en: "Kovalam Beach: Paradise Found", es: "Playa de Kovalam: Paraíso Encontrado", pt: "Praia de Kovalam: Paraíso Encontrado" },
-          desc: { en: "Sunbathe under the red-and-white lighthouse and enjoy Ayurvedic wellness therapies.", es: "Tome el sol bajo el faro y disfrute de terapias de bienestar ayurvédicas.", pt: "Tome sol sob o farol e desfrute de terapias de bem-estar ayurvédicas." },
-          location: { en: "Kovalam Beach, Kerala", es: "Playa de Kovalam, Kerala", pt: "Praia de Kovalam, Kerala" },
-          sub: { en: "WELLNESS RETREATS", es: "RETIROS DE BIENESTAR", pt: "RETIROS DE BEM-ESTAR" },
-          cta1Text: { en: "Kerala Wellness", es: "Bienestar en Kerala", pt: "Bem-Estar em Kerala" },
           cta1Link: "/destinations/kerala",
           cta2Text: { en: "Inquire Now", es: "Planear Ahora", pt: "Planejar Agora" },
           cta2Link: "/contact"
@@ -246,17 +202,6 @@ const defaultSystemPages = [
           sub: { en: "WILDLIFE ADVENTURES", es: "SAFARIS SALVAJES", pt: "SAFÁRIS SELVAGENS" },
           cta1Text: { en: "Wildlife Packages", es: "Paquetes de Vida Silvestre", pt: "Pacotes de Vida Selvagem" },
           cta1Link: "/packages",
-          cta2Text: { en: "Inquire Now", es: "Planear Ahora", pt: "Planejar Agora" },
-          cta2Link: "/contact"
-        },
-        {
-          image: "/images/uttarakhand.jpg",
-          title: { en: "Uttarakhand: Majesty of the Himalayas", es: "Uttarakhand: Majestuosidad del Himalaya", pt: "Uttarakhand: Majestade do Himalaia" },
-          desc: { en: "Experience spectacular snow-capped peaks, meditation ashrams, and sacred rivers in the North.", es: "Experimente picos nevados, ashrams de meditación y ríos sagrados en el norte.", pt: "Experimente picos nevados, ashrams de meditação e rios sagrados no norte." },
-          location: { en: "Himalayan Foothills, Rishikesh", es: "Himalaya, Rishikesh", pt: "Himalaia, Rishikesh" },
-          sub: { en: "MOUNTAIN MAJESTY", es: "MAJESTAD DE MONTAÑA", pt: "MAJESTADE DE MONTANHA" },
-          cta1Text: { en: "Himalayan Guides", es: "Guías del Himalaya", pt: "Guias do Himalaia" },
-          cta1Link: "/destinations/uttarakhand",
           cta2Text: { en: "Inquire Now", es: "Planear Ahora", pt: "Planejar Agora" },
           cta2Link: "/contact"
         },

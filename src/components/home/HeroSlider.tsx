@@ -82,8 +82,8 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/55" />
 
-          {/* Content (Left aligned) */}
-          <div className="relative z-10 h-full flex items-center">
+          {/* Content (Left aligned, shifted down) */}
+          <div className="relative z-10 h-full flex items-end pb-32 md:pb-40">
             <div className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16">
               <div className="space-y-5 text-white max-w-2xl">
                 
