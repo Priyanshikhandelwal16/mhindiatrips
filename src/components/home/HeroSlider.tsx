@@ -30,7 +30,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
     if (paused) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 5500);
+    }, 3500);
     return () => clearInterval(timer);
   }, [paused, slides.length]);
 
@@ -67,13 +67,13 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
       {slides.map((slide, i) => (
         <div 
           key={i} 
-          className={`hero-slide absolute inset-0 transition-all duration-1000 ${i === current ? "z-10 opacity-100 visible" : "z-0 opacity-0 invisible pointer-events-none"}`}
+          className={`hero-slide absolute inset-0 transition-all duration-700 ${i === current ? "z-10 opacity-100 visible" : "z-0 opacity-0 invisible pointer-events-none"}`}
         >
           <img
             src={slide.image}
             alt={slide.title}
             loading={i === 0 ? "eager" : "lazy"}
-            className={`w-full h-full object-cover transition-all duration-[6000ms] ease-out ${
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-[6000ms] ease-out ${
               i === current ? "scale-100 blur-0" : "scale-[1.08] blur-[2px]"
             }`}
             style={{ objectPosition: slide.objectPosition || "center 30%" }}
