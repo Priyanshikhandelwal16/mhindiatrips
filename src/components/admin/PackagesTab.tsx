@@ -25,18 +25,19 @@ export default function PackagesTab({
 }: PackagesTabProps) {
 
   const handleAddHighlight = () => {
-    const updatedHighlights = [...(editPackage.highlights || []), "New highlight point"];
+    const newBullet = { en: "New highlight point", es: "", pt: "" };
+    const updatedHighlights = [...(editPackage.highlights || []), newBullet];
     setEditPackage({ ...editPackage, highlights: updatedHighlights });
   };
 
-  const handleUpdateHighlight = (idx: number, val: string) => {
-    const updatedHighlights = [...editPackage.highlights];
+  const handleUpdateHighlight = (idx: number, val: any) => {
+    const updatedHighlights = [...(editPackage.highlights || [])];
     updatedHighlights[idx] = val;
     setEditPackage({ ...editPackage, highlights: updatedHighlights });
   };
 
   const handleRemoveHighlight = (idx: number) => {
-    const updatedHighlights = editPackage.highlights.filter((_: any, i: number) => i !== idx);
+    const updatedHighlights = (editPackage.highlights || []).filter((_: any, i: number) => i !== idx);
     setEditPackage({ ...editPackage, highlights: updatedHighlights });
   };
 
@@ -184,25 +185,40 @@ export default function PackagesTab({
                 No highlights configured. Add highlights to showcase itinerary details.
               </div>
             ) : (
-              <div className="space-y-2">
-                {editPackage.highlights.map((hl: string, idx: number) => (
-                  <div key={idx} className="flex items-center gap-3">
-                    <span className="font-bold text-gold">{idx + 1}.</span>
-                    <input
-                      type="text"
-                      value={hl}
-                      onChange={(e) => handleUpdateHighlight(idx, e.target.value)}
-                      className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded-lg focus:border-gold/50"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => handleRemoveHighlight(idx)}
-                      className="text-red-500 hover:text-red-700 font-bold"
-                    >
-                      Delete
-                    </button>
-                  </div>
-                ))}
+              <div className="space-y-4">
+                {editPackage.highlights.map((hl: any, idx: number) => {
+                  const hlObj = typeof hl === "object" && hl !== null ? hl : { en: hl || "", es: "", pt: "" };
+                  return (
+                    <div key={idx} className="bg-[#FAF8F5] border border-gold/15 p-4 rounded-xl space-y-3">
+                      <div className="flex justify-between items-center pb-2 border-b border-gold/5">
+                        <span className="font-bold text-gold text-xs">Highlight Bullet #{idx + 1}</span>
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveHighlight(idx)}
+                          className="text-red-500 hover:text-red-700 font-bold text-[10px] uppercase tracking-wider"
+                        >
+                          Delete Bullet
+                        </button>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        {["en", "es", "pt"].map((lang) => (
+                          <div key={lang} className="space-y-1">
+                            <label className="font-semibold text-royal/70 uppercase text-[9px] tracking-wider">Text ({lang.toUpperCase()})</label>
+                            <input
+                              type="text"
+                              value={hlObj[lang] || ""}
+                              onChange={(e) => {
+                                const newHl = { ...hlObj, [lang]: e.target.value };
+                                handleUpdateHighlight(idx, newHl);
+                              }}
+                              className="w-full bg-white border border-gold/10 px-3 py-2 outline-none rounded-lg focus:border-gold/50"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             )}
           </div>

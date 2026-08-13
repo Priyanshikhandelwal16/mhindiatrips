@@ -109,9 +109,9 @@ export default async function AboutPage({ params }: AboutPageProps) {
       {/* SECTION 1: Hero Banner */}
       <section className="relative h-[78vh] min-h-[540px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
         <img 
-          src="/images/luxury_palace_train.png" 
+          src={pageData?.heroImage || "/images/luxury_palace_train.png"} 
           alt="About MH India Trips" 
-          className="absolute inset-0 w-full h-full object-cover object-[center_35%] scale-100 animate-kenburns"
+          className="absolute inset-0 w-full h-full object-cover object-[center_35%]"
           loading="eager"
         />
         <div className="absolute inset-0 bg-black/45" />

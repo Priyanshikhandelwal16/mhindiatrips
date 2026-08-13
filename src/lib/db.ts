@@ -539,10 +539,12 @@ export const db = {
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "blogs"));
             const firestoreData = snapshot.docs.map(d => d.data() as BlogData);
-            // Merge: local data + any Firestore-only items (admin-created)
+            // Merge: use Firestore version of a document if it exists, otherwise fall back to local
+            const firestoreMap = new Map(firestoreData.map((b: any) => [b.slug, b]));
+            const merged = localData.map((b: any) => firestoreMap.has(b.slug) ? firestoreMap.get(b.slug) : b);
             const localSlugs = new Set(localData.map((b: any) => b.slug));
             const extraItems = firestoreData.filter((b: any) => !localSlugs.has(b.slug));
-            return [...localData, ...extraItems];
+            return [...merged, ...extraItems];
           }
         } catch (e: any) {
           console.warn("Firestore blogs.findMany failed, falling back to local:", e.message || e);
@@ -634,9 +636,11 @@ export const db = {
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "states"));
             const firestoreData = snapshot.docs.map(d => d.data() as StateData);
+            const firestoreMap = new Map(firestoreData.map((s: any) => [s.slug, s]));
+            const merged = localData.map((s: any) => firestoreMap.has(s.slug) ? firestoreMap.get(s.slug) : s);
             const localSlugs = new Set(localData.map((s: any) => s.slug));
             const extraItems = firestoreData.filter((s: any) => !localSlugs.has(s.slug));
-            return [...localData, ...extraItems];
+            return [...merged, ...extraItems];
           }
         } catch (e: any) {
           console.warn("Firestore states.findMany failed, falling back to local:", e.message || e);
@@ -725,9 +729,11 @@ export const db = {
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "foods"));
             const firestoreData = snapshot.docs.map(d => d.data() as FoodData);
+            const firestoreMap = new Map(firestoreData.map((f: any) => [f.slug, f]));
+            const merged = localData.map((f: any) => firestoreMap.has(f.slug) ? firestoreMap.get(f.slug) : f);
             const localSlugs = new Set(localData.map((f: any) => f.slug));
             const extraItems = firestoreData.filter((f: any) => !localSlugs.has(f.slug));
-            return [...localData, ...extraItems];
+            return [...merged, ...extraItems];
           }
         } catch (e: any) {
           console.warn("Firestore foods.findMany failed, falling back to local:", e.message || e);
@@ -821,9 +827,11 @@ export const db = {
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "testimonials"));
             const firestoreData = snapshot.docs.map(d => d.data() as Testimonial);
+            const firestoreMap = new Map(firestoreData.map((t: any) => [t.id, t]));
+            const merged = localData.map((t: any) => firestoreMap.has(t.id) ? firestoreMap.get(t.id) : t);
             const localIds = new Set(localData.map((t: any) => t.id));
             const extraItems = firestoreData.filter((t: any) => !localIds.has(t.id));
-            return [...localData, ...extraItems];
+            return [...merged, ...extraItems];
           }
         } catch (e: any) {
           console.warn("Firestore testimonials.findMany failed, falling back to local:", e.message || e);
@@ -896,9 +904,11 @@ export const db = {
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "tour_packages"));
             const firestoreData = snapshot.docs.map(d => d.data() as TourPackage);
+            const firestoreMap = new Map(firestoreData.map((p: any) => [p.slug, p]));
+            const merged = localData.map((p: any) => firestoreMap.has(p.slug) ? firestoreMap.get(p.slug) : p);
             const localSlugs = new Set(localData.map((p: any) => p.slug));
             const extraItems = firestoreData.filter((p: any) => !localSlugs.has(p.slug));
-            return [...localData, ...extraItems];
+            return [...merged, ...extraItems];
           }
         } catch (e: any) {
           console.warn("Firestore tourPackages.findMany failed, falling back to local:", e.message || e);
@@ -984,9 +994,11 @@ export const db = {
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "pages"));
             const firestoreData = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+            const firestoreMap = new Map(firestoreData.map((p: any) => [p.id, p]));
+            const merged = pagesCache.map((p: any) => firestoreMap.has(p.id) ? firestoreMap.get(p.id) : p);
             const localIds = new Set(pagesCache.map((p: any) => p.id));
             const extraItems = firestoreData.filter((p: any) => !localIds.has(p.id));
-            return [...pagesCache, ...extraItems];
+            return [...merged, ...extraItems];
           }
         } catch (e: any) {
           console.warn("Firestore pages.findMany failed, falling back to local:", e.message || e);

@@ -135,16 +135,16 @@ export default async function MonumentsPage({ params }: MonumentsPageProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {featuredMonuments.map((mon: any, i: number) => (
             <Reveal key={i} delay={i * 80}>
-              <div className={`perspective-1000 ${i === 0 ? "md:col-span-2 md:row-span-2" : ""}`}>
+              <div className="perspective-1000">
                 <div className="card-3d group relative bg-white border border-[#C3AB85]/10 overflow-hidden shadow-md h-full flex flex-col">
-                  <div className={`relative overflow-hidden shrink-0 ${i === 0 ? "h-80 md:h-[450px]" : "h-56 md:h-64"}`}>
+                  <div className="relative overflow-hidden shrink-0 h-64 bg-[#F5F2EB]">
                     <img
                       src={mon.image}
                       alt={mon.name}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                      className="w-full h-full object-contain transition-transform duration-[1200ms] ease-out group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                     
                     {/* Era badge */}
                     <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-[#0B0D0C] text-[9px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full flex items-center gap-1">
@@ -158,7 +158,7 @@ export default async function MonumentsPage({ params }: MonumentsPageProps) {
                         <MapPin className="w-3.5 h-3.5 text-[#C3AB85]" />
                         <span className="text-[10px] text-white/70 font-medium uppercase tracking-wider">{mon.city}, {mon.state}</span>
                       </div>
-                      <h3 className={`font-bold text-white leading-snug ${i === 0 ? "text-2xl md:text-3xl" : "text-lg md:text-xl"}`}>
+                      <h3 className="font-bold text-white leading-snug text-lg md:text-xl">
                         {mon.name}
                       </h3>
                     </div>
@@ -206,12 +206,12 @@ export default async function MonumentsPage({ params }: MonumentsPageProps) {
                   <Reveal key={mon.slug || i} delay={i * 80}>
                     <div className="perspective-1000">
                       <div className="card-3d group bg-white/5 border border-white/10 overflow-hidden hover:border-[#C3AB85]/30 transition-all duration-500">
-                        <div className="relative h-52 overflow-hidden">
+                        <div className="relative h-64 overflow-hidden bg-[#121212]">
                           <img
                             src={mon.image}
                             loading="lazy"
                             alt={attractionName}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                           <div className="absolute top-4 left-4">

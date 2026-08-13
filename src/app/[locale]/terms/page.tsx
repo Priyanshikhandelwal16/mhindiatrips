@@ -17,7 +17,7 @@ export default async function TermsPage({ params }: TermsPageProps) {
     <div className="font-sans bg-[#FAF8F5] min-h-screen text-[#1B1B1B]">
       {/* Hero */}
       <section className="relative h-[80vh] min-h-[580px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
-        <img src="/images/luxury_palace_train.png" alt="Terms and Conditions" className="absolute inset-0 w-full h-full object-cover animate-kenburns" />
+        <img src={pageData?.heroImage || "/images/luxury_palace_train.png"} alt="Terms and Conditions" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center text-white px-6 space-y-6 max-w-5xl">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">Legal Dispatch</span>

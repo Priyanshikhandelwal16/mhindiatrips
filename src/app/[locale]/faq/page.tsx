@@ -123,9 +123,9 @@ export default async function FAQPage({ params }: FAQPageProps) {
       {/* Hero Banner */}
       <section className="relative h-[78vh] min-h-[540px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
         <img 
-          src="/images/taj_mahal_sunrise.png" 
+          src={pageData?.heroImage || "/images/taj_mahal_sunrise.png"} 
           alt="Traveler Info" 
-          className="absolute inset-0 w-full h-full object-cover object-[center_35%] scale-100 animate-kenburns" 
+          className="absolute inset-0 w-full h-full object-cover object-[center_35%]" 
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center text-white px-6 max-w-4xl space-y-6">
