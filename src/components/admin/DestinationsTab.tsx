@@ -64,9 +64,9 @@ export default function DestinationsTab({
     
     const newAttraction = {
       slug,
-      name,
+      name: { en: name, es: name, pt: name },
       image: "",
-      desc: "",
+      desc: { en: "", es: "", pt: "" },
       era: "",
       city: editState.cities[cityIdx].title?.en,
       state: editState.title?.en
@@ -565,86 +565,114 @@ export default function DestinationsTab({
                       <div className="py-6 text-center text-[10px] text-royal/40 italic">No attractions configured for this city.</div>
                     ) : (
                       <div className="space-y-4">
-                        {editState.cities[editingCityIdx].attractions.map((attr: any, aIdx: number) => (
-                          <div key={aIdx} className="bg-white border border-gold/5 p-4 rounded-xl space-y-3 relative shadow-inner">
-                            <div className="flex justify-between items-center pb-1.5 border-b border-gold/10">
-                              <span className="text-[9px] font-bold text-royal/60 uppercase">Attraction #{aIdx + 1}: {attr.name}</span>
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  const updatedCities = [...editState.cities];
-                                  updatedCities[editingCityIdx].attractions = updatedCities[editingCityIdx].attractions.filter((_: any, i: number) => i !== aIdx);
-                                  setEditState({ ...editState, cities: updatedCities });
-                                }}
-                                className="text-[8px] font-bold text-red-500 hover:text-red-700 uppercase"
-                              >
-                                Remove
-                              </button>
-                            </div>
+                        {editState.cities[editingCityIdx].attractions.map((attr: any, aIdx: number) => {
+                          const attrNameObj = typeof attr.name === "object" && attr.name !== null ? attr.name : { en: attr.name || "", es: "", pt: "" };
+                          const attrDescObj = typeof attr.desc === "object" && attr.desc !== null ? attr.desc : { en: attr.desc || "", es: "", pt: "" };
+                          
+                          return (
+                            <div key={aIdx} className="bg-white border border-gold/5 p-4 rounded-xl space-y-3 relative shadow-inner text-xs">
+                              <div className="flex justify-between items-center pb-1.5 border-b border-gold/10">
+                                <span className="text-[9px] font-bold text-royal/60 uppercase">Attraction #{aIdx + 1}: {attrNameObj.en}</span>
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    const updatedCities = [...editState.cities];
+                                    updatedCities[editingCityIdx].attractions = updatedCities[editingCityIdx].attractions.filter((_: any, i: number) => i !== aIdx);
+                                    setEditState({ ...editState, cities: updatedCities });
+                                  }}
+                                  className="text-[8px] font-bold text-red-500 hover:text-red-700 uppercase"
+                                >
+                                  Remove
+                                </button>
+                              </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                              <div className="space-y-1">
-                                <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Name</label>
-                                <input 
-                                  type="text" value={attr.name || ""}
-                                  onChange={e => {
-                                    const updatedCities = [...editState.cities];
-                                    updatedCities[editingCityIdx].attractions[aIdx].name = e.target.value;
-                                    setEditState({ ...editState, cities: updatedCities });
-                                  }}
-                                  className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1 outline-none text-[11px] rounded"
-                                />
-                              </div>
-                              <div className="space-y-1">
-                                <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Era (e.g. 1592 AD)</label>
-                                <input 
-                                  type="text" value={attr.era || ""}
-                                  onChange={e => {
-                                    const updatedCities = [...editState.cities];
-                                    updatedCities[editingCityIdx].attractions[aIdx].era = e.target.value;
-                                    setEditState({ ...editState, cities: updatedCities });
-                                  }}
-                                  className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1 outline-none text-[11px] rounded"
-                                />
-                              </div>
-                              <div className="space-y-1">
-                                <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Image URL</label>
-                                <div className="flex gap-1.5">
-                                  <input 
-                                    type="text" value={attr.image || ""}
-                                    onChange={e => {
-                                      const updatedCities = [...editState.cities];
-                                      updatedCities[editingCityIdx].attractions[aIdx].image = e.target.value;
-                                      setEditState({ ...editState, cities: updatedCities });
-                                    }}
-                                    className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1 outline-none text-[11px] rounded"
-                                  />
-                                  <CloudinaryUpload 
-                                    label="Upload" 
-                                    onUploadComplete={(url) => {
-                                      const updatedCities = [...editState.cities];
-                                      updatedCities[editingCityIdx].attractions[aIdx].image = url;
-                                      setEditState({ ...editState, cities: updatedCities });
-                                    }} 
-                                    showStatus={showStatus} 
-                                  />
+                              <div className="grid grid-cols-1 gap-3">
+                                {/* Attraction Name Translations */}
+                                <div className="space-y-1">
+                                  <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Name Translations</label>
+                                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                                    {["en", "es", "pt"].map((lang) => (
+                                      <div key={lang} className="space-y-0.5">
+                                        <span className="text-[7px] uppercase font-bold text-[#C3AB85]">{lang} Name</span>
+                                        <input 
+                                          type="text" 
+                                          value={attrNameObj[lang] || ""}
+                                          onChange={e => {
+                                            const updatedCities = [...editState.cities];
+                                            const updatedName = { ...attrNameObj, [lang]: e.target.value };
+                                            updatedCities[editingCityIdx].attractions[aIdx].name = updatedName;
+                                            setEditState({ ...editState, cities: updatedCities });
+                                          }}
+                                          className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1 outline-none text-[11px] rounded"
+                                        />
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+
+                                {/* Attraction Description Translations */}
+                                <div className="space-y-1">
+                                  <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Description Translations</label>
+                                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                                    {["en", "es", "pt"].map((lang) => (
+                                      <div key={lang} className="space-y-0.5">
+                                        <span className="text-[7px] uppercase font-bold text-[#C3AB85]">{lang} Description</span>
+                                        <textarea 
+                                          value={attrDescObj[lang] || ""}
+                                          onChange={e => {
+                                            const updatedCities = [...editState.cities];
+                                            const updatedDesc = { ...attrDescObj, [lang]: e.target.value };
+                                            updatedCities[editingCityIdx].attractions[aIdx].desc = updatedDesc;
+                                            setEditState({ ...editState, cities: updatedCities });
+                                          }}
+                                          className="w-full h-12 bg-[#FAF8F5] border border-gold/10 p-2 outline-none text-[11px] rounded text-xs"
+                                        />
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                  <div className="space-y-1">
+                                    <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Era (e.g. 1592 AD)</label>
+                                    <input 
+                                      type="text" value={attr.era || ""}
+                                      onChange={e => {
+                                        const updatedCities = [...editState.cities];
+                                        updatedCities[editingCityIdx].attractions[aIdx].era = e.target.value;
+                                        setEditState({ ...editState, cities: updatedCities });
+                                      }}
+                                      className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1 outline-none text-[11px] rounded"
+                                    />
+                                  </div>
+                                  <div className="space-y-1">
+                                    <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Image URL</label>
+                                    <div className="flex gap-1.5">
+                                      <input 
+                                        type="text" value={attr.image || ""}
+                                        onChange={e => {
+                                          const updatedCities = [...editState.cities];
+                                          updatedCities[editingCityIdx].attractions[aIdx].image = e.target.value;
+                                          setEditState({ ...editState, cities: updatedCities });
+                                        }}
+                                        className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1 outline-none text-[11px] rounded"
+                                      />
+                                      <CloudinaryUpload 
+                                        label="Upload" 
+                                        onUploadComplete={(url) => {
+                                          const updatedCities = [...editState.cities];
+                                          updatedCities[editingCityIdx].attractions[aIdx].image = url;
+                                          setEditState({ ...editState, cities: updatedCities });
+                                        }} 
+                                        showStatus={showStatus} 
+                                      />
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
-                              <div className="col-span-full space-y-1">
-                                <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Description (Monuments Listing Overview)</label>
-                                <textarea 
-                                  value={attr.desc || ""}
-                                  onChange={e => {
-                                    const updatedCities = [...editState.cities];
-                                    updatedCities[editingCityIdx].attractions[aIdx].desc = e.target.value;
-                                    setEditState({ ...editState, cities: updatedCities });
-                                  }}
-                                  className="w-full h-16 bg-[#FAF8F5] border border-gold/10 p-2 outline-none text-[11px] rounded"
-                                />
-                              </div>
                             </div>
-                          </div>
-                        ))}
+                          );
+                        })}
                       </div>
                     )}
                   </div>
