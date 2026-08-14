@@ -139,7 +139,7 @@ export default function Header({ locale }: HeaderProps) {
   const textColor = scrolled ? "text-white/80 hover:text-gold" : "text-royal hover:text-gold";
 
   const linkClass = (path: string) => {
-    const base = "text-[11px] font-bold uppercase tracking-[0.12em] xl:tracking-[0.18em] whitespace-nowrap transition-all duration-300 relative py-1";
+    const base = "text-[10px] xl:text-[10.5px] 2xl:text-[11px] font-bold uppercase tracking-[0.08em] xl:tracking-[0.10em] 2xl:tracking-[0.15em] whitespace-nowrap transition-all duration-300 relative py-1";
     const activeColor = "text-gold";
     const inactiveColor = "text-royal hover:text-gold";
     return `${base} ${isActive(path) ? activeColor : inactiveColor}`;
@@ -207,7 +207,7 @@ export default function Header({ locale }: HeaderProps) {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-5 xl:gap-7 shrink-0">
+          <nav className="hidden xl:flex items-center gap-3 xl:gap-4 2xl:gap-6 shrink-0">
             
             {/* Home Link */}
             <Link
@@ -381,7 +381,7 @@ export default function Header({ locale }: HeaderProps) {
           </nav>
 
           {/* Right Action Menu */}
-          <div className="hidden xl:flex items-center gap-5 z-20">
+          <div className="hidden xl:flex items-center gap-3 2xl:gap-5 z-20">
             
             {/* Globe Language Toggle */}
             <div className="relative">

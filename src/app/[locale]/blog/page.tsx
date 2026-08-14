@@ -7,10 +7,13 @@ import Reveal from "@/components/home/Reveal";
 
 interface BlogIndexPageProps {
   params: Promise<{ locale: string }>;
+  searchParams?: Promise<{ category?: string }>;
 }
 
-export default async function BlogIndexPage({ params }: BlogIndexPageProps) {
+export default async function BlogIndexPage({ params, searchParams }: BlogIndexPageProps) {
   const { locale } = await params;
+  const resolvedSearchParams = await searchParams;
+  const activeCategory = resolvedSearchParams?.category || "";
   const blogs = await getBlogsAction();
 
   const t: Record<string, any> = {
@@ -56,9 +59,11 @@ export default async function BlogIndexPage({ params }: BlogIndexPageProps) {
   };
   const text = t[locale] || t.en;
 
-  const featuredBlog = blogs[0];
-  const remainingBlogs = blogs.slice(1);
   const categoriesList = Array.from(new Set(blogs.map((b: any) => b.category))).filter(Boolean);
+  const featuredBlog = activeCategory ? null : blogs[0];
+  const displayBlogs = activeCategory
+    ? blogs.filter((b: any) => (b.category || "").toLowerCase() === activeCategory.toLowerCase())
+    : blogs.slice(1);
 
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
@@ -123,11 +128,29 @@ export default async function BlogIndexPage({ params }: BlogIndexPageProps) {
         <section className="bg-[#FAF8F5] border-y border-gold/15 py-8">
           <div className="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-between gap-6">
             <span className="text-xs uppercase tracking-wider font-bold text-royal">{text.categories}:</span>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2.5">
+              <Link
+                href={`/${locale}/blog`}
+                className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-300 ${
+                  !activeCategory
+                    ? "bg-gold text-royal border border-gold"
+                    : "bg-white text-royal border border-gold/10 hover:border-gold/30"
+                }`}
+              >
+                All Stories
+              </Link>
               {categoriesList.map((cat: any) => (
-                <span key={cat} className="px-5 py-2.5 bg-white border border-gold/10 rounded-full text-xs font-bold text-royal uppercase tracking-wider shadow-sm">
+                <Link
+                  key={cat}
+                  href={`/${locale}/blog?category=${encodeURIComponent(cat)}`}
+                  className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-300 ${
+                    activeCategory.toLowerCase() === cat.toLowerCase()
+                      ? "bg-gold text-royal border border-gold"
+                      : "bg-white text-royal border border-gold/10 hover:border-gold/30"
+                  }`}
+                >
                   {cat}
-                </span>
+                </Link>
               ))}
             </div>
           </div>
@@ -137,11 +160,13 @@ export default async function BlogIndexPage({ params }: BlogIndexPageProps) {
       {/* SECTION 4: Latest Diaries Grid (With large, premium cards) */}
       <section className="max-w-7xl mx-auto px-6 py-24 space-y-12">
         <Reveal className="space-y-4">
-          <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold block">{text.latest}</span>
+          <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold block">
+            {activeCategory ? `Diaries in ${activeCategory}` : text.latest}
+          </span>
           <div className="h-px w-16 bg-gold/25" />
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {remainingBlogs.map((blog: BlogData, i: number) => (
+          {displayBlogs.map((blog: BlogData, i: number) => (
             <Reveal key={blog.slug} delay={i * 80}>
               <Link href={`/${locale}/blog/${blog.slug}`} className="group block h-full">
                 <div className="bg-white border border-gold/10 overflow-hidden shadow-lg flex flex-col h-full transition-all duration-500 hover:-translate-y-3 hover:border-gold/25 hover:shadow-2xl">

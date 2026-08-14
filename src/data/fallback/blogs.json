@@ -55,7 +55,7 @@
     },
     "featuredImage": "/images/team_anita.png",
     "author": "Anita Sharma",
-    "category": "Safety & Tips",
+    "category": "Travel Guides",
     "tags": [
       "Solo Travel",
       "Safety Guide"
@@ -92,7 +92,7 @@
     },
     "featuredImage": "/images/taj_mahal_sunrise.png",
     "author": "Priya Patel",
-    "category": "Planning Guides",
+    "category": "Travel Guides",
     "tags": [
       "Weather Guide",
       "Seasons"
@@ -129,7 +129,7 @@
     },
     "featuredImage": "/images/varanasi_ghats_aarti.png",
     "author": "Rajesh Kumar",
-    "category": "Culture & Arts",
+    "category": "Travel Guides",
     "tags": [
       "Culture",
       "Etiquette"
@@ -240,7 +240,7 @@
     },
     "featuredImage": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=800",
     "author": "Rajesh Kumar",
-    "category": "Cultural Guides",
+    "category": "Travel Guides",
     "tags": [
       "Festivals",
       "Diwali",
@@ -392,7 +392,7 @@
     },
     "featuredImage": "/images/indian_cuisine_feast.png",
     "author": "Rajesh Kumar",
-    "category": "Indian Food",
+    "category": "Travel Guides",
     "tags": [
       "Street Food",
       "Food Guide",
@@ -430,7 +430,7 @@
     },
     "featuredImage": "/images/rajasthan_fort_sunset.png",
     "author": "Elena Rodriguez",
-    "category": "Heritage & History",
+    "category": "Travel Guides",
     "tags": [
       "Rajasthan",
       "Palaces",
@@ -468,7 +468,7 @@
     },
     "featuredImage": "/images/ranthambore_tiger_safari.png",
     "author": "Rajesh Kumar",
-    "category": "Wildlife & Nature",
+    "category": "Travel Guides",
     "tags": [
       "Wildlife",
       "Photography",
@@ -506,7 +506,7 @@
     },
     "featuredImage": "/images/taj_mahal_sunrise.png",
     "author": "Priya Patel",
-    "category": "Planning Guides",
+    "category": "Travel Guides",
     "tags": [
       "Budget Travel",
       "Luxury",
@@ -544,7 +544,7 @@
     },
     "featuredImage": "/images/kerala 3.jpg",
     "author": "Anita Sharma",
-    "category": "Seasonal Guides",
+    "category": "Travel Guides",
     "tags": [
       "Monsoon",
       "Rainy Season",
@@ -620,7 +620,7 @@
     },
     "featuredImage": "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800",
     "author": "Elena Rodriguez",
-    "category": "Itineraries",
+    "category": "Travel Guides",
     "tags": [
       "Golden Triangle",
       "Delhi",
@@ -659,7 +659,7 @@
     },
     "featuredImage": "/images/kerala_backwaters_houseboat.png",
     "author": "Anita Sharma",
-    "category": "Romance & Honeymoon",
+    "category": "Luxury Travel",
     "tags": [
       "Honeymoon",
       "Romantic",
@@ -697,7 +697,7 @@
     },
     "featuredImage": "/images/himachal pradesh.jpg",
     "author": "Rajesh Kumar",
-    "category": "Transport & Routes",
+    "category": "Travel Guides",
     "tags": [
       "Railways",
       "Heritage",
@@ -735,7 +735,7 @@
     },
     "featuredImage": "/images/kerala 2.jpg",
     "author": "Elena Rodriguez",
-    "category": "Responsible Travel",
+    "category": "Travel Guides",
     "tags": [
       "Sustainable",
       "Eco-Tourism",

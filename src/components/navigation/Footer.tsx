@@ -227,9 +227,9 @@ export default function Footer({ locale }: FooterProps) {
         {/* Bottom copyright details bar */}
         <div className="border-t border-royal/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-royal/60 font-light">
           <div>
-            <span>&copy; {labels.copyright} | {labels.designedBy} </span>
-            <a href="https://jainup.com" target="_blank" rel="noopener noreferrer" className="text-[#C5A862] hover:text-[#C5A862]/80 hover:underline font-semibold transition-colors duration-200">
-              Jainup
+            <span>&copy; {labels.copyright} | </span>
+            <a href="https://jainup.in" target="_blank" rel="noopener noreferrer" className="text-[#C5A862] hover:text-[#C5A862]/80 hover:underline font-semibold transition-colors duration-200">
+              JAINUP | Growth System
             </a>
           </div>
           <div className="flex flex-wrap justify-center gap-6">
