@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { X, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { createInquiryAction } from "@/app/actions/inquiry";
 
@@ -9,6 +10,10 @@ interface PopupInquiryFormProps {
 }
 
 export default function PopupInquiryForm({ locale }: PopupInquiryFormProps) {
+  const pathname = usePathname();
+  if (pathname?.includes("/admin")) {
+    return null;
+  }
   const [isOpen, setIsOpen] = useState(false);
   const [form, setForm] = useState({
     name: "",

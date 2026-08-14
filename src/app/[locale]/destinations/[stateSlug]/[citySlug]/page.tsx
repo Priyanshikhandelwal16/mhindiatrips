@@ -176,13 +176,13 @@ export default async function CityDetailPage({ params }: CityPageProps) {
                 {cityHistory && (
                   <div className="bg-white border border-beige/45 p-6 md:p-8 space-y-3 rounded-3xl shadow-sm">
                     <h4 className="text-[10px] font-bold uppercase tracking-wider text-gold">{text.history}</h4>
-                    <p className="text-xs text-royal/70 leading-relaxed font-light">{cityHistory}</p>
+                    <p className="text-[13px] md:text-sm text-royal/85 leading-relaxed font-light">{cityHistory}</p>
                   </div>
                 )}
                 {cityCulture && (
                   <div className="bg-white border border-beige/45 p-6 md:p-8 space-y-3 rounded-3xl shadow-sm">
                     <h4 className="text-[10px] font-bold uppercase tracking-wider text-gold">{text.culture}</h4>
-                    <p className="text-xs text-royal/70 leading-relaxed font-light">{cityCulture}</p>
+                    <p className="text-[13px] md:text-sm text-royal/85 leading-relaxed font-light">{cityCulture}</p>
                   </div>
                 )}
               </Reveal>
@@ -228,7 +228,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
                                   {locale === "es" ? "Época" : locale === "pt" ? "Época" : "Era"}: {att.era}
                                 </span>
                               )}
-                              <p className="text-xs text-royal/60 leading-relaxed font-light">{attDesc}</p>
+                              <p className="text-[13px] md:text-sm text-royal/85 leading-relaxed font-light">{attDesc}</p>
                             </div>
                             {(attTimings || attInfo) && (
                               <div className="flex flex-wrap items-center gap-3 pt-3 border-t border-beige/25 text-[9px] font-bold text-royal/40 uppercase tracking-wider">
@@ -264,7 +264,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
                   {city.thingsToDo.map((item: any, idx: number) => (
                     <div key={idx} className="bg-white border border-beige/45 p-6 flex items-start gap-3.5 rounded-3xl shadow-sm">
                       <span className="text-gold text-xl font-serif font-extrabold shrink-0">0{idx + 1}.</span>
-                      <p className="text-xs text-royal/80 leading-relaxed font-light">{item?.[lang] || item?.en}</p>
+                      <p className="text-[13px] md:text-sm text-royal/85 leading-relaxed font-light">{item?.[lang] || item?.en}</p>
                     </div>
                   ))}
                 </div>
@@ -293,7 +293,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
                       
                       <div className="space-y-1.5">
                         <h4 className="text-sm font-bold text-royal font-serif tracking-tight">{item.dayTitle}</h4>
-                        <p className="text-xs text-royal/70 leading-relaxed font-light bg-white border border-beige/35 p-5 rounded-2xl shadow-sm">
+                        <p className="text-[13px] md:text-sm text-royal/85 leading-relaxed font-light bg-white border border-beige/35 p-5 rounded-2xl shadow-sm">
                           {item.dayDesc}
                         </p>
                       </div>
@@ -317,7 +317,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
                         <h4 className="text-sm font-bold text-royal font-serif">{hotel.name}</h4>
                         <span className="text-[8px] bg-royal/10 text-royal px-2.5 py-0.5 rounded font-extrabold border border-gold/15 uppercase">{hotel.tier}</span>
                       </div>
-                      <p className="text-xs text-royal/60 font-light leading-relaxed">{hotel.desc?.[lang] || hotel.desc?.en}</p>
+                      <p className="text-[13px] md:text-sm text-royal/85 font-light leading-relaxed">{hotel.desc?.[lang] || hotel.desc?.en}</p>
                     </div>
                   ))}
                 </div>
@@ -334,11 +334,11 @@ export default async function CityDetailPage({ params }: CityPageProps) {
                 <div className="space-y-3">
                   {city.faqs.map((faq: any, idx: number) => (
                     <details key={idx} className="group bg-white border border-beige/45 overflow-hidden rounded-2xl shadow-sm" open={idx === 0}>
-                      <summary className="flex items-center justify-between p-5 cursor-pointer text-xs font-bold text-royal hover:bg-[#FAF8F5] transition-colors list-none">
+                      <summary className="flex items-center justify-between p-5 cursor-pointer text-[13px] md:text-sm font-bold text-royal hover:bg-[#FAF8F5] transition-colors list-none">
                         <span>{faq.q?.[lang] || faq.q?.en}</span>
                         <ArrowRight className="w-4 h-4 text-gold transition-transform group-open:rotate-90 shrink-0 ml-2" />
                       </summary>
-                      <div className="px-5 pb-5 text-xs text-royal/60 leading-relaxed font-light border-t border-beige/25 pt-4">
+                      <div className="px-5 pb-5 text-[13px] md:text-sm text-royal/85 leading-relaxed font-light border-t border-beige/25 pt-4">
                         {faq.a?.[lang] || faq.a?.en}
                       </div>
                     </details>

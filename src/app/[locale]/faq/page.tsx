@@ -90,32 +90,38 @@ export default async function FAQPage({ params }: FAQPageProps) {
   }
   const text = mergedT[locale] || mergedT.en;
 
-  const faqs = [
-    {
-      q: locale === "es" ? "¿Es seguro viajar a la India?" : locale === "pt" ? "É seguro viajar para a Índia?" : "Is it safe to travel to India?",
-      a: locale === "es" ? "Sí, la India es generalmente segura para turistas. Nuestros guías expertos aseguran su comodidad y seguridad en todo momento." : locale === "pt" ? "Sim, a Índia é geralmente segura para turistas. Nossos guias especialistas garantem seu conforto e segurança em todos os momentos." : "Yes, India is generally safe for tourists. Our expert guides ensure your comfort and security at all times. We carefully plan routes and accommodations for the safest experience.",
-    },
-    {
-      q: locale === "es" ? "¿Cuál es la mejor época para visitar la India?" : locale === "pt" ? "Qual é a melhor época para visitar a Índia?" : "What is the best time to visit India?",
-      a: locale === "es" ? "Octubre a marzo es ideal para la mayoría de regiones. El sur se puede visitar todo el año. Le ayudaremos a elegir según su itinerario." : locale === "pt" ? "Outubro a março é ideal para a maioria das regiões. O sul pode ser visitado durante todo o ano." : "October to March is ideal for most regions. South India can be visited year-round. We'll help you choose the perfect timing based on your itinerary and interests.",
-    },
-    {
-      q: locale === "es" ? "¿Necesito visa para la India?" : locale === "pt" ? "Preciso de visto para a Índia?" : "Do I need a visa for India?",
-      a: locale === "es" ? "Sí, la mayoría de nacionalidades necesitan visa. La e-Visa online es la opción más fácil y la procesamos en 72 horas." : locale === "pt" ? "Sim, a maioria das nacionalidades precisa de visto. O e-Visa online é a opção mais fácil." : "Yes, most nationalities require a visa. The e-Visa (online) is the easiest option and is typically processed within 72 hours. We provide guidance on the application process.",
-    },
-    {
-      q: locale === "es" ? "¿Cómo funcionan sus tours privados?" : locale === "pt" ? "Como funcionam seus tours privados?" : "How do your private tours work?",
-      a: locale === "es" ? "Cada tour se diseña completamente a medida. Usted elige destinos, duración, nivel de lujo y actividades." : locale === "pt" ? "Cada tour é desenhado completamente sob medida. Você escolhe destinos, duração e atividades." : "Every tour is fully customized. You choose destinations, duration, luxury level, and activities. We handle all logistics including transport, accommodation, guides, and experiences.",
-    },
-    {
-      q: locale === "es" ? "¿Cuánto cuesta un viaje a la India?" : locale === "pt" ? "Quanto custa uma viagem à Índia?" : "How much does a trip to India cost?",
-      a: locale === "es" ? "Los precios varían según la duración, nivel de lujo y destinos. Tours de lujo empiezan desde $200/día por persona." : locale === "pt" ? "Os preços variam conforme duração, nível de luxo e destinos. Tours de luxo começam em $200/dia por pessoa." : "Pricing varies based on duration, luxury level, and destinations. Luxury tours typically start from $200/day per person. Contact us for a personalized quote.",
-    },
-    {
-      q: locale === "es" ? "¿Qué incluyen sus paquetes?" : locale === "pt" ? "O que incluem seus pacotes?" : "What's included in your packages?",
-      a: locale === "es" ? "Nuestros paquetes incluyen alojamiento, transporte privado, guías, entradas a monumentos y experiencias culturales." : locale === "pt" ? "Nossos pacotes incluem alojamento, transporte privado, guias, entradas a monumentos e experiências culturais." : "Our packages include accommodation, private transport, expert guides, monument entries, and curated cultural experiences. Meals and flights can be added.",
-    },
-  ];
+  const dbFaqs = pageData?.content?.faqs || [];
+  const faqs = dbFaqs.length > 0 
+    ? dbFaqs.map((f: any) => ({
+        q: f.q?.[locale] || f.q?.en || "",
+        a: f.a?.[locale] || f.a?.en || ""
+      }))
+    : [
+        {
+          q: locale === "es" ? "¿Es seguro viajar a la India?" : locale === "pt" ? "É seguro viajar para a Índia?" : "Is it safe to travel to India?",
+          a: locale === "es" ? "Sí, la India es generalmente segura para turistas. Nuestros guías expertos aseguran su comodidad y seguridad en todo momento." : locale === "pt" ? "Sim, a Índia é geralmente segura para turistas. Nossos guias especialistas garantem seu conforto e segurança em todos os momentos." : "Yes, India is generally safe for tourists. Our expert guides ensure your comfort and security at all times. We carefully plan routes and accommodations for the safest experience.",
+        },
+        {
+          q: locale === "es" ? "¿Cuál es la mejor época para visitar la India?" : locale === "pt" ? "Qual é a melhor época para visitar a Índia?" : "What is the best time to visit India?",
+          a: locale === "es" ? "Octubre a marzo es ideal para la mayoría de regiones. El sur se puede visitar todo el año. Le ayudaremos a elegir según su itinerario." : locale === "pt" ? "Outubro a março é ideal para a maioria das regiões. O sul pode ser visitado durante todo o ano." : "October to March is ideal for most regions. South India can be visited year-round. We'll help you choose the perfect timing based on your itinerary and interests.",
+        },
+        {
+          q: locale === "es" ? "¿Necesito visa para la India?" : locale === "pt" ? "Preciso de visto para a Índia?" : "Do I need a visa for India?",
+          a: locale === "es" ? "Sí, la mayoría de nacionalidades necesitan visa. La e-Visa online es la opción más fácil y la procesamos en 72 horas." : locale === "pt" ? "Sim, a maioria das nacionalidades precisa de visto. O e-Visa online é a opção mais fácil." : "Yes, most nationalities require a visa. The e-Visa (online) is the easiest option and is typically processed within 72 hours. We provide guidance on the application process.",
+        },
+        {
+          q: locale === "es" ? "¿Cómo funcionan sus tours privados?" : locale === "pt" ? "Como funcionam seus tours privados?" : "How do your private tours work?",
+          a: locale === "es" ? "Cada tour se diseña completamente a medida. Usted elige destinos, duración, nivel de lujo y actividades." : locale === "pt" ? "Cada tour é desenhado completamente sob medida. Você escolhe destinos, duração e atividades." : "Every tour is fully customized. You choose destinations, duration, luxury level, and activities. We handle all logistics including transport, accommodation, guides, and experiences.",
+        },
+        {
+          q: locale === "es" ? "¿Cuánto cuesta un viaje a la India?" : locale === "pt" ? "Quanto custa uma viagem à Índia?" : "How much does a trip to India cost?",
+          a: locale === "es" ? "Los precios varían según la duración, nivel de lujo y destinos. Tours de lujo empiezan desde $200/día por persona." : locale === "pt" ? "Os preços variam conforme duração, nível de luxo e destinos. Tours de luxo começam em $200/dia por pessoa." : "Pricing varies based on duration, luxury level, and destinations. Luxury tours typically start from $200/day per person. Contact us for a personalized quote.",
+        },
+        {
+          q: locale === "es" ? "¿Qué incluyen sus paquetes?" : locale === "pt" ? "O que incluem seus pacotes?" : "What's included in your packages?",
+          a: locale === "es" ? "Nuestros paquetes incluyen alojamiento, transporte privado, guías, entradas a monumentos y experiencias culturales." : locale === "pt" ? "Nossos pacotes incluem alojamento, transporte privado, guias, entradas a monumentos e experiências culturais." : "Our packages include accommodation, private transport, expert guides, monument entries, and curated cultural experiences. Meals and flights can be added.",
+        },
+      ];
 
   return (
     <div className="bg-[#FAF8F5] min-h-screen text-[#1B1B1B] font-sans">
@@ -227,7 +233,7 @@ export default async function FAQPage({ params }: FAQPageProps) {
           </Reveal>
 
           <div className="space-y-5">
-            {faqs.map((faq, i) => (
+            {faqs.map((faq: { q: string; a: string }, i: number) => (
               <Reveal key={i} delay={i * 50}>
                 <details className="group p-8 border border-gold/10 bg-white hover:border-gold/30 transition-all duration-300 cursor-pointer shadow-sm relative overflow-hidden">
                   <summary className="flex items-center justify-between text-base md:text-lg font-serif font-bold text-royal cursor-pointer list-none">

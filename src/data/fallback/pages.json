@@ -783,7 +783,81 @@
         "en": "Everything you need to know before visiting India",
         "es": "Todo lo que necesitas saber antes de visitar India",
         "pt": "Tudo o que precisa saber antes de visitar a Índia"
-      }
+      },
+      "faqs": [
+        {
+          "q": {
+            "en": "Is it safe to travel to India?",
+            "es": "¿Es seguro viajar a la India?",
+            "pt": "É seguro viajar para a Índia?"
+          },
+          "a": {
+            "en": "Yes, India is generally safe for tourists. Our expert guides ensure your comfort and security at all times. We carefully plan routes and accommodations for the safest experience.",
+            "es": "Sí, la India es generalmente segura para turistas. Nuestros guías expertos aseguran su comodidad y seguridad en todo momento.",
+            "pt": "Sim, a Índia é geralmente segura para turistas. Nossos guias especialistas garantem seu conforto e segurança em todos os momentos."
+          }
+        },
+        {
+          "q": {
+            "en": "What is the best time to visit India?",
+            "es": "¿Cuál es la mejor época para visitar la India?",
+            "pt": "Qual é a melhor época para visitar a Índia?"
+          },
+          "a": {
+            "en": "October to March is ideal for most regions. South India can be visited year-round. We'll help you choose the perfect timing based on your itinerary and interests.",
+            "es": "Octubre a marzo es ideal para la mayoría de regiones. El sur se puede visitar todo el año. Le ayudaremos a elegir según su itinerario.",
+            "pt": "Outubro a março é ideal para a maioria das regiões. O sul pode ser visitado durante todo o ano."
+          }
+        },
+        {
+          "q": {
+            "en": "Do I need a visa for India?",
+            "es": "¿Necesito visa para la India?",
+            "pt": "Preciso de visto para a Índia?"
+          },
+          "a": {
+            "en": "Yes, most nationalities require a visa. The e-Visa (online) is the easiest option and is typically processed within 72 hours. We provide guidance on the application process.",
+            "es": "Sí, la mayoría de nacionalidades necesitan visa. La e-Visa online es la opción más fácil y la procesamos en 72 horas.",
+            "pt": "Sim, a maioria das nacionalidades precisa de visto. O e-Visa online é a opção mais fácil."
+          }
+        },
+        {
+          "q": {
+            "en": "How do your private tours work?",
+            "es": "¿Cómo funcionan sus tours privados?",
+            "pt": "Como funcionam seus tours privados?"
+          },
+          "a": {
+            "en": "Every tour is fully customized. You choose destinations, duration, luxury level, and activities. We handle all logistics including transport, accommodation, guides, and experiences.",
+            "es": "Cada tour se diseña completamente a medida. Usted elige destinos, duración, nivel de lujo y actividades.",
+            "pt": "Cada tour é desenhado completamente sob medida. Você escolhe destinos, duração e atividades."
+          }
+        },
+        {
+          "q": {
+            "en": "How much does a trip to India cost?",
+            "es": "¿Cuánto cuesta un viaje a la India?",
+            "pt": "Quanto custa uma viagem à Índia?"
+          },
+          "a": {
+            "en": "Pricing varies based on duration, luxury level, and destinations. Luxury tours typically start from $200/day per person. Contact us for a personalized quote.",
+            "es": "Los precios varían según la duración, nivel de lujo y destinos. Tours de lujo empiezan desde $200/día por persona.",
+            "pt": "Os preços variam conforme duração, nível de luxo e destinos. Tours de luxo começam em $200/dia por pessoa."
+          }
+        },
+        {
+          "q": {
+            "en": "What's included in your packages?",
+            "es": "¿Qué incluyen sus paquetes?",
+            "pt": "O que incluem seus pacotes?"
+          },
+          "a": {
+            "en": "Our packages include accommodation, private transport, expert guides, monument entries, and curated cultural experiences. Meals and flights can be added.",
+            "es": "Nuestros paquetes incluyen alojamiento, transporte privado, guías, entradas a monumentos y experiencias culturales.",
+            "pt": "Nossos pacotes incluem alojamento, transporte privado, guias, entradas a monumentos e experiências culturais."
+          }
+        }
+      ]
     }
   },
   {

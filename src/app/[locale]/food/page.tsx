@@ -99,7 +99,7 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {regFoods.map((food: FoodData) => (
                   <Link key={food.slug} href={`/${locale}/food/${food.slug}`} className="group block">
-                    <div className="bg-white border border-[#C5A862]/10 overflow-hidden rounded-2xl shadow-md flex flex-col h-[440px] transition-all duration-500 hover:-translate-y-2.5 hover:border-[#C5A862]/30 hover:shadow-xl">
+                    <div className="bg-white border border-[#C5A862]/10 overflow-hidden rounded-2xl shadow-md flex flex-col h-[500px] transition-all duration-500 hover:-translate-y-2.5 hover:border-[#C5A862]/30 hover:shadow-xl">
                       
                       {/* Image Frame */}
                       <div className="h-56 overflow-hidden relative shrink-0">

@@ -270,7 +270,9 @@ export default function PagesTab({
                               ? { image: "", title: { en: "", es: "", pt: "" }, desc: { en: "", es: "", pt: "" }, location: { en: "", es: "", pt: "" }, sub: { en: "", es: "", pt: "" }, cta1Text: { en: "", es: "", pt: "" }, cta1Link: "/", cta2Text: { en: "", es: "", pt: "" }, cta2Link: "/" }
                               : key === "stats"
                               ? { value: 0, suffix: "", label: { en: "", es: "", pt: "" } }
-                              : key === "faqs" || key === "howItWorks" || key === "inclusions"
+                              : key === "faqs"
+                              ? { q: { en: "", es: "", pt: "" }, a: { en: "", es: "", pt: "" } }
+                              : key === "howItWorks" || key === "inclusions"
                               ? { title: { en: "", es: "", pt: "" }, desc: { en: "", es: "", pt: "" }, icon: "" }
                               : key === "featuredMonuments"
                               ? { name: "", city: "", state: "", era: "", image: "", desc: "" }

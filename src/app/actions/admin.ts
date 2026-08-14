@@ -12,6 +12,15 @@ export async function updateInquiryStatusAction(id: string, status: string) {
   }
 }
 
+export async function updateInquiryAction(id: string, data: any) {
+  try {
+    const updated = await db.inquiries.update(id, data);
+    return { success: true, updated };
+  } catch (error: any) {
+    return { success: false, error: error.message || "Failed to update inquiry" };
+  }
+}
+
 export async function deleteInquiryAction(id: string) {
   try {
     await db.inquiries.delete(id);

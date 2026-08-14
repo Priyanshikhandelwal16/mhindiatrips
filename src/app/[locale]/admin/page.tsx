@@ -13,7 +13,8 @@ import {
 // Server Actions
 import { getInquiriesAction } from "@/app/actions/inquiry";
 import { 
-  updateInquiryStatusAction, 
+  updateInquiryStatusAction,
+  updateInquiryAction,
   deleteInquiryAction,
   createBlogAction,
   updateBlogAction,
@@ -223,6 +224,18 @@ export default function AdminDashboard() {
       showStatus("Inquiry status updated.", "success");
     } else {
       showStatus(res.error || "Failed to update lead.", "error");
+    }
+  };
+
+  const handleUpdateInquiry = async (id: string, updatedData: any) => {
+    setLoading(true);
+    const res = await updateInquiryAction(id, updatedData);
+    if (res.success) {
+      showStatus("Inquiry updated successfully.", "success");
+      await loadCMSData();
+    } else {
+      showStatus(res.error || "Failed to update inquiry.", "error");
+      setLoading(false);
     }
   };
 
@@ -564,7 +577,7 @@ export default function AdminDashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FCFAF6] flex text-royal relative" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+    <div className="h-screen bg-[#FCFAF6] flex text-royal overflow-hidden relative" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
       {/* Dynamic Status Notifications */}
       {statusMessage && (
         <div className={`fixed top-5 right-5 z-[100] p-4 shadow-xl border flex items-center gap-3 transition-all duration-300 rounded-xl ${
@@ -691,7 +704,7 @@ export default function AdminDashboard() {
       )}
 
       {/* MAIN CONTAINER WORKSPACE */}
-      <div className="flex-grow overflow-y-auto px-6 md:px-10 py-8 md:ml-64 w-full">
+      <div className="flex-grow h-full overflow-y-auto px-6 md:px-10 py-8 md:ml-64 w-full">
         
         {/* UPPER HEADER CONTROLS */}
         <div className="flex justify-between items-center mb-8 border-b border-beige/40 pb-5">
@@ -759,6 +772,7 @@ export default function AdminDashboard() {
                 inquiries={inquiries}
                 onStatusChange={handleStatusChange}
                 onDeleteInquiry={handleDeleteInquiry}
+                onUpdateInquiry={handleUpdateInquiry}
               />
             )}
 

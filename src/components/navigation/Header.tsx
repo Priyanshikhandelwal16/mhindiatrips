@@ -221,7 +221,7 @@ export default function Header({ locale }: HeaderProps) {
             </Link>
 
             {/* Travel Packages Dropdown */}
-            <div className="relative group py-1">
+            <div className="relative group py-2.5">
               <Link
                 href={`/${locale}/packages`}
                 className={linkClass("/packages")}
@@ -233,7 +233,7 @@ export default function Header({ locale }: HeaderProps) {
               </Link>
               
               {/* Dropdown Container */}
-              <div className="absolute left-0 mt-3 w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
+              <div className="absolute left-0 top-full w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
                 <Link
                   href={`/${locale}/packages`}
                   className="block px-5 py-2 text-[10px] font-bold uppercase tracking-wider text-royal/60 border-b border-gold/5 hover:text-gold hover:bg-gold/5 mb-1.5 pb-2"
@@ -264,7 +264,7 @@ export default function Header({ locale }: HeaderProps) {
             </Link>
 
             {/* Destinations Dropdown */}
-            <div className="relative group py-1">
+            <div className="relative group py-2.5">
               <Link
                 href={`/${locale}/destinations`}
                 className={linkClass("/destinations")}
@@ -276,7 +276,7 @@ export default function Header({ locale }: HeaderProps) {
               </Link>
               
               {/* Dropdown Container */}
-              <div className="absolute left-0 mt-3 w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
+              <div className="absolute left-0 top-full w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
                 {destinationsList.map((dest, idx) => {
                   const rawName = dest.name[locale as 'en'|'es'|'pt'] || dest.name.en;
                   let formattedName = rawName;
@@ -331,7 +331,7 @@ export default function Header({ locale }: HeaderProps) {
             </Link>
 
             {/* Traveler Info Dropdown */}
-            <div className="relative group py-1">
+            <div className="relative group py-2.5">
               <Link
                 href={`/${locale}/faq`}
                 className={linkClass("/faq")}
@@ -343,7 +343,7 @@ export default function Header({ locale }: HeaderProps) {
               </Link>
               
               {/* Dropdown Container */}
-              <div className="absolute left-0 mt-3 w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
+              <div className="absolute left-0 top-full w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
                 {infoList.map((info, idx) => (
                   <Link
                     key={idx}

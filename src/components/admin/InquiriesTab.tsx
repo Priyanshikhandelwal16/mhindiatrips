@@ -2,22 +2,26 @@
 
 import React, { useState } from "react";
 import { 
-  Users, Mail, Phone, Calendar, Search, Trash2, Globe, MapPin, ClipboardList 
+  Users, Mail, Phone, Calendar, Search, Trash2, Globe, MapPin, ClipboardList, Edit2
 } from "lucide-react";
 
 interface InquiriesTabProps {
   inquiries: any[];
   onStatusChange: (id: string, newStatus: string) => void;
   onDeleteInquiry: (id: string) => void;
+  onUpdateInquiry: (id: string, updatedData: any) => void;
 }
 
 export default function InquiriesTab({
   inquiries,
   onStatusChange,
-  onDeleteInquiry
+  onDeleteInquiry,
+  onUpdateInquiry
 }: InquiriesTabProps) {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("ALL");
+  const [editingInquiryId, setEditingInquiryId] = useState<string | null>(null);
+  const [editInqData, setEditInqData] = useState<any>(null);
 
   const filteredInquiries = inquiries.filter((inq) => {
     const matchesSearch = 
@@ -90,121 +94,259 @@ export default function InquiriesTab({
                 inq.status === "NEW" || !inq.status ? "border-l-4 border-l-amber-500 border-beige/45" : "border-beige/45"
               }`}
             >
-              {/* Header: User details */}
-              <div className="space-y-3">
-                <div className="flex justify-between items-start">
-                  <div className="space-y-1">
-                    <h3 className="text-base font-bold text-royal font-serif tracking-tight">{inq.name}</h3>
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-royal/50 text-[10px]">
-                      {inq.email && (
-                        <a href={`mailto:${inq.email}`} className="flex items-center gap-1 hover:text-gold transition">
-                          <Mail className="w-3.5 h-3.5" />
-                          <span>{inq.email}</span>
-                        </a>
+              {editingInquiryId === inq.id ? (
+                /* EDIT FORM */
+                <form 
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    onUpdateInquiry(inq.id, editInqData);
+                    setEditingInquiryId(null);
+                  }}
+                  className="space-y-4 w-full"
+                >
+                  <div className="space-y-3">
+                    <h3 className="text-xs font-bold text-gold uppercase tracking-wider border-b border-gold/10 pb-1.5 font-serif">Edit Inquiry details</h3>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <div className="space-y-1">
+                        <label className="text-[8px] uppercase tracking-wider font-bold text-royal/40">Full Name</label>
+                        <input 
+                          type="text" required
+                          value={editInqData.name || ""}
+                          onChange={e => setEditInqData({ ...editInqData, name: e.target.value })}
+                          className="w-full bg-[#FAF8F5] border border-gold/10 px-2.5 py-1.5 outline-none rounded-lg text-[11px]"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[8px] uppercase tracking-wider font-bold text-royal/40">Email Address</label>
+                        <input 
+                          type="email" required
+                          value={editInqData.email || ""}
+                          onChange={e => setEditInqData({ ...editInqData, email: e.target.value })}
+                          className="w-full bg-[#FAF8F5] border border-gold/10 px-2.5 py-1.5 outline-none rounded-lg text-[11px]"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <div className="space-y-1">
+                        <label className="text-[8px] uppercase tracking-wider font-bold text-royal/40">Phone Number</label>
+                        <input 
+                          type="text"
+                          value={editInqData.phone || ""}
+                          onChange={e => setEditInqData({ ...editInqData, phone: e.target.value })}
+                          className="w-full bg-[#FAF8F5] border border-gold/10 px-2.5 py-1.5 outline-none rounded-lg text-[11px]"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[8px] uppercase tracking-wider font-bold text-royal/40">Origin Country</label>
+                        <input 
+                          type="text"
+                          value={editInqData.country || ""}
+                          onChange={e => setEditInqData({ ...editInqData, country: e.target.value })}
+                          className="w-full bg-[#FAF8F5] border border-gold/10 px-2.5 py-1.5 outline-none rounded-lg text-[11px]"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-2 bg-[#FAF8F5] p-3 rounded-xl border border-beige/10">
+                      <div className="space-y-1">
+                        <label className="text-[8px] uppercase tracking-wider font-bold text-royal/40 block">Guests</label>
+                        <input 
+                          type="number" min="1" required
+                          value={editInqData.travelers || "1"}
+                          onChange={e => setEditInqData({ ...editInqData, travelers: parseInt(e.target.value) || 1 })}
+                          className="w-full bg-white border border-gold/10 px-2 py-1 outline-none rounded text-[11px] font-bold"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[8px] uppercase tracking-wider font-bold text-royal/40 block">Start Date</label>
+                        <input 
+                          type="text"
+                          value={editInqData.startDate || ""}
+                          placeholder="Flexible"
+                          onChange={e => setEditInqData({ ...editInqData, startDate: e.target.value })}
+                          className="w-full bg-white border border-gold/10 px-2 py-1 outline-none rounded text-[11px] font-bold"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[8px] uppercase tracking-wider font-bold text-royal/40 block">Duration (Days)</label>
+                        <input 
+                          type="number" min="1"
+                          value={editInqData.duration || ""}
+                          onChange={e => setEditInqData({ ...editInqData, duration: parseInt(e.target.value) || "" })}
+                          className="w-full bg-white border border-gold/10 px-2 py-1 outline-none rounded text-[11px] font-bold"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-1">
+                      <label className="text-[8px] uppercase tracking-wider font-bold text-royal/40">Experience Style</label>
+                      <input 
+                        type="text"
+                        value={editInqData.experience || ""}
+                        placeholder="Heritage / Wellness / Luxury / Wildlife"
+                        onChange={e => setEditInqData({ ...editInqData, experience: e.target.value })}
+                        className="w-full bg-[#FAF8F5] border border-gold/10 px-2.5 py-1.5 outline-none rounded-lg text-[11px]"
+                      />
+                    </div>
+
+                    <div className="space-y-1">
+                      <label className="text-[8px] uppercase tracking-wider font-bold text-royal/40">Client Notes / Message</label>
+                      <textarea 
+                        value={editInqData.message || ""}
+                        onChange={e => setEditInqData({ ...editInqData, message: e.target.value })}
+                        className="w-full h-20 bg-[#FAF8F5] border border-gold/10 p-2 outline-none rounded-lg text-[11px] leading-normal"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex gap-2 pt-2 border-t border-gold/10 justify-end">
+                    <button 
+                      type="submit" 
+                      className="bg-royal text-white px-4 py-2 font-bold uppercase tracking-wider text-[9px] rounded-lg shadow cursor-pointer hover:bg-gold hover:text-royal transition"
+                    >
+                      Save Lead
+                    </button>
+                    <button 
+                      type="button" 
+                      onClick={() => setEditingInquiryId(null)}
+                      className="bg-beige/35 text-royal px-4 py-2 font-bold uppercase tracking-wider text-[9px] rounded-lg cursor-pointer"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              ) : (
+                /* NORMAL DISPLAY */
+                <>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-start">
+                      <div className="space-y-1">
+                        <h3 className="text-base font-bold text-royal font-serif tracking-tight">{inq.name}</h3>
+                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-royal/50 text-[10px]">
+                          {inq.email && (
+                            <a href={`mailto:${inq.email}`} className="flex items-center gap-1 hover:text-gold transition">
+                              <Mail className="w-3.5 h-3.5" />
+                              <span>{inq.email}</span>
+                            </a>
+                          )}
+                          {inq.phone && (
+                            <a href={`tel:${inq.phone}`} className="flex items-center gap-1 hover:text-gold transition">
+                              <Phone className="w-3.5 h-3.5" />
+                              <span>{inq.phone}</span>
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center gap-1.5">
+                        <button 
+                          onClick={() => {
+                            setEditingInquiryId(inq.id);
+                            setEditInqData({ ...inq });
+                          }}
+                          className="text-royal/35 hover:text-gold transition p-1 hover:bg-gold/5 rounded-lg cursor-pointer animate-none"
+                          title="Edit Lead Details"
+                        >
+                          <Edit2 className="w-3.5 h-3.5" />
+                        </button>
+                        <button 
+                          onClick={() => onDeleteInquiry(inq.id)}
+                          className="text-royal/35 hover:text-red-600 transition p-1 hover:bg-red-50 rounded-lg cursor-pointer"
+                          title="Delete Lead"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Travel Details Grid */}
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 bg-light-gray/40 p-4 rounded-2xl border border-beige/10">
+                      <div className="space-y-0.5">
+                        <span className="text-[9px] uppercase tracking-wider text-royal/40 font-bold block">Travelers</span>
+                        <span className="font-bold">{inq.travelers} guest{inq.travelers !== 1 && "s"}</span>
+                      </div>
+                      <div className="space-y-0.5">
+                        <span className="text-[9px] uppercase tracking-wider text-royal/40 font-bold block">Start Date</span>
+                        <span className="font-bold">{inq.startDate || "Flexible"}</span>
+                      </div>
+                      <div className="space-y-0.5">
+                        <span className="text-[9px] uppercase tracking-wider text-royal/40 font-bold block">Duration</span>
+                        <span className="font-bold">{inq.duration ? `${inq.duration} days` : "TBD"}</span>
+                      </div>
+                      {inq.country && (
+                        <div className="space-y-0.5">
+                          <span className="text-[9px] uppercase tracking-wider text-royal/40 font-bold block">Origin Country</span>
+                          <span className="font-bold flex items-center gap-1">
+                            <Globe className="w-3.5 h-3.5 text-royal/40" />
+                            {inq.country}
+                          </span>
+                        </div>
                       )}
-                      {inq.phone && (
-                        <a href={`tel:${inq.phone}`} className="flex items-center gap-1 hover:text-gold transition">
-                          <Phone className="w-3.5 h-3.5" />
-                          <span>{inq.phone}</span>
-                        </a>
+                      {inq.experience && (
+                        <div className="space-y-0.5">
+                          <span className="text-[9px] uppercase tracking-wider text-royal/40 font-bold block">Experience Style</span>
+                          <span className="font-bold text-gold uppercase tracking-wider text-[9px]">{inq.experience}</span>
+                        </div>
                       )}
                     </div>
-                  </div>
-                  
-                  <button 
-                    onClick={() => onDeleteInquiry(inq.id)}
-                    className="text-royal/35 hover:text-red-600 transition p-1 hover:bg-red-50 rounded-lg cursor-pointer"
-                    title="Delete Lead"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
-                </div>
 
-                {/* Travel Details Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 bg-light-gray/40 p-4 rounded-2xl border border-beige/10">
-                  <div className="space-y-0.5">
-                    <span className="text-[9px] uppercase tracking-wider text-royal/40 font-bold block">Travelers</span>
-                    <span className="font-bold">{inq.travelers} guest{inq.travelers !== 1 && "s"}</span>
+                    {/* Destinations array */}
+                    {inq.destinations && inq.destinations.length > 0 && (
+                      <div className="space-y-1">
+                        <span className="text-[9px] uppercase tracking-wider text-royal/40 font-bold block">Interested Regions</span>
+                        <div className="flex flex-wrap gap-1.5">
+                          {inq.destinations.map((d: string, idx: number) => (
+                            <span key={idx} className="bg-royal/5 text-royal px-2.5 py-1 rounded-lg text-[9px] font-bold border border-beige/40">
+                              {d}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Message */}
+                    {inq.message && (
+                      <div className="space-y-1 bg-beige/10 border border-beige/25 p-4 rounded-2xl">
+                        <span className="text-[9px] uppercase tracking-wider text-royal/40 font-bold block">Client Notes</span>
+                        <p className="text-royal/80 leading-relaxed font-light whitespace-pre-wrap">{inq.message}</p>
+                      </div>
+                    )}
                   </div>
-                  <div className="space-y-0.5">
-                    <span className="text-[9px] uppercase tracking-wider text-royal/40 font-bold block">Start Date</span>
-                    <span className="font-bold">{inq.startDate || "Flexible"}</span>
-                  </div>
-                  <div className="space-y-0.5">
-                    <span className="text-[9px] uppercase tracking-wider text-royal/40 font-bold block">Duration</span>
-                    <span className="font-bold">{inq.duration ? `${inq.duration} days` : "TBD"}</span>
-                  </div>
-                  {inq.country && (
-                    <div className="space-y-0.5">
-                      <span className="text-[9px] uppercase tracking-wider text-royal/40 font-bold block">Origin Country</span>
-                      <span className="font-bold flex items-center gap-1">
-                        <Globe className="w-3.5 h-3.5 text-royal/40" />
-                        {inq.country}
-                      </span>
+
+                  {/* Status Update & Date Footer */}
+                  <div className="flex justify-between items-center pt-4 border-t border-beige/20">
+                    <div className="flex items-center gap-1.5 text-royal/35 text-[9px] font-light">
+                      <Calendar className="w-3.5 h-3.5" />
+                      <span>Submitted: {inq.createdAt ? inq.createdAt.split("T")[0] : "Just now"}</span>
                     </div>
-                  )}
-                  {inq.experience && (
-                    <div className="space-y-0.5">
-                      <span className="text-[9px] uppercase tracking-wider text-royal/40 font-bold block">Experience Style</span>
-                      <span className="font-bold text-gold uppercase tracking-wider text-[9px]">{inq.experience}</span>
-                    </div>
-                  )}
-                </div>
 
-                {/* Destinations array */}
-                {inq.destinations && inq.destinations.length > 0 && (
-                  <div className="space-y-1">
-                    <span className="text-[9px] uppercase tracking-wider text-royal/40 font-bold block">Interested Regions</span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {inq.destinations.map((d: string, idx: number) => (
-                        <span key={idx} className="bg-royal/5 text-royal px-2.5 py-1 rounded-lg text-[9px] font-bold border border-beige/40">
-                          {d}
-                        </span>
-                      ))}
+                    {/* Status Selector */}
+                    <div className="flex items-center gap-2">
+                      <label className="text-[9px] uppercase font-bold text-royal/50 tracking-wider">Status:</label>
+                      <select
+                        value={inq.status || "NEW"}
+                        onChange={(e) => onStatusChange(inq.id, e.target.value)}
+                        className={`text-[9px] uppercase tracking-wider font-extrabold px-3 py-1.5 rounded-lg border outline-none cursor-pointer transition ${
+                          inq.status === "NEW" || !inq.status
+                            ? "bg-amber-50 text-amber-600 border-amber-100 focus:border-amber-300"
+                            : inq.status === "IN_PROGRESS"
+                            ? "bg-blue-50 text-blue-600 border-blue-100 focus:border-blue-300"
+                            : inq.status === "CONTACTED"
+                            ? "bg-emerald-50 text-emerald-600 border-emerald-100 focus:border-emerald-300"
+                            : "bg-royal/5 text-royal/60 border-beige/40 focus:border-royal/20"
+                        }`}
+                      >
+                        <option value="NEW">New</option>
+                        <option value="IN_PROGRESS">In Progress</option>
+                        <option value="CONTACTED">Contacted</option>
+                        <option value="CLOSED">Closed/Booked</option>
+                      </select>
                     </div>
                   </div>
-                )}
-
-                {/* Message */}
-                {inq.message && (
-                  <div className="space-y-1 bg-beige/10 border border-beige/25 p-4 rounded-2xl">
-                    <span className="text-[9px] uppercase tracking-wider text-royal/40 font-bold block">Client Notes</span>
-                    <p className="text-royal/80 leading-relaxed font-light whitespace-pre-wrap">{inq.message}</p>
-                  </div>
-                )}
-              </div>
-
-              {/* Status Update & Date Footer */}
-              <div className="flex justify-between items-center pt-4 border-t border-beige/20">
-                <div className="flex items-center gap-1.5 text-royal/35 text-[9px] font-light">
-                  <Calendar className="w-3.5 h-3.5" />
-                  <span>Submitted: {inq.createdAt ? inq.createdAt.split("T")[0] : "Just now"}</span>
-                </div>
-
-                {/* Status Selector */}
-                <div className="flex items-center gap-2">
-                  <label className="text-[9px] uppercase font-bold text-royal/50 tracking-wider">Status:</label>
-                  <select
-                    value={inq.status || "NEW"}
-                    onChange={(e) => onStatusChange(inq.id, e.target.value)}
-                    className={`text-[9px] uppercase tracking-wider font-extrabold px-3 py-1.5 rounded-lg border outline-none cursor-pointer transition ${
-                      inq.status === "NEW" || !inq.status
-                        ? "bg-amber-50 text-amber-600 border-amber-100 focus:border-amber-300"
-                        : inq.status === "IN_PROGRESS"
-                        ? "bg-blue-50 text-blue-600 border-blue-100 focus:border-blue-300"
-                        : inq.status === "CONTACTED"
-                        ? "bg-emerald-50 text-emerald-600 border-emerald-100 focus:border-emerald-300"
-                        : "bg-royal/5 text-royal/60 border-beige/40 focus:border-royal/20"
-                    }`}
-                  >
-                    <option value="NEW">New</option>
-                    <option value="IN_PROGRESS">In Progress</option>
-                    <option value="CONTACTED">Contacted</option>
-                    <option value="CLOSED">Closed/Booked</option>
-                  </select>
-                </div>
-              </div>
-
+                </>
+              )}
             </div>
           ))
         )}
