@@ -174,6 +174,7 @@ export default function MonumentsAccordion({ locale, monuments }: MonumentsAccor
                 <div
                   key={item.id}
                   onMouseEnter={() => setActiveIdx(idx)}
+                  onClick={() => setActiveIdx(idx)}
                   className={`relative overflow-hidden transition-all duration-700 ease-out cursor-pointer shadow-lg border border-gold/5 flex flex-col justify-end w-full md:w-auto rounded-2xl ${
                     isActive 
                       ? "flex-grow-[4.5] h-[280px] md:h-full md:min-w-[320px]" 

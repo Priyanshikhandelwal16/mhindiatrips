@@ -30,11 +30,17 @@ export default function Header({ locale }: HeaderProps) {
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
+      document.body.style.height = "100vh";
+      document.documentElement.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
+      document.body.style.height = "unset";
+      document.documentElement.style.overflow = "unset";
     }
     return () => {
       document.body.style.overflow = "unset";
+      document.body.style.height = "unset";
+      document.documentElement.style.overflow = "unset";
     };
   }, [mobileMenuOpen]);
 
@@ -187,7 +193,7 @@ export default function Header({ locale }: HeaderProps) {
       <div 
         className={`w-full transition-all duration-300 border-b relative z-50 ${
           mobileMenuOpen
-            ? "bg-[#0A2A1E] border-white/10 py-4"
+            ? "bg-[#FCFAF6] border-gold/15 py-4"
             : scrolled 
               ? "bg-white/95 backdrop-blur-lg border-gold/15 shadow-md py-2" 
               : "bg-white border-gold/10 py-4"
@@ -200,9 +206,7 @@ export default function Header({ locale }: HeaderProps) {
             <img
               src="/images/logo-transparent.png"
               alt="MH India Trips"
-              className={`h-10 md:h-12 xl:h-14 w-auto transition-all duration-300 hover:scale-[1.01] ${
-                mobileMenuOpen ? "brightness-0 invert" : ""
-              }`}
+              className="h-10 md:h-12 xl:h-14 w-auto transition-all duration-300 hover:scale-[1.01]"
             />
           </Link>
 
@@ -434,7 +438,7 @@ export default function Header({ locale }: HeaderProps) {
               onClick={() => setLangMenuOpen(!langMenuOpen)}
               className={`p-2 border rounded-full transition-colors ${
                 mobileMenuOpen 
-                  ? "border-white/20 text-white hover:border-gold" 
+                  ? "border-gold/25 text-royal hover:border-gold" 
                   : "border-gold/15 text-royal hover:border-gold"
               }`}
               aria-label="Language Mobile Menu"
@@ -466,13 +470,13 @@ export default function Header({ locale }: HeaderProps) {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className={`p-2 border rounded-full transition-colors ${
                 mobileMenuOpen 
-                  ? "border-white/20 text-white hover:border-gold" 
+                  ? "border-gold/25 text-royal hover:border-gold" 
                   : "border-gold/15 text-royal hover:border-gold"
               }`}
               aria-label="Toggle Mobile Menu"
               suppressHydrationWarning={true}
             >
-              {mobileMenuOpen ? <X className="w-4 h-4 text-white" /> : <Menu className="w-4 h-4" />}
+              {mobileMenuOpen ? <X className="w-4 h-4 text-royal" /> : <Menu className="w-4 h-4" />}
             </button>
           </div>
 
@@ -481,13 +485,13 @@ export default function Header({ locale }: HeaderProps) {
 
       {/* Mobile Menu Panel */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-[#0A2A1E]/98 backdrop-blur-xl z-40 flex flex-col justify-start pt-28 px-8 pb-10 space-y-6 animate-fade-in lg:hidden text-white overflow-y-auto">
+        <div className="fixed inset-0 bg-[#FCFAF6]/98 backdrop-blur-xl z-40 flex flex-col justify-start pt-28 px-8 pb-10 space-y-6 animate-fade-in lg:hidden text-royal overflow-y-auto overscroll-contain">
           <nav className="flex flex-col space-y-4 text-center">
             
             <Link
               href={`/${locale}`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-bold text-white hover:text-gold transition-colors"
+              className="text-lg font-bold text-royal hover:text-gold transition-colors"
             >
               {labels.home}
             </Link>
@@ -495,7 +499,7 @@ export default function Header({ locale }: HeaderProps) {
             <Link
               href={`/${locale}/packages`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-bold text-white hover:text-gold transition-colors"
+              className="text-lg font-bold text-royal hover:text-gold transition-colors"
             >
               {labels.packages}
             </Link>
@@ -503,7 +507,7 @@ export default function Header({ locale }: HeaderProps) {
             <Link
               href={`/${locale}/about`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-bold text-white hover:text-gold transition-colors"
+              className="text-lg font-bold text-royal hover:text-gold transition-colors"
             >
               {labels.about}
             </Link>
@@ -511,7 +515,7 @@ export default function Header({ locale }: HeaderProps) {
             <Link
               href={`/${locale}/destinations`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-bold text-white hover:text-gold transition-colors"
+              className="text-lg font-bold text-royal hover:text-gold transition-colors"
             >
               {labels.destinations}
             </Link>
@@ -519,7 +523,7 @@ export default function Header({ locale }: HeaderProps) {
             <Link
               href={`/${locale}/monuments`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-bold text-white hover:text-gold transition-colors"
+              className="text-lg font-bold text-royal hover:text-gold transition-colors"
             >
               {labels.monuments}
             </Link>
@@ -527,7 +531,7 @@ export default function Header({ locale }: HeaderProps) {
             <Link
               href={`/${locale}/food`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-bold text-white hover:text-gold transition-colors"
+              className="text-lg font-bold text-royal hover:text-gold transition-colors"
             >
               {labels.food}
             </Link>
@@ -535,7 +539,7 @@ export default function Header({ locale }: HeaderProps) {
             <Link
               href={`/${locale}/faq`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-bold text-white hover:text-gold transition-colors"
+              className="text-lg font-bold text-royal hover:text-gold transition-colors"
             >
               {labels.info}
             </Link>
@@ -543,7 +547,7 @@ export default function Header({ locale }: HeaderProps) {
             <Link
               href={`/${locale}/contact`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-bold text-white hover:text-gold transition-colors"
+              className="text-lg font-bold text-royal hover:text-gold transition-colors"
             >
               {labels.contact}
             </Link>
@@ -551,17 +555,17 @@ export default function Header({ locale }: HeaderProps) {
             <Link
               href={`/${locale}/blog`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-bold text-white hover:text-gold transition-colors"
+              className="text-lg font-bold text-royal hover:text-gold transition-colors"
             >
               {labels.blog}
             </Link>
 
           </nav>
-          <div className="text-center pt-6 border-t border-white/10">
+          <div className="text-center pt-6 border-t border-gold/15">
             <Link
               href={`/${locale}/contact`}
               onClick={() => setMobileMenuOpen(false)}
-              className="bg-gold text-[#0A2A1E] text-xs font-bold uppercase tracking-widest px-8 py-3.5 rounded-full inline-flex items-center gap-2"
+              className="bg-gold text-[#0A2A1E] text-xs font-bold uppercase tracking-widest px-8 py-3.5 rounded-full inline-flex items-center gap-2 shadow-md"
             >
               <span>{labels.cta}</span>
               <ArrowRight className="w-4 h-4" />
