@@ -7,9 +7,12 @@ import { createInquiryAction } from "@/app/actions/inquiry";
 
 interface PopupInquiryFormProps {
   locale: string;
+  contactDetails?: {
+    whatsapp?: string;
+  };
 }
 
-export default function PopupInquiryForm({ locale }: PopupInquiryFormProps) {
+export default function PopupInquiryForm({ locale, contactDetails }: PopupInquiryFormProps) {
   const pathname = usePathname();
   if (pathname?.includes("/admin")) {
     return null;
@@ -302,7 +305,7 @@ export default function PopupInquiryForm({ locale }: PopupInquiryFormProps) {
                   </button>
                   
                   <a
-                    href={`https://wa.me/919782001006?text=${encodeURIComponent("Hello! I want to plan my custom India trip with MH India Trips.")}`}
+                    href={`https://wa.me/${contactDetails?.whatsapp || "919782001006"}?text=${encodeURIComponent("Hello! I want to plan my custom India trip with MH India Trips.")}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold uppercase tracking-wider py-4 rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center gap-2 text-center text-[11px]"

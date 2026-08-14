@@ -7,7 +7,8 @@ import { signInWithEmailAndPassword, onAuthStateChanged, signOut, createUserWith
 import { auth } from "@/lib/firebase";
 import { 
   BarChart, Users, FileText, Compass, CheckCircle2, AlertCircle, 
-  Layers, Utensils, Star, Calendar, LogOut, Menu, X, Globe, Link2, MapPin
+  Layers, Utensils, Star, Calendar, LogOut, Menu, X, Globe, Link2, MapPin,
+  Settings
 } from "lucide-react";
 
 // Server Actions
@@ -33,7 +34,11 @@ import {
   deleteStateAction,
   deleteFoodAction,
   updateTestimonialAction,
-  deleteTestimonialAction
+  deleteTestimonialAction,
+  getSettingsAction,
+  updateContactDetailsAction,
+  updateAdminPasswordAction,
+  verifyAdminCredentialsAction
 } from "@/app/actions/admin";
 import { 
   getBlogsAction,
@@ -53,6 +58,7 @@ import PackagesTab from "@/components/admin/PackagesTab";
 import BlogsTab from "@/components/admin/BlogsTab";
 import CuisinesTab from "@/components/admin/CuisinesTab";
 import TestimonialsTab from "@/components/admin/TestimonialsTab";
+import SettingsTab from "@/components/admin/SettingsTab";
 
 export default function AdminDashboard() {
   const [user, setUser] = useState<any>(null);
@@ -74,6 +80,13 @@ export default function AdminDashboard() {
   const [states, setStates] = useState<any[]>([]);
   const [testimonials, setTestimonials] = useState<any[]>([]);
   const [pages, setPages] = useState<any[]>([]);
+  const [contactDetails, setContactDetails] = useState<any>({
+    phone: "",
+    email: "",
+    whatsapp: "",
+    address: "",
+    hours: ""
+  });
 
   // Editor states (prop down)
   const [editBlog, setEditBlog] = useState<any>(null);
@@ -143,14 +156,15 @@ export default function AdminDashboard() {
   const loadCMSData = async () => {
     setLoading(true);
     try {
-      const [inqs, blgs, pkgs, fds, sts, tsts, pgs] = await Promise.all([
+      const [inqs, blgs, pkgs, fds, sts, tsts, pgs, settingsRes] = await Promise.all([
         getInquiriesAction(),
         getBlogsAction(),
         getTourPackagesAction(),
         getFoodsAction(),
         getStatesAction(),
         getTestimonialsAction(),
-        getPagesAction()
+        getPagesAction(),
+        getSettingsAction()
       ]);
       setInquiries(inqs || []);
       setBlogs(blgs || []);
@@ -159,6 +173,9 @@ export default function AdminDashboard() {
       setStates(sts || []);
       setTestimonials(tsts || []);
       setPages(pgs || []);
+      if (settingsRes?.success) {
+        setContactDetails(settingsRes.contactDetails);
+      }
     } catch (e) {
       console.error("Error loading CMS collections:", e);
       showStatus("Error refreshing live data collections.", "error");
@@ -176,22 +193,24 @@ export default function AdminDashboard() {
   // Authenticate Admin
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
-    const adminEmail = (process.env.NEXT_PUBLIC_ADMIN_EMAIL || "admin@mhindiatrips.com").replace(/['"]/g, "").trim();
-    const adminPassword = (process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "admin").replace(/['"]/g, "").trim();
-
-    if (email.trim() === adminEmail && password.trim() === adminPassword) {
-      const customUser = { email: adminEmail, customAuth: true };
-      setUser(customUser);
-      localStorage.setItem("admin_user", JSON.stringify(customUser));
-      return;
-    }
-
-    if (!auth) {
-      showStatus("Firebase client is missing and custom configs mismatch.", "error");
-      return;
-    }
     setAuthLoading(true);
     try {
+      const verifyRes = await verifyAdminCredentialsAction(email, password);
+      if (verifyRes.success) {
+        const adminEmail = (process.env.NEXT_PUBLIC_ADMIN_EMAIL || "admin@mhindiatrips.com").replace(/['"]/g, "").trim();
+        const customUser = { email: adminEmail, customAuth: true };
+        setUser(customUser);
+        localStorage.setItem("admin_user", JSON.stringify(customUser));
+        setAuthLoading(false);
+        return;
+      }
+
+      if (!auth) {
+        showStatus("Invalid credentials.", "error");
+        setAuthLoading(false);
+        return;
+      }
+
       if (isSignUp) {
         await createUserWithEmailAndPassword(auth, email, password);
         showStatus("Admin account created successfully!", "success");
@@ -573,7 +592,8 @@ export default function AdminDashboard() {
     { id: "packages", label: "Tour Packages", icon: Compass },
     { id: "blogs", label: "Manage Blogs", icon: FileText },
     { id: "cuisines", label: "Food Catalog", icon: Utensils },
-    { id: "testimonials", label: "Testimonials", icon: Star }
+    { id: "testimonials", label: "Testimonials", icon: Star },
+    { id: "settings", label: "System Settings", icon: Settings }
   ];
 
   return (
@@ -704,7 +724,7 @@ export default function AdminDashboard() {
       )}
 
       {/* MAIN CONTAINER WORKSPACE */}
-      <div className="flex-grow h-full overflow-y-auto px-6 md:px-10 py-8 md:ml-64 w-full">
+      <div className="flex-grow flex-1 min-w-0 h-full overflow-y-auto px-4 md:px-10 py-8 md:ml-64">
         
         {/* UPPER HEADER CONTROLS */}
         <div className="flex justify-between items-center mb-8 border-b border-beige/40 pb-5">
@@ -854,6 +874,16 @@ export default function AdminDashboard() {
                 handleSaveTestimonial={handleSaveTestimonial}
                 onUpdateTestimonial={onUpdateTestimonial}
                 onDeleteTestimonial={onDeleteTestimonial}
+                showStatus={showStatus}
+              />
+            )}
+
+            {/* Render System Settings component */}
+            {activeTab === "settings" && (
+              <SettingsTab
+                contactDetails={contactDetails}
+                setContactDetails={setContactDetails}
+                user={user}
                 showStatus={showStatus}
               />
             )}

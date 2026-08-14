@@ -8,9 +8,14 @@ import { Menu, X, Globe, ArrowRight, ChevronDown, Phone, Mail } from "lucide-rea
 
 interface HeaderProps {
   locale: string;
+  contactDetails?: {
+    phone: string;
+    email: string;
+    whatsapp: string;
+  };
 }
 
-export default function Header({ locale }: HeaderProps) {
+export default function Header({ locale, contactDetails }: HeaderProps) {
   const pathname = usePathname();
   if (pathname?.includes("/admin")) {
     return null;
@@ -163,13 +168,13 @@ export default function Header({ locale }: HeaderProps) {
       >
         <div className="max-w-[1400px] w-full mx-auto px-6 xl:px-10 flex flex-col md:flex-row justify-between items-center gap-2">
           <div className="flex items-center gap-6">
-            <a href="tel:+919782001006" className="flex items-center gap-1.5 hover:text-gold transition-colors">
+            <a href={`tel:${contactDetails?.phone || "+91 9782001006"}`} className="flex items-center gap-1.5 hover:text-gold transition-colors">
               <Phone className="w-3.5 h-3.5 text-gold" />
-              <span>+91 9782001006</span>
+              <span>{contactDetails?.phone || "+91 9782001006"}</span>
             </a>
-            <a href="mailto:info@mhindiatrips.com" className="flex items-center gap-1.5 hover:text-gold transition-colors">
+            <a href={`mailto:${contactDetails?.email || "info@mhindiatrips.com"}`} className="flex items-center gap-1.5 hover:text-gold transition-colors">
               <Mail className="w-3.5 h-3.5 text-gold" />
-              <span>info@mhindiatrips.com</span>
+              <span>{contactDetails?.email || "info@mhindiatrips.com"}</span>
             </a>
           </div>
           <div className="flex items-center gap-4 text-white/70">

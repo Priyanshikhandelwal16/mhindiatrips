@@ -97,6 +97,23 @@ let foodsCache = loadLocalData("foods", mergedFoods);
 let testimonialsCache = loadLocalData("testimonials", initialTestimonials);
 let tourPackagesCache = loadLocalData("tour_packages", mergedPackages);
 
+// Initialize settings cache with default system contact and auth details
+let settingsCache = loadLocalData("settings", [
+  {
+    id: "contact_details",
+    phone: "+91 9782001006",
+    email: "info@mhindiatrips.com",
+    whatsapp: "919782001006",
+    address: "New Delhi, India",
+    hours: "Mon - Sat: 9:00 AM - 7:00 PM IST"
+  },
+  {
+    id: "admin_credentials",
+    customPassword: ""
+  }
+]);
+
+
 // Default system pages that every website has
 const defaultSystemPages = [
   {
@@ -445,6 +462,7 @@ function checkSeeding() {
       ensureSeeded("testimonials", testimonialsCache),
       ensureSeeded("tour_packages", tourPackagesCache),
       ensureSeeded("pages", pagesCache),
+      ensureSeeded("settings", settingsCache),
     ]).then(() => {
       isSeeded = true;
       console.log("Firestore database seeding check completed successfully.");
@@ -1076,6 +1094,76 @@ export const db = {
       pagesCache = pagesCache.filter((p: any) => p.id !== id);
       saveLocalData("pages", pagesCache);
       return { id };
+    }
+  },
+
+  settings: {
+    findMany: async () => {
+      settingsCache = loadLocalData("settings", settingsCache);
+      const localData = settingsCache;
+      if (useFirestore) {
+        try {
+          checkSeeding();
+          if (useFirestore) {
+            const snapshot = await getDocs(collection(firestore, "settings"));
+            const firestoreData = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+            const firestoreMap = new Map(firestoreData.map((s: any) => [s.id, s]));
+            const merged = localData.map((s: any) => firestoreMap.has(s.id) ? firestoreMap.get(s.id) : s);
+            const localIds = new Set(localData.map((s: any) => s.id));
+            const extraItems = firestoreData.filter((s: any) => !localIds.has(s.id));
+            return [...merged, ...extraItems];
+          }
+        } catch (e: any) {
+          console.warn("Firestore settings.findMany failed, falling back to local:", e.message || e);
+          if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("disabled"))) {
+            useFirestore = false;
+          }
+        }
+      }
+      return localData;
+    },
+    findUnique: async (id: string) => {
+      if (useFirestore) {
+        try {
+          checkSeeding();
+          if (useFirestore) {
+            const docRef = doc(firestore, "settings", id);
+            const snapshot = await getDoc(docRef);
+            if (snapshot.exists()) {
+              return { id: snapshot.id, ...snapshot.data() } as any;
+            }
+          }
+        } catch (e: any) {
+          console.warn("Firestore settings.findUnique failed, falling back to local JSON:", e.message || e);
+        }
+      }
+      settingsCache = loadLocalData("settings", settingsCache);
+      return settingsCache.find((s: any) => s.id === id) || null;
+    },
+    update: async (id: string, data: any) => {
+      if (useFirestore) {
+        try {
+          const docRef = doc(firestore, "settings", id);
+          await setDoc(docRef, data, { merge: true });
+          return { id, ...data };
+        } catch (e: any) {
+          console.warn("Firestore settings.update failed, falling back to local JSON:", e.message || e);
+        }
+      }
+      const all = await db.settings.findMany();
+      const idx = all.findIndex((s: any) => s.id === id);
+      if (idx !== -1) {
+        all[idx] = { ...all[idx], ...data };
+        saveLocalData("settings", all);
+        settingsCache = all;
+        return all[idx];
+      } else {
+        const newRecord = { id, ...data };
+        all.push(newRecord);
+        saveLocalData("settings", all);
+        settingsCache = all;
+        return newRecord;
+      }
     }
   }
 };

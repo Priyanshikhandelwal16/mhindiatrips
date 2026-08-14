@@ -1,6 +1,7 @@
 import React from "react";
 import { getPageByIdAction } from "@/app/actions/queries";
 import Reveal from "@/components/home/Reveal";
+import { db } from "@/lib/db";
 
 interface PrivacyPageProps {
   params: Promise<{ locale: string }>;
@@ -9,6 +10,11 @@ interface PrivacyPageProps {
 export default async function PrivacyPage({ params }: PrivacyPageProps) {
   const { locale } = await params;
   const pageData = await getPageByIdAction("privacy");
+  
+  const contactDetails = (await db.settings.findUnique("contact_details")) || {
+    phone: "+91 9782001006",
+    email: "info@mhindiatrips.com"
+  };
 
   const title = pageData?.title?.[locale] || pageData?.title?.en || (locale === "es" ? "Política de Privacidad" : locale === "pt" ? "Política de Privacidade" : "Privacy Policy");
   const body = pageData?.content?.body?.[locale] || pageData?.content?.body?.en;
@@ -52,10 +58,10 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
                 <p className="text-[15px]">Our website uses cookies to enhance your browsing experience and analyze website traffic. You can manage cookie preferences through your browser settings.</p>
 
                 <h2 className="text-xl font-serif font-bold text-royal !mt-10">6. Your Rights</h2>
-                <p className="text-[15px]">You have the right to access, correct, or delete your personal information at any time. Contact us at info@mhindiatrips.com for any data-related requests.</p>
+                <p className="text-[15px]">You have the right to access, correct, or delete your personal information at any time. Contact us at {contactDetails.email || "info@mhindiatrips.com"} for any data-related requests.</p>
 
                 <h2 className="text-xl font-serif font-bold text-royal !mt-10">7. Contact</h2>
-                <p className="text-[15px]">For questions about this privacy policy, contact us at info@mhindiatrips.com or +91 9782001006.</p>
+                <p className="text-[15px]">For questions about this privacy policy, contact us at {contactDetails.email || "info@mhindiatrips.com"} or {contactDetails.phone || "+91 9782001006"}.</p>
               </>
             )}
           </Reveal>

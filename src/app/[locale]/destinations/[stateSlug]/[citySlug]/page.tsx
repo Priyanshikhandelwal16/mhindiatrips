@@ -10,6 +10,7 @@ import {
   Phone, MessageSquare
 } from "lucide-react";
 import Reveal from "@/components/home/Reveal";
+import { db } from "@/lib/db";
 
 interface CityPageProps {
   params: Promise<{ locale: string; stateSlug: string; citySlug: string }>;
@@ -21,6 +22,10 @@ export default async function CityDetailPage({ params }: CityPageProps) {
   if (!state) notFound();
   const city = state.cities?.find((c: any) => c.slug === citySlug);
   if (!city) notFound();
+
+  const contactDetails = (await db.settings.findUnique("contact_details")) || {
+    phone: "+91 9782001006"
+  };
 
   const lang = (locale === "es" || locale === "pt") ? locale : "en";
 
@@ -397,11 +402,11 @@ export default async function CityDetailPage({ params }: CityPageProps) {
               </div>
 
               <a 
-                href="tel:+919782001006" 
+                href={`tel:${contactDetails.phone || "+91 9782001006"}`} 
                 className="flex items-center gap-3 bg-white/10 border border-white/20 px-4 py-3 rounded-xl hover:bg-white/20 transition-all text-xs font-bold"
               >
                 <Phone className="w-4 h-4 text-gold shrink-0" />
-                <span>+91 9782001006</span>
+                <span>{contactDetails.phone || "+91 9782001006"}</span>
               </a>
 
               <a 

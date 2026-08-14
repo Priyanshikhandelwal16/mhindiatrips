@@ -4,6 +4,8 @@ import Reveal from "@/components/home/Reveal";
 import InquiryForm from "@/components/common/InquiryForm";
 import { Phone, Mail, MapPin, Clock, MessageSquare, Compass } from "lucide-react";
 
+import { db } from "@/lib/db";
+
 interface ContactPageProps {
   params: Promise<{ locale: string }>;
 }
@@ -11,6 +13,14 @@ interface ContactPageProps {
 export default async function ContactPage({ params }: ContactPageProps) {
   const { locale } = await params;
   const pageData = await getPageByIdAction("contact");
+  
+  const contactDetails = (await db.settings.findUnique("contact_details")) || {
+    phone: "+91 9782001006",
+    email: "info@mhindiatrips.com",
+    address: "New Delhi, India",
+    hours: "Mon - Sat: 9:00 AM - 7:00 PM IST",
+    whatsapp: "919782001006"
+  };
 
   const t: Record<string, any> = {
     en: {
@@ -18,10 +28,10 @@ export default async function ContactPage({ params }: ContactPageProps) {
       heroSub: "Concierge Contact",
       heroDesc: "Connect with our expert travel designers to begin crafting your private customized India itinerary.",
       infoTitle: "Concierge Desk",
-      phone: "+91 9782001006",
-      email: "info@mhindiatrips.com",
-      address: "New Delhi, India",
-      hours: "Mon - Sat: 9:00 AM - 7:00 PM IST",
+      phone: contactDetails.phone || "+91 9782001006",
+      email: contactDetails.email || "info@mhindiatrips.com",
+      address: contactDetails.address || "New Delhi, India",
+      hours: contactDetails.hours || "Mon - Sat: 9:00 AM - 7:00 PM IST",
       whatsappBtn: "Chat on WhatsApp",
     },
     es: {
@@ -29,10 +39,10 @@ export default async function ContactPage({ params }: ContactPageProps) {
       heroSub: "Contacto de Conserjería",
       heroDesc: "Conéctese con nuestros diseñadores de viajes para comenzar a crear su itinerario personalizado.",
       infoTitle: "Mesa de Conserjería",
-      phone: "+91 9782001006",
-      email: "info@mhindiatrips.com",
-      address: "Nueva Delhi, India",
-      hours: "Lun - Sáb: 9:00 AM - 7:00 PM IST",
+      phone: contactDetails.phone || "+91 9782001006",
+      email: contactDetails.email || "info@mhindiatrips.com",
+      address: contactDetails.address || "Nueva Delhi, India",
+      hours: contactDetails.hours || "Lun - Sáb: 9:00 AM - 7:00 PM IST",
       whatsappBtn: "Chat en WhatsApp",
     },
     pt: {
@@ -40,10 +50,10 @@ export default async function ContactPage({ params }: ContactPageProps) {
       heroSub: "Contacto de Concierge",
       heroDesc: "Entre em contato com nossos designers de viagens para começar a planejar seu itinerário personalizado.",
       infoTitle: "Mesa de Concierge",
-      phone: "+91 9782001006",
-      email: "info@mhindiatrips.com",
-      address: "Nova Deli, Índia",
-      hours: "Seg - Sáb: 9:00 AM - 7:00 PM IST",
+      phone: contactDetails.phone || "+91 9782001006",
+      email: contactDetails.email || "info@mhindiatrips.com",
+      address: contactDetails.address || "Nova Deli, Índia",
+      hours: contactDetails.hours || "Seg - Sáb: 9:00 AM - 7:00 PM IST",
       whatsappBtn: "Conversar no WhatsApp",
     }
   };
@@ -137,7 +147,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
             {/* Instant Support */}
             <div className="pt-6 border-t border-gold/15">
               <a 
-                href="https://wa.me/919782001006" 
+                href={`https://wa.me/${contactDetails.whatsapp || "919782001006"}`} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white text-[10px] font-bold uppercase tracking-widest py-4 px-6 rounded-full transition-transform hover:scale-[1.02] shadow-md"

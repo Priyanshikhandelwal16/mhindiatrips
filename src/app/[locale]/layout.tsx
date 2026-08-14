@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { db } from "@/lib/db";
+
 interface LocaleLayoutProps {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
@@ -26,6 +28,15 @@ interface LocaleLayoutProps {
 
 export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
   const { locale } = await params;
+  
+  // Fetch dynamic settings from database (falling back to hardcoded system defaults)
+  const contactDetails = (await db.settings.findUnique("contact_details")) || {
+    phone: "+91 9782001006",
+    email: "info@mhindiatrips.com",
+    whatsapp: "919782001006",
+    address: "New Delhi, India",
+    hours: "Mon - Sat: 9:00 AM - 7:00 PM IST"
+  };
 
   return (
     <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
@@ -34,14 +45,14 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       </head>
       <body className="font-sans bg-background text-foreground antialiased min-h-screen flex flex-col justify-between w-full overflow-x-hidden" suppressHydrationWarning>
         <PageLoader />
-        <PopupInquiryForm locale={locale} />
-        <Header locale={locale} />
+        <PopupInquiryForm locale={locale} contactDetails={contactDetails} />
+        <Header locale={locale} contactDetails={contactDetails} />
         <main className="flex-grow flex flex-col w-full overflow-x-hidden">
           <PageTransition>
             {children}
           </PageTransition>
         </main>
-        <Footer locale={locale} />
+        <Footer locale={locale} contactDetails={contactDetails} />
       </body>
     </html>
   );
