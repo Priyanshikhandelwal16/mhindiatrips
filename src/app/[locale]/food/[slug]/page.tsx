@@ -20,7 +20,7 @@ export default async function FoodDetailPage({ params }: FoodDetailPageProps) {
       {/* SECTION 1: Banner Header */}
       <section className="relative h-[78vh] min-h-[540px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
         <img src={food.image} alt={food.title?.[locale as "en"|"es"|"pt"] || food.title?.en} className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns" loading="eager" />
-        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-black/25" />
         <div className="relative z-10 text-center text-white space-y-6 px-6 max-w-4xl">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
             <Utensils className="w-4 h-4 text-royal inline-block mr-1.5 align-text-bottom" />

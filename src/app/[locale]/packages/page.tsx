@@ -125,10 +125,10 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
         <img
           src="/images/luxury_palace_train.png"
           alt="Tour Packages India"
-          className="absolute inset-0 w-full h-full object-cover object-[center_35%] filter brightness-[0.70] contrast-[1.05] animate-kenburns"
+          className="absolute inset-0 w-full h-full object-cover object-[center_35%] filter brightness-[0.80] contrast-[1.02] animate-kenburns"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/70 via-charcoal-900/20 to-charcoal-900/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/15" />
         <div className="relative z-10 text-center text-ivory-100 space-y-7 px-6 max-w-4xl">
           <span className="bg-charcoal-900/80 border border-sand-300/30 text-sand-300 text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full inline-block animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "both" }}>
             {text.heroSub}

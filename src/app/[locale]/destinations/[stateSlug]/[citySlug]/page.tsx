@@ -45,6 +45,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
 
   const text = {
     backToState: locale === "es" ? `Volver a ${stateTitle}` : locale === "pt" ? `Voltar para ${stateTitle}` : `Back to ${stateTitle}`,
+    destinations: locale === "es" ? "Destinos" : locale === "pt" ? "Destinos" : "Destinations",
     overview: locale === "es" ? "Descripción General" : locale === "pt" ? "Visão Geral" : "Overview",
     placesToVisit: locale === "es" ? "Lugares para Visitar" : locale === "pt" ? "Lugares para Visitar" : "Places to Visit",
     thingsToDo: locale === "es" ? "Qué Hacer" : locale === "pt" ? "O que Fazer" : "Things to Do",
@@ -104,10 +105,10 @@ export default async function CityDetailPage({ params }: CityPageProps) {
         <img 
           src={city.image} 
           alt={cityTitle} 
-          className="absolute inset-0 w-full h-full object-cover filter brightness-[0.55] contrast-[1.05]" 
+          className="absolute inset-0 w-full h-full object-cover filter brightness-[0.80] contrast-[1.02]" 
           loading="eager" 
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-royal/95 via-royal/35 to-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/15" />
         
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-12 space-y-6">
           <Link 
@@ -118,7 +119,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
             <span>{text.backToState}</span>
           </Link>
           <div className="flex items-center gap-2 text-[10px] text-white/60 uppercase tracking-widest font-bold">
-            <Link href={`/${locale}/destinations`} className="hover:text-gold transition-colors">Destinations</Link>
+            <Link href={`/${locale}/destinations`} className="hover:text-gold transition-colors">{text.destinations}</Link>
             <span>/</span>
             <Link href={`/${locale}/destinations/${stateSlug}`} className="hover:text-gold transition-colors">{stateTitle}</Link>
             <span>/</span>

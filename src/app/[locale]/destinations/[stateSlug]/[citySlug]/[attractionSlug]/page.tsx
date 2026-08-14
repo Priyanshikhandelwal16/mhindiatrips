@@ -31,10 +31,10 @@ export default async function AttractionDetailPage({ params }: AttractionPagePro
         <img 
           src={attraction.image} 
           alt={attName} 
-          className="absolute inset-0 w-full h-full object-cover object-[center_35%] filter brightness-[0.70] contrast-[1.05]" 
+          className="absolute inset-0 w-full h-full object-cover object-[center_35%] filter brightness-[0.80] contrast-[1.02]" 
           loading="eager" 
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/65 via-transparent to-charcoal-900/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/15" />
         
         <div className="relative z-10 text-center text-ivory-100 space-y-6 px-6 max-w-4xl">
           <span className="bg-charcoal-900/80 border border-sand-300/30 text-sand-300 text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full inline-block">

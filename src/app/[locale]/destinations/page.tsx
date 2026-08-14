@@ -73,10 +73,10 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
         <img 
           src="/images/rajasthan_fort_sunset.png" 
           alt="Luxury India Destinations" 
-          className="absolute inset-0 w-full h-full object-cover filter brightness-[0.55] contrast-[1.05]" 
+          className="absolute inset-0 w-full h-full object-cover filter brightness-[0.80] contrast-[1.02]" 
           loading="eager" 
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-royal/90 via-royal/40 to-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/15" />
 
         <div className="relative z-10 text-center text-white space-y-4 px-6 max-w-3xl">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight font-serif drop-shadow-md">

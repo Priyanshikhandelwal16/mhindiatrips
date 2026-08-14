@@ -114,7 +114,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
           className="absolute inset-0 w-full h-full object-cover object-[center_35%]"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-black/25" />
         <div className="relative z-10 text-center text-white space-y-7 px-6 max-w-4xl">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "both" }}>
             {text.heroSub}

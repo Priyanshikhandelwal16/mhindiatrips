@@ -12,6 +12,9 @@ interface HeaderProps {
 
 export default function Header({ locale }: HeaderProps) {
   const pathname = usePathname();
+  if (pathname?.includes("/admin")) {
+    return null;
+  }
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -204,7 +207,7 @@ export default function Header({ locale }: HeaderProps) {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-5 xl:gap-7 shrink-0">
+          <nav className="hidden xl:flex items-center gap-5 xl:gap-7 shrink-0">
             
             {/* Home Link */}
             <Link
@@ -378,7 +381,7 @@ export default function Header({ locale }: HeaderProps) {
           </nav>
 
           {/* Right Action Menu */}
-          <div className="hidden lg:flex items-center gap-5 z-20">
+          <div className="hidden xl:flex items-center gap-5 z-20">
             
             {/* Globe Language Toggle */}
             <div className="relative">
@@ -424,7 +427,7 @@ export default function Header({ locale }: HeaderProps) {
           </div>
 
           {/* Mobile Buttons */}
-          <div className="flex lg:hidden items-center gap-3 z-20">
+          <div className="flex xl:hidden items-center gap-3 z-20">
             
             {/* Lang Button */}
             <button
@@ -478,7 +481,7 @@ export default function Header({ locale }: HeaderProps) {
 
       {/* Mobile Menu Panel */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-[#0A2A1E]/98 backdrop-blur-xl z-40 flex flex-col justify-start pt-28 px-8 pb-10 space-y-6 animate-fade-in lg:hidden text-white overflow-y-auto">
+        <div className="fixed inset-0 bg-[#0A2A1E]/98 backdrop-blur-xl z-40 flex flex-col justify-start pt-28 px-8 pb-10 space-y-6 animate-fade-in xl:hidden text-white overflow-y-auto">
           <nav className="flex flex-col space-y-4 text-center">
             
             <Link

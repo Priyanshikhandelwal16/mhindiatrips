@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Phone, Mail, MapPin, Send, Compass } from "lucide-react";
 
 interface FooterProps {
@@ -10,6 +11,10 @@ interface FooterProps {
 }
 
 export default function Footer({ locale }: FooterProps) {
+  const pathname = usePathname();
+  if (pathname?.includes("/admin")) {
+    return null;
+  }
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 

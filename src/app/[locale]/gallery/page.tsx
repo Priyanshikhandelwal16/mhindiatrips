@@ -48,7 +48,7 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
       {/* Hero */}
       <section className="relative h-[80vh] min-h-[580px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
         <img src={pageData?.heroImage || "/images/rajasthan_fort_sunset.png"} alt="Gallery" className="absolute inset-0 w-full h-full object-cover animate-kenburns" />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/25" />
         <div className="relative z-10 text-center text-white px-6 max-w-5xl space-y-6">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">{text.heroSub}</span>
           <h1 className="text-5xl md:text-7xl font-bold mb-4">{text.hero}</h1>

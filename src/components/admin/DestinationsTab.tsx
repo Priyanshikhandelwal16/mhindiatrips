@@ -37,6 +37,8 @@ export default function DestinationsTab({
   showStatus
 }: DestinationsTabProps) {
 
+  const [citySubTab, setCitySubTab] = useState<string>("general");
+
   // Local helper to handle adding cities/attractions
   const handleAddCity = () => {
     const cityName = prompt("Enter new City name (e.g. Udaipur):");
@@ -467,117 +469,452 @@ export default function DestinationsTab({
                     </button>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-1">
-                      <label className="font-bold uppercase tracking-wider block text-royal/50">City Slug</label>
-                      <input 
-                        type="text" value={editState.cities[editingCityIdx].slug || ""}
-                        onChange={e => {
-                          const updatedCities = [...editState.cities];
-                          updatedCities[editingCityIdx].slug = e.target.value;
-                          setEditState({ ...editState, cities: updatedCities });
-                        }}
-                        className="w-full bg-white border border-gold/10 px-3 py-2 outline-none rounded-lg"
-                      />
-                    </div>
-                    <div className="space-y-1">
-                      <label className="font-bold uppercase tracking-wider block text-royal/50">City Photo URL</label>
-                      <div className="flex gap-2">
-                        <input 
-                          type="text" value={editState.cities[editingCityIdx].image || ""}
-                          onChange={e => {
-                            const updatedCities = [...editState.cities];
-                            updatedCities[editingCityIdx].image = e.target.value;
-                            setEditState({ ...editState, cities: updatedCities });
-                          }}
-                          className="w-full bg-white border border-gold/10 px-3 py-2 outline-none rounded-lg"
-                        />
-                        <CloudinaryUpload 
-                          label="Upload" 
-                          onUploadComplete={(url) => {
-                            const updatedCities = [...editState.cities];
-                            updatedCities[editingCityIdx].image = url;
-                            setEditState({ ...editState, cities: updatedCities });
-                          }} 
-                          showStatus={showStatus} 
-                        />
-                      </div>
-                    </div>
+                  {/* City Sub-tab Navigation */}
+                  <div className="flex flex-wrap gap-1.5 border-b border-gold/10 pb-3 mb-4">
+                    {[
+                      { id: "general", label: "General details" },
+                      { id: "details", label: "Overview & Info Texts" },
+                      { id: "attractions", label: "Attractions & Monuments" },
+                      { id: "thingsToDo", label: "Things to Do" },
+                      { id: "hotels", label: "Luxury Hotels" },
+                      { id: "nearby", label: "Nearby excursions" },
+                      { id: "faqs", label: "City FAQs" },
+                    ].map((subTab) => (
+                      <button
+                        key={subTab.id}
+                        type="button"
+                        onClick={() => setCitySubTab(subTab.id)}
+                        className={`px-3 py-1.5 text-[9px] font-bold uppercase tracking-wider rounded transition-all cursor-pointer ${
+                          citySubTab === subTab.id
+                            ? "bg-gold/15 text-royal border border-gold/25"
+                            : "bg-white text-royal/60 hover:text-royal hover:bg-gold/5 border border-gold/5"
+                        }`}
+                      >
+                        {subTab.label}
+                      </button>
+                    ))}
                   </div>
 
-                  {/* Translations */}
-                  {["title", "tagline", "overview", "history", "culture", "bestTime", "localFood", "shopping", "weather", "suggestedItinerary"].map((field) => (
-                    <div key={field} className="space-y-1">
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-royal/50">{field}</label>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                        {["en", "es", "pt"].map((l) => (
-                          <div key={l} className="space-y-0.5">
-                            <span className="text-[8px] uppercase text-royal/40 font-bold">{l}</span>
-                            {["overview", "history", "culture", "suggestedItinerary"].includes(field) ? (
-                              <textarea
-                                value={editState.cities[editingCityIdx][field]?.[l] || ""}
-                                onChange={(e) => {
-                                  const updatedCities = [...editState.cities];
-                                  updatedCities[editingCityIdx][field] = {
-                                    ...(updatedCities[editingCityIdx][field] || {}),
-                                    [l]: e.target.value
-                                  };
-                                  setEditState({ ...editState, cities: updatedCities });
-                                }}
-                                className="w-full h-16 bg-white border border-gold/10 p-2 outline-none rounded-lg text-xs"
-                              />
-                            ) : (
-                              <input
-                                type="text"
-                                value={editState.cities[editingCityIdx][field]?.[l] || ""}
-                                onChange={(e) => {
-                                  const updatedCities = [...editState.cities];
-                                  updatedCities[editingCityIdx][field] = {
-                                    ...(updatedCities[editingCityIdx][field] || {}),
-                                    [l]: e.target.value
-                                  };
-                                  setEditState({ ...editState, cities: updatedCities });
-                                }}
-                                className="w-full bg-white border border-gold/10 px-2.5 py-2 outline-none rounded-lg text-xs"
-                              />
-                            )}
-                          </div>
-                        ))}
+                  {/* SUBTAB 1: GENERAL DETAILS */}
+                  {citySubTab === "general" && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-1">
+                        <label className="font-bold uppercase tracking-wider block text-royal/50 text-[10px]">City Slug</label>
+                        <input 
+                          type="text" value={editState.cities[editingCityIdx].slug || ""}
+                          onChange={e => {
+                            const updatedCities = [...editState.cities];
+                            updatedCities[editingCityIdx].slug = e.target.value;
+                            setEditState({ ...editState, cities: updatedCities });
+                          }}
+                          className="w-full bg-white border border-gold/10 px-3 py-2 outline-none rounded-lg text-xs"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="font-bold uppercase tracking-wider block text-royal/50 text-[10px]">City Photo URL</label>
+                        <div className="flex gap-2">
+                          <input 
+                            type="text" value={editState.cities[editingCityIdx].image || ""}
+                            onChange={e => {
+                              const updatedCities = [...editState.cities];
+                              updatedCities[editingCityIdx].image = e.target.value;
+                              setEditState({ ...editState, cities: updatedCities });
+                            }}
+                            className="w-full bg-white border border-gold/10 px-3 py-2 outline-none rounded-lg text-xs"
+                          />
+                          <CloudinaryUpload 
+                            label="Upload" 
+                            onUploadComplete={(url) => {
+                              const updatedCities = [...editState.cities];
+                              updatedCities[editingCityIdx].image = url;
+                              setEditState({ ...editState, cities: updatedCities });
+                            }} 
+                            showStatus={showStatus} 
+                          />
+                        </div>
                       </div>
                     </div>
-                  ))}
+                  )}
 
-                  {/* attractions block */}
-                  <div className="space-y-4 pt-6 border-t border-gold/10">
-                    <div className="flex justify-between items-center">
-                      <span className="font-black uppercase tracking-widest text-[9px] text-royal/60 block">Attractions & Monuments in {editState.cities[editingCityIdx].title?.en}</span>
-                      <button
-                        type="button"
-                        onClick={() => handleAddAttraction(editingCityIdx)}
-                        className="bg-royal text-white border border-gold/10 font-bold text-[8px] tracking-wider uppercase px-2.5 py-1.5 rounded transition cursor-pointer"
-                      >
-                        + Add Attraction
-                      </button>
+                  {/* SUBTAB 2: OVERVIEW & DETAILS */}
+                  {citySubTab === "details" && (
+                    <div className="space-y-4">
+                      {["title", "tagline", "overview", "history", "culture", "bestTime", "localFood", "shopping", "weather", "suggestedItinerary"].map((field) => (
+                        <div key={field} className="space-y-1 border border-gold/5 p-4 rounded-xl bg-white">
+                          <label className="text-[10px] font-bold uppercase tracking-wider text-royal/60">{field}</label>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            {["en", "es", "pt"].map((l) => (
+                              <div key={l} className="space-y-0.5">
+                                <span className="text-[8px] uppercase text-royal/40 font-bold">{l}</span>
+                                {["overview", "history", "culture", "suggestedItinerary"].includes(field) ? (
+                                  <textarea
+                                    value={editState.cities[editingCityIdx][field]?.[l] || ""}
+                                    onChange={(e) => {
+                                      const updatedCities = [...editState.cities];
+                                      updatedCities[editingCityIdx][field] = {
+                                        ...(updatedCities[editingCityIdx][field] || {}),
+                                        [l]: e.target.value
+                                      };
+                                      setEditState({ ...editState, cities: updatedCities });
+                                    }}
+                                    className="w-full h-20 bg-[#FAF8F5] border border-gold/10 p-2 outline-none rounded-lg text-xs"
+                                  />
+                                ) : (
+                                  <input
+                                    type="text"
+                                    value={editState.cities[editingCityIdx][field]?.[l] || ""}
+                                    onChange={(e) => {
+                                      const updatedCities = [...editState.cities];
+                                      updatedCities[editingCityIdx][field] = {
+                                        ...(updatedCities[editingCityIdx][field] || {}),
+                                        [l]: e.target.value
+                                      };
+                                      setEditState({ ...editState, cities: updatedCities });
+                                    }}
+                                    className="w-full bg-[#FAF8F5] border border-gold/10 px-2.5 py-2 outline-none rounded-lg text-xs"
+                                  />
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
                     </div>
+                  )}
 
-                    {/* Attraction grid list */}
-                    {(!editState.cities[editingCityIdx].attractions || editState.cities[editingCityIdx].attractions.length === 0) ? (
-                      <div className="py-6 text-center text-[10px] text-royal/40 italic">No attractions configured for this city.</div>
-                    ) : (
-                      <div className="space-y-4">
-                        {editState.cities[editingCityIdx].attractions.map((attr: any, aIdx: number) => {
-                          const attrNameObj = typeof attr.name === "object" && attr.name !== null ? attr.name : { en: attr.name || "", es: "", pt: "" };
-                          const attrDescObj = typeof attr.desc === "object" && attr.desc !== null ? attr.desc : { en: attr.desc || "", es: "", pt: "" };
-                          
-                          return (
-                            <div key={aIdx} className="bg-white border border-gold/5 p-4 rounded-xl space-y-3 relative shadow-inner text-xs">
+                  {/* SUBTAB 3: ATTRACTIONS & MONUMENTS */}
+                  {citySubTab === "attractions" && (
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center pb-2 border-b border-gold/10">
+                        <span className="font-black uppercase tracking-widest text-[9px] text-royal/60 block">Attractions & Monuments</span>
+                        <button
+                          type="button"
+                          onClick={() => handleAddAttraction(editingCityIdx)}
+                          className="bg-royal text-white border border-gold/10 font-bold text-[8px] tracking-wider uppercase px-2.5 py-1.5 rounded transition cursor-pointer"
+                        >
+                          + Add Attraction
+                        </button>
+                      </div>
+
+                      {/* Attraction grid list */}
+                      {(!editState.cities[editingCityIdx].attractions || editState.cities[editingCityIdx].attractions.length === 0) ? (
+                        <div className="py-6 text-center text-[10px] text-royal/40 italic">No attractions configured for this city.</div>
+                      ) : (
+                        <div className="space-y-4">
+                          {editState.cities[editingCityIdx].attractions.map((attr: any, aIdx: number) => {
+                            const attrNameObj = typeof attr.name === "object" && attr.name !== null ? attr.name : { en: attr.name || "", es: "", pt: "" };
+                            const attrDescObj = typeof attr.desc === "object" && attr.desc !== null ? attr.desc : { en: attr.desc || "", es: "", pt: "" };
+                            
+                            return (
+                              <div key={aIdx} className="bg-white border border-gold/5 p-4 rounded-xl space-y-3 relative shadow-inner text-xs">
+                                <div className="flex justify-between items-center pb-1.5 border-b border-gold/10">
+                                  <span className="text-[9px] font-bold text-royal/60 uppercase">Attraction #{aIdx + 1}: {attrNameObj.en}</span>
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      const updatedCities = [...editState.cities];
+                                      updatedCities[editingCityIdx].attractions = updatedCities[editingCityIdx].attractions.filter((_: any, i: number) => i !== aIdx);
+                                      setEditState({ ...editState, cities: updatedCities });
+                                    }}
+                                    className="text-[8px] font-bold text-red-500 hover:text-red-700 uppercase"
+                                  >
+                                    Remove
+                                  </button>
+                                </div>
+
+                                <div className="grid grid-cols-1 gap-3">
+                                  {/* Attraction Name Translations */}
+                                  <div className="space-y-1">
+                                    <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Name Translations</label>
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                                      {["en", "es", "pt"].map((lang) => (
+                                        <div key={lang} className="space-y-0.5">
+                                          <span className="text-[7px] uppercase font-bold text-[#C3AB85]">{lang} Name</span>
+                                          <input 
+                                            type="text" 
+                                            value={attrNameObj[lang] || ""}
+                                            onChange={e => {
+                                              const updatedCities = [...editState.cities];
+                                              const updatedName = { ...attrNameObj, [lang]: e.target.value };
+                                              updatedCities[editingCityIdx].attractions[aIdx].name = updatedName;
+                                              setEditState({ ...editState, cities: updatedCities });
+                                            }}
+                                            className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1 outline-none text-[11px] rounded"
+                                          />
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+
+                                  {/* Attraction Description Translations */}
+                                  <div className="space-y-1">
+                                    <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Description Translations</label>
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                                      {["en", "es", "pt"].map((lang) => (
+                                        <div key={lang} className="space-y-0.5">
+                                          <span className="text-[7px] uppercase font-bold text-[#C3AB85]">{lang} Description</span>
+                                          <textarea 
+                                            value={attrDescObj[lang] || ""}
+                                            onChange={e => {
+                                              const updatedCities = [...editState.cities];
+                                              const updatedDesc = { ...attrDescObj, [lang]: e.target.value };
+                                              updatedCities[editingCityIdx].attractions[aIdx].desc = updatedDesc;
+                                              setEditState({ ...editState, cities: updatedCities });
+                                            }}
+                                            className="w-full h-12 bg-[#FAF8F5] border border-gold/10 p-2 outline-none text-[11px] rounded text-xs"
+                                          />
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+
+                                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                    <div className="space-y-1">
+                                      <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Era (e.g. 1592 AD)</label>
+                                      <input 
+                                        type="text" value={attr.era || ""}
+                                        onChange={e => {
+                                          const updatedCities = [...editState.cities];
+                                          updatedCities[editingCityIdx].attractions[aIdx].era = e.target.value;
+                                          setEditState({ ...editState, cities: updatedCities });
+                                        }}
+                                        className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1 outline-none text-[11px] rounded"
+                                      />
+                                    </div>
+                                    <div className="space-y-1">
+                                      <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Image URL</label>
+                                      <div className="flex gap-1.5">
+                                        <input 
+                                          type="text" value={attr.image || ""}
+                                          onChange={e => {
+                                            const updatedCities = [...editState.cities];
+                                            updatedCities[editingCityIdx].attractions[aIdx].image = e.target.value;
+                                            setEditState({ ...editState, cities: updatedCities });
+                                          }}
+                                          className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1 outline-none text-[11px] rounded"
+                                        />
+                                        <CloudinaryUpload 
+                                          label="Upload" 
+                                          onUploadComplete={(url) => {
+                                            const updatedCities = [...editState.cities];
+                                            updatedCities[editingCityIdx].attractions[aIdx].image = url;
+                                            setEditState({ ...editState, cities: updatedCities });
+                                          }} 
+                                          showStatus={showStatus} 
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* SUBTAB 4: THINGS TO DO */}
+                  {citySubTab === "thingsToDo" && (
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center pb-2 border-b border-gold/10">
+                        <span className="font-black uppercase tracking-widest text-[9px] text-royal/60 block">Things to Do (Highlights list)</span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const updatedCities = [...editState.cities];
+                            const currentList = updatedCities[editingCityIdx].thingsToDo || [];
+                            updatedCities[editingCityIdx].thingsToDo = [...currentList, { en: "", es: "", pt: "" }];
+                            setEditState({ ...editState, cities: updatedCities });
+                          }}
+                          className="bg-royal text-white border border-gold/10 font-bold text-[8px] tracking-wider uppercase px-2.5 py-1.5 rounded transition cursor-pointer"
+                        >
+                          + Add Thing to Do
+                        </button>
+                      </div>
+
+                      {(!editState.cities[editingCityIdx].thingsToDo || editState.cities[editingCityIdx].thingsToDo.length === 0) ? (
+                        <div className="py-6 text-center text-[10px] text-royal/40 italic">No activities configured.</div>
+                      ) : (
+                        <div className="space-y-4">
+                          {editState.cities[editingCityIdx].thingsToDo.map((todo: any, idx: number) => {
+                            const todoObj = typeof todo === "object" && todo !== null ? todo : { en: todo || "", es: "", pt: "" };
+                            return (
+                              <div key={idx} className="bg-white border border-gold/5 p-4 rounded-xl space-y-3 relative shadow-inner">
+                                <div className="flex justify-between items-center pb-1.5 border-b border-gold/10">
+                                  <span className="text-[9px] font-bold text-royal/60 uppercase">Activity #{idx + 1}: {todoObj.en || "(New Bullet)"}</span>
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      const updatedCities = [...editState.cities];
+                                      updatedCities[editingCityIdx].thingsToDo = updatedCities[editingCityIdx].thingsToDo.filter((_: any, i: number) => i !== idx);
+                                      setEditState({ ...editState, cities: updatedCities });
+                                    }}
+                                    className="text-[8px] font-bold text-red-500 hover:text-red-700 uppercase"
+                                  >
+                                    Remove
+                                  </button>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                                  {["en", "es", "pt"].map((lang) => (
+                                    <div key={lang} className="space-y-0.5">
+                                      <span className="text-[7px] uppercase font-bold text-[#C3AB85]">{lang} Text</span>
+                                      <input 
+                                        type="text" 
+                                        value={todoObj[lang] || ""}
+                                        onChange={e => {
+                                          const updatedCities = [...editState.cities];
+                                          const updatedTodo = { ...todoObj, [lang]: e.target.value };
+                                          updatedCities[editingCityIdx].thingsToDo[idx] = updatedTodo;
+                                          setEditState({ ...editState, cities: updatedCities });
+                                        }}
+                                        className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1.5 outline-none text-[11px] rounded"
+                                      />
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* SUBTAB 5: LUXURY HOTELS */}
+                  {citySubTab === "hotels" && (
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center pb-2 border-b border-gold/10">
+                        <span className="font-black uppercase tracking-widest text-[9px] text-royal/60 block">Boutique & Heritage Hotels</span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const updatedCities = [...editState.cities];
+                            const currentList = updatedCities[editingCityIdx].hotels || [];
+                            updatedCities[editingCityIdx].hotels = [...currentList, { name: "", tier: "Luxury", desc: { en: "", es: "", pt: "" } }];
+                            setEditState({ ...editState, cities: updatedCities });
+                          }}
+                          className="bg-royal text-white border border-gold/10 font-bold text-[8px] tracking-wider uppercase px-2.5 py-1.5 rounded transition cursor-pointer"
+                        >
+                          + Add Hotel
+                        </button>
+                      </div>
+
+                      {(!editState.cities[editingCityIdx].hotels || editState.cities[editingCityIdx].hotels.length === 0) ? (
+                        <div className="py-6 text-center text-[10px] text-royal/40 italic">No hotels configured.</div>
+                      ) : (
+                        <div className="space-y-4">
+                          {editState.cities[editingCityIdx].hotels.map((hotel: any, idx: number) => {
+                            const hotelDescObj = typeof hotel.desc === "object" && hotel.desc !== null ? hotel.desc : { en: hotel.desc || "", es: "", pt: "" };
+                            return (
+                              <div key={idx} className="bg-white border border-gold/5 p-4 rounded-xl space-y-3 relative shadow-inner">
+                                <div className="flex justify-between items-center pb-1.5 border-b border-gold/10">
+                                  <span className="text-[9px] font-bold text-royal/60 uppercase">Hotel #{idx + 1}: {hotel.name || "(New Hotel)"}</span>
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      const updatedCities = [...editState.cities];
+                                      updatedCities[editingCityIdx].hotels = updatedCities[editingCityIdx].hotels.filter((_: any, i: number) => i !== idx);
+                                      setEditState({ ...editState, cities: updatedCities });
+                                    }}
+                                    className="text-[8px] font-bold text-red-500 hover:text-red-700 uppercase"
+                                  >
+                                    Remove
+                                  </button>
+                                </div>
+                                
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                  <div className="space-y-1">
+                                    <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Hotel Name</label>
+                                    <input 
+                                      type="text" 
+                                      value={hotel.name || ""}
+                                      onChange={e => {
+                                        const updatedCities = [...editState.cities];
+                                        updatedCities[editingCityIdx].hotels[idx].name = e.target.value;
+                                        setEditState({ ...editState, cities: updatedCities });
+                                      }}
+                                      className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1 outline-none text-[11px] rounded"
+                                    />
+                                  </div>
+                                  <div className="space-y-1">
+                                    <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Tier Category</label>
+                                    <select 
+                                      value={hotel.tier || "Luxury"}
+                                      onChange={e => {
+                                        const updatedCities = [...editState.cities];
+                                        updatedCities[editingCityIdx].hotels[idx].tier = e.target.value;
+                                        setEditState({ ...editState, cities: updatedCities });
+                                      }}
+                                      className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1 outline-none text-[11px] rounded h-7"
+                                    >
+                                      <option value="Luxury">Luxury</option>
+                                      <option value="Premium">Premium</option>
+                                      <option value="Boutique">Boutique</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div className="space-y-1">
+                                  <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Description Translations</label>
+                                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                                    {["en", "es", "pt"].map((lang) => (
+                                      <div key={lang} className="space-y-0.5">
+                                        <span className="text-[7px] uppercase font-bold text-[#C3AB85]">{lang} Description</span>
+                                        <textarea 
+                                          value={hotelDescObj[lang] || ""}
+                                          onChange={e => {
+                                            const updatedCities = [...editState.cities];
+                                            const updatedDesc = { ...hotelDescObj, [lang]: e.target.value };
+                                            updatedCities[editingCityIdx].hotels[idx].desc = updatedDesc;
+                                            setEditState({ ...editState, cities: updatedCities });
+                                          }}
+                                          className="w-full h-12 bg-[#FAF8F5] border border-gold/10 p-2 outline-none text-[11px] rounded text-xs animate-none"
+                                        />
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* SUBTAB 6: NEARBY EXCURSIONS */}
+                  {citySubTab === "nearby" && (
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center pb-2 border-b border-gold/10">
+                        <span className="font-black uppercase tracking-widest text-[9px] text-royal/60 block">Nearby excursions & Day trips</span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const updatedCities = [...editState.cities];
+                            const currentList = updatedCities[editingCityIdx].nearbyPlaces || [];
+                            updatedCities[editingCityIdx].nearbyPlaces = [...currentList, { name: "", distance: "" }];
+                            setEditState({ ...editState, cities: updatedCities });
+                          }}
+                          className="bg-royal text-white border border-gold/10 font-bold text-[8px] tracking-wider uppercase px-2.5 py-1.5 rounded transition cursor-pointer"
+                        >
+                          + Add Excursion
+                        </button>
+                      </div>
+
+                      {(!editState.cities[editingCityIdx].nearbyPlaces || editState.cities[editingCityIdx].nearbyPlaces.length === 0) ? (
+                        <div className="py-6 text-center text-[10px] text-royal/40 italic">No excursions configured.</div>
+                      ) : (
+                        <div className="space-y-4">
+                          {editState.cities[editingCityIdx].nearbyPlaces.map((place: any, idx: number) => (
+                            <div key={idx} className="bg-white border border-gold/5 p-4 rounded-xl space-y-3 relative shadow-inner">
                               <div className="flex justify-between items-center pb-1.5 border-b border-gold/10">
-                                <span className="text-[9px] font-bold text-royal/60 uppercase">Attraction #{aIdx + 1}: {attrNameObj.en}</span>
+                                <span className="text-[9px] font-bold text-royal/60 uppercase">Excursion #{idx + 1}: {place.name || "(New Place)"}</span>
                                 <button
                                   type="button"
                                   onClick={() => {
                                     const updatedCities = [...editState.cities];
-                                    updatedCities[editingCityIdx].attractions = updatedCities[editingCityIdx].attractions.filter((_: any, i: number) => i !== aIdx);
+                                    updatedCities[editingCityIdx].nearbyPlaces = updatedCities[editingCityIdx].nearbyPlaces.filter((_: any, i: number) => i !== idx);
                                     setEditState({ ...editState, cities: updatedCities });
                                   }}
                                   className="text-[8px] font-bold text-red-500 hover:text-red-700 uppercase"
@@ -585,22 +922,99 @@ export default function DestinationsTab({
                                   Remove
                                 </button>
                               </div>
-
-                              <div className="grid grid-cols-1 gap-3">
-                                {/* Attraction Name Translations */}
+                              
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                 <div className="space-y-1">
-                                  <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Name Translations</label>
+                                  <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Destination Name</label>
+                                  <input 
+                                    type="text" 
+                                    value={place.name || ""}
+                                    onChange={e => {
+                                      const updatedCities = [...editState.cities];
+                                      updatedCities[editingCityIdx].nearbyPlaces[idx].name = e.target.value;
+                                      setEditState({ ...editState, cities: updatedCities });
+                                    }}
+                                    className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1 outline-none text-[11px] rounded"
+                                  />
+                                </div>
+                                <div className="space-y-1">
+                                  <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Distance (e.g. 145 km)</label>
+                                  <input 
+                                    type="text" 
+                                    value={place.distance || ""}
+                                    onChange={e => {
+                                      const updatedCities = [...editState.cities];
+                                      updatedCities[editingCityIdx].nearbyPlaces[idx].distance = e.target.value;
+                                      setEditState({ ...editState, cities: updatedCities });
+                                    }}
+                                    className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1 outline-none text-[11px] rounded"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* SUBTAB 7: CITY FAQS */}
+                  {citySubTab === "faqs" && (
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center pb-2 border-b border-gold/10">
+                        <span className="font-black uppercase tracking-widest text-[9px] text-royal/60 block">City Specific FAQs</span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const updatedCities = [...editState.cities];
+                            const currentList = updatedCities[editingCityIdx].faqs || [];
+                            updatedCities[editingCityIdx].faqs = [...currentList, { q: { en: "", es: "", pt: "" }, a: { en: "", es: "", pt: "" } }];
+                            setEditState({ ...editState, cities: updatedCities });
+                          }}
+                          className="bg-royal text-white border border-gold/10 font-bold text-[8px] tracking-wider uppercase px-2.5 py-1.5 rounded transition cursor-pointer"
+                        >
+                          + Add FAQ
+                        </button>
+                      </div>
+
+                      {(!editState.cities[editingCityIdx].faqs || editState.cities[editingCityIdx].faqs.length === 0) ? (
+                        <div className="py-6 text-center text-[10px] text-royal/40 italic">No FAQs configured.</div>
+                      ) : (
+                        <div className="space-y-4">
+                          {editState.cities[editingCityIdx].faqs.map((faq: any, idx: number) => {
+                            const qObj = typeof faq.q === "object" && faq.q !== null ? faq.q : { en: faq.q || "", es: "", pt: "" };
+                            const aObj = typeof faq.a === "object" && faq.a !== null ? faq.a : { en: faq.a || "", es: "", pt: "" };
+                            return (
+                              <div key={idx} className="bg-white border border-gold/5 p-4 rounded-xl space-y-4 relative shadow-inner">
+                                <div className="flex justify-between items-center pb-1.5 border-b border-gold/10">
+                                  <span className="text-[9px] font-bold text-royal/60 uppercase">FAQ #{idx + 1}</span>
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      const updatedCities = [...editState.cities];
+                                      updatedCities[editingCityIdx].faqs = updatedCities[editingCityIdx].faqs.filter((_: any, i: number) => i !== idx);
+                                      setEditState({ ...editState, cities: updatedCities });
+                                    }}
+                                    className="text-[8px] font-bold text-red-500 hover:text-red-700 uppercase"
+                                  >
+                                    Remove
+                                  </button>
+                                </div>
+                                
+                                {/* Question Translations */}
+                                <div className="space-y-1">
+                                  <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Question Translations</label>
                                   <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                                     {["en", "es", "pt"].map((lang) => (
                                       <div key={lang} className="space-y-0.5">
-                                        <span className="text-[7px] uppercase font-bold text-[#C3AB85]">{lang} Name</span>
+                                        <span className="text-[7px] uppercase font-bold text-[#C3AB85]">{lang} Question</span>
                                         <input 
                                           type="text" 
-                                          value={attrNameObj[lang] || ""}
+                                          value={qObj[lang] || ""}
                                           onChange={e => {
                                             const updatedCities = [...editState.cities];
-                                            const updatedName = { ...attrNameObj, [lang]: e.target.value };
-                                            updatedCities[editingCityIdx].attractions[aIdx].name = updatedName;
+                                            const updatedQ = { ...qObj, [lang]: e.target.value };
+                                            updatedCities[editingCityIdx].faqs[idx].q = updatedQ;
                                             setEditState({ ...editState, cities: updatedCities });
                                           }}
                                           className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1 outline-none text-[11px] rounded"
@@ -610,19 +1024,19 @@ export default function DestinationsTab({
                                   </div>
                                 </div>
 
-                                {/* Attraction Description Translations */}
+                                {/* Answer Translations */}
                                 <div className="space-y-1">
-                                  <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Description Translations</label>
+                                  <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Answer Translations</label>
                                   <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                                     {["en", "es", "pt"].map((lang) => (
                                       <div key={lang} className="space-y-0.5">
-                                        <span className="text-[7px] uppercase font-bold text-[#C3AB85]">{lang} Description</span>
+                                        <span className="text-[7px] uppercase font-bold text-[#C3AB85]">{lang} Answer</span>
                                         <textarea 
-                                          value={attrDescObj[lang] || ""}
+                                          value={aObj[lang] || ""}
                                           onChange={e => {
                                             const updatedCities = [...editState.cities];
-                                            const updatedDesc = { ...attrDescObj, [lang]: e.target.value };
-                                            updatedCities[editingCityIdx].attractions[aIdx].desc = updatedDesc;
+                                            const updatedA = { ...aObj, [lang]: e.target.value };
+                                            updatedCities[editingCityIdx].faqs[idx].a = updatedA;
                                             setEditState({ ...editState, cities: updatedCities });
                                           }}
                                           className="w-full h-12 bg-[#FAF8F5] border border-gold/10 p-2 outline-none text-[11px] rounded text-xs"
@@ -631,51 +1045,13 @@ export default function DestinationsTab({
                                     ))}
                                   </div>
                                 </div>
-
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                  <div className="space-y-1">
-                                    <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Era (e.g. 1592 AD)</label>
-                                    <input 
-                                      type="text" value={attr.era || ""}
-                                      onChange={e => {
-                                        const updatedCities = [...editState.cities];
-                                        updatedCities[editingCityIdx].attractions[aIdx].era = e.target.value;
-                                        setEditState({ ...editState, cities: updatedCities });
-                                      }}
-                                      className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1 outline-none text-[11px] rounded"
-                                    />
-                                  </div>
-                                  <div className="space-y-1">
-                                    <label className="text-[8px] uppercase tracking-wider text-royal/40 block">Image URL</label>
-                                    <div className="flex gap-1.5">
-                                      <input 
-                                        type="text" value={attr.image || ""}
-                                        onChange={e => {
-                                          const updatedCities = [...editState.cities];
-                                          updatedCities[editingCityIdx].attractions[aIdx].image = e.target.value;
-                                          setEditState({ ...editState, cities: updatedCities });
-                                        }}
-                                        className="w-full bg-[#FAF8F5] border border-gold/10 px-2 py-1 outline-none text-[11px] rounded"
-                                      />
-                                      <CloudinaryUpload 
-                                        label="Upload" 
-                                        onUploadComplete={(url) => {
-                                          const updatedCities = [...editState.cities];
-                                          updatedCities[editingCityIdx].attractions[aIdx].image = url;
-                                          setEditState({ ...editState, cities: updatedCities });
-                                        }} 
-                                        showStatus={showStatus} 
-                                      />
-                                    </div>
-                                  </div>
-                                </div>
                               </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               )}
             </div>

@@ -148,7 +148,7 @@ export default async function PackageDetailPage({ params }: PackageDetailProps) 
           className="absolute inset-0 w-full h-full object-cover animate-kenburns"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D0C]/80 via-[#0B0D0C]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
         
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-16 space-y-5">
           {/* Back link */}

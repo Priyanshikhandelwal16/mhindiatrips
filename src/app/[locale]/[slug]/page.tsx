@@ -37,7 +37,7 @@ export default async function CustomPage({ params }: CustomPageProps) {
           alt={title} 
           className="absolute inset-0 w-full h-full object-cover animate-kenburns" 
         />
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-black/25" />
         <div className="relative z-10 text-center text-white px-6 max-w-5xl space-y-6">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">MH India Trips Dispatch</span>
           <h1 className="text-4xl md:text-6xl font-bold font-serif mb-4 leading-tight text-white">{title}</h1>

@@ -107,7 +107,7 @@ export default async function MonumentsPage({ params }: MonumentsPageProps) {
           className="absolute inset-0 w-full h-full object-cover object-[center_40%] animate-kenburns"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D0C]/75 via-[#0B0D0C]/25 to-[#0B0D0C]/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/15" />
         <div className="relative z-10 text-center text-white space-y-7 px-6 max-w-4xl">
           <span className="bg-[#C3AB85] text-[#0B0D0C] text-[10px] font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-flex items-center gap-2 animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "both" }}>
             <Landmark className="w-3.5 h-3.5" />
@@ -142,7 +142,7 @@ export default async function MonumentsPage({ params }: MonumentsPageProps) {
                       src={mon.image}
                       alt={mon.name}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                      className="w-full h-full object-cover object-[center_15%] transition-transform duration-[1200ms] ease-out group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                     
@@ -211,7 +211,7 @@ export default async function MonumentsPage({ params }: MonumentsPageProps) {
                             src={mon.image}
                             loading="lazy"
                             alt={attractionName}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            className="w-full h-full object-cover object-[center_15%] transition-transform duration-700 group-hover:scale-110"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                           <div className="absolute top-4 left-4">

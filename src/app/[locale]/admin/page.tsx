@@ -582,14 +582,14 @@ export default function AdminDashboard() {
       )}
       
       {/* DESKTOP SIDEBAR */}
-      <aside className="w-64 bg-royal text-white shrink-0 hidden md:flex flex-col justify-between py-6 px-5 border-r border-white/5 fixed left-0 top-0 bottom-0 z-40 overflow-y-auto shadow-xl shadow-royal/20">
+      <aside className="w-64 bg-[#FCFAF6] text-royal shrink-0 hidden md:flex flex-col justify-between py-6 px-5 border-r border-gold/15 fixed left-0 top-0 bottom-0 z-40 overflow-y-auto shadow-lg shadow-royal/5">
         <div className="space-y-6">
-          <Link href={`/${locale}`} className="block pb-4 border-b border-white/5">
+          <Link href={`/${locale}`} className="block pb-4 border-b border-gold/10">
             <img src="/images/logo-transparent.png" alt="MH India Trips" className="h-12 w-auto opacity-95 mx-auto" />
           </Link>
 
           <div className="space-y-1">
-            <p className="text-[9px] uppercase tracking-widest text-white/30 font-bold px-4 pb-2">Content Management</p>
+            <p className="text-[9px] uppercase tracking-widest text-royal/40 font-bold px-4 pb-2">Content Management</p>
             <nav className="space-y-1">
               {navItems.map((item) => {
                 const Icon = item.icon;
@@ -602,8 +602,8 @@ export default function AdminDashboard() {
                     }}
                     className={`flex items-center space-x-3 px-4 py-3 w-full text-left text-xs font-bold uppercase tracking-wider rounded-xl transition cursor-pointer ${
                       activeTab === item.id 
-                        ? "bg-white/10 text-white shadow-inner border-l-4 border-l-gold" 
-                        : "hover:bg-white/5 text-white/70"
+                        ? "bg-gold/10 text-royal border-l-4 border-l-gold shadow-sm" 
+                        : "hover:bg-gold/5 text-royal/70"
                     }`}
                   >
                     <Icon className="w-4 h-4 text-gold shrink-0" />
@@ -615,16 +615,16 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        <div className="pt-4 border-t border-white/5 space-y-3">
+        <div className="pt-4 border-t border-gold/10 space-y-3">
           <a
             href={`/${locale}`}
             target="_blank"
-            className="text-[10px] text-white/60 hover:text-gold flex items-center space-x-2 transition uppercase font-bold tracking-wider"
+            className="text-[10px] text-royal/60 hover:text-gold flex items-center space-x-2 transition uppercase font-bold tracking-wider"
           >
-            <Globe className="w-4 h-4" />
+            <Globe className="w-4 h-4 text-gold" />
             <span>View Live Website</span>
           </a>
-          <p className="text-[9px] text-white/20 font-light">MH India Trips CMS Suite</p>
+          <p className="text-[9px] text-royal/30 font-light">MH India Trips CMS Suite</p>
         </div>
       </aside>
 
@@ -635,20 +635,20 @@ export default function AdminDashboard() {
           <div className="fixed inset-0 bg-black/60 transition-opacity" onClick={() => setMobileSidebarOpen(false)} />
           
           {/* Content */}
-          <div className="relative flex w-full max-w-xs flex-col bg-royal text-white py-6 px-5 z-50">
+          <div className="relative flex w-full max-w-xs flex-col bg-[#FCFAF6] text-royal py-6 px-5 z-50 border-r border-gold/15 shadow-2xl">
             <div className="absolute top-5 right-5">
-              <button onClick={() => setMobileSidebarOpen(false)} className="p-1 rounded-lg hover:bg-white/10">
-                <X className="w-6 h-6 text-white" />
+              <button onClick={() => setMobileSidebarOpen(false)} className="p-1 rounded-lg hover:bg-gold/10">
+                <X className="w-6 h-6 text-royal" />
               </button>
             </div>
             
             <div className="space-y-6">
-              <div className="pb-4 border-b border-white/5">
+              <div className="pb-4 border-b border-gold/10">
                 <img src="/images/logo-transparent.png" alt="MH India Trips" className="h-10 w-auto opacity-95" />
               </div>
 
               <div className="space-y-1">
-                <p className="text-[9px] uppercase tracking-widest text-white/30 font-bold px-4 pb-2">Content Management</p>
+                <p className="text-[9px] uppercase tracking-widest text-royal/40 font-bold px-4 pb-2">Content Management</p>
                 <nav className="space-y-1">
                   {navItems.map((item) => {
                     const Icon = item.icon;
@@ -662,8 +662,8 @@ export default function AdminDashboard() {
                         }}
                         className={`flex items-center space-x-3 px-4 py-3 w-full text-left text-xs font-bold uppercase tracking-wider rounded-xl transition cursor-pointer ${
                           activeTab === item.id 
-                            ? "bg-white/10 text-white border-l-4 border-l-gold" 
-                            : "hover:bg-white/5 text-white/70"
+                            ? "bg-gold/10 text-royal border-l-4 border-l-gold shadow-sm" 
+                            : "hover:bg-gold/5 text-royal/70"
                         }`}
                       >
                         <Icon className="w-4 h-4 text-gold shrink-0" />
@@ -675,16 +675,16 @@ export default function AdminDashboard() {
               </div>
             </div>
 
-            <div className="mt-auto pt-4 border-t border-white/5 space-y-3">
+            <div className="mt-auto pt-4 border-t border-gold/10 space-y-3">
               <a
                 href={`/${locale}`}
                 target="_blank"
-                className="text-[10px] text-white/60 hover:text-gold flex items-center space-x-2 transition uppercase font-bold tracking-wider"
+                className="text-[10px] text-royal/60 hover:text-gold flex items-center space-x-2 transition uppercase font-bold tracking-wider"
               >
-                <Globe className="w-4 h-4" />
+                <Globe className="w-4 h-4 text-gold" />
                 <span>View Live Website</span>
               </a>
-              <p className="text-[9px] text-white/20 font-light">MH India Trips CMS Suite</p>
+              <p className="text-[9px] text-royal/30 font-light">MH India Trips CMS Suite</p>
             </div>
           </div>
         </div>

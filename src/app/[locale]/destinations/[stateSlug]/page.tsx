@@ -88,10 +88,10 @@ export default async function StateDetailPage({ params }: StatePageProps) {
           <img 
             src={state.image} 
             alt={stateName} 
-            className="w-full h-full object-cover filter brightness-[0.6] contrast-[1.05]"
+            className="w-full h-full object-cover filter brightness-[0.80] contrast-[1.02]"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-royal/90 via-transparent to-black/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/15" />
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-12 text-left text-white space-y-6">

@@ -127,7 +127,7 @@ export default async function FAQPage({ params }: FAQPageProps) {
           alt="Traveler Info" 
           className="absolute inset-0 w-full h-full object-cover object-[center_35%]" 
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/25" />
         <div className="relative z-10 text-center text-white px-6 max-w-4xl space-y-6">
           <span className="bg-gold text-royal text-[10px] font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
             {text.heroSub}

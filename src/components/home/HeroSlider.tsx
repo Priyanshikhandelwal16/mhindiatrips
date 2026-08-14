@@ -73,8 +73,8 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
             src={slide.image}
             alt={slide.title}
             loading={i === 0 ? "eager" : "lazy"}
-            className={`absolute inset-0 w-full h-full object-cover transition-all duration-[6000ms] ease-out ${
-              i === current ? "scale-100 blur-0" : "scale-[1.08] blur-[2px]"
+            className={`absolute inset-0 w-full h-full object-cover transition-[transform,opacity] duration-[3000ms] ease-out ${
+              i === current ? "scale-100 opacity-100" : "scale-[1.04] opacity-0"
             }`}
             style={{ objectPosition: slide.objectPosition || "center 30%" }}
           />

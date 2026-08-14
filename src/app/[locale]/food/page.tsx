@@ -63,8 +63,7 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
           className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns" 
           loading="eager" 
         />
-        <div className="absolute inset-0 bg-black/45" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/15" />
         <div className="relative z-10 text-center text-white space-y-6 px-6 max-w-5xl">
           <span className="bg-[#0A2A1E]/80 border border-[#C5A862]/30 text-gold text-xs font-bold uppercase tracking-[0.25em] px-5 py-2.5 rounded-full inline-block shadow-lg">
             {text.sub}
@@ -100,7 +99,7 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {regFoods.map((food: FoodData) => (
                   <Link key={food.slug} href={`/${locale}/food/${food.slug}`} className="group block">
-                    <div className="bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-[440px] transition-all duration-500 hover:-translate-y-2.5 hover:border-[#C5A862]/30 hover:shadow-xl">
+                    <div className="bg-white border border-[#C5A862]/10 overflow-hidden rounded-2xl shadow-md flex flex-col h-[440px] transition-all duration-500 hover:-translate-y-2.5 hover:border-[#C5A862]/30 hover:shadow-xl">
                       
                       {/* Image Frame */}
                       <div className="h-56 overflow-hidden relative shrink-0">
