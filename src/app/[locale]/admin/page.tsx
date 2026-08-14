@@ -597,7 +597,7 @@ export default function AdminDashboard() {
   ];
 
   return (
-    <div className="h-screen bg-[#FCFAF6] flex text-royal overflow-hidden relative" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+    <div className="w-full h-screen bg-[#FCFAF6] flex text-royal overflow-hidden relative" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
       {/* Dynamic Status Notifications */}
       {statusMessage && (
         <div className={`fixed top-5 right-5 z-[100] p-4 shadow-xl border flex items-center gap-3 transition-all duration-300 rounded-xl ${
@@ -657,6 +657,15 @@ export default function AdminDashboard() {
             <Globe className="w-4 h-4 text-gold" />
             <span>View Live Website</span>
           </a>
+          
+          <button 
+            onClick={handleLogout}
+            className="w-full bg-red-50 hover:bg-red-100 text-red-600 font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 flex items-center gap-2 border border-red-200/55 transition cursor-pointer rounded-xl"
+          >
+            <LogOut className="w-4 h-4 text-red-600 shrink-0" />
+            <span>Sign Out</span>
+          </button>
+
           <p className="text-[9px] text-royal/30 font-light">MH India Trips CMS Suite</p>
         </div>
       </aside>
@@ -717,6 +726,15 @@ export default function AdminDashboard() {
                 <Globe className="w-4 h-4 text-gold" />
                 <span>View Live Website</span>
               </a>
+
+              <button 
+                onClick={handleLogout}
+                className="w-full bg-red-50 hover:bg-red-100 text-red-600 font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 flex items-center gap-2 border border-red-200/55 transition cursor-pointer rounded-xl"
+              >
+                <LogOut className="w-4 h-4 text-red-600 shrink-0" />
+                <span>Sign Out</span>
+              </button>
+
               <p className="text-[9px] text-royal/30 font-light">MH India Trips CMS Suite</p>
             </div>
           </div>
@@ -743,19 +761,11 @@ export default function AdminDashboard() {
                 <span>CMS:</span>
                 <span className="text-gold font-light">{activeTab}</span>
               </h1>
-              <p className="text-[9px] text-royal/40 uppercase tracking-widest font-semibold mt-0.5">
+              <p className="text-[9px] text-royal/40 uppercase tracking-widest font-semibold mt-0.5 truncate max-w-[200px] sm:max-w-none">
                 Authorized as: {user.email}
               </p>
             </div>
           </div>
-
-          <button 
-            onClick={handleLogout}
-            className="bg-red-50 hover:bg-red-100 text-red-600 font-bold text-[9px] tracking-wider uppercase px-4 py-2.5 flex items-center gap-1.5 border border-red-200/55 transition cursor-pointer rounded-xl"
-          >
-            <LogOut className="w-3.5 h-3.5" />
-            <span>Sign Out</span>
-          </button>
         </div>
 
         {/* LOADING BUFFER COLLECTIONS */}
