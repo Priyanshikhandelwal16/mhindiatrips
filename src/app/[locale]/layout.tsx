@@ -32,11 +32,11 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className="font-sans bg-background text-foreground antialiased min-h-screen flex flex-col justify-between" suppressHydrationWarning>
+      <body className="font-sans bg-background text-foreground antialiased min-h-screen flex flex-col justify-between w-full overflow-x-hidden" suppressHydrationWarning>
         <PageLoader />
         <PopupInquiryForm locale={locale} />
         <Header locale={locale} />
-        <main className="flex-grow flex flex-col">
+        <main className="flex-grow flex flex-col w-full overflow-x-hidden">
           <PageTransition>
             {children}
           </PageTransition>

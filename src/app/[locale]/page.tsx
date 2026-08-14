@@ -349,7 +349,7 @@ export default async function HomePage({ params }: HomePageProps) {
       {/* SECTION 1.5: Infographic Circular Stats (Screenshot 1 Theme) */}
       <section className="bg-cream py-24 border-b border-gold/10 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
             {(cmsStats.length > 0 ? cmsStats : [
               { value: 12, suffix: "", label: { en: "Years of experience", es: "Años de experiencia", pt: "Anos de experiência" } },
               { value: 97, suffix: "%", label: { en: "Retention rate", es: "Tasa de retención", pt: "Taxa de retenção" } },
