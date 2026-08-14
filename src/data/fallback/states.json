@@ -333,7 +333,215 @@
               "pt": "2-3 dias ideais."
             }
           }
-        ]
+        ],
+        "status": "published",
+        "isFeatured": false,
+        "country": "India",
+        "region": "West",
+        "destinationType": "Historical",
+        "shortDescription": {
+          "en": "The Pink City of Maharajas",
+          "es": "La Ciudad Rosa de los Maharajás",
+          "pt": "A Cidade Rosa dos Marajás"
+        },
+        "fullDescription": {
+          "en": "Capital of Rajasthan, known for its pink-painted old city walls, grand palaces, and bustling bazaars. A UNESCO World Heritage City since 2019.",
+          "es": "Capital de Rajastán, conocida por sus murallas pintadas de rosa, palacios grandiosos y bazares bulliciosos.",
+          "pt": "Capital do Rajastão, conhecida por suas muralhas pintadas de rosa, palácios grandiosos e bazares movimentados."
+        },
+        "featuredImage": "/images/rajasthan_fort_sunset.png",
+        "hero": {
+          "image": "/images/rajasthan_fort_sunset.png",
+          "title": {
+            "en": "Jaipur",
+            "es": "Jaipur",
+            "pt": "Jaipur"
+          },
+          "subtitle": {
+            "en": "The Pink City of Maharajas",
+            "es": "La Ciudad Rosa de los Maharajás",
+            "pt": "A Cidade Rosa dos Marajás"
+          },
+          "description": {
+            "en": "Capital of Rajasthan, known for its pink-painted old city walls, grand palaces, and bustling bazaars. A UNESCO World Heritage City since 2019.",
+            "es": "Capital de Rajastán, conocida por sus murallas pintadas de rosa, palacios grandiosos y bazares bulliciosos.",
+            "pt": "Capital do Rajastão, conhecida por suas muralhas pintadas de rosa, palácios grandiosos e bazares movimentados."
+          },
+          "ctaText": {
+            "en": "Plan Your Journey",
+            "es": "Planificar Viaje",
+            "pt": "Planejar Viagem"
+          },
+          "ctaLink": "/contact"
+        },
+        "highlights": [
+          {
+            "title": {
+              "en": "Explore Jaipur",
+              "es": "Explore Jaipur",
+              "pt": "Explore Jaipur"
+            },
+            "desc": {
+              "en": "Experience the unique local heritage, landscapes, and culture.",
+              "es": "Experimente el patrimonio local único.",
+              "pt": "Experimente o patrimônio local único."
+            },
+            "isActive": true,
+            "displayOrder": 1
+          }
+        ],
+        "experiences": [
+          {
+            "title": {
+              "en": "Private Guided Tour",
+              "es": "Tour Guiado Privado",
+              "pt": "Tour Guiado Privado"
+            },
+            "desc": {
+              "en": "Walk through key attractions with a certified local guide.",
+              "es": "Recorra las atracciones con un guía local.",
+              "pt": "Explore as atrações com um guia local."
+            },
+            "duration": "Full Day",
+            "bookingAvailable": true,
+            "isFeatured": true
+          }
+        ],
+        "bestTimeToVisit": {
+          "bestTime": {
+            "en": "October to March (peak: November-February)",
+            "es": "De octubre a marzo",
+            "pt": "De outubro a março"
+          },
+          "peakSeason": "November to February",
+          "shoulderSeason": "October, March",
+          "offSeason": "April to September",
+          "weatherDesc": {
+            "en": "Hot summers (40°C+), pleasant winters (8-25°C). Best Oct-Mar.",
+            "es": "Veranos calurosos, inviernos agradables.",
+            "pt": "Verões quentes, invernos agradáveis."
+          },
+          "monthlyInfo": [
+            {
+              "month": "January",
+              "weather": "Cool & Sunny",
+              "temp": "15°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Excellent weather for sightseeing."
+            },
+            {
+              "month": "October",
+              "weather": "Pleasant",
+              "temp": "24°C",
+              "crowd": "Medium",
+              "recommended": true,
+              "desc": "Pleasant temperatures post-monsoon."
+            },
+            {
+              "month": "December",
+              "weather": "Cool Winter",
+              "temp": "16°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Great festival season and cool days."
+            }
+          ]
+        },
+        "travelInfo": {
+          "howToReach": {
+            "en": "Well connected by air, rail, and road.",
+            "es": "Bien conectado por aire, tren y carretera.",
+            "pt": "Bem conectado por via aérea, ferroviária e rodoviária."
+          },
+          "currency": "INR",
+          "localLanguage": "Hindi & English",
+          "timeZone": "IST (UTC+5:30)",
+          "safetyInfo": {
+            "en": "Safe destination for international tourists.",
+            "es": "Destino seguro para turistas.",
+            "pt": "Destino seguro para turistas."
+          }
+        },
+        "gettingAround": [
+          {
+            "transportType": "Private Car",
+            "title": {
+              "en": "Private Chauffeur SUV",
+              "es": "SUV Privado con Chofer",
+              "pt": "SUV Privado com Motorista"
+            },
+            "desc": {
+              "en": "Best and most comfortable option for long distance travel.",
+              "es": "La mejor opción para largas distancias.",
+              "pt": "Melhor opção para viagens longas."
+            },
+            "priceRange": "$$ - $$$",
+            "recommended": true
+          },
+          {
+            "transportType": "Auto Rickshaw",
+            "title": {
+              "en": "Auto Rickshaw",
+              "es": "Auto Rickshaw",
+              "pt": "Auto Rickshaw"
+            },
+            "desc": {
+              "en": "Ideal for short distances and navigating city markets.",
+              "es": "Ideal para distancias cortas.",
+              "pt": "Ideal para distâncias curtas."
+            },
+            "priceRange": "$",
+            "recommended": false
+          }
+        ],
+        "localFoodDishes": [
+          {
+            "name": {
+              "en": "Regional Delicacies",
+              "es": "Especialidades Regionales",
+              "pt": "Especialidades Regionais"
+            },
+            "desc": {
+              "en": "Authentic traditional recipes unique to this destination.",
+              "es": "Recetas tradicionales únicas de este destino.",
+              "pt": "Receitas tradicionais únicas deste destino."
+            },
+            "isVeg": true,
+            "recommended": true,
+            "whereToTry": "Local Traditional Restaurants"
+          }
+        ],
+        "relatedTours": [
+          "golden-triangle-luxury"
+        ],
+        "tags": [
+          "History",
+          "Culture",
+          "Heritage"
+        ],
+        "statistics": {
+          "recommendedDays": "2-3 Days",
+          "annualVisitors": "1M+",
+          "bestSeason": "Winter"
+        },
+        "seo": {
+          "title": {
+            "en": "Jaipur",
+            "es": "Jaipur",
+            "pt": "Jaipur"
+          },
+          "description": {
+            "en": "The Pink City of Maharajas",
+            "es": "La Ciudad Rosa de los Maharajás",
+            "pt": "A Cidade Rosa dos Marajás"
+          },
+          "keywords": {
+            "en": "india, travel guide",
+            "es": "india, guia de viaje",
+            "pt": "india, guia de viagem"
+          }
+        }
       },
       {
         "slug": "udaipur",
@@ -506,7 +714,215 @@
           "es": "Día 1: Palacio y lago. Día 2: Jardines y templos.",
           "pt": "Dia 1: Palácio e lago. Dia 2: Jardins e templos."
         },
-        "faqs": []
+        "faqs": [],
+        "status": "published",
+        "isFeatured": false,
+        "country": "India",
+        "region": "West",
+        "destinationType": "Historical",
+        "shortDescription": {
+          "en": "The City of Lakes & Romance",
+          "es": "La Ciudad de los Lagos y el Romance",
+          "pt": "A Cidade dos Lagos e Romance"
+        },
+        "fullDescription": {
+          "en": "Known as the Venice of the East, Udaipur is set around beautiful lakes and features stunning white marble palaces. One of India's most romantic cities.",
+          "es": "Conocida como la Venecia del Este, Udaipur está rodeada de lagos hermosos y palacios de mármol blanco.",
+          "pt": "Conhecida como a Veneza do Oriente, Udaipur é cercada por lagos bonitos e palácios de mármore branco."
+        },
+        "featuredImage": "/images/rajasthan_fort_sunset.png",
+        "hero": {
+          "image": "/images/rajasthan_fort_sunset.png",
+          "title": {
+            "en": "Udaipur",
+            "es": "Udaipur",
+            "pt": "Udaipur"
+          },
+          "subtitle": {
+            "en": "The City of Lakes & Romance",
+            "es": "La Ciudad de los Lagos y el Romance",
+            "pt": "A Cidade dos Lagos e Romance"
+          },
+          "description": {
+            "en": "Known as the Venice of the East, Udaipur is set around beautiful lakes and features stunning white marble palaces. One of India's most romantic cities.",
+            "es": "Conocida como la Venecia del Este, Udaipur está rodeada de lagos hermosos y palacios de mármol blanco.",
+            "pt": "Conhecida como a Veneza do Oriente, Udaipur é cercada por lagos bonitos e palácios de mármore branco."
+          },
+          "ctaText": {
+            "en": "Plan Your Journey",
+            "es": "Planificar Viaje",
+            "pt": "Planejar Viagem"
+          },
+          "ctaLink": "/contact"
+        },
+        "highlights": [
+          {
+            "title": {
+              "en": "Explore Udaipur",
+              "es": "Explore Udaipur",
+              "pt": "Explore Udaipur"
+            },
+            "desc": {
+              "en": "Experience the unique local heritage, landscapes, and culture.",
+              "es": "Experimente el patrimonio local único.",
+              "pt": "Experimente o patrimônio local único."
+            },
+            "isActive": true,
+            "displayOrder": 1
+          }
+        ],
+        "experiences": [
+          {
+            "title": {
+              "en": "Private Guided Tour",
+              "es": "Tour Guiado Privado",
+              "pt": "Tour Guiado Privado"
+            },
+            "desc": {
+              "en": "Walk through key attractions with a certified local guide.",
+              "es": "Recorra las atracciones con un guía local.",
+              "pt": "Explore as atrações com um guia local."
+            },
+            "duration": "Full Day",
+            "bookingAvailable": true,
+            "isFeatured": true
+          }
+        ],
+        "bestTimeToVisit": {
+          "bestTime": {
+            "en": "September to March",
+            "es": "De septiembre a marzo",
+            "pt": "De setembro a março"
+          },
+          "peakSeason": "November to February",
+          "shoulderSeason": "October, March",
+          "offSeason": "April to September",
+          "weatherDesc": {
+            "en": "Pleasant year-round due to lakes. Best Oct-Mar.",
+            "es": "Agradable todo el año.",
+            "pt": "Agradável o ano todo."
+          },
+          "monthlyInfo": [
+            {
+              "month": "January",
+              "weather": "Cool & Sunny",
+              "temp": "15°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Excellent weather for sightseeing."
+            },
+            {
+              "month": "October",
+              "weather": "Pleasant",
+              "temp": "24°C",
+              "crowd": "Medium",
+              "recommended": true,
+              "desc": "Pleasant temperatures post-monsoon."
+            },
+            {
+              "month": "December",
+              "weather": "Cool Winter",
+              "temp": "16°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Great festival season and cool days."
+            }
+          ]
+        },
+        "travelInfo": {
+          "howToReach": {
+            "en": "Well connected by air, rail, and road.",
+            "es": "Bien conectado por aire, tren y carretera.",
+            "pt": "Bem conectado por via aérea, ferroviária e rodoviária."
+          },
+          "currency": "INR",
+          "localLanguage": "Hindi & English",
+          "timeZone": "IST (UTC+5:30)",
+          "safetyInfo": {
+            "en": "Safe destination for international tourists.",
+            "es": "Destino seguro para turistas.",
+            "pt": "Destino seguro para turistas."
+          }
+        },
+        "gettingAround": [
+          {
+            "transportType": "Private Car",
+            "title": {
+              "en": "Private Chauffeur SUV",
+              "es": "SUV Privado con Chofer",
+              "pt": "SUV Privado com Motorista"
+            },
+            "desc": {
+              "en": "Best and most comfortable option for long distance travel.",
+              "es": "La mejor opción para largas distancias.",
+              "pt": "Melhor opção para viagens longas."
+            },
+            "priceRange": "$$ - $$$",
+            "recommended": true
+          },
+          {
+            "transportType": "Auto Rickshaw",
+            "title": {
+              "en": "Auto Rickshaw",
+              "es": "Auto Rickshaw",
+              "pt": "Auto Rickshaw"
+            },
+            "desc": {
+              "en": "Ideal for short distances and navigating city markets.",
+              "es": "Ideal para distancias cortas.",
+              "pt": "Ideal para distâncias curtas."
+            },
+            "priceRange": "$",
+            "recommended": false
+          }
+        ],
+        "localFoodDishes": [
+          {
+            "name": {
+              "en": "Regional Delicacies",
+              "es": "Especialidades Regionales",
+              "pt": "Especialidades Regionais"
+            },
+            "desc": {
+              "en": "Authentic traditional recipes unique to this destination.",
+              "es": "Recetas tradicionales únicas de este destino.",
+              "pt": "Receitas tradicionais únicas deste destino."
+            },
+            "isVeg": true,
+            "recommended": true,
+            "whereToTry": "Local Traditional Restaurants"
+          }
+        ],
+        "relatedTours": [
+          "golden-triangle-luxury"
+        ],
+        "tags": [
+          "History",
+          "Culture",
+          "Heritage"
+        ],
+        "statistics": {
+          "recommendedDays": "2-3 Days",
+          "annualVisitors": "1M+",
+          "bestSeason": "Winter"
+        },
+        "seo": {
+          "title": {
+            "en": "Udaipur",
+            "es": "Udaipur",
+            "pt": "Udaipur"
+          },
+          "description": {
+            "en": "The City of Lakes & Romance",
+            "es": "La Ciudad de los Lagos y el Romance",
+            "pt": "A Cidade dos Lagos e Romance"
+          },
+          "keywords": {
+            "en": "india, travel guide",
+            "es": "india, guia de viaje",
+            "pt": "india, guia de viagem"
+          }
+        }
       },
       {
         "slug": "jodhpur",
@@ -634,7 +1050,215 @@
           "es": "Día 1: Fuerte. Día 2: Ciudad Azul.",
           "pt": "Dia 1: Forte. Dia 2: Cidade Azul."
         },
-        "faqs": []
+        "faqs": [],
+        "status": "published",
+        "isFeatured": false,
+        "country": "India",
+        "region": "West",
+        "destinationType": "Historical",
+        "shortDescription": {
+          "en": "The Blue City & Mehrangarh Fortress",
+          "es": "La Ciudad Azul y la Fortaleza Mehrangarh",
+          "pt": "A Cidade Azul e a Fortaleza Mehrangarh"
+        },
+        "fullDescription": {
+          "en": "Known as the Blue City for its indigo-washed houses, dominated by the imposing Mehrangarh Fort. Gateway to the Thar Desert.",
+          "es": "Conocida como la Ciudad Azul por sus casas pintadas de añil, dominada por el imponente Fuerte Mehrangarh.",
+          "pt": "Conhecida como a Cidade Azul por suas casas pintadas de anil, dominada pelo imponente Forte Mehrangarh."
+        },
+        "featuredImage": "/images/jodhpur.jpg",
+        "hero": {
+          "image": "/images/jodhpur.jpg",
+          "title": {
+            "en": "Jodhpur",
+            "es": "Jodhpur",
+            "pt": "Jodhpur"
+          },
+          "subtitle": {
+            "en": "The Blue City & Mehrangarh Fortress",
+            "es": "La Ciudad Azul y la Fortaleza Mehrangarh",
+            "pt": "A Cidade Azul e a Fortaleza Mehrangarh"
+          },
+          "description": {
+            "en": "Known as the Blue City for its indigo-washed houses, dominated by the imposing Mehrangarh Fort. Gateway to the Thar Desert.",
+            "es": "Conocida como la Ciudad Azul por sus casas pintadas de añil, dominada por el imponente Fuerte Mehrangarh.",
+            "pt": "Conhecida como a Cidade Azul por suas casas pintadas de anil, dominada pelo imponente Forte Mehrangarh."
+          },
+          "ctaText": {
+            "en": "Plan Your Journey",
+            "es": "Planificar Viaje",
+            "pt": "Planejar Viagem"
+          },
+          "ctaLink": "/contact"
+        },
+        "highlights": [
+          {
+            "title": {
+              "en": "Explore Jodhpur",
+              "es": "Explore Jodhpur",
+              "pt": "Explore Jodhpur"
+            },
+            "desc": {
+              "en": "Experience the unique local heritage, landscapes, and culture.",
+              "es": "Experimente el patrimonio local único.",
+              "pt": "Experimente o patrimônio local único."
+            },
+            "isActive": true,
+            "displayOrder": 1
+          }
+        ],
+        "experiences": [
+          {
+            "title": {
+              "en": "Private Guided Tour",
+              "es": "Tour Guiado Privado",
+              "pt": "Tour Guiado Privado"
+            },
+            "desc": {
+              "en": "Walk through key attractions with a certified local guide.",
+              "es": "Recorra las atracciones con un guía local.",
+              "pt": "Explore as atrações com um guia local."
+            },
+            "duration": "Full Day",
+            "bookingAvailable": true,
+            "isFeatured": true
+          }
+        ],
+        "bestTimeToVisit": {
+          "bestTime": {
+            "en": "October to March",
+            "es": "De octubre a marzo",
+            "pt": "De outubro a março"
+          },
+          "peakSeason": "November to February",
+          "shoulderSeason": "October, March",
+          "offSeason": "April to September",
+          "weatherDesc": {
+            "en": "Extremely hot summers, pleasant winters.",
+            "es": "Veranos muy calurosos, inviernos agradables.",
+            "pt": "Verões muito quentes, invernos agradáveis."
+          },
+          "monthlyInfo": [
+            {
+              "month": "January",
+              "weather": "Cool & Sunny",
+              "temp": "15°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Excellent weather for sightseeing."
+            },
+            {
+              "month": "October",
+              "weather": "Pleasant",
+              "temp": "24°C",
+              "crowd": "Medium",
+              "recommended": true,
+              "desc": "Pleasant temperatures post-monsoon."
+            },
+            {
+              "month": "December",
+              "weather": "Cool Winter",
+              "temp": "16°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Great festival season and cool days."
+            }
+          ]
+        },
+        "travelInfo": {
+          "howToReach": {
+            "en": "Well connected by air, rail, and road.",
+            "es": "Bien conectado por aire, tren y carretera.",
+            "pt": "Bem conectado por via aérea, ferroviária e rodoviária."
+          },
+          "currency": "INR",
+          "localLanguage": "Hindi & English",
+          "timeZone": "IST (UTC+5:30)",
+          "safetyInfo": {
+            "en": "Safe destination for international tourists.",
+            "es": "Destino seguro para turistas.",
+            "pt": "Destino seguro para turistas."
+          }
+        },
+        "gettingAround": [
+          {
+            "transportType": "Private Car",
+            "title": {
+              "en": "Private Chauffeur SUV",
+              "es": "SUV Privado con Chofer",
+              "pt": "SUV Privado com Motorista"
+            },
+            "desc": {
+              "en": "Best and most comfortable option for long distance travel.",
+              "es": "La mejor opción para largas distancias.",
+              "pt": "Melhor opção para viagens longas."
+            },
+            "priceRange": "$$ - $$$",
+            "recommended": true
+          },
+          {
+            "transportType": "Auto Rickshaw",
+            "title": {
+              "en": "Auto Rickshaw",
+              "es": "Auto Rickshaw",
+              "pt": "Auto Rickshaw"
+            },
+            "desc": {
+              "en": "Ideal for short distances and navigating city markets.",
+              "es": "Ideal para distancias cortas.",
+              "pt": "Ideal para distâncias curtas."
+            },
+            "priceRange": "$",
+            "recommended": false
+          }
+        ],
+        "localFoodDishes": [
+          {
+            "name": {
+              "en": "Regional Delicacies",
+              "es": "Especialidades Regionales",
+              "pt": "Especialidades Regionais"
+            },
+            "desc": {
+              "en": "Authentic traditional recipes unique to this destination.",
+              "es": "Recetas tradicionales únicas de este destino.",
+              "pt": "Receitas tradicionais únicas deste destino."
+            },
+            "isVeg": true,
+            "recommended": true,
+            "whereToTry": "Local Traditional Restaurants"
+          }
+        ],
+        "relatedTours": [
+          "golden-triangle-luxury"
+        ],
+        "tags": [
+          "History",
+          "Culture",
+          "Heritage"
+        ],
+        "statistics": {
+          "recommendedDays": "2-3 Days",
+          "annualVisitors": "1M+",
+          "bestSeason": "Winter"
+        },
+        "seo": {
+          "title": {
+            "en": "Jodhpur",
+            "es": "Jodhpur",
+            "pt": "Jodhpur"
+          },
+          "description": {
+            "en": "The Blue City & Mehrangarh Fortress",
+            "es": "La Ciudad Azul y la Fortaleza Mehrangarh",
+            "pt": "A Cidade Azul e a Fortaleza Mehrangarh"
+          },
+          "keywords": {
+            "en": "india, travel guide",
+            "es": "india, guia de viaje",
+            "pt": "india, guia de viagem"
+          }
+        }
       },
       {
         "slug": "jaisalmer",
@@ -762,9 +1386,236 @@
           "es": "Día 1: Fuerte. Día 2: Safari y campamento.",
           "pt": "Dia 1: Forte. Dia 2: Safári e acampamento."
         },
-        "faqs": []
+        "faqs": [],
+        "status": "published",
+        "isFeatured": false,
+        "country": "India",
+        "region": "West",
+        "destinationType": "Historical",
+        "shortDescription": {
+          "en": "The Golden City & Living Desert Fort",
+          "es": "La Ciudad Dorada y Fuerte del Desierto",
+          "pt": "A Cidade Dourada e Forte do Deserto"
+        },
+        "fullDescription": {
+          "en": "A golden sandstone city rising from the Thar Desert, home to one of the world's few living forts where people still reside inside the ancient walls.",
+          "es": "Una ciudad de arenisca dorada que se eleva del desierto de Thar.",
+          "pt": "Uma cidade de arenito dourado que se ergue do deserto de Thar."
+        },
+        "featuredImage": "/images/jaisalmer.jpg",
+        "hero": {
+          "image": "/images/jaisalmer.jpg",
+          "title": {
+            "en": "Jaisalmer",
+            "es": "Jaisalmer",
+            "pt": "Jaisalmer"
+          },
+          "subtitle": {
+            "en": "The Golden City & Living Desert Fort",
+            "es": "La Ciudad Dorada y Fuerte del Desierto",
+            "pt": "A Cidade Dourada e Forte do Deserto"
+          },
+          "description": {
+            "en": "A golden sandstone city rising from the Thar Desert, home to one of the world's few living forts where people still reside inside the ancient walls.",
+            "es": "Una ciudad de arenisca dorada que se eleva del desierto de Thar.",
+            "pt": "Uma cidade de arenito dourado que se ergue do deserto de Thar."
+          },
+          "ctaText": {
+            "en": "Plan Your Journey",
+            "es": "Planificar Viaje",
+            "pt": "Planejar Viagem"
+          },
+          "ctaLink": "/contact"
+        },
+        "highlights": [
+          {
+            "title": {
+              "en": "Explore Jaisalmer",
+              "es": "Explore Jaisalmer",
+              "pt": "Explore Jaisalmer"
+            },
+            "desc": {
+              "en": "Experience the unique local heritage, landscapes, and culture.",
+              "es": "Experimente el patrimonio local único.",
+              "pt": "Experimente o patrimônio local único."
+            },
+            "isActive": true,
+            "displayOrder": 1
+          }
+        ],
+        "experiences": [
+          {
+            "title": {
+              "en": "Private Guided Tour",
+              "es": "Tour Guiado Privado",
+              "pt": "Tour Guiado Privado"
+            },
+            "desc": {
+              "en": "Walk through key attractions with a certified local guide.",
+              "es": "Recorra las atracciones con un guía local.",
+              "pt": "Explore as atrações com um guia local."
+            },
+            "duration": "Full Day",
+            "bookingAvailable": true,
+            "isFeatured": true
+          }
+        ],
+        "bestTimeToVisit": {
+          "bestTime": {
+            "en": "October to March",
+            "es": "De octubre a marzo",
+            "pt": "De outubro a março"
+          },
+          "peakSeason": "November to February",
+          "shoulderSeason": "October, March",
+          "offSeason": "April to September",
+          "weatherDesc": {
+            "en": "Extreme heat in summer, cool desert nights in winter.",
+            "es": "Calor extremo en verano.",
+            "pt": "Calor extremo no verão."
+          },
+          "monthlyInfo": [
+            {
+              "month": "January",
+              "weather": "Cool & Sunny",
+              "temp": "15°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Excellent weather for sightseeing."
+            },
+            {
+              "month": "October",
+              "weather": "Pleasant",
+              "temp": "24°C",
+              "crowd": "Medium",
+              "recommended": true,
+              "desc": "Pleasant temperatures post-monsoon."
+            },
+            {
+              "month": "December",
+              "weather": "Cool Winter",
+              "temp": "16°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Great festival season and cool days."
+            }
+          ]
+        },
+        "travelInfo": {
+          "howToReach": {
+            "en": "Well connected by air, rail, and road.",
+            "es": "Bien conectado por aire, tren y carretera.",
+            "pt": "Bem conectado por via aérea, ferroviária e rodoviária."
+          },
+          "currency": "INR",
+          "localLanguage": "Hindi & English",
+          "timeZone": "IST (UTC+5:30)",
+          "safetyInfo": {
+            "en": "Safe destination for international tourists.",
+            "es": "Destino seguro para turistas.",
+            "pt": "Destino seguro para turistas."
+          }
+        },
+        "gettingAround": [
+          {
+            "transportType": "Private Car",
+            "title": {
+              "en": "Private Chauffeur SUV",
+              "es": "SUV Privado con Chofer",
+              "pt": "SUV Privado com Motorista"
+            },
+            "desc": {
+              "en": "Best and most comfortable option for long distance travel.",
+              "es": "La mejor opción para largas distancias.",
+              "pt": "Melhor opção para viagens longas."
+            },
+            "priceRange": "$$ - $$$",
+            "recommended": true
+          },
+          {
+            "transportType": "Auto Rickshaw",
+            "title": {
+              "en": "Auto Rickshaw",
+              "es": "Auto Rickshaw",
+              "pt": "Auto Rickshaw"
+            },
+            "desc": {
+              "en": "Ideal for short distances and navigating city markets.",
+              "es": "Ideal para distancias cortas.",
+              "pt": "Ideal para distâncias curtas."
+            },
+            "priceRange": "$",
+            "recommended": false
+          }
+        ],
+        "localFoodDishes": [
+          {
+            "name": {
+              "en": "Regional Delicacies",
+              "es": "Especialidades Regionales",
+              "pt": "Especialidades Regionais"
+            },
+            "desc": {
+              "en": "Authentic traditional recipes unique to this destination.",
+              "es": "Recetas tradicionales únicas de este destino.",
+              "pt": "Receitas tradicionais únicas deste destino."
+            },
+            "isVeg": true,
+            "recommended": true,
+            "whereToTry": "Local Traditional Restaurants"
+          }
+        ],
+        "relatedTours": [
+          "golden-triangle-luxury"
+        ],
+        "tags": [
+          "History",
+          "Culture",
+          "Heritage"
+        ],
+        "statistics": {
+          "recommendedDays": "2-3 Days",
+          "annualVisitors": "1M+",
+          "bestSeason": "Winter"
+        },
+        "seo": {
+          "title": {
+            "en": "Jaisalmer",
+            "es": "Jaisalmer",
+            "pt": "Jaisalmer"
+          },
+          "description": {
+            "en": "The Golden City & Living Desert Fort",
+            "es": "La Ciudad Dorada y Fuerte del Desierto",
+            "pt": "A Cidade Dourada e Forte do Deserto"
+          },
+          "keywords": {
+            "en": "india, travel guide",
+            "es": "india, guia de viaje",
+            "pt": "india, guia de viagem"
+          }
+        }
       }
-    ]
+    ],
+    "status": "published",
+    "isFeatured": false,
+    "seo": {
+      "title": {
+        "en": "Rajasthan",
+        "es": "Rajastán",
+        "pt": "Rajastão"
+      },
+      "description": {
+        "en": "Imperial Forts, Heritage Palaces & Sand Dunes",
+        "es": "Fuertes Imperiales, Palacios Históricos y Dunas de Arena",
+        "pt": "Fortes Imperiais, Palácios Históricos e Dunas de Areia"
+      },
+      "keywords": {
+        "en": "india, travel",
+        "es": "india, viaje",
+        "pt": "india, viagem"
+      }
+    }
   },
   {
     "slug": "kerala",
@@ -960,7 +1811,215 @@
               "pt": "Escolha cabine com ar-condicionado. O barco para ao pôr do sol devido à pesca local."
             }
           }
-        ]
+        ],
+        "status": "published",
+        "isFeatured": false,
+        "country": "India",
+        "region": "South",
+        "destinationType": "Historical",
+        "shortDescription": {
+          "en": "The Venice of the East",
+          "es": "La Venecia del Este",
+          "pt": "A Veneza do Oriente"
+        },
+        "fullDescription": {
+          "en": "Alleppey is famous for its wide network of interlinking, palm-fringed backwater canals, traditional houseboat cruises, and serene tropical beaches.",
+          "es": "Alleppey es famosa por su red de canales interconectados rodeados de palmeras y cruceros en casas flotantes.",
+          "pt": "Alleppey é famosa pela sua rede de canais interconectados rodeados por palmeiras e cruzeiros em casas flutuantes."
+        },
+        "featuredImage": "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=1200",
+        "hero": {
+          "image": "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=1200",
+          "title": {
+            "en": "Alleppey (Alappuzha)",
+            "es": "Alleppey",
+            "pt": "Alleppey"
+          },
+          "subtitle": {
+            "en": "The Venice of the East",
+            "es": "La Venecia del Este",
+            "pt": "A Veneza do Oriente"
+          },
+          "description": {
+            "en": "Alleppey is famous for its wide network of interlinking, palm-fringed backwater canals, traditional houseboat cruises, and serene tropical beaches.",
+            "es": "Alleppey es famosa por su red de canales interconectados rodeados de palmeras y cruceros en casas flotantes.",
+            "pt": "Alleppey é famosa pela sua rede de canais interconectados rodeados por palmeiras e cruzeiros em casas flutuantes."
+          },
+          "ctaText": {
+            "en": "Plan Your Journey",
+            "es": "Planificar Viaje",
+            "pt": "Planejar Viagem"
+          },
+          "ctaLink": "/contact"
+        },
+        "highlights": [
+          {
+            "title": {
+              "en": "Explore Alleppey (Alappuzha)",
+              "es": "Explore Alleppey",
+              "pt": "Explore Alleppey"
+            },
+            "desc": {
+              "en": "Experience the unique local heritage, landscapes, and culture.",
+              "es": "Experimente el patrimonio local único.",
+              "pt": "Experimente o patrimônio local único."
+            },
+            "isActive": true,
+            "displayOrder": 1
+          }
+        ],
+        "experiences": [
+          {
+            "title": {
+              "en": "Private Guided Tour",
+              "es": "Tour Guiado Privado",
+              "pt": "Tour Guiado Privado"
+            },
+            "desc": {
+              "en": "Walk through key attractions with a certified local guide.",
+              "es": "Recorra las atracciones con un guía local.",
+              "pt": "Explore as atrações com um guia local."
+            },
+            "duration": "Full Day",
+            "bookingAvailable": true,
+            "isFeatured": true
+          }
+        ],
+        "bestTimeToVisit": {
+          "bestTime": {
+            "en": "November to February (pleasant dry days)",
+            "es": "Noviembre a Febrero (días secos y agradables)",
+            "pt": "Novembro a Fevereiro (dias secos e agradáveis)"
+          },
+          "peakSeason": "November to February",
+          "shoulderSeason": "October, March",
+          "offSeason": "April to September",
+          "weatherDesc": {
+            "en": "Tropical warm weather, heavy monsoon rain from June to September.",
+            "es": "Clima cálido tropical, lluvias monzónicas intensas de junio a septiembre.",
+            "pt": "Clima quente tropical, chuvas de monção intensas de junho a setembro."
+          },
+          "monthlyInfo": [
+            {
+              "month": "January",
+              "weather": "Cool & Sunny",
+              "temp": "15°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Excellent weather for sightseeing."
+            },
+            {
+              "month": "October",
+              "weather": "Pleasant",
+              "temp": "24°C",
+              "crowd": "Medium",
+              "recommended": true,
+              "desc": "Pleasant temperatures post-monsoon."
+            },
+            {
+              "month": "December",
+              "weather": "Cool Winter",
+              "temp": "16°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Great festival season and cool days."
+            }
+          ]
+        },
+        "travelInfo": {
+          "howToReach": {
+            "en": "Well connected by air, rail, and road.",
+            "es": "Bien conectado por aire, tren y carretera.",
+            "pt": "Bem conectado por via aérea, ferroviária e rodoviária."
+          },
+          "currency": "INR",
+          "localLanguage": "Hindi & English",
+          "timeZone": "IST (UTC+5:30)",
+          "safetyInfo": {
+            "en": "Safe destination for international tourists.",
+            "es": "Destino seguro para turistas.",
+            "pt": "Destino seguro para turistas."
+          }
+        },
+        "gettingAround": [
+          {
+            "transportType": "Private Car",
+            "title": {
+              "en": "Private Chauffeur SUV",
+              "es": "SUV Privado con Chofer",
+              "pt": "SUV Privado com Motorista"
+            },
+            "desc": {
+              "en": "Best and most comfortable option for long distance travel.",
+              "es": "La mejor opción para largas distancias.",
+              "pt": "Melhor opção para viagens longas."
+            },
+            "priceRange": "$$ - $$$",
+            "recommended": true
+          },
+          {
+            "transportType": "Auto Rickshaw",
+            "title": {
+              "en": "Auto Rickshaw",
+              "es": "Auto Rickshaw",
+              "pt": "Auto Rickshaw"
+            },
+            "desc": {
+              "en": "Ideal for short distances and navigating city markets.",
+              "es": "Ideal para distancias cortas.",
+              "pt": "Ideal para distâncias curtas."
+            },
+            "priceRange": "$",
+            "recommended": false
+          }
+        ],
+        "localFoodDishes": [
+          {
+            "name": {
+              "en": "Regional Delicacies",
+              "es": "Especialidades Regionales",
+              "pt": "Especialidades Regionais"
+            },
+            "desc": {
+              "en": "Authentic traditional recipes unique to this destination.",
+              "es": "Recetas tradicionales únicas de este destino.",
+              "pt": "Receitas tradicionais únicas deste destino."
+            },
+            "isVeg": true,
+            "recommended": true,
+            "whereToTry": "Local Traditional Restaurants"
+          }
+        ],
+        "relatedTours": [
+          "golden-triangle-luxury"
+        ],
+        "tags": [
+          "History",
+          "Culture",
+          "Heritage"
+        ],
+        "statistics": {
+          "recommendedDays": "2-3 Days",
+          "annualVisitors": "1M+",
+          "bestSeason": "Winter"
+        },
+        "seo": {
+          "title": {
+            "en": "Alleppey (Alappuzha)",
+            "es": "Alleppey",
+            "pt": "Alleppey"
+          },
+          "description": {
+            "en": "The Venice of the East",
+            "es": "La Venecia del Este",
+            "pt": "A Veneza do Oriente"
+          },
+          "keywords": {
+            "en": "india, travel guide",
+            "es": "india, guia de viaje",
+            "pt": "india, guia de viagem"
+          }
+        }
       },
       {
         "slug": "munnar",
@@ -1094,9 +2153,236 @@
               "pt": "Ônibus do governo transportam os visitantes. Carros privados não são permitidos."
             }
           }
-        ]
+        ],
+        "status": "published",
+        "isFeatured": false,
+        "country": "India",
+        "region": "South",
+        "destinationType": "Historical",
+        "shortDescription": {
+          "en": "Emerald Green Tea Mountain Slopes",
+          "es": "Colinas de Té Verde Esmeralda",
+          "pt": "Colinas de Chá Verde Esmeralda"
+        },
+        "fullDescription": {
+          "en": "Munnar is a scenic hill station situated at an altitude of 1,600 meters in the Western Ghats range. It is famous for its vast, manicured tea plantations and wildlife.",
+          "es": "Munnar es una pintoresca estación de montaña situada en la cordillera de los Ghats occidentales, rodeada de plantaciones de té.",
+          "pt": "Munnar é uma pitoresca estação de montanha situada na cordilheira dos Ghats ocidentais, cercada por plantações de chá."
+        },
+        "featuredImage": "https://images.unsplash.com/photo-1506461883276-594a12b11cc3?q=80&w=1200",
+        "hero": {
+          "image": "https://images.unsplash.com/photo-1506461883276-594a12b11cc3?q=80&w=1200",
+          "title": {
+            "en": "Munnar",
+            "es": "Munnar",
+            "pt": "Munnar"
+          },
+          "subtitle": {
+            "en": "Emerald Green Tea Mountain Slopes",
+            "es": "Colinas de Té Verde Esmeralda",
+            "pt": "Colinas de Chá Verde Esmeralda"
+          },
+          "description": {
+            "en": "Munnar is a scenic hill station situated at an altitude of 1,600 meters in the Western Ghats range. It is famous for its vast, manicured tea plantations and wildlife.",
+            "es": "Munnar es una pintoresca estación de montaña situada en la cordillera de los Ghats occidentales, rodeada de plantaciones de té.",
+            "pt": "Munnar é uma pitoresca estação de montanha situada na cordilheira dos Ghats ocidentais, cercada por plantações de chá."
+          },
+          "ctaText": {
+            "en": "Plan Your Journey",
+            "es": "Planificar Viaje",
+            "pt": "Planejar Viagem"
+          },
+          "ctaLink": "/contact"
+        },
+        "highlights": [
+          {
+            "title": {
+              "en": "Explore Munnar",
+              "es": "Explore Munnar",
+              "pt": "Explore Munnar"
+            },
+            "desc": {
+              "en": "Experience the unique local heritage, landscapes, and culture.",
+              "es": "Experimente el patrimonio local único.",
+              "pt": "Experimente o patrimônio local único."
+            },
+            "isActive": true,
+            "displayOrder": 1
+          }
+        ],
+        "experiences": [
+          {
+            "title": {
+              "en": "Private Guided Tour",
+              "es": "Tour Guiado Privado",
+              "pt": "Tour Guiado Privado"
+            },
+            "desc": {
+              "en": "Walk through key attractions with a certified local guide.",
+              "es": "Recorra las atracciones con un guía local.",
+              "pt": "Explore as atrações com um guia local."
+            },
+            "duration": "Full Day",
+            "bookingAvailable": true,
+            "isFeatured": true
+          }
+        ],
+        "bestTimeToVisit": {
+          "bestTime": {
+            "en": "September to May (chilly winters and pleasant summer days)",
+            "es": "Septiembre a Mayo (inviernos frescos y veranos agradables)",
+            "pt": "Setembro a Maio (invernos frescos e verões agradáveis)"
+          },
+          "peakSeason": "November to February",
+          "shoulderSeason": "October, March",
+          "offSeason": "April to September",
+          "weatherDesc": {
+            "en": "Chilly climate, winters can drop to 5°C. Pleasant summers averaging 25°C.",
+            "es": "Clima fresco, inviernos de hasta 5°C, veranos agradables de 25°C.",
+            "pt": "Clima fresco, invernos de até 5°C, verões agradáveis de 25°C."
+          },
+          "monthlyInfo": [
+            {
+              "month": "January",
+              "weather": "Cool & Sunny",
+              "temp": "15°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Excellent weather for sightseeing."
+            },
+            {
+              "month": "October",
+              "weather": "Pleasant",
+              "temp": "24°C",
+              "crowd": "Medium",
+              "recommended": true,
+              "desc": "Pleasant temperatures post-monsoon."
+            },
+            {
+              "month": "December",
+              "weather": "Cool Winter",
+              "temp": "16°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Great festival season and cool days."
+            }
+          ]
+        },
+        "travelInfo": {
+          "howToReach": {
+            "en": "Well connected by air, rail, and road.",
+            "es": "Bien conectado por aire, tren y carretera.",
+            "pt": "Bem conectado por via aérea, ferroviária e rodoviária."
+          },
+          "currency": "INR",
+          "localLanguage": "Hindi & English",
+          "timeZone": "IST (UTC+5:30)",
+          "safetyInfo": {
+            "en": "Safe destination for international tourists.",
+            "es": "Destino seguro para turistas.",
+            "pt": "Destino seguro para turistas."
+          }
+        },
+        "gettingAround": [
+          {
+            "transportType": "Private Car",
+            "title": {
+              "en": "Private Chauffeur SUV",
+              "es": "SUV Privado con Chofer",
+              "pt": "SUV Privado com Motorista"
+            },
+            "desc": {
+              "en": "Best and most comfortable option for long distance travel.",
+              "es": "La mejor opción para largas distancias.",
+              "pt": "Melhor opção para viagens longas."
+            },
+            "priceRange": "$$ - $$$",
+            "recommended": true
+          },
+          {
+            "transportType": "Auto Rickshaw",
+            "title": {
+              "en": "Auto Rickshaw",
+              "es": "Auto Rickshaw",
+              "pt": "Auto Rickshaw"
+            },
+            "desc": {
+              "en": "Ideal for short distances and navigating city markets.",
+              "es": "Ideal para distancias cortas.",
+              "pt": "Ideal para distâncias curtas."
+            },
+            "priceRange": "$",
+            "recommended": false
+          }
+        ],
+        "localFoodDishes": [
+          {
+            "name": {
+              "en": "Regional Delicacies",
+              "es": "Especialidades Regionales",
+              "pt": "Especialidades Regionais"
+            },
+            "desc": {
+              "en": "Authentic traditional recipes unique to this destination.",
+              "es": "Recetas tradicionales únicas de este destino.",
+              "pt": "Receitas tradicionais únicas deste destino."
+            },
+            "isVeg": true,
+            "recommended": true,
+            "whereToTry": "Local Traditional Restaurants"
+          }
+        ],
+        "relatedTours": [
+          "golden-triangle-luxury"
+        ],
+        "tags": [
+          "History",
+          "Culture",
+          "Heritage"
+        ],
+        "statistics": {
+          "recommendedDays": "2-3 Days",
+          "annualVisitors": "1M+",
+          "bestSeason": "Winter"
+        },
+        "seo": {
+          "title": {
+            "en": "Munnar",
+            "es": "Munnar",
+            "pt": "Munnar"
+          },
+          "description": {
+            "en": "Emerald Green Tea Mountain Slopes",
+            "es": "Colinas de Té Verde Esmeralda",
+            "pt": "Colinas de Chá Verde Esmeralda"
+          },
+          "keywords": {
+            "en": "india, travel guide",
+            "es": "india, guia de viaje",
+            "pt": "india, guia de viagem"
+          }
+        }
       }
-    ]
+    ],
+    "status": "published",
+    "isFeatured": false,
+    "seo": {
+      "title": {
+        "en": "Kerala",
+        "es": "Kerala",
+        "pt": "Kerala"
+      },
+      "description": {
+        "en": "Tranquil Backwaters, Aromatic Tea Hills & Ayurvedic Rejuvenation",
+        "es": "Canales Tranquilos, Colinas de Té y Rejuvenecimiento Ayurvédico",
+        "pt": "Canais Tranquilos, Colinas de Chá e Rejuvenescimento Ayurvédico"
+      },
+      "keywords": {
+        "en": "india, travel",
+        "es": "india, viaje",
+        "pt": "india, viagem"
+      }
+    }
   },
   {
     "slug": "goa",
@@ -1328,9 +2614,236 @@
           "es": "Día 1: Fontainhas. Día 2: Playas del norte. Día 3: Sur de Goa.",
           "pt": "Dia 1: Fontainhas. Dia 2: Praias do norte. Dia 3: Sul de Goa."
         },
-        "faqs": []
+        "faqs": [],
+        "status": "published",
+        "isFeatured": false,
+        "country": "India",
+        "region": "West",
+        "destinationType": "Historical",
+        "shortDescription": {
+          "en": "Portuguese Heritage Capital of Goa",
+          "es": "Capital del Patrimonio Portugués de Goa",
+          "pt": "Capital do Patrimônio Português de Goa"
+        },
+        "fullDescription": {
+          "en": "The charming capital of Goa with Portuguese-era colorful houses in Fontainhas, riverside casinos, and heritage churches. A blend of Indian and European culture.",
+          "es": "La encantadora capital de Goa con casas portuguesas coloridas.",
+          "pt": "A encantadora capital de Goa com casas portuguesas coloridas."
+        },
+        "featuredImage": "/images/goa.jpg",
+        "hero": {
+          "image": "/images/goa.jpg",
+          "title": {
+            "en": "Panaji (Panjim)",
+            "es": "Panaji",
+            "pt": "Panaji"
+          },
+          "subtitle": {
+            "en": "Portuguese Heritage Capital of Goa",
+            "es": "Capital del Patrimonio Portugués de Goa",
+            "pt": "Capital do Patrimônio Português de Goa"
+          },
+          "description": {
+            "en": "The charming capital of Goa with Portuguese-era colorful houses in Fontainhas, riverside casinos, and heritage churches. A blend of Indian and European culture.",
+            "es": "La encantadora capital de Goa con casas portuguesas coloridas.",
+            "pt": "A encantadora capital de Goa com casas portuguesas coloridas."
+          },
+          "ctaText": {
+            "en": "Plan Your Journey",
+            "es": "Planificar Viaje",
+            "pt": "Planejar Viagem"
+          },
+          "ctaLink": "/contact"
+        },
+        "highlights": [
+          {
+            "title": {
+              "en": "Explore Panaji (Panjim)",
+              "es": "Explore Panaji",
+              "pt": "Explore Panaji"
+            },
+            "desc": {
+              "en": "Experience the unique local heritage, landscapes, and culture.",
+              "es": "Experimente el patrimonio local único.",
+              "pt": "Experimente o patrimônio local único."
+            },
+            "isActive": true,
+            "displayOrder": 1
+          }
+        ],
+        "experiences": [
+          {
+            "title": {
+              "en": "Private Guided Tour",
+              "es": "Tour Guiado Privado",
+              "pt": "Tour Guiado Privado"
+            },
+            "desc": {
+              "en": "Walk through key attractions with a certified local guide.",
+              "es": "Recorra las atracciones con un guía local.",
+              "pt": "Explore as atrações com um guia local."
+            },
+            "duration": "Full Day",
+            "bookingAvailable": true,
+            "isFeatured": true
+          }
+        ],
+        "bestTimeToVisit": {
+          "bestTime": {
+            "en": "November to February",
+            "es": "De noviembre a febrero",
+            "pt": "De novembro a fevereiro"
+          },
+          "peakSeason": "November to February",
+          "shoulderSeason": "October, March",
+          "offSeason": "April to September",
+          "weatherDesc": {
+            "en": "Tropical. Hot (32-35°C) and humid. Monsoon Jun-Sep.",
+            "es": "Tropical, cálido y húmedo.",
+            "pt": "Tropical, quente e úmido."
+          },
+          "monthlyInfo": [
+            {
+              "month": "January",
+              "weather": "Cool & Sunny",
+              "temp": "15°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Excellent weather for sightseeing."
+            },
+            {
+              "month": "October",
+              "weather": "Pleasant",
+              "temp": "24°C",
+              "crowd": "Medium",
+              "recommended": true,
+              "desc": "Pleasant temperatures post-monsoon."
+            },
+            {
+              "month": "December",
+              "weather": "Cool Winter",
+              "temp": "16°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Great festival season and cool days."
+            }
+          ]
+        },
+        "travelInfo": {
+          "howToReach": {
+            "en": "Well connected by air, rail, and road.",
+            "es": "Bien conectado por aire, tren y carretera.",
+            "pt": "Bem conectado por via aérea, ferroviária e rodoviária."
+          },
+          "currency": "INR",
+          "localLanguage": "Hindi & English",
+          "timeZone": "IST (UTC+5:30)",
+          "safetyInfo": {
+            "en": "Safe destination for international tourists.",
+            "es": "Destino seguro para turistas.",
+            "pt": "Destino seguro para turistas."
+          }
+        },
+        "gettingAround": [
+          {
+            "transportType": "Private Car",
+            "title": {
+              "en": "Private Chauffeur SUV",
+              "es": "SUV Privado con Chofer",
+              "pt": "SUV Privado com Motorista"
+            },
+            "desc": {
+              "en": "Best and most comfortable option for long distance travel.",
+              "es": "La mejor opción para largas distancias.",
+              "pt": "Melhor opção para viagens longas."
+            },
+            "priceRange": "$$ - $$$",
+            "recommended": true
+          },
+          {
+            "transportType": "Auto Rickshaw",
+            "title": {
+              "en": "Auto Rickshaw",
+              "es": "Auto Rickshaw",
+              "pt": "Auto Rickshaw"
+            },
+            "desc": {
+              "en": "Ideal for short distances and navigating city markets.",
+              "es": "Ideal para distancias cortas.",
+              "pt": "Ideal para distâncias curtas."
+            },
+            "priceRange": "$",
+            "recommended": false
+          }
+        ],
+        "localFoodDishes": [
+          {
+            "name": {
+              "en": "Regional Delicacies",
+              "es": "Especialidades Regionales",
+              "pt": "Especialidades Regionais"
+            },
+            "desc": {
+              "en": "Authentic traditional recipes unique to this destination.",
+              "es": "Recetas tradicionales únicas de este destino.",
+              "pt": "Receitas tradicionais únicas deste destino."
+            },
+            "isVeg": true,
+            "recommended": true,
+            "whereToTry": "Local Traditional Restaurants"
+          }
+        ],
+        "relatedTours": [
+          "golden-triangle-luxury"
+        ],
+        "tags": [
+          "History",
+          "Culture",
+          "Heritage"
+        ],
+        "statistics": {
+          "recommendedDays": "2-3 Days",
+          "annualVisitors": "1M+",
+          "bestSeason": "Winter"
+        },
+        "seo": {
+          "title": {
+            "en": "Panaji (Panjim)",
+            "es": "Panaji",
+            "pt": "Panaji"
+          },
+          "description": {
+            "en": "Portuguese Heritage Capital of Goa",
+            "es": "Capital del Patrimonio Portugués de Goa",
+            "pt": "Capital do Patrimônio Português de Goa"
+          },
+          "keywords": {
+            "en": "india, travel guide",
+            "es": "india, guia de viaje",
+            "pt": "india, guia de viagem"
+          }
+        }
       }
-    ]
+    ],
+    "status": "published",
+    "isFeatured": false,
+    "seo": {
+      "title": {
+        "en": "Goa",
+        "es": "Goa",
+        "pt": "Goa"
+      },
+      "description": {
+        "en": "Sun-Kissed Beaches, Portuguese Architecture & Spices",
+        "es": "Playas Soleadas, Arquitectura Portuguesa y Especias",
+        "pt": "Praias Ensolaradas, Arquitetura Portuguesa e Especiarias"
+      },
+      "keywords": {
+        "en": "india, travel",
+        "es": "india, viaje",
+        "pt": "india, viagem"
+      }
+    }
   },
   {
     "slug": "uttar-pradesh",
@@ -1574,9 +3087,236 @@
               "pt": "Contrate um guia credenciado para descobrir os palácios e as câmaras de banho de Akbar."
             }
           }
-        ]
+        ],
+        "status": "published",
+        "isFeatured": false,
+        "country": "India",
+        "region": "North",
+        "destinationType": "Historical",
+        "shortDescription": {
+          "en": "The Home of the Taj Mahal & Mughal Legacy",
+          "es": "El hogar del Taj Mahal y el legado mogol",
+          "pt": "O lar do Taj Mahal e legado mogol"
+        },
+        "fullDescription": {
+          "en": "Agra is a world-renowned destination situated on the banks of Yamuna River. Serving as the capital of the Mughal Empire during its golden age, it boasts three UNESCO World Heritage Sites.",
+          "es": "Agra es un destino de renombre mundial situado a orillas del río Yamuna. Sirvió como capital del Imperio Mogol durante su edad de oro.",
+          "pt": "Agra é um destino de renome mundial situado às margens do rio Yamuna. Serviu como capital do Império Mogol durante sua idade de ouro."
+        },
+        "featuredImage": "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200",
+        "hero": {
+          "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200",
+          "title": {
+            "en": "Agra",
+            "es": "Agra",
+            "pt": "Agra"
+          },
+          "subtitle": {
+            "en": "The Home of the Taj Mahal & Mughal Legacy",
+            "es": "El hogar del Taj Mahal y el legado mogol",
+            "pt": "O lar do Taj Mahal e legado mogol"
+          },
+          "description": {
+            "en": "Agra is a world-renowned destination situated on the banks of Yamuna River. Serving as the capital of the Mughal Empire during its golden age, it boasts three UNESCO World Heritage Sites.",
+            "es": "Agra es un destino de renombre mundial situado a orillas del río Yamuna. Sirvió como capital del Imperio Mogol durante su edad de oro.",
+            "pt": "Agra é um destino de renome mundial situado às margens do rio Yamuna. Serviu como capital do Império Mogol durante sua idade de ouro."
+          },
+          "ctaText": {
+            "en": "Plan Your Journey",
+            "es": "Planificar Viaje",
+            "pt": "Planejar Viagem"
+          },
+          "ctaLink": "/contact"
+        },
+        "highlights": [
+          {
+            "title": {
+              "en": "Explore Agra",
+              "es": "Explore Agra",
+              "pt": "Explore Agra"
+            },
+            "desc": {
+              "en": "Experience the unique local heritage, landscapes, and culture.",
+              "es": "Experimente el patrimonio local único.",
+              "pt": "Experimente o patrimônio local único."
+            },
+            "isActive": true,
+            "displayOrder": 1
+          }
+        ],
+        "experiences": [
+          {
+            "title": {
+              "en": "Private Guided Tour",
+              "es": "Tour Guiado Privado",
+              "pt": "Tour Guiado Privado"
+            },
+            "desc": {
+              "en": "Walk through key attractions with a certified local guide.",
+              "es": "Recorra las atracciones con un guía local.",
+              "pt": "Explore as atrações com um guia local."
+            },
+            "duration": "Full Day",
+            "bookingAvailable": true,
+            "isFeatured": true
+          }
+        ],
+        "bestTimeToVisit": {
+          "bestTime": {
+            "en": "October to March (cool and pleasant climate)",
+            "es": "Octubre a Marzo (clima fresco y agradable)",
+            "pt": "Outubro a Março (clima fresco e agradável)"
+          },
+          "peakSeason": "November to February",
+          "shoulderSeason": "October, March",
+          "offSeason": "April to September",
+          "weatherDesc": {
+            "en": "Very hot summers (up to 45°C), pleasant winters (10°C to 20°C).",
+            "es": "Veranos muy calurosos, inviernos agradables de 10°C a 20°C.",
+            "pt": "Verões muito quentes, invernos agradáveis de 10°C a 20°C."
+          },
+          "monthlyInfo": [
+            {
+              "month": "January",
+              "weather": "Cool & Sunny",
+              "temp": "15°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Excellent weather for sightseeing."
+            },
+            {
+              "month": "October",
+              "weather": "Pleasant",
+              "temp": "24°C",
+              "crowd": "Medium",
+              "recommended": true,
+              "desc": "Pleasant temperatures post-monsoon."
+            },
+            {
+              "month": "December",
+              "weather": "Cool Winter",
+              "temp": "16°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Great festival season and cool days."
+            }
+          ]
+        },
+        "travelInfo": {
+          "howToReach": {
+            "en": "Well connected by air, rail, and road.",
+            "es": "Bien conectado por aire, tren y carretera.",
+            "pt": "Bem conectado por via aérea, ferroviária e rodoviária."
+          },
+          "currency": "INR",
+          "localLanguage": "Hindi & English",
+          "timeZone": "IST (UTC+5:30)",
+          "safetyInfo": {
+            "en": "Safe destination for international tourists.",
+            "es": "Destino seguro para turistas.",
+            "pt": "Destino seguro para turistas."
+          }
+        },
+        "gettingAround": [
+          {
+            "transportType": "Private Car",
+            "title": {
+              "en": "Private Chauffeur SUV",
+              "es": "SUV Privado con Chofer",
+              "pt": "SUV Privado com Motorista"
+            },
+            "desc": {
+              "en": "Best and most comfortable option for long distance travel.",
+              "es": "La mejor opción para largas distancias.",
+              "pt": "Melhor opção para viagens longas."
+            },
+            "priceRange": "$$ - $$$",
+            "recommended": true
+          },
+          {
+            "transportType": "Auto Rickshaw",
+            "title": {
+              "en": "Auto Rickshaw",
+              "es": "Auto Rickshaw",
+              "pt": "Auto Rickshaw"
+            },
+            "desc": {
+              "en": "Ideal for short distances and navigating city markets.",
+              "es": "Ideal para distancias cortas.",
+              "pt": "Ideal para distâncias curtas."
+            },
+            "priceRange": "$",
+            "recommended": false
+          }
+        ],
+        "localFoodDishes": [
+          {
+            "name": {
+              "en": "Regional Delicacies",
+              "es": "Especialidades Regionales",
+              "pt": "Especialidades Regionais"
+            },
+            "desc": {
+              "en": "Authentic traditional recipes unique to this destination.",
+              "es": "Recetas tradicionales únicas de este destino.",
+              "pt": "Receitas tradicionais únicas deste destino."
+            },
+            "isVeg": true,
+            "recommended": true,
+            "whereToTry": "Local Traditional Restaurants"
+          }
+        ],
+        "relatedTours": [
+          "golden-triangle-luxury"
+        ],
+        "tags": [
+          "History",
+          "Culture",
+          "Heritage"
+        ],
+        "statistics": {
+          "recommendedDays": "2-3 Days",
+          "annualVisitors": "1M+",
+          "bestSeason": "Winter"
+        },
+        "seo": {
+          "title": {
+            "en": "Agra",
+            "es": "Agra",
+            "pt": "Agra"
+          },
+          "description": {
+            "en": "The Home of the Taj Mahal & Mughal Legacy",
+            "es": "El hogar del Taj Mahal y el legado mogol",
+            "pt": "O lar do Taj Mahal e legado mogol"
+          },
+          "keywords": {
+            "en": "india, travel guide",
+            "es": "india, guia de viaje",
+            "pt": "india, guia de viagem"
+          }
+        }
       }
-    ]
+    ],
+    "status": "published",
+    "isFeatured": false,
+    "seo": {
+      "title": {
+        "en": "Uttar Pradesh",
+        "es": "Uttar Pradesh",
+        "pt": "Uttar Pradesh"
+      },
+      "description": {
+        "en": "Taj Mahal, Imperial Mughal Capital & Spiritual Ganges Ghats",
+        "es": "Taj Mahal, Capital Imperial Mogol y Ghats Espirituales del Ganges",
+        "pt": "Taj Mahal, Capital Imperial Mogol e Ghats Espirituais do Ganges"
+      },
+      "keywords": {
+        "en": "india, travel",
+        "es": "india, viaje",
+        "pt": "india, viagem"
+      }
+    }
   },
   {
     "slug": "himachal-pradesh",
@@ -1772,7 +3512,215 @@
           "es": "Día 1: Mall Road. Día 2: Tren de juguete.",
           "pt": "Dia 1: Mall Road. Dia 2: Trem de brinquedo."
         },
-        "faqs": []
+        "faqs": [],
+        "status": "published",
+        "isFeatured": false,
+        "country": "India",
+        "region": "North",
+        "destinationType": "Historical",
+        "shortDescription": {
+          "en": "The Queen of Hill Stations",
+          "es": "La Reina de las Estaciones de Montaña",
+          "pt": "A Rainha das Estações de Montanha"
+        },
+        "fullDescription": {
+          "en": "Former summer capital of British India, set amidst pine forests with colonial architecture, a famous Mall Road, and the iconic toy train heritage railway.",
+          "es": "Antigua capital de verano de la India británica con arquitectura colonial.",
+          "pt": "Antiga capital de verão da Índia britânica com arquitetura colonial."
+        },
+        "featuredImage": "/images/himachal pradesh.jpg",
+        "hero": {
+          "image": "/images/himachal pradesh.jpg",
+          "title": {
+            "en": "Shimla",
+            "es": "Shimla",
+            "pt": "Shimla"
+          },
+          "subtitle": {
+            "en": "The Queen of Hill Stations",
+            "es": "La Reina de las Estaciones de Montaña",
+            "pt": "A Rainha das Estações de Montanha"
+          },
+          "description": {
+            "en": "Former summer capital of British India, set amidst pine forests with colonial architecture, a famous Mall Road, and the iconic toy train heritage railway.",
+            "es": "Antigua capital de verano de la India británica con arquitectura colonial.",
+            "pt": "Antiga capital de verão da Índia britânica com arquitetura colonial."
+          },
+          "ctaText": {
+            "en": "Plan Your Journey",
+            "es": "Planificar Viaje",
+            "pt": "Planejar Viagem"
+          },
+          "ctaLink": "/contact"
+        },
+        "highlights": [
+          {
+            "title": {
+              "en": "Explore Shimla",
+              "es": "Explore Shimla",
+              "pt": "Explore Shimla"
+            },
+            "desc": {
+              "en": "Experience the unique local heritage, landscapes, and culture.",
+              "es": "Experimente el patrimonio local único.",
+              "pt": "Experimente o patrimônio local único."
+            },
+            "isActive": true,
+            "displayOrder": 1
+          }
+        ],
+        "experiences": [
+          {
+            "title": {
+              "en": "Private Guided Tour",
+              "es": "Tour Guiado Privado",
+              "pt": "Tour Guiado Privado"
+            },
+            "desc": {
+              "en": "Walk through key attractions with a certified local guide.",
+              "es": "Recorra las atracciones con un guía local.",
+              "pt": "Explore as atrações com um guia local."
+            },
+            "duration": "Full Day",
+            "bookingAvailable": true,
+            "isFeatured": true
+          }
+        ],
+        "bestTimeToVisit": {
+          "bestTime": {
+            "en": "March to June (summer), December-February (snow)",
+            "es": "Marzo a junio o diciembre a febrero",
+            "pt": "Março a junho ou dezembro a fevereiro"
+          },
+          "peakSeason": "November to February",
+          "shoulderSeason": "October, March",
+          "offSeason": "April to September",
+          "weatherDesc": {
+            "en": "Cold winters (0-10°C with snowfall), mild summers (15-25°C).",
+            "es": "Inviernos fríos con nieve.",
+            "pt": "Invernos frios com neve."
+          },
+          "monthlyInfo": [
+            {
+              "month": "January",
+              "weather": "Cool & Sunny",
+              "temp": "15°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Excellent weather for sightseeing."
+            },
+            {
+              "month": "October",
+              "weather": "Pleasant",
+              "temp": "24°C",
+              "crowd": "Medium",
+              "recommended": true,
+              "desc": "Pleasant temperatures post-monsoon."
+            },
+            {
+              "month": "December",
+              "weather": "Cool Winter",
+              "temp": "16°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Great festival season and cool days."
+            }
+          ]
+        },
+        "travelInfo": {
+          "howToReach": {
+            "en": "Well connected by air, rail, and road.",
+            "es": "Bien conectado por aire, tren y carretera.",
+            "pt": "Bem conectado por via aérea, ferroviária e rodoviária."
+          },
+          "currency": "INR",
+          "localLanguage": "Hindi & English",
+          "timeZone": "IST (UTC+5:30)",
+          "safetyInfo": {
+            "en": "Safe destination for international tourists.",
+            "es": "Destino seguro para turistas.",
+            "pt": "Destino seguro para turistas."
+          }
+        },
+        "gettingAround": [
+          {
+            "transportType": "Private Car",
+            "title": {
+              "en": "Private Chauffeur SUV",
+              "es": "SUV Privado con Chofer",
+              "pt": "SUV Privado com Motorista"
+            },
+            "desc": {
+              "en": "Best and most comfortable option for long distance travel.",
+              "es": "La mejor opción para largas distancias.",
+              "pt": "Melhor opção para viagens longas."
+            },
+            "priceRange": "$$ - $$$",
+            "recommended": true
+          },
+          {
+            "transportType": "Auto Rickshaw",
+            "title": {
+              "en": "Auto Rickshaw",
+              "es": "Auto Rickshaw",
+              "pt": "Auto Rickshaw"
+            },
+            "desc": {
+              "en": "Ideal for short distances and navigating city markets.",
+              "es": "Ideal para distancias cortas.",
+              "pt": "Ideal para distâncias curtas."
+            },
+            "priceRange": "$",
+            "recommended": false
+          }
+        ],
+        "localFoodDishes": [
+          {
+            "name": {
+              "en": "Regional Delicacies",
+              "es": "Especialidades Regionales",
+              "pt": "Especialidades Regionais"
+            },
+            "desc": {
+              "en": "Authentic traditional recipes unique to this destination.",
+              "es": "Recetas tradicionales únicas de este destino.",
+              "pt": "Receitas tradicionais únicas deste destino."
+            },
+            "isVeg": true,
+            "recommended": true,
+            "whereToTry": "Local Traditional Restaurants"
+          }
+        ],
+        "relatedTours": [
+          "golden-triangle-luxury"
+        ],
+        "tags": [
+          "History",
+          "Culture",
+          "Heritage"
+        ],
+        "statistics": {
+          "recommendedDays": "2-3 Days",
+          "annualVisitors": "1M+",
+          "bestSeason": "Winter"
+        },
+        "seo": {
+          "title": {
+            "en": "Shimla",
+            "es": "Shimla",
+            "pt": "Shimla"
+          },
+          "description": {
+            "en": "The Queen of Hill Stations",
+            "es": "La Reina de las Estaciones de Montaña",
+            "pt": "A Rainha das Estações de Montanha"
+          },
+          "keywords": {
+            "en": "india, travel guide",
+            "es": "india, guia de viaje",
+            "pt": "india, guia de viagem"
+          }
+        }
       },
       {
         "slug": "manali",
@@ -1911,9 +3859,236 @@
           "es": "Día 1: Viejo Manali. Día 2: Valle Solang. Día 3: Rohtang.",
           "pt": "Dia 1: Velho Manali. Dia 2: Vale Solang. Dia 3: Rohtang."
         },
-        "faqs": []
+        "faqs": [],
+        "status": "published",
+        "isFeatured": false,
+        "country": "India",
+        "region": "North",
+        "destinationType": "Historical",
+        "shortDescription": {
+          "en": "Adventure Capital of the Himalayas",
+          "es": "Capital de la Aventura del Himalaya",
+          "pt": "Capital da Aventura do Himalaia"
+        },
+        "fullDescription": {
+          "en": "A stunning mountain town at 2,050m in the Kullu Valley, gateway to Rohtang Pass and Ladakh. Famous for adventure sports, hot springs, and apple orchards.",
+          "es": "Una impresionante ciudad de montaña a 2.050m en el Valle de Kullu.",
+          "pt": "Uma impressionante cidade de montanha a 2.050m no Vale de Kullu."
+        },
+        "featuredImage": "/images/himachal pradesh.jpg",
+        "hero": {
+          "image": "/images/himachal pradesh.jpg",
+          "title": {
+            "en": "Manali",
+            "es": "Manali",
+            "pt": "Manali"
+          },
+          "subtitle": {
+            "en": "Adventure Capital of the Himalayas",
+            "es": "Capital de la Aventura del Himalaya",
+            "pt": "Capital da Aventura do Himalaia"
+          },
+          "description": {
+            "en": "A stunning mountain town at 2,050m in the Kullu Valley, gateway to Rohtang Pass and Ladakh. Famous for adventure sports, hot springs, and apple orchards.",
+            "es": "Una impresionante ciudad de montaña a 2.050m en el Valle de Kullu.",
+            "pt": "Uma impressionante cidade de montanha a 2.050m no Vale de Kullu."
+          },
+          "ctaText": {
+            "en": "Plan Your Journey",
+            "es": "Planificar Viaje",
+            "pt": "Planejar Viagem"
+          },
+          "ctaLink": "/contact"
+        },
+        "highlights": [
+          {
+            "title": {
+              "en": "Explore Manali",
+              "es": "Explore Manali",
+              "pt": "Explore Manali"
+            },
+            "desc": {
+              "en": "Experience the unique local heritage, landscapes, and culture.",
+              "es": "Experimente el patrimonio local único.",
+              "pt": "Experimente o patrimônio local único."
+            },
+            "isActive": true,
+            "displayOrder": 1
+          }
+        ],
+        "experiences": [
+          {
+            "title": {
+              "en": "Private Guided Tour",
+              "es": "Tour Guiado Privado",
+              "pt": "Tour Guiado Privado"
+            },
+            "desc": {
+              "en": "Walk through key attractions with a certified local guide.",
+              "es": "Recorra las atracciones con un guía local.",
+              "pt": "Explore as atrações com um guia local."
+            },
+            "duration": "Full Day",
+            "bookingAvailable": true,
+            "isFeatured": true
+          }
+        ],
+        "bestTimeToVisit": {
+          "bestTime": {
+            "en": "March-June (summer), December-February (snow adventures)",
+            "es": "Marzo a junio o diciembre a febrero",
+            "pt": "Março a junho ou dezembro a fevereiro"
+          },
+          "peakSeason": "November to February",
+          "shoulderSeason": "October, March",
+          "offSeason": "April to September",
+          "weatherDesc": {
+            "en": "Cold throughout (winters -5°C to 10°C, summers 10-25°C). Heavy snow Dec-Feb.",
+            "es": "Frío todo el año con nieve.",
+            "pt": "Frio o ano todo com neve."
+          },
+          "monthlyInfo": [
+            {
+              "month": "January",
+              "weather": "Cool & Sunny",
+              "temp": "15°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Excellent weather for sightseeing."
+            },
+            {
+              "month": "October",
+              "weather": "Pleasant",
+              "temp": "24°C",
+              "crowd": "Medium",
+              "recommended": true,
+              "desc": "Pleasant temperatures post-monsoon."
+            },
+            {
+              "month": "December",
+              "weather": "Cool Winter",
+              "temp": "16°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Great festival season and cool days."
+            }
+          ]
+        },
+        "travelInfo": {
+          "howToReach": {
+            "en": "Well connected by air, rail, and road.",
+            "es": "Bien conectado por aire, tren y carretera.",
+            "pt": "Bem conectado por via aérea, ferroviária e rodoviária."
+          },
+          "currency": "INR",
+          "localLanguage": "Hindi & English",
+          "timeZone": "IST (UTC+5:30)",
+          "safetyInfo": {
+            "en": "Safe destination for international tourists.",
+            "es": "Destino seguro para turistas.",
+            "pt": "Destino seguro para turistas."
+          }
+        },
+        "gettingAround": [
+          {
+            "transportType": "Private Car",
+            "title": {
+              "en": "Private Chauffeur SUV",
+              "es": "SUV Privado con Chofer",
+              "pt": "SUV Privado com Motorista"
+            },
+            "desc": {
+              "en": "Best and most comfortable option for long distance travel.",
+              "es": "La mejor opción para largas distancias.",
+              "pt": "Melhor opção para viagens longas."
+            },
+            "priceRange": "$$ - $$$",
+            "recommended": true
+          },
+          {
+            "transportType": "Auto Rickshaw",
+            "title": {
+              "en": "Auto Rickshaw",
+              "es": "Auto Rickshaw",
+              "pt": "Auto Rickshaw"
+            },
+            "desc": {
+              "en": "Ideal for short distances and navigating city markets.",
+              "es": "Ideal para distancias cortas.",
+              "pt": "Ideal para distâncias curtas."
+            },
+            "priceRange": "$",
+            "recommended": false
+          }
+        ],
+        "localFoodDishes": [
+          {
+            "name": {
+              "en": "Regional Delicacies",
+              "es": "Especialidades Regionales",
+              "pt": "Especialidades Regionais"
+            },
+            "desc": {
+              "en": "Authentic traditional recipes unique to this destination.",
+              "es": "Recetas tradicionales únicas de este destino.",
+              "pt": "Receitas tradicionais únicas deste destino."
+            },
+            "isVeg": true,
+            "recommended": true,
+            "whereToTry": "Local Traditional Restaurants"
+          }
+        ],
+        "relatedTours": [
+          "golden-triangle-luxury"
+        ],
+        "tags": [
+          "History",
+          "Culture",
+          "Heritage"
+        ],
+        "statistics": {
+          "recommendedDays": "2-3 Days",
+          "annualVisitors": "1M+",
+          "bestSeason": "Winter"
+        },
+        "seo": {
+          "title": {
+            "en": "Manali",
+            "es": "Manali",
+            "pt": "Manali"
+          },
+          "description": {
+            "en": "Adventure Capital of the Himalayas",
+            "es": "Capital de la Aventura del Himalaya",
+            "pt": "Capital da Aventura do Himalaia"
+          },
+          "keywords": {
+            "en": "india, travel guide",
+            "es": "india, guia de viaje",
+            "pt": "india, guia de viagem"
+          }
+        }
       }
-    ]
+    ],
+    "status": "published",
+    "isFeatured": false,
+    "seo": {
+      "title": {
+        "en": "Himachal Pradesh",
+        "es": "Himachal Pradesh",
+        "pt": "Himachal Pradesh"
+      },
+      "description": {
+        "en": "Snowy Mountain Peaks, Pine Forests & Valleys",
+        "es": "Picos Nevados, Bosques de Pinos y Valles",
+        "pt": "Picos Nevados, Florestas de Pinheiros e Vales"
+      },
+      "keywords": {
+        "en": "india, travel",
+        "es": "india, viaje",
+        "pt": "india, viagem"
+      }
+    }
   },
   {
     "slug": "maharashtra",
@@ -2106,9 +4281,236 @@
           "es": "Día 1: Puerta de la India. Día 2: Marine Drive.",
           "pt": "Dia 1: Portal da Índia. Dia 2: Marine Drive."
         },
-        "faqs": []
+        "faqs": [],
+        "status": "published",
+        "isFeatured": false,
+        "country": "India",
+        "region": "West",
+        "destinationType": "Historical",
+        "shortDescription": {
+          "en": "The City of Dreams & Bollywood Capital",
+          "es": "La ciudad de los sueños",
+          "pt": "A cidade dos sonhos"
+        },
+        "fullDescription": {
+          "en": "Mumbai is India's financial capital and a major metropolis. It features Victoria-era Gothic buildings, Marine Drive seaside boardwalk, and the global Bollywood cinema industry.",
+          "es": "Capital financiera de la India, conocida por su paseo marítimo y Bollywood.",
+          "pt": "Capital financeira da Índia, conhecida pelo seu passeio marítimo e Bollywood."
+        },
+        "featuredImage": "/images/maharashtra.jpg",
+        "hero": {
+          "image": "/images/maharashtra.jpg",
+          "title": {
+            "en": "Mumbai (Bombay)",
+            "es": "Mumbai",
+            "pt": "Mumbai"
+          },
+          "subtitle": {
+            "en": "The City of Dreams & Bollywood Capital",
+            "es": "La ciudad de los sueños",
+            "pt": "A cidade dos sonhos"
+          },
+          "description": {
+            "en": "Mumbai is India's financial capital and a major metropolis. It features Victoria-era Gothic buildings, Marine Drive seaside boardwalk, and the global Bollywood cinema industry.",
+            "es": "Capital financiera de la India, conocida por su paseo marítimo y Bollywood.",
+            "pt": "Capital financeira da Índia, conhecida pelo seu passeio marítimo e Bollywood."
+          },
+          "ctaText": {
+            "en": "Plan Your Journey",
+            "es": "Planificar Viaje",
+            "pt": "Planejar Viagem"
+          },
+          "ctaLink": "/contact"
+        },
+        "highlights": [
+          {
+            "title": {
+              "en": "Explore Mumbai (Bombay)",
+              "es": "Explore Mumbai",
+              "pt": "Explore Mumbai"
+            },
+            "desc": {
+              "en": "Experience the unique local heritage, landscapes, and culture.",
+              "es": "Experimente el patrimonio local único.",
+              "pt": "Experimente o patrimônio local único."
+            },
+            "isActive": true,
+            "displayOrder": 1
+          }
+        ],
+        "experiences": [
+          {
+            "title": {
+              "en": "Private Guided Tour",
+              "es": "Tour Guiado Privado",
+              "pt": "Tour Guiado Privado"
+            },
+            "desc": {
+              "en": "Walk through key attractions with a certified local guide.",
+              "es": "Recorra las atracciones con un guía local.",
+              "pt": "Explore as atrações com um guia local."
+            },
+            "duration": "Full Day",
+            "bookingAvailable": true,
+            "isFeatured": true
+          }
+        ],
+        "bestTimeToVisit": {
+          "bestTime": {
+            "en": "November to February",
+            "es": "De noviembre a febrero",
+            "pt": "De novembro a fevereiro"
+          },
+          "peakSeason": "November to February",
+          "shoulderSeason": "October, March",
+          "offSeason": "April to September",
+          "weatherDesc": {
+            "en": "Humid: heavy monsoons (June-September), pleasant winter breeze.",
+            "es": "Clima húmedo y costero.",
+            "pt": "Clima úmido e costeiro."
+          },
+          "monthlyInfo": [
+            {
+              "month": "January",
+              "weather": "Cool & Sunny",
+              "temp": "15°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Excellent weather for sightseeing."
+            },
+            {
+              "month": "October",
+              "weather": "Pleasant",
+              "temp": "24°C",
+              "crowd": "Medium",
+              "recommended": true,
+              "desc": "Pleasant temperatures post-monsoon."
+            },
+            {
+              "month": "December",
+              "weather": "Cool Winter",
+              "temp": "16°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Great festival season and cool days."
+            }
+          ]
+        },
+        "travelInfo": {
+          "howToReach": {
+            "en": "Well connected by air, rail, and road.",
+            "es": "Bien conectado por aire, tren y carretera.",
+            "pt": "Bem conectado por via aérea, ferroviária e rodoviária."
+          },
+          "currency": "INR",
+          "localLanguage": "Hindi & English",
+          "timeZone": "IST (UTC+5:30)",
+          "safetyInfo": {
+            "en": "Safe destination for international tourists.",
+            "es": "Destino seguro para turistas.",
+            "pt": "Destino seguro para turistas."
+          }
+        },
+        "gettingAround": [
+          {
+            "transportType": "Private Car",
+            "title": {
+              "en": "Private Chauffeur SUV",
+              "es": "SUV Privado con Chofer",
+              "pt": "SUV Privado com Motorista"
+            },
+            "desc": {
+              "en": "Best and most comfortable option for long distance travel.",
+              "es": "La mejor opción para largas distancias.",
+              "pt": "Melhor opção para viagens longas."
+            },
+            "priceRange": "$$ - $$$",
+            "recommended": true
+          },
+          {
+            "transportType": "Auto Rickshaw",
+            "title": {
+              "en": "Auto Rickshaw",
+              "es": "Auto Rickshaw",
+              "pt": "Auto Rickshaw"
+            },
+            "desc": {
+              "en": "Ideal for short distances and navigating city markets.",
+              "es": "Ideal para distancias cortas.",
+              "pt": "Ideal para distâncias curtas."
+            },
+            "priceRange": "$",
+            "recommended": false
+          }
+        ],
+        "localFoodDishes": [
+          {
+            "name": {
+              "en": "Regional Delicacies",
+              "es": "Especialidades Regionales",
+              "pt": "Especialidades Regionais"
+            },
+            "desc": {
+              "en": "Authentic traditional recipes unique to this destination.",
+              "es": "Recetas tradicionales únicas de este destino.",
+              "pt": "Receitas tradicionais únicas deste destino."
+            },
+            "isVeg": true,
+            "recommended": true,
+            "whereToTry": "Local Traditional Restaurants"
+          }
+        ],
+        "relatedTours": [
+          "golden-triangle-luxury"
+        ],
+        "tags": [
+          "History",
+          "Culture",
+          "Heritage"
+        ],
+        "statistics": {
+          "recommendedDays": "2-3 Days",
+          "annualVisitors": "1M+",
+          "bestSeason": "Winter"
+        },
+        "seo": {
+          "title": {
+            "en": "Mumbai (Bombay)",
+            "es": "Mumbai",
+            "pt": "Mumbai"
+          },
+          "description": {
+            "en": "The City of Dreams & Bollywood Capital",
+            "es": "La ciudad de los sueños",
+            "pt": "A cidade dos sonhos"
+          },
+          "keywords": {
+            "en": "india, travel guide",
+            "es": "india, guia de viaje",
+            "pt": "india, guia de viagem"
+          }
+        }
       }
-    ]
+    ],
+    "status": "published",
+    "isFeatured": false,
+    "seo": {
+      "title": {
+        "en": "Maharashtra",
+        "es": "Maharashtra",
+        "pt": "Maharashtra"
+      },
+      "description": {
+        "en": "Ancient Rock Caves, Hill Stations & Dynamic Mumbai",
+        "es": "Cuevas Antiguas, Colinas y el Dinámico Mumbai",
+        "pt": "Cavernas Antigas, Colinas e o Dinâmico Mumbai"
+      },
+      "keywords": {
+        "en": "india, travel",
+        "es": "india, viaje",
+        "pt": "india, viagem"
+      }
+    }
   },
   {
     "slug": "madhya-pradesh",
@@ -2276,9 +4678,236 @@
           "es": "Día 1: Templos occidentales. Día 2: Safari Panna.",
           "pt": "Dia 1: Templos ocidentais. Dia 2: Safari Panna."
         },
-        "faqs": []
+        "faqs": [],
+        "status": "published",
+        "isFeatured": false,
+        "country": "India",
+        "region": "Central",
+        "destinationType": "Historical",
+        "shortDescription": {
+          "en": "The Temple City of Carved Stonework",
+          "es": "La ciudad de los templos esculpidos",
+          "pt": "A cidade dos templos esculpidos"
+        },
+        "fullDescription": {
+          "en": "Khajuraho is a UNESCO World Heritage site renowned for its stunning group of Hindu and Jain temples covered in detailed, sensuous stone carvings.",
+          "es": "Sitio UNESCO famoso por sus templos hindúes y jainistas con relieves de piedra.",
+          "pt": "Sítio UNESCO famoso pelos seus templos hindus e jainistas com relevos de pedra."
+        },
+        "featuredImage": "/images/madhya-pradesh.jpg",
+        "hero": {
+          "image": "/images/madhya-pradesh.jpg",
+          "title": {
+            "en": "Khajuraho",
+            "es": "Khajuraho",
+            "pt": "Khajuraho"
+          },
+          "subtitle": {
+            "en": "The Temple City of Carved Stonework",
+            "es": "La ciudad de los templos esculpidos",
+            "pt": "A cidade dos templos esculpidos"
+          },
+          "description": {
+            "en": "Khajuraho is a UNESCO World Heritage site renowned for its stunning group of Hindu and Jain temples covered in detailed, sensuous stone carvings.",
+            "es": "Sitio UNESCO famoso por sus templos hindúes y jainistas con relieves de piedra.",
+            "pt": "Sítio UNESCO famoso pelos seus templos hindus e jainistas com relevos de pedra."
+          },
+          "ctaText": {
+            "en": "Plan Your Journey",
+            "es": "Planificar Viaje",
+            "pt": "Planejar Viagem"
+          },
+          "ctaLink": "/contact"
+        },
+        "highlights": [
+          {
+            "title": {
+              "en": "Explore Khajuraho",
+              "es": "Explore Khajuraho",
+              "pt": "Explore Khajuraho"
+            },
+            "desc": {
+              "en": "Experience the unique local heritage, landscapes, and culture.",
+              "es": "Experimente el patrimonio local único.",
+              "pt": "Experimente o patrimônio local único."
+            },
+            "isActive": true,
+            "displayOrder": 1
+          }
+        ],
+        "experiences": [
+          {
+            "title": {
+              "en": "Private Guided Tour",
+              "es": "Tour Guiado Privado",
+              "pt": "Tour Guiado Privado"
+            },
+            "desc": {
+              "en": "Walk through key attractions with a certified local guide.",
+              "es": "Recorra las atracciones con un guía local.",
+              "pt": "Explore as atrações com um guia local."
+            },
+            "duration": "Full Day",
+            "bookingAvailable": true,
+            "isFeatured": true
+          }
+        ],
+        "bestTimeToVisit": {
+          "bestTime": {
+            "en": "October to March",
+            "es": "De octubre a marzo",
+            "pt": "De outubro a março"
+          },
+          "peakSeason": "November to February",
+          "shoulderSeason": "October, March",
+          "offSeason": "April to September",
+          "weatherDesc": {
+            "en": "Hot summers, cool winters (9-27°C). Best time is November-February.",
+            "es": "Inviernos frescos.",
+            "pt": "Invernos frescos."
+          },
+          "monthlyInfo": [
+            {
+              "month": "January",
+              "weather": "Cool & Sunny",
+              "temp": "15°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Excellent weather for sightseeing."
+            },
+            {
+              "month": "October",
+              "weather": "Pleasant",
+              "temp": "24°C",
+              "crowd": "Medium",
+              "recommended": true,
+              "desc": "Pleasant temperatures post-monsoon."
+            },
+            {
+              "month": "December",
+              "weather": "Cool Winter",
+              "temp": "16°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Great festival season and cool days."
+            }
+          ]
+        },
+        "travelInfo": {
+          "howToReach": {
+            "en": "Well connected by air, rail, and road.",
+            "es": "Bien conectado por aire, tren y carretera.",
+            "pt": "Bem conectado por via aérea, ferroviária e rodoviária."
+          },
+          "currency": "INR",
+          "localLanguage": "Hindi & English",
+          "timeZone": "IST (UTC+5:30)",
+          "safetyInfo": {
+            "en": "Safe destination for international tourists.",
+            "es": "Destino seguro para turistas.",
+            "pt": "Destino seguro para turistas."
+          }
+        },
+        "gettingAround": [
+          {
+            "transportType": "Private Car",
+            "title": {
+              "en": "Private Chauffeur SUV",
+              "es": "SUV Privado con Chofer",
+              "pt": "SUV Privado com Motorista"
+            },
+            "desc": {
+              "en": "Best and most comfortable option for long distance travel.",
+              "es": "La mejor opción para largas distancias.",
+              "pt": "Melhor opção para viagens longas."
+            },
+            "priceRange": "$$ - $$$",
+            "recommended": true
+          },
+          {
+            "transportType": "Auto Rickshaw",
+            "title": {
+              "en": "Auto Rickshaw",
+              "es": "Auto Rickshaw",
+              "pt": "Auto Rickshaw"
+            },
+            "desc": {
+              "en": "Ideal for short distances and navigating city markets.",
+              "es": "Ideal para distancias cortas.",
+              "pt": "Ideal para distâncias curtas."
+            },
+            "priceRange": "$",
+            "recommended": false
+          }
+        ],
+        "localFoodDishes": [
+          {
+            "name": {
+              "en": "Regional Delicacies",
+              "es": "Especialidades Regionales",
+              "pt": "Especialidades Regionais"
+            },
+            "desc": {
+              "en": "Authentic traditional recipes unique to this destination.",
+              "es": "Recetas tradicionales únicas de este destino.",
+              "pt": "Receitas tradicionais únicas deste destino."
+            },
+            "isVeg": true,
+            "recommended": true,
+            "whereToTry": "Local Traditional Restaurants"
+          }
+        ],
+        "relatedTours": [
+          "golden-triangle-luxury"
+        ],
+        "tags": [
+          "History",
+          "Culture",
+          "Heritage"
+        ],
+        "statistics": {
+          "recommendedDays": "2-3 Days",
+          "annualVisitors": "1M+",
+          "bestSeason": "Winter"
+        },
+        "seo": {
+          "title": {
+            "en": "Khajuraho",
+            "es": "Khajuraho",
+            "pt": "Khajuraho"
+          },
+          "description": {
+            "en": "The Temple City of Carved Stonework",
+            "es": "La ciudad de los templos esculpidos",
+            "pt": "A cidade dos templos esculpidos"
+          },
+          "keywords": {
+            "en": "india, travel guide",
+            "es": "india, guia de viaje",
+            "pt": "india, guia de viagem"
+          }
+        }
       }
-    ]
+    ],
+    "status": "published",
+    "isFeatured": false,
+    "seo": {
+      "title": {
+        "en": "Madhya Pradesh",
+        "es": "Madhya Pradesh",
+        "pt": "Madhya Pradesh"
+      },
+      "description": {
+        "en": "The Heart of India, Wildlife Tigers & Khajuraho Temples",
+        "es": "El Corazón de la India, Tigres de Bengala y Templos de Khajuraho",
+        "pt": "O Coração da Índia, Tigres de Bengala e Templos de Khajuraho"
+      },
+      "keywords": {
+        "en": "india, travel",
+        "es": "india, viaje",
+        "pt": "india, viagem"
+      }
+    }
   },
   {
     "slug": "tamil-nadu",
@@ -2459,9 +5088,236 @@
           "es": "Día 1: Templo Meenakshi. Día 2: Museos.",
           "pt": "Dia 1: Templo Meenakshi. Dia 2: Museus."
         },
-        "faqs": []
+        "faqs": [],
+        "status": "published",
+        "isFeatured": false,
+        "country": "India",
+        "region": "South",
+        "destinationType": "Historical",
+        "shortDescription": {
+          "en": "The Temple City of Majestic Gopurams",
+          "es": "La ciudad de los templos y torres Gopurams",
+          "pt": "A cidade dos templos e torres Gopurams"
+        },
+        "fullDescription": {
+          "en": "Madurai is one of India's oldest continuously inhabited cities, dominated by the multi-colored towers of the Meenakshi Temple.",
+          "es": "Una de las ciudades más antiguas de la India, famosa por el Templo Meenakshi.",
+          "pt": "Uma das cidades mais antigas da Índia, famosa pelo Templo Meenakshi."
+        },
+        "featuredImage": "/images/tamil-nadu.jpg",
+        "hero": {
+          "image": "/images/tamil-nadu.jpg",
+          "title": {
+            "en": "Madurai",
+            "es": "Madurai",
+            "pt": "Madurai"
+          },
+          "subtitle": {
+            "en": "The Temple City of Majestic Gopurams",
+            "es": "La ciudad de los templos y torres Gopurams",
+            "pt": "A cidade dos templos e torres Gopurams"
+          },
+          "description": {
+            "en": "Madurai is one of India's oldest continuously inhabited cities, dominated by the multi-colored towers of the Meenakshi Temple.",
+            "es": "Una de las ciudades más antiguas de la India, famosa por el Templo Meenakshi.",
+            "pt": "Uma das cidades mais antigas da Índia, famosa pelo Templo Meenakshi."
+          },
+          "ctaText": {
+            "en": "Plan Your Journey",
+            "es": "Planificar Viaje",
+            "pt": "Planejar Viagem"
+          },
+          "ctaLink": "/contact"
+        },
+        "highlights": [
+          {
+            "title": {
+              "en": "Explore Madurai",
+              "es": "Explore Madurai",
+              "pt": "Explore Madurai"
+            },
+            "desc": {
+              "en": "Experience the unique local heritage, landscapes, and culture.",
+              "es": "Experimente el patrimonio local único.",
+              "pt": "Experimente o patrimônio local único."
+            },
+            "isActive": true,
+            "displayOrder": 1
+          }
+        ],
+        "experiences": [
+          {
+            "title": {
+              "en": "Private Guided Tour",
+              "es": "Tour Guiado Privado",
+              "pt": "Tour Guiado Privado"
+            },
+            "desc": {
+              "en": "Walk through key attractions with a certified local guide.",
+              "es": "Recorra las atracciones con un guía local.",
+              "pt": "Explore as atrações com um guia local."
+            },
+            "duration": "Full Day",
+            "bookingAvailable": true,
+            "isFeatured": true
+          }
+        ],
+        "bestTimeToVisit": {
+          "bestTime": {
+            "en": "October to March",
+            "es": "De octubre a marzo",
+            "pt": "De outubro a março"
+          },
+          "peakSeason": "November to February",
+          "shoulderSeason": "October, March",
+          "offSeason": "April to September",
+          "weatherDesc": {
+            "en": "Hot tropical climate. Pleasant winters (20-30°C).",
+            "es": "Clima tropical.",
+            "pt": "Clima tropical."
+          },
+          "monthlyInfo": [
+            {
+              "month": "January",
+              "weather": "Cool & Sunny",
+              "temp": "15°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Excellent weather for sightseeing."
+            },
+            {
+              "month": "October",
+              "weather": "Pleasant",
+              "temp": "24°C",
+              "crowd": "Medium",
+              "recommended": true,
+              "desc": "Pleasant temperatures post-monsoon."
+            },
+            {
+              "month": "December",
+              "weather": "Cool Winter",
+              "temp": "16°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Great festival season and cool days."
+            }
+          ]
+        },
+        "travelInfo": {
+          "howToReach": {
+            "en": "Well connected by air, rail, and road.",
+            "es": "Bien conectado por aire, tren y carretera.",
+            "pt": "Bem conectado por via aérea, ferroviária e rodoviária."
+          },
+          "currency": "INR",
+          "localLanguage": "Hindi & English",
+          "timeZone": "IST (UTC+5:30)",
+          "safetyInfo": {
+            "en": "Safe destination for international tourists.",
+            "es": "Destino seguro para turistas.",
+            "pt": "Destino seguro para turistas."
+          }
+        },
+        "gettingAround": [
+          {
+            "transportType": "Private Car",
+            "title": {
+              "en": "Private Chauffeur SUV",
+              "es": "SUV Privado con Chofer",
+              "pt": "SUV Privado com Motorista"
+            },
+            "desc": {
+              "en": "Best and most comfortable option for long distance travel.",
+              "es": "La mejor opción para largas distancias.",
+              "pt": "Melhor opção para viagens longas."
+            },
+            "priceRange": "$$ - $$$",
+            "recommended": true
+          },
+          {
+            "transportType": "Auto Rickshaw",
+            "title": {
+              "en": "Auto Rickshaw",
+              "es": "Auto Rickshaw",
+              "pt": "Auto Rickshaw"
+            },
+            "desc": {
+              "en": "Ideal for short distances and navigating city markets.",
+              "es": "Ideal para distancias cortas.",
+              "pt": "Ideal para distâncias curtas."
+            },
+            "priceRange": "$",
+            "recommended": false
+          }
+        ],
+        "localFoodDishes": [
+          {
+            "name": {
+              "en": "Regional Delicacies",
+              "es": "Especialidades Regionales",
+              "pt": "Especialidades Regionais"
+            },
+            "desc": {
+              "en": "Authentic traditional recipes unique to this destination.",
+              "es": "Recetas tradicionales únicas de este destino.",
+              "pt": "Receitas tradicionais únicas deste destino."
+            },
+            "isVeg": true,
+            "recommended": true,
+            "whereToTry": "Local Traditional Restaurants"
+          }
+        ],
+        "relatedTours": [
+          "golden-triangle-luxury"
+        ],
+        "tags": [
+          "History",
+          "Culture",
+          "Heritage"
+        ],
+        "statistics": {
+          "recommendedDays": "2-3 Days",
+          "annualVisitors": "1M+",
+          "bestSeason": "Winter"
+        },
+        "seo": {
+          "title": {
+            "en": "Madurai",
+            "es": "Madurai",
+            "pt": "Madurai"
+          },
+          "description": {
+            "en": "The Temple City of Majestic Gopurams",
+            "es": "La ciudad de los templos y torres Gopurams",
+            "pt": "A cidade dos templos e torres Gopurams"
+          },
+          "keywords": {
+            "en": "india, travel guide",
+            "es": "india, guia de viaje",
+            "pt": "india, guia de viagem"
+          }
+        }
       }
-    ]
+    ],
+    "status": "published",
+    "isFeatured": false,
+    "seo": {
+      "title": {
+        "en": "Tamil Nadu",
+        "es": "Tamil Nadu",
+        "pt": "Tamil Nadu"
+      },
+      "description": {
+        "en": "Dravidian Architectural Giants, Temples & Coastline",
+        "es": "Gigantes de la Arquitectura Dravidiana y Templos",
+        "pt": "Gigantes da Arquitetura Dravidiana e Templos"
+      },
+      "keywords": {
+        "en": "india, travel",
+        "es": "india, viaje",
+        "pt": "india, viagem"
+      }
+    }
   },
   {
     "slug": "karnataka",
@@ -2665,9 +5521,236 @@
           "es": "Día 1: Palacio. Día 2: Bazares.",
           "pt": "Dia 1: Palácio. Dia 2: Bazares."
         },
-        "faqs": []
+        "faqs": [],
+        "status": "published",
+        "isFeatured": false,
+        "country": "India",
+        "region": "South",
+        "destinationType": "Historical",
+        "shortDescription": {
+          "en": "The City of Royal Palaces, Silk & Sandalwood",
+          "es": "La ciudad de los palacios reales y sándalo",
+          "pt": "A cidade dos palácios reais e sândalo"
+        },
+        "fullDescription": {
+          "en": "Mysore is the cultural capital of Karnataka, famous for its magnificent palaces, heritage structures, rich arts, and premium sandalwood oil and silk sarees.",
+          "es": "Mysore es la capital cultural de Karnataka, famosa por sus magníficos palacios y estructuras patrimoniales.",
+          "pt": "Mysore é a capital cultural de Karnataka, famosa pelos seus magníficos palácios e estruturas de patrimônio."
+        },
+        "featuredImage": "/images/karanataka.jpg",
+        "hero": {
+          "image": "/images/karanataka.jpg",
+          "title": {
+            "en": "Mysore (Mysuru)",
+            "es": "Mysore",
+            "pt": "Mysore"
+          },
+          "subtitle": {
+            "en": "The City of Royal Palaces, Silk & Sandalwood",
+            "es": "La ciudad de los palacios reales y sándalo",
+            "pt": "A cidade dos palácios reais e sândalo"
+          },
+          "description": {
+            "en": "Mysore is the cultural capital of Karnataka, famous for its magnificent palaces, heritage structures, rich arts, and premium sandalwood oil and silk sarees.",
+            "es": "Mysore es la capital cultural de Karnataka, famosa por sus magníficos palacios y estructuras patrimoniales.",
+            "pt": "Mysore é a capital cultural de Karnataka, famosa pelos seus magníficos palácios e estruturas de patrimônio."
+          },
+          "ctaText": {
+            "en": "Plan Your Journey",
+            "es": "Planificar Viaje",
+            "pt": "Planejar Viagem"
+          },
+          "ctaLink": "/contact"
+        },
+        "highlights": [
+          {
+            "title": {
+              "en": "Explore Mysore (Mysuru)",
+              "es": "Explore Mysore",
+              "pt": "Explore Mysore"
+            },
+            "desc": {
+              "en": "Experience the unique local heritage, landscapes, and culture.",
+              "es": "Experimente el patrimonio local único.",
+              "pt": "Experimente o patrimônio local único."
+            },
+            "isActive": true,
+            "displayOrder": 1
+          }
+        ],
+        "experiences": [
+          {
+            "title": {
+              "en": "Private Guided Tour",
+              "es": "Tour Guiado Privado",
+              "pt": "Tour Guiado Privado"
+            },
+            "desc": {
+              "en": "Walk through key attractions with a certified local guide.",
+              "es": "Recorra las atracciones con un guía local.",
+              "pt": "Explore as atrações com um guia local."
+            },
+            "duration": "Full Day",
+            "bookingAvailable": true,
+            "isFeatured": true
+          }
+        ],
+        "bestTimeToVisit": {
+          "bestTime": {
+            "en": "October to March",
+            "es": "De octubre a marzo",
+            "pt": "De outubro a março"
+          },
+          "peakSeason": "November to February",
+          "shoulderSeason": "October, March",
+          "offSeason": "April to September",
+          "weatherDesc": {
+            "en": "Mild weather year round. Warm summers (34°C), pleasant winters (15-28°C).",
+            "es": "Clima agradable.",
+            "pt": "Clima agradável."
+          },
+          "monthlyInfo": [
+            {
+              "month": "January",
+              "weather": "Cool & Sunny",
+              "temp": "15°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Excellent weather for sightseeing."
+            },
+            {
+              "month": "October",
+              "weather": "Pleasant",
+              "temp": "24°C",
+              "crowd": "Medium",
+              "recommended": true,
+              "desc": "Pleasant temperatures post-monsoon."
+            },
+            {
+              "month": "December",
+              "weather": "Cool Winter",
+              "temp": "16°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Great festival season and cool days."
+            }
+          ]
+        },
+        "travelInfo": {
+          "howToReach": {
+            "en": "Well connected by air, rail, and road.",
+            "es": "Bien conectado por aire, tren y carretera.",
+            "pt": "Bem conectado por via aérea, ferroviária e rodoviária."
+          },
+          "currency": "INR",
+          "localLanguage": "Hindi & English",
+          "timeZone": "IST (UTC+5:30)",
+          "safetyInfo": {
+            "en": "Safe destination for international tourists.",
+            "es": "Destino seguro para turistas.",
+            "pt": "Destino seguro para turistas."
+          }
+        },
+        "gettingAround": [
+          {
+            "transportType": "Private Car",
+            "title": {
+              "en": "Private Chauffeur SUV",
+              "es": "SUV Privado con Chofer",
+              "pt": "SUV Privado com Motorista"
+            },
+            "desc": {
+              "en": "Best and most comfortable option for long distance travel.",
+              "es": "La mejor opción para largas distancias.",
+              "pt": "Melhor opção para viagens longas."
+            },
+            "priceRange": "$$ - $$$",
+            "recommended": true
+          },
+          {
+            "transportType": "Auto Rickshaw",
+            "title": {
+              "en": "Auto Rickshaw",
+              "es": "Auto Rickshaw",
+              "pt": "Auto Rickshaw"
+            },
+            "desc": {
+              "en": "Ideal for short distances and navigating city markets.",
+              "es": "Ideal para distancias cortas.",
+              "pt": "Ideal para distâncias curtas."
+            },
+            "priceRange": "$",
+            "recommended": false
+          }
+        ],
+        "localFoodDishes": [
+          {
+            "name": {
+              "en": "Regional Delicacies",
+              "es": "Especialidades Regionales",
+              "pt": "Especialidades Regionais"
+            },
+            "desc": {
+              "en": "Authentic traditional recipes unique to this destination.",
+              "es": "Recetas tradicionales únicas de este destino.",
+              "pt": "Receitas tradicionais únicas deste destino."
+            },
+            "isVeg": true,
+            "recommended": true,
+            "whereToTry": "Local Traditional Restaurants"
+          }
+        ],
+        "relatedTours": [
+          "golden-triangle-luxury"
+        ],
+        "tags": [
+          "History",
+          "Culture",
+          "Heritage"
+        ],
+        "statistics": {
+          "recommendedDays": "2-3 Days",
+          "annualVisitors": "1M+",
+          "bestSeason": "Winter"
+        },
+        "seo": {
+          "title": {
+            "en": "Mysore (Mysuru)",
+            "es": "Mysore",
+            "pt": "Mysore"
+          },
+          "description": {
+            "en": "The City of Royal Palaces, Silk & Sandalwood",
+            "es": "La ciudad de los palacios reales y sándalo",
+            "pt": "A cidade dos palácios reais e sândalo"
+          },
+          "keywords": {
+            "en": "india, travel guide",
+            "es": "india, guia de viaje",
+            "pt": "india, guia de viagem"
+          }
+        }
       }
-    ]
+    ],
+    "status": "published",
+    "isFeatured": false,
+    "seo": {
+      "title": {
+        "en": "Karnataka",
+        "es": "Karnataka",
+        "pt": "Karnataka"
+      },
+      "description": {
+        "en": "Ancient Ruins of Hampi, Coffee Plantations & Coastal Temples",
+        "es": "Ruinas Antiguas de Hampi, Plantaciones de Café y Templos Costeros",
+        "pt": "Ruinas Antigas de Hampi, Plantaçoes de Café e Templos Costeiros"
+      },
+      "keywords": {
+        "en": "india, travel",
+        "es": "india, viaje",
+        "pt": "india, viagem"
+      }
+    }
   },
   {
     "slug": "punjab",
@@ -2825,9 +5908,236 @@
           "es": "Día 1: Templo Dorado. Día 2: Frontera Wagah.",
           "pt": "Dia 1: Templo Dourado. Dia 2: Fronteira Wagah."
         },
-        "faqs": []
+        "faqs": [],
+        "status": "published",
+        "isFeatured": false,
+        "country": "India",
+        "region": "North",
+        "destinationType": "Historical",
+        "shortDescription": {
+          "en": "The Sacred Golden Temple City",
+          "es": "La ciudad sagrada del Templo Dorado",
+          "pt": "A cidade sagrada do Templo Dourado"
+        },
+        "fullDescription": {
+          "en": "Amritsar is Punjab's cultural capital, housing the Harmandir Sahib (Golden Temple), the spiritual center of the Sikh religion.",
+          "es": "Amritsar es la capital cultural de Punjab, hogar del Harmandir Sahib.",
+          "pt": "Amritsar é a capital cultural do Punjab, lar do Harmandir Sahib."
+        },
+        "featuredImage": "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?q=80&w=800",
+        "hero": {
+          "image": "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?q=80&w=800",
+          "title": {
+            "en": "Amritsar",
+            "es": "Amritsar",
+            "pt": "Amritsar"
+          },
+          "subtitle": {
+            "en": "The Sacred Golden Temple City",
+            "es": "La ciudad sagrada del Templo Dorado",
+            "pt": "A cidade sagrada do Templo Dourado"
+          },
+          "description": {
+            "en": "Amritsar is Punjab's cultural capital, housing the Harmandir Sahib (Golden Temple), the spiritual center of the Sikh religion.",
+            "es": "Amritsar es la capital cultural de Punjab, hogar del Harmandir Sahib.",
+            "pt": "Amritsar é a capital cultural do Punjab, lar do Harmandir Sahib."
+          },
+          "ctaText": {
+            "en": "Plan Your Journey",
+            "es": "Planificar Viaje",
+            "pt": "Planejar Viagem"
+          },
+          "ctaLink": "/contact"
+        },
+        "highlights": [
+          {
+            "title": {
+              "en": "Explore Amritsar",
+              "es": "Explore Amritsar",
+              "pt": "Explore Amritsar"
+            },
+            "desc": {
+              "en": "Experience the unique local heritage, landscapes, and culture.",
+              "es": "Experimente el patrimonio local único.",
+              "pt": "Experimente o patrimônio local único."
+            },
+            "isActive": true,
+            "displayOrder": 1
+          }
+        ],
+        "experiences": [
+          {
+            "title": {
+              "en": "Private Guided Tour",
+              "es": "Tour Guiado Privado",
+              "pt": "Tour Guiado Privado"
+            },
+            "desc": {
+              "en": "Walk through key attractions with a certified local guide.",
+              "es": "Recorra las atracciones con un guía local.",
+              "pt": "Explore as atrações com um guia local."
+            },
+            "duration": "Full Day",
+            "bookingAvailable": true,
+            "isFeatured": true
+          }
+        ],
+        "bestTimeToVisit": {
+          "bestTime": {
+            "en": "October to March",
+            "es": "De octubre a marzo",
+            "pt": "De outubro a março"
+          },
+          "peakSeason": "November to February",
+          "shoulderSeason": "October, March",
+          "offSeason": "April to September",
+          "weatherDesc": {
+            "en": "Extremes: hot summers (44°C), very cold winters (3-18°C).",
+            "es": "Clima extremo.",
+            "pt": "Clima extremo."
+          },
+          "monthlyInfo": [
+            {
+              "month": "January",
+              "weather": "Cool & Sunny",
+              "temp": "15°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Excellent weather for sightseeing."
+            },
+            {
+              "month": "October",
+              "weather": "Pleasant",
+              "temp": "24°C",
+              "crowd": "Medium",
+              "recommended": true,
+              "desc": "Pleasant temperatures post-monsoon."
+            },
+            {
+              "month": "December",
+              "weather": "Cool Winter",
+              "temp": "16°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Great festival season and cool days."
+            }
+          ]
+        },
+        "travelInfo": {
+          "howToReach": {
+            "en": "Well connected by air, rail, and road.",
+            "es": "Bien conectado por aire, tren y carretera.",
+            "pt": "Bem conectado por via aérea, ferroviária e rodoviária."
+          },
+          "currency": "INR",
+          "localLanguage": "Hindi & English",
+          "timeZone": "IST (UTC+5:30)",
+          "safetyInfo": {
+            "en": "Safe destination for international tourists.",
+            "es": "Destino seguro para turistas.",
+            "pt": "Destino seguro para turistas."
+          }
+        },
+        "gettingAround": [
+          {
+            "transportType": "Private Car",
+            "title": {
+              "en": "Private Chauffeur SUV",
+              "es": "SUV Privado con Chofer",
+              "pt": "SUV Privado com Motorista"
+            },
+            "desc": {
+              "en": "Best and most comfortable option for long distance travel.",
+              "es": "La mejor opción para largas distancias.",
+              "pt": "Melhor opção para viagens longas."
+            },
+            "priceRange": "$$ - $$$",
+            "recommended": true
+          },
+          {
+            "transportType": "Auto Rickshaw",
+            "title": {
+              "en": "Auto Rickshaw",
+              "es": "Auto Rickshaw",
+              "pt": "Auto Rickshaw"
+            },
+            "desc": {
+              "en": "Ideal for short distances and navigating city markets.",
+              "es": "Ideal para distancias cortas.",
+              "pt": "Ideal para distâncias curtas."
+            },
+            "priceRange": "$",
+            "recommended": false
+          }
+        ],
+        "localFoodDishes": [
+          {
+            "name": {
+              "en": "Regional Delicacies",
+              "es": "Especialidades Regionales",
+              "pt": "Especialidades Regionais"
+            },
+            "desc": {
+              "en": "Authentic traditional recipes unique to this destination.",
+              "es": "Recetas tradicionales únicas de este destino.",
+              "pt": "Receitas tradicionais únicas deste destino."
+            },
+            "isVeg": true,
+            "recommended": true,
+            "whereToTry": "Local Traditional Restaurants"
+          }
+        ],
+        "relatedTours": [
+          "golden-triangle-luxury"
+        ],
+        "tags": [
+          "History",
+          "Culture",
+          "Heritage"
+        ],
+        "statistics": {
+          "recommendedDays": "2-3 Days",
+          "annualVisitors": "1M+",
+          "bestSeason": "Winter"
+        },
+        "seo": {
+          "title": {
+            "en": "Amritsar",
+            "es": "Amritsar",
+            "pt": "Amritsar"
+          },
+          "description": {
+            "en": "The Sacred Golden Temple City",
+            "es": "La ciudad sagrada del Templo Dorado",
+            "pt": "A cidade sagrada do Templo Dourado"
+          },
+          "keywords": {
+            "en": "india, travel guide",
+            "es": "india, guia de viaje",
+            "pt": "india, guia de viagem"
+          }
+        }
       }
-    ]
+    ],
+    "status": "published",
+    "isFeatured": false,
+    "seo": {
+      "title": {
+        "en": "Punjab",
+        "es": "Punjab",
+        "pt": "Punjab"
+      },
+      "description": {
+        "en": "Golden Temple, Vibrant Culture & Hearty Cuisine",
+        "es": "Templo Dorado, Cultura Vibrante y Cocina Generosa",
+        "pt": "Templo Dourado, Cultura Vibrante e Culinária Generosa"
+      },
+      "keywords": {
+        "en": "india, travel",
+        "es": "india, viaje",
+        "pt": "india, viagem"
+      }
+    }
   },
   {
     "slug": "gujarat",
@@ -3020,9 +6330,236 @@
           "es": "Día 1: Gandhi Ashram. Día 2: Pozo Adalaj.",
           "pt": "Dia 1: Gandhi Ashram. Dia 2: Poço Adalaj."
         },
-        "faqs": []
+        "faqs": [],
+        "status": "published",
+        "isFeatured": false,
+        "country": "India",
+        "region": "West",
+        "destinationType": "Historical",
+        "shortDescription": {
+          "en": "UNESCO Heritage City & Sabarmati Ashram",
+          "es": "Ciudad de patrimonio mundial de la UNESCO",
+          "pt": "Cidade de patrimônio mundial da UNESCO"
+        },
+        "fullDescription": {
+          "en": "Ahmedabad is India's first UNESCO World Heritage City, famous for its hand-carved stone mosque walls, stepwells, and Gandhi's Sabarmati Ashram.",
+          "es": "Primera ciudad patrimonio mundial de la India, famosa por sus mezquitas y Gandhi Ashram.",
+          "pt": "Primeira cidade patrimônio mundial da Índia, famosa por suas mesquitas e Gandhi Ashram."
+        },
+        "featuredImage": "/images/gujarat.jpg",
+        "hero": {
+          "image": "/images/gujarat.jpg",
+          "title": {
+            "en": "Ahmedabad",
+            "es": "Ahmedabad",
+            "pt": "Ahmedabad"
+          },
+          "subtitle": {
+            "en": "UNESCO Heritage City & Sabarmati Ashram",
+            "es": "Ciudad de patrimonio mundial de la UNESCO",
+            "pt": "Cidade de patrimônio mundial da UNESCO"
+          },
+          "description": {
+            "en": "Ahmedabad is India's first UNESCO World Heritage City, famous for its hand-carved stone mosque walls, stepwells, and Gandhi's Sabarmati Ashram.",
+            "es": "Primera ciudad patrimonio mundial de la India, famosa por sus mezquitas y Gandhi Ashram.",
+            "pt": "Primeira cidade patrimônio mundial da Índia, famosa por suas mesquitas e Gandhi Ashram."
+          },
+          "ctaText": {
+            "en": "Plan Your Journey",
+            "es": "Planificar Viaje",
+            "pt": "Planejar Viagem"
+          },
+          "ctaLink": "/contact"
+        },
+        "highlights": [
+          {
+            "title": {
+              "en": "Explore Ahmedabad",
+              "es": "Explore Ahmedabad",
+              "pt": "Explore Ahmedabad"
+            },
+            "desc": {
+              "en": "Experience the unique local heritage, landscapes, and culture.",
+              "es": "Experimente el patrimonio local único.",
+              "pt": "Experimente o patrimônio local único."
+            },
+            "isActive": true,
+            "displayOrder": 1
+          }
+        ],
+        "experiences": [
+          {
+            "title": {
+              "en": "Private Guided Tour",
+              "es": "Tour Guiado Privado",
+              "pt": "Tour Guiado Privado"
+            },
+            "desc": {
+              "en": "Walk through key attractions with a certified local guide.",
+              "es": "Recorra las atracciones con un guía local.",
+              "pt": "Explore as atrações com um guia local."
+            },
+            "duration": "Full Day",
+            "bookingAvailable": true,
+            "isFeatured": true
+          }
+        ],
+        "bestTimeToVisit": {
+          "bestTime": {
+            "en": "November to February",
+            "es": "De noviembre a febrero",
+            "pt": "De novembro a fevereiro"
+          },
+          "peakSeason": "November to February",
+          "shoulderSeason": "October, March",
+          "offSeason": "April to September",
+          "weatherDesc": {
+            "en": "Hot and dry: summers reach 45°C. Winters are mild (14-30°C).",
+            "es": "Clima cálido y seco.",
+            "pt": "Clima quente e seco."
+          },
+          "monthlyInfo": [
+            {
+              "month": "January",
+              "weather": "Cool & Sunny",
+              "temp": "15°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Excellent weather for sightseeing."
+            },
+            {
+              "month": "October",
+              "weather": "Pleasant",
+              "temp": "24°C",
+              "crowd": "Medium",
+              "recommended": true,
+              "desc": "Pleasant temperatures post-monsoon."
+            },
+            {
+              "month": "December",
+              "weather": "Cool Winter",
+              "temp": "16°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Great festival season and cool days."
+            }
+          ]
+        },
+        "travelInfo": {
+          "howToReach": {
+            "en": "Well connected by air, rail, and road.",
+            "es": "Bien conectado por aire, tren y carretera.",
+            "pt": "Bem conectado por via aérea, ferroviária e rodoviária."
+          },
+          "currency": "INR",
+          "localLanguage": "Hindi & English",
+          "timeZone": "IST (UTC+5:30)",
+          "safetyInfo": {
+            "en": "Safe destination for international tourists.",
+            "es": "Destino seguro para turistas.",
+            "pt": "Destino seguro para turistas."
+          }
+        },
+        "gettingAround": [
+          {
+            "transportType": "Private Car",
+            "title": {
+              "en": "Private Chauffeur SUV",
+              "es": "SUV Privado con Chofer",
+              "pt": "SUV Privado com Motorista"
+            },
+            "desc": {
+              "en": "Best and most comfortable option for long distance travel.",
+              "es": "La mejor opción para largas distancias.",
+              "pt": "Melhor opção para viagens longas."
+            },
+            "priceRange": "$$ - $$$",
+            "recommended": true
+          },
+          {
+            "transportType": "Auto Rickshaw",
+            "title": {
+              "en": "Auto Rickshaw",
+              "es": "Auto Rickshaw",
+              "pt": "Auto Rickshaw"
+            },
+            "desc": {
+              "en": "Ideal for short distances and navigating city markets.",
+              "es": "Ideal para distancias cortas.",
+              "pt": "Ideal para distâncias curtas."
+            },
+            "priceRange": "$",
+            "recommended": false
+          }
+        ],
+        "localFoodDishes": [
+          {
+            "name": {
+              "en": "Regional Delicacies",
+              "es": "Especialidades Regionales",
+              "pt": "Especialidades Regionais"
+            },
+            "desc": {
+              "en": "Authentic traditional recipes unique to this destination.",
+              "es": "Recetas tradicionales únicas de este destino.",
+              "pt": "Receitas tradicionais únicas deste destino."
+            },
+            "isVeg": true,
+            "recommended": true,
+            "whereToTry": "Local Traditional Restaurants"
+          }
+        ],
+        "relatedTours": [
+          "golden-triangle-luxury"
+        ],
+        "tags": [
+          "History",
+          "Culture",
+          "Heritage"
+        ],
+        "statistics": {
+          "recommendedDays": "2-3 Days",
+          "annualVisitors": "1M+",
+          "bestSeason": "Winter"
+        },
+        "seo": {
+          "title": {
+            "en": "Ahmedabad",
+            "es": "Ahmedabad",
+            "pt": "Ahmedabad"
+          },
+          "description": {
+            "en": "UNESCO Heritage City & Sabarmati Ashram",
+            "es": "Ciudad de patrimonio mundial de la UNESCO",
+            "pt": "Cidade de patrimônio mundial da UNESCO"
+          },
+          "keywords": {
+            "en": "india, travel guide",
+            "es": "india, guia de viaje",
+            "pt": "india, guia de viagem"
+          }
+        }
       }
-    ]
+    ],
+    "status": "published",
+    "isFeatured": false,
+    "seo": {
+      "title": {
+        "en": "Gujarat",
+        "es": "Gujarat",
+        "pt": "Gujarat"
+      },
+      "description": {
+        "en": "Asiatic Lions, White Desert Rann & Textile Heritage",
+        "es": "Leones Asiáticos, Desierto Blanco y Patrimonio Textil",
+        "pt": "Leões Asiáticos, Deserto Branco e Patrimônio Têxtil"
+      },
+      "keywords": {
+        "en": "india, travel",
+        "es": "india, viaje",
+        "pt": "india, viagem"
+      }
+    }
   },
   {
     "slug": "uttarakhand",
@@ -3215,8 +6752,235 @@
           "es": "Día 1: Yoga y Aarti. Día 2: Rafting.",
           "pt": "Dia 1: Yoga e Aarti. Dia 2: Rafting."
         },
-        "faqs": []
+        "faqs": [],
+        "status": "published",
+        "isFeatured": false,
+        "country": "India",
+        "region": "North",
+        "destinationType": "Historical",
+        "shortDescription": {
+          "en": "The Yoga Capital of the World",
+          "es": "La capital mundial del yoga",
+          "pt": "A capital mundial do yoga"
+        },
+        "fullDescription": {
+          "en": "Rishikesh is situated in the Himalayan foothills on the banks of Ganges. It is a world-renowned spiritual center for yoga, meditation, and adventure sports like white-water rafting.",
+          "es": "Centro espiritual mundial de yoga y meditación a orillas del Ganges.",
+          "pt": "Centro espiritual mundial de yoga e meditação às margens do Ganges."
+        },
+        "featuredImage": "/images/uttarakhand.jpg",
+        "hero": {
+          "image": "/images/uttarakhand.jpg",
+          "title": {
+            "en": "Rishikesh",
+            "es": "Rishikesh",
+            "pt": "Rishikesh"
+          },
+          "subtitle": {
+            "en": "The Yoga Capital of the World",
+            "es": "La capital mundial del yoga",
+            "pt": "A capital mundial do yoga"
+          },
+          "description": {
+            "en": "Rishikesh is situated in the Himalayan foothills on the banks of Ganges. It is a world-renowned spiritual center for yoga, meditation, and adventure sports like white-water rafting.",
+            "es": "Centro espiritual mundial de yoga y meditación a orillas del Ganges.",
+            "pt": "Centro espiritual mundial de yoga e meditação às margens do Ganges."
+          },
+          "ctaText": {
+            "en": "Plan Your Journey",
+            "es": "Planificar Viaje",
+            "pt": "Planejar Viagem"
+          },
+          "ctaLink": "/contact"
+        },
+        "highlights": [
+          {
+            "title": {
+              "en": "Explore Rishikesh",
+              "es": "Explore Rishikesh",
+              "pt": "Explore Rishikesh"
+            },
+            "desc": {
+              "en": "Experience the unique local heritage, landscapes, and culture.",
+              "es": "Experimente el patrimonio local único.",
+              "pt": "Experimente o patrimônio local único."
+            },
+            "isActive": true,
+            "displayOrder": 1
+          }
+        ],
+        "experiences": [
+          {
+            "title": {
+              "en": "Private Guided Tour",
+              "es": "Tour Guiado Privado",
+              "pt": "Tour Guiado Privado"
+            },
+            "desc": {
+              "en": "Walk through key attractions with a certified local guide.",
+              "es": "Recorra las atracciones con un guía local.",
+              "pt": "Explore as atrações com um guia local."
+            },
+            "duration": "Full Day",
+            "bookingAvailable": true,
+            "isFeatured": true
+          }
+        ],
+        "bestTimeToVisit": {
+          "bestTime": {
+            "en": "March to June & September to November",
+            "es": "De marzo a junio",
+            "pt": "De março a junho"
+          },
+          "peakSeason": "November to February",
+          "shoulderSeason": "October, March",
+          "offSeason": "April to September",
+          "weatherDesc": {
+            "en": "Pleasant spring and autumn. Hot summers (38°C), cold winters (7-20°C).",
+            "es": "Clima agradable en montaña.",
+            "pt": "Clima agradável de montanha."
+          },
+          "monthlyInfo": [
+            {
+              "month": "January",
+              "weather": "Cool & Sunny",
+              "temp": "15°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Excellent weather for sightseeing."
+            },
+            {
+              "month": "October",
+              "weather": "Pleasant",
+              "temp": "24°C",
+              "crowd": "Medium",
+              "recommended": true,
+              "desc": "Pleasant temperatures post-monsoon."
+            },
+            {
+              "month": "December",
+              "weather": "Cool Winter",
+              "temp": "16°C",
+              "crowd": "High",
+              "recommended": true,
+              "desc": "Great festival season and cool days."
+            }
+          ]
+        },
+        "travelInfo": {
+          "howToReach": {
+            "en": "Well connected by air, rail, and road.",
+            "es": "Bien conectado por aire, tren y carretera.",
+            "pt": "Bem conectado por via aérea, ferroviária e rodoviária."
+          },
+          "currency": "INR",
+          "localLanguage": "Hindi & English",
+          "timeZone": "IST (UTC+5:30)",
+          "safetyInfo": {
+            "en": "Safe destination for international tourists.",
+            "es": "Destino seguro para turistas.",
+            "pt": "Destino seguro para turistas."
+          }
+        },
+        "gettingAround": [
+          {
+            "transportType": "Private Car",
+            "title": {
+              "en": "Private Chauffeur SUV",
+              "es": "SUV Privado con Chofer",
+              "pt": "SUV Privado com Motorista"
+            },
+            "desc": {
+              "en": "Best and most comfortable option for long distance travel.",
+              "es": "La mejor opción para largas distancias.",
+              "pt": "Melhor opção para viagens longas."
+            },
+            "priceRange": "$$ - $$$",
+            "recommended": true
+          },
+          {
+            "transportType": "Auto Rickshaw",
+            "title": {
+              "en": "Auto Rickshaw",
+              "es": "Auto Rickshaw",
+              "pt": "Auto Rickshaw"
+            },
+            "desc": {
+              "en": "Ideal for short distances and navigating city markets.",
+              "es": "Ideal para distancias cortas.",
+              "pt": "Ideal para distâncias curtas."
+            },
+            "priceRange": "$",
+            "recommended": false
+          }
+        ],
+        "localFoodDishes": [
+          {
+            "name": {
+              "en": "Regional Delicacies",
+              "es": "Especialidades Regionales",
+              "pt": "Especialidades Regionais"
+            },
+            "desc": {
+              "en": "Authentic traditional recipes unique to this destination.",
+              "es": "Recetas tradicionales únicas de este destino.",
+              "pt": "Receitas tradicionais únicas deste destino."
+            },
+            "isVeg": true,
+            "recommended": true,
+            "whereToTry": "Local Traditional Restaurants"
+          }
+        ],
+        "relatedTours": [
+          "golden-triangle-luxury"
+        ],
+        "tags": [
+          "History",
+          "Culture",
+          "Heritage"
+        ],
+        "statistics": {
+          "recommendedDays": "2-3 Days",
+          "annualVisitors": "1M+",
+          "bestSeason": "Winter"
+        },
+        "seo": {
+          "title": {
+            "en": "Rishikesh",
+            "es": "Rishikesh",
+            "pt": "Rishikesh"
+          },
+          "description": {
+            "en": "The Yoga Capital of the World",
+            "es": "La capital mundial del yoga",
+            "pt": "A capital mundial do yoga"
+          },
+          "keywords": {
+            "en": "india, travel guide",
+            "es": "india, guia de viaje",
+            "pt": "india, guia de viagem"
+          }
+        }
       }
-    ]
+    ],
+    "status": "published",
+    "isFeatured": false,
+    "seo": {
+      "title": {
+        "en": "Uttarakhand",
+        "es": "Uttarakhand",
+        "pt": "Uttarakhand"
+      },
+      "description": {
+        "en": "Land of the Gods, Rishikesh Yoga & Himalayan Treks",
+        "es": "Tierra de los Dioses, Yoga en Rishikesh y Trekking",
+        "pt": "Terra dos Deuses, Yoga em Rishikesh e Trekking"
+      },
+      "keywords": {
+        "en": "india, travel",
+        "es": "india, viaje",
+        "pt": "india, viagem"
+      }
+    }
   }
 ]

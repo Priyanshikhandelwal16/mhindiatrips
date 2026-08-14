@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { 
   Compass, Plus, Edit2, Trash2, Calendar, Image as ImageIcon, MapPin, 
-  Check, ArrowRight, ArrowDown, ChevronRight 
+  Check, ArrowRight, ArrowDown, ChevronRight, HelpCircle, DollarSign,
+  Info, ShieldAlert, Globe, Activity, List, Play, X, Star, Settings
 } from "lucide-react";
 import { CloudinaryUpload } from "./CloudinaryUpload";
 
@@ -25,7 +26,7 @@ export default function PackagesTab({
   showStatus
 }: PackagesTabProps) {
 
-  const [subTab, setSubTab] = useState<"general" | "highlights" | "inclusions" | "itinerary">("general");
+  const [subTab, setSubTab] = useState<string>("general");
 
   useEffect(() => {
     if (editPackage) {
@@ -33,32 +34,52 @@ export default function PackagesTab({
     }
   }, [editPackage?.slug]);
 
+  // HIGHLIGHTS HANDLERS
   const handleAddHighlight = () => {
-    const newBullet = { en: "New highlight point", es: "", pt: "" };
-    const updatedHighlights = [...(editPackage.highlights || []), newBullet];
-    setEditPackage({ ...editPackage, highlights: updatedHighlights });
+    const newHighlight = {
+      title: { en: "New Highlight Title", es: "", pt: "" },
+      desc: { en: "Highlight description", es: "", pt: "" },
+      icon: "Check",
+      image: "",
+      displayOrder: (editPackage.highlights || []).length + 1,
+      isActive: true
+    };
+    setEditPackage({ ...editPackage, highlights: [...(editPackage.highlights || []), newHighlight] });
   };
 
-  const handleUpdateHighlight = (idx: number, val: any) => {
-    const updatedHighlights = [...(editPackage.highlights || [])];
-    updatedHighlights[idx] = val;
-    setEditPackage({ ...editPackage, highlights: updatedHighlights });
+  const handleUpdateHighlight = (idx: number, field: string, lang: string | null, val: any) => {
+    const updated = [...(editPackage.highlights || [])];
+    if (lang) {
+      updated[idx] = {
+        ...updated[idx],
+        [field]: {
+          ...(updated[idx][field] || {}),
+          [lang]: val
+        }
+      };
+    } else {
+      updated[idx] = {
+        ...updated[idx],
+        [field]: val
+      };
+    }
+    setEditPackage({ ...editPackage, highlights: updated });
   };
 
   const handleRemoveHighlight = (idx: number) => {
-    const updatedHighlights = (editPackage.highlights || []).filter((_: any, i: number) => i !== idx);
-    setEditPackage({ ...editPackage, highlights: updatedHighlights });
+    const updated = (editPackage.highlights || []).filter((_: any, i: number) => i !== idx);
+    setEditPackage({ ...editPackage, highlights: updated });
   };
 
+  // INCLUSIONS HANDLERS
   const handleAddInclusion = () => {
     const newBullet = { en: "New inclusion item", es: "", pt: "" };
-    const updated = [...(editPackage.includedExperiences || []), newBullet];
-    setEditPackage({ ...editPackage, includedExperiences: updated });
+    setEditPackage({ ...editPackage, includedExperiences: [...(editPackage.includedExperiences || []), newBullet] });
   };
 
-  const handleUpdateInclusion = (idx: number, val: any) => {
+  const handleUpdateInclusion = (idx: number, lang: string, val: string) => {
     const updated = [...(editPackage.includedExperiences || [])];
-    updated[idx] = val;
+    updated[idx] = { ...updated[idx], [lang]: val };
     setEditPackage({ ...editPackage, includedExperiences: updated });
   };
 
@@ -67,26 +88,98 @@ export default function PackagesTab({
     setEditPackage({ ...editPackage, includedExperiences: updated });
   };
 
+  // EXCLUSIONS HANDLERS
+  const handleAddExclusion = () => {
+    const newBullet = { en: "New exclusion item", es: "", pt: "" };
+    setEditPackage({ ...editPackage, exclusions: [...(editPackage.exclusions || []), newBullet] });
+  };
+
+  const handleUpdateExclusion = (idx: number, lang: string, val: string) => {
+    const updated = [...(editPackage.exclusions || [])];
+    updated[idx] = { ...updated[idx], [lang]: val };
+    setEditPackage({ ...editPackage, exclusions: updated });
+  };
+
+  const handleRemoveExclusion = (idx: number) => {
+    const updated = (editPackage.exclusions || []).filter((_: any, i: number) => i !== idx);
+    setEditPackage({ ...editPackage, exclusions: updated });
+  };
+
+  // ADD-ONS / OPTIONAL EXPERIENCES HANDLERS
+  const handleAddAddon = () => {
+    const newAddon = {
+      name: { en: "New Add-on Experience", es: "", pt: "" },
+      desc: { en: "Add-on description details", es: "", pt: "" },
+      price: "50",
+      currency: "USD",
+      duration: "3 Hours",
+      image: "",
+      isActive: true
+    };
+    setEditPackage({ ...editPackage, addons: [...(editPackage.addons || []), newAddon] });
+  };
+
+  const handleUpdateAddon = (idx: number, field: string, lang: string | null, val: any) => {
+    const updated = [...(editPackage.addons || [])];
+    if (lang) {
+      updated[idx] = {
+        ...updated[idx],
+        [field]: {
+          ...(updated[idx][field] || {}),
+          [lang]: val
+        }
+      };
+    } else {
+      updated[idx] = {
+        ...updated[idx],
+        [field]: val
+      };
+    }
+    setEditPackage({ ...editPackage, addons: updated });
+  };
+
+  const handleRemoveAddon = (idx: number) => {
+    const updated = (editPackage.addons || []).filter((_: any, i: number) => i !== idx);
+    setEditPackage({ ...editPackage, addons: updated });
+  };
+
+  // ITINERARY DAYS HANDLERS
   const handleAddItineraryDay = () => {
     const nextDay = (editPackage.itinerary || []).length + 1;
     const newDay = {
       day: nextDay,
-      title: { en: `Day ${nextDay} Activity`, es: "", pt: "" },
-      desc: { en: "Detailed description of the day's tours, sights, and accommodation.", es: "", pt: "" }
+      title: { en: `Arrival and Welcome`, es: "", pt: "" },
+      desc: { en: "Detailed sightseeing and transfers details...", es: "", pt: "" },
+      location: "",
+      activities: [],
+      sightseeing: "",
+      meals: "Breakfast",
+      overnight: "",
+      hotel: "",
+      travelDistance: "",
+      travelTime: "",
+      image: "",
+      optionalExperiences: ""
     };
-    const updated = [...(editPackage.itinerary || []), newDay];
-    setEditPackage({ ...editPackage, itinerary: updated });
+    setEditPackage({ ...editPackage, itinerary: [...(editPackage.itinerary || []), newDay] });
   };
 
-  const handleUpdateItineraryDay = (idx: number, field: "title" | "desc", lang: string, val: string) => {
+  const handleUpdateItineraryDay = (idx: number, field: string, lang: string | null, val: any) => {
     const updated = [...(editPackage.itinerary || [])];
-    updated[idx] = {
-      ...updated[idx],
-      [field]: {
-        ...(updated[idx][field] || {}),
-        [lang]: val
-      }
-    };
+    if (lang) {
+      updated[idx] = {
+        ...updated[idx],
+        [field]: {
+          ...(updated[idx][field] || {}),
+          [lang]: val
+        }
+      };
+    } else {
+      updated[idx] = {
+        ...updated[idx],
+        [field]: val
+      };
+    }
     setEditPackage({ ...editPackage, itinerary: updated });
   };
 
@@ -96,26 +189,163 @@ export default function PackagesTab({
     setEditPackage({ ...editPackage, itinerary: updated });
   };
 
+  // GALLERY IMAGE HANDLERS
+  const handleAddGalleryImage = () => {
+    const newImg = { url: "", title: "", alt: "", caption: "", displayOrder: (editPackage.gallery || []).length + 1 };
+    setEditPackage({ ...editPackage, gallery: [...(editPackage.gallery || []), newImg] });
+  };
+
+  const handleUpdateGalleryImage = (idx: number, field: string, val: any) => {
+    const updated = [...(editPackage.gallery || [])];
+    if (typeof updated[idx] === 'string') {
+      // Convert old format string to object
+      updated[idx] = { url: updated[idx], title: "", alt: "", caption: "", displayOrder: idx + 1 };
+    }
+    updated[idx] = { ...updated[idx], [field]: val };
+    setEditPackage({ ...editPackage, gallery: updated });
+  };
+
+  const handleRemoveGalleryImage = (idx: number) => {
+    const updated = (editPackage.gallery || []).filter((_: any, i: number) => i !== idx);
+    setEditPackage({ ...editPackage, gallery: updated });
+  };
+
+  // FAQ HANDLERS
+  const handleAddFAQ = () => {
+    const newFAQ = { q: { en: "", es: "", pt: "" }, a: { en: "", es: "", pt: "" } };
+    setEditPackage({ ...editPackage, faqs: [...(editPackage.faqs || []), newFAQ] });
+  };
+
+  const handleUpdateFAQ = (idx: number, field: "q" | "a", lang: string, val: string) => {
+    const updated = [...(editPackage.faqs || [])];
+    updated[idx] = {
+      ...updated[idx],
+      [field]: {
+        ...(updated[idx][field] || {}),
+        [lang]: val
+      }
+    };
+    setEditPackage({ ...editPackage, faqs: updated });
+  };
+
+  const handleRemoveFAQ = (idx: number) => {
+    const updated = (editPackage.faqs || []).filter((_: any, i: number) => i !== idx);
+    setEditPackage({ ...editPackage, faqs: updated });
+  };
+
+  // Travel Info inputs helper
+  const handleUpdateTravelInfo = (field: string, val: string) => {
+    setEditPackage({
+      ...editPackage,
+      travelInfo: {
+        ...(editPackage.travelInfo || {}),
+        [field]: val
+      }
+    });
+  };
+
+  // Pricing inputs helper
+  const handleUpdatePricing = (field: string, val: any) => {
+    setEditPackage({
+      ...editPackage,
+      pricing: {
+        ...(editPackage.pricing || {}),
+        [field]: val
+      }
+    });
+  };
+
+  // Policies inputs helper
+  const handleUpdatePolicy = (policyType: string, lang: string, val: string) => {
+    setEditPackage({
+      ...editPackage,
+      policies: {
+        ...(editPackage.policies || {}),
+        [policyType]: {
+          ...((editPackage.policies || {})[policyType] || {}),
+          [lang]: val
+        }
+      }
+    });
+  };
+
+  // SEO inputs helper
+  const handleUpdateSEO = (field: string, lang: string | null, val: string) => {
+    if (lang) {
+      setEditPackage({
+        ...editPackage,
+        seo: {
+          ...(editPackage.seo || {}),
+          [field]: {
+            ...((editPackage.seo || {})[field] || {}),
+            [lang]: val
+          }
+        }
+      });
+    } else {
+      setEditPackage({
+        ...editPackage,
+        seo: {
+          ...(editPackage.seo || {}),
+          [field]: val
+        }
+      });
+    }
+  };
+
+  const subTabs = [
+    { id: "general", label: "1. General Details", icon: Compass },
+    { id: "highlights", label: "2. Highlights", icon: Activity },
+    { id: "inclusions", label: "3. Inclusions/Exclusions", icon: List },
+    { id: "addons", label: "4. Add-ons / Experiences", icon: Plus },
+    { id: "itinerary", label: "5. Itinerary Days", icon: Calendar },
+    { id: "pricing", label: "6. Pricing Details", icon: DollarSign },
+    { id: "travelInfo", label: "7. Travel Info", icon: Info },
+    { id: "gallery", label: "8. Photo Gallery", icon: ImageIcon },
+    { id: "faq", label: "9. FAQs", icon: HelpCircle },
+    { id: "policies", label: "10. Policies", icon: ShieldAlert },
+    { id: "seo", label: "11. SEO Config", icon: Globe },
+    { id: "status", label: "12. Status & Publish", icon: Settings }
+  ];
+
   return (
     <div className="space-y-6 animate-fade-in text-xs text-royal">
-      {/* Packages Tab Header */}
+      {/* Tab Header */}
       {!editPackage && (
         <div className="flex justify-between items-center">
           <div>
             <h2 className="text-lg font-bold text-royal font-serif">Manage Tour Packages</h2>
-            <p className="text-[10px] text-royal/40">Manage itineraries, themes, durations, and highlights for tour packages.</p>
+            <p className="text-[10px] text-royal/40">Add, edit, or delete tour packages, prices, and itineraries.</p>
           </div>
           <button
             onClick={() => setEditPackage({ 
               title: { en: "", es: "", pt: "" }, 
               tagline: { en: "", es: "", pt: "" }, 
               slug: "", 
-              category: "Luxury", 
+              category: "Luxury Tours", 
               durationDays: 7, 
+              durationNights: 6,
+              startingLocation: "Delhi",
+              endingLocation: "Delhi",
+              tourType: "Private Tour",
+              travelStyle: "Luxury",
+              bestFor: "Couples, Families, First-Time Visitors",
+              groupSize: "2-12 Travellers",
+              difficultyLevel: "Easy",
               image: "", 
+              gallery: [],
               highlights: [],
               includedExperiences: [],
-              itinerary: []
+              exclusions: [],
+              addons: [],
+              itinerary: [],
+              pricing: { startingPrice: 1499, pricePerPerson: 1499, currency: "USD", priceType: "per_person", discountPrice: 0, groupPricing: "", priceIncludes: "", priceExcludes: "", enquireForPrice: false },
+              travelInfo: { startingPoint: "Delhi", endingPoint: "Delhi", duration: "7 Days / 6 Nights", transportation: "Private SUV", accommodation: "Luxury Heritage Hotels", tourType: "Private Tour", bestTime: "October to March", groupSize: "2-12 Travellers", languages: "English, Spanish, Portuguese", suitableFor: "Luxury Travellers" },
+              faqs: [],
+              policies: { cancellation: { en: "", es: "", pt: "" }, refund: { en: "", es: "", pt: "" }, bookingTerms: { en: "", es: "", pt: "" }, importantNotes: { en: "", es: "", pt: "" }, visaInfo: { en: "", es: "", pt: "" }, insuranceInfo: { en: "", es: "", pt: "" }, terms: { en: "", es: "", pt: "" } },
+              seo: { title: { en: "", es: "", pt: "" }, description: { en: "", es: "", pt: "" }, keywords: { en: "", es: "", pt: "" }, ogTitle: "", ogDescription: "", ogImage: "", canonicalUrl: "", indexRule: "index", followRule: "follow" },
+              status: "published",
+              isFeatured: false
             })}
             className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 flex items-center gap-1.5 transition cursor-pointer"
           >
@@ -125,121 +355,191 @@ export default function PackagesTab({
         </div>
       )}
 
-      {/* ADD / EDIT PACKAGE FORM */}
+      {/* EDIT PACKAGE FORM */}
       {editPackage && (
-        <form onSubmit={handleSavePackage} className="bg-white border border-gold/20 rounded-3xl p-8 shadow-md space-y-6">
+        <form onSubmit={handleSavePackage} className="bg-white border border-gold/20 rounded-3xl p-6 md:p-8 shadow-xl space-y-6">
           <div className="flex justify-between items-center border-b border-beige/40 pb-4">
             <h3 className="text-base font-bold font-serif">{editPackage.slug ? `Edit Package: ${editPackage.title?.en}` : "Create New Tour Package"}</h3>
             <button type="button" onClick={() => setEditPackage(null)} className="text-royal/50 hover:text-royal font-bold">Cancel</button>
           </div>
 
-          {/* Sub tabs configuration */}
+          {/* Sub tabs selectors */}
           <div className="flex border-b border-gold/10 pb-2 mb-6 gap-2 flex-wrap">
-            {[
-              { id: "general", label: "General Details" },
-              { id: "highlights", label: "Tour Highlights" },
-              { id: "inclusions", label: "Inclusions / Add-ons" },
-              { id: "itinerary", label: "Day-by-Day Itinerary" }
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                type="button"
-                onClick={() => setSubTab(tab.id as any)}
-                className={`px-4 py-2 text-[10px] font-bold uppercase tracking-wider transition rounded-lg border ${
-                  subTab === tab.id 
-                    ? "bg-royal text-white border-royal shadow-sm" 
-                    : "bg-[#FAF8F5] text-royal/60 border-gold/10 hover:text-royal"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+            {subTabs.map((tab) => {
+              const Icon = tab.icon;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setSubTab(tab.id)}
+                  className={`px-3 py-2 text-[9px] font-bold uppercase tracking-wider transition rounded-lg border flex items-center gap-1.5 ${
+                    subTab === tab.id 
+                      ? "bg-royal text-white border-royal shadow-sm" 
+                      : "bg-[#FAF8F5] text-royal/60 border-gold/10 hover:text-royal"
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  <span>{tab.label}</span>
+                </button>
+              );
+            })}
           </div>
 
           {/* TAB 1: GENERAL DETAILS */}
           {subTab === "general" && (
-            <div className="space-y-6">
+            <div className="space-y-6 animate-fade-in">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="space-y-1.5">
-                  <label className="font-bold uppercase tracking-wider block">Slug (e.g. golden-triangle-luxury)</label>
+                  <label className="font-bold uppercase tracking-wider block">Slug (URL identifier)</label>
                   <input 
-                    type="text" 
-                    required
-                    value={editPackage.slug}
+                    type="text" required
+                    value={editPackage.slug || ""}
                     onChange={e => setEditPackage({...editPackage, slug: e.target.value.toLowerCase().replace(/\s+/g, "-")})}
                     className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="font-bold uppercase tracking-wider block">Category (e.g. Luxury, Spiritual, Wildlife)</label>
+                  <label className="font-bold uppercase tracking-wider block">Category (e.g. Luxury, Wellness, Wildlife)</label>
                   <input 
-                    type="text" 
-                    value={editPackage.category}
+                    type="text" required
+                    value={editPackage.category || ""}
                     onChange={e => setEditPackage({...editPackage, category: e.target.value})}
                     className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
                   />
                 </div>
                 <div className="space-y-1.5">
+                  <label className="font-bold uppercase tracking-wider block">Tour Type</label>
+                  <select
+                    value={editPackage.tourType || "Private Tour"}
+                    onChange={e => setEditPackage({...editPackage, tourType: e.target.value})}
+                    className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
+                  >
+                    {["Private Tour", "Group Tour", "Family Tour", "Honeymoon Tour", "Custom Tour"].map(t => (
+                      <option key={t} value={t}>{t}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div className="space-y-1.5">
                   <label className="font-bold uppercase tracking-wider block">Duration Days</label>
                   <input 
-                    type="number" 
-                    value={editPackage.durationDays}
-                    onChange={e => setEditPackage({...editPackage, durationDays: parseInt(e.target.value) || 5})}
+                    type="number" required
+                    value={editPackage.durationDays || ""}
+                    onChange={e => setEditPackage({...editPackage, durationDays: parseInt(e.target.value) || 0})}
+                    className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase tracking-wider block">Duration Nights</label>
+                  <input 
+                    type="number" required
+                    value={editPackage.durationNights || ""}
+                    onChange={e => setEditPackage({...editPackage, durationNights: parseInt(e.target.value) || 0})}
+                    className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase tracking-wider block">Starting Location</label>
+                  <input 
+                    type="text" required
+                    value={editPackage.startingLocation || ""}
+                    onChange={e => setEditPackage({...editPackage, startingLocation: e.target.value})}
+                    className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase tracking-wider block">Ending Location</label>
+                  <input 
+                    type="text" required
+                    value={editPackage.endingLocation || ""}
+                    onChange={e => setEditPackage({...editPackage, endingLocation: e.target.value})}
                     className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
                   />
                 </div>
               </div>
 
-              {/* Title Translations */}
-              <div className="space-y-3">
-                <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Title Translations</span>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {["en", "es", "pt"].map((lang) => (
-                    <div key={lang} className="space-y-1">
-                      <label className="font-bold uppercase tracking-wider">Title ({lang.toUpperCase()})</label>
-                      <input 
-                        type="text" 
-                        required
-                        value={editPackage.title?.[lang] || ""}
-                        onChange={e => setEditPackage({
-                          ...editPackage, 
-                          title: { ...editPackage.title, [lang]: e.target.value }
-                        })}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2.5 outline-none rounded-lg focus:border-gold/50"
-                      />
-                    </div>
-                  ))}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div className="space-y-1.5 col-span-2">
+                  <label className="font-bold uppercase block text-royal/60">Travel Style</label>
+                  <select
+                    value={editPackage.travelStyle || "Luxury"}
+                    onChange={e => setEditPackage({...editPackage, travelStyle: e.target.value})}
+                    className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
+                  >
+                    {["Luxury", "Premium", "Cultural", "Heritage", "Adventure", "Spiritual", "Wildlife", "Family"].map(s => (
+                      <option key={s} value={s}>{s}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase tracking-wider block">Group Size limit</label>
+                  <input 
+                    type="text" placeholder="e.g. 2-12 Travellers"
+                    value={editPackage.groupSize || ""}
+                    onChange={e => setEditPackage({...editPackage, groupSize: e.target.value})}
+                    className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase tracking-wider block">Difficulty Level</label>
+                  <select
+                    value={editPackage.difficultyLevel || "Easy"}
+                    onChange={e => setEditPackage({...editPackage, difficultyLevel: e.target.value})}
+                    className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg"
+                  >
+                    {["Easy", "Moderate", "Challenging"].map(d => (
+                      <option key={d} value={d}>{d}</option>
+                    ))}
+                  </select>
                 </div>
               </div>
 
-              {/* Tagline Translations */}
-              <div className="space-y-3">
-                <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Tagline / Subtitle Translations</span>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {["en", "es", "pt"].map((lang) => (
-                    <div key={lang} className="space-y-1">
-                      <label className="font-bold uppercase tracking-wider">Tagline ({lang.toUpperCase()})</label>
-                      <input 
-                        type="text" 
-                        value={editPackage.tagline?.[lang] || ""}
-                        onChange={e => setEditPackage({
-                          ...editPackage, 
-                          tagline: { ...editPackage.tagline, [lang]: e.target.value }
-                        })}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2.5 outline-none rounded-lg focus:border-gold/50"
-                      />
-                    </div>
-                  ))}
+              {/* Title & Tagline translations */}
+              {["title", "tagline", "description", "bestFor"].map((field) => (
+                <div key={field} className="border border-gold/10 p-5 rounded-2xl bg-[#FAF8F5] space-y-3">
+                  <span className="font-bold text-[10px] text-gold uppercase tracking-wider block">
+                    {field === "description" ? "Full Description" : field.replace(/([A-Z])/g, " $1").trim()} Translations
+                  </span>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {["en", "es", "pt"].map((l) => (
+                      <div key={l} className="space-y-1">
+                        <label className="font-bold text-[9px] uppercase text-royal/40">{l.toUpperCase()}</label>
+                        {field === "description" ? (
+                          <textarea
+                            value={editPackage[field]?.[l] || ""}
+                            onChange={(e) => setEditPackage({
+                              ...editPackage,
+                              [field]: { ...(editPackage[field] || {}), [l]: e.target.value }
+                            })}
+                            className="w-full h-32 bg-white border border-gold/15 p-3 outline-none rounded-lg"
+                            placeholder={`Enter full tour package description details in ${l.toUpperCase()}...`}
+                          />
+                        ) : (
+                          <input
+                            type="text"
+                            value={editPackage[field]?.[l] || ""}
+                            onChange={(e) => setEditPackage({
+                              ...editPackage,
+                              [field]: { ...(editPackage[field] || {}), [l]: e.target.value }
+                            })}
+                            className="w-full bg-white border border-gold/15 px-3 py-2.5 outline-none rounded-lg"
+                          />
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ))}
 
-              {/* Package Image URL */}
+              {/* Main Hero Image */}
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
                 <div className="md:col-span-8 space-y-1.5">
-                  <label className="font-bold uppercase tracking-wider block">Image URL</label>
+                  <label className="font-bold uppercase tracking-wider block">Main Hero Image URL</label>
                   <input 
-                    type="text" 
-                    value={editPackage.image}
+                    type="text" required
+                    value={editPackage.image || ""}
                     onChange={e => setEditPackage({...editPackage, image: e.target.value})}
                     className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
                   />
@@ -247,12 +547,12 @@ export default function PackagesTab({
                 <div className="md:col-span-4 pb-0.5">
                   <CloudinaryUpload 
                     onUploadComplete={(url) => setEditPackage({ ...editPackage, image: url })} 
-                    label="Upload Package Photo"
+                    label="Upload Hero Image"
                     showStatus={showStatus}
                   />
                 </div>
                 {editPackage.image && (
-                  <div className="col-span-full h-36 w-full overflow-hidden border border-gold/10 rounded-2xl shadow-inner">
+                  <div className="col-span-full h-44 w-full overflow-hidden border border-gold/10 rounded-2xl shadow-inner relative">
                     <img src={editPackage.image} alt="Package banner" className="w-full h-full object-cover" />
                   </div>
                 )}
@@ -262,53 +562,94 @@ export default function PackagesTab({
 
           {/* TAB 2: TOUR HIGHLIGHTS */}
           {subTab === "highlights" && (
-            <div className="space-y-4">
+            <div className="space-y-4 animate-fade-in">
               <div className="flex justify-between items-center">
-                <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Tour Highlight Bullets</span>
+                <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Dynamic Highlights</span>
                 <button
-                  type="button"
-                  onClick={handleAddHighlight}
-                  className="bg-gold/15 text-royal border border-gold/25 font-bold text-[9px] tracking-wider uppercase px-3 py-1.5 rounded transition hover:bg-gold hover:text-royal"
+                  type="button" onClick={handleAddHighlight}
+                  className="bg-gold/15 text-royal border border-gold/25 font-bold text-[9px] tracking-wider uppercase px-3 py-1.5 rounded transition hover:bg-gold hover:text-royal cursor-pointer"
                 >
                   + Add Highlight
                 </button>
               </div>
 
               {(!editPackage.highlights || editPackage.highlights.length === 0) ? (
-                <div className="py-6 text-center text-royal/40 italic bg-[#FAF8F5] rounded-xl border border-dashed border-gold/20">
-                  No highlights configured. Add highlights to showcase itinerary details.
+                <div className="py-12 text-center text-royal/40 italic bg-[#FAF8F5] rounded-xl border border-dashed border-gold/20">
+                  No highlights configured. Add highlights to showcase specific features.
                 </div>
               ) : (
                 <div className="space-y-4">
                   {editPackage.highlights.map((hl: any, idx: number) => {
-                    const hlObj = typeof hl === "object" && hl !== null ? hl : { en: hl || "", es: "", pt: "" };
+                    const hlObj = typeof hl === "object" && hl !== null && hl.title ? hl : { title: { en: typeof hl === 'string' ? hl : (hl.en || ""), es: "", pt: "" }, desc: { en: "", es: "", pt: "" }, icon: "Check", displayOrder: idx + 1, isActive: true };
                     return (
-                      <div key={idx} className="bg-[#FAF8F5] border border-gold/15 p-4 rounded-xl space-y-3">
+                      <div key={idx} className="bg-[#FAF8F5] border border-gold/15 p-5 rounded-2xl space-y-4 relative shadow-sm">
                         <div className="flex justify-between items-center pb-2 border-b border-gold/5">
-                          <span className="font-bold text-gold text-xs">Highlight Bullet #{idx + 1}</span>
+                          <span className="font-bold text-gold text-xs">Highlight Point #{idx + 1}</span>
                           <button
-                            type="button"
-                            onClick={() => handleRemoveHighlight(idx)}
+                            type="button" onClick={() => handleRemoveHighlight(idx)}
                             className="text-red-500 hover:text-red-700 font-bold text-[10px] uppercase tracking-wider"
                           >
-                            Delete Bullet
+                            Remove Highlight
                           </button>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                          {["en", "es", "pt"].map((lang) => (
-                            <div key={lang} className="space-y-1">
-                              <label className="font-semibold text-royal/70 uppercase text-[9px] tracking-wider">Text ({lang.toUpperCase()})</label>
-                              <input
-                                type="text"
-                                value={hlObj[lang] || ""}
-                                onChange={(e) => {
-                                  const newHl = { ...hlObj, [lang]: e.target.value };
-                                  handleUpdateHighlight(idx, newHl);
-                                }}
-                                className="w-full bg-white border border-gold/10 px-3 py-2 outline-none rounded-lg focus:border-gold/50"
-                              />
+
+                        {/* Text Fields */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="space-y-1">
+                            <label className="font-bold text-royal/70 uppercase text-[9px] tracking-wider">Highlight Title (EN/ES/PT)</label>
+                            <div className="space-y-1">
+                              {["en", "es", "pt"].map(l => (
+                                <input
+                                  key={l} type="text" placeholder={l.toUpperCase() + " Title"}
+                                  value={hlObj.title?.[l] || ""}
+                                  onChange={e => handleUpdateHighlight(idx, "title", l, e.target.value)}
+                                  className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded-lg"
+                                />
+                              ))}
                             </div>
-                          ))}
+                          </div>
+                          <div className="space-y-1">
+                            <label className="font-bold text-royal/70 uppercase text-[9px] tracking-wider">Highlight Description (EN/ES/PT)</label>
+                            <div className="space-y-1">
+                              {["en", "es", "pt"].map(l => (
+                                <input
+                                  key={l} type="text" placeholder={l.toUpperCase() + " Description"}
+                                  value={hlObj.desc?.[l] || ""}
+                                  onChange={e => handleUpdateHighlight(idx, "desc", l, e.target.value)}
+                                  className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded-lg"
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Extra controls (Icon, Display Order, Active) */}
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 pt-2 border-t border-gold/5 items-center">
+                          <div className="space-y-1">
+                            <span className="font-bold text-royal/70 uppercase text-[9px] tracking-wider block">Icon (e.g. MapPin, Star, Shield)</span>
+                            <input
+                              type="text" value={hlObj.icon || ""}
+                              onChange={e => handleUpdateHighlight(idx, "icon", null, e.target.value)}
+                              className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded"
+                            />
+                          </div>
+                          <div className="space-y-1">
+                            <span className="font-bold text-royal/70 uppercase text-[9px] tracking-wider block">Display Order</span>
+                            <input
+                              type="number" value={hlObj.displayOrder || ""}
+                              onChange={e => handleUpdateHighlight(idx, "displayOrder", null, parseInt(e.target.value) || 1)}
+                              className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded"
+                            />
+                          </div>
+                          <div className="flex items-center gap-2 pt-4">
+                            <input
+                              type="checkbox" id={`hl-active-${idx}`}
+                              checked={hlObj.isActive !== false}
+                              onChange={e => handleUpdateHighlight(idx, "isActive", null, e.target.checked)}
+                              className="w-4 h-4 cursor-pointer accent-royal"
+                            />
+                            <label htmlFor={`hl-active-${idx}`} className="font-bold uppercase tracking-wider cursor-pointer">Active</label>
+                          </div>
                         </div>
                       </div>
                     );
@@ -318,73 +659,236 @@ export default function PackagesTab({
             </div>
           )}
 
-          {/* TAB 3: INCLUSIONS / ADD-ONS */}
+          {/* TAB 3: INCLUSIONS / EXCLUSIONS */}
           {subTab === "inclusions" && (
-            <div className="space-y-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-fade-in">
+              {/* Inclusions */}
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <span className="font-black uppercase tracking-widest text-[9px] text-emerald-600 block">Package Inclusions</span>
+                  <button
+                    type="button" onClick={handleAddInclusion}
+                    className="bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold text-[9px] tracking-wider uppercase px-3 py-1.5 rounded transition hover:bg-emerald-100 cursor-pointer"
+                  >
+                    + Add Inclusion
+                  </button>
+                </div>
+
+                {(!editPackage.includedExperiences || editPackage.includedExperiences.length === 0) ? (
+                  <div className="py-6 text-center text-royal/40 italic bg-emerald-50/10 rounded-xl border border-dashed border-emerald-200">
+                    No inclusions configured.
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    {editPackage.includedExperiences.map((inc: any, idx: number) => {
+                      const incObj = typeof inc === "object" && inc !== null ? inc : { en: inc || "", es: "", pt: "" };
+                      return (
+                        <div key={idx} className="bg-[#FAF8F5] border border-gold/15 p-4 rounded-xl space-y-2 relative">
+                          <div className="flex justify-between items-center pb-1 border-b border-gold/5">
+                            <span className="font-bold text-emerald-600 text-[10px]">Inclusion Bullet #{idx + 1}</span>
+                            <button
+                              type="button" onClick={() => handleRemoveInclusion(idx)}
+                              className="text-red-500 hover:text-red-700 font-bold text-[9px] uppercase tracking-wider"
+                            >
+                              Remove
+                            </button>
+                          </div>
+                          <div className="space-y-1">
+                            {["en", "es", "pt"].map(l => (
+                              <input
+                                key={l} type="text" placeholder={l.toUpperCase() + " Inclusion Item"}
+                                value={incObj[l] || ""}
+                                onChange={e => handleUpdateInclusion(idx, l, e.target.value)}
+                                className="w-full bg-white border border-gold/10 px-2.5 py-1.5 outline-none rounded text-xs"
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+
+              {/* Exclusions */}
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <span className="font-black uppercase tracking-widest text-[9px] text-red-600 block">Package Exclusions</span>
+                  <button
+                    type="button" onClick={handleAddExclusion}
+                    className="bg-red-50 text-red-700 border border-red-200 font-bold text-[9px] tracking-wider uppercase px-3 py-1.5 rounded transition hover:bg-red-100 cursor-pointer"
+                  >
+                    + Add Exclusion
+                  </button>
+                </div>
+
+                {(!editPackage.exclusions || editPackage.exclusions.length === 0) ? (
+                  <div className="py-6 text-center text-royal/40 italic bg-red-50/10 rounded-xl border border-dashed border-red-200">
+                    No exclusions configured.
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    {editPackage.exclusions.map((exc: any, idx: number) => {
+                      const excObj = typeof exc === "object" && exc !== null ? exc : { en: exc || "", es: "", pt: "" };
+                      return (
+                        <div key={idx} className="bg-[#FAF8F5] border border-gold/15 p-4 rounded-xl space-y-2 relative">
+                          <div className="flex justify-between items-center pb-1 border-b border-gold/5">
+                            <span className="font-bold text-red-600 text-[10px]">Exclusion Bullet #{idx + 1}</span>
+                            <button
+                              type="button" onClick={() => handleRemoveExclusion(idx)}
+                              className="text-red-500 hover:text-red-700 font-bold text-[9px] uppercase tracking-wider"
+                            >
+                              Remove
+                            </button>
+                          </div>
+                          <div className="space-y-1">
+                            {["en", "es", "pt"].map(l => (
+                              <input
+                                key={l} type="text" placeholder={l.toUpperCase() + " Exclusion Item"}
+                                value={excObj[l] || ""}
+                                onChange={e => handleUpdateExclusion(idx, l, e.target.value)}
+                                className="w-full bg-white border border-gold/10 px-2.5 py-1.5 outline-none rounded text-xs"
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* TAB 4: ADD-ONS / EXPERIENCES */}
+          {subTab === "addons" && (
+            <div className="space-y-4 animate-fade-in">
               <div className="flex justify-between items-center">
-                <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Included Experiences / Add-ons</span>
+                <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Add-ons & Optional Experiences</span>
                 <button
-                  type="button"
-                  onClick={handleAddInclusion}
-                  className="bg-gold/15 text-royal border border-gold/25 font-bold text-[9px] tracking-wider uppercase px-3 py-1.5 rounded transition hover:bg-gold hover:text-royal"
+                  type="button" onClick={handleAddAddon}
+                  className="bg-gold/15 text-royal border border-gold/25 font-bold text-[9px] tracking-wider uppercase px-3 py-1.5 rounded transition hover:bg-gold hover:text-royal cursor-pointer"
                 >
-                  + Add Inclusion
+                  + Add Add-on
                 </button>
               </div>
 
-              {(!editPackage.includedExperiences || editPackage.includedExperiences.length === 0) ? (
-                <div className="py-6 text-center text-royal/40 italic bg-[#FAF8F5] rounded-xl border border-dashed border-gold/20">
-                  No inclusions configured. Add inclusions or experiences that are covered in the pricing.
+              {(!editPackage.addons || editPackage.addons.length === 0) ? (
+                <div className="py-12 text-center text-royal/40 italic bg-[#FAF8F5] rounded-xl border border-dashed border-gold/20">
+                  No add-ons configured. Add optional sightseeing activities.
                 </div>
               ) : (
-                <div className="space-y-4">
-                  {editPackage.includedExperiences.map((inc: any, idx: number) => {
-                    const incObj = typeof inc === "object" && inc !== null ? inc : { en: inc || "", es: "", pt: "" };
-                    return (
-                      <div key={idx} className="bg-[#FAF8F5] border border-gold/15 p-4 rounded-xl space-y-3">
-                        <div className="flex justify-between items-center pb-2 border-b border-gold/5">
-                          <span className="font-bold text-gold text-xs">Inclusion #{idx + 1}</span>
-                          <button
-                            type="button"
-                            onClick={() => handleRemoveInclusion(idx)}
-                            className="text-red-500 hover:text-red-700 font-bold text-[10px] uppercase tracking-wider"
-                          >
-                            Delete Inclusion
-                          </button>
+                <div className="space-y-6">
+                  {editPackage.addons.map((add: any, idx: number) => (
+                    <div key={idx} className="border border-gold/15 bg-[#FAF8F5] p-5 rounded-2xl space-y-4 relative shadow-sm">
+                      <div className="flex justify-between items-center pb-2 border-b border-gold/10">
+                        <span className="font-bold text-royal text-xs">Optional Experience #{idx + 1}</span>
+                        <button
+                          type="button" onClick={() => handleRemoveAddon(idx)}
+                          className="text-red-500 hover:text-red-700 font-bold uppercase tracking-wider text-[9px]"
+                        >
+                          Remove Add-on
+                        </button>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="space-y-1">
+                          <label className="font-semibold uppercase text-[9px] text-royal/50">Experience Name (EN/ES/PT)</label>
+                          {["en", "es", "pt"].map(l => (
+                            <input
+                              key={l} type="text" placeholder={l.toUpperCase() + " Name"}
+                              value={add.name?.[l] || ""}
+                              onChange={e => handleUpdateAddon(idx, "name", l, e.target.value)}
+                              className="w-full bg-white border border-gold/10 px-2.5 py-1.5 outline-none rounded"
+                            />
+                          ))}
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                          {["en", "es", "pt"].map((lang) => (
-                            <div key={lang} className="space-y-1">
-                              <label className="font-semibold text-royal/70 uppercase text-[9px] tracking-wider">Text ({lang.toUpperCase()})</label>
-                              <input
-                                type="text"
-                                value={incObj[lang] || ""}
-                                onChange={(e) => {
-                                  const newInc = { ...incObj, [lang]: e.target.value };
-                                  handleUpdateInclusion(idx, newInc);
-                                }}
-                                className="w-full bg-white border border-gold/10 px-3 py-2 outline-none rounded-lg focus:border-gold/50"
-                              />
-                            </div>
+                        <div className="space-y-1">
+                          <label className="font-semibold uppercase text-[9px] text-royal/50">Short Description (EN/ES/PT)</label>
+                          {["en", "es", "pt"].map(l => (
+                            <input
+                              key={l} type="text" placeholder={l.toUpperCase() + " Description"}
+                              value={add.desc?.[l] || ""}
+                              onChange={e => handleUpdateAddon(idx, "desc", l, e.target.value)}
+                              className="w-full bg-white border border-gold/10 px-2.5 py-1.5 outline-none rounded"
+                            />
                           ))}
                         </div>
                       </div>
-                    );
-                  })}
+
+                      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+                        <div className="space-y-1">
+                          <span className="font-bold text-royal/70 uppercase text-[9px] tracking-wider block">Price</span>
+                          <input
+                            type="text" value={add.price || ""}
+                            onChange={e => handleUpdateAddon(idx, "price", null, e.target.value)}
+                            className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded"
+                          />
+                        </div>
+                        <div className="space-y-1">
+                          <span className="font-bold text-royal/70 uppercase text-[9px] tracking-wider block">Currency</span>
+                          <select
+                            value={add.currency || "USD"}
+                            onChange={e => handleUpdateAddon(idx, "currency", null, e.target.value)}
+                            className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded"
+                          >
+                            {["EUR", "USD", "GBP", "INR"].map(c => (
+                              <option key={c} value={c}>{c}</option>
+                            ))}
+                          </select>
+                        </div>
+                        <div className="space-y-1">
+                          <span className="font-bold text-royal/70 uppercase text-[9px] tracking-wider block">Duration (e.g. 3 Hours)</span>
+                          <input
+                            type="text" value={add.duration || ""}
+                            onChange={e => handleUpdateAddon(idx, "duration", null, e.target.value)}
+                            className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded"
+                          />
+                        </div>
+                        <div className="flex items-center gap-2 pt-4">
+                          <input
+                            type="checkbox" id={`add-active-${idx}`}
+                            checked={add.isActive !== false}
+                            onChange={e => handleUpdateAddon(idx, "isActive", null, e.target.checked)}
+                            className="w-4 h-4 cursor-pointer accent-royal"
+                          />
+                          <label htmlFor={`add-active-${idx}`} className="font-bold uppercase tracking-wider cursor-pointer">Active / Visible</label>
+                        </div>
+                      </div>
+
+                      {/* Image Upload for addon */}
+                      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+                        <div className="md:col-span-8 space-y-1.5">
+                          <label className="font-bold uppercase tracking-wider block text-royal/60">Photo URL</label>
+                          <input 
+                            type="text" value={add.image || ""}
+                            onChange={e => handleUpdateAddon(idx, "image", null, e.target.value)}
+                            className="w-full bg-white border border-gold/10 px-3 py-2 outline-none rounded"
+                          />
+                        </div>
+                        <div className="md:col-span-4 pb-0.5">
+                          <CloudinaryUpload 
+                            onUploadComplete={(url) => handleUpdateAddon(idx, "image", null, url)} 
+                            label="Upload Addon Image"
+                            showStatus={showStatus}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
           )}
 
-          {/* TAB 4: ITINERARY */}
+          {/* TAB 5: DAY-BY-DAY ITINERARY */}
           {subTab === "itinerary" && (
-            <div className="space-y-6">
+            <div className="space-y-6 animate-fade-in">
               <div className="flex justify-between items-center">
                 <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Day-by-Day Itinerary Planner</span>
                 <button
-                  type="button"
-                  onClick={handleAddItineraryDay}
-                  className="bg-gold/15 text-royal border border-gold/25 font-bold text-[9px] tracking-wider uppercase px-3 py-1.5 rounded transition hover:bg-gold hover:text-royal"
+                  type="button" onClick={handleAddItineraryDay}
+                  className="bg-gold/15 text-royal border border-gold/25 font-bold text-[9px] tracking-wider uppercase px-3 py-1.5 rounded transition hover:bg-gold hover:text-royal cursor-pointer"
                 >
                   + Add Itinerary Day
                 </button>
@@ -403,11 +907,10 @@ export default function PackagesTab({
                           <span className="w-6 h-6 rounded-full bg-royal text-white flex items-center justify-center font-bold text-[10px]">
                             {dayItem.day}
                           </span>
-                          <span className="font-serif font-bold text-sm text-royal">Itinerary Day Breakdown</span>
+                          <span className="font-serif font-bold text-sm text-royal">Day Itinerary Details</span>
                         </div>
                         <button
-                          type="button"
-                          onClick={() => handleRemoveItineraryDay(idx)}
+                          type="button" onClick={() => handleRemoveItineraryDay(idx)}
                           className="text-red-500 hover:text-red-700 font-bold uppercase tracking-wider text-[9px]"
                         >
                           Delete Day {dayItem.day}
@@ -422,8 +925,7 @@ export default function PackagesTab({
                             <div key={l} className="space-y-1">
                               <span className="text-[8px] uppercase text-royal/40 font-bold block">{l.toUpperCase()} Title</span>
                               <input 
-                                type="text"
-                                value={dayItem.title?.[l] || ""}
+                                type="text" value={dayItem.title?.[l] || ""}
                                 onChange={e => handleUpdateItineraryDay(idx, "title", l, e.target.value)}
                                 className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded-lg text-xs"
                                 placeholder={`Day ${dayItem.day} Title (${l})`}
@@ -450,10 +952,590 @@ export default function PackagesTab({
                           ))}
                         </div>
                       </div>
+
+                      {/* Itinerary Day Specifics */}
+                      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 border-t border-gold/5 pt-4">
+                        <div className="space-y-1">
+                          <span className="font-bold text-[8px] uppercase text-royal/50 block">Sightseeing (comma list)</span>
+                          <input 
+                            type="text" value={dayItem.sightseeing || ""}
+                            onChange={e => handleUpdateItineraryDay(idx, "sightseeing", null, e.target.value)}
+                            className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded text-xs"
+                          />
+                        </div>
+                        <div className="space-y-1">
+                          <span className="font-bold text-[8px] uppercase text-royal/50 block">Meals Included (e.g. Breakfast, Dinner)</span>
+                          <input 
+                            type="text" value={dayItem.meals || ""}
+                            onChange={e => handleUpdateItineraryDay(idx, "meals", null, e.target.value)}
+                            className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded text-xs"
+                          />
+                        </div>
+                        <div className="space-y-1">
+                          <span className="font-bold text-[8px] uppercase text-royal/50 block">Overnight Stay Place</span>
+                          <input 
+                            type="text" value={dayItem.overnight || ""}
+                            onChange={e => handleUpdateItineraryDay(idx, "overnight", null, e.target.value)}
+                            className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded text-xs"
+                          />
+                        </div>
+                        <div className="space-y-1">
+                          <span className="font-bold text-[8px] uppercase text-royal/50 block">Hotel / Lodge name</span>
+                          <input 
+                            type="text" value={dayItem.hotel || ""}
+                            onChange={e => handleUpdateItineraryDay(idx, "hotel", null, e.target.value)}
+                            className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded text-xs"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="space-y-1">
+                          <span className="font-bold text-[8px] uppercase text-royal/50 block">Location Name</span>
+                          <input 
+                            type="text" value={dayItem.location || ""}
+                            onChange={e => handleUpdateItineraryDay(idx, "location", null, e.target.value)}
+                            className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded text-xs"
+                          />
+                        </div>
+                        <div className="space-y-1">
+                          <span className="font-bold text-[8px] uppercase text-royal/50 block">Travel Distance (e.g. 240 km)</span>
+                          <input 
+                            type="text" value={dayItem.travelDistance || ""}
+                            onChange={e => handleUpdateItineraryDay(idx, "travelDistance", null, e.target.value)}
+                            className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded text-xs"
+                          />
+                        </div>
+                        <div className="space-y-1">
+                          <span className="font-bold text-[8px] uppercase text-royal/50 block">Travel Time (e.g. 4.5 hours)</span>
+                          <input 
+                            type="text" value={dayItem.travelTime || ""}
+                            onChange={e => handleUpdateItineraryDay(idx, "travelTime", null, e.target.value)}
+                            className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded text-xs"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Day Image and Optional Exp */}
+                      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+                        <div className="md:col-span-8 space-y-1">
+                          <label className="font-bold uppercase tracking-wider block text-royal/50 text-[8px]">Day Photo URL</label>
+                          <input 
+                            type="text" value={dayItem.image || ""}
+                            onChange={e => handleUpdateItineraryDay(idx, "image", null, e.target.value)}
+                            className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded text-xs"
+                          />
+                        </div>
+                        <div className="md:col-span-4 pb-0.5">
+                          <CloudinaryUpload 
+                            onUploadComplete={(url) => handleUpdateItineraryDay(idx, "image", null, url)} 
+                            label="Upload Day Image"
+                            showStatus={showStatus}
+                          />
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>
               )}
+            </div>
+          )}
+
+          {/* TAB 6: PRICING */}
+          {subTab === "pricing" && (
+            <div className="space-y-6 animate-fade-in bg-[#FAF8F5] border border-gold/15 p-6 rounded-2xl">
+              <span className="font-black uppercase tracking-widest text-[9px] text-gold block border-b border-gold/10 pb-2">Tour Package Pricing configuration</span>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase block text-royal/60">Starting Price</label>
+                  <input 
+                    type="number"
+                    value={editPackage.pricing?.startingPrice ?? ""}
+                    onChange={e => handleUpdatePricing("startingPrice", parseFloat(e.target.value) || 0)}
+                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase block text-royal/60">Price Per Person (Double Sharing)</label>
+                  <input 
+                    type="number"
+                    value={editPackage.pricing?.pricePerPerson ?? ""}
+                    onChange={e => handleUpdatePricing("pricePerPerson", parseFloat(e.target.value) || 0)}
+                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase block text-royal/60">Currency</label>
+                  <select
+                    value={editPackage.pricing?.currency || "USD"}
+                    onChange={e => handleUpdatePricing("currency", e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold cursor-pointer"
+                  >
+                    {["EUR", "USD", "GBP", "INR"].map(c => (
+                      <option key={c} value={c}>{c}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase block text-royal/60">Price Type (e.g. per person, group total)</label>
+                  <input 
+                    type="text"
+                    value={editPackage.pricing?.priceType || "per_person"}
+                    onChange={e => handleUpdatePricing("priceType", e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase block text-royal/60">Discount Price (0 if none)</label>
+                  <input 
+                    type="number"
+                    value={editPackage.pricing?.discountPrice ?? ""}
+                    onChange={e => handleUpdatePricing("discountPrice", parseFloat(e.target.value) || 0)}
+                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold"
+                  />
+                </div>
+                <div className="flex items-center gap-2 pt-8">
+                  <input 
+                    type="checkbox" id="toggle-enquire"
+                    checked={editPackage.pricing?.enquireForPrice === true}
+                    onChange={e => handleUpdatePricing("enquireForPrice", e.target.checked)}
+                    className="w-4 h-4 cursor-pointer accent-royal"
+                  />
+                  <label htmlFor="toggle-enquire" className="font-bold uppercase tracking-wider block cursor-pointer">Enquire for price only (Hide values)</label>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase block text-royal/60">Group Pricing Details note</label>
+                  <input 
+                    type="text" placeholder="e.g. Discounts for 4+ travellers"
+                    value={editPackage.pricing?.groupPricing || ""}
+                    onChange={e => handleUpdatePricing("groupPricing", e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase block text-royal/60">Price Includes (short note)</label>
+                  <input 
+                    type="text"
+                    value={editPackage.pricing?.priceIncludes || ""}
+                    onChange={e => handleUpdatePricing("priceIncludes", e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase block text-royal/60">Price Excludes (short note)</label>
+                  <input 
+                    type="text"
+                    value={editPackage.pricing?.priceExcludes || ""}
+                    onChange={e => handleUpdatePricing("priceExcludes", e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 7: TRAVEL INFORMATION */}
+          {subTab === "travelInfo" && (
+            <div className="space-y-6 animate-fade-in bg-[#FAF8F5] border border-gold/15 p-6 rounded-2xl">
+              <span className="font-black uppercase tracking-widest text-[9px] text-gold block border-b border-gold/10 pb-2">Travel Guidelines & Quick Information</span>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase block text-royal/60">Starting Point</label>
+                  <input 
+                    type="text" value={editPackage.travelInfo?.startingPoint || ""}
+                    onChange={e => handleUpdateTravelInfo("startingPoint", e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase block text-royal/60">Ending Point</label>
+                  <input 
+                    type="text" value={editPackage.travelInfo?.endingPoint || ""}
+                    onChange={e => handleUpdateTravelInfo("endingPoint", e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase block text-royal/60">Duration String (e.g. 7 Days / 6 Nights)</label>
+                  <input 
+                    type="text" value={editPackage.travelInfo?.duration || ""}
+                    onChange={e => handleUpdateTravelInfo("duration", e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase block text-royal/60">Transportation</label>
+                  <input 
+                    type="text" value={editPackage.travelInfo?.transportation || ""}
+                    onChange={e => handleUpdateTravelInfo("transportation", e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase block text-royal/60">Accommodation</label>
+                  <input 
+                    type="text" value={editPackage.travelInfo?.accommodation || ""}
+                    onChange={e => handleUpdateTravelInfo("accommodation", e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase block text-royal/60">Tour Type badge</label>
+                  <input 
+                    type="text" value={editPackage.travelInfo?.tourType || ""}
+                    onChange={e => handleUpdateTravelInfo("tourType", e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div className="space-y-1.5 col-span-2">
+                  <label className="font-bold uppercase block text-royal/60">Best Time to Travel</label>
+                  <input 
+                    type="text" value={editPackage.travelInfo?.bestTime || ""}
+                    onChange={e => handleUpdateTravelInfo("bestTime", e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase block text-royal/60">Languages</label>
+                  <input 
+                    type="text" value={editPackage.travelInfo?.languages || ""}
+                    onChange={e => handleUpdateTravelInfo("languages", e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase block text-royal/60">Suitable For</label>
+                  <input 
+                    type="text" value={editPackage.travelInfo?.suitableFor || ""}
+                    onChange={e => handleUpdateTravelInfo("suitableFor", e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 8: GALLERY */}
+          {subTab === "gallery" && (
+            <div className="space-y-4 animate-fade-in">
+              <div className="flex justify-between items-center">
+                <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Photo Gallery Images</span>
+                <button
+                  type="button" onClick={handleAddGalleryImage}
+                  className="bg-gold/15 text-royal border border-gold/25 font-bold text-[9px] tracking-wider uppercase px-3 py-1.5 rounded transition hover:bg-gold hover:text-royal cursor-pointer"
+                >
+                  + Add Image
+                </button>
+              </div>
+
+              {(!editPackage.gallery || editPackage.gallery.length === 0) ? (
+                <div className="py-12 text-center text-royal/40 italic bg-[#FAF8F5] rounded-xl border border-dashed border-gold/20">
+                  No images added to the gallery. Upload photos to enable lightbox slideshows.
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {editPackage.gallery.map((img: any, idx: number) => {
+                    const imgObj = typeof img === 'string' ? { url: img, title: "", alt: "", caption: "", displayOrder: idx + 1 } : img;
+                    return (
+                      <div key={idx} className="bg-[#FAF8F5] border border-gold/15 p-4 rounded-2xl space-y-4 relative shadow-sm">
+                        <div className="flex justify-between items-center pb-2 border-b border-gold/10">
+                          <span className="font-bold text-royal/60 text-[10px]">Photo #{idx + 1}</span>
+                          <button
+                            type="button" onClick={() => handleRemoveGalleryImage(idx)}
+                            className="text-red-500 hover:text-red-700 font-bold uppercase text-[9px]"
+                          >
+                            Delete Image
+                          </button>
+                        </div>
+
+                        {/* Image preview */}
+                        {imgObj.url && (
+                          <div className="h-28 w-full overflow-hidden border border-gold/10 rounded-xl">
+                            <img src={imgObj.url} alt="Gallery preview" className="w-full h-full object-cover" />
+                          </div>
+                        )}
+
+                        <div className="space-y-1.5">
+                          <span className="font-bold text-royal/60 text-[8px] uppercase block">Image URL</span>
+                          <div className="flex gap-2">
+                            <input 
+                              type="text" value={imgObj.url || ""}
+                              onChange={e => handleUpdateGalleryImage(idx, "url", e.target.value)}
+                              className="w-full bg-white border border-gold/10 px-2.5 py-1.5 outline-none rounded text-xs"
+                            />
+                            <CloudinaryUpload 
+                              onUploadComplete={(url) => handleUpdateGalleryImage(idx, "url", url)} 
+                              label="Upload"
+                              showStatus={showStatus}
+                            />
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                          <div className="space-y-1">
+                            <span className="font-bold text-[8px] uppercase text-royal/50 block">Title</span>
+                            <input 
+                              type="text" value={imgObj.title || ""}
+                              onChange={e => handleUpdateGalleryImage(idx, "title", e.target.value)}
+                              className="w-full bg-white border border-gold/10 px-2 py-1 outline-none text-xs rounded"
+                            />
+                          </div>
+                          <div className="space-y-1">
+                            <span className="font-bold text-[8px] uppercase text-royal/50 block">Alt Text</span>
+                            <input 
+                              type="text" value={imgObj.alt || ""}
+                              onChange={e => handleUpdateGalleryImage(idx, "alt", e.target.value)}
+                              className="w-full bg-white border border-gold/10 px-2 py-1 outline-none text-xs rounded"
+                            />
+                          </div>
+                          <div className="space-y-1">
+                            <span className="font-bold text-[8px] uppercase text-royal/50 block">Display Order</span>
+                            <input 
+                              type="number" value={imgObj.displayOrder || ""}
+                              onChange={e => handleUpdateGalleryImage(idx, "displayOrder", parseInt(e.target.value) || 1)}
+                              className="w-full bg-white border border-gold/10 px-2 py-1 outline-none text-xs rounded"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="space-y-1">
+                          <span className="font-bold text-[8px] uppercase text-royal/50 block">Caption</span>
+                          <input 
+                            type="text" value={imgObj.caption || ""}
+                            onChange={e => handleUpdateGalleryImage(idx, "caption", e.target.value)}
+                            className="w-full bg-white border border-gold/10 px-2.5 py-1.5 outline-none text-xs rounded"
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* TAB 9: FAQ */}
+          {subTab === "faq" && (
+            <div className="space-y-4 animate-fade-in">
+              <div className="flex justify-between items-center">
+                <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Multilingual FAQs</span>
+                <button
+                  type="button" onClick={handleAddFAQ}
+                  className="bg-gold/15 text-royal border border-gold/25 font-bold text-[9px] tracking-wider uppercase px-3 py-1.5 rounded transition hover:bg-gold hover:text-royal cursor-pointer"
+                >
+                  + Add FAQ
+                </button>
+              </div>
+
+              {(!editPackage.faqs || editPackage.faqs.length === 0) ? (
+                <div className="py-12 text-center text-royal/40 italic bg-[#FAF8F5] rounded-xl border border-dashed border-gold/20">
+                  No FAQs defined. Create questions & answers to guide potential customers.
+                </div>
+              ) : (
+                <div className="space-y-6">
+                  {editPackage.faqs.map((faq: any, idx: number) => (
+                    <div key={idx} className="border border-gold/10 bg-[#FAF8F5] p-5 rounded-2xl space-y-4 relative shadow-sm">
+                      <div className="flex justify-between items-center pb-2 border-b border-gold/10">
+                        <span className="font-bold text-royal text-xs">FAQ Question #{idx + 1}</span>
+                        <button
+                          type="button" onClick={() => handleRemoveFAQ(idx)}
+                          className="text-red-500 hover:text-red-700 font-bold uppercase text-[9px]"
+                        >
+                          Remove FAQ
+                        </button>
+                      </div>
+
+                      <div className="space-y-3">
+                        <span className="font-bold text-[9px] uppercase tracking-wider text-royal/60 block">Questions EN / ES / PT</span>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          {["en", "es", "pt"].map(l => (
+                            <div key={l} className="space-y-1">
+                              <span className="text-[8px] uppercase text-royal/40 font-bold block">{l.toUpperCase()} Question</span>
+                              <input 
+                                type="text" value={faq.q?.[l] || ""}
+                                onChange={e => handleUpdateFAQ(idx, "q", l, e.target.value)}
+                                className="w-full bg-white border border-[#C3AB85]/15 px-3 py-2 outline-none rounded-lg"
+                                placeholder={`Question (${l.toUpperCase()})`}
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="space-y-3 pt-2">
+                        <span className="font-bold text-[9px] uppercase tracking-wider text-royal/60 block">Answers EN / ES / PT</span>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          {["en", "es", "pt"].map(l => (
+                            <div key={l} className="space-y-1">
+                              <span className="text-[8px] uppercase text-royal/40 font-bold block">{l.toUpperCase()} Answer</span>
+                              <textarea
+                                value={faq.a?.[l] || ""}
+                                onChange={e => handleUpdateFAQ(idx, "a", l, e.target.value)}
+                                className="w-full h-24 bg-white border border-[#C3AB85]/15 p-3 outline-none rounded-lg text-xs"
+                                placeholder={`Answer (${l.toUpperCase()})`}
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* TAB 10: POLICIES */}
+          {subTab === "policies" && (
+            <div className="space-y-6 animate-fade-in">
+              {["cancellation", "refund", "bookingTerms", "importantNotes", "visaInfo", "insuranceInfo", "terms"].map((policyType) => (
+                <div key={policyType} className="border border-gold/10 p-5 rounded-2xl bg-[#FAF8F5] space-y-3">
+                  <span className="font-bold text-[10px] text-gold uppercase tracking-wider block">
+                    {policyType.replace(/([A-Z])/g, " $1").trim()} Policy (EN / ES / PT)
+                  </span>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {["en", "es", "pt"].map((l) => (
+                      <div key={l} className="space-y-1">
+                        <label className="font-bold text-[9px] uppercase text-royal/40">{l.toUpperCase()} Description</label>
+                        <textarea
+                          value={editPackage.policies?.[policyType]?.[l] || ""}
+                          onChange={(e) => handleUpdatePolicy(policyType, l, e.target.value)}
+                          className="w-full h-28 bg-white border border-gold/15 p-3 outline-none rounded-lg text-xs"
+                          placeholder={`Enter policy details in ${l.toUpperCase()}...`}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* TAB 11: SEO */}
+          {subTab === "seo" && (
+            <div className="space-y-6 animate-fade-in bg-[#FAF8F5] border border-gold/15 p-6 rounded-2xl">
+              <span className="font-black uppercase tracking-widest text-[9px] text-gold block border-b border-gold/10 pb-2">Search Engine Optimization configuration</span>
+              
+              {["title", "description", "keywords"].map((field) => (
+                <div key={field} className="space-y-2">
+                  <label className="font-bold uppercase tracking-wider block text-royal/60">SEO {field.replace(/([A-Z])/g, " $1").trim()} (EN / ES / PT)</label>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {["en", "es", "pt"].map((l) => (
+                      <input
+                        key={l} type="text"
+                        value={editPackage.seo?.[field]?.[l] || ""}
+                        onChange={e => handleUpdateSEO(field, l, e.target.value)}
+                        placeholder={`${field} in ${l.toUpperCase()}`}
+                        className="w-full bg-white border border-gold/15 px-3 py-2 outline-none rounded-lg text-xs"
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-gold/10">
+                <div className="space-y-1">
+                  <span className="font-bold text-[9px] uppercase text-royal/60 block">OpenGraph Title</span>
+                  <input 
+                    type="text" value={editPackage.seo?.ogTitle || ""}
+                    onChange={e => handleUpdateSEO("ogTitle", null, e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-3 py-2 outline-none rounded text-xs"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <span className="font-bold text-[9px] uppercase text-royal/60 block">OpenGraph Description</span>
+                  <input 
+                    type="text" value={editPackage.seo?.ogDescription || ""}
+                    onChange={e => handleUpdateSEO("ogDescription", null, e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-3 py-2 outline-none rounded text-xs"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <span className="font-bold text-[9px] uppercase text-royal/60 block">Canonical URL</span>
+                  <input 
+                    type="text" value={editPackage.seo?.canonicalUrl || ""}
+                    onChange={e => handleUpdateSEO("canonicalUrl", null, e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-3 py-2 outline-none rounded text-xs"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end pt-4">
+                <div className="space-y-1">
+                  <span className="font-bold text-[9px] uppercase text-royal/60 block">Indexing Rules</span>
+                  <select
+                    value={editPackage.seo?.indexRule || "index"}
+                    onChange={e => handleUpdateSEO("indexRule", null, e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-3 py-2 outline-none rounded cursor-pointer"
+                  >
+                    <option value="index">Index (Search visible)</option>
+                    <option value="noindex">No Index (Hidden from search)</option>
+                  </select>
+                </div>
+                <div className="space-y-1">
+                  <span className="font-bold text-[9px] uppercase text-royal/60 block">Link Following Rules</span>
+                  <select
+                    value={editPackage.seo?.followRule || "follow"}
+                    onChange={e => handleUpdateSEO("followRule", null, e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-3 py-2 outline-none rounded cursor-pointer"
+                  >
+                    <option value="follow">Follow (Transmit ranking juice)</option>
+                    <option value="nofollow">No Follow (Block crawler bots)</option>
+                  </select>
+                </div>
+                <div className="space-y-1">
+                  <span className="font-bold text-[9px] uppercase text-royal/60 block">OpenGraph Image URL</span>
+                  <input 
+                    type="text" value={editPackage.seo?.ogImage || ""}
+                    onChange={e => handleUpdateSEO("ogImage", null, e.target.value)}
+                    className="w-full bg-white border border-gold/15 px-3 py-2 outline-none rounded text-xs"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 12: PUBLISH STATUS */}
+          {subTab === "status" && (
+            <div className="space-y-6 animate-fade-in bg-[#FAF8F5] border border-gold/15 p-6 rounded-2xl">
+              <span className="font-black uppercase tracking-widest text-[9px] text-gold block border-b border-gold/10 pb-2">Publishing Status & Visibility Settings</span>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase block text-royal/60">Listing Status</label>
+                  <select
+                    value={editPackage.status || "published"}
+                    onChange={e => setEditPackage({...editPackage, status: e.target.value})}
+                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold cursor-pointer"
+                  >
+                    <option value="published">Published (Visible online)</option>
+                    <option value="draft">Draft (Admin eyes only)</option>
+                    <option value="unpublished">Unpublished (Archived offline)</option>
+                  </select>
+                </div>
+
+                <div className="flex items-center gap-2 pt-4">
+                  <input 
+                    type="checkbox" id="toggle-featured"
+                    checked={editPackage.isFeatured === true}
+                    onChange={e => setEditPackage({...editPackage, isFeatured: e.target.checked})}
+                    className="w-5 h-5 cursor-pointer accent-royal"
+                  />
+                  <label htmlFor="toggle-featured" className="font-bold uppercase tracking-wider block cursor-pointer">Featured Destination (Display on Home page slider)</label>
+                </div>
+              </div>
             </div>
           )}
 
@@ -469,7 +1551,7 @@ export default function PackagesTab({
         </form>
       )}
 
-      {/* PACKAGES DIRECTORY */}
+      {/* PACKAGES GRID */}
       {!editPackage && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {(packages || []).map((pkg) => (
@@ -494,11 +1576,11 @@ export default function PackagesTab({
                     className="text-royal hover:text-gold flex items-center gap-1 font-bold uppercase tracking-wider cursor-pointer"
                   >
                     <Edit2 className="w-3.5 h-3.5" />
-                    <span>Edit</span>
+                    <span>Edit Package</span>
                   </button>
                   <button
                     onClick={() => {
-                      if (window.confirm(`Are you sure you want to delete the "${pkg.title?.en}" package?`)) {
+                      if (window.confirm(`Are you sure you want to delete "${pkg.title?.en}" package?`)) {
                         handleDeletePackage(pkg.slug);
                       }
                     }}

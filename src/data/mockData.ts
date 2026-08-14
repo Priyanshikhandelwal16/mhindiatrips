@@ -10,24 +10,74 @@ export interface LocalizedList {
   pt: string[];
 }
 
+export interface TourHighlight {
+  title: LocalizedString;
+  desc: LocalizedString;
+  icon?: string;
+  image?: string;
+  displayOrder?: number;
+  isActive?: boolean;
+}
+
+export interface TourAddon {
+  name: LocalizedString;
+  desc: LocalizedString;
+  price: string;
+  currency: string;
+  duration?: string;
+  image?: string;
+  isActive?: boolean;
+}
+
+export interface GalleryImage {
+  url: string;
+  title?: string;
+  alt?: string;
+  caption?: string;
+  displayOrder?: number;
+}
+
 export interface AttractionData {
   slug: string;
   name: LocalizedString;
   desc: LocalizedString;
-  history: LocalizedString;
-  architecture: LocalizedString;
-  timings: LocalizedString;
-  info: LocalizedString;
+  history?: LocalizedString;
+  architecture?: LocalizedString;
+  timings?: LocalizedString;
+  info?: LocalizedString;
   image: string;
-  gallery: string[];
-  faqs: { q: LocalizedString; a: LocalizedString }[];
+  gallery?: string[];
+  faqs?: { q: LocalizedString; a: LocalizedString }[];
+  location?: string;
+  openingHours?: string;
+  recommendedDuration?: string;
+  entryFee?: string;
+  isUNESCO?: boolean;
+  isFeatured?: boolean;
+  displayOrder?: number;
 }
 
 export interface HotelData {
   name: string;
-  tier: "Luxury" | "Heritage" | "Boutique";
+  tier: string; // Luxury, Premium, Mid-range, Budget, Boutique, Heritage
   desc: LocalizedString;
   image: string;
+  location?: string;
+  priceRange?: string;
+  url?: string;
+  isFeatured?: boolean;
+}
+
+export interface CityActivity {
+  name: LocalizedString;
+  desc: LocalizedString;
+  image?: string;
+  duration?: string;
+  price?: string;
+  bestTime?: string;
+  difficulty?: string;
+  isFeatured?: boolean;
+  displayOrder?: number;
 }
 
 export interface CityData {
@@ -35,21 +85,115 @@ export interface CityData {
   title: LocalizedString;
   tagline: LocalizedString;
   image: string;
-  gallery: string[];
+  gallery?: (string | GalleryImage)[];
   overview: LocalizedString;
   history: LocalizedString;
   culture: LocalizedString;
   attractions: AttractionData[];
-  thingsToDo: LocalizedString[];
+  thingsToDo: (LocalizedString | CityActivity)[];
   hotels: HotelData[];
   localFood: LocalizedString;
   shopping: LocalizedString;
   weather: LocalizedString;
   bestTime: LocalizedString;
-  travelTips: LocalizedString[];
+  travelTips: (LocalizedString | any)[];
   nearbyPlaces: { name: string; distance: string }[];
   suggestedItinerary: LocalizedString;
   faqs: { q: LocalizedString; a: LocalizedString }[];
+  
+  country?: string;
+  region?: string;
+  destinationType?: string;
+  shortDescription?: LocalizedString;
+  fullDescription?: LocalizedString;
+  featuredImage?: string;
+  isFeatured?: boolean;
+  status?: string; // draft, published, unpublished
+  hero?: {
+    image: string;
+    title: LocalizedString;
+    subtitle: LocalizedString;
+    description: LocalizedString;
+    ctaText: LocalizedString;
+    ctaLink: string;
+  };
+  highlights?: TourHighlight[];
+  experiences?: {
+    title: LocalizedString;
+    desc: LocalizedString;
+    image?: string;
+    duration?: string;
+    location?: string;
+    price?: string;
+    bookingAvailable?: boolean;
+    isFeatured?: boolean;
+  }[];
+  bestTimeToVisit?: {
+    bestTime: LocalizedString;
+    peakSeason?: string;
+    shoulderSeason?: string;
+    offSeason?: string;
+    weatherDesc?: LocalizedString;
+    monthlyInfo?: {
+      month: string;
+      weather?: string;
+      temp?: string;
+      crowd?: string;
+      recommended?: boolean;
+      desc?: string;
+    }[];
+  };
+  travelInfo?: {
+    howToReach?: LocalizedString;
+    nearestAirport?: string;
+    nearestRailway?: string;
+    transportOptions?: string;
+    distanceFromMajorCities?: string;
+    recommendedStay?: string;
+    avgTemp?: string;
+    currency?: string;
+    localLanguage?: string;
+    timeZone?: string;
+    safetyInfo?: LocalizedString;
+  };
+  gettingAround?: {
+    transportType: string;
+    title: LocalizedString;
+    desc: LocalizedString;
+    image?: string;
+    priceRange?: string;
+    recommended?: boolean;
+  }[];
+  localFoodDishes?: {
+    name: LocalizedString;
+    desc: LocalizedString;
+    image?: string;
+    isVeg?: boolean;
+    recommended?: boolean;
+    whereToTry?: string;
+    displayOrder?: number;
+  }[];
+  relatedTours?: string[];
+  tags?: string[];
+  statistics?: {
+    recommendedDays?: string;
+    annualVisitors?: string;
+    bestSeason?: string;
+    avgTemp?: string;
+    airportDistance?: string;
+    delhiDistance?: string;
+  };
+  seo?: {
+    title: LocalizedString;
+    description: LocalizedString;
+    keywords: LocalizedString;
+    ogTitle?: string;
+    ogDescription?: string;
+    ogImage?: string;
+    canonicalUrl?: string;
+    indexRule?: string; // index, noindex
+    followRule?: string; // follow, nofollow
+  };
 }
 
 export interface StateData {
@@ -58,7 +202,7 @@ export interface StateData {
   tagline: LocalizedString;
   region: "North" | "South" | "East" | "West" | "Central" | "North East" | "Islands";
   image: string;
-  gallery: string[];
+  gallery: (string | GalleryImage)[];
   description: LocalizedString;
   history: LocalizedString;
   culture: LocalizedString;
@@ -70,6 +214,32 @@ export interface StateData {
   wildlife?: LocalizedString;
   adventure?: LocalizedString;
   festivals?: LocalizedString;
+  
+  country?: string;
+  destinationType?: string;
+  shortDescription?: LocalizedString;
+  fullDescription?: LocalizedString;
+  featuredImage?: string;
+  isFeatured?: boolean;
+  status?: string;
+  hero?: {
+    image: string;
+    title: LocalizedString;
+    subtitle: LocalizedString;
+    description: LocalizedString;
+    ctaText: LocalizedString;
+    ctaLink: string;
+  };
+  highlights?: TourHighlight[];
+  experiences?: any[];
+  bestTimeToVisit?: any;
+  travelInfo?: any;
+  gettingAround?: any[];
+  localFoodDishes?: any[];
+  relatedTours?: string[];
+  tags?: string[];
+  statistics?: any;
+  seo?: any;
 }
 
 export interface TourPackage {
@@ -79,12 +249,83 @@ export interface TourPackage {
   category: string;
   durationDays: number;
   image: string;
-  gallery: string[];
-  highlights: LocalizedString[];
-  itinerary: { day: number; title: LocalizedString; desc: LocalizedString }[];
+  gallery: (string | GalleryImage)[];
+  highlights: (LocalizedString | TourHighlight)[];
+  itinerary: {
+    day: number;
+    title: LocalizedString;
+    desc: LocalizedString;
+    location?: string;
+    activities?: (LocalizedString | string)[];
+    sightseeing?: string;
+    meals?: string;
+    overnight?: string;
+    hotel?: string;
+    travelDistance?: string;
+    travelTime?: string;
+    image?: string;
+    optionalExperiences?: string;
+  }[];
   includedExperiences: LocalizedString[];
   travelTips: LocalizedString[];
   faqs: { q: LocalizedString; a: LocalizedString }[];
+  
+  durationNights?: number;
+  startingLocation?: string;
+  endingLocation?: string;
+  tourType?: string; // Private Tour, Group Tour, etc.
+  travelStyle?: string; // Luxury, Premium, etc.
+  bestFor?: string;
+  groupSize?: string;
+  difficultyLevel?: string;
+  description?: LocalizedString;
+  exclusions?: LocalizedString[];
+  addons?: TourAddon[];
+  pricing?: {
+    startingPrice?: number;
+    pricePerPerson?: number;
+    currency?: string; // EUR, USD, GBP, INR
+    priceType?: string;
+    discountPrice?: number;
+    groupPricing?: string;
+    priceIncludes?: string;
+    priceExcludes?: string;
+    enquireForPrice?: boolean;
+  };
+  travelInfo?: {
+    startingPoint?: string;
+    endingPoint?: string;
+    duration?: string;
+    transportation?: string;
+    accommodation?: string;
+    tourType?: string;
+    bestTime?: string;
+    groupSize?: string;
+    languages?: string;
+    suitableFor?: string;
+  };
+  policies?: {
+    cancellation?: LocalizedString;
+    refund?: LocalizedString;
+    bookingTerms?: LocalizedString;
+    importantNotes?: LocalizedString;
+    visaInfo?: LocalizedString;
+    insuranceInfo?: LocalizedString;
+    terms?: LocalizedString;
+  };
+  seo?: {
+    title?: LocalizedString;
+    description?: LocalizedString;
+    keywords?: LocalizedString;
+    ogTitle?: string;
+    ogDescription?: string;
+    ogImage?: string;
+    canonicalUrl?: string;
+    indexRule?: string;
+    followRule?: string;
+  };
+  status?: string; // draft, published, unpublished
+  isFeatured?: boolean;
 }
 
 export interface ExperienceData {

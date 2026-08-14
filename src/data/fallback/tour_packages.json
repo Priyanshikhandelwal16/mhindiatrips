@@ -4,12 +4,12 @@
     "title": {
       "en": "Imperial Golden Triangle Journey",
       "es": "Viaje Imperial del Triángulo de Oro",
-      "pt": "Viagem Imperial do Triângulo de Ouro"
+      "pt": "Viagem Imperial pelo Triângulo Dourado"
     },
     "tagline": {
       "en": "The Classic Luxury Showcase of Delhi, Agra & Jaipur",
-      "es": "La Clásica Aventura de Lujo de Delhi, Agra y Jaipur",
-      "pt": "O Clássico Roteiro de Luxo de Deli, Agra e Jaipur"
+      "es": "La Clásica Experiencia de Lujo por Delhi, Agra y Jaipur",
+      "pt": "A Clássica Experiência de Luxo por Delhi, Agra e Jaipur"
     },
     "category": "Luxury Tours",
     "durationDays": 7,
@@ -17,45 +17,650 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Private sunrise access to the Taj Mahal",
-        "es": "Acceso privado al Taj Mahal al amanecer",
-        "pt": "Acesso privado ao Taj Mahal ao amanhecer"
+        "title": {
+          "en": "Explore Historic Delhi",
+          "es": "Explore la Histórica Delhi",
+          "pt": "Explore a Histórica Delhi"
+        },
+        "desc": {
+          "en": "Discover the contrasting character of Old and New Delhi, from historic monuments and lively markets to grand avenues and impressive architectural landmarks.",
+          "es": "Descubra el carácter único de la Vieja y Nueva Delhi, desde monumentos históricos y mercados llenos de vida hasta grandes avenidas y destacados monumentos arquitectónicos.",
+          "pt": "Descubra o contraste entre a Velha e a Nova Delhi, com monumentos históricos, mercados vibrantes, grandes avenidas e impressionantes marcos arquitetônicos."
+        },
+        "icon": "MapPin",
+        "isActive": true,
+        "displayOrder": 1
       },
       {
-        "en": "Stay in Oberoi & Taj royal palace suites",
-        "es": "Alojamiento en suites de palacios reales",
-        "pt": "Hospedagem em suítes de palácios reais"
+        "title": {
+          "en": "Witness the Taj Mahal",
+          "es": "Contemple el Taj Mahal",
+          "pt": "Contemple o Taj Mahal"
+        },
+        "desc": {
+          "en": "Visit the world-famous Taj Mahal in Agra and experience one of India's most extraordinary architectural masterpieces.",
+          "es": "Visite el mundialmente famoso Taj Mahal en Agra y descubra una de las obras maestras arquitectónicas más extraordinarias de la India.",
+          "pt": "Visite o mundialmente famoso Taj Mahal em Agra e conheça uma das obras-primas arquitetônicas mais extraordinárias da Índia."
+        },
+        "icon": "Sparkles",
+        "isActive": true,
+        "displayOrder": 2
       },
       {
-        "en": "Private chauffeur luxury car transfers",
-        "es": "Traslados privados en coche de lujo con chofer",
-        "pt": "Traspasos privados em carro de luxo com motorista"
+        "title": {
+          "en": "Discover Agra Fort",
+          "es": "Descubra el Fuerte de Agra",
+          "pt": "Descubra o Forte de Agra"
+        },
+        "desc": {
+          "en": "Explore the magnificent Agra Fort and uncover centuries of Mughal history, grand courtyards, royal chambers and impressive red sandstone architecture.",
+          "es": "Explore el magnífico Fuerte de Agra y descubra siglos de historia mogol, grandes patios, cámaras reales y una impresionante arquitectura de arenisca roja.",
+          "pt": "Explore o magnífico Forte de Agra e descubra séculos de história mogol, grandes pátios, aposentos reais e impressionante arquitetura em arenito vermelho."
+        },
+        "icon": "Shield",
+        "isActive": true,
+        "displayOrder": 3
+      },
+      {
+        "title": {
+          "en": "Experience Jaipur's Royal Heritage",
+          "es": "Disfrute del Patrimonio Real de Jaipur",
+          "pt": "Conheça a Herança Real de Jaipur"
+        },
+        "desc": {
+          "en": "Discover Jaipur's royal legacy through magnificent palaces, historic forts, colourful streets and the distinctive architecture of Rajasthan's Pink City.",
+          "es": "Descubra el legado real de Jaipur a través de magníficos palacios, fortalezas históricas, calles llenas de color y la arquitectura característica de la Ciudad Rosa de Rajastán.",
+          "pt": "Descubra o legado real de Jaipur através de magníficos palácios, fortes históricos, ruas coloridas e a arquitetura característica da Cidade Rosa do Rajastão."
+        },
+        "icon": "Crown",
+        "isActive": true,
+        "displayOrder": 4
+      },
+      {
+        "title": {
+          "en": "Visit Amber Fort",
+          "es": "Visite el Fuerte Amber",
+          "pt": "Visite o Forte Amber"
+        },
+        "desc": {
+          "en": "Explore the majestic Amber Fort, beautifully positioned in the Aravalli Hills and known for its grand courtyards, detailed artwork and impressive royal architecture.",
+          "es": "Explore el majestuoso Fuerte Amber, situado en las colinas de Aravalli y conocido por sus grandes patios, delicadas decoraciones y extraordinaria arquitectura real.",
+          "pt": "Explore o majestoso Forte Amber, situado nas colinas de Aravalli e conhecido por seus grandes pátios, detalhes artísticos e impressionante arquitetura real."
+        },
+        "icon": "Compass",
+        "isActive": true,
+        "displayOrder": 5
+      },
+      {
+        "title": {
+          "en": "Authentic Indian Cuisine",
+          "es": "Gastronomía India Auténtica",
+          "pt": "Culinária Indiana Autêntica"
+        },
+        "desc": {
+          "en": "Taste the rich flavours of India through carefully selected dining experiences featuring traditional North Indian and Rajasthani cuisine.",
+          "es": "Descubra los ricos sabores de la India a través de experiencias gastronómicas cuidadosamente seleccionadas.",
+          "pt": "Descubra os ricos sabores da Índia através de experiências gastronômicas cuidadosamente selecionadas."
+        },
+        "icon": "Coffee",
+        "isActive": true,
+        "displayOrder": 6
+      },
+      {
+        "title": {
+          "en": "Private Chauffeur Experience",
+          "es": "Chofer Privado de Lujo",
+          "pt": "Experiência com Motorista Privado"
+        },
+        "desc": {
+          "en": "Travel comfortably between destinations with a private air-conditioned vehicle and an experienced local driver throughout your journey.",
+          "es": "Viaje cómodamente entre destinos en un vehículo privado con aire acondicionado y un conductor local experimentado.",
+          "pt": "Viaje confortavelmente entre os destinos em um veículo privado com ar-condicionado e um motorista local experiente."
+        },
+        "icon": "Car",
+        "isActive": true,
+        "displayOrder": 7
+      },
+      {
+        "title": {
+          "en": "Perfect Introduction to India",
+          "es": "Introducción Perfecta a India",
+          "pt": "Introdução Perfeita à Índia"
+        },
+        "desc": {
+          "en": "Experience three of India's most iconic destinations in one carefully planned journey, making this tour ideal for first-time visitors.",
+          "es": "Descubra tres de los destinos más emblemáticos de India en un solo viaje cuidadosamente planificado.",
+          "pt": "Conheça três dos destinos mais emblemáticos da Índia em uma única viagem cuidadosamente planejada."
+        },
+        "icon": "Heart",
+        "isActive": true,
+        "displayOrder": 8
       }
     ],
     "itinerary": [
       {
         "day": 1,
         "title": {
-          "en": "Arrival in New Delhi",
-          "es": "Llegada a Nueva Delhi",
-          "pt": "Chegada a Nova Deli"
+          "en": "Arrival in Delhi & Welcome to India",
+          "es": "Llegada a Delhi y Bienvenida a la India",
+          "pt": "Chegada a Delhi e Boas-vindas à Índia"
         },
         "desc": {
-          "en": "VIP welcome, transfer to luxury hotel.",
-          "es": "Bienvenida VIP, traslado al hotel.",
-          "pt": "Boas-vindas VIP, traslado para o hotel."
-        }
+          "en": "Arrive in Delhi, where our representative will welcome you at the airport and assist you with your private transfer to the hotel. After check-in, take some time to relax and settle into your accommodation. Depending on your arrival time, you may enjoy a relaxed evening or explore the nearby surroundings.",
+          "es": "Llegue a Delhi, donde nuestro representante lo recibirá en el aeropuerto y lo asistirá con su traslado privado al hotel. Después del check-in, relájese. Según su hora de llegada, disfrute de una tarde libre o explore los alrededores.",
+          "pt": "Chegue a Delhi, onde nosso representante o receberá no aeroporto e o ajudará com seu traslado privado para o hotel. Após o check-in, relaxe. Dependendo do horário de chegada, desfrute de uma noite livre ou explore os arredores."
+        },
+        "location": "Delhi",
+        "activities": [
+          "Airport Pickup",
+          "Hotel Check-in",
+          "Welcome Assistance",
+          "Leisure Time"
+        ],
+        "meals": "Dinner",
+        "overnight": "Delhi",
+        "hotel": "Heritage / Luxury Hotel in Delhi"
+      },
+      {
+        "day": 2,
+        "title": {
+          "en": "Discover Old & New Delhi",
+          "es": "Descubra la Vieja y Nueva Delhi",
+          "pt": "Descubra a Velha e a Nova Delhi"
+        },
+        "desc": {
+          "en": "Begin your Delhi sightseeing experience with a journey through the city's historic and modern sides. Explore impressive monuments, grand avenues, historic neighbourhoods and lively markets while learning about Delhi's fascinating history and culture.",
+          "es": "Comience su visita por Delhi con un recorrido por las zonas histórica y moderna de la ciudad. Explore monumentos, avenidas, mercados y aprenda sobre su historia.",
+          "pt": "Comece sua visita por Delhi com um passeio pelas áreas histórica e moderna da cidade. Explore monumentos, avenidas, mercados e aprenda sobre sua história."
+        },
+        "location": "Delhi",
+        "sightseeing": "India Gate, Humayun's Tomb, Qutub Minar, Lotus Temple, Jama Masjid, Chandni Chowk",
+        "activities": [
+          "Old Delhi Rickshaw Ride",
+          "Monument Visits",
+          "Local Market Exploration"
+        ],
+        "meals": "Breakfast",
+        "overnight": "Delhi",
+        "hotel": "Heritage / Luxury Hotel in Delhi"
+      },
+      {
+        "day": 3,
+        "title": {
+          "en": "Journey to Agra & Mughal Heritage",
+          "es": "Viaje a Agra y Patrimonio Mogol",
+          "pt": "Viagem a Agra e Herança Mogol"
+        },
+        "desc": {
+          "en": "After breakfast, depart Delhi and travel comfortably to Agra. Upon arrival, check into your hotel before exploring the historic city that was once one of the most important centres of the Mughal Empire. Visit the magnificent Agra Fort and discover its grand courtyards, royal chambers and historic architecture.",
+          "es": "Después del desayuno, viaje cómodamente hacia Agra. Al llegar, check-in en su hotel. Visite el magnífico Fuerte de Agra y explore sus patios y salas reales.",
+          "pt": "Após o café da manhã, viaje confortavelmente para Agra. Ao chegar, check-in no hotel. Visite o magnífico Forte de Agra e explore seus pátios e aposentos reais."
+        },
+        "location": "Agra",
+        "sightseeing": "Agra Fort, Local Markets, Mughal Heritage Sites",
+        "activities": [
+          "Private Transfer",
+          "Fort Visit",
+          "Local Market Experience"
+        ],
+        "meals": "Breakfast",
+        "overnight": "Agra",
+        "hotel": "Luxury Hotel in Agra"
+      },
+      {
+        "day": 4,
+        "title": {
+          "en": "Sunrise at the Taj Mahal & Journey to Jaipur",
+          "es": "Amanecer en el Taj Mahal y Viaje a Jaipur",
+          "pt": "Nascer do Sol no Taj Mahal e Viagem a Jaipur"
+        },
+        "desc": {
+          "en": "Rise early for a memorable sunrise visit to the Taj Mahal. Experience the monument in the soft early-morning light before returning to the hotel for breakfast. Continue towards Jaipur with a visit to Fatehpur Sikri, the historic Mughal city known for its impressive architecture and heritage.",
+          "es": "Levántese temprano para una visita al Taj Mahal al amanecer. Disfrute del monumento bajo la suave luz de la mañana. Continúe hacia Jaipur con una parada en Fatehpur Sikri.",
+          "pt": "Levante-se cedo para uma visita ao Taj Mahal no nascer do sol. Desfrute do monumento sob a luz suave da manhã. Continue para Jaipur com uma parada em Fatehpur Sikri."
+        },
+        "location": "Jaipur",
+        "sightseeing": "Taj Mahal, Fatehpur Sikri",
+        "activities": [
+          "Sunrise Taj Mahal Visit",
+          "Private Transfer",
+          "Heritage Exploration"
+        ],
+        "meals": "Breakfast",
+        "overnight": "Jaipur",
+        "hotel": "Palace / Luxury Hotel in Jaipur"
+      },
+      {
+        "day": 5,
+        "title": {
+          "en": "The Royal Heritage of Jaipur",
+          "es": "El Patrimonio Real de Jaipur",
+          "pt": "A Herança Real de Jaipur"
+        },
+        "desc": {
+          "en": "Discover the royal charm of Jaipur, famously known as the Pink City. Explore the magnificent Amber Fort, visit the historic City Palace and admire the architectural beauty of Hawa Mahal and Jantar Mantar. Experience the rich heritage and traditions that make Jaipur one of India's most fascinating destinations.",
+          "es": "Descubra el encanto real de la Ciudad Rosa. Explore el majestuoso Fuerte Amber, visite el Palacio de la Ciudad y admire el Hawa Mahal.",
+          "pt": "Descubra o charme real da Cidade Rosa. Explore o majestoso Forte Amber, visite o Palácio da Cidade e admire o Hawa Mahal."
+        },
+        "location": "Jaipur",
+        "sightseeing": "Amber Fort, City Palace, Hawa Mahal, Jantar Mantar, Jal Mahal",
+        "activities": [
+          "Fort Exploration",
+          "Palace Visit",
+          "Photography",
+          "Local Culture"
+        ],
+        "meals": "Breakfast",
+        "overnight": "Jaipur",
+        "hotel": "Palace / Luxury Hotel in Jaipur"
+      },
+      {
+        "day": 6,
+        "title": {
+          "en": "Markets, Culture & Local Experiences",
+          "es": "Mercados, Cultura y Experiencias Locales",
+          "pt": "Mercados, Cultura e Experiências Locais"
+        },
+        "desc": {
+          "en": "Enjoy a relaxed day discovering Jaipur beyond its famous monuments. Explore colourful local markets, traditional handicrafts, textiles and jewellery. Choose from optional experiences such as a cooking class, heritage walk or traditional Rajasthani cultural dinner.",
+          "es": "Disfrute de un día relajado descubriendo Jaipur. Explore coloridos mercados locales y elija actividades opcionales.",
+          "pt": "Desfrute de um dia relaxante descobrindo Jaipur. Explore mercados coloridos e escolha atividades opcionais."
+        },
+        "location": "Jaipur",
+        "activities": [
+          "Local Market Visit",
+          "Shopping",
+          "Heritage Walk",
+          "Optional Cultural Experiences"
+        ],
+        "meals": "Breakfast",
+        "overnight": "Jaipur",
+        "hotel": "Palace / Luxury Hotel in Jaipur"
+      },
+      {
+        "day": 7,
+        "title": {
+          "en": "Farewell to India",
+          "es": "Despedida de la India",
+          "pt": "Despedida da Índia"
+        },
+        "desc": {
+          "en": "Enjoy your final breakfast before beginning your journey back to Delhi. Depending on your departure schedule, you may have some free time for shopping, relaxation or a final taste of Indian culture. Your private driver will transfer you to Delhi airport for your onward journey.",
+          "es": "Disfrute del último desayuno antes del viaje de regreso a Delhi y posterior traslado al aeropuerto.",
+          "pt": "Desfrute do último café da manhã antes da viagem de retorno a Delhi e posterior traslado ao aeroporto."
+        },
+        "location": "Delhi / Departure",
+        "activities": [
+          "Breakfast",
+          "Private Transfer",
+          "Airport Drop-off"
+        ],
+        "meals": "Breakfast",
+        "overnight": "Departure"
       }
     ],
     "includedExperiences": [
       {
-        "en": "Professional guides in all languages",
-        "es": "Guías profesionales bilingües",
-        "pt": "Guias profissionais bilíngues"
+        "en": "6 nights accommodation in carefully selected premium or luxury hotels.",
+        "es": "6 noches de alojamiento en hoteles premium o de lujo cuidadosamente seleccionados.",
+        "pt": "6 noites de hospedagem em hotéis premium ou de luxo cuidadosamente selecionados."
+      },
+      {
+        "en": "Daily breakfast at the hotel.",
+        "es": "Desayuno diario en el hotel.",
+        "pt": "Café da manhã diário no hotel."
+      },
+      {
+        "en": "Private air-conditioned vehicle throughout the tour.",
+        "es": "Vehículo privado con aire acondicionado durante todo el recorrido.",
+        "pt": "Veículo privado com ar-condicionado durante todo o passeio."
+      },
+      {
+        "en": "Experienced private driver.",
+        "es": "Conductor privado experimentado.",
+        "pt": "Motorista privado experiente."
+      },
+      {
+        "en": "Airport arrival and departure transfers.",
+        "es": "Traslados privados de llegada y salida del aeropuerto.",
+        "pt": "Traslados privados de chegada e saída do aeroporto."
+      },
+      {
+        "en": "Sightseeing according to the itinerary.",
+        "es": "Visitas turísticas según el itinerario.",
+        "pt": "Passeios turísticos conforme o itinerário."
+      },
+      {
+        "en": "Professional local guides for major sightseeing visits.",
+        "es": "Guías locales profesionales para las principales visitas.",
+        "pt": "Guias locais profissionais para as principais visitas."
+      },
+      {
+        "en": "Hotel check-in and check-out assistance.",
+        "es": "Asistencia durante el check-in y check-out.",
+        "pt": "Assistência durante o check-in e check-out."
+      },
+      {
+        "en": "Bottled drinking water during sightseeing and transfers.",
+        "es": "Agua embotellada durante las visitas y traslados.",
+        "pt": "Água mineral engarrafada durante os passeios e traslados."
+      },
+      {
+        "en": "Local travel assistance throughout the journey.",
+        "es": "Asistencia local durante todo el viaje.",
+        "pt": "Assistência local durante toda a viagem."
+      },
+      {
+        "en": "Applicable accommodation and transportation taxes.",
+        "es": "Impuestos aplicables al alojamiento y transporte.",
+        "pt": "Impostos aplicáveis à hospedagem e transporte."
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [
+      {
+        "q": {
+          "en": "Is this tour suitable for first-time visitors to India?",
+          "es": "¿Es adecuado para quienes visitan India por primera vez?",
+          "pt": "É adequado para quem visita a Índia pela primeira vez?"
+        },
+        "a": {
+          "en": "Yes. This itinerary is designed as an excellent introduction to India, combining iconic monuments, cultural experiences, cuisine and local traditions in one comfortable journey.",
+          "es": "Sí. Este itinerario está diseñado como una excelente introducción.",
+          "pt": "Sim. Este roteiro é projetado como uma excelente introdução."
+        }
+      },
+      {
+        "q": {
+          "en": "Can I customize this itinerary?",
+          "es": "¿Puedo personalizar este itinerario?",
+          "pt": "Posso personalizar este roteiro?"
+        },
+        "a": {
+          "en": "Absolutely. The itinerary can be customized according to your travel dates, preferred hotels, interests, activities, pace and budget.",
+          "es": "Absolutamente, todo se puede adaptar.",
+          "pt": "Absolutamente, tudo pode ser adaptado."
+        }
+      },
+      {
+        "q": {
+          "en": "Can I extend the duration of the tour?",
+          "es": "¿Puedo extender la duración del viaje?",
+          "pt": "Posso estender a duração da viagem?"
+        },
+        "a": {
+          "en": "Yes. Additional nights and destinations can be added according to your interests and travel schedule.",
+          "es": "Sí, se pueden añadir más noches.",
+          "pt": "Sim, é possível adicionar mais noites."
+        }
+      },
+      {
+        "q": {
+          "en": "Is private transportation included?",
+          "es": "¿Está incluido el transporte privado?",
+          "pt": "O transporte privado está incluído?"
+        },
+        "a": {
+          "en": "Yes. The package includes private air-conditioned transportation with an experienced local driver throughout the main journey.",
+          "es": "Sí, transporte privado con aire acondicionado.",
+          "pt": "Sim, transporte privado com ar-condicionado."
+        }
+      },
+      {
+        "q": {
+          "en": "Are meals included?",
+          "es": "¿Se incluyen las comidas?",
+          "pt": "As refeições estão incluídas?"
+        },
+        "a": {
+          "en": "Daily breakfast is included. Additional meals and special dining experiences can be added according to your preferences.",
+          "es": "Se incluye desayuno diario.",
+          "pt": "Café da manhã diário incluído."
+        }
+      }
+    ],
+    "durationNights": 6,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "bestFor": "Couples, Families, First-Time Visitors, Luxury Travellers, Small Groups",
+    "groupSize": "2–12 Travellers",
+    "difficultyLevel": "Easy",
+    "status": "published",
+    "isFeatured": true,
+    "description": {
+      "en": "Imperial Golden Triangle Journey is a carefully curated 7-day luxury journey through three of India's most iconic destinations — Delhi, Agra and Jaipur.\n\nDesigned for travellers who want to experience India's history, architecture, culture, cuisine and royal heritage in comfort, this private journey combines iconic landmarks with authentic local experiences and carefully selected stays.\n\nYour journey begins in Delhi, India's vibrant capital, where ancient history meets modern life. Explore the historic streets of Old Delhi, discover magnificent Mughal monuments and experience the contrast between the city's traditional neighbourhoods and grand modern avenues.\n\nContinue to Agra, home to the legendary Taj Mahal. Experience the Taj Mahal in the peaceful morning light and explore Agra Fort, one of India's most impressive examples of Mughal architecture. Along the way, discover the stories, traditions and craftsmanship that shaped this historic region.\n\nThe journey then continues to Jaipur, the famous Pink City of Rajasthan. Explore the majestic Amber Fort, the historic City Palace, Jantar Mantar and the iconic Hawa Mahal. Beyond the monuments, experience Jaipur's colourful markets, traditional handicrafts, local cuisine and rich royal traditions.\n\nThroughout the journey, travel comfortably in a private air-conditioned vehicle with an experienced local driver. Professional local guides can be arranged for major sightseeing experiences, allowing you to discover the history and cultural significance of each destination in greater depth.\n\nFrom the timeless beauty of the Taj Mahal to the royal elegance of Jaipur and the diverse character of Delhi, this Golden Triangle journey offers a balanced combination of iconic sightseeing, cultural discovery, authentic experiences and comfortable travel.\n\nThe itinerary can also be customized according to your preferred hotels, travel dates, activities, pace and budget, making it ideal for couples, families, first-time visitors and travellers looking for a premium private experience in India.",
+      "es": "El Viaje Imperial del Triángulo de Oro es un recorrido de lujo cuidadosamente diseñado de 7 días por tres de los destinos más emblemáticos de la India: Delhi, Agra y Jaipur.\n\nDiseñado para viajeros que desean descubrir la historia, arquitectura, cultura, gastronomía y patrimonio real de la India con comodidad, este viaje privado combina monumentos icónicos con experiencias locales auténticas y alojamientos cuidadosamente seleccionados.\n\nEl viaje comienza en Delhi, la vibrante capital de la India, donde la historia antigua se encuentra con la vida moderna. Explore las históricas calles de la Vieja Delhi, descubra magníficos monumentos mogoles y experimente el contraste entre los barrios tradicionales y las grandes avenidas de la ciudad.\n\nContinúe hacia Agra, hogar del legendario Taj Mahal. Contemple el Taj Mahal bajo la tranquila luz de la mañana y explore el Fuerte de Agra, uno de los ejemplos más impresionantes de la arquitectura mogol en la India. Durante el recorrido, descubra las historias, tradiciones y artesanías que dieron forma a esta región histórica.\n\nEl viaje continúa hacia Jaipur, la famosa Ciudad Rosa de Rajastán. Explore el majestuoso Fuerte Amber, el histórico Palacio de la Ciudad, Jantar Mantar y el emblemático Hawa Mahal. Más allá de los monumentos, descubra los coloridos mercados de Jaipur, las artesanías tradicionales, la gastronomía local y el rico patrimonio real de la ciudad.\n\nDurante todo el recorrido, viajará cómodamente en un vehículo privado con aire acondicionado y un conductor local experimentado. También se pueden organizar guías locales profesionales para las principales visitas, permitiéndole conocer con mayor profundidad la historia y el significado cultural de cada destino.\n\nDesde la belleza atemporal del Taj Mahal hasta la elegancia real de Jaipur y el carácter diverso de Delhi, este viaje por el Triángulo de Oro ofrece una combinación equilibrada de monumentos icónicos, descubrimiento cultural, experiencias auténticas y viajes cómodos.\n\nEl itinerario también puede personalizarse según sus hoteles preferidos, fechas de viaje, actividades, ritmo y presupuesto, lo que lo convierte en una excelente opción para parejas, familias, viajeros que visitan India por primera vez y quienes buscan una experiencia privada y premium.",
+      "pt": "A Viagem Imperial pelo Triângulo Dourado é uma jornada de luxo cuidadosamente planejada de 7 dias por três dos destinos mais emblemáticos da Índia: Delhi, Agra e Jaipur.\n\nCriada para viajantes que desejam conhecer a história, arquitetura, cultura, gastronomia e herança real da Índia com conforto, esta viagem privada combina monumentos icônicos com experiências locais autênticas e hospedagens cuidadosamente selecionadas.\n\nA viagem começa em Delhi, a vibrante capital da Índia, onde a história antiga encontra a vida moderna. Explore as ruas históricas da Velha Delhi, descubra magníficos monumentos mogóis e conheça o contraste entre os bairros tradicionais e as grandes avenidas da cidade.\n\nEm seguida, viaje para Agra, lar do lendário Taj Mahal. Contemple o Taj Mahal sob a tranquila luz da manhã e explore o Forte de Agra, um dos exemplos mais impressionantes da arquitetura mogol na Índia. Durante o percurso, descubra as histórias, tradições e artesanatos que ajudaram a construir a identidade desta região histórica.\n\nA jornada continua até Jaipur, a famosa Cidade Rosa do Rajastão. Explore o majestoso Forte Amber, o histórico Palácio da Cidade, Jantar Mantar e o icônico Hawa Mahal. Além dos monumentos, conheça os mercados coloridos de Jaipur, os artesanatos tradicionais, a culinária local e a rica herança real da cidade.\n\nDurante toda a viagem, você viajará confortavelmente em um veículo privado com ar-condicionado e um motorista local experiente. Guias locais profissionais também podem ser organizados para as principais visitas, permitindo uma compreensão mais profunda da história e da importância cultural de cada destino.\n\nDa beleza atemporal do Taj Mahal à elegância real de Jaipur e à diversidade de Delhi, esta viagem pelo Triângulo Dourado oferece uma combinação equilibrada de monumentos icônicos, descoberta cultural, experiências autênticas e viagens confortáveis.\n\nO roteiro também pode ser personalizado de acordo com os hotéis preferidos, datas de viagem, atividades, ritmo e orçamento, tornando-o ideal para casais, famílias, visitantes de primeira viagem e viajantes que procuram uma experiência privada e premium na Índia."
+    },
+    "exclusions": [
+      {
+        "en": "International Flights",
+        "es": "Vuelos Internacionales",
+        "pt": "Voos Internacionais"
+      },
+      {
+        "en": "Indian Visa / e-Visa Fees",
+        "es": "Tasas de Visado para India",
+        "pt": "Taxas de Visto para Índia"
+      },
+      {
+        "en": "Travel Insurance",
+        "es": "Seguro de Viaje",
+        "pt": "Seguro de Viagem"
+      },
+      {
+        "en": "Personal Shopping",
+        "es": "Compras Personales",
+        "pt": "Compras Pessoais"
+      },
+      {
+        "en": "Laundry",
+        "es": "Servicio de Lavandería",
+        "pt": "Serviço de Lavanderia"
+      },
+      {
+        "en": "Telephone Charges",
+        "es": "Llamadas Telefónicas",
+        "pt": "Chamadas Telefônicas"
+      },
+      {
+        "en": "Alcoholic Beverages",
+        "es": "Bebidas Alcohólicas",
+        "pt": "Bebidas Alcoólicas"
+      },
+      {
+        "en": "Tips and Gratuities",
+        "es": "Propinas",
+        "pt": "Gorjetas"
+      },
+      {
+        "en": "Meals not specifically mentioned",
+        "es": "Comidas no mencionadas específicamente",
+        "pt": "Refeições não mencionadas especificamente"
+      },
+      {
+        "en": "Optional Activities",
+        "es": "Actividades Opcionales",
+        "pt": "Atividades Opcionais"
+      },
+      {
+        "en": "Personal Expenses",
+        "es": "Gastos Personales",
+        "pt": "Despesas Pessoais"
+      },
+      {
+        "en": "Any service not listed under inclusions",
+        "es": "Cualquier servicio no listado en inclusiones",
+        "pt": "Qualquer serviço não listado em inclusões"
+      }
+    ],
+    "addons": [
+      {
+        "name": {
+          "en": "Taj Mahal Sunrise Experience",
+          "es": "Taj Mahal al Amanecer",
+          "pt": "Taj Mahal no Nascer do Sol"
+        },
+        "desc": {
+          "en": "Begin your morning with a private sunrise visit to the Taj Mahal and experience the monument in the soft early-morning light.",
+          "es": "Comience su mañana con una visita privada al Taj Mahal al amanecer.",
+          "pt": "Comece sua manhã com uma visita privada ao Taj Mahal no nascer do sol."
+        },
+        "price": "75",
+        "currency": "USD",
+        "duration": "3 Hours",
+        "isActive": true
+      },
+      {
+        "name": {
+          "en": "Delhi Food Walk",
+          "es": "Ruta Gastronómica por Delhi",
+          "pt": "Tour Gastronômico em Delhi"
+        },
+        "desc": {
+          "en": "Explore Delhi's vibrant culinary culture with a local food experience featuring traditional flavours and popular street-food favourites.",
+          "es": "Explore la vibrante cultura culinaria de Delhi.",
+          "pt": "Explore a vibrante cultura culinária de Delhi."
+        },
+        "price": "45",
+        "currency": "USD",
+        "duration": "4 Hours",
+        "isActive": true
+      },
+      {
+        "name": {
+          "en": "Traditional Cooking Class",
+          "es": "Clase de Cocina Tradicional",
+          "pt": "Aula de Culinária Tradicional"
+        },
+        "desc": {
+          "en": "Learn the secrets behind authentic Indian cuisine through a hands-on cooking experience with a local chef.",
+          "es": "Aprenda los secretos de la auténtica cocina india.",
+          "pt": "Aprenda os segredos da autêntica culinária indiana."
+        },
+        "price": "60",
+        "currency": "USD",
+        "duration": "3 Hours",
+        "isActive": true
+      },
+      {
+        "name": {
+          "en": "Rajasthani Cultural Dinner",
+          "es": "Cena Cultural de Rajastán",
+          "pt": "Jantar Cultural do Rajastão"
+        },
+        "desc": {
+          "en": "Enjoy a traditional Rajasthani dinner accompanied by regional music, cultural performances and warm local hospitality.",
+          "es": "Disfrute de una cena tradicional de Rajastán acompañada de música.",
+          "pt": "Desfrute de um jantar tradicional do Rajastão acompanhado de música."
+        },
+        "price": "50",
+        "currency": "USD",
+        "duration": "3 Hours",
+        "isActive": true
+      },
+      {
+        "name": {
+          "en": "Jaipur Heritage Walk",
+          "es": "Paseo Histórico por Jaipur",
+          "pt": "Caminhada Histórica em Jaipur"
+        },
+        "desc": {
+          "en": "Walk through Jaipur's historic streets with a local expert and discover traditional architecture, hidden corners and everyday local life.",
+          "es": "Camine por las calles históricas de Jaipur con un experto local.",
+          "pt": "Caminhe pelas ruas históricas de Jaipur com um guia local."
+        },
+        "price": "35",
+        "currency": "USD",
+        "duration": "2.5 Hours",
+        "isActive": true
+      }
+    ],
+    "pricing": {
+      "startingPrice": 1499,
+      "pricePerPerson": 1499,
+      "currency": "USD",
+      "priceType": "per_person",
+      "discountPrice": 0,
+      "groupPricing": "Enquire for groups of 4 or more.",
+      "priceIncludes": "Accommodation, transport, guides, breakfast, select dinners.",
+      "priceExcludes": "Flights, visas, insurance, personal shopping.",
+      "enquireForPrice": false
+    },
+    "travelInfo": {
+      "startingPoint": "Delhi",
+      "endingPoint": "Delhi",
+      "duration": "7 Days / 6 Nights",
+      "transportation": "Private Air-Conditioned Vehicle",
+      "accommodation": "Premium / Luxury Hotels",
+      "tourType": "Private",
+      "bestTime": "October to March",
+      "groupSize": "2–12 Travellers",
+      "languages": "English, Spanish, Portuguese",
+      "suitableFor": "Couples, Families, First-Time Visitors, Luxury Travellers, Small Groups"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Free cancellation up to 30 days prior to departure.",
+        "es": "Cancelación gratuita hasta 30 días antes.",
+        "pt": "Cancelamento grátis até 30 dias antes."
+      },
+      "refund": {
+        "en": "Refunds processed within 7-10 business days.",
+        "es": "Reembolsos procesados en 7-10 días.",
+        "pt": "Reembolsos processados em 7-10 dias."
+      },
+      "bookingTerms": {
+        "en": "25% deposit required to confirm booking.",
+        "es": "Se requiere un depósito del 25% para confirmar.",
+        "pt": "Depósito de 25% necessário para confirmar."
+      },
+      "importantNotes": {
+        "en": "Passports must be valid for at least 6 months.",
+        "es": "Pasaportes válidos por al menos 6 meses.",
+        "pt": "Pasaportes válidos por pelo menos 6 meses."
+      },
+      "visaInfo": {
+        "en": "E-visa is available for most nationalities.",
+        "es": "E-visa disponible para la mayoría de nacionalidades.",
+        "pt": "E-visa disponível para a maioria das nacionalidades."
+      },
+      "insuranceInfo": {
+        "en": "Comprehensive travel insurance is highly recommended.",
+        "es": "Se recomienda seguro de viaje completo.",
+        "pt": "Recomenda-se seguro de viagem completo."
+      },
+      "terms": {
+        "en": "Subject to standard terms of MH India Trips.",
+        "es": "Sujeto a términos estándar de MH India Trips.",
+        "pt": "Sujeito aos termos padrão da MH India Trips."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "7-Day Golden Triangle Luxury Tour | Delhi, Agra & Jaipur",
+        "es": "Tour de Lujo por el Triángulo de Oro de India | 7 Días",
+        "pt": "Tour de Luxo pelo Triângulo Dourado da Índia | 7 Dias"
+      },
+      "description": {
+        "en": "Experience a 7-day luxury Golden Triangle tour covering Delhi, Agra and Jaipur with private transportation, premium stays, cultural experiences and expert local guides.",
+        "es": "Descubra Delhi, Agra y Jaipur en un tour de lujo de 7 días por el Triángulo de Oro, con transporte privado, hoteles premium, experiencias culturales y guías locales.",
+        "pt": "Descubra Delhi, Agra e Jaipur em um tour de luxo de 7 dias pelo Triângulo Dourado, com transporte privado, hotéis premium, experiências culturais e guias locais."
+      },
+      "keywords": {
+        "en": "golden triangle, delhi agra jaipur, luxury india tour",
+        "es": "triangulo de oro, delhi agra jaipur, viaje lujo india",
+        "pt": "triangulo dourado, delhi agra jaipur, viagem luxo india"
+      },
+      "ogTitle": "7-Day Golden Triangle Luxury Tour",
+      "ogDescription": "Experience the magic of Delhi, Agra, and Jaipur in ultimate comfort.",
+      "ogImage": "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=800",
+      "canonicalUrl": "/packages/golden-triangle-luxury",
+      "indexRule": "index",
+      "followRule": "follow"
+    }
   },
   {
     "slug": "kerala-ayurveda-wellness",
@@ -75,19 +680,46 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Daily consultation with Ayurvedic doctors",
-        "es": "Consulta diaria con médicos ayurvédicos",
-        "pt": "Consulta diária com médicos ayurvédicos"
+        "title": {
+          "en": "Daily consultation with Ayurvedic doctors",
+          "es": "Consulta diaria con médicos ayurvédicos",
+          "pt": "Consulta diária com médicos ayurvédicos"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Private houseboat stay along Backwaters",
-        "es": "Estadía privada en casa bote por los canales",
-        "pt": "Hospedagem privada em casa barco nos canais"
+        "title": {
+          "en": "Private houseboat stay along Backwaters",
+          "es": "Estadía privada en casa bote por los canales",
+          "pt": "Hospedagem privada em casa barco nos canais"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Daily private meditation and yoga sessions",
-        "es": "Sesiones diarias privadas de yoga y meditación",
-        "pt": "Sessões diárias privadas de ioga e meditação"
+        "title": {
+          "en": "Daily private meditation and yoga sessions",
+          "es": "Sesiones diarias privadas de yoga y meditación",
+          "pt": "Sessões diárias privadas de ioga e meditação"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -113,7 +745,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 8,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Rejuvenating Body & Soul in the Coconut Paradise",
+      "es": "Rejuvenece Cuerpo y Alma en el Paraíso de los Cocos",
+      "pt": "Rejuvenesça Corpo e Alma no Paraíso dos Cocos"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "Kerala Ayurveda & Wellness retreat",
+        "es": "Retiro de Bienestar y Ayurveda en Kerala",
+        "pt": "Retiro de Bem-Estar e Ayurveda em Kerala"
+      },
+      "description": {
+        "en": "Rejuvenating Body & Soul in the Coconut Paradise",
+        "es": "Rejuvenece Cuerpo y Alma en el Paraíso de los Cocos",
+        "pt": "Rejuvenesça Corpo e Alma no Paraíso dos Cocos"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "wildlife-ranthambore-safari",
@@ -133,19 +812,46 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "4 private customized jeep game drives",
-        "es": "4 safaris en jeep privado personalizado",
-        "pt": "4 safaris de jipe privado personalizado"
+        "title": {
+          "en": "4 private customized jeep game drives",
+          "es": "4 safaris en jeep privado personalizado",
+          "pt": "4 safaris de jipe privado personalizado"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Luxury wilderness glamping resort stay",
-        "es": "Estancia en campamento de lujo tipo glamping",
-        "pt": "Estadia em acampamento de luxo tipo glamping"
+        "title": {
+          "en": "Luxury wilderness glamping resort stay",
+          "es": "Estancia en campamento de lujo tipo glamping",
+          "pt": "Estadia em acampamento de luxo tipo glamping"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Explore Ranthambore high forest fort ruins",
-        "es": "Exploración de las ruinas del fuerte forestal",
-        "pt": "Exploração das ruínas do forte florestal"
+        "title": {
+          "en": "Explore Ranthambore high forest fort ruins",
+          "es": "Exploración de las ruinas del fuerte forestal",
+          "pt": "Exploração das ruínas do forte florestal"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -171,7 +877,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 7,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Encounter Majestic Bengal Tigers in Ancient Forests",
+      "es": "Encuentre Tigres de Bengala en Bosques Antiguos",
+      "pt": "Encontre Tigres de Bengala em Florestas Antigas"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "Wildlife & Royal Tiger Safaris",
+        "es": "Aventura de Vida Silvestre y Safari de Tigres",
+        "pt": "Aventura de Vida Selvagem e Safári de Tigres"
+      },
+      "description": {
+        "en": "Encounter Majestic Bengal Tigers in Ancient Forests",
+        "es": "Encuentre Tigres de Bengala en Bosques Antiguos",
+        "pt": "Encontre Tigres de Bengala em Florestas Antigas"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "rajasthan-royal-heritage",
@@ -191,19 +944,46 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Stay in actual heritage palace suites",
-        "es": "Estancia en suites de antiguos palacios reales",
-        "pt": "Hospedagem em suítes de antigos palácios reais"
+        "title": {
+          "en": "Stay in actual heritage palace suites",
+          "es": "Estancia en suites de antiguos palacios reales",
+          "pt": "Hospedagem em suítes de antigos palácios reais"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Private sand dunes sundowner camel ride",
-        "es": "Paseo en camello al atardecer en dunas",
-        "pt": "Passeio de camelo ao entardecer nas dunas"
+        "title": {
+          "en": "Private sand dunes sundowner camel ride",
+          "es": "Paseo en camello al atardecer en dunas",
+          "pt": "Passeio de camelo ao entardecer nas dunas"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Private traditional sitar recital evening",
-        "es": "Recital privado de música de sitar tradicional",
-        "pt": "Recital privado de música sitar tradicional"
+        "title": {
+          "en": "Private traditional sitar recital evening",
+          "es": "Recital privado de música de sitar tradicional",
+          "pt": "Recital privado de música sitar tradicional"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -229,7 +1009,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 11,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "The Ultimate Grand Tour of Rajput Royalty & Dunes",
+      "es": "El Gran Tour de la Realeza Rajput y Dunas de Arena",
+      "pt": "O Grande Tour da Realeza Rajput e Dunas de Areia"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "Rajasthan Heritage & Royal Palaces Tour",
+        "es": "Patrimonio de Rajastán y Palacios Reales",
+        "pt": "Patrimônio do Rajastão e Palácios Reais"
+      },
+      "description": {
+        "en": "The Ultimate Grand Tour of Rajput Royalty & Dunes",
+        "es": "El Gran Tour de la Realeza Rajput y Dunas de Arena",
+        "pt": "O Grande Tour da Realeza Rajput e Dunas de Areia"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "south-india-temples",
@@ -249,19 +1076,46 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Private walking tours of UNESCO Hampi ruins",
-        "es": "Tour a pie privado por las ruinas de Hampi",
-        "pt": "Tour a pé privado pelas ruínas de Hampi"
+        "title": {
+          "en": "Private walking tours of UNESCO Hampi ruins",
+          "es": "Tour a pie privado por las ruinas de Hampi",
+          "pt": "Tour a pé privado pelas ruínas de Hampi"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "VIP entry to Madurai Meenakshi Temple",
-        "es": "Entrada VIP al Templo Meenakshi de Madurai",
-        "pt": "Entrada VIP no Templo Meenakshi de Madurai"
+        "title": {
+          "en": "VIP entry to Madurai Meenakshi Temple",
+          "es": "Entrada VIP al Templo Meenakshi de Madurai",
+          "pt": "Entrada VIP no Templo Meenakshi de Madurai"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Stay in historic colonial-era bungalows",
-        "es": "Estancia en bungalows coloniales históricos",
-        "pt": "Estadia em bangalôs coloniais históricos"
+        "title": {
+          "en": "Stay in historic colonial-era bungalows",
+          "es": "Estancia en bungalows coloniales históricos",
+          "pt": "Estadia em bangalôs coloniais históricos"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -287,7 +1141,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 9,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Architectural Marvels of Hampi, Mysore & Madurai",
+      "es": "Maravillas Arquitectónicas del Sur de la India",
+      "pt": "Maravilhas Arquitetônicas do Sul da Índia"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "South India Monuments & Temples",
+        "es": "Monumentos e Templos del Sur de la India",
+        "pt": "Monumentos e Templos do Sul da Índia"
+      },
+      "description": {
+        "en": "Architectural Marvels of Hampi, Mysore & Madurai",
+        "es": "Maravillas Arquitectónicas del Sur de la India",
+        "pt": "Maravilhas Arquitetônicas do Sul da Índia"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "goa-beach-luxury",
@@ -307,19 +1208,46 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Sunset cruise on private luxury yacht",
-        "es": "Crucero privado en yate de lujo al atardecer",
-        "pt": "Cruzeiro privado em iate de luxo ao entardecer"
+        "title": {
+          "en": "Sunset cruise on private luxury yacht",
+          "es": "Crucero privado en yate de lujo al atardecer",
+          "pt": "Cruzeiro privado em iate de luxo ao entardecer"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Stay in 5-star beachfront luxury villa",
-        "es": "Alojamiento en villa frente al mar de 5 estrellas",
-        "pt": "Hospedagem em villa em frente ao mar de 5 estrelas"
+        "title": {
+          "en": "Stay in 5-star beachfront luxury villa",
+          "es": "Alojamiento en villa frente al mar de 5 estrellas",
+          "pt": "Hospedagem em villa em frente ao mar de 5 estrelas"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Private spice plantation tour and lunch",
-        "es": "Visita y almuerzo privado en plantación",
-        "pt": "Visita e almoço privado em plantação de especiarias"
+        "title": {
+          "en": "Private spice plantation tour and lunch",
+          "es": "Visita y almuerzo privado en plantación",
+          "pt": "Visita e almoço privado em plantação de especiarias"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -345,7 +1273,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 5,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Pure Coastal Indulgence, Yacht Cruises & Villas",
+      "es": "Pura Indulgencia Costera, Yate Privado y Villas",
+      "pt": "Pura Indulgência Costeira, Iate Privado e Villas"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "Goa Luxury Beach Vacation",
+        "es": "Vacaciones de Lujo en las Playas de Goa",
+        "pt": "Férias de Luxo nas Praias de Goa"
+      },
+      "description": {
+        "en": "Pure Coastal Indulgence, Yacht Cruises & Villas",
+        "es": "Pura Indulgencia Costera, Yate Privado y Villas",
+        "pt": "Pura Indulgência Costeira, Iate Privado e Villas"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "gujarat-heritage-safari",
@@ -365,19 +1340,46 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Gir Forest Asiatic Lion private safaris",
-        "es": "Safari privado de leones en el bosque de Gir",
-        "pt": "Safári privado de leões na floresta de Gir"
+        "title": {
+          "en": "Gir Forest Asiatic Lion private safaris",
+          "es": "Safari privado de leones en el bosque de Gir",
+          "pt": "Safári privado de leões na floresta de Gir"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Stay in luxury tents at White Rann of Kutch",
-        "es": "Hospedaje en carpas de lujo en el Rann de Kutch",
-        "pt": "Hospedagem em tendas de luxo no Rann de Kutch"
+        "title": {
+          "en": "Stay in luxury tents at White Rann of Kutch",
+          "es": "Hospedaje en carpas de lujo en el Rann de Kutch",
+          "pt": "Hospedagem em tendas de luxo no Rann de Kutch"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Explore stepwells and heritage wood mansions",
-        "es": "Exploración de antiguos aljibes y mansiones",
-        "pt": "Exploração de antigos poços e mansões de madeira"
+        "title": {
+          "en": "Explore stepwells and heritage wood mansions",
+          "es": "Exploración de antiguos aljibes y mansiones",
+          "pt": "Exploração de antigos poços e mansões de madeira"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -403,7 +1405,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 8,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Encounter Asiatic Lions, Rann of Kutch & Textile Arts",
+      "es": "Leones Asiáticos, el Desierto Blanco y Arte Textil",
+      "pt": "Leões Asiáticos, o Deserto Branco e Arte Têxtil"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "Royal Gujarat & Heritage Safari",
+        "es": "Gujarat Real y Safari de Patrimonio",
+        "pt": "Gujarat Real e Safári de Patrimônio"
+      },
+      "description": {
+        "en": "Encounter Asiatic Lions, Rann of Kutch & Textile Arts",
+        "es": "Leones Asiáticos, el Desierto Blanco y Arte Textil",
+        "pt": "Leões Asiáticos, o Deserto Branco e Arte Têxtil"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "ladakh-himalayan-escape",
@@ -423,19 +1472,46 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Private excursion to Pangong Tso Lake",
-        "es": "Excursión privada al lago Pangong Tso",
-        "pt": "Excursão privada ao lago Pangong Tso"
+        "title": {
+          "en": "Private excursion to Pangong Tso Lake",
+          "es": "Excursión privada al lago Pangong Tso",
+          "pt": "Excursão privada ao lago Pangong Tso"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Explore Nubra Valley on double-humped camels",
-        "es": "Paseo en camello por el valle de Nubra",
-        "pt": "Passeio de camelo pelo vale de Nubra"
+        "title": {
+          "en": "Explore Nubra Valley on double-humped camels",
+          "es": "Paseo en camello por el valle de Nubra",
+          "pt": "Passeio de camelo pelo vale de Nubra"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Visit ancient cliffside Thiksey Monastery",
-        "es": "Visita al monasterio histórico de Thiksey",
-        "pt": "Visita ao mosteiro histórico de Thiksey"
+        "title": {
+          "en": "Visit ancient cliffside Thiksey Monastery",
+          "es": "Visita al monasterio histórico de Thiksey",
+          "pt": "Visita ao mosteiro histórico de Thiksey"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -461,7 +1537,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 7,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Breathtaking Mountain Lakes & High Altitude Passes",
+      "es": "Lagos de Montaña y Hermosos Monasterios",
+      "pt": "Lagos de Montanha e Belos Mosteiros"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "Himalayan Escape & Scenic Ladakh Tour",
+        "es": "Escapada al Himalaya y Tour de Ladakh",
+        "pt": "Escapada ao Himalaia e Tour de Ladakh"
+      },
+      "description": {
+        "en": "Breathtaking Mountain Lakes & High Altitude Passes",
+        "es": "Lagos de Montaña y Hermosos Monasterios",
+        "pt": "Lagos de Montanha e Belos Mosteiros"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "golden-triangle-rajasthan-combo",
@@ -481,24 +1604,60 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Private sunrise Taj Mahal access in Agra",
-        "es": "Acceso privado al amanecer en el Taj Mahal",
-        "pt": "Acesso privado ao amanhecer no Taj Mahal"
+        "title": {
+          "en": "Private sunrise Taj Mahal access in Agra",
+          "es": "Acceso privado al amanecer en el Taj Mahal",
+          "pt": "Acesso privado ao amanhecer no Taj Mahal"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Royal heritage palace hotel stays in Jaipur & Udaipur",
-        "es": "Hospedaje en palacios reales en Jaipur y Udaipur",
-        "pt": "Hospedagem em palácios reais em Jaipur e Udaipur"
+        "title": {
+          "en": "Royal heritage palace hotel stays in Jaipur & Udaipur",
+          "es": "Hospedaje en palacios reales en Jaipur y Udaipur",
+          "pt": "Hospedagem em palácios reais em Jaipur e Udaipur"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Mehrangarh Fort private heritage tour in Jodhpur",
-        "es": "Tour privado al Fuerte Mehrangarh en Jodhpur",
-        "pt": "Tour privado ao Forte Mehrangarh em Jodhpur"
+        "title": {
+          "en": "Mehrangarh Fort private heritage tour in Jodhpur",
+          "es": "Tour privado al Fuerte Mehrangarh en Jodhpur",
+          "pt": "Tour privado ao Forte Mehrangarh em Jodhpur"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       },
       {
-        "en": "Sunset camel ride in Jaisalmer sand dunes",
-        "es": "Paseo en camello al atardecer en Jaisalmer",
-        "pt": "Passeio de camelo ao entardecer em Jaisalmer"
+        "title": {
+          "en": "Sunset camel ride in Jaisalmer sand dunes",
+          "es": "Paseo en camello al atardecer en Jaisalmer",
+          "pt": "Passeio de camelo ao entardecer em Jaisalmer"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 4,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -586,7 +1745,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 11,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Delhi, Agra, Jaipur, Jodhpur, Udaipur — The Grand India Circuit",
+      "es": "Delhi, Agra, Jaipur, Jodhpur, Udaipur — El Gran Circuito de India",
+      "pt": "Delhi, Agra, Jaipur, Jodhpur, Udaipur — O Grande Circuito da Índia"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "Golden Triangle + Royal Rajasthan Combo",
+        "es": "Triángulo de Oro + Rajastán Real Combo",
+        "pt": "Triângulo de Ouro + Rajastão Real Combo"
+      },
+      "description": {
+        "en": "Delhi, Agra, Jaipur, Jodhpur, Udaipur — The Grand India Circuit",
+        "es": "Delhi, Agra, Jaipur, Jodhpur, Udaipur — El Gran Circuito de India",
+        "pt": "Delhi, Agra, Jaipur, Jodhpur, Udaipur — O Grande Circuito da Índia"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "north-india-grand-heritage-tour",
@@ -606,24 +1812,60 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Dawn boat ride on the sacred River Ganges in Varanasi",
-        "es": "Paseo en barco al amanecer en el sagrado río Ganges",
-        "pt": "Passeio de barco ao amanhecer no sagrado Rio Ganges"
+        "title": {
+          "en": "Dawn boat ride on the sacred River Ganges in Varanasi",
+          "es": "Paseo en barco al amanecer en el sagrado río Ganges",
+          "pt": "Passeio de barco ao amanhecer no sagrado Rio Ganges"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Attend the mesmerizing Ganga Aarti ceremony at sunset",
-        "es": "Asistir a la magnífica ceremonia del Ganga Aarti",
-        "pt": "Assistir à magnífica cerimônia do Ganga Aarti"
+        "title": {
+          "en": "Attend the mesmerizing Ganga Aarti ceremony at sunset",
+          "es": "Asistir a la magnífica ceremonia del Ganga Aarti",
+          "pt": "Assistir à magnífica cerimônia do Ganga Aarti"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "UNESCO Khajuraho temple complex private walking tour",
-        "es": "Tour privado por el complejo de templos de Khajuraho",
-        "pt": "Tour privado pelo complexo de templos de Khajuraho"
+        "title": {
+          "en": "UNESCO Khajuraho temple complex private walking tour",
+          "es": "Tour privado por el complejo de templos de Khajuraho",
+          "pt": "Tour privado pelo complexo de templos de Khajuraho"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       },
       {
-        "en": "Medieval Orchha Fort & River island tour",
-        "es": "Fuerte medieval de Orchha y tour por la isla del río",
-        "pt": "Forte medieval de Orchha e tour pela ilha do rio"
+        "title": {
+          "en": "Medieval Orchha Fort & River island tour",
+          "es": "Fuerte medieval de Orchha y tour por la isla del río",
+          "pt": "Forte medieval de Orchha e tour pela ilha do rio"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 4,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -654,7 +1896,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 13,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Delhi, Varanasi, Khajuraho, Orchha, Agra & Jaipur",
+      "es": "Delhi, Varanasi, Khajuraho, Orchha, Agra y Jaipur",
+      "pt": "Delhi, Varanasi, Khajuraho, Orchha, Agra e Jaipur"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "North India Grand Heritage & Spiritual Tour",
+        "es": "Gran Tour de Patrimonio y Espiritualidad del Norte de India",
+        "pt": "Grande Tour de Patrimônio e Espiritualidade do Norte da Índia"
+      },
+      "description": {
+        "en": "Delhi, Varanasi, Khajuraho, Orchha, Agra & Jaipur",
+        "es": "Delhi, Varanasi, Khajuraho, Orchha, Agra y Jaipur",
+        "pt": "Delhi, Varanasi, Khajuraho, Orchha, Agra e Jaipur"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "india-honeymoon-luxury",
@@ -674,24 +1963,60 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Candlelit Taj Mahal private dinner arrangement",
-        "es": "Cena privada con velas frente al Taj Mahal",
-        "pt": "Jantar privado com velas em frente ao Taj Mahal"
+        "title": {
+          "en": "Candlelit Taj Mahal private dinner arrangement",
+          "es": "Cena privada con velas frente al Taj Mahal",
+          "pt": "Jantar privado com velas em frente ao Taj Mahal"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Suite at Taj Lake Palace on Lake Pichola, Udaipur",
-        "es": "Suite en el Taj Lake Palace en el lago Pichola",
-        "pt": "Suite no Taj Lake Palace no Lago Pichola"
+        "title": {
+          "en": "Suite at Taj Lake Palace on Lake Pichola, Udaipur",
+          "es": "Suite en el Taj Lake Palace en el lago Pichola",
+          "pt": "Suite no Taj Lake Palace no Lago Pichola"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Kerala luxury houseboat private canal cruise",
-        "es": "Crucero privado en casa flotante de lujo en Kerala",
-        "pt": "Cruzeiro privado em casa flutuante de luxo em Kerala"
+        "title": {
+          "en": "Kerala luxury houseboat private canal cruise",
+          "es": "Crucero privado en casa flotante de lujo en Kerala",
+          "pt": "Cruzeiro privado em casa flutuante de luxo em Kerala"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       },
       {
-        "en": "Goa beachfront luxury villa with private pool",
-        "es": "Villa de lujo frente al mar en Goa con piscina privada",
-        "pt": "Villa de luxo frente ao mar em Goa com piscina privada"
+        "title": {
+          "en": "Goa beachfront luxury villa with private pool",
+          "es": "Villa de lujo frente al mar en Goa con piscina privada",
+          "pt": "Villa de luxo frente ao mar em Goa com piscina privada"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 4,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -722,7 +2047,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 9,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Taj Mahal, Palace Hotels, Kerala Houseboat & Goa Beach Villa",
+      "es": "Taj Mahal, Hoteles Palacio, Casa Flotante en Kerala y Villa en Goa",
+      "pt": "Taj Mahal, Hotéis Palácio, Casa Flutuante em Kerala e Vila em Goa"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "India Honeymoon Luxury Experience",
+        "es": "Experiencia de Luna de Miel de Lujo en India",
+        "pt": "Experiência de Lua de Mel de Luxo na Índia"
+      },
+      "description": {
+        "en": "Taj Mahal, Palace Hotels, Kerala Houseboat & Goa Beach Villa",
+        "es": "Taj Mahal, Hoteles Palacio, Casa Flotante en Kerala y Villa en Goa",
+        "pt": "Taj Mahal, Hotéis Palácio, Casa Flutuante em Kerala e Vila em Goa"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "spiritual-varanasi-bodh-gaya",
@@ -742,19 +2114,46 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Dawn boat ride on the sacred Ganges river",
-        "es": "Paseo en barco al amanecer en el Ganges",
-        "pt": "Passeio de barco ao amanhecer no Ganges"
+        "title": {
+          "en": "Dawn boat ride on the sacred Ganges river",
+          "es": "Paseo en barco al amanecer en el Ganges",
+          "pt": "Passeio de barco ao amanhecer no Ganges"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Private Ganga Aarti ceremony front-row viewing",
-        "es": "Vista de primera fila de la ceremonia Ganga Aarti",
-        "pt": "Vista de primeira fila da cerimônia Ganga Aarti"
+        "title": {
+          "en": "Private Ganga Aarti ceremony front-row viewing",
+          "es": "Vista de primera fila de la ceremonia Ganga Aarti",
+          "pt": "Vista de primeira fila da cerimônia Ganga Aarti"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Meditation session at Mahabodhi Temple, Bodh Gaya",
-        "es": "Sesión de meditación en el Templo Mahabodhi",
-        "pt": "Sessão de meditação no Templo Mahabodhi"
+        "title": {
+          "en": "Meditation session at Mahabodhi Temple, Bodh Gaya",
+          "es": "Sesión de meditación en el Templo Mahabodhi",
+          "pt": "Sessão de meditação no Templo Mahabodhi"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -780,7 +2179,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 6,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Sacred Ganges Ceremonies, Meditation & Buddhist Enlightenment Trail",
+      "es": "Ceremonias Sagradas del Ganges y Sendero de la Iluminación Budista",
+      "pt": "Cerimônias Sagradas do Ganges e Trilha da Iluminação Budista"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "Spiritual India: Varanasi & Bodh Gaya Pilgrimage",
+        "es": "India Espiritual: Peregrinación a Varanasi y Bodh Gaya",
+        "pt": "Índia Espiritual: Peregrinação a Varanasi e Bodh Gaya"
+      },
+      "description": {
+        "en": "Sacred Ganges Ceremonies, Meditation & Buddhist Enlightenment Trail",
+        "es": "Ceremonias Sagradas del Ganges y Sendero de la Iluminación Budista",
+        "pt": "Cerimônias Sagradas do Ganges e Trilha da Iluminação Budista"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "northeast-india-explorer",
@@ -800,19 +2246,46 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Trek to the Double Decker Living Root Bridge",
-        "es": "Caminata al Puente de Raíces de Dos Pisos",
-        "pt": "Caminhada à Ponte de Raízes de Dois Andares"
+        "title": {
+          "en": "Trek to the Double Decker Living Root Bridge",
+          "es": "Caminata al Puente de Raíces de Dos Pisos",
+          "pt": "Caminhada à Ponte de Raízes de Dois Andares"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Kaziranga National Park rhino safari",
-        "es": "Safari de rinocerontes en Kaziranga",
-        "pt": "Safári de rinocerontes em Kaziranga"
+        "title": {
+          "en": "Kaziranga National Park rhino safari",
+          "es": "Safari de rinocerontes en Kaziranga",
+          "pt": "Safári de rinocerontes em Kaziranga"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Tea estate walk and tasting in Jorhat",
-        "es": "Paseo y degustación en plantación de té",
-        "pt": "Passeio e degustação em plantação de chá"
+        "title": {
+          "en": "Tea estate walk and tasting in Jorhat",
+          "es": "Paseo y degustación en plantación de té",
+          "pt": "Passeio e degustação em plantação de chá"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -838,7 +2311,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 9,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Meghalaya Root Bridges, Assam Tea & Kaziranga Rhinos",
+      "es": "Puentes de Raíces, Té de Assam y Rinocerontes de Kaziranga",
+      "pt": "Pontes de Raízes, Chá de Assam e Rinocerontes de Kaziranga"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "Northeast India Hidden Gems Explorer",
+        "es": "Explorador de Gemas Ocultas del Noreste",
+        "pt": "Explorador de Joias Ocultas do Nordeste"
+      },
+      "description": {
+        "en": "Meghalaya Root Bridges, Assam Tea & Kaziranga Rhinos",
+        "es": "Puentes de Raíces, Té de Assam y Rinocerontes de Kaziranga",
+        "pt": "Pontes de Raízes, Chá de Assam e Rinocerontes de Kaziranga"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "karnataka-hampi-coorg",
@@ -858,19 +2378,46 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Private sunrise tour of Hampi boulder temples",
-        "es": "Tour privado al amanecer por los templos de Hampi",
-        "pt": "Tour privado ao amanhecer pelos templos de Hampi"
+        "title": {
+          "en": "Private sunrise tour of Hampi boulder temples",
+          "es": "Tour privado al amanecer por los templos de Hampi",
+          "pt": "Tour privado ao amanhecer pelos templos de Hampi"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Mysore Palace illumination evening viewing",
-        "es": "Vista nocturna de la iluminación del Palacio de Mysore",
-        "pt": "Vista noturna da iluminação do Palácio de Mysore"
+        "title": {
+          "en": "Mysore Palace illumination evening viewing",
+          "es": "Vista nocturna de la iluminación del Palacio de Mysore",
+          "pt": "Vista noturna da iluminação do Palácio de Mysore"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Coffee plantation stay and cupping experience",
-        "es": "Estancia en plantación y degustación de café",
-        "pt": "Estadia em plantação e degustação de café"
+        "title": {
+          "en": "Coffee plantation stay and cupping experience",
+          "es": "Estancia en plantación y degustación de café",
+          "pt": "Estadia em plantação e degustação de café"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -896,7 +2443,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 7,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "UNESCO Hampi Ruins, Mysore Palace & Coorg Coffee Estates",
+      "es": "Ruinas de Hampi, Palacio de Mysore y Fincas de Café de Coorg",
+      "pt": "Ruínas de Hampi, Palácio de Mysore e Fazendas de Café de Coorg"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "Karnataka Heritage & Coffee Country",
+        "es": "Patrimonio de Karnataka y País del Café",
+        "pt": "Patrimônio de Karnataka e País do Café"
+      },
+      "description": {
+        "en": "UNESCO Hampi Ruins, Mysore Palace & Coorg Coffee Estates",
+        "es": "Ruinas de Hampi, Palacio de Mysore y Fincas de Café de Coorg",
+        "pt": "Ruínas de Hampi, Palácio de Mysore e Fazendas de Café de Coorg"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "andaman-tropical-escape",
@@ -916,19 +2510,46 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Private speedboat to Havelock Island beaches",
-        "es": "Lancha privada a las playas de Havelock",
-        "pt": "Lancha privada para as praias de Havelock"
+        "title": {
+          "en": "Private speedboat to Havelock Island beaches",
+          "es": "Lancha privada a las playas de Havelock",
+          "pt": "Lancha privada para as praias de Havelock"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Scuba diving at pristine coral reefs",
-        "es": "Buceo en arrecifes de coral vírgenes",
-        "pt": "Mergulho em recifes de coral virgem"
+        "title": {
+          "en": "Scuba diving at pristine coral reefs",
+          "es": "Buceo en arrecifes de coral vírgenes",
+          "pt": "Mergulho em recifes de coral virgem"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Bioluminescent beach night kayaking",
-        "es": "Kayak nocturno en playa bioluminiscente",
-        "pt": "Caiaque noturno em praia bioluminescente"
+        "title": {
+          "en": "Bioluminescent beach night kayaking",
+          "es": "Kayak nocturno en playa bioluminiscente",
+          "pt": "Caiaque noturno em praia bioluminescente"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -954,7 +2575,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 6,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Crystal Waters, Scuba Diving & Private Beach Resorts",
+      "es": "Aguas Cristalinas, Buceo y Resorts de Playa Privada",
+      "pt": "Águas Cristalinas, Mergulho e Resorts de Praia Privada"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "Andaman Islands Tropical Escape",
+        "es": "Escapada Tropical a las Islas Andamán",
+        "pt": "Escapada Tropical às Ilhas Andaman"
+      },
+      "description": {
+        "en": "Crystal Waters, Scuba Diving & Private Beach Resorts",
+        "es": "Aguas Cristalinas, Buceo y Resorts de Playa Privada",
+        "pt": "Águas Cristalinas, Mergulho e Resorts de Praia Privada"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "punjab-amritsar-cultural",
@@ -974,19 +2642,46 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Golden Temple sunrise visit and langar meal",
-        "es": "Visita al amanecer al Templo Dorado",
-        "pt": "Visita ao amanhecer ao Templo Dourado"
+        "title": {
+          "en": "Golden Temple sunrise visit and langar meal",
+          "es": "Visita al amanecer al Templo Dorado",
+          "pt": "Visita ao amanhecer ao Templo Dourado"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Wagah Border flag lowering ceremony",
-        "es": "Ceremonia de arriar la bandera en Wagah",
-        "pt": "Cerimônia de baixar a bandeira em Wagah"
+        "title": {
+          "en": "Wagah Border flag lowering ceremony",
+          "es": "Ceremonia de arriar la bandera en Wagah",
+          "pt": "Cerimônia de baixar a bandeira em Wagah"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Traditional Punjabi cooking class and feast",
-        "es": "Clase de cocina punjabi y festín",
-        "pt": "Aula de culinária punjabi e banquete"
+        "title": {
+          "en": "Traditional Punjabi cooking class and feast",
+          "es": "Clase de cocina punjabi y festín",
+          "pt": "Aula de culinária punjabi e banquete"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -1012,7 +2707,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 4,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Golden Temple, Wagah Border Ceremony & Punjabi Feasts",
+      "es": "Templo Dorado, Ceremonia de Wagah y Festines Punjabis",
+      "pt": "Templo Dourado, Cerimônia de Wagah e Banquetes Punjabis"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "Punjab Cultural & Golden Temple Experience",
+        "es": "Experiencia Cultural de Punjab y Templo Dorado",
+        "pt": "Experiência Cultural de Punjab e Templo Dourado"
+      },
+      "description": {
+        "en": "Golden Temple, Wagah Border Ceremony & Punjabi Feasts",
+        "es": "Templo Dorado, Ceremonia de Wagah y Festines Punjabis",
+        "pt": "Templo Dourado, Cerimônia de Wagah e Banquetes Punjabis"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "uttarakhand-yoga-adventure",
@@ -1032,19 +2774,46 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Private yoga sessions with certified gurus",
-        "es": "Sesiones privadas de yoga con gurús certificados",
-        "pt": "Sessões privadas de yoga com gurus certificados"
+        "title": {
+          "en": "Private yoga sessions with certified gurus",
+          "es": "Sesiones privadas de yoga con gurús certificados",
+          "pt": "Sessões privadas de yoga com gurus certificados"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "White water rafting on the Ganges",
-        "es": "Rafting en aguas bravas en el Ganges",
-        "pt": "Rafting em águas bravas no Ganges"
+        "title": {
+          "en": "White water rafting on the Ganges",
+          "es": "Rafting en aguas bravas en el Ganges",
+          "pt": "Rafting em águas bravas no Ganges"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Sunrise meditation at hilltop ashrams",
-        "es": "Meditación al amanecer en ashrams de montaña",
-        "pt": "Meditação ao amanhecer em ashrams de montanha"
+        "title": {
+          "en": "Sunrise meditation at hilltop ashrams",
+          "es": "Meditación al amanecer en ashrams de montaña",
+          "pt": "Meditação ao amanhecer em ashrams de montanha"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -1070,7 +2839,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 6,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Rishikesh Yoga, White Water Rafting & Mountain Meditation",
+      "es": "Yoga en Rishikesh, Rafting y Meditación en las Montañas",
+      "pt": "Yoga em Rishikesh, Rafting e Meditação nas Montanhas"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "Uttarakhand Yoga & Himalayan Adventure",
+        "es": "Yoga en Uttarakhand y Aventura en el Himalaya",
+        "pt": "Yoga em Uttarakhand e Aventura no Himalaia"
+      },
+      "description": {
+        "en": "Rishikesh Yoga, White Water Rafting & Mountain Meditation",
+        "es": "Yoga en Rishikesh, Rafting y Meditación en las Montañas",
+        "pt": "Yoga em Rishikesh, Rafting e Meditação nas Montanhas"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "sikkim-darjeeling-mountains",
@@ -1090,19 +2906,46 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Kanchenjunga sunrise from Tiger Hill",
-        "es": "Amanecer del Kanchenjunga desde Tiger Hill",
-        "pt": "Amanhecer do Kanchenjunga de Tiger Hill"
+        "title": {
+          "en": "Kanchenjunga sunrise from Tiger Hill",
+          "es": "Amanecer del Kanchenjunga desde Tiger Hill",
+          "pt": "Amanhecer do Kanchenjunga de Tiger Hill"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Darjeeling Heritage Railway toy train ride",
-        "es": "Paseo en el tren de juguete de Darjeeling",
-        "pt": "Passeio no trem de brinquedo de Darjeeling"
+        "title": {
+          "en": "Darjeeling Heritage Railway toy train ride",
+          "es": "Paseo en el tren de juguete de Darjeeling",
+          "pt": "Passeio no trem de brinquedo de Darjeeling"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Visit ancient Rumtek and Pemayangtse monasteries",
-        "es": "Visita a los monasterios Rumtek y Pemayangtse",
-        "pt": "Visita aos mosteiros Rumtek e Pemayangtse"
+        "title": {
+          "en": "Visit ancient Rumtek and Pemayangtse monasteries",
+          "es": "Visita a los monasterios Rumtek y Pemayangtse",
+          "pt": "Visita aos mosteiros Rumtek e Pemayangtse"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -1128,7 +2971,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 8,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Kanchenjunga Sunrise, Tea Estates & Buddhist Monasteries",
+      "es": "Amanecer en Kanchenjunga, Plantaciones de Té y Monasterios",
+      "pt": "Amanhecer no Kanchenjunga, Plantações de Chá e Mosteiros"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "Sikkim & Darjeeling Himalayan Heights",
+        "es": "Alturas del Himalaya de Sikkim y Darjeeling",
+        "pt": "Alturas do Himalaia de Sikkim e Darjeeling"
+      },
+      "description": {
+        "en": "Kanchenjunga Sunrise, Tea Estates & Buddhist Monasteries",
+        "es": "Amanecer en Kanchenjunga, Plantaciones de Té y Monasterios",
+        "pt": "Amanhecer no Kanchenjunga, Plantações de Chá e Mosteiros"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "complete-south-india",
@@ -1148,24 +3038,60 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Alleppey luxury houseboat overnight cruise",
-        "es": "Crucero nocturno de lujo en Alleppey",
-        "pt": "Cruzeiro noturno de luxo em Alleppey"
+        "title": {
+          "en": "Alleppey luxury houseboat overnight cruise",
+          "es": "Crucero nocturno de lujo en Alleppey",
+          "pt": "Cruzeiro noturno de luxo em Alleppey"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Madurai Meenakshi Temple private evening tour",
-        "es": "Tour privado nocturno del Templo Meenakshi",
-        "pt": "Tour privado noturno do Templo Meenakshi"
+        "title": {
+          "en": "Madurai Meenakshi Temple private evening tour",
+          "es": "Tour privado nocturno del Templo Meenakshi",
+          "pt": "Tour privado noturno do Templo Meenakshi"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Mysore silk market shopping with local guide",
-        "es": "Compras en el mercado de seda de Mysore",
-        "pt": "Compras no mercado de seda de Mysore"
+        "title": {
+          "en": "Mysore silk market shopping with local guide",
+          "es": "Compras en el mercado de seda de Mysore",
+          "pt": "Compras no mercado de seda de Mysore"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       },
       {
-        "en": "Munnar tea estate stay with plantation walks",
-        "es": "Estancia en plantación de té de Munnar",
-        "pt": "Estadia em plantação de chá de Munnar"
+        "title": {
+          "en": "Munnar tea estate stay with plantation walks",
+          "es": "Estancia en plantación de té de Munnar",
+          "pt": "Estadia em plantação de chá de Munnar"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 4,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -1191,7 +3117,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 13,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Kerala, Tamil Nadu, Karnataka — Temples, Backwaters & Spices",
+      "es": "Kerala, Tamil Nadu, Karnataka — Templos, Canales y Especias",
+      "pt": "Kerala, Tamil Nadu, Karnataka — Templos, Canais e Especiarias"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "Complete South India Cultural Circuit",
+        "es": "Circuito Cultural Completo del Sur de India",
+        "pt": "Circuito Cultural Completo do Sul da Índia"
+      },
+      "description": {
+        "en": "Kerala, Tamil Nadu, Karnataka — Temples, Backwaters & Spices",
+        "es": "Kerala, Tamil Nadu, Karnataka — Templos, Canales y Especias",
+        "pt": "Kerala, Tamil Nadu, Karnataka — Templos, Canais e Especiarias"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "indian-food-trail",
@@ -1211,24 +3184,60 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Old Delhi guided street food crawl with 12 tastings",
-        "es": "Recorrido guiado de comida callejera en Delhi",
-        "pt": "Roteiro guiado de comida de rua em Delhi"
+        "title": {
+          "en": "Old Delhi guided street food crawl with 12 tastings",
+          "es": "Recorrido guiado de comida callejera en Delhi",
+          "pt": "Roteiro guiado de comida de rua em Delhi"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Private cooking class with Lucknow master chef",
-        "es": "Clase de cocina privada con chef de Lucknow",
-        "pt": "Aula de culinária privada com chef de Lucknow"
+        "title": {
+          "en": "Private cooking class with Lucknow master chef",
+          "es": "Clase de cocina privada con chef de Lucknow",
+          "pt": "Aula de culinária privada com chef de Lucknow"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Hyderabadi biryani masterclass experience",
-        "es": "Masterclass de biryani de Hyderabad",
-        "pt": "Masterclass de biryani de Hyderabad"
+        "title": {
+          "en": "Hyderabadi biryani masterclass experience",
+          "es": "Masterclass de biryani de Hyderabad",
+          "pt": "Masterclass de biryani de Hyderabad"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       },
       {
-        "en": "Fresh catch to plate seafood experience in Goa",
-        "es": "Experiencia de mariscos frescos en Goa",
-        "pt": "Experiência de frutos do mar frescos em Goa"
+        "title": {
+          "en": "Fresh catch to plate seafood experience in Goa",
+          "es": "Experiencia de mariscos frescos en Goa",
+          "pt": "Experiência de frutos do mar frescos em Goa"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 4,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -1254,7 +3263,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 10,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Delhi Street Food, Lucknow Kebabs, Hyderabad Biryani & Goan Seafood",
+      "es": "Comida Callejera de Delhi, Kebabs de Lucknow, Biryani y Mariscos de Goa",
+      "pt": "Comida de Rua de Delhi, Kebabs de Lucknow, Biryani e Frutos do Mar de Goa"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "Grand Indian Culinary Trail",
+        "es": "Gran Ruta Culinaria de la India",
+        "pt": "Grande Rota Culinária da Índia"
+      },
+      "description": {
+        "en": "Delhi Street Food, Lucknow Kebabs, Hyderabad Biryani & Goan Seafood",
+        "es": "Comida Callejera de Delhi, Kebabs de Lucknow, Biryani y Mariscos de Goa",
+        "pt": "Comida de Rua de Delhi, Kebabs de Lucknow, Biryani e Frutos do Mar de Goa"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "luxury-palace-circuit",
@@ -1274,19 +3330,46 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "3 nights at Taj Lake Palace floating on Lake Pichola",
-        "es": "3 noches en Taj Lake Palace flotando en el Lago Pichola",
-        "pt": "3 noites no Taj Lake Palace flutuando no Lago Pichola"
+        "title": {
+          "en": "3 nights at Taj Lake Palace floating on Lake Pichola",
+          "es": "3 noches en Taj Lake Palace flotando en el Lago Pichola",
+          "pt": "3 noites no Taj Lake Palace flutuando no Lago Pichola"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Royal dinner at Umaid Bhawan Palace, Jodhpur",
-        "es": "Cena real en Umaid Bhawan Palace, Jodhpur",
-        "pt": "Jantar real no Umaid Bhawan Palace, Jodhpur"
+        "title": {
+          "en": "Royal dinner at Umaid Bhawan Palace, Jodhpur",
+          "es": "Cena real en Umaid Bhawan Palace, Jodhpur",
+          "pt": "Jantar real no Umaid Bhawan Palace, Jodhpur"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Private elephant polo match at heritage resort",
-        "es": "Partido privado de polo de elefantes",
-        "pt": "Partida privada de polo de elefantes"
+        "title": {
+          "en": "Private elephant polo match at heritage resort",
+          "es": "Partido privado de polo de elefantes",
+          "pt": "Partida privada de polo de elefantes"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -1312,7 +3395,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 11,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Stay in Taj, Oberoi & Heritage Royal Palaces Across India",
+      "es": "Estancia en Palacios Reales Taj y Oberoi por toda India",
+      "pt": "Estadia em Palácios Reais Taj e Oberoi por toda a Índia"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "India Luxury Palace Hotel Circuit",
+        "es": "Circuito de Hoteles Palacio de Lujo de India",
+        "pt": "Circuito de Hotéis Palácio de Luxo da Índia"
+      },
+      "description": {
+        "en": "Stay in Taj, Oberoi & Heritage Royal Palaces Across India",
+        "es": "Estancia en Palacios Reales Taj y Oberoi por toda India",
+        "pt": "Estadia em Palácios Reais Taj e Oberoi por toda a Índia"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "photography-expedition-india",
@@ -1332,19 +3462,46 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Professional photography guide throughout",
-        "es": "Guía fotográfico profesional durante todo el viaje",
-        "pt": "Guia fotográfico profissional durante toda a viagem"
+        "title": {
+          "en": "Professional photography guide throughout",
+          "es": "Guía fotográfico profesional durante todo el viaje",
+          "pt": "Guia fotográfico profissional durante toda a viagem"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Golden hour access to iconic monument locations",
-        "es": "Acceso a hora dorada en monumentos icónicos",
-        "pt": "Acesso à hora dourada em monumentos icônicos"
+        "title": {
+          "en": "Golden hour access to iconic monument locations",
+          "es": "Acceso a hora dorada en monumentos icónicos",
+          "pt": "Acesso à hora dourada em monumentos icônicos"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Portrait sessions with colorful local artisans",
-        "es": "Sesiones de retrato con artesanos locales",
-        "pt": "Sessões de retrato com artesãos locais"
+        "title": {
+          "en": "Portrait sessions with colorful local artisans",
+          "es": "Sesiones de retrato con artesanos locales",
+          "pt": "Sessões de retrato com artesãos locais"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -1370,7 +3527,54 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 9,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Capture Rajasthan Colors, Varanasi Ghats & Kerala Landscapes",
+      "es": "Capture los Colores de Rajastán, los Ghats de Varanasi y Kerala",
+      "pt": "Capture as Cores do Rajastão, os Ghats de Varanasi e Kerala"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "India Photography Expedition",
+        "es": "Expedición Fotográfica por India",
+        "pt": "Expedição Fotográfica pela Índia"
+      },
+      "description": {
+        "en": "Capture Rajasthan Colors, Varanasi Ghats & Kerala Landscapes",
+        "es": "Capture los Colores de Rajastán, los Ghats de Varanasi y Kerala",
+        "pt": "Capture as Cores do Rajastão, os Ghats de Varanasi e Kerala"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   },
   {
     "slug": "family-india-adventure",
@@ -1390,19 +3594,46 @@
     "gallery": [],
     "highlights": [
       {
-        "en": "Ranthambore tiger safari with child-friendly naturalist",
-        "es": "Safari de tigres con naturalista para niños",
-        "pt": "Safári de tigres com naturalista para crianças"
+        "title": {
+          "en": "Ranthambore tiger safari with child-friendly naturalist",
+          "es": "Safari de tigres con naturalista para niños",
+          "pt": "Safári de tigres com naturalista para crianças"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 1,
+        "isActive": true
       },
       {
-        "en": "Jaipur puppet show and block printing workshop",
-        "es": "Espectáculo de marionetas y taller de estampado",
-        "pt": "Espetáculo de marionetas e oficina de estampagem"
+        "title": {
+          "en": "Jaipur puppet show and block printing workshop",
+          "es": "Espectáculo de marionetas y taller de estampado",
+          "pt": "Espetáculo de marionetas e oficina de estampagem"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 2,
+        "isActive": true
       },
       {
-        "en": "Kerala houseboat with kids' fishing activity",
-        "es": "Casa-barco en Kerala con actividad de pesca",
-        "pt": "Casa-barco em Kerala com atividade de pesca"
+        "title": {
+          "en": "Kerala houseboat with kids' fishing activity",
+          "es": "Casa-barco en Kerala con actividad de pesca",
+          "pt": "Casa-barco em Kerala com atividade de pesca"
+        },
+        "desc": {
+          "en": "",
+          "es": "",
+          "pt": ""
+        },
+        "displayOrder": 3,
+        "isActive": true
       }
     ],
     "itinerary": [
@@ -1428,6 +3659,53 @@
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "faqs": [],
+    "durationNights": 9,
+    "startingLocation": "Delhi",
+    "endingLocation": "Delhi",
+    "tourType": "Private Tour",
+    "travelStyle": "Luxury",
+    "exclusions": [],
+    "addons": [],
+    "status": "published",
+    "description": {
+      "en": "Kid-Friendly Experiences, Wildlife Safaris & Cultural Fun",
+      "es": "Experiencias para Niños, Safaris y Diversión Cultural",
+      "pt": "Experiências para Crianças, Safáris e Diversão Cultural"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Standard cancellation policy applies.",
+        "es": "Se aplica política estándar.",
+        "pt": "Aplica-se política padrão."
+      },
+      "refund": {
+        "en": "Refunds according to cancellation terms.",
+        "es": "Reembolsos según política.",
+        "pt": "Reembolsos conforme política."
+      },
+      "terms": {
+        "en": "Standard terms and conditions.",
+        "es": "Términos estándar.",
+        "pt": "Termos padrão."
+      }
+    },
+    "seo": {
+      "title": {
+        "en": "India Family Adventure Package",
+        "es": "Paquete de Aventura Familiar en India",
+        "pt": "Pacote de Aventura Familiar na Índia"
+      },
+      "description": {
+        "en": "Kid-Friendly Experiences, Wildlife Safaris & Cultural Fun",
+        "es": "Experiencias para Niños, Safaris y Diversión Cultural",
+        "pt": "Experiências para Crianças, Safáris e Diversão Cultural"
+      },
+      "keywords": {
+        "en": "travel, tour",
+        "es": "viaje, tour",
+        "pt": "viagem, tour"
+      }
+    }
   }
 ]

@@ -10,6 +10,35 @@ interface StatePageProps {
   params: Promise<{ locale: string; stateSlug: string }>;
 }
 
+export async function generateMetadata({ params }: StatePageProps) {
+  const { locale, stateSlug } = await params;
+  const state = await getStateBySlugAction(stateSlug) as any;
+  if (!state) return {};
+  const lang = (locale === "es" || locale === "pt") ? locale : "en";
+
+  const title = state.seo?.title?.[lang] || state.seo?.title?.en || state.title?.[lang] || state.title?.en || "";
+  const description = state.seo?.description?.[lang] || state.seo?.description?.en || state.tagline?.[lang] || state.tagline?.en || "";
+  const keywords = state.seo?.keywords?.[lang] || state.seo?.keywords?.en || "";
+
+  return {
+    title,
+    description,
+    keywords,
+    openGraph: {
+      title: state.seo?.ogTitle || title,
+      description: state.seo?.ogDescription || description,
+      images: state.seo?.ogImage ? [{ url: state.seo?.ogImage }] : [{ url: state.image }],
+    },
+    alternates: {
+      canonical: state.seo?.canonicalUrl || `/${locale}/destinations/${stateSlug}`,
+    },
+    robots: {
+      index: state.status === "published",
+      follow: true
+    }
+  };
+}
+
 export default async function StateDetailPage({ params }: StatePageProps) {
   const { locale, stateSlug } = await params;
   const state = await getStateBySlugAction(stateSlug) as any;
