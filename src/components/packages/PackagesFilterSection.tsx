@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Reveal from "@/components/home/Reveal";
 import { 
-  Calendar, CheckCircle, ArrowRight, Hotel, Car, UserCheck, ShieldCheck 
+  Calendar, CheckCircle, ArrowRight 
 } from "lucide-react";
 
 interface PackagesFilterSectionProps {
@@ -96,36 +96,24 @@ export default function PackagesFilterSection({
                     {pkg.tagline[locale as "en" | "es" | "pt"] || pkg.tagline.en}
                   </p>
 
-                  {/* Standard Clear Inclusions Panel */}
+                  {/* Dynamic Highlights from package data */}
                   <div className="pt-4 border-t border-[#C5A862]/10 space-y-3">
                     <span className="text-[10px] uppercase tracking-wider font-extrabold text-gold block">{text.inclusionsTitle}</span>
-                    <div className="grid grid-cols-2 gap-2 text-xs font-light text-foreground/60">
-                      <div className="flex items-center gap-1.5">
-                        <Hotel className="w-3.5 h-3.5 text-gold shrink-0" />
-                        <span>5-Star Palace</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <Car className="w-3.5 h-3.5 text-gold shrink-0" />
-                        <span>Private SUV</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <UserCheck className="w-3.5 h-3.5 text-gold shrink-0" />
-                        <span>Personal Guide</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <ShieldCheck className="w-3.5 h-3.5 text-gold shrink-0" />
-                        <span>Daily Breakfast</span>
-                      </div>
+                    <div className="space-y-2">
+                      {pkg.highlights && pkg.highlights.slice(0, 4).map((hl: any, idx: number) => {
+                        // Support both old format (plain string object) and new format ({title, desc, icon})
+                        const label = hl.title
+                          ? (hl.title[locale as "en" | "es" | "pt"] || hl.title.en)
+                          : (hl[locale as "en" | "es" | "pt"] || hl.en);
+                        if (!label) return null;
+                        return (
+                          <div key={idx} className="flex items-start gap-2 text-xs text-foreground/65 font-light">
+                            <CheckCircle className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
+                            <span>{label}</span>
+                          </div>
+                        );
+                      })}
                     </div>
-                  </div>
-
-                  <div className="space-y-2 pt-3">
-                    {pkg.highlights.slice(0, 3).map((hl: any, idx: number) => (
-                      <div key={idx} className="flex items-start gap-2 text-xs text-foreground/65 font-light">
-                        <CheckCircle className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
-                        <span>{hl[locale as "en" | "es" | "pt"] || hl.en}</span>
-                      </div>
-                    ))}
                   </div>
                 </div>
                 
