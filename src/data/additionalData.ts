@@ -280,7 +280,7 @@ export const additionalStates: StateData[] = [
 // ============================================================
 export const additionalPackages: TourPackage[] = [
   {
-    slug: "spiritual-varanasi-bodh-gaya",
+    slug: "spiritual-india-varanasi-bodh-gaya-pilgrimage",
     title: { en: "Spiritual India: Varanasi & Bodh Gaya Pilgrimage", es: "India Espiritual: Peregrinación a Varanasi y Bodh Gaya", pt: "Índia Espiritual: Peregrinação a Varanasi e Bodh Gaya" },
     tagline: { en: "Sacred Ganges Ceremonies, Meditation & Buddhist Enlightenment Trail", es: "Ceremonias Sagradas del Ganges y Sendero de la Iluminación Budista", pt: "Cerimônias Sagradas do Ganges e Trilha da Iluminação Budista" },
     category: "Spiritual Tours",
@@ -298,7 +298,7 @@ export const additionalPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "northeast-india-explorer",
+    slug: "northeast-india-hidden-gems-explorer",
     title: { en: "Northeast India Hidden Gems Explorer", es: "Explorador de Gemas Ocultas del Noreste", pt: "Explorador de Joias Ocultas do Nordeste" },
     tagline: { en: "Meghalaya Root Bridges, Assam Tea & Kaziranga Rhinos", es: "Puentes de Raíces, Té de Assam y Rinocerontes de Kaziranga", pt: "Pontes de Raízes, Chá de Assam e Rinocerontes de Kaziranga" },
     category: "Adventure Tours",
@@ -316,7 +316,7 @@ export const additionalPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "karnataka-hampi-coorg",
+    slug: "karnataka-heritage-coffee-country",
     title: { en: "Karnataka Heritage & Coffee Country", es: "Patrimonio de Karnataka y País del Café", pt: "Patrimônio de Karnataka e País do Café" },
     tagline: { en: "UNESCO Hampi Ruins, Mysore Palace & Coorg Coffee Estates", es: "Ruinas de Hampi, Palacio de Mysore y Fincas de Café de Coorg", pt: "Ruínas de Hampi, Palácio de Mysore e Fazendas de Café de Coorg" },
     category: "Heritage Tours",
@@ -334,7 +334,7 @@ export const additionalPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "andaman-tropical-escape",
+    slug: "andaman-islands-tropical-escape",
     title: { en: "Andaman Islands Tropical Escape", es: "Escapada Tropical a las Islas Andamán", pt: "Escapada Tropical às Ilhas Andaman" },
     tagline: { en: "Crystal Waters, Scuba Diving & Private Beach Resorts", es: "Aguas Cristalinas, Buceo y Resorts de Playa Privada", pt: "Águas Cristalinas, Mergulho e Resorts de Praia Privada" },
     category: "Beach Vacations",
@@ -352,7 +352,7 @@ export const additionalPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "punjab-amritsar-cultural",
+    slug: "punjab-cultural-golden-temple-experience",
     title: { en: "Punjab Cultural & Golden Temple Experience", es: "Experiencia Cultural de Punjab y Templo Dorado", pt: "Experiência Cultural de Punjab e Templo Dourado" },
     tagline: { en: "Golden Temple, Wagah Border Ceremony & Punjabi Feasts", es: "Templo Dorado, Ceremonia de Wagah y Festines Punjabis", pt: "Templo Dourado, Cerimônia de Wagah e Banquetes Punjabis" },
     category: "Cultural Tours",
@@ -370,7 +370,7 @@ export const additionalPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "uttarakhand-yoga-adventure",
+    slug: "uttarakhand-yoga-himalayan-adventure",
     title: { en: "Uttarakhand Yoga & Himalayan Adventure", es: "Yoga en Uttarakhand y Aventura en el Himalaya", pt: "Yoga em Uttarakhand e Aventura no Himalaia" },
     tagline: { en: "Rishikesh Yoga, White Water Rafting & Mountain Meditation", es: "Yoga en Rishikesh, Rafting y Meditación en las Montañas", pt: "Yoga em Rishikesh, Rafting e Meditação nas Montanhas" },
     category: "Wellness Tours",
@@ -388,7 +388,7 @@ export const additionalPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "sikkim-darjeeling-mountains",
+    slug: "sikkim-darjeeling-himalayan-heights",
     title: { en: "Sikkim & Darjeeling Himalayan Heights", es: "Alturas del Himalaya de Sikkim y Darjeeling", pt: "Alturas do Himalaia de Sikkim e Darjeeling" },
     tagline: { en: "Kanchenjunga Sunrise, Tea Estates & Buddhist Monasteries", es: "Amanecer en Kanchenjunga, Plantaciones de Té y Monasterios", pt: "Amanhecer no Kanchenjunga, Plantações de Chá e Mosteiros" },
     category: "Mountain Tours",
@@ -406,7 +406,7 @@ export const additionalPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "complete-south-india",
+    slug: "complete-south-india-cultural-circuit",
     title: { en: "Complete South India Cultural Circuit", es: "Circuito Cultural Completo del Sur de India", pt: "Circuito Cultural Completo do Sul da Índia" },
     tagline: { en: "Kerala, Tamil Nadu, Karnataka — Temples, Backwaters & Spices", es: "Kerala, Tamil Nadu, Karnataka — Templos, Canales y Especias", pt: "Kerala, Tamil Nadu, Karnataka — Templos, Canais e Especiarias" },
     category: "Cultural Tours",
@@ -425,7 +425,7 @@ export const additionalPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "indian-food-trail",
+    slug: "grand-indian-culinary-trail",
     title: { en: "Grand Indian Culinary Trail", es: "Gran Ruta Culinaria de la India", pt: "Grande Rota Culinária da Índia" },
     tagline: { en: "Delhi Street Food, Lucknow Kebabs, Hyderabad Biryani & Goan Seafood", es: "Comida Callejera de Delhi, Kebabs de Lucknow, Biryani y Mariscos de Goa", pt: "Comida de Rua de Delhi, Kebabs de Lucknow, Biryani e Frutos do Mar de Goa" },
     category: "Food & Culinary",
@@ -444,7 +444,7 @@ export const additionalPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "luxury-palace-circuit",
+    slug: "india-luxury-palace-hotel-circuit",
     title: { en: "India Luxury Palace Hotel Circuit", es: "Circuito de Hoteles Palacio de Lujo de India", pt: "Circuito de Hotéis Palácio de Luxo da Índia" },
     tagline: { en: "Stay in Taj, Oberoi & Heritage Royal Palaces Across India", es: "Estancia en Palacios Reales Taj y Oberoi por toda India", pt: "Estadia em Palácios Reais Taj e Oberoi por toda a Índia" },
     category: "Luxury Tours",
@@ -462,7 +462,7 @@ export const additionalPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "photography-expedition-india",
+    slug: "india-photography-expedition",
     title: { en: "India Photography Expedition", es: "Expedición Fotográfica por India", pt: "Expedição Fotográfica pela Índia" },
     tagline: { en: "Capture Rajasthan Colors, Varanasi Ghats & Kerala Landscapes", es: "Capture los Colores de Rajastán, los Ghats de Varanasi y Kerala", pt: "Capture as Cores do Rajastão, os Ghats de Varanasi e Kerala" },
     category: "Special Interest",
@@ -480,7 +480,7 @@ export const additionalPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "family-india-adventure",
+    slug: "india-family-adventure-package",
     title: { en: "India Family Adventure Package", es: "Paquete de Aventura Familiar en India", pt: "Pacote de Aventura Familiar na Índia" },
     tagline: { en: "Kid-Friendly Experiences, Wildlife Safaris & Cultural Fun", es: "Experiencias para Niños, Safaris y Diversión Cultural", pt: "Experiências para Crianças, Safáris e Diversão Cultural" },
     category: "Family Tours",

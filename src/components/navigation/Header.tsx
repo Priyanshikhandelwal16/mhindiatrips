@@ -92,11 +92,11 @@ export default function Header({ locale, contactDetails }: HeaderProps) {
 
   const packagesList = [
     { name: { en: "Imperial Golden Triangle", es: "Triángulo de Oro Imperial", pt: "Triângulo de Ouro Imperial" }, path: "/packages#golden-triangle-luxury" },
-    { name: { en: "Royal Rajasthan Heritage", es: "Rajastán Real y Patrimonial", pt: "Rajastão Real e Patrimonial" }, path: "/packages#royal-rajasthan-heritage" },
+    { name: { en: "Royal Rajasthan Heritage", es: "Rajastán Real y Patrimonial", pt: "Rajastão Real e Patrimonial" }, path: "/packages#rajasthan-heritage-royal-palaces-tour" },
     { name: { en: "Kerala Tropical Escape", es: "Escapada Tropical a Kerala", pt: "Escapada Tropical a Kerala" }, path: "/packages#kerala-tropical-escape" },
     { name: { en: "Spiritual India Journey", es: "Viaje Espiritual por la India", pt: "Viagem Espiritual pela Índia" }, path: "/packages#spiritual-india-varanasi" },
-    { name: { en: "Wildlife & Tiger Safari", es: "Safari de Vida Silvestre y Tigres", pt: "Safari de Vida Selvagem e Tigres" }, path: "/packages#wildlife-tiger-safari" },
-    { name: { en: "Goa Beach & Heritage Luxury", es: "Lujo de Playa y Patrimonio en Goa", pt: "Luxo de Praia e Patrimônio em Goa" }, path: "/packages#goa-beach-luxury" }
+    { name: { en: "Wildlife & Tiger Safari", es: "Safari de Vida Silvestre y Tigres", pt: "Safari de Vida Selvagem e Tigres" }, path: "/packages#wildlife-royal-tiger-safaris" },
+    { name: { en: "Goa Beach & Heritage Luxury", es: "Lujo de Playa y Patrimonio en Goa", pt: "Luxo de Praia e Patrimônio em Goa" }, path: "/packages#goa-luxury-beach-vacation" }
   ];
 
   const destinationsList = [

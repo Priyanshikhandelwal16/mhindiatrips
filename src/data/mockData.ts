@@ -837,7 +837,7 @@ export const tourPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "kerala-ayurveda-wellness",
+    slug: "kerala-ayurveda-wellness-retreat",
     title: { en: "Kerala Ayurveda & Wellness retreat", es: "Retiro de Bienestar y Ayurveda en Kerala", pt: "Retiro de Bem-Estar e Ayurveda em Kerala" },
     tagline: { en: "Rejuvenating Body & Soul in the Coconut Paradise", es: "Rejuvenece Cuerpo y Alma en el Paraíso de los Cocos", pt: "Rejuvenesça Corpo e Alma no Paraíso dos Cocos" },
     category: "Wellness Tours",
@@ -859,7 +859,7 @@ export const tourPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "wildlife-ranthambore-safari",
+    slug: "wildlife-royal-tiger-safaris",
     title: { en: "Wildlife & Royal Tiger Safaris", es: "Aventura de Vida Silvestre y Safari de Tigres", pt: "Aventura de Vida Selvagem e Safári de Tigres" },
     tagline: { en: "Encounter Majestic Bengal Tigers in Ancient Forests", es: "Encuentre Tigres de Bengala en Bosques Antiguos", pt: "Encontre Tigres de Bengala em Florestas Antigas" },
     category: "Wildlife Safaris",
@@ -881,7 +881,7 @@ export const tourPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "rajasthan-royal-heritage",
+    slug: "rajasthan-heritage-royal-palaces-tour",
     title: { en: "Rajasthan Heritage & Royal Palaces Tour", es: "Patrimonio de Rajastán y Palacios Reales", pt: "Patrimônio do Rajastão e Palácios Reais" },
     tagline: { en: "The Ultimate Grand Tour of Rajput Royalty & Dunes", es: "El Gran Tour de la Realeza Rajput y Dunas de Arena", pt: "O Grande Tour da Realeza Rajput e Dunas de Areia" },
     category: "Heritage Tours",
@@ -903,7 +903,7 @@ export const tourPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "south-india-temples",
+    slug: "south-india-monuments-temples",
     title: { en: "South India Monuments & Temples", es: "Monumentos e Templos del Sur de la India", pt: "Monumentos e Templos do Sul da Índia" },
     tagline: { en: "Architectural Marvels of Hampi, Mysore & Madurai", es: "Maravillas Arquitectónicas del Sur de la India", pt: "Maravilhas Arquitetônicas do Sul da Índia" },
     category: "Heritage Tours",
@@ -925,7 +925,7 @@ export const tourPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "goa-beach-luxury",
+    slug: "goa-luxury-beach-vacation",
     title: { en: "Goa Luxury Beach Vacation", es: "Vacaciones de Lujo en las Playas de Goa", pt: "Férias de Luxo nas Praias de Goa" },
     tagline: { en: "Pure Coastal Indulgence, Yacht Cruises & Villas", es: "Pura Indulgencia Costera, Yate Privado y Villas", pt: "Pura Indulgência Costeira, Iate Privado e Villas" },
     category: "Beach Vacations",
@@ -947,7 +947,7 @@ export const tourPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "gujarat-heritage-safari",
+    slug: "royal-gujarat-heritage-safari",
     title: { en: "Royal Gujarat & Heritage Safari", es: "Gujarat Real y Safari de Patrimonio", pt: "Gujarat Real e Safári de Patrimônio" },
     tagline: { en: "Encounter Asiatic Lions, Rann of Kutch & Textile Arts", es: "Leones Asiáticos, el Desierto Blanco y Arte Textil", pt: "Leões Asiáticos, o Deserto Branco e Arte Têxtil" },
     category: "Heritage Tours",
@@ -969,7 +969,7 @@ export const tourPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "ladakh-himalayan-escape",
+    slug: "himalayan-escape-scenic-ladakh-tour",
     title: { en: "Himalayan Escape & Scenic Ladakh Tour", es: "Escapada al Himalaya y Tour de Ladakh", pt: "Escapada ao Himalaia e Tour de Ladakh" },
     tagline: { en: "Breathtaking Mountain Lakes & High Altitude Passes", es: "Lagos de Montaña y Hermosos Monasterios", pt: "Lagos de Montanha e Belos Mosteiros" },
     category: "Adventure Tours",
@@ -991,7 +991,7 @@ export const tourPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "golden-triangle-rajasthan-combo",
+    slug: "golden-triangle-royal-rajasthan-combo",
     title: { en: "Golden Triangle + Royal Rajasthan Combo", es: "Triángulo de Oro + Rajastán Real Combo", pt: "Triângulo de Ouro + Rajastão Real Combo" },
     tagline: { en: "Delhi, Agra, Jaipur, Jodhpur, Udaipur — The Grand India Circuit", es: "Delhi, Agra, Jaipur, Jodhpur, Udaipur — El Gran Circuito de India", pt: "Delhi, Agra, Jaipur, Jodhpur, Udaipur — O Grande Circuito da Índia" },
     category: "Luxury Tours",
@@ -1020,7 +1020,7 @@ export const tourPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "north-india-grand-heritage-tour",
+    slug: "north-india-grand-heritage-spiritual-tour",
     title: { en: "North India Grand Heritage & Spiritual Tour", es: "Gran Tour de Patrimonio y Espiritualidad del Norte de India", pt: "Grande Tour de Patrimônio e Espiritualidade do Norte da Índia" },
     tagline: { en: "Delhi, Varanasi, Khajuraho, Orchha, Agra & Jaipur", es: "Delhi, Varanasi, Khajuraho, Orchha, Agra y Jaipur", pt: "Delhi, Varanasi, Khajuraho, Orchha, Agra e Jaipur" },
     category: "Heritage Tours",
@@ -1044,7 +1044,7 @@ export const tourPackages: TourPackage[] = [
     faqs: []
   },
   {
-    slug: "india-honeymoon-luxury",
+    slug: "india-honeymoon-luxury-experience",
     title: { en: "India Honeymoon Luxury Experience", es: "Experiencia de Luna de Miel de Lujo en India", pt: "Experiência de Lua de Mel de Luxo na Índia" },
     tagline: { en: "Taj Mahal, Palace Hotels, Kerala Houseboat & Goa Beach Villa", es: "Taj Mahal, Hoteles Palacio, Casa Flotante en Kerala y Villa en Goa", pt: "Taj Mahal, Hotéis Palácio, Casa Flutuante em Kerala e Vila em Goa" },
     category: "Luxury Tours",
