@@ -671,15 +671,61 @@ export const db = {
     },
     findUnique: async (slug: string) => {
       const states = await db.destinations.findMany();
-      // Look for State
+      // First look for State by slug
       const state = states.find((s: any) => s.slug === slug);
       if (state) return state;
-      // Look for City
+      // Do NOT search cities by slug here - city lookup must go through parent state
+      return null;
+    },
+    findCityBySlug: async (slug: string) => {
+      const states = await db.destinations.findMany();
       for (const s of states) {
         const city = s.cities?.find((c: any) => c.slug === slug);
-        if (city) return city;
+        if (city) {
+          return {
+            ...city,
+            _parentStateSlug: s.slug,
+            _parentStateTitle: s.title,
+            _parentStateRegion: s.region
+          };
+        }
       }
       return null;
+    },
+    findCitiesByStateSlug: async (stateSlug: string) => {
+      const states = await db.destinations.findMany();
+      const state = states.find((s: any) => s.slug === stateSlug);
+      if (!state) return [];
+      return (state.cities || []).map((c: any) => ({
+        ...c,
+        _parentStateSlug: state.slug,
+        _parentStateTitle: state.title,
+        _parentStateRegion: state.region
+      }));
+    },
+    findParentDestinations: async () => {
+      const states = await db.destinations.findMany();
+      const parentSlugs = new Set(states.map((s: any) => s.parentDestination).filter(Boolean));
+      const parents: any[] = [];
+      for (const slug of parentSlugs) {
+        const state = states.find((s: any) => s.slug === slug);
+        if (state) {
+          parents.push({
+            slug: state.slug,
+            title: state.title,
+            tagline: state.tagline,
+            country: state.country,
+            region: state.region,
+            image: state.image,
+            status: state.status
+          });
+        }
+      }
+      return parents;
+    },
+    findStatesByParentDestination: async (parentSlug: string) => {
+      const states = await db.destinations.findMany();
+      return states.filter((s: any) => s.parentDestination === parentSlug);
     },
     create: async (data: any) => {
       const slug = data.slug || Math.random().toString(36).substring(2, 11);
@@ -689,8 +735,18 @@ export const db = {
         gallery: [],
         travelTips: [],
         faqs: [],
+        status: data.status || "published",
         ...data
       };
+      if (newState.cities && newState.cities.length > 0) {
+        newState.cities = newState.cities.map((city: any) => ({
+          ...city,
+          parentState: city.parentState || slug,
+          _parentStateSlug: slug,
+          _parentStateTitle: newState.title,
+          _parentStateRegion: newState.region
+        }));
+      }
       if (useFirestore) {
         try {
           await setDoc(doc(firestore, "states", slug), newState);
@@ -715,7 +771,17 @@ export const db = {
       }
       const idx = statesCache.findIndex((s: any) => s.slug === slug);
       if (idx !== -1) {
-        statesCache[idx] = { ...statesCache[idx], ...data };
+        const updated = { ...statesCache[idx], ...data };
+        if (updated.cities && updated.cities.length > 0) {
+          updated.cities = updated.cities.map((city: any) => ({
+            ...city,
+            parentState: city.parentState || slug,
+            _parentStateSlug: slug,
+            _parentStateTitle: updated.title,
+            _parentStateRegion: updated.region
+          }));
+        }
+        statesCache[idx] = updated;
         saveLocalData("states", statesCache);
         return statesCache[idx];
       }

@@ -8,6 +8,7 @@ import {
   Info, Activity, List, Calendar
 } from "lucide-react";
 import { CloudinaryUpload } from "./CloudinaryUpload";
+import { previewDestinationAction } from "@/app/actions/admin";
 
 interface DestinationsTabProps {
   states: any[];
@@ -22,6 +23,8 @@ interface DestinationsTabProps {
   handleSaveState: (e: React.FormEvent) => void;
   onDeleteState: (slug: string) => void;
   showStatus: (text: string, type: "success" | "error") => void;
+  parentDestinations?: any[];
+  allPackages?: any[];
 }
 
 export default function DestinationsTab({
@@ -36,7 +39,9 @@ export default function DestinationsTab({
   setEditingAttractionIdx,
   handleSaveState,
   onDeleteState,
-  showStatus
+  showStatus,
+  parentDestinations = [],
+  allPackages = []
 }: DestinationsTabProps) {
 
   const [citySubTab, setCitySubTab] = useState<string>("general");
@@ -49,6 +54,8 @@ export default function DestinationsTab({
     const newCity = {
       slug: citySlug,
       title: { en: cityName, es: cityName, pt: cityName },
+      parentState: editState.slug,
+      country: "India",
       tagline: { en: `Explore the magic of ${cityName}`, es: "", pt: "" },
       image: "",
       gallery: [],
@@ -67,7 +74,6 @@ export default function DestinationsTab({
       suggestedItinerary: { en: "", es: "", pt: "" },
       faqs: [],
       
-      country: "India",
       region: editState.region || "North",
       destinationType: "City",
       shortDescription: { en: "", es: "", pt: "" },
@@ -342,20 +348,67 @@ export default function DestinationsTab({
       {/* STATE OR CITY EDITOR FORM */}
       {editState && (
         <form onSubmit={handleSaveState} className="bg-white border border-gold/20 rounded-3xl p-6 md:p-8 shadow-xl space-y-6">
-          <div className="flex justify-between items-center border-b border-beige/40 pb-4">
+          <div className="flex flex-wrap justify-between items-center border-b border-beige/40 pb-4 gap-3">
             <h3 className="text-base font-bold font-serif">
-              {editState.slug ? `Edit Destination (State): ${editState.title?.en}` : "Create New Destination State"}
+              {editState.slug ? `Edit Destination: ${editState.title?.en || editState.slug}` : "Create New Destination State"}
             </h3>
-            <button
-              type="button"
-              onClick={() => {
-                setEditState(null);
-                setEditingCityIdx(null);
-              }}
-              className="text-royal/50 hover:text-royal font-bold"
-            >
-              Close Editor
-            </button>
+            <div className="flex gap-2">
+              {editState.slug && (
+                <>
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      const res = await previewDestinationAction(editState.slug);
+                      if (res.success) {
+                        window.open(`/en${res.previewUrl}`, "_blank");
+                      } else {
+                        showStatus(res.error || "Preview failed", "error");
+                      }
+                    }}
+                    className="bg-[#FAF8F5] text-royal border border-gold/20 hover:bg-gold/10 font-bold text-[9px] tracking-wider uppercase px-3 py-2 flex items-center gap-1.5 transition cursor-pointer rounded-lg"
+                  >
+                    <Eye className="w-3.5 h-3.5" />
+                    Preview
+                  </button>
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      setEditState({ ...editState, status: "draft" });
+                      const formEvent = new Event("submit") as any;
+                      Object.defineProperty(formEvent, "preventDefault", { value: () => {} });
+                      await handleSaveState(formEvent as any);
+                      showStatus("Draft saved successfully!", "success");
+                    }}
+                    className="bg-[#FAF8F5] text-royal border border-gold/20 hover:bg-gold/10 font-bold text-[9px] tracking-wider uppercase px-3 py-2 transition cursor-pointer rounded-lg"
+                  >
+                    Save Draft
+                  </button>
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      setEditState({ ...editState, status: "published" });
+                      const formEvent = new Event("submit") as any;
+                      Object.defineProperty(formEvent, "preventDefault", { value: () => {} });
+                      await handleSaveState(formEvent as any);
+                      showStatus("Destination published!", "success");
+                    }}
+                    className="bg-gold text-royal hover:bg-gold-light font-bold text-[9px] tracking-wider uppercase px-3 py-2 transition cursor-pointer rounded-lg"
+                  >
+                    Publish
+                  </button>
+                </>
+              )}
+              <button
+                type="button"
+                onClick={() => {
+                  setEditState(null);
+                  setEditingCityIdx(null);
+                }}
+                className="text-royal/50 hover:text-royal font-bold text-xs"
+              >
+                Close
+              </button>
+            </div>
           </div>
 
           {editingCityIdx === null ? (
@@ -383,44 +436,94 @@ export default function DestinationsTab({
                 ))}
               </div>
 
-              {/* STATE TAB: GENERAL DETAILS */}
-              {destSubTab === "general" && (
-                <div className="space-y-6 animate-fade-in">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="space-y-1.5">
-                      <label className="font-bold uppercase tracking-wider block">State Slug</label>
-                      <input 
-                        type="text" required
-                        value={editState.slug || ""}
-                        onChange={e => setEditState({...editState, slug: e.target.value.toLowerCase().replace(/\s+/g, "-")})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
-                      />
-                    </div>
-                    <div className="space-y-1.5">
-                      <label className="font-bold uppercase tracking-wider block">Region</label>
-                      <select
-                        value={editState.region || "North"}
-                        onChange={e => setEditState({...editState, region: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
-                      >
-                        {["North", "South", "East", "West", "Central", "North East", "Islands"].map(r => (
-                          <option key={r} value={r}>{r}</option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className="space-y-1.5">
-                      <label className="font-bold uppercase block text-royal/60">Publishing Status</label>
-                      <select
-                        value={editState.status || "published"}
-                        onChange={e => setEditState({...editState, status: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50 cursor-pointer"
-                      >
-                        <option value="published">Published</option>
-                        <option value="draft">Draft</option>
-                        <option value="unpublished">Unpublished</option>
-                      </select>
-                    </div>
-                  </div>
+               {/* STATE TAB: GENERAL DETAILS */}
+               {destSubTab === "general" && (
+                 <div className="space-y-6 animate-fade-in">
+                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                     <div className="space-y-1.5">
+                       <label className="font-bold uppercase tracking-wider block">State Slug</label>
+                       <input 
+                         type="text" required
+                         value={editState.slug || ""}
+                         onChange={e => setEditState({...editState, slug: e.target.value.toLowerCase().replace(/\s+/g, "-")})}
+                         className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
+                       />
+                     </div>
+                     <div className="space-y-1.5">
+                       <label className="font-bold uppercase tracking-wider block">Region</label>
+                       <select
+                         value={editState.region || "North"}
+                         onChange={e => setEditState({...editState, region: e.target.value})}
+                         className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
+                       >
+                         {["North", "South", "East", "West", "Central", "North East", "Islands"].map(r => (
+                           <option key={r} value={r}>{r}</option>
+                         ))}
+                       </select>
+                     </div>
+                     <div className="space-y-1.5">
+                       <label className="font-bold uppercase block text-royal/60">Publishing Status</label>
+                       <select
+                         value={editState.status || "published"}
+                         onChange={e => setEditState({...editState, status: e.target.value})}
+                         className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50 cursor-pointer"
+                       >
+                         <option value="published">Published</option>
+                         <option value="draft">Draft</option>
+                         <option value="unpublished">Unpublished</option>
+                       </select>
+                     </div>
+                     <div className="space-y-1.5">
+                       <label className="font-bold uppercase block text-royal/60">Featured Destination</label>
+                       <div className="flex items-center gap-2 pt-2">
+                         <input 
+                           type="checkbox" id="state-featured"
+                           checked={editState.isFeatured === true}
+                           onChange={e => setEditState({...editState, isFeatured: e.target.checked})}
+                           className="w-4 h-4 cursor-pointer accent-royal"
+                         />
+                         <label htmlFor="state-featured" className="font-bold uppercase tracking-wider cursor-pointer text-xs">Show on Homepage</label>
+                       </div>
+                     </div>
+                   </div>
+
+                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                     <div className="space-y-1.5">
+                       <label className="font-bold uppercase tracking-wider block">Country</label>
+                       <input 
+                         type="text"
+                         value={editState.country || "India"}
+                         onChange={e => setEditState({...editState, country: e.target.value})}
+                         className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
+                       />
+                     </div>
+                     <div className="space-y-1.5">
+                       <label className="font-bold uppercase tracking-wider block">Parent Destination</label>
+                       <select
+                         value={editState.parentDestination || ""}
+                         onChange={e => setEditState({...editState, parentDestination: e.target.value})}
+                         className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50 cursor-pointer"
+                       >
+                         <option value="">-- None (Top Level) --</option>
+                         {parentDestinations.map((p: any) => (
+                           <option key={p.slug} value={p.slug}>{p.title?.en || p.slug}</option>
+                         ))}
+                       </select>
+                     </div>
+                     <div className="space-y-1.5">
+                       <label className="font-bold uppercase block text-royal/60">Destination Type</label>
+                       <select
+                         value={editState.destinationType || "State"}
+                         onChange={e => setEditState({...editState, destinationType: e.target.value})}
+                         className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50 cursor-pointer"
+                       >
+                         <option value="State">State / Region</option>
+                         <option value="Island">Island</option>
+                         <option value="Mountain">Mountain Range</option>
+                         <option value="Wildlife">Wildlife Region</option>
+                       </select>
+                     </div>
+                   </div>
 
                   {/* Title, Tagline, Descriptions translations */}
                   {["title", "tagline", "description", "history", "culture", "localFood", "bestTime"].map((field) => (
@@ -456,27 +559,58 @@ export default function DestinationsTab({
                     </div>
                   ))}
 
-                  {/* State Image */}
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
-                    <div className="md:col-span-8 space-y-1.5">
-                      <label className="font-bold uppercase tracking-wider block">Main Hero Image URL</label>
-                      <input 
-                        type="text" required
-                        value={editState.image || ""}
-                        onChange={e => setEditState({...editState, image: e.target.value})}
-                        className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg"
-                      />
-                    </div>
-                    <div className="md:col-span-4 pb-0.5">
-                      <CloudinaryUpload 
-                        onUploadComplete={(url) => setEditState({ ...editState, image: url })} 
-                        label="Upload Hero Image"
-                        showStatus={showStatus}
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
+                   {/* State Image */}
+                   <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
+                     <div className="md:col-span-8 space-y-1.5">
+                       <label className="font-bold uppercase tracking-wider block">Main Hero Image URL</label>
+                       <input 
+                         type="text" required
+                         value={editState.image || ""}
+                         onChange={e => setEditState({...editState, image: e.target.value})}
+                         className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg"
+                       />
+                     </div>
+                     <div className="md:col-span-4 pb-0.5">
+                       <CloudinaryUpload 
+                         onUploadComplete={(url) => setEditState({ ...editState, image: url })} 
+                         label="Upload Hero Image"
+                         showStatus={showStatus}
+                       />
+                     </div>
+                   </div>
+
+                   {/* Related Tours */}
+                   <div className="border border-gold/10 p-5 rounded-2xl bg-[#FAF8F5] space-y-3">
+                     <span className="font-bold text-[10px] text-gold uppercase tracking-wider block">Related Tour Packages</span>
+                     <p className="text-[10px] text-royal/40">Select tour packages related to this destination. They will appear automatically on the destination page.</p>
+                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                       {allPackages.map((pkg: any) => {
+                         const isSelected = (editState.relatedTours || []).includes(pkg.slug);
+                         return (
+                           <label key={pkg.slug} className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition ${isSelected ? "bg-gold/10 border-gold/30" : "bg-white border-gold/10 hover:border-gold/25"}`}>
+                             <input 
+                               type="checkbox"
+                               checked={isSelected}
+                               onChange={e => {
+                                 const current = editState.relatedTours || [];
+                                 const updated = e.target.checked
+                                   ? [...current, pkg.slug]
+                                   : current.filter((s: string) => s !== pkg.slug);
+                                 setEditState({ ...editState, relatedTours: updated });
+                               }}
+                               className="w-4 h-4 cursor-pointer accent-royal"
+                             />
+                             <div className="space-y-0.5">
+                               <span className="font-bold text-xs text-royal block">{pkg.title?.en || pkg.slug}</span>
+                               <span className="text-[9px] text-royal/40 uppercase tracking-wider">{pkg.category}</span>
+                             </div>
+                           </label>
+                         );
+                       })}
+                     </div>
+                   </div>
+                 </div>
+               )}
 
               {/* STATE TAB: TRAVEL TIPS */}
               {destSubTab === "travelTips" && (
@@ -692,17 +826,59 @@ export default function DestinationsTab({
           ) : (
             /* EDIT CITY WINDOW - COMPLETE 17 TABS WORKSPACE */
             <div className="space-y-6 bg-[#FAF8F5] border border-gold/15 p-6 rounded-3xl">
-              <div className="flex justify-between items-center border-b border-gold/10 pb-3">
+              <div className="flex flex-wrap justify-between items-center border-b border-gold/10 pb-3 gap-3">
                 <h4 className="text-sm font-bold text-royal">
                   Editing City Guide: <span className="text-gold font-serif text-base">{editState.cities[editingCityIdx].title?.en}</span>
                 </h4>
-                <button
-                  type="button"
-                  onClick={() => setEditingCityIdx(null)}
-                  className="bg-royal text-white font-bold text-[9px] uppercase tracking-wider px-3 py-1.5 rounded cursor-pointer"
-                >
-                  Back to State Workspace
-                </button>
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      const city = editState.cities[editingCityIdx];
+                      const res = await previewDestinationAction(editState.slug);
+                      if (res.success) {
+                        window.open(`/en/destinations/${editState.slug}/${city.slug}`, "_blank");
+                      } else {
+                        showStatus(res.error || "Preview failed", "error");
+                      }
+                    }}
+                    className="bg-white text-royal border border-gold/20 hover:bg-gold/10 font-bold text-[9px] tracking-wider uppercase px-3 py-2 flex items-center gap-1.5 transition cursor-pointer rounded-lg"
+                  >
+                    <Eye className="w-3.5 h-3.5" />
+                    Preview
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const updatedCities = [...editState.cities];
+                      updatedCities[editingCityIdx].status = "draft";
+                      setEditState({ ...editState, cities: updatedCities });
+                      showStatus("City draft saved!", "success");
+                    }}
+                    className="bg-white text-royal border border-gold/20 hover:bg-gold/10 font-bold text-[9px] tracking-wider uppercase px-3 py-2 transition cursor-pointer rounded-lg"
+                  >
+                    Draft
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const updatedCities = [...editState.cities];
+                      updatedCities[editingCityIdx].status = "published";
+                      setEditState({ ...editState, cities: updatedCities });
+                      showStatus("City published!", "success");
+                    }}
+                    className="bg-gold text-royal hover:bg-gold-light font-bold text-[9px] tracking-wider uppercase px-3 py-2 transition cursor-pointer rounded-lg"
+                  >
+                    Publish
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setEditingCityIdx(null)}
+                    className="bg-royal text-white font-bold text-[9px] uppercase tracking-wider px-3 py-1.5 rounded cursor-pointer"
+                  >
+                    Back to State
+                  </button>
+                </div>
               </div>
 
               {/* City Sub-tab Navigation */}
@@ -758,17 +934,21 @@ export default function DestinationsTab({
                       />
                     </div>
                     <div className="space-y-1">
-                      <label className="font-bold uppercase tracking-wider block text-royal/50 text-[10px]">Region / Territory</label>
-                      <input 
-                        type="text"
-                        value={editState.cities[editingCityIdx].region || editState.region || ""}
+                      <label className="font-bold uppercase tracking-wider block text-royal/50 text-[10px]">Parent State / Region</label>
+                      <select
+                        value={editState.cities[editingCityIdx].parentState || editState.slug || ""}
                         onChange={e => {
                           const updatedCities = [...editState.cities];
-                          updatedCities[editingCityIdx].region = e.target.value;
+                          updatedCities[editingCityIdx].parentState = e.target.value;
                           setEditState({ ...editState, cities: updatedCities });
                         }}
-                        className="w-full bg-white border border-gold/10 px-3 py-2.5 outline-none rounded-lg text-xs"
-                      />
+                        className="w-full bg-white border border-gold/10 px-3 py-2.5 outline-none rounded-lg text-xs cursor-pointer"
+                      >
+                        <option value="">-- Select State --</option>
+                        {states.map((s: any) => (
+                          <option key={s.slug} value={s.slug}>{s.title?.en || s.slug}</option>
+                        ))}
+                      </select>
                     </div>
                   </div>
 
@@ -817,35 +997,68 @@ export default function DestinationsTab({
                     </div>
                   </div>
 
-                  {/* Main Hero Image */}
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end bg-white border border-gold/5 p-4 rounded-xl">
-                    <div className="md:col-span-8 space-y-1.5">
-                      <label className="font-bold uppercase tracking-wider block text-royal/50 text-[10px]">Featured image URL</label>
-                      <input 
-                        type="text"
-                        value={editState.cities[editingCityIdx].image || ""}
-                        onChange={e => {
-                          const updatedCities = [...editState.cities];
-                          updatedCities[editingCityIdx].image = e.target.value;
-                          setEditState({ ...editState, cities: updatedCities });
-                        }}
-                        className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded text-xs"
-                      />
-                    </div>
-                    <div className="md:col-span-4 pb-0.5">
-                      <CloudinaryUpload 
-                        onUploadComplete={(url) => {
-                          const updatedCities = [...editState.cities];
-                          updatedCities[editingCityIdx].image = url;
-                          setEditState({ ...editState, cities: updatedCities });
-                        }} 
-                        label="Upload City Photo"
-                        showStatus={showStatus}
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
+                   {/* Main Hero Image */}
+                   <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end bg-white border border-gold/5 p-4 rounded-xl">
+                     <div className="md:col-span-8 space-y-1.5">
+                       <label className="font-bold uppercase tracking-wider block text-royal/50 text-[10px]">Featured image URL</label>
+                       <input 
+                         type="text"
+                         value={editState.cities[editingCityIdx].image || ""}
+                         onChange={e => {
+                           const updatedCities = [...editState.cities];
+                           updatedCities[editingCityIdx].image = e.target.value;
+                           setEditState({ ...editState, cities: updatedCities });
+                         }}
+                         className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded text-xs"
+                       />
+                     </div>
+                     <div className="md:col-span-4 pb-0.5">
+                       <CloudinaryUpload 
+                         onUploadComplete={(url) => {
+                           const updatedCities = [...editState.cities];
+                           updatedCities[editingCityIdx].image = url;
+                           setEditState({ ...editState, cities: updatedCities });
+                         }} 
+                         label="Upload City Photo"
+                         showStatus={showStatus}
+                       />
+                     </div>
+                   </div>
+
+                   {/* City Related Tours */}
+                   <div className="border border-gold/10 p-5 rounded-2xl bg-white space-y-3">
+                     <span className="font-bold text-[10px] text-gold uppercase tracking-wider block">Related Tour Packages</span>
+                     <p className="text-[10px] text-royal/40">Select tours that visit this city. They will appear on the city page.</p>
+                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                       {allPackages.map((pkg: any) => {
+                         const isSelected = (editState.cities[editingCityIdx].relatedTours || []).includes(pkg.slug);
+                         return (
+                           <label key={pkg.slug} className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition ${isSelected ? "bg-gold/10 border-gold/30" : "bg-[#FAF8F5] border-gold/10 hover:border-gold/25"}`}>
+                             <input 
+                               type="checkbox"
+                               checked={isSelected}
+                               onChange={e => {
+                                 const current = editState.cities[editingCityIdx].relatedTours || [];
+                                 const updated = e.target.checked
+                                   ? [...current, pkg.slug]
+                                   : current.filter((s: string) => s !== pkg.slug);
+                                 const updatedCities = [...editState.cities];
+                                 updatedCities[editingCityIdx].relatedTours = updated;
+                                 setEditState({ ...editState, cities: updatedCities });
+                               }}
+                               className="w-4 h-4 cursor-pointer accent-royal"
+                             />
+                             <div className="space-y-0.5">
+                               <span className="font-bold text-xs text-royal block">{pkg.title?.en || pkg.slug}</span>
+                               <span className="text-[9px] text-royal/40 uppercase tracking-wider">{pkg.category}</span>
+                             </div>
+                           </label>
+                         );
+                       })}
+                     </div>
+                   </div>
+                 </div>
+               )}
 
               {/* CITY TAB 2: OVERVIEW & CULTURE */}
               {citySubTab === "overview" && (

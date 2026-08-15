@@ -101,8 +101,8 @@ export interface CityData {
   suggestedItinerary: LocalizedString;
   faqs: { q: LocalizedString; a: LocalizedString }[];
   
+  parentState: string;
   country?: string;
-  region?: string;
   destinationType?: string;
   shortDescription?: LocalizedString;
   fullDescription?: LocalizedString;
@@ -216,6 +216,7 @@ export interface StateData {
   festivals?: LocalizedString;
   
   country?: string;
+  parentDestination?: string;
   destinationType?: string;
   shortDescription?: LocalizedString;
   fullDescription?: LocalizedString;
@@ -303,6 +304,7 @@ export interface TourPackage {
     groupSize?: string;
     languages?: string;
     suitableFor?: string;
+    destinations?: string[];
   };
   policies?: {
     cancellation?: LocalizedString;
@@ -396,6 +398,8 @@ export interface Testimonial {
 const createMockCity = (stateSlug: string, citySlug: string, nameEn: string, nameEs: string, namePt: string, taglineEn: string, img: string): CityData => ({
   slug: citySlug,
   title: { en: nameEn, es: nameEs, pt: namePt },
+  parentState: stateSlug,
+  country: "India",
   tagline: { en: taglineEn, es: `Descubre la magia de ${nameEs}`, pt: `Descubra a magia de ${namePt}` },
   image: img,
   gallery: [],
@@ -424,6 +428,8 @@ export const statesData: StateData[] = [
     title: { en: "Rajasthan", es: "Rajastán", pt: "Rajastão" },
     tagline: { en: "Imperial Forts, Heritage Palaces & Sand Dunes", es: "Fuertes Imperiales, Palacios Históricos y Dunas de Arena", pt: "Fortes Imperiais, Palácios Históricos e Dunas de Areia" },
     region: "West",
+    country: "India",
+    parentDestination: "india",
     image: "/images/rajasthan-camels.jpg",
     gallery: [],
     description: { en: "The Land of Kings. Explore desert dunes, mighty forts and heritage palaces.", es: "La tierra de los reyes. Dunas, fuertes y palacios.", pt: "A terra dos reis. Dunas, fortes e palácios." },
@@ -437,6 +443,8 @@ export const statesData: StateData[] = [
       {
         slug: "jaipur",
         title: { en: "Jaipur", es: "Jaipur", pt: "Jaipur" },
+        parentState: "rajasthan",
+        country: "India",
         tagline: { en: "The Pink City of Maharajas", es: "La Ciudad Rosa de los Maharajás", pt: "A Cidade Rosa dos Marajás" },
         image: "/images/rajasthan_fort_sunset.png",
         gallery: [],
@@ -463,6 +471,8 @@ export const statesData: StateData[] = [
       {
         slug: "udaipur",
         title: { en: "Udaipur", es: "Udaipur", pt: "Udaipur" },
+        parentState: "rajasthan",
+        country: "India",
         tagline: { en: "The City of Lakes & Romance", es: "La Ciudad de los Lagos y el Romance", pt: "A Cidade dos Lagos e Romance" },
         image: "/images/rajasthan_fort_sunset.png",
         gallery: [],
@@ -487,6 +497,8 @@ export const statesData: StateData[] = [
       {
         slug: "jodhpur",
         title: { en: "Jodhpur", es: "Jodhpur", pt: "Jodhpur" },
+        parentState: "rajasthan",
+        country: "India",
         tagline: { en: "The Blue City & Mehrangarh Fortress", es: "La Ciudad Azul y la Fortaleza Mehrangarh", pt: "A Cidade Azul e a Fortaleza Mehrangarh" },
         image: "/images/jodhpur.jpg",
         gallery: [],
@@ -510,6 +522,8 @@ export const statesData: StateData[] = [
       {
         slug: "jaisalmer",
         title: { en: "Jaisalmer", es: "Jaisalmer", pt: "Jaisalmer" },
+        parentState: "rajasthan",
+        country: "India",
         tagline: { en: "The Golden City & Living Desert Fort", es: "La Ciudad Dorada y Fuerte del Desierto", pt: "A Cidade Dourada e Forte do Deserto" },
         image: "/images/jaisalmer.jpg",
         gallery: [],
@@ -537,6 +551,8 @@ export const statesData: StateData[] = [
     title: { en: "Kerala", es: "Kerala", pt: "Kerala" },
     tagline: { en: "God's Own Country, Backwaters & Ayurvedic Wellness", es: "El propio país de Dios, canales y ayurveda", pt: "O próprio país de Deus, canais e ayurveda" },
     region: "South",
+    country: "India",
+    parentDestination: "india",
     image: "/images/kerala 2.jpg",
     gallery: [],
     description: { en: "An emerald paradise of coconut plantations, spice hills and quiet backwater canals.", es: "Un paraíso esmeralda de plantaciones de coco y colinas de especias.", pt: "Um paraíso esmeralda de plantações de coco e colinas de especiarias." },
@@ -550,6 +566,8 @@ export const statesData: StateData[] = [
       {
         slug: "kochi",
         title: { en: "Kochi", es: "Kochi", pt: "Kochi" },
+        parentState: "kerala",
+        country: "India",
         tagline: { en: "The Historic Spice Port Route", es: "La Ruta Histórica del Puerto de Especias", pt: "A Rota Histórica do Porto de Especiarias" },
         image: "/images/kerala_backwaters_houseboat.png",
         gallery: [],
@@ -574,6 +592,8 @@ export const statesData: StateData[] = [
       {
         slug: "alleppey",
         title: { en: "Alleppey (Alappuzha)", es: "Alleppey", pt: "Alleppey" },
+        parentState: "kerala",
+        country: "India",
         tagline: { en: "Venice of the East — Backwater Paradise", es: "La Venecia del Este — Paraíso de Canales", pt: "A Veneza do Oriente — Paraíso dos Canais" },
         image: "/images/alleppye.jpg",
         gallery: [],
@@ -595,6 +615,8 @@ export const statesData: StateData[] = [
       {
         slug: "munnar",
         title: { en: "Munnar", es: "Munnar", pt: "Munnar" },
+        parentState: "kerala",
+        country: "India",
         tagline: { en: "Misty Tea Plantations in the Western Ghats", es: "Plantaciones de Té Brumosas en los Ghats Occidentales", pt: "Plantações de Chá Enevoadas nos Ghats Ocidentais" },
         image: "/images/kerala 3.jpg",
         gallery: [],
@@ -620,6 +642,8 @@ export const statesData: StateData[] = [
     title: { en: "Goa", es: "Goa", pt: "Goa" },
     tagline: { en: "Sun-Kissed Beaches, Portuguese Architecture & Spices", es: "Playas Soleadas, Arquitectura Portuguesa y Especias", pt: "Praias Ensolaradas, Arquitetura Portuguesa e Especiarias" },
     region: "West",
+    country: "India",
+    parentDestination: "india",
     image: "/images/goa 2.jpg",
     gallery: [],
     description: { en: "A blend of Indian culture and Portuguese heritage on golden coastlines.", es: "Una fusión de cultura india y herencia portuguesa.", pt: "Uma fusão da cultura indiana e herança portuguesa." },
@@ -633,6 +657,8 @@ export const statesData: StateData[] = [
       {
         slug: "panaji",
         title: { en: "Panaji (Panjim)", es: "Panaji", pt: "Panaji" },
+        parentState: "goa",
+        country: "India",
         tagline: { en: "Portuguese Heritage Capital of Goa", es: "Capital del Patrimonio Portugués de Goa", pt: "Capital do Patrimônio Português de Goa" },
         image: "/images/goa.jpg",
         gallery: [],
@@ -661,6 +687,8 @@ export const statesData: StateData[] = [
     title: { en: "Uttar Pradesh", es: "Uttar Pradesh", pt: "Uttar Pradesh" },
     tagline: { en: "The Taj Mahal, Spiritual Ghats & Sacred River Banks", es: "El Taj Mahal, Ghats Espirituales y Ríos Sagrados", pt: "O Taj Mahal, Ghats Espirituais e Rios Sagrados" },
     region: "North",
+    country: "India",
+    parentDestination: "india",
     image: "/images/uttar pradesh.jpg",
     gallery: [],
     description: { en: "The spiritual heartland of India, housing the Taj Mahal and ancient Varanasi.", es: "El corazón espiritual, hogar de Agra y Varanasi.", pt: "O coração espiritual, lar de Agra e Varanasi." },
@@ -674,6 +702,8 @@ export const statesData: StateData[] = [
       {
         slug: "varanasi",
         title: { en: "Varanasi", es: "Varanasi", pt: "Varanasi" },
+        parentState: "uttar-pradesh",
+        country: "India",
         tagline: { en: "The Eternal City of Light & Spiritual Capital", es: "La Ciudad Eterna de la Luz", pt: "A Cidade Eterna da Luz" },
         image: "/images/varanasi_ghats_aarti.png",
         gallery: [],
@@ -702,6 +732,8 @@ export const statesData: StateData[] = [
     title: { en: "Himachal Pradesh", es: "Himachal Pradesh", pt: "Himachal Pradesh" },
     tagline: { en: "Snowy Mountain Peaks, Pine Forests & Valleys", es: "Picos Nevados, Bosques de Pinos y Valles", pt: "Picos Nevados, Florestas de Pinheiros e Vales" },
     region: "North",
+    country: "India",
+    parentDestination: "india",
     image: "/images/himachal pradesh.jpg",
     gallery: [],
     description: { en: "A majestic Himalayan sanctuary of hill stations, apple orchards and monasteries.", es: "Un santuario del Himalaya con vistas nevadas.", pt: "Um santuário do Himalaia com vistas nevadas." },
@@ -715,6 +747,8 @@ export const statesData: StateData[] = [
       {
         slug: "shimla",
         title: { en: "Shimla", es: "Shimla", pt: "Shimla" },
+        parentState: "himachal-pradesh",
+        country: "India",
         tagline: { en: "The Queen of Hill Stations", es: "La Reina de las Estaciones de Montaña", pt: "A Rainha das Estações de Montanha" },
         image: "/images/himachal pradesh.jpg",
         gallery: [],
@@ -738,6 +772,8 @@ export const statesData: StateData[] = [
       {
         slug: "manali",
         title: { en: "Manali", es: "Manali", pt: "Manali" },
+        parentState: "himachal-pradesh",
+        country: "India",
         tagline: { en: "Adventure Capital of the Himalayas", es: "Capital de la Aventura del Himalaya", pt: "Capital da Aventura do Himalaia" },
         image: "/images/himachal pradesh.jpg",
         gallery: [],
@@ -765,6 +801,8 @@ export const statesData: StateData[] = [
     title: { en: "Maharashtra", es: "Maharashtra", pt: "Maharashtra" },
     tagline: { en: "Ancient Rock Caves, Hill Stations & Dynamic Mumbai", es: "Cuevas Antiguas, Colinas y el Dinámico Mumbai", pt: "Cavernas Antigas, Colinas e o Dinâmico Mumbai" },
     region: "West",
+    country: "India",
+    parentDestination: "india",
     image: "/images/maharashtra.jpg",
     gallery: [],
     description: { en: "A massive state featuring the Ajanta-Ellora world heritage caves and bustling Mumbai.", es: "Hogar de las cuevas patrimonio mundial y Mumbai.", pt: "Lar das cavernas patrimônio mundial e Mumbai." },
@@ -781,6 +819,8 @@ export const statesData: StateData[] = [
     title: { en: "Madhya Pradesh", es: "Madhya Pradesh", pt: "Madhya Pradesh" },
     tagline: { en: "The Heart of India, Wildlife Tigers & Khajuraho Temples", es: "El Corazón de la India, Tigres de Bengala y Templos de Khajuraho", pt: "O Coração da Índia, Tigres de Bengala e Templos de Khajuraho" },
     region: "Central",
+    country: "India",
+    parentDestination: "india",
     image: "/images/madhya pradesh.jpg",
     gallery: [],
     description: { en: "Central India's heartland, featuring massive tiger reserves and legendary UNESCO heritage temples.", es: "El corazón de la India central, que cuenta con reservas de tigres y templos históricos de la UNESCO.", pt: "O coração da Índia central, com reservas de tigres e templos históricos da UNESCO." },
@@ -797,6 +837,8 @@ export const statesData: StateData[] = [
     title: { en: "Tamil Nadu", es: "Tamil Nadu", pt: "Tamil Nadu" },
     tagline: { en: "Dravidian Architectural Giants, Temples & Coastline", es: "Gigantes de la Arquitectura Dravidiana y Templos", pt: "Gigantes da Arquitetura Dravidiana e Templos" },
     region: "South",
+    country: "India",
+    parentDestination: "india",
     image: "/images/ooty.jpg",
     gallery: [],
     description: { en: "The home of ancient Tamil culture, towering temple gopurams, and historical shore temples.", es: "El hogar de la antigua cultura tamil, imponentes templos gopurams y playas de la costa.", pt: "O lar da antiga cultura tamil, imponentes templos gopurams e praias da costa." },
@@ -827,6 +869,19 @@ export const tourPackages: TourPackage[] = [
       { en: "Stay in Oberoi & Taj royal palace suites", es: "Alojamiento en suites de palacios reales", pt: "Hospedagem em suítes de palácios reais" },
       { en: "Private chauffeur luxury car transfers", es: "Traslados privados en coche de lujo con chofer", pt: "Traspasos privados em carro de luxo com motorista" }
     ],
+    travelInfo: {
+      startingPoint: "New Delhi",
+      endingPoint: "New Delhi",
+      duration: "7 Days / 6 Nights",
+      transportation: "Private luxury SUV with English-speaking driver",
+      accommodation: "5-star & boutique palace hotels",
+      tourType: "Private Tour",
+      bestTime: "October to March",
+      groupSize: "2-8 travelers",
+      languages: "English, Spanish, Portuguese",
+      suitableFor: "Luxury, Family, Honeymoon, Photography",
+      destinations: ["rajasthan", "uttar-pradesh"]
+    },
     itinerary: [
       { day: 1, title: { en: "Arrival in New Delhi", es: "Llegada a Nueva Delhi", pt: "Chegada a Nova Deli" }, desc: { en: "VIP welcome, transfer to luxury hotel.", es: "Bienvenida VIP, traslado al hotel.", pt: "Boas-vindas VIP, traslado para o hotel." } }
     ],
@@ -849,6 +904,19 @@ export const tourPackages: TourPackage[] = [
       { en: "Private houseboat stay along Backwaters", es: "Estadía privada en casa bote por los canales", pt: "Hospedagem privada em casa barco nos canais" },
       { en: "Daily private meditation and yoga sessions", es: "Sesiones diarias privadas de yoga y meditación", pt: "Sessões diárias privadas de ioga e meditação" }
     ],
+    travelInfo: {
+      startingPoint: "Cochin",
+      endingPoint: "Cochin",
+      duration: "9 Days / 8 Nights",
+      transportation: "Private car with driver, houseboat, and domestic flights",
+      accommodation: "Boutique resorts, luxury houseboat, Ayurvedic wellness retreats",
+      tourType: "Private Tour",
+      bestTime: "September to March",
+      groupSize: "2-6 travelers",
+      languages: "English, Spanish, Portuguese",
+      suitableFor: "Wellness, Honeymoon, Luxury",
+      destinations: ["kerala"]
+    },
     itinerary: [
       { day: 1, title: { en: "Arrival in Kochi Port", es: "Llegada al Puerto de Kochi", pt: "Chegada ao Porto de Kochi" }, desc: { en: "Check-in to a luxury wellness eco-resort.", es: "Check-in en un eco-resort de bienestar de lujo.", pt: "Check-in em um resort ecológico de bem-estar de luxo." } }
     ],
@@ -893,6 +961,19 @@ export const tourPackages: TourPackage[] = [
       { en: "Private sand dunes sundowner camel ride", es: "Paseo en camello al atardecer en dunas", pt: "Passeio de camelo ao entardecer nas dunas" },
       { en: "Private traditional sitar recital evening", es: "Recital privado de música de sitar tradicional", pt: "Recital privado de música sitar tradicional" }
     ],
+    travelInfo: {
+      startingPoint: "Udaipur",
+      endingPoint: "Jaipur",
+      duration: "12 Days / 11 Nights",
+      transportation: "Private luxury SUV with driver, internal flights",
+      accommodation: "Heritage palace hotels & luxury desert camps",
+      tourType: "Private Tour",
+      bestTime: "October to March",
+      groupSize: "2-6 travelers",
+      languages: "English, Spanish, Portuguese",
+      suitableFor: "Heritage, Luxury, Honeymoon, Family",
+      destinations: ["rajasthan"]
+    },
     itinerary: [
       { day: 1, title: { en: "Welcome in Udaipur Lake City", es: "Bienvenida en Udaipur Ciudad de Lagos", pt: "Boas-vindas em Udaipur Cidade dos Lagos" }, desc: { en: "VIP boat check-in to historic lake palace hotel.", es: "Check-in en barco VIP al hotel palacio del lago.", pt: "Check-in em barco VIP ao hotel palácio do lago." } }
     ],
@@ -1004,6 +1085,19 @@ export const tourPackages: TourPackage[] = [
       { en: "Mehrangarh Fort private heritage tour in Jodhpur", es: "Tour privado al Fuerte Mehrangarh en Jodhpur", pt: "Tour privado ao Forte Mehrangarh em Jodhpur" },
       { en: "Sunset camel ride in Jaisalmer sand dunes", es: "Paseo en camello al atardecer en Jaisalmer", pt: "Passeio de camelo ao entardecer em Jaisalmer" }
     ],
+    travelInfo: {
+      startingPoint: "New Delhi",
+      endingPoint: "Jaipur",
+      duration: "12 Days / 11 Nights",
+      transportation: "Private luxury SUV, heritage hotel transfers",
+      accommodation: "Heritage palaces, luxury tents, 5-star hotels",
+      tourType: "Private Tour",
+      bestTime: "October to March",
+      groupSize: "2-6 travelers",
+      languages: "English, Spanish, Portuguese",
+      suitableFor: "Luxury, Heritage, Honeymoon",
+      destinations: ["rajasthan", "uttar-pradesh"]
+    },
     itinerary: [
       { day: 1, title: { en: "Arrival in New Delhi — VIP Welcome", es: "Llegada a Nueva Delhi — Bienvenida VIP", pt: "Chegada a Nova Deli — Boas-vindas VIP" }, desc: { en: "Private airport pickup in luxury vehicle, check into 5-star heritage hotel.", es: "Recogida privada en aeropuerto, hotel de 5 estrellas.", pt: "Coleta privada no aeroporto, hotel de 5 estrelas." } },
       { day: 2, title: { en: "Old Delhi & New Delhi Heritage Immersion", es: "Delhi Vieja y Nueva Delhi", pt: "Velho Delhi e Nova Delhi" }, desc: { en: "Private tour of Humayun's Tomb, Qutub Minar, Chandni Chowk spice market.", es: "Tour privado por los monumentos históricos de Delhi.", pt: "Tour privado pelos monumentos históricos de Delhi." } },
@@ -1057,6 +1151,19 @@ export const tourPackages: TourPackage[] = [
       { en: "Kerala luxury houseboat private canal cruise", es: "Crucero privado en casa flotante de lujo en Kerala", pt: "Cruzeiro privado em casa flutuante de luxo em Kerala" },
       { en: "Goa beachfront luxury villa with private pool", es: "Villa de lujo frente al mar en Goa con piscina privada", pt: "Villa de luxo frente ao mar em Goa com piscina privada" }
     ],
+    travelInfo: {
+      startingPoint: "New Delhi",
+      endingPoint: "Goa",
+      duration: "10 Days / 9 Nights",
+      transportation: "Private car, domestic flights, luxury transfers",
+      accommodation: "Palace hotels, houseboat, beach villa",
+      tourType: "Private Tour",
+      bestTime: "October to March",
+      groupSize: "2 travelers",
+      languages: "English, Spanish, Portuguese",
+      suitableFor: "Honeymoon, Luxury, Romantic",
+      destinations: ["rajasthan", "kerala", "goa"]
+    },
     itinerary: [
       { day: 1, title: { en: "Delhi — Romantic Arrival", es: "Delhi — Llegada Romántica", pt: "Delhi — Chegada Romântica" }, desc: { en: "Luxury suite with rose petal welcome and champagne.", es: "Suite de lujo con bienvenida de pétalos de rosa y champán.", pt: "Suite de luxo com boas-vindas com pétalas de rosa e champanhe." } }
     ],

@@ -1,7 +1,7 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getStateBySlugAction, getTourPackagesAction } from "@/app/actions/queries";
+import { getStateBySlugAction, getTourPackagesAction, getRelatedToursForDestinationAction } from "@/app/actions/queries";
 import SidebarInquiryForm from "@/components/common/SidebarInquiryForm";
 import { 
   Calendar, Landmark, Compass, Clock, ArrowRight, ArrowLeft, MapPin, 
@@ -66,16 +66,9 @@ export default async function CityDetailPage({ params }: CityPageProps) {
   const stateTitle = state.title?.[lang] || state.title?.en;
 
   // Get related packages
-  const allPackages = await getTourPackagesAction() as any[];
-  const relatedPackages = allPackages?.filter((pkg: any) => {
-    // If relatedTours list is explicitly configured in city CMS
-    if (city.relatedTours && city.relatedTours.length > 0) {
-      return city.relatedTours.includes(pkg.slug);
-    }
-    const pkgTitle = (pkg.title?.en || "").toLowerCase();
-    const pkgDesc = (pkg.tagline?.en || "").toLowerCase();
-    return pkgTitle.includes(citySlug) || pkgTitle.includes(stateSlug) || pkgDesc.includes(cityTitle?.toLowerCase()) || pkgDesc.includes(stateTitle?.toLowerCase());
-  }).slice(0, 6) || [];
+  const relatedPackages = city.relatedTours && city.relatedTours.length > 0
+    ? (await getTourPackagesAction()).filter((pkg: any) => city.relatedTours.includes(pkg.slug)).slice(0, 6)
+    : await getRelatedToursForDestinationAction(stateSlug);
 
   // Calculate days needed
   const daysNeeded = city.statistics?.recommendedDays || (city.attractions?.length <= 2 ? "1-2" : "2-3");

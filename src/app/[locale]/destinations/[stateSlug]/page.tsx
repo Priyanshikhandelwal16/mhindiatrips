@@ -1,7 +1,7 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getStatesAction, getStateBySlugAction, getTourPackagesAction } from "@/app/actions/queries";
+import { getStatesAction, getStateBySlugAction, getTourPackagesAction, getRelatedToursForDestinationAction } from "@/app/actions/queries";
 import { Calendar, Clock, MapPin, ArrowRight, ArrowLeft, Star, Compass } from "lucide-react";
 import Reveal from "@/components/home/Reveal";
 import SidebarInquiryForm from "@/components/common/SidebarInquiryForm";
@@ -47,12 +47,7 @@ export default async function StateDetailPage({ params }: StatePageProps) {
   const lang = (locale === "es" || locale === "pt") ? locale : "en";
 
   // Fetch related packages
-  const allPackages = await getTourPackagesAction();
-  const relatedPackages = allPackages.filter((p: any) => {
-    const titleText = (p.title?.en || "").toLowerCase();
-    const stateName = (state.title?.en || "").toLowerCase();
-    return titleText.includes(stateName) || p.category?.toLowerCase() === state.region?.toLowerCase();
-  }).slice(0, 3);
+  const relatedPackages = await getRelatedToursForDestinationAction(stateSlug);
 
   // Translations
   const t: Record<string, any> = {
@@ -178,23 +173,17 @@ export default async function StateDetailPage({ params }: StatePageProps) {
             <h3 className="font-serif text-xl font-bold text-royal">
               {text.whyVisitTitle} {stateName}?
             </h3>
-            {(!state.travelTips || state.travelTips.length === 0) ? (
+            {(!state.highlights || state.highlights.length === 0) ? (
               <p className="text-xs text-royal/40 italic">Cultural highlights documentation details are being loaded.</p>
             ) : (
               <ul className="space-y-6">
-                {state.travelTips.map((reason: any, idx: number) => {
+                {state.highlights.map((reason: any, idx: number) => {
                   let reasonTitle = "";
                   let reasonDesc = "";
 
                   if (reason && typeof reason === "object") {
-                    if (reason.title) {
-                      reasonTitle = reason.title[lang] || reason.title.en || "";
-                      reasonDesc = reason.desc?.[lang] || reason.desc?.en || "";
-                    } else {
-                      reasonTitle = reason[lang] || reason.en || "";
-                    }
-                  } else if (typeof reason === "string") {
-                    reasonTitle = reason;
+                    reasonTitle = reason.title?.[lang] || reason.title?.en || "";
+                    reasonDesc = reason.desc?.[lang] || reason.desc?.en || "";
                   }
 
                   return (

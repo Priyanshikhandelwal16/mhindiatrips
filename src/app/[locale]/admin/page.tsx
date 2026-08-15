@@ -38,7 +38,14 @@ import {
   getSettingsAction,
   updateContactDetailsAction,
   updateAdminPasswordAction,
-  verifyAdminCredentialsAction
+  verifyAdminCredentialsAction,
+  updateStateStatusAction,
+  createCityAction,
+  updateCityAction,
+  deleteCityAction,
+  previewDestinationAction,
+  duplicateStateAction,
+  duplicateCityAction
 } from "@/app/actions/admin";
 import { 
   getBlogsAction,
@@ -46,7 +53,9 @@ import {
   getFoodsAction,
   getStatesAction,
   getTestimonialsAction,
-  getPagesAction
+  getPagesAction,
+  getParentDestinationsAction,
+  getStatesByParentDestinationAction
 } from "@/app/actions/queries";
 
 // Tab Subcomponents
@@ -87,6 +96,7 @@ export default function AdminDashboard() {
     address: "",
     hours: ""
   });
+  const [parentDestinations, setParentDestinations] = useState<any[]>([]);
 
   // Editor states (prop down)
   const [editBlog, setEditBlog] = useState<any>(null);
@@ -156,7 +166,7 @@ export default function AdminDashboard() {
   const loadCMSData = async () => {
     setLoading(true);
     try {
-      const [inqs, blgs, pkgs, fds, sts, tsts, pgs, settingsRes] = await Promise.all([
+      const [inqs, blgs, pkgs, fds, sts, tsts, pgs, settingsRes, parentsRes] = await Promise.all([
         getInquiriesAction(),
         getBlogsAction(),
         getTourPackagesAction(),
@@ -164,7 +174,8 @@ export default function AdminDashboard() {
         getStatesAction(),
         getTestimonialsAction(),
         getPagesAction(),
-        getSettingsAction()
+        getSettingsAction(),
+        getParentDestinationsAction()
       ]);
       setInquiries(inqs || []);
       setBlogs(blgs || []);
@@ -173,6 +184,7 @@ export default function AdminDashboard() {
       setStates(sts || []);
       setTestimonials(tsts || []);
       setPages(pgs || []);
+      setParentDestinations(parentsRes || []);
       if (settingsRes?.success) {
         setContactDetails(settingsRes.contactDetails);
       }
@@ -378,7 +390,7 @@ export default function AdminDashboard() {
 
     setLoading(true);
     const isNew = !states.find(s => s.slug === editState.slug);
-    const res = isNew 
+    const res = isNew
       ? await createStateAction(editState)
       : await updateStateAction(editState.slug, editState);
 
@@ -400,6 +412,76 @@ export default function AdminDashboard() {
       await loadCMSData();
     } else {
       showStatus(res.error || "Failed to delete destination.", "error");
+      setLoading(false);
+    }
+  };
+
+  const handleUpdateStateStatus = async (slug: string, status: "published" | "draft" | "unpublished") => {
+    setLoading(true);
+    const res = await updateStateStatusAction(slug, status);
+    if (res.success) {
+      showStatus(`Destination ${status}.`, "success");
+      await loadCMSData();
+      if (editState && editState.slug === slug) {
+        setEditState({ ...editState, status });
+      }
+    } else {
+      showStatus(res.error || "Failed to update status.", "error");
+      setLoading(false);
+    }
+  };
+
+  const handlePreviewDestination = async (slug: string) => {
+    const res = await previewDestinationAction(slug);
+    if (res.success) {
+      window.open(`/${locale}${res.previewUrl}`, "_blank");
+    } else {
+      showStatus(res.error || "Failed to preview.", "error");
+    }
+  };
+
+  const handleDuplicateState = async (slug: string) => {
+    setLoading(true);
+    const res = await duplicateStateAction(slug);
+    if (res.success) {
+      showStatus("State duplicated successfully.", "success");
+      await loadCMSData();
+    } else {
+      showStatus(res.error || "Failed to duplicate state.", "error");
+      setLoading(false);
+    }
+  };
+
+  const handleSaveCity = async (stateSlug: string, cityData: any) => {
+    setLoading(true);
+    const isNew = !cityData.slug || !states.find(s => s.slug === stateSlug)?.cities?.find((c: any) => c.slug === cityData.slug);
+    const res = isNew
+      ? await createCityAction(stateSlug, cityData)
+      : await updateCityAction(stateSlug, cityData.slug, cityData);
+
+    if (res.success) {
+      showStatus("City details saved!", "success");
+      if (editState && editState.slug === stateSlug) {
+        setEditState(res.state || editState);
+      }
+      await loadCMSData();
+    } else {
+      showStatus(res.error || "Failed to save city.", "error");
+      setLoading(false);
+    }
+  };
+
+  const onDeleteCity = async (stateSlug: string, citySlug: string) => {
+    setLoading(true);
+    const res = await deleteCityAction(stateSlug, citySlug);
+    if (res.success) {
+      showStatus("City deleted successfully.", "success");
+      if (editState && editState.slug === stateSlug) {
+        setEditState(res.state || editState);
+      }
+      await loadCMSData();
+    } else {
+      showStatus(res.error || "Failed to delete city.", "error");
       setLoading(false);
     }
   };
@@ -836,6 +918,8 @@ export default function AdminDashboard() {
                 handleSaveState={handleSaveState}
                 onDeleteState={onDeleteState}
                 showStatus={showStatus}
+                parentDestinations={parentDestinations}
+                allPackages={packages}
               />
             )}
 
