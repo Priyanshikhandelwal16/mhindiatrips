@@ -63,7 +63,12 @@ export default async function StateDetailPage({ params }: StatePageProps) {
       toursTitle: "Curated Travel Itineraries",
       exploreCTA: "Explore Guide",
       contactCTA: "Plan Your Tailored Journey",
-      regionVal: "India"
+      regionVal: "India",
+      historyTitle: "History & Heritage",
+      cultureTitle: "Arts, Culture & Traditions",
+      foodTitle: "Local Cuisine & Food Culture",
+      faqTitle: "Frequently Asked Questions",
+      faqSub: "Travel Intelligence"
     },
     es: {
       back: "Volver a Destinos",
@@ -77,7 +82,12 @@ export default async function StateDetailPage({ params }: StatePageProps) {
       toursTitle: "Rutas de Viaje Seleccionadas",
       exploreCTA: "Explorar Guía",
       contactCTA: "Planifique su Viaje a Medida",
-      regionVal: "India"
+      regionVal: "India",
+      historyTitle: "Historia y Patrimonio",
+      cultureTitle: "Artes, Cultura y Tradiciones",
+      foodTitle: "Gastronomía y Cultura Culinaria",
+      faqTitle: "Preguntas Frecuentes",
+      faqSub: "Información de Viaje"
     },
     pt: {
       back: "Voltar para Destinos",
@@ -91,7 +101,12 @@ export default async function StateDetailPage({ params }: StatePageProps) {
       toursTitle: "Roteiros de Viagem Sugeridos",
       exploreCTA: "Explorar Guia",
       contactCTA: "Planeje sua Viagem Personalizada",
-      regionVal: "Índia"
+      regionVal: "Índia",
+      historyTitle: "História e Patrimônio",
+      cultureTitle: "Artes, Cultura e Tradições",
+      foodTitle: "Culinária e Cultura Gastronômica",
+      faqTitle: "Perguntas Frequentes",
+      faqSub: "Informações de Viagem"
     }
   };
   const text = t[locale] || t.en;
@@ -99,7 +114,14 @@ export default async function StateDetailPage({ params }: StatePageProps) {
   const stateName = state.title[lang] || state.title.en;
   const stateTagline = state.tagline[lang] || state.tagline.en;
   const stateDesc = state.description[lang] || state.description.en;
-  const bestTimeStr = state.bestTime[lang] || state.bestTime.en;
+  // bestTime can be a plain string OR a multilang object
+  const bestTimeStr = (typeof state.bestTime === "object" && state.bestTime !== null)
+    ? (state.bestTime[lang] || state.bestTime.en)
+    : (state.bestTime || "");
+  const stateHistory = state.history ? (state.history[lang] || state.history.en) : null;
+  const stateCulture = state.culture ? (state.culture[lang] || state.culture.en) : null;
+  const stateFood = state.localFood ? (state.localFood[lang] || state.localFood.en) : null;
+  const stateFaqs: any[] = state.faqs || [];
 
   return (
     <div className="bg-[#FAF8F5] min-h-screen text-royal font-sans relative overflow-hidden">
@@ -202,6 +224,47 @@ export default async function StateDetailPage({ params }: StatePageProps) {
 
         </div>
       </section>
+
+      {/* History & Culture & Food — 3-column editorial section */}
+      {(stateHistory || stateCulture || stateFood) && (
+        <section className="py-20 md:py-28 bg-white border-t border-beige/40 relative z-10">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14">
+
+              {/* History */}
+              {stateHistory && (
+                <Reveal className="space-y-4">
+                  <span className="text-[9px] uppercase tracking-widest text-gold font-extrabold block">Roots &amp; Legacy</span>
+                  <h3 className="font-serif text-xl font-bold text-royal leading-snug">{text.historyTitle}</h3>
+                  <div className="w-8 h-[2px] bg-gold" />
+                  <p className="text-sm text-royal/65 leading-relaxed font-light">{stateHistory}</p>
+                </Reveal>
+              )}
+
+              {/* Culture */}
+              {stateCulture && (
+                <Reveal className="space-y-4">
+                  <span className="text-[9px] uppercase tracking-widest text-gold font-extrabold block">Living Heritage</span>
+                  <h3 className="font-serif text-xl font-bold text-royal leading-snug">{text.cultureTitle}</h3>
+                  <div className="w-8 h-[2px] bg-gold" />
+                  <p className="text-sm text-royal/65 leading-relaxed font-light">{stateCulture}</p>
+                </Reveal>
+              )}
+
+              {/* Local Food */}
+              {stateFood && (
+                <Reveal className="space-y-4">
+                  <span className="text-[9px] uppercase tracking-widest text-gold font-extrabold block">Flavours &amp; Cuisine</span>
+                  <h3 className="font-serif text-xl font-bold text-royal leading-snug">{text.foodTitle}</h3>
+                  <div className="w-8 h-[2px] bg-gold" />
+                  <p className="text-sm text-royal/65 leading-relaxed font-light">{stateFood}</p>
+                </Reveal>
+              )}
+
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Cities Catalog */}
       {state.cities && state.cities.length > 0 && (
@@ -335,6 +398,42 @@ export default async function StateDetailPage({ params }: StatePageProps) {
                       </Link>
                     </div>
                   </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* FAQ Section */}
+      {stateFaqs.length > 0 && (
+        <section className="py-24 relative z-10 bg-[#FAF8F5] border-t border-beige/40">
+          <div className="max-w-4xl mx-auto px-6">
+            <div className="text-left mb-12">
+              <span className="text-[9px] font-bold tracking-widest text-gold uppercase block mb-2">
+                {text.faqSub}
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-royal">
+                {text.faqTitle}
+              </h2>
+              <div className="w-16 h-[2px] bg-gold mt-4" />
+            </div>
+            <div className="space-y-4">
+              {stateFaqs.map((faq: any, idx: number) => {
+                const q = faq.question?.[lang] || faq.question?.en || "";
+                const a = faq.answer?.[lang] || faq.answer?.en || "";
+                return (
+                  <Reveal key={idx}>
+                    <details className="group bg-white border border-beige/45 rounded-2xl overflow-hidden cursor-pointer">
+                      <summary className="flex items-center justify-between gap-4 px-6 py-5 text-sm font-bold text-royal list-none hover:text-gold transition-colors">
+                        <span>{q}</span>
+                        <span className="text-gold text-lg shrink-0 group-open:rotate-45 transition-transform duration-300">+</span>
+                      </summary>
+                      <div className="px-6 pb-5 text-sm text-royal/65 leading-relaxed font-light border-t border-beige/30 pt-4">
+                        {a}
+                      </div>
+                    </details>
+                  </Reveal>
                 );
               })}
             </div>
