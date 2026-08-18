@@ -645,7 +645,7 @@ export const db = {
 
   destinations: {
     findMany: async () => {
-      // Load latest cached JSON data
+      // Load latest cached JSON data (states.json is source of truth)
       statesCache = loadLocalData("states", mergedStates);
       const localData = statesCache;
       if (useFirestore) {
@@ -654,11 +654,10 @@ export const db = {
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "states"));
             const firestoreData = snapshot.docs.map(d => d.data() as StateData);
-            const firestoreMap = new Map(firestoreData.map((s: any) => [s.slug, s]));
-            const merged = localData.map((s: any) => firestoreMap.has(s.slug) ? firestoreMap.get(s.slug) : s);
+            // Only add Firestore-only states (admin-created) that don't exist locally
             const localSlugs = new Set(localData.map((s: any) => s.slug));
             const extraItems = firestoreData.filter((s: any) => !localSlugs.has(s.slug));
-            return [...merged, ...extraItems];
+            return [...localData, ...extraItems];
           }
         } catch (e: any) {
           console.warn("Firestore states.findMany failed, falling back to local:", e.message || e);
