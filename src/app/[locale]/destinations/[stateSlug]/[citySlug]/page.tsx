@@ -167,7 +167,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
             <Reveal className="space-y-4">
               <div className="flex items-center gap-2">
                 <Compass className="w-5 h-5 text-gold" />
-                <h2 className="text-[10px] font-bold uppercase tracking-widest text-gold">{text.overview}</h2>
+                <h2 className="text-xs font-bold uppercase tracking-widest text-gold">{text.overview}</h2>
               </div>
               <h3 className="text-2xl md:text-3xl font-serif font-bold text-royal">
                 {cityTitle} - Guide Overview
@@ -182,13 +182,13 @@ export default async function CityDetailPage({ params }: CityPageProps) {
               <section className="space-y-8">
                 <div className="flex items-center gap-2">
                   <Activity className="w-5 h-5 text-gold" />
-                  <h2 className="text-[10px] font-bold uppercase tracking-widest text-gold">{text.whyVisit}</h2>
+                  <h2 className="text-xs font-bold uppercase tracking-widest text-gold">{text.whyVisit}</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {city.highlights.map((hl: any, i: number) => (
                     <div key={i} className="bg-white border border-beige/45 p-6 rounded-3xl space-y-3 shadow-sm">
                       <h4 className="font-serif font-bold text-base text-royal">{hl.title?.[lang] || hl.title?.en}</h4>
-                      <p className="text-xs text-royal/70 leading-relaxed font-light">{hl.desc?.[lang] || hl.desc?.en}</p>
+                      <p className="text-sm text-royal/70 leading-relaxed font-light">{hl.desc?.[lang] || hl.desc?.en}</p>
                     </div>
                   ))}
                 </div>
@@ -200,7 +200,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
               <section className="space-y-8">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-5 h-5 text-gold" />
-                  <h2 className="text-[10px] font-bold uppercase tracking-widest text-gold">{text.placesToVisit}</h2>
+                  <h2 className="text-xs font-bold uppercase tracking-widest text-gold">{text.placesToVisit}</h2>
                 </div>
                 <h3 className="text-xl md:text-2xl font-serif font-bold text-royal">
                   Explore Monument Landmarks & Historic Places
@@ -222,7 +222,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
                           {att.location && (
                             <span className="text-[9px] text-[#C3AB85] font-semibold uppercase tracking-wider block">{att.location}</span>
                           )}
-                          <p className="text-xs text-royal/75 leading-relaxed font-light">{att.desc?.[lang] || att.desc?.en}</p>
+                          <p className="text-sm text-royal/75 leading-relaxed font-light">{att.desc?.[lang] || att.desc?.en}</p>
                         </div>
                         <div className="grid grid-cols-2 gap-4 border-t border-beige/25 pt-3 text-[9px] font-bold uppercase text-royal/40 tracking-wider">
                           {att.openingHours && (
@@ -244,7 +244,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
               <section className="space-y-8">
                 <div className="flex items-center gap-2">
                   <List className="w-5 h-5 text-gold" />
-                  <h2 className="text-[10px] font-bold uppercase tracking-widest text-gold">{text.thingsToDo}</h2>
+                  <h2 className="text-xs font-bold uppercase tracking-widest text-gold">{text.thingsToDo}</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {city.thingsToDo.map((todo: any, idx: number) => {
@@ -260,7 +260,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
                           </div>
                         )}
                         <h4 className="font-serif font-bold text-base text-royal">{todoName}</h4>
-                        {todoDesc && <p className="text-xs text-royal/70 leading-relaxed font-light">{todoDesc}</p>}
+                        {todoDesc && <p className="text-sm text-royal/70 leading-relaxed font-light">{todoDesc}</p>}
                         {isObj && (todo.duration || todo.price) && (
                           <div className="flex justify-between items-center text-[9px] uppercase tracking-wider text-royal/40 pt-2 border-t border-beige/25">
                             <span>Duration: {todo.duration || "N/A"}</span>
@@ -279,7 +279,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
               <section className="space-y-8">
                 <div className="flex items-center gap-2">
                   <Compass className="w-5 h-5 text-gold" />
-                  <h2 className="text-[10px] font-bold uppercase tracking-widest text-gold">{text.experiences}</h2>
+                  <h2 className="text-xs font-bold uppercase tracking-widest text-gold">{text.experiences}</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {city.experiences.map((exp: any, idx: number) => (
@@ -290,7 +290,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
                         </div>
                       )}
                       <h4 className="font-serif font-bold text-base text-royal">{exp.title?.[lang] || exp.title?.en}</h4>
-                      <p className="text-xs text-royal/70 leading-relaxed font-light">{exp.desc?.[lang] || exp.desc?.en}</p>
+                      <p className="text-sm text-royal/70 leading-relaxed font-light">{exp.desc?.[lang] || exp.desc?.en}</p>
                       <div className="flex justify-between items-center text-[9px] font-bold uppercase tracking-wider text-royal/40 pt-2 border-t border-beige/25">
                         <span>{exp.duration || "N/A"} • {exp.location || "Local"}</span>
                         <span className="text-royal">{exp.price}</span>
@@ -306,7 +306,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
               <section className="bg-white border border-beige/45 p-8 rounded-3xl space-y-6 shadow-sm">
                 <div className="flex items-center gap-2">
                   <Sun className="w-5 h-5 text-gold" />
-                  <h2 className="text-[10px] font-bold uppercase tracking-widest text-gold">{text.bestTime}</h2>
+                  <h2 className="text-xs font-bold uppercase tracking-widest text-gold">{text.bestTime}</h2>
                 </div>
                 <div className="space-y-4">
                   <h3 className="text-lg font-serif font-bold text-royal">Best seasons to explore {cityTitle}</h3>
@@ -339,7 +339,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
               <section className="space-y-8">
                 <div className="flex items-center gap-2">
                   <Utensils className="w-5 h-5 text-gold" />
-                  <h2 className="text-[10px] font-bold uppercase tracking-widest text-gold">{text.food}</h2>
+                  <h2 className="text-xs font-bold uppercase tracking-widest text-gold">{text.food}</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {city.localFoodDishes.map((food: any, idx: number) => (
@@ -356,7 +356,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
                             {food.isVeg ? "Veg" : "Non-Veg"}
                           </span>
                         </div>
-                        <p className="text-xs text-royal/70 leading-relaxed font-light">{food.desc?.[lang] || food.desc?.en}</p>
+                        <p className="text-sm text-royal/70 leading-relaxed font-light">{food.desc?.[lang] || food.desc?.en}</p>
                       </div>
                       {food.whereToTry && (
                         <div className="text-[9px] uppercase tracking-wider text-royal/40 pt-2 border-t border-beige/25 mt-3">
@@ -374,7 +374,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
               <section className="space-y-8">
                 <div className="flex items-center gap-2">
                   <Hotel className="w-5 h-5 text-gold" />
-                  <h2 className="text-[10px] font-bold uppercase tracking-widest text-gold">{text.hotels}</h2>
+                  <h2 className="text-xs font-bold uppercase tracking-widest text-gold">{text.hotels}</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {city.hotels.map((hotel: any, idx: number) => (
@@ -392,7 +392,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
                         {hotel.location && (
                           <span className="text-[9px] text-[#C3AB85] font-semibold uppercase tracking-wider block">{hotel.location}</span>
                         )}
-                        <p className="text-xs text-royal/70 leading-relaxed font-light">{hotel.desc?.[lang] || hotel.desc?.en}</p>
+                        <p className="text-sm text-royal/70 leading-relaxed font-light">{hotel.desc?.[lang] || hotel.desc?.en}</p>
                       </div>
                       <div className="flex justify-between items-center text-[9px] uppercase tracking-wider text-royal/40 pt-2 border-t border-beige/25 mt-4">
                         <span>Price Standard: {hotel.priceRange || "$$"}</span>
@@ -411,7 +411,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
               <section className="space-y-8">
                 <div className="flex items-center gap-2">
                   <Compass className="w-5 h-5 text-gold" />
-                  <h2 className="text-[10px] font-bold uppercase tracking-widest text-gold">{text.gettingAround}</h2>
+                  <h2 className="text-xs font-bold uppercase tracking-widest text-gold">{text.gettingAround}</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {city.gettingAround.map((trans: any, idx: number) => (
@@ -423,7 +423,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
                         )}
                       </div>
                       <h5 className="font-bold text-xs text-royal/80">{trans.title?.[lang] || trans.title?.en}</h5>
-                      <p className="text-xs text-royal/70 leading-relaxed font-light">{trans.desc?.[lang] || trans.desc?.en}</p>
+                      <p className="text-sm text-royal/70 leading-relaxed font-light">{trans.desc?.[lang] || trans.desc?.en}</p>
                       <div className="text-[9px] uppercase tracking-wider text-royal/40 pt-2">
                         Fare Standard: <span className="font-bold text-royal">{trans.priceRange || "$$"}</span>
                       </div>
@@ -480,7 +480,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
               <section className="space-y-6">
                 <div className="flex items-center gap-2">
                   <Info className="w-5 h-5 text-gold" />
-                  <h2 className="text-[10px] font-bold uppercase tracking-widest text-gold">{text.tips}</h2>
+                  <h2 className="text-xs font-bold uppercase tracking-widest text-gold">{text.tips}</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {city.travelTips.map((tip: any, idx: number) => {
@@ -493,7 +493,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
                           <span className="w-5 h-5 rounded-full bg-gold/10 text-gold flex items-center justify-center font-serif text-[10px]">!</span>
                           {tipTitle}
                         </h4>
-                        {tipDesc && <p className="text-xs text-royal/70 leading-relaxed font-light">{tipDesc}</p>}
+                        {tipDesc && <p className="text-sm text-royal/70 leading-relaxed font-light">{tipDesc}</p>}
                       </div>
                     );
                   })}
@@ -526,20 +526,24 @@ export default async function CityDetailPage({ params }: CityPageProps) {
               <section className="space-y-6">
                 <div className="flex items-center gap-2">
                   <HelpCircle className="w-5 h-5 text-gold" />
-                  <h2 className="text-[10px] font-bold uppercase tracking-widest text-[#C3AB85]">{text.faqs}</h2>
+                  <h2 className="text-xs font-bold uppercase tracking-widest text-[#C3AB85]">{text.faqs}</h2>
                 </div>
                 <div className="space-y-3">
-                  {city.faqs.map((faq: any, idx: number) => (
+                  {city.faqs.map((faq: any, idx: number) => {
+                    const question = typeof faq.q === "string" ? faq.q : (faq.q?.[lang] || faq.q?.en || faq.question?.[lang] || faq.question?.en || "");
+                    const answer = typeof faq.a === "string" ? faq.a : (faq.a?.[lang] || faq.a?.en || faq.answer?.[lang] || faq.answer?.en || "");
+                    return (
                     <details key={idx} className="group bg-white border border-beige/45 overflow-hidden rounded-2xl shadow-sm" open={idx === 0}>
-                      <summary className="flex items-center justify-between p-5 cursor-pointer text-[13px] md:text-sm font-bold text-royal hover:bg-[#FAF8F5] transition-colors list-none">
-                        <span>{faq.q?.[lang] || faq.q?.en}</span>
+                      <summary className="flex items-center justify-between p-5 cursor-pointer text-sm md:text-base font-bold text-royal hover:bg-[#FAF8F5] transition-colors list-none">
+                        <span>{question}</span>
                         <ArrowRight className="w-4 h-4 text-gold transition-transform group-open:rotate-90 shrink-0 ml-2" />
                       </summary>
-                      <div className="px-5 pb-5 text-xs text-royal/75 leading-relaxed font-light border-t border-beige/25 pt-4">
-                        {faq.a?.[lang] || faq.a?.en}
+                      <div className="px-5 pb-5 text-sm text-royal/75 leading-relaxed font-light border-t border-beige/25 pt-4">
+                        {answer}
                       </div>
                     </details>
-                  ))}
+                    );
+                  })}
                 </div>
               </section>
             )}
