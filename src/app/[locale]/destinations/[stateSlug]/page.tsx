@@ -178,14 +178,14 @@ export default async function StateDetailPage({ params }: StatePageProps) {
             </p>
             
             {/* Quick stats board */}
-            <div className="p-6 bg-white border border-beige/40 rounded-2xl grid grid-cols-2 gap-6 text-xs mt-8 shadow-sm">
+            <div className="p-6 bg-white border border-beige/40 rounded-2xl grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs mt-8 shadow-sm">
               <div className="space-y-1">
                 <span className="text-royal/40 font-bold block uppercase tracking-wider text-[9px]">{text.regionLabel}</span>
                 <span className="text-royal uppercase tracking-wider font-extrabold text-sm">{state.region} {text.regionVal}</span>
               </div>
               <div className="space-y-1">
                 <span className="text-royal/40 font-bold block uppercase tracking-wider text-[9px]">{text.seasonLabel}</span>
-                <span className="text-royal font-bold text-sm">{bestTimeStr}</span>
+                <span className="text-royal font-bold text-sm break-words">{bestTimeStr}</span>
               </div>
             </div>
           </Reveal>

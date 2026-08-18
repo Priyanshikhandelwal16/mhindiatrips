@@ -16,11 +16,13 @@ import {
   Testimonial
 } from "@/data/mockData";
 import { additionalStates, additionalPackages, additionalFoods, additionalBlogs } from "@/data/additionalData";
+// Import pre-built states data (includes all city updates from scripts)
+import statesJsonData from "@/data/fallback/states.json";
 import fs from "fs";
 import path from "path";
 
-// Merge additional data
-const mergedStates = [...statesData, ...additionalStates];
+// Merge additional data — use pre-built states.json as source of truth (includes script-added cities)
+const mergedStates = (statesJsonData && statesJsonData.length > 0) ? statesJsonData : [...statesData, ...additionalStates];
 const mergedFoods = [...foodsData, ...additionalFoods];
 const mergedBlogs = [...blogsData, ...additionalBlogs];
 const mergedPackages = [...initialTourPackages, ...additionalPackages];

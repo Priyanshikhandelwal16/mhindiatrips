@@ -1127,7 +1127,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="space-y-4">
-                      {editState.cities[editingCityIdx].highlights.map((hl: any, idx: number) => (
+                      {(editState.cities[editingCityIdx].highlights || []).map((hl: any, idx: number) => (
                         <div key={idx} className="bg-white border border-gold/15 p-5 rounded-2xl space-y-4 relative">
                           <div className="flex justify-between items-center pb-2 border-b border-gold/10">
                             <span className="font-bold text-royal text-[10px]">Highlight Point #{idx + 1}</span>
@@ -1223,7 +1223,7 @@ export default function DestinationsTab({
               )}
 
               {/* CITY TAB 4: THINGS TO DO */}
-              {citySubTab === "thingsToDo" && (
+              {citySubTab === "thingsToDo" && editingCityIdx !== null && (
                 <div className="space-y-4 animate-fade-in">
                   <div className="flex justify-between items-center">
                     <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Things to Do (Activities)</span>
@@ -1241,7 +1241,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="space-y-4">
-                      {editState.cities[editingCityIdx].thingsToDo.map((todo: any, idx: number) => {
+                      {(editState.cities[editingCityIdx].thingsToDo || []).map((todo: any, idx: number) => {
                         const todoObj = typeof todo === "object" && todo !== null && todo.name ? todo : { name: { en: typeof todo === 'string' ? todo : (todo.en || ""), es: "", pt: "" }, desc: { en: "", es: "", pt: "" }, duration: "", price: "", difficulty: "Easy", displayOrder: idx + 1, isFeatured: false };
                         return (
                           <div key={idx} className="bg-white border border-gold/15 p-5 rounded-2xl space-y-4 relative shadow-sm">
@@ -1408,7 +1408,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="space-y-6">
-                      {editState.cities[editingCityIdx].attractions.map((attr: any, idx: number) => {
+                      {(editState.cities[editingCityIdx].attractions || []).map((attr: any, idx: number) => {
                         const attrNameObj = typeof attr.name === "object" && attr.name !== null ? attr.name : { en: attr.name || "", es: "", pt: "" };
                         const attrDescObj = typeof attr.desc === "object" && attr.desc !== null ? attr.desc : { en: attr.desc || "", es: "", pt: "" };
                         return (
@@ -1581,7 +1581,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="space-y-4">
-                      {editState.cities[editingCityIdx].experiences.map((exp: any, idx: number) => (
+                      {(editState.cities[editingCityIdx].experiences || []).map((exp: any, idx: number) => (
                         <div key={idx} className="bg-white border border-gold/15 p-5 rounded-2xl space-y-4 relative shadow-sm">
                           <div className="flex justify-between items-center pb-2 border-b border-gold/10">
                             <span className="font-bold text-royal text-xs">Experience #{idx + 1}</span>
@@ -1939,7 +1939,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="space-y-4">
-                      {editState.cities[editingCityIdx].localFoodDishes.map((food: any, idx: number) => (
+                      {(editState.cities[editingCityIdx].localFoodDishes || []).map((food: any, idx: number) => (
                         <div key={idx} className="bg-white border border-gold/15 p-5 rounded-2xl space-y-4 relative shadow-sm">
                           <div className="flex justify-between items-center pb-2 border-b border-gold/10">
                             <span className="font-bold text-royal text-xs font-serif">Dish #{idx + 1}</span>
@@ -2089,7 +2089,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="space-y-6">
-                      {editState.cities[editingCityIdx].hotels.map((hotel: any, idx: number) => {
+                      {(editState.cities[editingCityIdx].hotels || []).map((hotel: any, idx: number) => {
                         const hotelDescObj = typeof hotel.desc === "object" && hotel.desc !== null ? hotel.desc : { en: hotel.desc || "", es: "", pt: "" };
                         return (
                           <div key={idx} className="bg-white border border-gold/15 p-5 rounded-2xl space-y-4 relative shadow-sm">
@@ -2255,7 +2255,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="space-y-6">
-                      {editState.cities[editingCityIdx].gettingAround.map((trans: any, idx: number) => (
+                      {(editState.cities[editingCityIdx].gettingAround || []).map((trans: any, idx: number) => (
                         <div key={idx} className="bg-white border border-gold/15 p-5 rounded-2xl space-y-4 relative shadow-sm">
                           <div className="flex justify-between items-center pb-2 border-b border-gold/10">
                             <span className="font-bold text-royal text-xs">Transport #{idx + 1}</span>
@@ -2369,7 +2369,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {editState.cities[editingCityIdx].gallery.map((img: any, idx: number) => {
+                      {(editState.cities[editingCityIdx].gallery || []).map((img: any, idx: number) => {
                         const imgObj = typeof img === 'string' ? { url: img, title: "", alt: "", caption: "", displayOrder: idx + 1 } : img;
                         return (
                           <div key={idx} className="bg-white border border-gold/15 p-4 rounded-2xl space-y-4 shadow-sm">
@@ -2482,7 +2482,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="space-y-6">
-                      {editState.cities[editingCityIdx].faqs.map((faq: any, idx: number) => (
+                      {(editState.cities[editingCityIdx].faqs || []).map((faq: any, idx: number) => (
                         <div key={idx} className="border border-gold/10 bg-white p-5 rounded-2xl space-y-4 relative shadow-sm">
                           <div className="flex justify-between items-center pb-2 border-b border-gold/10">
                             <span className="font-bold text-royal text-xs font-serif">FAQ Question #{idx + 1}</span>
@@ -2563,7 +2563,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="space-y-4">
-                      {editState.cities[editingCityIdx].travelTips.map((tip: any, idx: number) => {
+                      {(editState.cities[editingCityIdx].travelTips || []).map((tip: any, idx: number) => {
                         const tipObj = typeof tip === "object" && tip !== null && tip.title ? tip : { title: { en: typeof tip === 'string' ? tip : (tip.en || ""), es: "", pt: "" }, desc: { en: "", es: "", pt: "" }, icon: "Info", displayOrder: idx + 1 };
                         return (
                           <div key={idx} className="bg-white border border-gold/15 p-5 rounded-2xl space-y-4 relative shadow-sm">
