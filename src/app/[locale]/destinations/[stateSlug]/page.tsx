@@ -405,6 +405,34 @@ export default async function StateDetailPage({ params }: StatePageProps) {
         </section>
       )}
 
+      {/* Travel Tips Section */}
+      {state.travelTips && state.travelTips.length > 0 && (
+        <section className="py-20 relative z-10 border-t border-beige/40">
+          <div className="max-w-5xl mx-auto px-6">
+            <div className="text-left mb-10">
+              <span className="text-[9px] font-bold tracking-widest text-gold uppercase block mb-2">
+                {locale === "es" ? "Consejos de Viaje" : locale === "pt" ? "Dicas de Viagem" : "Travel Tips"}
+              </span>
+              <h2 className="font-serif text-2xl md:text-3xl font-bold text-royal">
+                {locale === "es" ? `Consejos para viajar a ${stateName}` : locale === "pt" ? `Dicas para viajar a ${stateName}` : `Tips for Traveling in ${stateName}`}
+              </h2>
+              <div className="w-16 h-[2px] bg-gold mt-4" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {state.travelTips.map((tip: any, idx: number) => {
+                const tipText = typeof tip === "string" ? tip : (tip?.[lang] || tip?.en || "");
+                return (
+                  <div key={idx} className="bg-white border border-beige/45 p-5 rounded-2xl shadow-sm flex items-start gap-3">
+                    <span className="w-7 h-7 rounded-full bg-gold/10 text-gold flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">{idx + 1}</span>
+                    <p className="text-sm text-royal/75 leading-relaxed">{tipText}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* FAQ Section */}
       {stateFaqs.length > 0 && (
         <section className="py-24 relative z-10 bg-[#FAF8F5] border-t border-beige/40">
@@ -420,8 +448,8 @@ export default async function StateDetailPage({ params }: StatePageProps) {
             </div>
             <div className="space-y-4">
               {stateFaqs.map((faq: any, idx: number) => {
-                const q = faq.question?.[lang] || faq.question?.en || "";
-                const a = faq.answer?.[lang] || faq.answer?.en || "";
+                const q = faq.q?.[lang] || faq.q?.en || faq.question?.[lang] || faq.question?.en || (typeof faq.q === "string" ? faq.q : "");
+                const a = faq.a?.[lang] || faq.a?.en || faq.answer?.[lang] || faq.answer?.en || (typeof faq.a === "string" ? faq.a : "");
                 return (
                   <Reveal key={idx}>
                     <details className="group bg-white border border-beige/45 rounded-2xl overflow-hidden cursor-pointer">
