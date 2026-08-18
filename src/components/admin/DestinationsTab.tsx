@@ -46,6 +46,22 @@ export default function DestinationsTab({
 
   const [citySubTab, setCitySubTab] = useState<string>("general");
 
+  // Helper: normalize any field that could be either an array OR a {en:[],es:[],pt:[]} object into a flat array
+  const toArray = (val: any): any[] => {
+    if (!val) return [];
+    if (Array.isArray(val)) return val;
+    // If it's an object like {en: [...], es: [...], pt: [...]}, convert to array of {en,es,pt} objects
+    if (typeof val === "object" && val.en && Array.isArray(val.en)) {
+      return val.en.map((item: any, i: number) => {
+        if (typeof item === "string") {
+          return { en: item, es: val.es?.[i] || "", pt: val.pt?.[i] || "" };
+        }
+        return item;
+      });
+    }
+    return [];
+  };
+
   const handleAddCity = () => {
     const cityName = prompt("Enter new City name (e.g. Udaipur):");
     if (!cityName || !cityName.trim()) return;
@@ -717,10 +733,10 @@ export default function DestinationsTab({
                                 <div key={l} className="space-y-1">
                                   <span className="text-[8px] uppercase text-royal/40 font-bold block">{l.toUpperCase()} Question</span>
                                   <input 
-                                    type="text" value={faq.q?.[l] || ""}
+                                    type="text" value={faq.q?.[l] || faq.question?.[l] || ""}
                                     onChange={e => {
                                       const updatedFaqs = [...editState.faqs];
-                                      updatedFaqs[idx].q = { ...(updatedFaqs[idx].q || {}), [l]: e.target.value };
+                                      updatedFaqs[idx].q = { ...(updatedFaqs[idx].q || updatedFaqs[idx].question || {}), [l]: e.target.value }; delete updatedFaqs[idx].question;
                                       setEditState({ ...editState, faqs: updatedFaqs });
                                     }}
                                     className="w-full bg-white border border-[#C3AB85]/15 px-3 py-2 outline-none rounded-lg"
@@ -737,10 +753,10 @@ export default function DestinationsTab({
                                 <div key={l} className="space-y-1">
                                   <span className="text-[8px] uppercase text-royal/40 font-bold block">{l.toUpperCase()} Answer</span>
                                   <textarea
-                                    value={faq.a?.[l] || ""}
+                                    value={faq.a?.[l] || faq.answer?.[l] || ""}
                                     onChange={e => {
                                       const updatedFaqs = [...editState.faqs];
-                                      updatedFaqs[idx].a = { ...(updatedFaqs[idx].a || {}), [l]: e.target.value };
+                                      updatedFaqs[idx].a = { ...(updatedFaqs[idx].a || updatedFaqs[idx].answer || {}), [l]: e.target.value }; delete updatedFaqs[idx].answer;
                                       setEditState({ ...editState, faqs: updatedFaqs });
                                     }}
                                     className="w-full h-20 bg-white border border-[#C3AB85]/15 p-3 outline-none rounded-lg text-xs"
@@ -1127,7 +1143,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="space-y-4">
-                      {(editState.cities[editingCityIdx].highlights || []).map((hl: any, idx: number) => (
+                      {toArray(editState.cities[editingCityIdx].highlights).map((hl: any, idx: number) => (
                         <div key={idx} className="bg-white border border-gold/15 p-5 rounded-2xl space-y-4 relative">
                           <div className="flex justify-between items-center pb-2 border-b border-gold/10">
                             <span className="font-bold text-royal text-[10px]">Highlight Point #{idx + 1}</span>
@@ -1241,7 +1257,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="space-y-4">
-                      {(editState.cities[editingCityIdx].thingsToDo || []).map((todo: any, idx: number) => {
+                      {toArray(editState.cities[editingCityIdx].thingsToDo).map((todo: any, idx: number) => {
                         const todoObj = typeof todo === "object" && todo !== null && todo.name ? todo : { name: { en: typeof todo === 'string' ? todo : (todo.en || ""), es: "", pt: "" }, desc: { en: "", es: "", pt: "" }, duration: "", price: "", difficulty: "Easy", displayOrder: idx + 1, isFeatured: false };
                         return (
                           <div key={idx} className="bg-white border border-gold/15 p-5 rounded-2xl space-y-4 relative shadow-sm">
@@ -1408,7 +1424,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="space-y-6">
-                      {(editState.cities[editingCityIdx].attractions || []).map((attr: any, idx: number) => {
+                      {toArray(editState.cities[editingCityIdx].attractions).map((attr: any, idx: number) => {
                         const attrNameObj = typeof attr.name === "object" && attr.name !== null ? attr.name : { en: attr.name || "", es: "", pt: "" };
                         const attrDescObj = typeof attr.desc === "object" && attr.desc !== null ? attr.desc : { en: attr.desc || "", es: "", pt: "" };
                         return (
@@ -1581,7 +1597,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="space-y-4">
-                      {(editState.cities[editingCityIdx].experiences || []).map((exp: any, idx: number) => (
+                      {toArray(editState.cities[editingCityIdx].experiences).map((exp: any, idx: number) => (
                         <div key={idx} className="bg-white border border-gold/15 p-5 rounded-2xl space-y-4 relative shadow-sm">
                           <div className="flex justify-between items-center pb-2 border-b border-gold/10">
                             <span className="font-bold text-royal text-xs">Experience #{idx + 1}</span>
@@ -1939,7 +1955,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="space-y-4">
-                      {(editState.cities[editingCityIdx].localFoodDishes || []).map((food: any, idx: number) => (
+                      {toArray(editState.cities[editingCityIdx].localFoodDishes).map((food: any, idx: number) => (
                         <div key={idx} className="bg-white border border-gold/15 p-5 rounded-2xl space-y-4 relative shadow-sm">
                           <div className="flex justify-between items-center pb-2 border-b border-gold/10">
                             <span className="font-bold text-royal text-xs font-serif">Dish #{idx + 1}</span>
@@ -2089,7 +2105,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="space-y-6">
-                      {(editState.cities[editingCityIdx].hotels || []).map((hotel: any, idx: number) => {
+                      {toArray(editState.cities[editingCityIdx].hotels).map((hotel: any, idx: number) => {
                         const hotelDescObj = typeof hotel.desc === "object" && hotel.desc !== null ? hotel.desc : { en: hotel.desc || "", es: "", pt: "" };
                         return (
                           <div key={idx} className="bg-white border border-gold/15 p-5 rounded-2xl space-y-4 relative shadow-sm">
@@ -2255,7 +2271,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="space-y-6">
-                      {(editState.cities[editingCityIdx].gettingAround || []).map((trans: any, idx: number) => (
+                      {toArray(editState.cities[editingCityIdx].gettingAround).map((trans: any, idx: number) => (
                         <div key={idx} className="bg-white border border-gold/15 p-5 rounded-2xl space-y-4 relative shadow-sm">
                           <div className="flex justify-between items-center pb-2 border-b border-gold/10">
                             <span className="font-bold text-royal text-xs">Transport #{idx + 1}</span>
@@ -2369,7 +2385,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {(editState.cities[editingCityIdx].gallery || []).map((img: any, idx: number) => {
+                      {toArray(editState.cities[editingCityIdx].gallery).map((img: any, idx: number) => {
                         const imgObj = typeof img === 'string' ? { url: img, title: "", alt: "", caption: "", displayOrder: idx + 1 } : img;
                         return (
                           <div key={idx} className="bg-white border border-gold/15 p-4 rounded-2xl space-y-4 shadow-sm">
@@ -2482,7 +2498,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="space-y-6">
-                      {(editState.cities[editingCityIdx].faqs || []).map((faq: any, idx: number) => (
+                      {toArray(editState.cities[editingCityIdx].faqs).map((faq: any, idx: number) => (
                         <div key={idx} className="border border-gold/10 bg-white p-5 rounded-2xl space-y-4 relative shadow-sm">
                           <div className="flex justify-between items-center pb-2 border-b border-gold/10">
                             <span className="font-bold text-royal text-xs font-serif">FAQ Question #{idx + 1}</span>
@@ -2505,7 +2521,7 @@ export default function DestinationsTab({
                                 <div key={l} className="space-y-1">
                                   <span className="text-[8px] uppercase text-royal/40 font-bold block">{l.toUpperCase()} Question</span>
                                   <input 
-                                    type="text" value={faq.q?.[l] || ""}
+                                    type="text" value={faq.q?.[l] || faq.question?.[l] || ""}
                                     onChange={e => {
                                       const updatedCities = [...editState.cities];
                                       updatedCities[editingCityIdx].faqs[idx].q = { ...(updatedFaqObj(updatedCities[editingCityIdx].faqs[idx]).q || {}), [l]: e.target.value };
@@ -2525,7 +2541,7 @@ export default function DestinationsTab({
                                 <div key={l} className="space-y-1">
                                   <span className="text-[8px] uppercase text-royal/40 font-bold block">{l.toUpperCase()} Answer</span>
                                   <textarea
-                                    value={faq.a?.[l] || ""}
+                                    value={faq.a?.[l] || faq.answer?.[l] || ""}
                                     onChange={e => {
                                       const updatedCities = [...editState.cities];
                                       updatedCities[editingCityIdx].faqs[idx].a = { ...(updatedFaqObj(updatedCities[editingCityIdx].faqs[idx]).a || {}), [l]: e.target.value };
@@ -2563,7 +2579,7 @@ export default function DestinationsTab({
                     </div>
                   ) : (
                     <div className="space-y-4">
-                      {(editState.cities[editingCityIdx].travelTips || []).map((tip: any, idx: number) => {
+                      {toArray(editState.cities[editingCityIdx].travelTips).map((tip: any, idx: number) => {
                         const tipObj = typeof tip === "object" && tip !== null && tip.title ? tip : { title: { en: typeof tip === 'string' ? tip : (tip.en || ""), es: "", pt: "" }, desc: { en: "", es: "", pt: "" }, icon: "Info", displayOrder: idx + 1 };
                         return (
                           <div key={idx} className="bg-white border border-gold/15 p-5 rounded-2xl space-y-4 relative shadow-sm">
