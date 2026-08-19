@@ -109,39 +109,38 @@ export default async function CityDetailPage({ params }: CityPageProps) {
       <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#C5A862_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
       {/* 1. Hero Section */}
-      <section className="relative min-h-[520px] sm:min-h-[550px] lg:h-[70vh] flex items-end overflow-hidden pt-24 lg:pt-28 pb-4">
-        <img 
-          src={city.hero?.image || city.image} 
-          alt={cityTitle} 
-          className="absolute inset-0 w-full h-full object-cover filter brightness-[0.80] contrast-[1.02]" 
-          loading="eager" 
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/15" />
+      <section className="relative min-h-[440px] lg:h-[55vh] flex items-center justify-center overflow-hidden pt-28 bg-[#0A2A1E] border-b border-gold/15">
+        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#C5A862_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
         
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-12 space-y-6">
-          <Link 
-            href={`/${locale}/destinations/${stateSlug}`} 
-            className="inline-flex items-center gap-2 text-white/75 hover:text-gold text-[10px] uppercase tracking-wider font-bold transition-colors bg-royal/50 backdrop-blur-md border border-white/15 px-4 py-2.5 rounded-xl shadow-lg w-fit animate-fade-in"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>{text.backToState}</span>
-          </Link>
-          <div className="flex items-center gap-2 text-[10px] text-white/60 uppercase tracking-widest font-bold">
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-6 text-center text-white space-y-5">
+          <div className="flex justify-center">
+            <Link 
+              href={`/${locale}/destinations/${stateSlug}`} 
+              className="inline-flex items-center gap-2 text-white/75 hover:text-gold text-[10px] uppercase tracking-wider font-bold transition-colors bg-white/10 backdrop-blur-md border border-white/15 px-4 py-2.5 rounded-xl shadow-lg w-fit animate-fade-in"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>{text.backToState}</span>
+            </Link>
+          </div>
+          
+          <div className="flex items-center justify-center gap-2 text-[10px] text-white/60 uppercase tracking-widest font-bold">
             <Link href={`/${locale}/destinations`} className="hover:text-gold transition-colors">{text.destinations}</Link>
             <span>/</span>
             <Link href={`/${locale}/destinations/${stateSlug}`} className="hover:text-gold transition-colors">{stateTitle}</Link>
             <span>/</span>
             <span className="text-white">{cityTitle}</span>
           </div>
+          
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
             {city.hero?.title?.[lang] || city.hero?.title?.en || cityTitle}
           </h1>
-          <p className="text-xs md:text-sm text-white/80 max-w-xl font-light leading-relaxed">
+          
+          <p className="text-xs md:text-sm text-white/80 max-w-xl mx-auto font-light leading-relaxed">
             {city.hero?.subtitle?.[lang] || city.hero?.subtitle?.en || cityTagline}
           </p>
           
           {/* Quick Info Tags */}
-          <div className="flex flex-wrap gap-2.5 pt-2">
+          <div className="flex flex-wrap justify-center gap-2.5 pt-2">
             <span className="bg-white/10 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider px-4 py-2 rounded-xl flex items-center gap-1.5 shadow-sm">
               <Clock className="w-3.5 h-3.5 text-gold" /> {daysNeeded}
             </span>

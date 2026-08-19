@@ -130,25 +130,19 @@ export default async function StateDetailPage({ params }: StatePageProps) {
       <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#C5A862_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
       {/* Cinematic Hero Header */}
-      <section className="relative min-h-[480px] sm:min-h-[520px] lg:h-[70vh] w-full flex items-end justify-start overflow-hidden pt-24 lg:pt-28">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={state.image} 
-            alt={stateName} 
-            className="w-full h-full object-cover filter brightness-[0.80] contrast-[1.02]"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/15" />
-        </div>
+      <section className="relative min-h-[380px] lg:h-[50vh] w-full flex items-center justify-center overflow-hidden pt-28 bg-[#0A2A1E] border-b border-gold/15">
+        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#C5A862_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-12 text-left text-white space-y-6">
-          <Link 
-            href={`/${locale}/destinations`} 
-            className="inline-flex items-center gap-2 text-white/75 hover:text-gold text-[10px] uppercase tracking-wider font-bold transition-colors bg-royal/40 backdrop-blur-sm border border-white/10 px-4 py-2.5 rounded-xl shadow-lg w-fit"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>{text.back}</span>
-          </Link>
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-6 text-center text-white space-y-6">
+          <div className="flex justify-center">
+            <Link 
+              href={`/${locale}/destinations`} 
+              className="inline-flex items-center gap-2 text-white/75 hover:text-gold text-[10px] uppercase tracking-wider font-bold transition-colors bg-white/10 backdrop-blur-md border border-white/15 px-4 py-2.5 rounded-xl shadow-lg w-fit"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>{text.back}</span>
+            </Link>
+          </div>
           <Reveal className="space-y-3">
             <span className="text-[10px] font-bold tracking-widest text-gold uppercase block">
               {text.subRegion} • {state.region}ern {text.regionVal}
@@ -156,7 +150,7 @@ export default async function StateDetailPage({ params }: StatePageProps) {
             <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-tight">
               {stateName}
             </h1>
-            <p className="text-xs md:text-sm text-white/70 tracking-wider uppercase font-semibold max-w-xl leading-relaxed">
+            <p className="text-xs md:text-sm text-white/70 tracking-wider uppercase font-semibold max-w-xl mx-auto leading-relaxed">
               {stateTagline}
             </p>
           </Reveal>

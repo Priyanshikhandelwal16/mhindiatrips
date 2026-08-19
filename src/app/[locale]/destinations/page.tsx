@@ -70,14 +70,8 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
       <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#C5A862_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
       {/* BREADCRUMB BANNER SECTION START */}
-      <section className="relative h-[55vh] min-h-[380px] flex items-center justify-center overflow-hidden pt-28">
-        <img 
-          src="/images/rajasthan_fort_sunset.png" 
-          alt="Luxury India Destinations" 
-          className="absolute inset-0 w-full h-full object-cover filter brightness-[0.80] contrast-[1.02]" 
-          loading="eager" 
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/15" />
+      <section className="relative min-h-[320px] lg:h-[45vh] flex items-center justify-center overflow-hidden pt-28 bg-[#0A2A1E] border-b border-gold/15">
+        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#C5A862_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
 
         <div className="relative z-10 text-center text-white space-y-4 px-6 max-w-3xl">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight font-serif drop-shadow-md">

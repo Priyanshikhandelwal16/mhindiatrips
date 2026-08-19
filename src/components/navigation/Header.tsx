@@ -64,27 +64,27 @@ export default function Header({ locale, contactDetails }: HeaderProps) {
     },
     es: {
       home: "Inicio",
-      packages: "Paquetes de Viajes",
+      packages: "Paquetes",
       about: "Sobre Nosotros",
-      destinations: "Destinos en India",
+      destinations: "Destinos",
       monuments: "Monumentos",
-      food: "Guía de Comida",
-      info: "Información para viajeros",
+      food: "Comida",
+      info: "Info Viaje",
       contact: "Contacto",
       blog: "Blog",
-      cta: "Planificar Viaje"
+      cta: "Planificar"
     },
     pt: {
       home: "Início",
-      packages: "Pacotes de Viagens",
+      packages: "Pacotes",
       about: "Sobre Nós",
-      destinations: "Destinos na Índia",
+      destinations: "Destinos",
       monuments: "Monumentos",
-      food: "Guia Gastronômico",
-      info: "Informações para viajantes",
+      food: "Gastronomia",
+      info: "Info Viagem",
       contact: "Contato",
       blog: "Blog",
-      cta: "Fale Conosco"
+      cta: "Planejar"
     }
   };
 
@@ -173,7 +173,7 @@ export default function Header({ locale, contactDetails }: HeaderProps) {
   const textColor = scrolled ? "text-white/80 hover:text-gold" : "text-royal hover:text-gold";
 
   const linkClass = (path: string) => {
-    const base = "text-[9px] xl:text-[10px] 2xl:text-[11px] font-bold uppercase tracking-[0.04em] xl:tracking-[0.10em] 2xl:tracking-[0.15em] whitespace-nowrap transition-all duration-300 relative py-1";
+    const base = "text-[8px] xl:text-[9px] 2xl:text-[11px] font-bold uppercase tracking-[0.02em] xl:tracking-[0.08em] 2xl:tracking-[0.12em] whitespace-nowrap transition-all duration-300 relative py-1";
     const activeColor = "text-gold";
     const inactiveColor = "text-royal hover:text-gold";
     return `${base} ${isActive(path) ? activeColor : inactiveColor}`;
@@ -227,19 +227,19 @@ export default function Header({ locale, contactDetails }: HeaderProps) {
               : "bg-white border-gold/10 py-4"
         }`}
       >
-        <div className="max-w-[1400px] w-full mx-auto px-6 xl:px-10 flex items-center justify-between gap-4">
+        <div className="max-w-[1400px] w-full mx-auto px-2 md:px-6 xl:px-10 flex items-center justify-between gap-2 xl:gap-4">
           
           {/* Logo */}
-          <Link href={`/${locale}`} className="relative block shrink-0 z-20">
+          <Link href={`/${locale}`} className="relative block shrink z-20">
             <img
               src="/images/logo-transparent.png"
               alt="MH India Trips"
-              className="h-10 md:h-12 xl:h-14 w-auto transition-all duration-300 hover:scale-[1.01]"
+              className="h-8 md:h-10 xl:h-12 w-auto transition-all duration-300 hover:scale-[1.01]"
             />
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1.5 xl:gap-3 2xl:gap-5 shrink-0">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2.5 2xl:gap-4 shrink">
             
             {/* Home Link */}
             <Link
