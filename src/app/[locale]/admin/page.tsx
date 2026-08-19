@@ -166,21 +166,23 @@ export default function AdminDashboard() {
   const loadCMSData = async () => {
     setLoading(true);
     try {
+      // Load each collection independently so one failure doesn't kill all
       const [inqs, blgs, pkgs, fds, sts, tsts, pgs, settingsRes, parentsRes] = await Promise.all([
-        getInquiriesAction(),
-        getBlogsAction(),
-        getTourPackagesAction(),
-        getFoodsAction(),
-        getStatesAction(),
-        getTestimonialsAction(),
-        getPagesAction(),
-        getSettingsAction(),
-        getParentDestinationsAction()
+        getInquiriesAction().catch(() => []),
+        getBlogsAction().catch(() => []),
+        getTourPackagesAction().catch(() => []),
+        getFoodsAction().catch(() => []),
+        getStatesAction().catch(() => []),
+        getTestimonialsAction().catch(() => []),
+        getPagesAction().catch(() => []),
+        getSettingsAction().catch(() => ({ success: false })),
+        getParentDestinationsAction().catch(() => [])
       ]);
       setInquiries(inqs || []);
       setBlogs(blgs || []);
       setPackages(pkgs || []);
       setFoods(fds || []);
+      console.log("[ADMIN DEBUG] States received:", Array.isArray(sts) ? sts.length : "NOT ARRAY", "Goa cities:", sts?.find?.((s: any) => s.slug === "goa")?.cities?.length || 0);
       setStates(sts || []);
       setTestimonials(tsts || []);
       setPages(pgs || []);

@@ -16,13 +16,23 @@ import {
   Testimonial
 } from "@/data/mockData";
 import { additionalStates, additionalPackages, additionalFoods, additionalBlogs } from "@/data/additionalData";
-// Import pre-built states data (includes all city updates from scripts)
-import statesJsonData from "@/data/fallback/states.json";
+// Load pre-built states data directly from filesystem at module init
 import fs from "fs";
 import path from "path";
 
-// Merge additional data — use pre-built states.json as source of truth (includes script-added cities)
-const mergedStates = (statesJsonData && statesJsonData.length > 0) ? statesJsonData : [...statesData, ...additionalStates];
+// Read states.json synchronously at module initialization
+let statesJsonArray: any[] = [];
+try {
+  const statesFilePath = path.join(process.cwd(), "src", "data", "fallback", "states.json");
+  if (fs.existsSync(statesFilePath)) {
+    statesJsonArray = JSON.parse(fs.readFileSync(statesFilePath, "utf-8"));
+  }
+} catch (e) {
+  // Fallback silently
+}
+
+// Use states.json if it has data, otherwise fall back to mockData merge
+const mergedStates: any[] = (statesJsonArray && statesJsonArray.length > 0) ? statesJsonArray : [...statesData, ...additionalStates];
 const mergedFoods = [...foodsData, ...additionalFoods];
 const mergedBlogs = [...blogsData, ...additionalBlogs];
 const mergedPackages = [...initialTourPackages, ...additionalPackages];
@@ -647,28 +657,23 @@ export const db = {
 
   destinations: {
     findMany: async () => {
-      // Load latest cached JSON data (states.json is source of truth)
-      statesCache = loadLocalData("states", mergedStates);
-      const localData = statesCache;
-      if (useFirestore) {
-        try {
-          checkSeeding();
-          if (useFirestore) {
-            const snapshot = await getDocs(collection(firestore, "states"));
-            const firestoreData = snapshot.docs.map(d => d.data() as StateData);
-            // Only add Firestore-only states (admin-created) that don't exist locally
-            const localSlugs = new Set(localData.map((s: any) => s.slug));
-            const extraItems = firestoreData.filter((s: any) => !localSlugs.has(s.slug));
-            return [...localData, ...extraItems];
-          }
-        } catch (e: any) {
-          console.warn("Firestore states.findMany failed, falling back to local:", e.message || e);
-          if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("disabled"))) {
-            useFirestore = false;
+      // Always re-read from file to ensure latest data is returned
+      try {
+        const freshPath = path.join(process.cwd(), "src", "data", "fallback", "states.json");
+        if (fs.existsSync(freshPath)) {
+          const freshRaw = fs.readFileSync(freshPath, "utf-8");
+          if (freshRaw && freshRaw.length > 100) {
+            const freshData = JSON.parse(freshRaw);
+            if (Array.isArray(freshData) && freshData.length > 0) {
+              statesCache = freshData;
+              console.log("[db] destinations.findMany: loaded", freshData.length, "states from file");
+            }
           }
         }
+      } catch (e: any) {
+        console.warn("[db] destinations.findMany file read error:", e.message);
       }
-      return localData;
+      return statesCache;
     },
     findUnique: async (slug: string) => {
       const states = await db.destinations.findMany();
@@ -765,14 +770,17 @@ export const db = {
         try {
           const docRef = doc(firestore, "states", slug);
           await updateDoc(docRef, data);
-          return { slug, ...data };
         } catch (e: any) {
           console.warn("Firestore states.update failed, falling back to local JSON:", e.message || e);
+          if (e.message && (e.message.includes("UNAVAILABLE") || e.message.includes("ECONNRESET") || e.message.includes("PERMISSION_DENIED"))) {
+            useFirestore = false;
+          }
         }
       }
-      const idx = statesCache.findIndex((s: any) => s.slug === slug);
-      if (idx !== -1) {
-        const updated = { ...statesCache[idx], ...data };
+      // Always save to local file as well (ensures data persists even if Firestore is down)
+      const localIdx = statesCache.findIndex((s: any) => s.slug === slug);
+      if (localIdx !== -1) {
+        const updated = { ...statesCache[localIdx], ...data };
         if (updated.cities && updated.cities.length > 0) {
           updated.cities = updated.cities.map((city: any) => ({
             ...city,
@@ -782,9 +790,9 @@ export const db = {
             _parentStateRegion: updated.region
           }));
         }
-        statesCache[idx] = updated;
+        statesCache[localIdx] = updated;
         saveLocalData("states", statesCache);
-        return statesCache[idx];
+        return statesCache[localIdx];
       }
       return null;
     },
