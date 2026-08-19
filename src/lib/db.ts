@@ -673,7 +673,29 @@ export const db = {
       } catch (e: any) {
         console.warn("[db] destinations.findMany file read error:", e.message);
       }
-      return statesCache;
+
+      const localData = statesCache;
+      if (useFirestore) {
+        try {
+          checkSeeding();
+          if (useFirestore) {
+            const snapshot = await getDocs(collection(firestore, "states"));
+            const firestoreData = snapshot.docs.map(d => d.data());
+            // Merge: use Firestore version of a document if it exists, otherwise fall back to local
+            const firestoreMap = new Map(firestoreData.map((s: any) => [s.slug, s]));
+            const merged = localData.map((s: any) => firestoreMap.has(s.slug) ? firestoreMap.get(s.slug) : s);
+            const localSlugs = new Set(localData.map((s: any) => s.slug));
+            const extraItems = firestoreData.filter((s: any) => !localSlugs.has(s.slug));
+            return [...merged, ...extraItems];
+          }
+        } catch (e: any) {
+          console.warn("Firestore states.findMany failed, falling back to local:", e.message || e);
+          if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("disabled"))) {
+            useFirestore = false;
+          }
+        }
+      }
+      return localData;
     },
     findUnique: async (slug: string) => {
       const states = await db.destinations.findMany();

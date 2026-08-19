@@ -41,6 +41,17 @@ export default function SettingsTab({
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  // Sync state if contactDetails is loaded asynchronously
+  React.useEffect(() => {
+    if (contactDetails) {
+      setPhone(contactDetails.phone || "");
+      setEmail(contactDetails.email || "");
+      setWhatsapp(contactDetails.whatsapp || "");
+      setAddress(contactDetails.address || "");
+      setHours(contactDetails.hours || "");
+    }
+  }, [contactDetails]);
+
   const handleUpdateContact = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoadingContact(true);
