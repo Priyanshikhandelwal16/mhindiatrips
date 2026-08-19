@@ -188,7 +188,7 @@ export default function AdminDashboard() {
       setPages(pgs || []);
       setParentDestinations(parentsRes || []);
       if (settingsRes?.success) {
-        setContactDetails(settingsRes.contactDetails);
+        setContactDetails((settingsRes as any).contactDetails);
       }
     } catch (e) {
       console.error("Error loading CMS collections:", e);
