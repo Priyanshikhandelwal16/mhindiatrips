@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Reveal from "@/components/home/Reveal";
 import { db } from "@/lib/db";
+import { formatBestTimeShort } from "@/lib/utils";
 
 interface CityPageProps {
   params: Promise<{ locale: string; stateSlug: string; citySlug: string }>;
@@ -108,7 +109,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
       <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#C5A862_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
       {/* 1. Hero Section */}
-      <section className="relative h-[65vh] min-h-[440px] lg:h-[70vh] flex items-end overflow-hidden pt-28">
+      <section className="relative min-h-[520px] sm:min-h-[550px] lg:h-[70vh] flex items-end overflow-hidden pt-24 lg:pt-28 pb-4">
         <img 
           src={city.hero?.image || city.image} 
           alt={cityTitle} 
@@ -149,7 +150,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
             </span>
             {city.bestTime && (
               <span className="bg-white/10 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider px-4 py-2 rounded-xl flex items-center gap-1.5 shadow-sm">
-                <Sun className="w-3.5 h-3.5 text-gold" /> {city.bestTimeToVisit?.bestTime?.[lang] || city.bestTimeToVisit?.bestTime?.en || city.bestTime?.[lang] || city.bestTime?.en}
+                <Sun className="w-3.5 h-3.5 text-gold" /> {formatBestTimeShort(city.bestTimeToVisit?.bestTime?.[lang] || city.bestTimeToVisit?.bestTime?.en || city.bestTime?.[lang] || city.bestTime?.en)}
               </span>
             )}
           </div>

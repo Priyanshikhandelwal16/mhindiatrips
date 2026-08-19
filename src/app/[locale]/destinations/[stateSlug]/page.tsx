@@ -5,6 +5,7 @@ import { getStatesAction, getStateBySlugAction, getTourPackagesAction, getRelate
 import { Calendar, Clock, MapPin, ArrowRight, ArrowLeft, Star, Compass } from "lucide-react";
 import Reveal from "@/components/home/Reveal";
 import SidebarInquiryForm from "@/components/common/SidebarInquiryForm";
+import { formatBestTimeShort } from "@/lib/utils";
 
 interface StatePageProps {
   params: Promise<{ locale: string; stateSlug: string }>;
@@ -129,7 +130,7 @@ export default async function StateDetailPage({ params }: StatePageProps) {
       <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#C5A862_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
       {/* Cinematic Hero Header */}
-      <section className="relative h-[70vh] min-h-[480px] w-full flex items-end justify-start overflow-hidden pt-28">
+      <section className="relative min-h-[480px] sm:min-h-[520px] lg:h-[70vh] w-full flex items-end justify-start overflow-hidden pt-24 lg:pt-28">
         <div className="absolute inset-0 z-0">
           <img 
             src={state.image} 
@@ -318,7 +319,7 @@ export default async function StateDetailPage({ params }: StatePageProps) {
                         {destBestTime && (
                           <div className="flex items-center gap-1.5 text-[9px] font-bold text-royal/40 uppercase tracking-widest pt-2">
                             <Calendar size={12} className="text-gold" />
-                            <span>Best: {destBestTime}</span>
+                            <span>Best: {formatBestTimeShort(destBestTime)}</span>
                           </div>
                         )}
                       </div>

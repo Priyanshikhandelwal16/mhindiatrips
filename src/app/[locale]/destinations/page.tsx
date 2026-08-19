@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getStatesAction } from "@/app/actions/queries";
 import { ChevronRight, Compass, Calendar, ArrowRight, Sparkles } from "lucide-react";
 import Reveal from "@/components/home/Reveal";
+import { formatBestTimeShort } from "@/lib/utils";
 
 interface DestinationsPageProps {
   params: Promise<{ locale: string }>;
@@ -155,7 +156,7 @@ export default async function DestinationsPage({ params }: DestinationsPageProps
                     {bestTime && (
                       <div className="inline-flex items-center gap-1.5 text-[9px] font-bold text-gold uppercase tracking-wider bg-gold/10 px-3.5 py-1.5 rounded-full border border-gold/20">
                         <Calendar size={11} />
-                        <span>Best: {bestTime}</span>
+                        <span>Best: {formatBestTimeShort(bestTime)}</span>
                       </div>
                     )}
                   </div>
