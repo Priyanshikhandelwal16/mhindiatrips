@@ -96,6 +96,7 @@ export default function PagesTab({
                   label="Upload" 
                   onUploadComplete={(url) => setNewCustomPage({...newCustomPage, heroImage: url})} 
                   showStatus={showStatus}
+                  defaultSearch={newCustomPage?.title?.en || newCustomPage?.slug || ""}
                 />
               </div>
             </div>
@@ -203,6 +204,7 @@ export default function PagesTab({
                         label="Upload Banner" 
                         onUploadComplete={(url) => setEditPage({...editPage, heroImage: url})} 
                         showStatus={showStatus}
+                        defaultSearch={editPage?.title?.en || editPage?.slug || ""}
                       />
                     </div>
                   </div>
@@ -348,7 +350,7 @@ export default function PagesTab({
                                           updatedContent[key] = [...val];
                                           updatedContent[key][idx] = { ...item, [field]: url };
                                           setEditPage({ ...editPage, content: updatedContent });
-                                        }} showStatus={showStatus} />
+                                        }} showStatus={showStatus} defaultSearch={item.name || item.title || editPage?.title?.en || ""} />
                                       )}
                                     </div>
                                     {(field === "image" || field === "img" || field === "src") && fieldVal && (
@@ -435,7 +437,7 @@ export default function PagesTab({
                                     const updatedContent = { ...editPage.content };
                                     updatedContent[key] = { ...val, [subKey]: url };
                                     setEditPage({ ...editPage, content: updatedContent });
-                                  }} showStatus={showStatus} />
+                                  }} showStatus={showStatus} defaultSearch={editPage?.title?.en || ""} />
                                 )}
                               </div>
                               {(subKey === "image" || subKey === "img" || subKey === "src") && subVal && (

@@ -591,6 +591,7 @@ export default function DestinationsTab({
                          onUploadComplete={(url) => setEditState({ ...editState, image: url })} 
                          label="Upload Hero Image"
                          showStatus={showStatus}
+                         defaultSearch={editState.title?.en || editState.slug || ""}
                        />
                      </div>
                    </div>
@@ -1037,6 +1038,7 @@ export default function DestinationsTab({
                          }} 
                          label="Upload City Photo"
                          showStatus={showStatus}
+                         defaultSearch={editState.cities[editingCityIdx].name?.en || editState.cities[editingCityIdx].title?.en || editState.cities[editingCityIdx].slug || ""}
                        />
                      </div>
                    </div>
@@ -1393,6 +1395,7 @@ export default function DestinationsTab({
                                   }} 
                                   label="Upload Activity Image"
                                   showStatus={showStatus}
+                                  defaultSearch={todoObj.title?.en || todoObj.name?.en || editState.cities[editingCityIdx].name?.en || ""}
                                 />
                               </div>
                             </div>
@@ -1567,6 +1570,7 @@ export default function DestinationsTab({
                                   }} 
                                   label="Upload Attraction Image"
                                   showStatus={showStatus}
+                                  defaultSearch={attr.name?.en || attr.title?.en || editState.cities[editingCityIdx].name?.en || ""}
                                 />
                               </div>
                             </div>
@@ -1724,6 +1728,7 @@ export default function DestinationsTab({
                                 }} 
                                 label="Upload Experience Image"
                                 showStatus={showStatus}
+                                defaultSearch={editState.cities[editingCityIdx].experiences[idx].title?.en || editState.cities[editingCityIdx].name?.en || ""}
                               />
                             </div>
                           </div>
@@ -2070,6 +2075,7 @@ export default function DestinationsTab({
                                 }} 
                                 label="Upload Food Image"
                                 showStatus={showStatus}
+                                defaultSearch={food.name?.en || food.title?.en || editState.cities[editingCityIdx].name?.en || ""}
                               />
                             </div>
                           </div>
@@ -2241,6 +2247,7 @@ export default function DestinationsTab({
                                   }} 
                                   label="Upload Hotel Image"
                                   showStatus={showStatus}
+                                  defaultSearch={hotel.name?.en || hotel.title?.en || editState.cities[editingCityIdx].name?.en || ""}
                                 />
                               </div>
                             </div>
@@ -2429,6 +2436,7 @@ export default function DestinationsTab({
                                   }} 
                                   label="Upload"
                                   showStatus={showStatus}
+                                  defaultSearch={imgObj.title?.en || editState.cities[editingCityIdx].name?.en || ""}
                                 />
                               </div>
                             </div>

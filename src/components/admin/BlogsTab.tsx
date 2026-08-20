@@ -114,6 +114,7 @@ export default function BlogsTab({
                 onUploadComplete={(url) => setEditBlog({ ...editBlog, featuredImage: url })} 
                 label="Upload Cover Photo"
                 showStatus={showStatus}
+                defaultSearch={editBlog.title?.en || editBlog.slug || ""}
               />
             </div>
             {editBlog.featuredImage && (

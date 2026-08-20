@@ -244,6 +244,7 @@ export default function CuisinesTab({
                     onUploadComplete={(url) => setEditFood({ ...editFood, image: url })} 
                     label="Upload Food Photo"
                     showStatus={showStatus}
+                    defaultSearch={editFood?.name?.en || editFood?.slug || ""}
                   />
                 </div>
                 {editFood.image && (

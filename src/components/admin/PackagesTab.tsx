@@ -549,6 +549,7 @@ export default function PackagesTab({
                     onUploadComplete={(url) => setEditPackage({ ...editPackage, image: url })} 
                     label="Upload Hero Image"
                     showStatus={showStatus}
+                    defaultSearch={editPackage.title?.en || editPackage.slug || ""}
                   />
                 </div>
                 {editPackage.image && (
@@ -871,6 +872,7 @@ export default function PackagesTab({
                             onUploadComplete={(url) => handleUpdateAddon(idx, "image", null, url)} 
                             label="Upload Addon Image"
                             showStatus={showStatus}
+                            defaultSearch={add.name?.en || editPackage.title?.en || ""}
                           />
                         </div>
                       </div>
@@ -1031,6 +1033,7 @@ export default function PackagesTab({
                             onUploadComplete={(url) => handleUpdateItineraryDay(idx, "image", null, url)} 
                             label="Upload Day Image"
                             showStatus={showStatus}
+                            defaultSearch={dayItem.title?.en || editPackage.title?.en || ""}
                           />
                         </div>
                       </div>
@@ -1279,6 +1282,7 @@ export default function PackagesTab({
                               onUploadComplete={(url) => handleUpdateGalleryImage(idx, "url", url)} 
                               label="Upload"
                               showStatus={showStatus}
+                              defaultSearch={imgObj.title?.en || editPackage.title?.en || ""}
                             />
                           </div>
                         </div>

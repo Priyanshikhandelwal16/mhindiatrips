@@ -131,6 +131,7 @@ export default function TestimonialsTab({
                 onUploadComplete={(url) => setNewTestimonial({ ...newTestimonial, image: url })} 
                 label="Upload Avatar Photo"
                 showStatus={showStatus}
+                defaultSearch={newTestimonial?.name ? `${newTestimonial.name} person` : "avatar portrait"}
               />
             </div>
           </div>
@@ -221,6 +222,7 @@ export default function TestimonialsTab({
                 onUploadComplete={(url) => setEditTestimonial({ ...editTestimonial, image: url })} 
                 label="Upload Avatar Photo"
                 showStatus={showStatus}
+                defaultSearch={editTestimonial?.name ? `${editTestimonial.name} person` : "avatar portrait"}
               />
             </div>
             {editTestimonial.image && (
