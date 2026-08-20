@@ -9,9 +9,40 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: "Missing query parameter" }, { status: 400 });
     }
 
-    // Call Bing Images search (keyless, robust, and handles specific travel/food keywords)
+    // Enhance query dynamically to filter out irrelevant/junk web results
+    let enhancedQuery = query.trim();
+    const lowerQuery = enhancedQuery.toLowerCase();
+
+    const foodKeywords = [
+      "food", "dish", "recipe", "cuisine", "thali", "biryani", "petha", 
+      "chaat", "sabzi", "sabji", "jalebi", "kachori", "curry", "paneer", 
+      "roti", "naan", "chicken", "meat", "sweet", "meals", "pulihora", 
+      "pongal", "dosa", "idli", "pedas", "fara", "chila", "muthiya", "bafauri"
+    ];
+    
+    const hotelKeywords = [
+      "hotel", "resort", "stay", "homestay", "villa", "palace", "inn", 
+      "sheraton", "taj", "novotel", "radisson", "hyatt", "marriott", 
+      "oberoi", "clarks", "grand", "sarovar", "leela", "hilton", "regency"
+    ];
+
+    const isFood = foodKeywords.some(kw => lowerQuery.includes(kw));
+    const isHotel = hotelKeywords.some(kw => lowerQuery.includes(kw));
+
+    if (isFood) {
+      enhancedQuery = `${enhancedQuery} traditional Indian cuisine food dish`;
+    } else if (isHotel) {
+      enhancedQuery = `${enhancedQuery} luxury hotel room resort exterior building`;
+    } else {
+      // General city, attraction or monument search: focus on scenic travel photography
+      enhancedQuery = `${enhancedQuery} tourism travel attraction scenic landmarks`;
+    }
+
+    console.log(`Enhancing search query: "${query}" -> "${enhancedQuery}"`);
+
+    // Call Bing Images search with enhanced query
     const response = await fetch(
-      `https://www.bing.com/images/search?q=${encodeURIComponent(query)}`,
+      `https://www.bing.com/images/search?q=${encodeURIComponent(enhancedQuery)}`,
       {
         headers: {
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
