@@ -41,14 +41,24 @@ export default function DestinationsCatalogPage({ locale, states }: Destinations
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero Banner */}
-      <section className="bg-[#0A2A1E] pt-28 pb-16 md:pt-36 md:pb-20 flex flex-col items-center justify-center text-center relative overflow-hidden">
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col items-center justify-center space-y-3">
-          <h1 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight">
+      <section className="relative h-[45vh] min-h-[380px] flex items-center justify-center overflow-hidden">
+        <img
+          src="/images/rajasthan_fort_sunset.png"
+          alt={text.title}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/65" /> {/* Dark gradient/overlay */}
+        
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 text-center flex flex-col items-center justify-center space-y-4">
+          <h1 className="text-4xl md:text-6xl font-serif font-bold text-white leading-tight drop-shadow-md">
             {text.title}
           </h1>
+          <p className="text-sm md:text-base text-white/80 max-w-2xl font-light">
+            {text.subtitle}
+          </p>
 
           {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-white/80 text-xs font-light">
+          <nav className="flex items-center gap-2 text-white/80 text-xs font-light bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
             <Link href={`/${locale}`} className="hover:text-[#C3AB85] transition-colors">
               {text.home}
             </Link>
@@ -60,7 +70,7 @@ export default function DestinationsCatalogPage({ locale, states }: Destinations
 
       {/* States Catalog Grid */}
       <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
           {states.map((state: any, i: number) => {
             const stateTitle = state.name?.[lang] || state.name?.en || state.id;
             const stateDesc = state.description?.[lang] || state.description?.en || "";
@@ -72,7 +82,7 @@ export default function DestinationsCatalogPage({ locale, states }: Destinations
               <Reveal key={state.id} delay={i * 100}>
                 <Link href={statePath} className="group block h-full">
                   <div className="bg-white border border-[#C3AB85]/10 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 h-full flex flex-col justify-between">
-                    <div className="h-64 overflow-hidden relative">
+                    <div className="h-80 overflow-hidden relative">
                       <img
                         src={state.image || "/images/destination_fallback.jpg"}
                         alt={stateTitle}
@@ -81,19 +91,21 @@ export default function DestinationsCatalogPage({ locale, states }: Destinations
                       <div className="absolute inset-0 bg-black/25 group-hover:bg-black/10 transition-colors" />
                     </div>
 
-                    <div className="p-6 flex-grow flex flex-col justify-between space-y-4">
-                      <div className="space-y-2">
+                    <div className="p-8 flex-grow flex flex-col justify-between space-y-5">
+                      <div className="space-y-3">
                         <h3 className="font-serif text-2xl font-bold text-[#0B0D0C] group-hover:text-[#C3AB85] transition-colors leading-tight">
                           {stateTitle}
                         </h3>
-                        <p className="text-xs text-[#1B1B1B]/60 leading-relaxed font-light line-clamp-3">
+                        <p className="text-xs md:text-sm text-[#1B1B1B]/60 leading-relaxed font-light line-clamp-3">
                           {stateDesc}
                         </p>
                       </div>
 
-                      <div className="flex items-center gap-1.5 text-[10px] font-bold text-[#C3AB85] uppercase tracking-widest pt-2">
-                        <span>{text.cardCta}</span>
-                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform" />
+                      <div className="pt-2">
+                        <span className="inline-flex items-center gap-1.5 text-[9px] font-bold text-[#0A2A1E] uppercase tracking-wider bg-[#C3AB85] hover:bg-[#b59a72] px-4 py-2.5 rounded-full shadow-sm transition-all group-hover:scale-105 duration-300">
+                          <span>{text.cardCta}</span>
+                          <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
+                        </span>
                       </div>
                     </div>
                   </div>

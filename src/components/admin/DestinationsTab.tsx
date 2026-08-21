@@ -850,61 +850,8 @@ export default function DestinationsTab({
                 <div className="flex justify-between items-center">
                   <label className="font-bold uppercase text-[10px] tracking-wider text-royal/50 flex items-center gap-1">
                     <Sparkles className="w-3.5 h-3.5 text-gold" />
-                    <span>Full Description / Rich Content ({activeLang.toUpperCase()})</span>
+                    <span>City Description & Details ({activeLang.toUpperCase()})</span>
                   </label>
-                  
-                  {/* HTML insert buttons */}
-                  <div className="flex flex-wrap gap-1 bg-[#FAF8F5] p-1 border border-gold/10 rounded-lg">
-                    <button
-                      type="button"
-                      onClick={() => insertHTMLTag("<h2>", "</h2>")}
-                      className="px-2 py-1 text-[8px] font-bold bg-white rounded border hover:bg-gold/15"
-                    >
-                      H2
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => insertHTMLTag("<h3>", "</h3>")}
-                      className="px-2 py-1 text-[8px] font-bold bg-white rounded border hover:bg-gold/15"
-                    >
-                      H3
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => insertHTMLTag("<p>", "</p>")}
-                      className="px-2 py-1 text-[8px] font-bold bg-white rounded border hover:bg-gold/15"
-                    >
-                      P
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => insertHTMLTag("<strong>", "</strong>")}
-                      className="px-2 py-1 text-[8px] font-bold bg-white rounded border hover:bg-gold/15 font-bold"
-                    >
-                      B
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => insertHTMLTag("<em>", "</em>")}
-                      className="px-2 py-1 text-[8px] font-bold bg-white rounded border hover:bg-gold/15 italic"
-                    >
-                      I
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => insertHTMLTag("<ul>\n  <li>", "</li>\n</ul>")}
-                      className="px-2 py-1 text-[8px] font-bold bg-white rounded border hover:bg-gold/15"
-                    >
-                      List
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => insertHTMLTag('<a href="#" class="text-gold font-bold">', "</a>")}
-                      className="px-2 py-1 text-[8px] font-bold bg-white rounded border hover:bg-gold/15 flex items-center gap-0.5"
-                    >
-                      <Link2 className="w-2.5 h-2.5" /> Link
-                    </button>
-                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -916,20 +863,15 @@ export default function DestinationsTab({
                       ...editCity,
                       content: { ...(editCity.content || {}), [activeLang]: e.target.value }
                     })}
-                    className="w-full h-80 bg-white border border-gold/15 p-3.5 outline-none rounded-xl text-xs font-mono"
-                    placeholder="Enter description using HTML tags (e.g. <h2>History</h2><p>Nashik is located...</p>)"
+                    className="w-full h-80 bg-white border border-gold/15 p-3.5 outline-none rounded-xl text-xs font-sans leading-relaxed"
+                    placeholder="Enter city details, highlights, or general description here..."
                   />
                   
                   {/* HTML Live Preview */}
                   <div className="border border-gold/10 rounded-xl bg-[#FAF8F5] p-4 h-80 overflow-y-auto text-left text-xs space-y-4">
                     <span className="text-[8px] font-extrabold uppercase text-royal/40 tracking-wider block border-b border-gold/5 pb-1 flex items-center gap-1"><Eye className="w-3 h-3" /> Live Render Preview</span>
                     <div 
-                      className="prose prose-stone prose-xs max-w-none space-y-3
-                        prose-headings:font-serif prose-headings:font-bold prose-headings:text-[#0B0D0C]
-                        prose-h2:text-lg prose-h3:text-sm
-                        prose-p:leading-relaxed prose-p:mb-2
-                        prose-ul:list-disc prose-ul:pl-4
-                        prose-strong:font-bold prose-strong:text-[#0B0D0C]"
+                      className="city-rich-content scale-95 origin-top-left"
                       dangerouslySetInnerHTML={{ __html: editCity.content?.[activeLang] || "" }} 
                     />
                   </div>

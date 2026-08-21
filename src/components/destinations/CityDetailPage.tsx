@@ -389,13 +389,7 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
             {cityContent && !cityOverview && highlights.length === 0 && thingsToDo.length === 0 && (
               <div className="bg-white border border-[#C3AB85]/10 rounded-2xl p-6 md:p-8 shadow-sm">
                 <div
-                  className="prose prose-stone prose-lg max-w-none text-[#1B1B1B]/75 leading-[1.8] font-light text-sm space-y-6
-                    prose-headings:font-serif prose-headings:font-bold prose-headings:text-[#1a5c5a] prose-headings:mt-6 prose-headings:mb-3
-                    prose-h2:text-2xl prose-h3:text-xl
-                    prose-p:leading-relaxed prose-p:mb-4
-                    prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-4
-                    prose-li:mb-1
-                    prose-strong:font-bold prose-strong:text-[#0B0D0C]"
+                  className="city-rich-content"
                   dangerouslySetInnerHTML={{ __html: cityContent }}
                 />
               </div>

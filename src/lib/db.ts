@@ -673,15 +673,32 @@ export const db = {
         console.warn("[db] states.findMany file read error:", e.message);
       }
 
-      const localData = statesCache;
+      // Filter out any undefined state objects
+      let localData = statesCache.filter((s: any) => s && s.id && s.id !== "undefined");
+      if (localData.length !== statesCache.length) {
+        statesCache = localData;
+        saveLocalData("states", statesCache);
+      }
+
       if (useFirestore) {
         try {
           const snapshot = await getDocs(collection(firestore, "states"));
-          const firestoreData = snapshot.docs.map(d => d.data());
-          const firestoreMap = new Map(firestoreData.map((s: any) => [s.id, s]));
+          const firestoreData = snapshot.docs.map(d => d.data() as any);
+          
+          // Delete from Firestore if "undefined" document exists
+          if (firestoreData.some(s => !s.id || s.id === "undefined")) {
+            try {
+              await deleteDoc(doc(firestore, "states", "undefined"));
+            } catch (fsErr) {
+              console.warn("Firestore failed to delete undefined state doc:", fsErr);
+            }
+          }
+
+          const cleanFirestoreData = firestoreData.filter(s => s && s.id && s.id !== "undefined");
+          const firestoreMap = new Map(cleanFirestoreData.map((s: any) => [s.id, s]));
           const merged = localData.map((s: any) => firestoreMap.has(s.id) ? firestoreMap.get(s.id) : s);
           const localIds = new Set(localData.map((s: any) => s.id));
-          const extraItems = firestoreData.filter((s: any) => !localIds.has(s.id));
+          const extraItems = cleanFirestoreData.filter((s: any) => !localIds.has(s.id));
           return [...merged, ...extraItems].sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
         } catch (e: any) {
           console.warn("Firestore states.findMany failed, falling back to local:", e.message || e);
@@ -759,15 +776,32 @@ export const db = {
         console.warn("[db] cities.findMany file read error:", e.message);
       }
 
-      const localData = citiesCache;
+      // Filter out any undefined city objects
+      let localData = citiesCache.filter((c: any) => c && c.id && c.id !== "undefined" && c.stateId && c.stateId !== "undefined");
+      if (localData.length !== citiesCache.length) {
+        citiesCache = localData;
+        saveLocalData("cities", citiesCache);
+      }
+
       if (useFirestore) {
         try {
           const snapshot = await getDocs(collection(firestore, "cities"));
-          const firestoreData = snapshot.docs.map(d => d.data());
-          const firestoreMap = new Map(firestoreData.map((c: any) => [c.id, c]));
+          const firestoreData = snapshot.docs.map(d => d.data() as any);
+
+          // Delete from Firestore if "undefined" document exists
+          if (firestoreData.some(c => !c.id || c.id === "undefined")) {
+            try {
+              await deleteDoc(doc(firestore, "cities", "undefined"));
+            } catch (fsErr) {
+              console.warn("Firestore failed to delete undefined city doc:", fsErr);
+            }
+          }
+
+          const cleanFirestoreData = firestoreData.filter(c => c && c.id && c.id !== "undefined" && c.stateId && c.stateId !== "undefined");
+          const firestoreMap = new Map(cleanFirestoreData.map((c: any) => [c.id, c]));
           const merged = localData.map((c: any) => firestoreMap.has(c.id) ? firestoreMap.get(c.id) : c);
           const localIds = new Set(localData.map((c: any) => c.id));
-          const extraItems = firestoreData.filter((c: any) => !localIds.has(c.id));
+          const extraItems = cleanFirestoreData.filter((c: any) => !localIds.has(c.id));
           return [...merged, ...extraItems].sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
         } catch (e: any) {
           console.warn("Firestore cities.findMany failed, falling back to local:", e.message || e);

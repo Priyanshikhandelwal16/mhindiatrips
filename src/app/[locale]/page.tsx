@@ -26,9 +26,9 @@ export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
 
   // Fetch content dynamically from query database mock layer
-  const states = await getStatesAction();
-  const tourPackages = await getTourPackagesAction();
-  const blogs = await getBlogsAction();
+  const states = (await getStatesAction()).filter((s: any) => s.isPublished !== false && s.id !== "undefined");
+  const tourPackages = (await getTourPackagesAction()).filter((p: any) => p.isPublished !== false);
+  const blogs = (await getBlogsAction()).filter((b: any) => b.isDraft !== true);
   const testimonials = await getTestimonialsAction();
   const pageData = await getPageByIdAction("homepage");
   const monumentsPageData = await getPageByIdAction("monuments");
@@ -472,35 +472,39 @@ export default async function HomePage({ params }: HomePageProps) {
 
         {/* Large, Beautiful Cards - 6 cards, bigger heights */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {states.slice(0, 6).map((st: any, i: number) => (
-            <Reveal key={st.slug} delay={i * 80}>
-              <Link href={getLocalizedDestinationsPath(locale, st.slug)} className="group block h-full perspective-1000">
-                <div className="card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full">
-                  <div className="h-80 overflow-hidden relative shrink-0">
-                    <img src={st.image} alt={st.title?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-90" />
-                    <span className="absolute top-5 left-5 bg-royal/95 border border-gold/20 text-gold text-[9px] uppercase tracking-widest font-bold px-4 py-2 rounded-full shadow-md">
-                      {st.region} India
-                    </span>
-                  </div>
-                  <div className="p-8 space-y-4 bg-white flex flex-col flex-grow justify-between">
-                    <div className="space-y-2.5">
-                      <h3 className="text-xl md:text-2xl font-bold text-royal group-hover:text-gold transition-colors font-serif">
-                        {st.title?.[locale] || st.title?.en}
-                      </h3>
-                      <p className="text-xs md:text-sm text-foreground/60 line-clamp-3 leading-relaxed font-light">
-                        {st.tagline?.[locale] || st.tagline?.en}
-                      </p>
+          {states.slice(0, 6).map((st: any, i: number) => {
+            const stateTitle = st.name?.[locale] || st.name?.[lang] || st.name?.en || st.title?.[locale] || st.title?.en || st.id;
+            const stateTagline = st.tagline?.[locale] || st.tagline?.[lang] || st.tagline?.en || st.description?.[locale] || st.description?.[lang] || st.description?.en || "";
+            return (
+              <Reveal key={st.slug || st.id} delay={i * 80}>
+                <Link href={getLocalizedDestinationsPath(locale, st.slug || st.id)} className="group block h-full perspective-1000">
+                  <div className="card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full">
+                    <div className="h-80 overflow-hidden relative shrink-0">
+                      <img src={st.image} alt={stateTitle} loading="lazy" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-90" />
+                      <span className="absolute top-5 left-5 bg-royal/95 border border-gold/20 text-gold text-[9px] uppercase tracking-widest font-bold px-4 py-2 rounded-full shadow-md">
+                        {st.region} India
+                      </span>
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-gold flex items-center gap-1.5 pt-4 border-t border-[#C5A862]/10 mt-auto transition-transform duration-300 group-hover:translate-x-1">
-                      <span>Explore Region</span>
-                      <ArrowUpRight className="w-4 h-4 text-gold" />
-                    </span>
+                    <div className="p-8 space-y-4 bg-white flex flex-col flex-grow justify-between">
+                      <div className="space-y-2.5">
+                        <h3 className="text-xl md:text-2xl font-bold text-royal group-hover:text-gold transition-colors font-serif line-clamp-1">
+                          {stateTitle}
+                        </h3>
+                        <p className="text-xs md:text-sm text-foreground/60 line-clamp-3 leading-relaxed font-light">
+                          {stateTagline}
+                        </p>
+                      </div>
+                      <span className="text-xs font-bold uppercase tracking-wider text-gold flex items-center gap-1.5 pt-4 border-t border-[#C5A862]/10 mt-auto transition-transform duration-300 group-hover:translate-x-1">
+                        <span>Explore Region</span>
+                        <ArrowUpRight className="w-4 h-4 text-gold" />
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
+                </Link>
+              </Reveal>
+            );
+          })}
         </div>
 
         {/* VIEW ALL Destinations button */}
