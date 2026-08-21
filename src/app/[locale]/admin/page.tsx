@@ -43,9 +43,7 @@ import {
   createCityAction,
   updateCityAction,
   deleteCityAction,
-  previewDestinationAction,
-  duplicateStateAction,
-  duplicateCityAction
+  previewDestinationAction
 } from "@/app/actions/admin";
 import { 
   getBlogsAction,
@@ -442,51 +440,7 @@ export default function AdminDashboard() {
     }
   };
 
-  const handleDuplicateState = async (slug: string) => {
-    setLoading(true);
-    const res = await duplicateStateAction(slug);
-    if (res.success) {
-      showStatus("State duplicated successfully.", "success");
-      await loadCMSData();
-    } else {
-      showStatus(res.error || "Failed to duplicate state.", "error");
-      setLoading(false);
-    }
-  };
 
-  const handleSaveCity = async (stateSlug: string, cityData: any) => {
-    setLoading(true);
-    const isNew = !cityData.slug || !states.find(s => s.slug === stateSlug)?.cities?.find((c: any) => c.slug === cityData.slug);
-    const res = isNew
-      ? await createCityAction(stateSlug, cityData)
-      : await updateCityAction(stateSlug, cityData.slug, cityData);
-
-    if (res.success) {
-      showStatus("City details saved!", "success");
-      if (editState && editState.slug === stateSlug) {
-        setEditState(res.state || editState);
-      }
-      await loadCMSData();
-    } else {
-      showStatus(res.error || "Failed to save city.", "error");
-      setLoading(false);
-    }
-  };
-
-  const onDeleteCity = async (stateSlug: string, citySlug: string) => {
-    setLoading(true);
-    const res = await deleteCityAction(stateSlug, citySlug);
-    if (res.success) {
-      showStatus("City deleted successfully.", "success");
-      if (editState && editState.slug === stateSlug) {
-        setEditState(res.state || editState);
-      }
-      await loadCMSData();
-    } else {
-      showStatus(res.error || "Failed to delete city.", "error");
-      setLoading(false);
-    }
-  };
 
   // TESTIMONIALS ACTIONS
   const handleSaveTestimonial = async (e: React.FormEvent) => {
@@ -909,19 +863,9 @@ export default function AdminDashboard() {
             {activeTab === "destinations" && (
               <DestinationsTab
                 states={states}
-                editState={editState}
-                setEditState={setEditState}
-                destSubTab={destSubTab}
-                setDestSubTab={setDestSubTab}
-                editingCityIdx={editingCityIdx}
-                setEditingCityIdx={setEditingCityIdx}
-                editingAttractionIdx={editingAttractionIdx}
-                setEditingAttractionIdx={setEditingAttractionIdx}
-                handleSaveState={handleSaveState}
-                onDeleteState={onDeleteState}
-                showStatus={showStatus}
-                parentDestinations={parentDestinations}
                 allPackages={packages}
+                showStatus={showStatus}
+                loadCMSData={loadCMSData}
               />
             )}
 

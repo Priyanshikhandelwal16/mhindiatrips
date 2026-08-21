@@ -38,3 +38,26 @@ export const formatBestTimeShort = (text: string): string => {
   
   return shortText;
 };
+
+/**
+ * Generates the correct localized SEO-friendly path for destination pages.
+ */
+export const getLocalizedDestinationsPath = (
+  locale: string,
+  stateSlug?: string,
+  citySlug?: string
+): string => {
+  let segment = "destinations-in-india";
+  if (locale === "es") segment = "destinos-en-india";
+  else if (locale === "pt") segment = "destinos-na-india";
+
+  let path = `/${locale}/${segment}`;
+  if (stateSlug) {
+    path += `/${stateSlug}`;
+    if (citySlug) {
+      path += `/${citySlug}`;
+    }
+  }
+  return path;
+};
+

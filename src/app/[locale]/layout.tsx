@@ -38,6 +38,8 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     hours: "Mon - Sat: 9:00 AM - 7:00 PM IST"
   };
 
+  const states = (await db.states.findMany()).filter((s: any) => s.isPublished);
+
   return (
     <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
       <head>
@@ -46,7 +48,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <body className="font-sans bg-background text-foreground antialiased min-h-screen flex flex-col justify-between w-full overflow-x-hidden" suppressHydrationWarning>
         <PageLoader />
         <PopupInquiryForm locale={locale} contactDetails={contactDetails} />
-        <Header locale={locale} contactDetails={contactDetails} />
+        <Header locale={locale} contactDetails={contactDetails} states={states} />
         <main className="flex-grow flex flex-col w-full overflow-x-hidden">
           <PageTransition>
             {children}

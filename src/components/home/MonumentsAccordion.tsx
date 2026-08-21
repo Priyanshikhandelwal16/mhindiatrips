@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, X, MapPin, Clock, Star, Calendar } from "lucide-react";
+import { getLocalizedDestinationsPath } from "@/lib/utils";
 
 interface MonumentItem {
   id: string;
@@ -11,6 +12,8 @@ interface MonumentItem {
   verticalTitle: { en: string; es: string; pt: string };
   city: string;
   state: string;
+  stateSlug?: string;
+  citySlug?: string;
   path: string;
   details: {
     description: { en: string; es: string; pt: string };
@@ -40,6 +43,8 @@ export default function MonumentsAccordion({ locale, monuments }: MonumentsAccor
       verticalTitle: { en: "Taj Mahal", es: "Taj Mahal", pt: "Taj Mahal" },
       city: "Agra",
       state: "Uttar Pradesh",
+      stateSlug: "uttar-pradesh",
+      citySlug: "agra",
       path: "/destinations/uttar-pradesh/agra",
       details: {
         description: {
@@ -61,6 +66,8 @@ export default function MonumentsAccordion({ locale, monuments }: MonumentsAccor
       verticalTitle: { en: "Chittorgarh Fort", es: "Fuerte Chittorgarh", pt: "Forte Chittorgarh" },
       city: "Chittorgarh",
       state: "Rajasthan",
+      stateSlug: "rajasthan",
+      citySlug: "chittorgarh",
       path: "/destinations/rajasthan/chittorgarh",
       details: {
         description: {
@@ -82,6 +89,8 @@ export default function MonumentsAccordion({ locale, monuments }: MonumentsAccor
       verticalTitle: { en: "City Palace Udaipur", es: "Palacio de Udaipur", pt: "Palácio de Udaipur" },
       city: "Udaipur",
       state: "Rajasthan",
+      stateSlug: "rajasthan",
+      citySlug: "udaipur",
       path: "/destinations/rajasthan/udaipur",
       details: {
         description: {
@@ -103,6 +112,8 @@ export default function MonumentsAccordion({ locale, monuments }: MonumentsAccor
       verticalTitle: { en: "Hawa Mahal Jaipur", es: "Hawa Mahal Jaipur", pt: "Hawa Mahal Jaipur" },
       city: "Jaipur",
       state: "Rajasthan",
+      stateSlug: "rajasthan",
+      citySlug: "jaipur",
       path: "/destinations/rajasthan/jaipur",
       details: {
         description: {
@@ -224,7 +235,7 @@ export default function MonumentsAccordion({ locale, monuments }: MonumentsAccor
                           {text.viewDetails}
                         </button>
                         <Link
-                          href={`/${locale}${item.path}`}
+                          href={getLocalizedDestinationsPath(locale, item.stateSlug, item.citySlug)}
                           className="flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider px-5 py-2.5 rounded-full border border-white/25 transition-all duration-300"
                         >
                           <span>Explore Region</span>
@@ -324,7 +335,7 @@ export default function MonumentsAccordion({ locale, monuments }: MonumentsAccor
 
               {/* CTA */}
               <Link
-                href={`/${locale}${selectedMonument.path}`}
+                href={getLocalizedDestinationsPath(locale, selectedMonument.stateSlug, selectedMonument.citySlug)}
                 className="flex items-center justify-center gap-2 w-full bg-royal hover:bg-royal/90 text-white font-bold uppercase tracking-wider text-sm px-8 py-4 rounded-full transition-all duration-300 hover:scale-[1.01]"
                 onClick={() => setDetailsOpen(false)}
               >

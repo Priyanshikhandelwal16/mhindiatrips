@@ -129,19 +129,25 @@ export async function updateFoodAction(slug: string, data: any) {
 // DESTINATION / STATE ACTIONS
 export async function createStateAction(data: any) {
   try {
-    const state = await db.destinations.create(data);
-    revalidatePath("/[locale]/destinations", "layout");
+    const state = await db.states.create(data);
+    revalidatePath("/[locale]/destinations-in-india", "layout");
+    revalidatePath("/[locale]/destinos-en-india", "layout");
+    revalidatePath("/[locale]/destinos-na-india", "layout");
     return { success: true, state };
   } catch (error: any) {
     return { success: false, error: error.message || "Failed to create destination state" };
   }
 }
 
-export async function updateStateAction(slug: string, data: any) {
+export async function updateStateAction(id: string, data: any) {
   try {
-    const state = await db.destinations.update(slug, data);
-    revalidatePath("/[locale]/destinations", "layout");
-    revalidatePath(`/[locale]/destinations/${slug}`, "page");
+    const state = await db.states.update(id, data);
+    revalidatePath("/[locale]/destinations-in-india", "layout");
+    revalidatePath("/[locale]/destinos-en-india", "layout");
+    revalidatePath("/[locale]/destinos-na-india", "layout");
+    revalidatePath(`/[locale]/destinations-in-india/${id}`, "page");
+    revalidatePath(`/[locale]/destinos-en-india/${id}`, "page");
+    revalidatePath(`/[locale]/destinos-na-india/${id}`, "page");
     return { success: true, state };
   } catch (error: any) {
     return { success: false, error: error.message || "Failed to update destination state" };
@@ -189,150 +195,84 @@ export async function deletePageAction(id: string) {
   }
 }
 
-export async function deleteStateAction(slug: string) {
+export async function deleteStateAction(id: string) {
   try {
-    await db.destinations.delete(slug);
-    revalidatePath("/[locale]/destinations", "layout");
-    revalidatePath(`/[locale]/destinations/${slug}`, "page");
+    const cities = await db.cities.findByState(id);
+    if (cities.length > 0) {
+      return { success: false, error: "Cannot delete state because it has nested cities. Please delete the nested cities first." };
+    }
+    await db.states.delete(id);
+    revalidatePath("/[locale]/destinations-in-india", "layout");
+    revalidatePath("/[locale]/destinos-en-india", "layout");
+    revalidatePath("/[locale]/destinos-na-india", "layout");
     return { success: true };
   } catch (error: any) {
     return { success: false, error: error.message || "Failed to delete destination state" };
   }
 }
 
-export async function updateStateStatusAction(slug: string, status: "published" | "draft" | "unpublished") {
+export async function updateStateStatusAction(id: string, status: "published" | "draft" | "unpublished") {
   try {
-    const updated = await db.destinations.update(slug, { status });
-    revalidatePath("/[locale]/destinations", "layout");
-    revalidatePath(`/[locale]/destinations/${slug}`, "page");
+    const updated = await db.states.update(id, { isPublished: status === "published" });
+    revalidatePath("/[locale]/destinations-in-india", "layout");
+    revalidatePath("/[locale]/destinos-en-india", "layout");
+    revalidatePath("/[locale]/destinos-na-india", "layout");
     return { success: true, updated };
   } catch (error: any) {
     return { success: false, error: error.message || "Failed to update destination status" };
   }
 }
 
-export async function createCityAction(stateSlug: string, data: any) {
+export async function createCityAction(stateId: string, data: any) {
   try {
-    const citySlug = data.slug || Math.random().toString(36).substring(2, 11);
+    const cityId = data.id || Math.random().toString(36).substring(2, 11);
     const newCity = {
-      slug: citySlug,
-      _parentStateSlug: stateSlug,
-      status: data.status || "published",
-      ...data
+      ...data,
+      id: cityId,
+      stateId,
+      isPublished: data.isPublished !== undefined ? data.isPublished : true
     };
-    // Update the parent state to include this city
-    const state = await db.destinations.findUnique(stateSlug);
-    if (!state) return { success: false, error: "Parent state not found" };
-    const updatedCities = [...(state.cities || []), newCity];
-    const updated = await db.destinations.update(stateSlug, { cities: updatedCities });
-    revalidatePath("/[locale]/destinations", "layout");
-    revalidatePath(`/[locale]/destinations/${stateSlug}`, "page");
-    return { success: true, city: newCity, state: updated };
+    const city = await db.cities.create(newCity);
+    revalidatePath("/[locale]/destinations-in-india", "layout");
+    revalidatePath("/[locale]/destinos-en-india", "layout");
+    revalidatePath("/[locale]/destinos-na-india", "layout");
+    return { success: true, city };
   } catch (error: any) {
     return { success: false, error: error.message || "Failed to create city" };
   }
 }
 
-export async function updateCityAction(stateSlug: string, citySlug: string, data: any) {
+export async function updateCityAction(stateId: string, cityId: string, data: any) {
   try {
-    const state = await db.destinations.findUnique(stateSlug);
-    if (!state) return { success: false, error: "Parent state not found" };
-    const cities = (state.cities || []).map((c: any) => {
-      if (c.slug === citySlug) {
-        return { ...c, ...data, _parentStateSlug: stateSlug };
-      }
-      return c;
-    });
-    const updated = await db.destinations.update(stateSlug, { cities });
-    revalidatePath("/[locale]/destinations", "layout");
-    revalidatePath(`/[locale]/destinations/${stateSlug}`, "page");
-    revalidatePath(`/[locale]/destinations/${stateSlug}/${citySlug}`, "page");
-    return { success: true, city: data, state: updated };
+    const city = await db.cities.update(cityId, { ...data, stateId });
+    revalidatePath("/[locale]/destinations-in-india", "layout");
+    revalidatePath("/[locale]/destinos-en-india", "layout");
+    revalidatePath("/[locale]/destinos-na-india", "layout");
+    return { success: true, city };
   } catch (error: any) {
     return { success: false, error: error.message || "Failed to update city" };
   }
 }
 
-export async function deleteCityAction(stateSlug: string, citySlug: string) {
+export async function deleteCityAction(stateId: string, cityId: string) {
   try {
-    const state = await db.destinations.findUnique(stateSlug);
-    if (!state) return { success: false, error: "Parent state not found" };
-    const updatedCities = (state.cities || []).filter((c: any) => c.slug !== citySlug);
-    const updated = await db.destinations.update(stateSlug, { cities: updatedCities });
-    revalidatePath("/[locale]/destinations", "layout");
-    revalidatePath(`/[locale]/destinations/${stateSlug}`, "page");
-    revalidatePath(`/[locale]/destinations/${stateSlug}/${citySlug}`, "page");
-    return { success: true, state: updated };
+    await db.cities.delete(cityId);
+    revalidatePath("/[locale]/destinations-in-india", "layout");
+    revalidatePath("/[locale]/destinos-en-india", "layout");
+    revalidatePath("/[locale]/destinos-na-india", "layout");
+    return { success: true };
   } catch (error: any) {
     return { success: false, error: error.message || "Failed to delete city" };
   }
 }
 
-export async function previewDestinationAction(slug: string) {
+export async function previewDestinationAction(id: string) {
   try {
-    const state = await db.destinations.findUnique(slug);
+    const state = await db.states.findUnique(id);
     if (!state) return { success: false, error: "Destination not found" };
-    return { success: true, previewUrl: `/destinations/${slug}`, data: state };
+    return { success: true, previewUrl: `/en/destinations-in-india/${state.id}`, data: state };
   } catch (error: any) {
     return { success: false, error: error.message || "Failed to preview destination" };
-  }
-}
-
-export async function getDestinationStatusAction(slug: string) {
-  try {
-    const state = await db.destinations.findUnique(slug);
-    if (!state) return { success: false, error: "Destination not found" };
-    return { success: true, status: state.status || "published" };
-  } catch (error: any) {
-    return { success: false, error: error.message || "Failed to get status" };
-  }
-}
-
-export async function duplicateStateAction(slug: string) {
-  try {
-    const state = await db.destinations.findUnique(slug);
-    if (!state) return { success: false, error: "Destination not found" };
-    const newSlug = `${slug}-copy-${Date.now().toString(36)}`;
-    const duplicated = {
-      ...state,
-      slug: newSlug,
-      title: { ...state.title, en: `${state.title.en} (Copy)` },
-      status: "draft",
-      cities: (state.cities || []).map((c: any) => ({ ...c, slug: `${c.slug}-copy` }))
-    };
-    delete duplicated.id;
-    const created = await db.destinations.create(duplicated);
-    revalidatePath("/[locale]/destinations", "layout");
-    return { success: true, state: created };
-  } catch (error: any) {
-    return { success: false, error: error.message || "Failed to duplicate destination" };
-  }
-}
-
-export async function duplicateCityAction(stateSlug: string, citySlug: string) {
-  try {
-    const state = await db.destinations.findUnique(stateSlug);
-    if (!state) return { success: false, error: "Parent state not found" };
-    const city = state.cities?.find((c: any) => c.slug === citySlug);
-    if (!city) return { success: false, error: "City not found" };
-    const newSlug = `${citySlug}-copy-${Date.now().toString(36)}`;
-    const duplicated = {
-      ...city,
-      slug: newSlug,
-      title: { ...city.title, en: `${city.title.en} (Copy)` },
-      status: "draft",
-      _parentStateSlug: stateSlug
-    };
-    const updatedCities = (state.cities || []).map((c: any) => {
-      if (c.slug === citySlug) return duplicated;
-      return c;
-    });
-    const updated = await db.destinations.update(stateSlug, { cities: updatedCities });
-    revalidatePath("/[locale]/destinations", "layout");
-    revalidatePath(`/[locale]/destinations/${stateSlug}`, "page");
-    return { success: true, city: duplicated, state: updated };
-  } catch (error: any) {
-    return { success: false, error: error.message || "Failed to duplicate city" };
   }
 }
 

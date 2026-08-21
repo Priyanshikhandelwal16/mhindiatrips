@@ -6,6 +6,7 @@ import { useTranslation } from '@/data/i18n-client';
 import { states, getDestinationsByState, getToursByState } from '@/data/database';
 import { gsap } from 'gsap';
 import { Compass, ArrowRight, Eye } from 'lucide-react';
+import { getLocalizedDestinationsPath } from '@/lib/utils';
 
 export const IndiaExplorer: React.FC = () => {
   const router = useRouter();
@@ -281,7 +282,7 @@ export const IndiaExplorer: React.FC = () => {
                     {featuredDestinations.map(dest => (
                       <button
                         key={dest.id}
-                        onClick={() => navigateTo(`/destinations/${selectedState?.slug}/${dest.slug}`)}
+                        onClick={() => router.push(getLocalizedDestinationsPath(locale, selectedState?.slug, dest.slug))}
                         className="text-left flex items-center space-x-3 group border border-sand-300/40 p-2 bg-ivory-50/50 hover:bg-sand-50 transition-colors"
                       >
                         <img src={dest.image} alt="" className="w-10 h-10 object-cover" />
@@ -327,7 +328,7 @@ export const IndiaExplorer: React.FC = () => {
 
                 {/* Explore State CTA */}
                 <button
-                  onClick={() => navigateTo(`/destinations/${selectedState?.slug}`)}
+                  onClick={() => router.push(getLocalizedDestinationsPath(locale, selectedState?.slug))}
                   className="bg-charcoal-800 text-ivory-100 text-[10px] tracking-widest uppercase font-semibold py-3.5 px-6 hover:bg-sand-500 transition-all flex items-center space-x-2"
                 >
                   <span>{t.atlas.exploreState}</span>

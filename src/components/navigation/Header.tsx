@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, Globe, ArrowRight, ChevronDown, Phone, Mail } from "lucide-react";
+import { getLocalizedDestinationsPath } from "@/lib/utils";
 
 interface HeaderProps {
   locale: string;
@@ -13,9 +14,10 @@ interface HeaderProps {
     email: string;
     whatsapp: string;
   };
+  states?: any[];
 }
 
-export default function Header({ locale, contactDetails }: HeaderProps) {
+export default function Header({ locale, contactDetails, states = [] }: HeaderProps) {
   const pathname = usePathname();
   if (pathname?.includes("/admin")) {
     return null;
@@ -66,7 +68,7 @@ export default function Header({ locale, contactDetails }: HeaderProps) {
       home: "Inicio",
       packages: "Paquetes",
       about: "Sobre Nosotros",
-      destinations: "Destinos",
+      destinations: "Destinos en India",
       monuments: "Monumentos",
       food: "Comida",
       info: "Info Viaje",
@@ -78,7 +80,7 @@ export default function Header({ locale, contactDetails }: HeaderProps) {
       home: "Início",
       packages: "Pacotes",
       about: "Sobre Nós",
-      destinations: "Destinos",
+      destinations: "Destinos na Índia",
       monuments: "Monumentos",
       food: "Gastronomia",
       info: "Info Viagem",
@@ -122,20 +124,14 @@ export default function Header({ locale, contactDetails }: HeaderProps) {
     { name: { en: "Spiritual India — Varanasi & Bodh Gaya", es: "India Espiritual — Varanasi", pt: "Índia Espiritual — Varanasi" }, path: "/packages/spiritual-india-varanasi-bodh-gaya-pilgrimage" },
   ];
 
-  const destinationsList = [
-    { name: { en: "Rajasthan", es: "Rajastán", pt: "Rajastão" }, path: "/destinations/rajasthan" },
-    { name: { en: "Uttar Pradesh", es: "Uttar Pradesh", pt: "Uttar Pradesh" }, path: "/destinations/uttar-pradesh" },
-    { name: { en: "Kerala", es: "Kerala", pt: "Kerala" }, path: "/destinations/kerala" },
-    { name: { en: "Goa", es: "Goa", pt: "Goa" }, path: "/destinations/goa" },
-    { name: { en: "Himachal Pradesh", es: "Himachal Pradesh", pt: "Himachal Pradesh" }, path: "/destinations/himachal-pradesh" },
-    { name: { en: "Tamil Nadu", es: "Tamil Nadu", pt: "Tamil Nadu" }, path: "/destinations/tamil-nadu" },
-    { name: { en: "Karnataka", es: "Karnataka", pt: "Karnataka" }, path: "/destinations/karnataka" },
-    { name: { en: "Maharashtra", es: "Maharashtra", pt: "Maharashtra" }, path: "/destinations/maharashtra" },
-    { name: { en: "Gujarat", es: "Gujarat", pt: "Gujarat" }, path: "/destinations/gujarat" },
-    { name: { en: "Madhya Pradesh", es: "Madhya Pradesh", pt: "Madhya Pradesh" }, path: "/destinations/madhya-pradesh" },
-    { name: { en: "Punjab", es: "Punjab", pt: "Punjab" }, path: "/destinations/punjab" },
-    { name: { en: "Uttarakhand", es: "Uttarakhand", pt: "Uttarakhand" }, path: "/destinations/uttarakhand" },
-  ];
+  const destinationsList = states.map((s: any) => ({
+    name: {
+      en: s.name?.en || s.id,
+      es: s.name?.es || s.id,
+      pt: s.name?.pt || s.id
+    },
+    path: getLocalizedDestinationsPath(locale, s.slug?.[locale as "en" | "es" | "pt"] || s.id)
+  }));
 
   const infoList = [
     { name: { en: "Solo Female Traveler", es: "Mujer viajando sola por la India", pt: "Mulher viajando sozinha na Índia" }, path: "/travel-info/solo-female-travel" },
@@ -167,6 +163,12 @@ export default function Header({ locale, contactDetails }: HeaderProps) {
     if (!pathname) return false;
     const currentPath = pathname.replace(`/${locale}`, "") || "/";
     if (path === "/" && currentPath === "/") return true;
+    if (path === "/destinations") {
+      return currentPath.startsWith("/destinations-in-india") || 
+             currentPath.startsWith("/destinos-en-india") || 
+             currentPath.startsWith("/destinos-na-india") ||
+             currentPath.startsWith("/destinations");
+    }
     return path !== "/" && currentPath.startsWith(path);
   };
 
@@ -298,7 +300,7 @@ export default function Header({ locale, contactDetails }: HeaderProps) {
             {/* Destinations Dropdown */}
             <div className="relative group py-2.5">
               <Link
-                href={`/${locale}/destinations`}
+                href={getLocalizedDestinationsPath(locale)}
                 className={linkClass("/destinations")}
               >
                 <span className="flex items-center gap-1">
@@ -330,7 +332,7 @@ export default function Header({ locale, contactDetails }: HeaderProps) {
                   return (
                     <Link
                       key={idx}
-                      href={`/${locale}${dest.path}`}
+                      href={dest.path}
                       className="block px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold hover:bg-gold/5 transition-colors"
                     >
                       {formattedName}
@@ -541,7 +543,7 @@ export default function Header({ locale, contactDetails }: HeaderProps) {
             </Link>
 
             <Link
-              href={`/${locale}/destinations`}
+              href={getLocalizedDestinationsPath(locale)}
               onClick={() => setMobileMenuOpen(false)}
               className="text-lg font-bold text-royal hover:text-gold transition-colors"
             >

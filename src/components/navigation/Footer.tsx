@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Phone, Mail, MapPin, Send, Compass } from "lucide-react";
+import { getLocalizedDestinationsPath } from "@/lib/utils";
 
 interface FooterProps {
   locale: string;
@@ -88,11 +89,11 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
   ];
 
   const destinationsList = [
-    { name: "Rajasthan", url: "/destinations/rajasthan" },
-    { name: "Kerala", url: "/destinations/kerala" },
-    { name: "Varanasi", url: "/destinations/varanasi" },
-    { name: "Delhi & Agra", url: "/destinations/delhi-and-agra" },
-    { name: "Goa", url: "/destinations/goa" }
+    { name: "Rajasthan", url: getLocalizedDestinationsPath(locale, "rajasthan") },
+    { name: "Kerala", url: getLocalizedDestinationsPath(locale, "kerala") },
+    { name: "Varanasi", url: getLocalizedDestinationsPath(locale, "uttar-pradesh", "varanasi") },
+    { name: "Delhi & Agra", url: getLocalizedDestinationsPath(locale, "uttar-pradesh", "agra") },
+    { name: "Goa", url: getLocalizedDestinationsPath(locale, "goa") }
   ];
 
   const handleSubscribe = (e: React.FormEvent) => {

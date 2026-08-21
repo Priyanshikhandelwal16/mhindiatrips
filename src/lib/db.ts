@@ -104,7 +104,8 @@ const saveLocalData = (name: string, data: any) => {
 // Initialize cache from local storage if available
 let inquiriesCache = loadLocalData("inquiries", []);
 let blogsCache = loadLocalData("blogs", mergedBlogs);
-let statesCache = loadLocalData("states", mergedStates);
+let statesCache = loadLocalData("states", []);
+let citiesCache = loadLocalData("cities", []);
 let foodsCache = loadLocalData("foods", mergedFoods);
 let testimonialsCache = loadLocalData("testimonials", initialTestimonials);
 let tourPackagesCache = loadLocalData("tour_packages", mergedPackages);
@@ -655,181 +656,181 @@ export const db = {
     }
   },
 
-  destinations: {
+  states: {
     findMany: async () => {
-      // Always re-read from file to ensure latest data is returned
       try {
         const freshPath = path.join(process.cwd(), "src", "data", "fallback", "states.json");
         if (fs.existsSync(freshPath)) {
           const freshRaw = fs.readFileSync(freshPath, "utf-8");
-          if (freshRaw && freshRaw.length > 100) {
+          if (freshRaw && freshRaw.length > 50) {
             const freshData = JSON.parse(freshRaw);
-            if (Array.isArray(freshData) && freshData.length > 0) {
+            if (Array.isArray(freshData)) {
               statesCache = freshData;
-              console.log("[db] destinations.findMany: loaded", freshData.length, "states from file");
             }
           }
         }
       } catch (e: any) {
-        console.warn("[db] destinations.findMany file read error:", e.message);
+        console.warn("[db] states.findMany file read error:", e.message);
       }
 
       const localData = statesCache;
       if (useFirestore) {
         try {
-          checkSeeding();
-          if (useFirestore) {
-            const snapshot = await getDocs(collection(firestore, "states"));
-            const firestoreData = snapshot.docs.map(d => d.data());
-            // Merge: use Firestore version of a document if it exists, otherwise fall back to local
-            const firestoreMap = new Map(firestoreData.map((s: any) => [s.slug, s]));
-            const merged = localData.map((s: any) => firestoreMap.has(s.slug) ? firestoreMap.get(s.slug) : s);
-            const localSlugs = new Set(localData.map((s: any) => s.slug));
-            const extraItems = firestoreData.filter((s: any) => !localSlugs.has(s.slug));
-            return [...merged, ...extraItems];
-          }
+          const snapshot = await getDocs(collection(firestore, "states"));
+          const firestoreData = snapshot.docs.map(d => d.data());
+          const firestoreMap = new Map(firestoreData.map((s: any) => [s.id, s]));
+          const merged = localData.map((s: any) => firestoreMap.has(s.id) ? firestoreMap.get(s.id) : s);
+          const localIds = new Set(localData.map((s: any) => s.id));
+          const extraItems = firestoreData.filter((s: any) => !localIds.has(s.id));
+          return [...merged, ...extraItems].sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
         } catch (e: any) {
           console.warn("Firestore states.findMany failed, falling back to local:", e.message || e);
-          if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("disabled"))) {
-            useFirestore = false;
-          }
         }
       }
-      return localData;
+      return localData.sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
     },
-    findUnique: async (slug: string) => {
-      const states = await db.destinations.findMany();
-      // First look for State by slug
-      const state = states.find((s: any) => s.slug === slug);
-      if (state) return state;
-      // Do NOT search cities by slug here - city lookup must go through parent state
-      return null;
-    },
-    findCityBySlug: async (slug: string) => {
-      const states = await db.destinations.findMany();
-      for (const s of states) {
-        const city = s.cities?.find((c: any) => c.slug === slug);
-        if (city) {
-          return {
-            ...city,
-            _parentStateSlug: s.slug,
-            _parentStateTitle: s.title,
-            _parentStateRegion: s.region
-          };
-        }
-      }
-      return null;
-    },
-    findCitiesByStateSlug: async (stateSlug: string) => {
-      const states = await db.destinations.findMany();
-      const state = states.find((s: any) => s.slug === stateSlug);
-      if (!state) return [];
-      return (state.cities || []).map((c: any) => ({
-        ...c,
-        _parentStateSlug: state.slug,
-        _parentStateTitle: state.title,
-        _parentStateRegion: state.region
-      }));
-    },
-    findParentDestinations: async () => {
-      const states = await db.destinations.findMany();
-      const parentSlugs = new Set(states.map((s: any) => s.parentDestination).filter(Boolean));
-      const parents: any[] = [];
-      for (const slug of parentSlugs) {
-        const state = states.find((s: any) => s.slug === slug);
-        if (state) {
-          parents.push({
-            slug: state.slug,
-            title: state.title,
-            tagline: state.tagline,
-            country: state.country,
-            region: state.region,
-            image: state.image,
-            status: state.status
-          });
-        }
-      }
-      return parents;
-    },
-    findStatesByParentDestination: async (parentSlug: string) => {
-      const states = await db.destinations.findMany();
-      return states.filter((s: any) => s.parentDestination === parentSlug);
+    findUnique: async (id: string) => {
+      const allStates = await db.states.findMany();
+      return allStates.find((s: any) => s.id === id || s.slug?.en === id || s.slug?.es === id || s.slug?.pt === id) || null;
     },
     create: async (data: any) => {
-      const slug = data.slug || Math.random().toString(36).substring(2, 11);
+      const id = data.id || Math.random().toString(36).substring(2, 11);
       const newState = {
-        slug,
-        cities: [],
-        gallery: [],
-        travelTips: [],
-        faqs: [],
-        status: data.status || "published",
+        id,
+        isPublished: true,
+        displayOrder: 0,
         ...data
       };
-      if (newState.cities && newState.cities.length > 0) {
-        newState.cities = newState.cities.map((city: any) => ({
-          ...city,
-          parentState: city.parentState || slug,
-          _parentStateSlug: slug,
-          _parentStateTitle: newState.title,
-          _parentStateRegion: newState.region
-        }));
-      }
       if (useFirestore) {
         try {
-          await setDoc(doc(firestore, "states", slug), newState);
-          return newState;
+          await setDoc(doc(firestore, "states", id), newState);
         } catch (e: any) {
-          console.warn("Firestore states.create failed, falling back to local JSON:", e.message || e);
+          console.warn("Firestore states.create failed:", e.message || e);
         }
       }
       statesCache.push(newState);
       saveLocalData("states", statesCache);
       return newState;
     },
-    update: async (slug: string, data: any) => {
+    update: async (id: string, data: any) => {
       if (useFirestore) {
         try {
-          const docRef = doc(firestore, "states", slug);
-          await updateDoc(docRef, data);
+          await setDoc(doc(firestore, "states", id), { ...data, id }, { merge: true });
         } catch (e: any) {
-          console.warn("Firestore states.update failed, falling back to local JSON:", e.message || e);
-          if (e.message && (e.message.includes("UNAVAILABLE") || e.message.includes("ECONNRESET") || e.message.includes("PERMISSION_DENIED"))) {
-            useFirestore = false;
-          }
+          console.warn("Firestore states.update failed:", e.message || e);
         }
       }
-      // Always save to local file as well (ensures data persists even if Firestore is down)
-      const localIdx = statesCache.findIndex((s: any) => s.slug === slug);
+      const localIdx = statesCache.findIndex((s: any) => s.id === id);
       if (localIdx !== -1) {
-        const updated = { ...statesCache[localIdx], ...data };
-        if (updated.cities && updated.cities.length > 0) {
-          updated.cities = updated.cities.map((city: any) => ({
-            ...city,
-            parentState: city.parentState || slug,
-            _parentStateSlug: slug,
-            _parentStateTitle: updated.title,
-            _parentStateRegion: updated.region
-          }));
-        }
-        statesCache[localIdx] = updated;
+        statesCache[localIdx] = { ...statesCache[localIdx], ...data, id };
         saveLocalData("states", statesCache);
         return statesCache[localIdx];
       }
       return null;
     },
-    delete: async (slug: string) => {
+    delete: async (id: string) => {
       if (useFirestore) {
         try {
-          await deleteDoc(doc(firestore, "states", slug));
-          return { slug };
+          await deleteDoc(doc(firestore, "states", id));
         } catch (e: any) {
-          console.warn("Firestore states.delete failed, falling back to local JSON:", e.message || e);
+          console.warn("Firestore states.delete failed:", e.message || e);
         }
       }
-      statesCache = statesCache.filter((s: any) => s.slug !== slug);
+      statesCache = statesCache.filter((s: any) => s.id !== id);
       saveLocalData("states", statesCache);
-      return { slug };
+      return { id };
+    }
+  },
+
+  cities: {
+    findMany: async () => {
+      try {
+        const freshPath = path.join(process.cwd(), "src", "data", "fallback", "cities.json");
+        if (fs.existsSync(freshPath)) {
+          const freshRaw = fs.readFileSync(freshPath, "utf-8");
+          if (freshRaw && freshRaw.length > 50) {
+            const freshData = JSON.parse(freshRaw);
+            if (Array.isArray(freshData)) {
+              citiesCache = freshData;
+            }
+          }
+        }
+      } catch (e: any) {
+        console.warn("[db] cities.findMany file read error:", e.message);
+      }
+
+      const localData = citiesCache;
+      if (useFirestore) {
+        try {
+          const snapshot = await getDocs(collection(firestore, "cities"));
+          const firestoreData = snapshot.docs.map(d => d.data());
+          const firestoreMap = new Map(firestoreData.map((c: any) => [c.id, c]));
+          const merged = localData.map((c: any) => firestoreMap.has(c.id) ? firestoreMap.get(c.id) : c);
+          const localIds = new Set(localData.map((c: any) => c.id));
+          const extraItems = firestoreData.filter((c: any) => !localIds.has(c.id));
+          return [...merged, ...extraItems].sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
+        } catch (e: any) {
+          console.warn("Firestore cities.findMany failed, falling back to local:", e.message || e);
+        }
+      }
+      return localData.sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
+    },
+    findUnique: async (id: string) => {
+      const allCities = await db.cities.findMany();
+      return allCities.find((c: any) => c.id === id || c.slug?.en === id || c.slug?.es === id || c.slug?.pt === id) || null;
+    },
+    findByState: async (stateId: string) => {
+      const allCities = await db.cities.findMany();
+      return allCities.filter((c: any) => c.stateId === stateId);
+    },
+    create: async (data: any) => {
+      const id = data.id || Math.random().toString(36).substring(2, 11);
+      const newCity = {
+        id,
+        isPublished: true,
+        displayOrder: 0,
+        gallery: [],
+        relatedPackages: [],
+        ...data
+      };
+      if (useFirestore) {
+        try {
+          await setDoc(doc(firestore, "cities", id), newCity);
+        } catch (e: any) {
+          console.warn("Firestore cities.create failed:", e.message || e);
+        }
+      }
+      citiesCache.push(newCity);
+      saveLocalData("cities", citiesCache);
+      return newCity;
+    },
+    update: async (id: string, data: any) => {
+      if (useFirestore) {
+        try {
+          await setDoc(doc(firestore, "cities", id), { ...data, id }, { merge: true });
+        } catch (e: any) {
+          console.warn("Firestore cities.update failed:", e.message || e);
+        }
+      }
+      const localIdx = citiesCache.findIndex((c: any) => c.id === id);
+      if (localIdx !== -1) {
+        citiesCache[localIdx] = { ...citiesCache[localIdx], ...data, id };
+        saveLocalData("cities", citiesCache);
+        return citiesCache[localIdx];
+      }
+      return null;
+    },
+    delete: async (id: string) => {
+      if (useFirestore) {
+        try {
+          await deleteDoc(doc(firestore, "cities", id));
+        } catch (e: any) {
+          console.warn("Firestore cities.delete failed:", e.message || e);
+        }
+      }
+      citiesCache = citiesCache.filter((c: any) => c.id !== id);
+      saveLocalData("cities", citiesCache);
+      return { id };
     }
   },
 

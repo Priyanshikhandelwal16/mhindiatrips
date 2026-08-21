@@ -3,47 +3,64 @@
 import { db } from "@/lib/db";
 
 export async function getStatesAction() {
-  return await db.destinations.findMany();
+  return await db.states.findMany();
 }
 
 export async function getStateBySlugAction(slug: string) {
-  return await db.destinations.findUnique(slug);
+  return await db.states.findUnique(slug);
 }
 
 export async function getCityBySlugAction(citySlug: string) {
-  return await db.destinations.findCityBySlug(citySlug);
+  const city = await db.cities.findUnique(citySlug);
+  if (city) {
+    const parentState = await db.states.findUnique(city.stateId);
+    return {
+      ...city,
+      _parentStateSlug: parentState?.slug?.en || parentState?.id || '',
+      _parentStateTitle: parentState?.name || {},
+      _parentStateRegion: parentState?.region || ''
+    };
+  }
+  return null;
 }
 
 export async function getCitiesByStateSlugAction(stateSlug: string) {
-  return await db.destinations.findCitiesByStateSlug(stateSlug);
+  const state = await db.states.findUnique(stateSlug);
+  if (!state) return [];
+  const cities = await db.cities.findByState(state.id);
+  return cities.map((c: any) => ({
+    ...c,
+    _parentStateSlug: state.slug?.en || state.id,
+    _parentStateTitle: state.name,
+    _parentStateRegion: state.region || ''
+  }));
 }
 
 export async function getParentDestinationsAction() {
-  return await db.destinations.findMany();
+  return await db.states.findMany();
 }
 
 export async function getStatesByParentDestinationAction(parentSlug: string) {
-  return await db.destinations.findStatesByParentDestination(parentSlug);
+  return await db.states.findMany();
 }
 
 export async function getRelatedToursForDestinationAction(stateSlug: string) {
-  const state = await db.destinations.findUnique(stateSlug);
+  const state = await db.states.findUnique(stateSlug);
   if (!state) return [];
   
   const allPackages = await getTourPackagesAction();
-  const relatedSlugs = state.relatedTours || [];
-  
-  let related = allPackages.filter((p: any) => 
-    relatedSlugs.includes(p.slug) || 
-    (p.travelInfo?.destinations?.includes(stateSlug))
+  const related = allPackages.filter((p: any) => 
+    p.travelInfo?.destinations?.includes(state.id) ||
+    p.travelInfo?.destinations?.includes(stateSlug)
   );
   
-  if (related.length === 0 && state.cities?.length > 0) {
-    const cityNames = state.cities.map((c: any) => c.title?.en || c.title?.es || c.title?.pt || "").filter(Boolean);
-    related = allPackages.filter((p: any) => {
+  if (related.length === 0) {
+    const cities = await db.cities.findByState(state.id);
+    const cityNames = cities.map((c: any) => c.name?.en || "").filter(Boolean);
+    return allPackages.filter((p: any) => {
       const pkgText = `${p.title?.en || ""} ${p.tagline?.en || ""}`.toLowerCase();
       return cityNames.some((name: string) => pkgText.includes(name.toLowerCase()));
-    }).slice(0, 3);
+    }).slice(0, 6);
   }
   
   return related.slice(0, 6);
@@ -83,4 +100,8 @@ export async function getPagesAction() {
 
 export async function getPageByIdAction(id: string) {
   return await db.pages.findUnique(id);
+}
+
+export async function getCitiesAction() {
+  return await db.cities.findMany();
 }

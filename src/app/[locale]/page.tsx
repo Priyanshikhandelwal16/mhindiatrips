@@ -10,6 +10,7 @@ import {
   MapPin, Clock, ArrowRight, Star, Heart, Compass, Sparkles, 
   Award, Shield, Calendar, BookOpen, Coffee, Landmark, ArrowUpRight 
 } from "lucide-react";
+import { getLocalizedDestinationsPath } from "@/lib/utils";
 
 // Lazy load heavy interactive components
 const TestimonialSlider = dynamic(() => import("@/components/home/TestimonialSlider"), { ssr: true });
@@ -298,13 +299,13 @@ export default async function HomePage({ params }: HomePageProps) {
     };
   }) : [
     { image: "/images/taj_mahal_sunrise.png", sub: text.heroSub, title: text.heroTitle, desc: text.heroDesc, location: "Taj Mahal, Agra", objectPosition: "center 28%", cta1Text: text.cta, cta1Link: "/packages", cta2Text: text.inquireCTA, cta2Link: "/contact" },
-    { image: "/images/rajasthan_fort_sunset.png", sub: "HERITAGE PALACES", title: "The Royal Magic of Rajasthan", desc: "Explore desert dunes, medieval forts, and dine inside authentic royal palaces.", location: "Mehrangarh Fort, Jodhpur", objectPosition: "center 35%", cta1Text: "Explore Rajasthan", cta1Link: "/destinations/rajasthan", cta2Text: "Royal Packages", cta2Link: "/packages" },
-    { image: "/images/kerala_backwaters_houseboat.png", sub: "HOLISTIC RETREATS", title: "Tropical Serenity in Kerala", desc: "Cruise through emerald backwaters and rejuvenate with Ayurvedic rituals.", location: "Backwaters, Alleppey", objectPosition: "center 40%", cta1Text: "Kerala Retreats", cta1Link: "/destinations/kerala", cta2Text: "Plan My Trip", cta2Link: "/contact" },
-    { image: "/images/Jaipur.jpg", sub: "ROYAL ARCHITECTURE", title: "Pink City Wonders of Jaipur", desc: "Marvel at the astronomical Jantar Mantar and the beautiful honeycomb structure of Hawa Mahal.", location: "Hawa Mahal, Jaipur", objectPosition: "center 30%", cta1Text: "Explore Jaipur", cta1Link: "/destinations/rajasthan", cta2Text: "Inquire Now", cta2Link: "/contact" },
+    { image: "/images/rajasthan_fort_sunset.png", sub: "HERITAGE PALACES", title: "The Royal Magic of Rajasthan", desc: "Explore desert dunes, medieval forts, and dine inside authentic royal palaces.", location: "Mehrangarh Fort, Jodhpur", objectPosition: "center 35%", cta1Text: "Explore Rajasthan", cta1Link: getLocalizedDestinationsPath(locale, "rajasthan"), cta2Text: "Royal Packages", cta2Link: "/packages" },
+    { image: "/images/kerala_backwaters_houseboat.png", sub: "HOLISTIC RETREATS", title: "Tropical Serenity in Kerala", desc: "Cruise through emerald backwaters and rejuvenate with Ayurvedic rituals.", location: "Backwaters, Alleppey", objectPosition: "center 40%", cta1Text: "Kerala Retreats", cta1Link: getLocalizedDestinationsPath(locale, "kerala"), cta2Text: "Plan My Trip", cta2Link: "/contact" },
+    { image: "/images/Jaipur.jpg", sub: "ROYAL ARCHITECTURE", title: "Pink City Wonders of Jaipur", desc: "Marvel at the astronomical Jantar Mantar and the beautiful honeycomb structure of Hawa Mahal.", location: "Hawa Mahal, Jaipur", objectPosition: "center 30%", cta1Text: "Explore Jaipur", cta1Link: getLocalizedDestinationsPath(locale, "rajasthan"), cta2Text: "Inquire Now", cta2Link: "/contact" },
     { image: "/images/Udaipur.jpg", sub: "ROMANTIC ESCAPES", title: "Udaipur: Venice of the East", desc: "Sail across shimmering Lake Pichola and stay in floating marble palaces under the stars.", location: "Lake Pichola, Udaipur", objectPosition: "center 30%", cta1Text: "See Packages", cta1Link: "/packages", cta2Text: "Inquire Now", cta2Link: "/contact" },
-    { image: "/images/varanasi.jpg", sub: "SACRED PLACES", title: "Spiritual Awakenings in Varanasi", desc: "Witness the intense devotion of evening Ganga Aarti ceremonies by the sacred ghats.", location: "Ganga Ghats, Varanasi", objectPosition: "center 30%", cta1Text: "Spiritual Itineraries", cta1Link: "/destinations/uttar-pradesh", cta2Text: "Inquire Now", cta2Link: "/contact" },
-    { image: "/images/goa.jpg", sub: "BEACH LUXURY", title: "Golden Sands & Heritage of Goa", desc: "Relax on pristine tropical beaches and explore colonial Portuguese churches in old Goa.", location: "Baga & Old Goa, Goa", objectPosition: "center 30%", cta1Text: "Explore Goa", cta1Link: "/destinations/goa", cta2Text: "Plan Itinerary", cta2Link: "/contact" },
-    { image: "/images/munnar.jpg", sub: "HIMALAYAS & HILLS", title: "Misty Tea Hills of Munnar", desc: "Breathe the fresh mountain air of rolling tea estates and misty peaks in South India.", location: "Munnar Tea Estates, Kerala", objectPosition: "center 30%", cta1Text: "Kerala Guides", cta1Link: "/destinations/kerala", cta2Text: "Inquire Now", cta2Link: "/contact" },
+    { image: "/images/varanasi.jpg", sub: "SACRED PLACES", title: "Spiritual Awakenings in Varanasi", desc: "Witness the intense devotion of evening Ganga Aarti ceremonies by the sacred ghats.", location: "Ganga Ghats, Varanasi", objectPosition: "center 30%", cta1Text: "Spiritual Itineraries", cta1Link: getLocalizedDestinationsPath(locale, "uttar-pradesh"), cta2Text: "Inquire Now", cta2Link: "/contact" },
+    { image: "/images/goa.jpg", sub: "BEACH LUXURY", title: "Golden Sands & Heritage of Goa", desc: "Relax on pristine tropical beaches and explore colonial Portuguese churches in old Goa.", location: "Baga & Old Goa, Goa", objectPosition: "center 30%", cta1Text: "Explore Goa", cta1Link: getLocalizedDestinationsPath(locale, "goa"), cta2Text: "Plan Itinerary", cta2Link: "/contact" },
+    { image: "/images/munnar.jpg", sub: "HIMALAYAS & HILLS", title: "Misty Tea Hills of Munnar", desc: "Breathe the fresh mountain air of rolling tea estates and misty peaks in South India.", location: "Munnar Tea Estates, Kerala", objectPosition: "center 30%", cta1Text: "Kerala Guides", cta1Link: getLocalizedDestinationsPath(locale, "kerala"), cta2Text: "Inquire Now", cta2Link: "/contact" },
     { image: "/images/ranthambore.jpg", sub: "WILDLIFE ADVENTURES", title: "Tiger Safaris in Ranthambore", desc: "Search for the majestic Royal Bengal Tiger in the ancient hunting grounds of Maharajas.", location: "National Park, Ranthambore", objectPosition: "center 30%", cta1Text: "Wildlife Packages", cta1Link: "/packages", cta2Text: "Inquire Now", cta2Link: "/contact" },
     { image: "/images/andaman islands.jpg", sub: "ISLAND GETAWAYS", title: "Andaman Islands: Tropical Blue Havens", desc: "Swim in turquoise waters and dive into the pristine marine life and coral reefs of Havelock.", location: "Radhanagar Beach, Havelock", objectPosition: "center 30%", cta1Text: "Island Tours", cta1Link: "/packages", cta2Text: "Inquire Now", cta2Link: "/contact" }
   ];
@@ -473,7 +474,7 @@ export default async function HomePage({ params }: HomePageProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {states.slice(0, 6).map((st: any, i: number) => (
             <Reveal key={st.slug} delay={i * 80}>
-              <Link href={`/${locale}/destinations/${st.slug}`} className="group block h-full perspective-1000">
+              <Link href={getLocalizedDestinationsPath(locale, st.slug)} className="group block h-full perspective-1000">
                 <div className="card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full">
                   <div className="h-80 overflow-hidden relative shrink-0">
                     <img src={st.image} alt={st.title?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
@@ -504,7 +505,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
         {/* VIEW ALL Destinations button */}
         <div className="text-center pt-8">
-          <Link href={`/${locale}/destinations`} className="inline-flex items-center gap-2 bg-royal hover:bg-royal/90 text-white text-base font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 shadow-xl">
+          <Link href={getLocalizedDestinationsPath(locale)} className="inline-flex items-center gap-2 bg-royal hover:bg-royal/90 text-white text-base font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 shadow-xl">
             <span>View All Destinations</span>
             <ArrowRight className="w-5 h-5 text-gold" />
           </Link>

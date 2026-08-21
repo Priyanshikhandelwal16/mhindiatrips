@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getStatesAction, getPageByIdAction } from "@/app/actions/queries";
 import Reveal from "@/components/home/Reveal";
 import { MapPin, ArrowRight, Landmark, Clock, Camera, Calendar, Compass } from "lucide-react";
+import { getLocalizedDestinationsPath } from "@/lib/utils";
 
 interface MonumentsPageProps {
   params: Promise<{ locale: string }>;
@@ -228,13 +229,13 @@ export default async function MonumentsPage({ params }: MonumentsPageProps) {
                           <p className="text-xs text-white/50 leading-relaxed font-light line-clamp-2">{attractionDesc}</p>
                           <div className="flex justify-between items-center pt-3 border-t border-white/10">
                             <Link
-                              href={`/${locale}/destinations/${mon.stateSlug}/${mon.citySlug}`}
+                              href={getLocalizedDestinationsPath(locale, mon.stateSlug, mon.citySlug)}
                               className="text-[9px] font-bold uppercase tracking-wider text-[#C3AB85] hover:text-white transition-colors"
                             >
                               {text.exploreCity}
                             </Link>
                             <Link
-                              href={`/${locale}/destinations/${mon.stateSlug}/${mon.citySlug}/${mon.slug}`}
+                              href={getLocalizedDestinationsPath(locale, mon.stateSlug, mon.citySlug)}
                               className="text-[10px] font-bold uppercase tracking-wider text-white/70 hover:text-[#C3AB85] flex items-center gap-1 transition-colors"
                             >
                               <span>{text.viewDetails}</span>
