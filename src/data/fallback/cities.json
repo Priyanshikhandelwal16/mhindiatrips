@@ -1151,7 +1151,7 @@
     "image": "/images/Salem.jpg",
     "gallery": [],
     "displayOrder": 1,
-    "isPublished": false,
+    "isPublished": true,
     "relatedPackages": [
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
@@ -1198,7 +1198,7 @@
     "image": "/images/Yanam.jpg",
     "gallery": [],
     "displayOrder": 2,
-    "isPublished": false,
+    "isPublished": true,
     "relatedPackages": [
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
@@ -1245,7 +1245,7 @@
     "image": "/images/PondicherryMahe.jpg",
     "gallery": [],
     "displayOrder": 3,
-    "isPublished": false,
+    "isPublished": true,
     "relatedPackages": [
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
@@ -1292,7 +1292,7 @@
     "image": "/images/Rameshwaram.jpg",
     "gallery": [],
     "displayOrder": 4,
-    "isPublished": false,
+    "isPublished": true,
     "relatedPackages": [
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
@@ -1339,7 +1339,7 @@
     "image": "/images/Tuticorin.jpg",
     "gallery": [],
     "displayOrder": 5,
-    "isPublished": false,
+    "isPublished": true,
     "relatedPackages": [
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
@@ -1386,7 +1386,7 @@
     "image": "/images/Vellore.jpg",
     "gallery": [],
     "displayOrder": 6,
-    "isPublished": false,
+    "isPublished": true,
     "relatedPackages": [
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
@@ -1433,7 +1433,7 @@
     "image": "/images/Kanyakumari.jpg",
     "gallery": [],
     "displayOrder": 7,
-    "isPublished": false,
+    "isPublished": true,
     "relatedPackages": [
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
@@ -1527,7 +1527,7 @@
     "image": "/images/PondicherryKaraikal.jpg",
     "gallery": [],
     "displayOrder": 9,
-    "isPublished": false,
+    "isPublished": true,
     "relatedPackages": [
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
@@ -1997,7 +1997,7 @@
     "image": "/images/Kolhapur.jpg",
     "gallery": [],
     "displayOrder": 2,
-    "isPublished": false,
+    "isPublished": true,
     "relatedPackages": [
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
@@ -2044,7 +2044,7 @@
     "image": "/images/Amravati.jpg",
     "gallery": [],
     "displayOrder": 3,
-    "isPublished": false,
+    "isPublished": true,
     "relatedPackages": [
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
@@ -2091,7 +2091,7 @@
     "image": "/images/Solapur.jpg",
     "gallery": [],
     "displayOrder": 4,
-    "isPublished": false,
+    "isPublished": true,
     "relatedPackages": [
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
@@ -2138,7 +2138,7 @@
     "image": "/images/Jamnagar.jpg",
     "gallery": [],
     "displayOrder": 5,
-    "isPublished": false,
+    "isPublished": true,
     "relatedPackages": [
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
@@ -2185,7 +2185,7 @@
     "image": "/images/Thane.jpg",
     "gallery": [],
     "displayOrder": 6,
-    "isPublished": false,
+    "isPublished": true,
     "relatedPackages": [
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
@@ -2279,7 +2279,7 @@
     "image": "/images/Nagpur.jpg",
     "gallery": [],
     "displayOrder": 8,
-    "isPublished": false,
+    "isPublished": true,
     "relatedPackages": [
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
