@@ -150,7 +150,7 @@ export default function PopupInquiryForm({ locale, contactDetails }: PopupInquir
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+    <div className="fixed inset-0 z-[100000] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
       <div className="bg-[#FAF8F5] border border-gold/25 rounded-3xl w-full max-w-lg shadow-2xl relative overflow-hidden max-h-[90vh] flex flex-col">
         {/* Top Gold Border Decorator */}
         <div className="h-1.5 w-full bg-gold shrink-0" />
