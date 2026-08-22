@@ -78,6 +78,7 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
   };
 
   const labels = footerTranslations[locale] || footerTranslations.en;
+  const displayEmail = contactDetails?.email === "info@mhindiatrips.com" ? "mhindiatrips@gmail.com" : (contactDetails?.email || "mhindiatrips@gmail.com");
 
   const quickLinks = [
     { name: locale === "es" ? "Inicio" : locale === "pt" ? "Início" : "Home", url: "" },
@@ -222,9 +223,9 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
                 <Phone className="w-4 h-4 text-[#C5A862]" />
                 <span>{contactDetails?.phone || "+91 9782001006"}</span>
               </a>
-              <a href={`mailto:${contactDetails?.email || "mhindiatrips@gmail.com"}`} className="flex items-center gap-2.5 text-royal hover:text-gold transition-colors">
+              <a href={`mailto:${displayEmail}`} className="flex items-center gap-2.5 text-royal hover:text-gold transition-colors">
                 <Mail className="w-4 h-4 text-[#C5A862]" />
-                <span>{contactDetails?.email || "mhindiatrips@gmail.com"}</span>
+                <span>{displayEmail}</span>
               </a>
             </div>
 
@@ -233,7 +234,7 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
         </div>
 
         {/* Bottom copyright details bar */}
-        <div className="border-t border-royal/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-royal/60 font-light">
+        <div className="border-t border-royal/10 mt-16 pt-8 flex flex-col justify-center items-center gap-4 text-sm text-royal/60 font-light text-center w-full">
           <div>
             <span>&copy; {labels.copyright} | </span>
             <a href="https://jainup.in" target="_blank" rel="noopener noreferrer" className="text-[#C5A862] hover:text-[#C5A862]/80 hover:underline font-semibold transition-colors duration-200">
