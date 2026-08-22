@@ -439,8 +439,8 @@ export default async function HomePage({ params }: HomePageProps) {
         </Reveal>
         
         {/* Postcard frame */}
-        <Reveal direction="right" delay={200} className="relative p-4 bg-white border border-gold/15 shadow-2xl shadow-royal/5">
-          <div className="overflow-hidden h-[480px]">
+        <Reveal direction="right" delay={200} className="relative p-4 bg-white border border-gold/15 shadow-2xl shadow-royal/5 w-full">
+          <div className="overflow-hidden h-[260px] sm:h-[360px] md:h-[480px] w-full">
             <img src={cmsPhilosophy.image || "/images/rajasthan_fort_sunset.png"} alt="Philosophy" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
           </div>
           <div className="absolute -bottom-6 -right-6 bg-royal text-white p-8 max-w-sm space-y-3 shadow-2xl hidden md:block border border-gold/15">

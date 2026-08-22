@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Compass, Users, Heart, Star, Shield, Award, ArrowRight } from "lucide-react";
 import { getPageByIdAction } from "@/app/actions/queries";
 import Reveal from "@/components/home/Reveal";
+import AboutStatsCounter from "@/components/common/AboutStatsCounter";
 
 interface AboutPageProps {
   params: Promise<{ locale: string }>;
@@ -181,13 +182,8 @@ export default async function AboutPage({ params }: AboutPageProps) {
       {/* SECTION 4: Stats Grid */}
       <section className="bg-royal text-white py-24 border-b border-gold/10 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.015] bg-[radial-gradient(#B8964B_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-6 gap-8 text-center relative z-10">
-          {stats.map((st, i) => (
-            <Reveal key={i} delay={i * 50} className="space-y-1">
-              <span className="text-4xl font-black text-gold block">{st.number}</span>
-              <span className="text-[10px] uppercase tracking-wider text-white/50 block font-bold">{st.label}</span>
-            </Reveal>
-          ))}
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <AboutStatsCounter stats={stats} />
         </div>
       </section>
 

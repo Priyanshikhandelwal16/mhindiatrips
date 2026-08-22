@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Globe, ArrowRight, ChevronDown, Phone, Mail } from "lucide-react";
+import { Menu, X, Globe, ArrowRight, ChevronDown, Phone, Mail, Plus, Minus } from "lucide-react";
 import { getLocalizedDestinationsPath } from "@/lib/utils";
 
 interface HeaderProps {
@@ -24,8 +24,19 @@ export default function Header({ locale, contactDetails, states = [], packages =
     return null;
   }
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobilePackagesOpen, setMobilePackagesOpen] = useState(false);
+  const [mobileDestinationsOpen, setMobileDestinationsOpen] = useState(false);
+  const [mobileInfoOpen, setMobileInfoOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) {
+      setMobilePackagesOpen(false);
+      setMobileDestinationsOpen(false);
+      setMobileInfoOpen(false);
+    }
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -160,8 +171,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[9999] w-full font-sans transition-all duration-300 animate-fade-in"
-      style={{ animationDuration: "0.6s", animationFillMode: "both" }}>
+    <header className="fixed top-0 left-0 right-0 z-[9999] w-full font-sans border-b border-gold/10">
       
       {/* Elegant Top Bar (viajeaindia.com style) */}
       <div 
@@ -199,22 +209,16 @@ export default function Header({ locale, contactDetails, states = [], packages =
 
       {/* Main Premium Sticky Header (Full-width, clean white background, viajeaindia.com style) */}
       <div 
-        className={`w-full transition-all duration-300 border-b relative z-50 ${
-          mobileMenuOpen
-            ? "bg-[#FCFAF6] border-gold/15 py-4"
-            : scrolled 
-              ? "bg-white border-gold/15 shadow-md py-2" 
-              : "bg-white border-gold/10 py-4"
-        }`}
+        className="w-full border-b border-gold/10 relative z-50 bg-white py-3"
       >
         <div className="max-w-[1400px] w-full mx-auto px-2 md:px-6 xl:px-10 flex items-center justify-between gap-2 xl:gap-4">
           
           {/* Logo */}
-          <Link href={`/${locale}`} className="relative block shrink z-20">
+          <Link href={`/${locale}`} className="relative block shrink-0 z-20">
             <img
               src="/images/logo-transparent.png"
               alt="MH India Trips"
-              className="h-12 md:h-16 w-auto transition-all duration-300 hover:scale-[1.01]"
+              className="h-10 md:h-12 w-auto transition-transform duration-300"
             />
           </Link>
 
@@ -493,83 +497,188 @@ export default function Header({ locale, contactDetails, states = [], packages =
 
       {/* Mobile Menu Panel */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-[#FCFAF6]/98 backdrop-blur-xl z-40 flex flex-col justify-start pt-36 px-8 pb-10 space-y-4 animate-fade-in lg:hidden text-royal overflow-y-auto overscroll-contain">
-          <nav className="flex flex-col space-y-2.5 text-center pt-4">
+        <div className="fixed inset-0 bg-[#FCFAF6]/98 backdrop-blur-xl z-40 flex flex-col justify-start pt-36 px-6 pb-10 space-y-4 animate-fade-in lg:hidden text-royal overflow-y-auto overscroll-contain">
+          <nav className="flex flex-col space-y-1 pt-4 text-left">
             
+            {/* Home Link */}
             <Link
               href={`/${locale}`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
+              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-2.5 px-4 block border-b border-gold/5"
             >
               {labels.home}
             </Link>
- 
-            <Link
-              href={`/${locale}/packages`}
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
-            >
-              {labels.packages}
-            </Link>
- 
+
+            {/* Travel Packages Collapsible Dropdown */}
+            <div className="flex flex-col border-b border-gold/5">
+              <button
+                onClick={() => setMobilePackagesOpen(!mobilePackagesOpen)}
+                className="flex items-center justify-between w-full text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold py-2.5 px-4 focus:outline-none"
+              >
+                <span>{labels.packages}</span>
+                {mobilePackagesOpen ? (
+                  <Minus className="w-3.5 h-3.5 text-gold shrink-0" />
+                ) : (
+                  <Plus className="w-3.5 h-3.5 text-gold shrink-0" />
+                )}
+              </button>
+              
+              {mobilePackagesOpen && (
+                <div className="flex flex-col bg-gold/5 border-l-2 border-gold/25 pl-4 py-2 space-y-2.5 text-left animate-fade-in">
+                  <Link
+                    href={`/${locale}/packages`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-[11px] font-bold uppercase tracking-wider text-royal/60 hover:text-gold py-1 block"
+                  >
+                    All Packages
+                  </Link>
+                  {packagesList.map((pkg, idx) => (
+                    <Link
+                      key={idx}
+                      href={`/${locale}${pkg.path}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold py-1 block"
+                    >
+                      {pkg.name[locale as 'en'|'es'|'pt'] || pkg.name.en}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Destinations Collapsible Dropdown */}
+            <div className="flex flex-col border-b border-gold/5">
+              <button
+                onClick={() => setMobileDestinationsOpen(!mobileDestinationsOpen)}
+                className="flex items-center justify-between w-full text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold py-2.5 px-4 focus:outline-none"
+              >
+                <span>{labels.destinations}</span>
+                {mobileDestinationsOpen ? (
+                  <Minus className="w-3.5 h-3.5 text-gold shrink-0" />
+                ) : (
+                  <Plus className="w-3.5 h-3.5 text-gold shrink-0" />
+                )}
+              </button>
+              
+              {mobileDestinationsOpen && (
+                <div className="flex flex-col bg-gold/5 border-l-2 border-gold/25 pl-4 py-2 space-y-2.5 text-left animate-fade-in">
+                  <Link
+                    href={getLocalizedDestinationsPath(locale)}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-[11px] font-bold uppercase tracking-wider text-royal/60 hover:text-gold py-1 block"
+                  >
+                    All Destinations
+                  </Link>
+                  {destinationsList.map((dest, idx) => {
+                    const rawName = dest.name[locale as 'en'|'es'|'pt'] || dest.name.en;
+                    let formattedName = rawName;
+                    if (locale === "es") {
+                      if (["kerala", "goa", "maharashtra", "karnataka"].includes(dest.name.en.toLowerCase())) {
+                        formattedName = `Viaje a ${rawName}`;
+                      } else {
+                        formattedName = `Turismo en ${rawName}`;
+                      }
+                    } else if (locale === "pt") {
+                      if (["kerala", "goa", "maharashtra", "karnataka"].includes(dest.name.en.toLowerCase())) {
+                        formattedName = `Viajar para ${rawName}`;
+                      } else {
+                        formattedName = `Turismo em ${rawName}`;
+                      }
+                    } else {
+                      formattedName = `${rawName} Travel Guide`;
+                    }
+                    return (
+                      <Link
+                        key={idx}
+                        href={dest.path}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold py-1 block"
+                      >
+                        {formattedName}
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* About Us Link */}
             <Link
               href={`/${locale}/about`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
+              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-2.5 px-4 block border-b border-gold/5"
             >
               {labels.about}
             </Link>
- 
-            <Link
-              href={getLocalizedDestinationsPath(locale)}
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
-            >
-              {labels.destinations}
-            </Link>
- 
+
+            {/* Attractions Link */}
             <Link
               href={`/${locale}/attractions`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
+              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-2.5 px-4 block border-b border-gold/5"
             >
               {labels.attractions}
             </Link>
- 
+
+            {/* Food Guide Link */}
             <Link
               href={`/${locale}/food`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
+              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-2.5 px-4 block border-b border-gold/5"
             >
               {labels.food}
             </Link>
- 
-            <Link
-              href={`/${locale}/faq`}
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
-            >
-              {labels.info}
-            </Link>
- 
-            <Link
-              href={`/${locale}/contact`}
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
-            >
-              {labels.contact}
-            </Link>
- 
+
+            {/* Traveler Info Collapsible Dropdown */}
+            <div className="flex flex-col border-b border-gold/5">
+              <button
+                onClick={() => setMobileInfoOpen(!mobileInfoOpen)}
+                className="flex items-center justify-between w-full text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold py-2.5 px-4 focus:outline-none"
+              >
+                <span>{labels.info}</span>
+                {mobileInfoOpen ? (
+                  <Minus className="w-3.5 h-3.5 text-gold shrink-0" />
+                ) : (
+                  <Plus className="w-3.5 h-3.5 text-gold shrink-0" />
+                )}
+              </button>
+              
+              {mobileInfoOpen && (
+                <div className="flex flex-col bg-gold/5 border-l-2 border-gold/25 pl-4 py-2 space-y-2.5 text-left animate-fade-in">
+                  {infoList.map((info, idx) => (
+                    <Link
+                      key={idx}
+                      href={info.path.startsWith("/") ? `/${locale}${info.path}` : info.path}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold py-1 block"
+                    >
+                      {info.name[locale as 'en'|'es'|'pt'] || info.name.en}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Blog Link */}
             <Link
               href={`/${locale}/blog`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
+              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-2.5 px-4 block border-b border-gold/5"
             >
               {labels.blog}
             </Link>
- 
+
+            {/* Contact Link */}
+            <Link
+              href={`/${locale}/contact`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-2.5 px-4 block border-b border-gold/5"
+            >
+              {labels.contact}
+            </Link>
+
           </nav>
-          <div className="text-center pt-4 border-t border-gold/15">
+          <div className="text-center pt-6 border-t border-gold/15">
             <Link
               href={`/${locale}/contact`}
               onClick={() => setMobileMenuOpen(false)}

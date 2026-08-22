@@ -158,19 +158,16 @@ export default async function TravelInfoPage({ params }: TravelInfoPageProps) {
 
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1A1E1D]">
-      {/* Hero */}
-      <section className="relative h-[50vh] min-h-[350px] flex items-end overflow-hidden">
-        <img src={image} alt={title} className="absolute inset-0 w-full h-full object-cover" loading="eager" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 pb-10 md:pb-14 space-y-3">
-
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-[#C5A862]/20 flex items-center justify-center">
+      {/* Hero Header */}
+      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center justify-center space-y-4">
+          <div className="flex items-center gap-3 justify-center">
+            <div className="w-10 h-10 bg-[#C5A862]/20 flex items-center justify-center rounded-full shrink-0">
               <Icon className="w-5 h-5 text-[#C5A862]" />
             </div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif text-white">{title}</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-white tracking-tight leading-tight">{title}</h1>
           </div>
-          <p className="text-sm text-white/75 font-light max-w-xl">{subtitle}</p>
+          <p className="text-xs sm:text-sm text-white/80 font-light max-w-2xl mx-auto leading-relaxed">{subtitle}</p>
         </div>
       </section>
 
