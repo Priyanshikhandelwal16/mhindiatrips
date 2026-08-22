@@ -203,7 +203,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
           mobileMenuOpen
             ? "bg-[#FCFAF6] border-gold/15 py-4"
             : scrolled 
-              ? "bg-white/95 backdrop-blur-lg border-gold/15 shadow-md py-2" 
+              ? "bg-white border-gold/15 shadow-md py-2" 
               : "bg-white border-gold/10 py-4"
         }`}
       >

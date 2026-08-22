@@ -17,7 +17,6 @@ import { getLocalizedDestinationsPath } from "@/lib/utils";
 const TestimonialSlider = dynamic(() => import("@/components/home/TestimonialSlider"), { ssr: true });
 const MonumentsAccordion = dynamic(() => import("@/components/home/MonumentsAccordion"), { ssr: true });
 const TravelerInfoCarousel = dynamic(() => import("@/components/home/TravelerInfoCarousel"), { ssr: true });
-const ItineraryPlanner = dynamic(() => import("@/components/home/ItineraryPlanner"), { ssr: true });
 
 interface HomePageProps {
   params: Promise<{ locale: string }>;
@@ -34,6 +33,8 @@ export default async function HomePage({ params }: HomePageProps) {
   const pageData = await getPageByIdAction("homepage");
   const monumentsPageData = await getPageByIdAction("monuments");
   const accordionMonuments = monumentsPageData?.content?.featuredMonuments || [];
+  const attractionsPageData = await getPageByIdAction("attractions");
+  const featuredAttractions = attractionsPageData?.content?.featuredAttractions || [];
 
   const labels: Record<string, any> = {
     en: {
@@ -638,8 +639,70 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
-      {/* SECTION 3.5: Interactive Bespoke Itinerary Planner */}
-      <ItineraryPlanner locale={locale} />
+      {/* SECTION 3.5: Iconic Attractions Showcase */}
+      <section className="bg-white py-32 border-b border-gold/10">
+        <div className="max-w-7xl mx-auto px-6 space-y-16">
+          <div className="text-center space-y-4 max-w-2xl mx-auto">
+            <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">
+              {locale === "es" ? "Atracciones Icónicas" : locale === "pt" ? "Atrações Icônicas" : "Iconic Attractions"}
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight">
+              {locale === "es" ? "Descubra Monumentos Icónicos" : locale === "pt" ? "Descubra Monumentos Icônicos" : "Discover Iconic Monuments"}
+            </h2>
+            <p className="text-base text-foreground/50 leading-relaxed font-light">
+              {locale === "es" 
+                ? "Explore los palacios reales, templos sagrados y monumentos históricos más majestuosos de la India." 
+                : locale === "pt" 
+                ? "Explore os palácios reais, templos sagrados e monumentos históricos mais majestosos da Índia." 
+                : "Explore India's most majestic royal palaces, sacred temples, and historical monuments."}
+            </p>
+            <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {(featuredAttractions.slice(0, 3).length > 0 ? featuredAttractions.slice(0, 3) : [
+              { name: "Taj Mahal", city: "Agra", state: "Uttar Pradesh", image: "/images/taj_mahal_sunrise.png", desc: "The legendary white marble monument of love, a UNESCO World Heritage site and global icon." },
+              { name: "Amber Fort", city: "Jaipur", state: "Rajasthan", image: "/images/Jaipur.jpg", desc: "A magnificent hilltop fortress featuring detailed royal palace halls, courts, and lake views." },
+              { name: "Mehrangarh Fort", city: "Jodhpur", state: "Rajasthan", image: "/images/rajasthan_fort_sunset.png", desc: "A massive fort overlooking the Blue City, housing royal relics, courtyards, and palace galleries." }
+            ]).map((attraction: any, idx: number) => (
+              <Reveal key={idx} delay={idx * 100}>
+                <div className="group block bg-[#FAF8F5] border border-gold/10 overflow-hidden shadow-sm flex flex-col h-full rounded-2xl transition-all duration-300 hover:shadow-lg hover:border-gold/30">
+                  <div className="h-64 overflow-hidden relative shrink-0">
+                    <img 
+                      src={attraction.image} 
+                      alt={attraction.name} 
+                      className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105" 
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+                    <span className="absolute bottom-4 left-4 text-white text-xs font-semibold flex items-center gap-1">
+                      <MapPin className="w-3.5 h-3.5 text-gold" />
+                      <span>{attraction.city}, {attraction.state}</span>
+                    </span>
+                  </div>
+                  <div className="p-6 flex flex-col flex-grow justify-between space-y-4">
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-bold text-royal group-hover:text-gold transition-colors font-serif">
+                        {attraction.name}
+                      </h3>
+                      <p className="text-xs text-foreground/60 leading-relaxed font-light line-clamp-3">
+                        {attraction.desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="text-center pt-4">
+            <Link href={`/${locale}/attractions`} className="inline-flex items-center gap-2 bg-royal hover:bg-royal/90 text-white text-sm font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 shadow-xl">
+              <span>{locale === "es" ? "Ver Todas las Atracciones" : locale === "pt" ? "Ver Todas as Atrações" : "Explore All Attractions"}</span>
+              <ArrowRight className="w-5 h-5 text-gold" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* SECTION 4.5: Our Premium Booking Standard - Premium Bento Grid */}
       <section className="bg-[#0A2A1E] border-b border-gold/10 py-32 relative overflow-hidden">
