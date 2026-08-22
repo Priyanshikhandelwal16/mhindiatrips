@@ -319,7 +319,14 @@ export async function getSettingsAction() {
         email: "mhindiatrips@gmail.com",
         whatsapp: "919782001006",
         address: "New Delhi, India",
-        hours: "Mon - Sat: 9:00 AM - 7:00 PM IST"
+        hours: "Mon - Sat: 9:00 AM - 7:00 PM IST",
+        facebook: "https://www.facebook.com/viajeaindiaconindiasinvitation/",
+        twitter: "https://x.com/abhilash01",
+        instagram: "https://www.instagram.com/mhindiatrips/",
+        logoHeightMobile: "48",
+        logoHeightDesktop: "56",
+        copyright: "2026 MH India Trips. Crafted for luxury.",
+        designedBy: "JAINUP | Growth System"
       }
     };
   } catch (error: any) {

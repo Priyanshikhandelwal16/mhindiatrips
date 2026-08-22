@@ -671,6 +671,7 @@ async function ensureSeeded(collectionName: string, initialData: any[]) {
 let seedingPromise: Promise<any> | null = null;
 let isSeeded = false;
 function checkSeeding() {
+  if (process.env.FORCE_SEED !== "true") return;
   if (!useFirestore || isSeeded) return;
   if (!seedingPromise) {
     console.log("Starting Firestore database seeding check in background...");

@@ -32,13 +32,22 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const { locale } = await params;
   
   // Fetch dynamic settings from database (falling back to hardcoded system defaults)
-  const contactDetails = (await db.settings.findUnique("contact_details")) || {
+  const defaultContactDetails = {
     phone: "+91 9782001006",
     email: "mhindiatrips@gmail.com",
     whatsapp: "919782001006",
     address: "New Delhi, India",
-    hours: "Mon - Sat: 9:00 AM - 7:00 PM IST"
+    hours: "Mon - Sat: 9:00 AM - 7:00 PM IST",
+    facebook: "https://www.facebook.com/viajeaindiaconindiasinvitation/",
+    twitter: "https://x.com/abhilash01",
+    instagram: "https://www.instagram.com/mhindiatrips/",
+    logoHeightMobile: "48",
+    logoHeightDesktop: "56",
+    copyright: "2026 MH India Trips. Crafted for luxury.",
+    designedBy: "JAINUP | Growth System"
   };
+  const fetchedContactDetails = await db.settings.findUnique("contact_details");
+  const contactDetails = fetchedContactDetails ? { ...defaultContactDetails, ...fetchedContactDetails } : defaultContactDetails;
 
   const states = (await db.states.findMany()).filter((s: any) => s.isPublished);
   const packages = (await db.tourPackages.findMany()).filter((p: any) => p.isPublished !== false);

@@ -35,6 +35,13 @@ export default function SettingsTab({
   const [whatsapp, setWhatsapp] = useState(contactDetails?.whatsapp || "");
   const [address, setAddress] = useState(contactDetails?.address || "");
   const [hours, setHours] = useState(contactDetails?.hours || "");
+  const [facebook, setFacebook] = useState(contactDetails?.facebook || "");
+  const [twitter, setTwitter] = useState(contactDetails?.twitter || "");
+  const [instagram, setInstagram] = useState(contactDetails?.instagram || "");
+  const [logoHeightMobile, setLogoHeightMobile] = useState(contactDetails?.logoHeightMobile || "48");
+  const [logoHeightDesktop, setLogoHeightDesktop] = useState(contactDetails?.logoHeightDesktop || "56");
+  const [copyright, setCopyright] = useState(contactDetails?.copyright || "2026 MH India Trips. Crafted for luxury.");
+  const [designedBy, setDesignedBy] = useState(contactDetails?.designedBy || "JAINUP | Growth System");
 
   // Password fields state
   const [currentPassword, setCurrentPassword] = useState("");
@@ -49,6 +56,13 @@ export default function SettingsTab({
       setWhatsapp(contactDetails.whatsapp || "");
       setAddress(contactDetails.address || "");
       setHours(contactDetails.hours || "");
+      setFacebook(contactDetails.facebook || "");
+      setTwitter(contactDetails.twitter || "");
+      setInstagram(contactDetails.instagram || "");
+      setLogoHeightMobile(contactDetails.logoHeightMobile || "48");
+      setLogoHeightDesktop(contactDetails.logoHeightDesktop || "56");
+      setCopyright(contactDetails.copyright || "2026 MH India Trips. Crafted for luxury.");
+      setDesignedBy(contactDetails.designedBy || "JAINUP | Growth System");
     }
   }, [contactDetails]);
 
@@ -61,7 +75,14 @@ export default function SettingsTab({
         email,
         whatsapp,
         address,
-        hours
+        hours,
+        facebook,
+        twitter,
+        instagram,
+        logoHeightMobile,
+        logoHeightDesktop,
+        copyright,
+        designedBy
       });
       if (res.success) {
         setContactDetails(res.updated);
@@ -226,6 +247,112 @@ export default function SettingsTab({
                 placeholder="Mon - Sat: 9:00 AM - 7:00 PM IST"
                 className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold/50 transition"
               />
+            </div>
+
+            {/* Social Channels */}
+            <div className="pt-4 border-t border-gold/10">
+              <span className="text-[10px] font-bold text-gold uppercase tracking-wider block mb-3">Social Network Links</span>
+              <div className="space-y-4">
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase tracking-wider text-royal/60 flex items-center gap-1.5">
+                    <span>Facebook Page URL</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    value={facebook} 
+                    onChange={e => setFacebook(e.target.value)}
+                    placeholder="https://facebook.com/..."
+                    className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold/50 transition"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase tracking-wider text-royal/60 flex items-center gap-1.5">
+                    <span>Twitter/X Profile URL</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    value={twitter} 
+                    onChange={e => setTwitter(e.target.value)}
+                    placeholder="https://x.com/..."
+                    className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold/50 transition"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase tracking-wider text-royal/60 flex items-center gap-1.5">
+                    <span>Instagram Profile URL</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    value={instagram} 
+                    onChange={e => setInstagram(e.target.value)}
+                    placeholder="https://instagram.com/..."
+                    className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold/50 transition"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Header & Footer Customization */}
+            <div className="pt-4 border-t border-gold/10">
+              <span className="text-[10px] font-bold text-gold uppercase tracking-wider block mb-3">Header & Footer Branding</span>
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <label className="font-bold uppercase tracking-wider text-royal/60">
+                      <span>Logo Mobile Height (px)</span>
+                    </label>
+                    <input 
+                      type="number" 
+                      required
+                      value={logoHeightMobile} 
+                      onChange={e => setLogoHeightMobile(e.target.value)}
+                      placeholder="48"
+                      className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold/50 transition"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="font-bold uppercase tracking-wider text-royal/60">
+                      <span>Logo Desktop Height (px)</span>
+                    </label>
+                    <input 
+                      type="number" 
+                      required
+                      value={logoHeightDesktop} 
+                      onChange={e => setLogoHeightDesktop(e.target.value)}
+                      placeholder="56"
+                      className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold/50 transition"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase tracking-wider text-royal/60">
+                    <span>Footer Copyright Text</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    required
+                    value={copyright} 
+                    onChange={e => setCopyright(e.target.value)}
+                    placeholder="2026 MH India Trips. Crafted for luxury."
+                    className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold/50 transition"
+                  />
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase tracking-wider text-royal/60">
+                    <span>Footer Credit Text (Designed By)</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    required
+                    value={designedBy} 
+                    onChange={e => setDesignedBy(e.target.value)}
+                    placeholder="JAINUP | Growth System"
+                    className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold/50 transition"
+                  />
+                </div>
+              </div>
             </div>
           </div>
 
