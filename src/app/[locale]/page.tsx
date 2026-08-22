@@ -28,7 +28,9 @@ export default async function HomePage({ params }: HomePageProps) {
 
   // Fetch content dynamically from query database mock layer
   const states = (await getStatesAction()).filter((s: any) => s.isPublished !== false && s.id !== "undefined");
-  const tourPackages = (await getTourPackagesAction()).filter((p: any) => p.isPublished !== false);
+  const allPackages = (await getTourPackagesAction()).filter((p: any) => p.isPublished !== false);
+  const featuredPackages = allPackages.filter((p: any) => p.isFeatured === true);
+  const tourPackages = featuredPackages.length > 0 ? featuredPackages.slice(0, 3) : allPackages.slice(0, 3);
   const blogs = (await getBlogsAction()).filter((b: any) => b.isDraft !== true);
   const testimonials = await getTestimonialsAction();
   const pageData = await getPageByIdAction("homepage");
@@ -36,6 +38,22 @@ export default async function HomePage({ params }: HomePageProps) {
   const accordionMonuments = monumentsPageData?.content?.featuredMonuments || [];
   const attractionsPageData = await getPageByIdAction("attractions");
   const featuredAttractions = attractionsPageData?.content?.featuredAttractions || [];
+
+  // Fetch travel-info page images (editable in admin Pages tab)
+  const [visaPage, climatePage, soloPage, vaccinePage, packingPage] = await Promise.all([
+    getPageByIdAction("travel-info-visa-entry-requirements"),
+    getPageByIdAction("travel-info-best-time-climate"),
+    getPageByIdAction("travel-info-solo-female-travel"),
+    getPageByIdAction("travel-info-vaccinations-health"),
+    getPageByIdAction("travel-info-packing-currency"),
+  ]);
+  const travelInfoCardImages: Record<string, string> = {
+    visa: visaPage?.heroImage || "",
+    climate: climatePage?.heroImage || "",
+    "solo-travel": soloPage?.heroImage || "",
+    vaccines: vaccinePage?.heroImage || "",
+    packing: packingPage?.heroImage || "",
+  };
 
   const labels: Record<string, any> = {
     en: {
@@ -594,7 +612,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
         {/* Large, Beautiful Cards (Matched with tour packages catalog page styling) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {tourPackages.slice(0, 10).map((pkg: any, i: number) => (
+          {tourPackages.map((pkg: any, i: number) => (
             <Reveal key={pkg.slug} delay={i * 80}>
               <div className="card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full transition-all duration-500 hover:border-[#C5A862]/30 group perspective-1000">
                 <div className="relative h-64 overflow-hidden shrink-0">
@@ -831,7 +849,7 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* SECTION 5.5: Traveler Information 3D Carousel (Screenshot 3 Theme) */}
-      <TravelerInfoCarousel locale={locale} />
+      <TravelerInfoCarousel locale={locale} cardImages={travelInfoCardImages} />
 
       {/* SECTION 6: Customer Testimonials (Infinite Scroll Slider) */}
       <TestimonialSlider 

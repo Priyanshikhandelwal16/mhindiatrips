@@ -6,9 +6,10 @@ import { ArrowRight, Shield, MapPin, Heart, Briefcase, Leaf, Clock } from "lucid
 
 interface TravelerInfoCarouselProps {
   locale: string;
+  cardImages?: Record<string, string>; // map of card id → image URL from admin
 }
 
-export default function TravelerInfoCarousel({ locale }: TravelerInfoCarouselProps) {
+export default function TravelerInfoCarousel({ locale, cardImages = {} }: TravelerInfoCarouselProps) {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   const labels: Record<string, any> = {
@@ -143,7 +144,7 @@ export default function TravelerInfoCarousel({ locale }: TravelerInfoCarouselPro
                 {/* Image */}
                 <div className="relative h-56 overflow-hidden">
                   <img
-                    src={card.image}
+                    src={cardImages[card.id] || card.image}
                     alt={title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />

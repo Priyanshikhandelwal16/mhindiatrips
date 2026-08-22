@@ -1537,7 +1537,7 @@ export default function PackagesTab({
                     onChange={e => setEditPackage({...editPackage, isFeatured: e.target.checked})}
                     className="w-5 h-5 cursor-pointer accent-royal"
                   />
-                  <label htmlFor="toggle-featured" className="font-bold uppercase tracking-wider block cursor-pointer">Featured Destination (Display on Home page slider)</label>
+                  <label htmlFor="toggle-featured" className="font-bold uppercase tracking-wider block cursor-pointer">Featured on Homepage <span className="text-gold">(Shows in homepage packages grid — pick up to 3)</span></label>
                 </div>
               </div>
             </div>
@@ -1566,9 +1566,12 @@ export default function PackagesTab({
               </div>
               <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">
                 <div className="space-y-1.5">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between gap-1 flex-wrap">
                     <span className="text-[8px] bg-royal/10 text-royal px-2.5 py-0.5 rounded uppercase font-bold tracking-wider border border-gold/15">{pkg.category}</span>
-                    <span className="text-[10px] text-foreground/45 font-semibold">{pkg.durationDays} Days</span>
+                    <div className="flex items-center gap-1">
+                      {pkg.isFeatured && <span className="text-[8px] bg-gold text-royal px-2.5 py-0.5 rounded uppercase font-bold tracking-wider">⭐ Homepage</span>}
+                      <span className="text-[10px] text-foreground/45 font-semibold">{pkg.durationDays} Days</span>
+                    </div>
                   </div>
                   <h4 className="text-base font-bold text-royal font-serif line-clamp-1">{pkg.title?.en}</h4>
                   <p className="text-xs text-foreground/50 line-clamp-2 leading-relaxed font-light">{pkg.tagline?.en}</p>
