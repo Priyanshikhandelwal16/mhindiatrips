@@ -175,7 +175,7 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
               {destinationsList.map((st, i) => (
                 <li key={i}>
                   <Link
-                    href={`/${locale}${st.url}`}
+                    href={st.url}
                     className="hover:text-gold text-royal/70 flex items-center gap-2 transition-colors duration-200"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-gold" />
