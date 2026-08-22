@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useCallback, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 
 interface Slide {
@@ -69,10 +70,13 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
           key={i} 
           className={`hero-slide absolute inset-0 transition-all duration-700 ${i === current ? "z-10 opacity-100 visible" : "z-0 opacity-0 invisible pointer-events-none"}`}
         >
-          <img
+          <Image
             src={slide.image}
             alt={slide.title}
+            fill
+            priority={i === 0}
             loading={i === 0 ? "eager" : "lazy"}
+            sizes="100vw"
             className={`absolute inset-0 w-full h-full object-cover transition-[transform,opacity] duration-[3000ms] ease-out ${
               i === current ? "scale-100 opacity-100" : "scale-[1.04] opacity-0"
             }`}

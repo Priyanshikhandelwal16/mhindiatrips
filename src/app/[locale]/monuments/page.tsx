@@ -101,23 +101,16 @@ export default async function MonumentsPage({ params }: MonumentsPageProps) {
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
       {/* Hero Banner */}
-      <section className="relative h-[75vh] min-h-[520px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
-        <img
-          src={pageData?.heroImage || "/images/rajasthan_fort_sunset.png"}
-          alt="Monuments of India"
-          className="absolute inset-0 w-full h-full object-cover object-[center_40%] animate-kenburns"
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/15" />
-        <div className="relative z-10 text-center text-white space-y-7 px-6 max-w-4xl">
+      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
+        <div className="relative z-10 text-center text-white space-y-4 px-6 max-w-4xl">
           <span className="bg-[#C3AB85] text-[#0B0D0C] text-[10px] font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-flex items-center gap-2 animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "both" }}>
             <Landmark className="w-3.5 h-3.5" />
             {text.heroSub}
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-white animate-fade-in" style={{ animationDelay: "0.4s", animationFillMode: "both" }}>
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-white animate-fade-in" style={{ animationDelay: "0.4s", animationFillMode: "both" }}>
             {text.heroTitle}
           </h1>
-          <p className="text-sm md:text-base text-white/85 max-w-2xl mx-auto font-light leading-relaxed animate-fade-in" style={{ animationDelay: "0.6s", animationFillMode: "both" }}>
+          <p className="text-sm md:text-base text-white/85 max-w-2xl mx-auto font-light leading-relaxed animate-fade-in animate-delay-200" style={{ animationDelay: "0.6s", animationFillMode: "both" }}>
             {text.heroDesc}
           </p>
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { getTourPackagesAction } from "@/app/actions/queries";
+import { getTourPackagesAction, getPageByIdAction } from "@/app/actions/queries";
 import { ArrowRight, Sparkles } from "lucide-react";
 import PackagesFilterSection from "@/components/packages/PackagesFilterSection";
 import Reveal from "@/components/home/Reveal";
@@ -12,38 +12,36 @@ interface PackagesPageProps {
 export default async function PackagesPage({ params }: PackagesPageProps) {
   const { locale } = await params;
   const packages = await getTourPackagesAction();
+  const pageData = await getPageByIdAction("packages");
   const lang = (locale === "es" || locale === "pt") ? locale : "en";
 
+  const dbContent = pageData?.content || {};
   const t: Record<string, any> = {
     en: {
-      heroSub: "Curated Experiences",
-      heroTitle: "Signature Tour Packages",
-      heroDesc: "Handcrafted luxury itineraries designed by local experts. Every journey is tailored to your personal pace, interests, and style.",
-      allTitle: "All Tour Packages",
-      allDesc: "Explore our collection of curated India journeys — from heritage palaces to spiritual retreats.",
-      featuredSub: "Featured Journey",
-      featuredTitle: "Imperial Golden Triangle",
-      featuredDesc: "Our most popular luxury tour combining Delhi, Agra & Jaipur. Stay in palace hotels, enjoy private Taj Mahal access at sunrise, and explore royal forts with expert historians.",
-      featuredCta: "Inquire About This Tour",
-      whySub: "The MH India Trips Promise",
-      whyTitle: "Why Book With Us",
-      processSub: "How It Works",
-      processTitle: "Your Journey in 4 Simple Steps",
-      ctaTitle: "Ready to Start Your India Journey?",
-      ctaDesc: "Tell us your dream itinerary and our experts will craft the perfect package for you.",
-      ctaBtn: "Plan My Trip",
-      days: "Days",
-      inquire: "Request Details",
-      privateTour: "Private Tour",
-      priceOnRequest: "Price on Request",
-      viewDetails: "View Details",
-      inclusionsTitle: "What's Included:"
+      heroSub: dbContent.heroSub?.en || "Curated Experiences",
+      heroTitle: dbContent.heroTitle?.en || "Signature Tour Packages",
+      heroDesc: dbContent.heroDesc?.en || "Luxury itineraries hand-designed by our local experts. Each journey is tailored to your pace, interests, and personal style.",
+      allTitle: dbContent.allTitle?.en || "All Tour Packages",
+      allDesc: dbContent.allDesc?.en || "Explore our collection of curated journeys — from heritage palaces to spiritual retreats.",
+      featuredSub: dbContent.featuredSub?.en || "Featured Journey",
+      featuredTitle: dbContent.featuredTitle?.en || "Imperial Golden Triangle",
+      featuredDesc: dbContent.featuredDesc?.en || "Our most popular luxury tour combining Delhi, Agra, and Jaipur. Palace hotels, private sunrise Taj Mahal access, and royal fort explorations.",
+      featuredCta: dbContent.featuredCta?.en || "Inquire About This Tour",
+      whySub: dbContent.whySub?.en || "The MH India Trips Promise",
+      whyTitle: dbContent.whyTitle?.en || "Why Book With Us",
+      processSub: dbContent.processSub?.en || "How It Works",
+      processTitle: dbContent.processTitle?.en || "Your Journey in 4 Simple Steps",
+      ctaTitle: dbContent.ctaTitle?.en || "Ready for Your India Journey?",
+      ctaDesc: dbContent.ctaDesc?.en || "Tell us your dream itinerary, and our experts will craft the perfect package.",
+      ctaBtn: dbContent.ctaBtn?.en || "Plan My Trip",
+      days: dbContent.days?.en || "Days",
+      inquire: dbContent.inquire?.en || "Request Details",
+      privateTour: dbContent.privateTour?.en || "Private Tour",
+      priceOnRequest: dbContent.priceOnRequest?.en || "Price On Request",
+      viewDetails: dbContent.viewDetails?.en || "View Details",
+      inclusionsTitle: dbContent.inclusionsTitle?.en || "What's included:"
     },
     es: {
-      heroSub: "Experiencias Selectas",
-      heroTitle: "Paquetes de Tour Exclusivos",
-      heroDesc: "Itinerarios de lujo diseñados por expertos locales. Cada viaje se adapta a su ritmo, intereses y estilo personal.",
-      allTitle: "Todos los Paquetes",
       allDesc: "Explore nuestra colección de viajes curados — desde palacios patrimoniales hasta retiros espirituales.",
       featuredSub: "Viaje Destacado",
       featuredTitle: "Triángulo de Oro Imperial",
@@ -90,6 +88,8 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
   };
 
   const text = t[locale] || t.en;
+  if (dbContent.heroTitle?.[locale]) text.heroTitle = dbContent.heroTitle[locale];
+  if (dbContent.heroSubtitle?.[locale]) text.heroDesc = dbContent.heroSubtitle[locale];
 
   const processSteps = [
     {
@@ -121,30 +121,17 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
     <div className="bg-ivory-100 min-h-screen font-sans text-charcoal-800">
 
       {/* SECTION 1: Hero Banner */}
-      <section className="relative h-[70vh] min-h-[520px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
-        <img
-          src="/images/luxury_palace_train.png"
-          alt="Tour Packages India"
-          className="absolute inset-0 w-full h-full object-cover object-[center_35%] filter brightness-[0.80] contrast-[1.02] animate-kenburns"
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/15" />
-        <div className="relative z-10 text-center text-ivory-100 space-y-7 px-6 max-w-4xl">
+      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
+        <div className="relative z-10 text-center text-white space-y-4 px-6 max-w-4xl">
           <span className="bg-charcoal-900/80 border border-sand-300/30 text-sand-300 text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full inline-block animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "both" }}>
             {text.heroSub}
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-white animate-fade-in" style={{ animationDelay: "0.4s", animationFillMode: "both" }}>
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-white animate-fade-in" style={{ animationDelay: "0.4s", animationFillMode: "both" }}>
             {text.heroTitle}
           </h1>
-          <p className="text-sm md:text-base text-ivory-100/90 max-w-2xl mx-auto font-light leading-relaxed animate-fade-in" style={{ animationDelay: "0.6s", animationFillMode: "both" }}>
+          <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed animate-fade-in animate-delay-200" style={{ animationDelay: "0.6s", animationFillMode: "both" }}>
             {text.heroDesc}
           </p>
-          <div className="animate-fade-in" style={{ animationDelay: "0.8s", animationFillMode: "both" }}>
-            <Link href={`/${locale}/contact`} className="inline-flex items-center gap-2 bg-sand-400 hover:bg-sand-500 text-charcoal-900 font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-lg">
-              <span>{text.ctaBtn}</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
         </div>
       </section>
 

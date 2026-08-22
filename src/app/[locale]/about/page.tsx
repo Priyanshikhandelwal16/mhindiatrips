@@ -107,19 +107,12 @@ export default async function AboutPage({ params }: AboutPageProps) {
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
       {/* SECTION 1: Hero Banner */}
-      <section className="relative h-[78vh] min-h-[540px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
-        <img 
-          src={pageData?.heroImage || "/images/luxury_palace_train.png"} 
-          alt="About MH India Trips" 
-          className="absolute inset-0 w-full h-full object-cover object-[center_35%]"
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-black/25" />
-        <div className="relative z-10 text-center text-white space-y-7 px-6 max-w-4xl">
+      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
+        <div className="relative z-10 text-center text-white space-y-4 px-6 max-w-4xl">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "both" }}>
             {text.heroSub}
           </span>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] text-white animate-fade-in" style={{ animationDelay: "0.4s", animationFillMode: "both" }}>
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.05] text-white animate-fade-in" style={{ animationDelay: "0.4s", animationFillMode: "both" }}>
             {text.hero}
           </h1>
           <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed animate-fade-in" style={{ animationDelay: "0.6s", animationFillMode: "both" }}>

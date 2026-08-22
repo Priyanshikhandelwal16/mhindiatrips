@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { getPageByIdAction } from "@/app/actions/queries";
 import Reveal from "@/components/home/Reveal";
 import { getLocalizedDestinationsPath } from "@/lib/utils";
 
@@ -9,7 +10,9 @@ interface DestinationsCatalogPageProps {
   states: any[];
 }
 
-export default function DestinationsCatalogPage({ locale, states }: DestinationsCatalogPageProps) {
+export default async function DestinationsCatalogPage({ locale, states }: DestinationsCatalogPageProps) {
+  const pageData = await getPageByIdAction("destinations");
+  const dbContent = pageData?.content || {};
   const lang = (locale === "es" || locale === "pt") ? locale : "en";
 
   const t: Record<string, any> = {
@@ -37,20 +40,15 @@ export default function DestinationsCatalogPage({ locale, states }: Destinations
   };
 
   const text = t[locale] || t.en;
+  if (dbContent.heroTitle?.[locale]) text.title = dbContent.heroTitle[locale];
+  if (dbContent.heroSubtitle?.[locale]) text.subtitle = dbContent.heroSubtitle[locale];
 
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero Banner */}
-      <section className="relative h-[45vh] min-h-[380px] flex items-center justify-center overflow-hidden">
-        <img
-          src="/images/rajasthan_fort_sunset.png"
-          alt={text.title}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/65" /> {/* Dark gradient/overlay */}
-        
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 text-center flex flex-col items-center justify-center space-y-4">
-          <h1 className="text-4xl md:text-6xl font-serif font-bold text-white leading-tight drop-shadow-md">
+      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col items-center justify-center space-y-4">
+          <h1 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight drop-shadow-md">
             {text.title}
           </h1>
           <p className="text-sm md:text-base text-white/80 max-w-2xl font-light">
@@ -58,7 +56,7 @@ export default function DestinationsCatalogPage({ locale, states }: Destinations
           </p>
 
           {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-white/80 text-xs font-light bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+          <nav className="flex items-center gap-2 text-white/80 text-xs font-light bg-black/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
             <Link href={`/${locale}`} className="hover:text-[#C3AB85] transition-colors">
               {text.home}
             </Link>

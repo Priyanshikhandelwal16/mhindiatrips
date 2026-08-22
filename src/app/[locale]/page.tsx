@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 import { getStatesAction, getTourPackagesAction, getBlogsAction, getTestimonialsAction, getFoodsAction, getPageByIdAction } from "@/app/actions/queries";
 import InquiryForm from "@/components/common/InquiryForm";
@@ -268,6 +269,8 @@ export default async function HomePage({ params }: HomePageProps) {
     }
   }
   const text = mergedLabels[locale] || mergedLabels.en;
+  if (dbContent.destinationsSection?.title?.[locale]) text.regionsTitle = dbContent.destinationsSection.title[locale];
+  if (dbContent.packagesSection?.title?.[locale]) text.packagesTitle = dbContent.packagesSection.title[locale];
 
   // CMS-driven content (read from database, fallback to defaults)
   const cms = pageData?.content || {};
@@ -417,7 +420,7 @@ export default async function HomePage({ params }: HomePageProps) {
         {/* Subtle background */}
         <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#C5A862_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
         
-        <div className="max-w-7xl mx-auto px-6 space-y-20">
+        <div className="max-w-5xl mx-auto px-6 space-y-20">
           {/* Header */}
           <Reveal className="text-center space-y-4 max-w-3xl mx-auto">
             <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">{text.howItWorksSub}</span>
@@ -426,35 +429,63 @@ export default async function HomePage({ params }: HomePageProps) {
             <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
           </Reveal>
 
-          {/* Timeline Layout */}
+          {/* Vertical Alternating Timeline Layout */}
           <div className="relative">
-            {/* Horizontal connector line (desktop only) */}
-            <div className="hidden md:block absolute top-[2.75rem] left-[16%] right-[16%] h-[2px] bg-gradient-to-r from-transparent via-gold/30 to-transparent z-0" />
+            {/* Timeline center line */}
+            <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-gold/50 via-gold/30 to-gold/5 transform md:-translate-x-1/2 z-0" />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+            <div className="space-y-12 relative z-10">
               {[
-                { num: "01", title: text.step1Title, desc: text.step1Desc, icon: "✦", delay: 50 },
-                { num: "02", title: text.step2Title, desc: text.step2Desc, icon: "◆", delay: 150 },
-                { num: "03", title: text.step3Title, desc: text.step3Desc, icon: "★", delay: 250 }
-              ].map((step, i) => (
-                <Reveal key={step.num} delay={step.delay} className="relative flex flex-col items-center text-center">
-                  {/* Step circle */}
-                  <div className="relative mb-8">
-                    <div className="w-20 h-20 rounded-full bg-white border-2 border-gold/30 shadow-lg flex flex-col items-center justify-center group hover:bg-gold hover:border-gold transition-all duration-500 cursor-default">
-                      <span className="text-[10px] font-black uppercase tracking-widest text-gold group-hover:text-royal transition-colors">{step.num}</span>
+                {
+                  num: "01",
+                  title: locale === "es" ? "Cuéntenos Su Sueño" : locale === "pt" ? "Conte-nos Seu Sonho" : "1. Submit Your Inquiry",
+                  desc: locale === "es" ? "Comparta sus intereses, fechas y presupuesto con nosotros." : locale === "pt" ? "Compartilhe seus interesses, datas e orçamento com a gente." : "Share your travel dates, preferred destinations, and special interests with our local specialists.",
+                },
+                {
+                  num: "02",
+                  title: locale === "es" ? "Co-Diseño con Asesor" : locale === "pt" ? "Co-Design com Consultor" : "2. Co-Design with an Advisor",
+                  desc: locale === "es" ? "Colabore con un experto local para afinar cada día y experiencia." : locale === "pt" ? "Colabore com um especialista para ajustar cada dia e experiência." : "Work 1-on-1 with a dedicated travel designer to customize every experience, day-by-day.",
+                },
+                {
+                  num: "03",
+                  title: locale === "es" ? "Selección de Palacios" : locale === "pt" ? "Seleção de Palácios" : "3. Palace & Guide Selection",
+                  desc: locale === "es" ? "Seleccione sus hoteles de patrimonio, guías privados y vehículos." : locale === "pt" ? "Escolha seus hotéis históricos, guias privados e veículos." : "Choose your preferred heritage palace hotels, private transit vehicles, and expert local guides.",
+                },
+                {
+                  num: "04",
+                  title: locale === "es" ? "Confirmación y Prepago" : locale === "pt" ? "Confirmação e Pré-viagem" : "4. Finalize & Book",
+                  desc: locale === "es" ? "Ajustamos y reservamos su itinerario con total seguridad." : locale === "pt" ? "Finalizamos e reservamos seu itinerário com total segurança." : "Review and approve your complete travel documents, vouchers, and pre-departure briefings.",
+                },
+                {
+                  num: "05",
+                  title: locale === "es" ? "Viaje Seguro y Asistencia" : locale === "pt" ? "Viagem Segura e Suporte" : "5. Travel with 24/7 Support",
+                  desc: locale === "es" ? "Explore con conductor privado y conserje 24/7 disponible." : locale === "pt" ? "Explore com motorista privado e suporte concierge 24/7." : "Enjoy a seamless journey with a dedicated private chauffeur, expert local hosts, and active 24/7 live concierge support."
+                }
+              ].map((step, i) => {
+                const isLeft = i % 2 === 0;
+                return (
+                  <div key={step.num} className={`relative flex flex-col md:flex-row items-start md:items-center ${isLeft ? "md:flex-row-reverse" : ""}`}>
+                    {/* Middle dot/circle */}
+                    <div className="absolute left-[2px] md:left-1/2 top-4 md:top-auto md:transform md:-translate-x-1/2 z-20">
+                      <div className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-[#FAF8F5] border-2 border-gold text-royal flex items-center justify-center font-bold text-xs shadow-md transition-all duration-300 hover:bg-gold hover:text-[#FAF8F5]">
+                        {step.num}
+                      </div>
                     </div>
-                    {/* Gold dot connector */}
-                    <div className="hidden md:block absolute top-1/2 -right-6 w-3 h-3 rounded-full bg-gold/40 transform -translate-y-1/2" style={{ display: i === 2 ? 'none' : undefined }} />
-                  </div>
 
-                  {/* Content Card */}
-                  <div className="bg-white border border-gold/10 p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 space-y-4 w-full">
-                    <h3 className="text-xl font-bold text-royal font-serif">{step.title}</h3>
-                    <div className="h-px w-10 bg-gold/30 mx-auto" />
-                    <p className="text-sm text-foreground/60 leading-relaxed font-light">{step.desc}</p>
+                    {/* Content card */}
+                    <div className="w-full md:w-[45%] pl-12 md:pl-0">
+                      <Reveal direction={isLeft ? "left" : "right"} className="bg-white border border-gold/10 p-6 md:p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 space-y-4">
+                        <h3 className="text-lg md:text-xl font-bold text-royal font-serif">{step.title}</h3>
+                        <div className="h-px w-10 bg-gold/30" />
+                        <p className="text-xs md:text-sm text-foreground/60 leading-relaxed font-light">{step.desc}</p>
+                      </Reveal>
+                    </div>
+
+                    {/* Spacer for desktop */}
+                    <div className="hidden md:block w-[45%]" />
                   </div>
-                </Reveal>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
@@ -480,7 +511,13 @@ export default async function HomePage({ params }: HomePageProps) {
                 <Link href={getLocalizedDestinationsPath(locale, st.slug || st.id)} className="group block h-full perspective-1000">
                   <div className="card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full">
                     <div className="h-80 overflow-hidden relative shrink-0">
-                      <img src={st.image} alt={stateTitle} loading="lazy" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
+                      <Image 
+                        src={st.image} 
+                        alt={stateTitle} 
+                        fill 
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" 
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-90" />
                       <span className="absolute top-5 left-5 bg-royal/95 border border-gold/20 text-gold text-[9px] uppercase tracking-widest font-bold px-4 py-2 rounded-full shadow-md">
                         {st.region} India
@@ -544,7 +581,13 @@ export default async function HomePage({ params }: HomePageProps) {
               <Link href={`/${locale}/packages/${pkg.slug}`} className="group block h-full perspective-1000">
                 <div className="card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full">
                   <div className="relative h-64 shrink-0 overflow-hidden">
-                    <img src={pkg.image} alt={pkg.title?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
+                    <Image 
+                      src={pkg.image} 
+                      alt={pkg.title?.[locale] || pkg.title?.en} 
+                      fill 
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" 
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-80" />
                     <div className="absolute top-4 left-4 flex flex-col gap-2">
                       <span className="bg-royal/95 text-gold text-[9px] uppercase font-bold tracking-widest px-3.5 py-1.5 rounded-full shadow-md border border-[#C5A862]/20">

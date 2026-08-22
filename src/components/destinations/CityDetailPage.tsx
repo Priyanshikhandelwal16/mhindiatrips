@@ -116,16 +116,8 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero Banner */}
-      <section className="relative h-[40vh] min-h-[320px] flex items-end overflow-hidden">
-        <img
-          src={cityImage}
-          alt={cityTitle}
-          className="absolute inset-0 w-full h-full object-cover"
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent" />
-
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-10 space-y-3">
+      <section className="relative bg-[#0A2A1E] text-white pt-16 pb-10 flex items-end overflow-hidden w-full">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 space-y-3">
           <nav className="flex items-center gap-1.5 text-white/60 text-[10px] uppercase tracking-wider font-bold">
             <Link href={`/${locale}`} className="hover:text-white transition-colors">
               {text.home}

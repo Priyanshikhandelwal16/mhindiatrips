@@ -47,8 +47,8 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       </head>
       <body className="font-sans bg-background text-foreground antialiased min-h-screen flex flex-col justify-between w-full overflow-x-hidden" suppressHydrationWarning>
         <PageLoader />
-        <PopupInquiryForm locale={locale} contactDetails={contactDetails} />
         <Header locale={locale} contactDetails={contactDetails} states={states} />
+        <PopupInquiryForm locale={locale} contactDetails={contactDetails} />
         <main className="flex-grow flex flex-col w-full overflow-x-hidden">
           <PageTransition>
             {children}

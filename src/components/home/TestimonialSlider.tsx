@@ -44,34 +44,8 @@ export default function TestimonialSlider({ locale, reviews: initialReviews, lab
     fetchReviews();
   }, []);
 
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container || reviewsList.length === 0) return;
-
-    let animationId: number;
-    let scrollPosition = 0;
-    const speed = 0.8; // pixels per frame
-
-    const scroll = () => {
-      if (!isHovered) {
-        scrollPosition += speed;
-        // Reset when we've scrolled through one third (original set size)
-        const totalWidth = container.scrollWidth;
-        const oneThirdWidth = totalWidth / 3;
-        if (scrollPosition >= oneThirdWidth) {
-          scrollPosition = 0;
-        }
-        container.style.transform = `translateX(-${scrollPosition}px)`;
-      }
-      animationId = requestAnimationFrame(scroll);
-    };
-
-    animationId = requestAnimationFrame(scroll);
-    return () => cancelAnimationFrame(animationId);
-  }, [isHovered, reviewsList]);
-
-  // Triple the reviews for seamless infinite scroll
-  const tripleReviews = [...reviewsList, ...reviewsList, ...reviewsList];
+  // Double the reviews for seamless infinite scroll in CSS marquee
+  const doubleReviews = [...reviewsList, ...reviewsList];
 
   return (
     <section className="section-spacing bg-[#FAF8F5]/50 border-y border-[#C5A862]/10 overflow-hidden py-32 relative">
@@ -150,11 +124,10 @@ export default function TestimonialSlider({ locale, reviews: initialReviews, lab
 
         <div className="overflow-hidden">
           <div
-            ref={scrollRef}
-            className="flex gap-8 will-change-transform py-4"
+            className={`flex gap-8 py-4 ${isHovered ? "[animation-play-state:paused]" : ""} animate-[marquee_45s_linear_infinite]`}
             style={{ width: "max-content" }}
           >
-            {tripleReviews.map((review: any, i: number) => (
+            {doubleReviews.map((review: any, i: number) => (
               <div
                 key={`review-${i}`}
                 className="flex-shrink-0 w-[360px] md:w-[420px]"

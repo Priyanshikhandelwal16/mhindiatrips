@@ -31,16 +31,10 @@ export default async function CustomPage({ params }: CustomPageProps) {
     <div className="font-sans bg-[#FAF8F5] min-h-screen text-[#1B1B1B]">
       
       {/* Hero Header */}
-      <section className="relative h-[65vh] min-h-[480px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
-        <img 
-          src={heroImage} 
-          alt={title} 
-          className="absolute inset-0 w-full h-full object-cover animate-kenburns" 
-        />
-        <div className="absolute inset-0 bg-black/25" />
-        <div className="relative z-10 text-center text-white px-6 max-w-5xl space-y-6">
+      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
+        <div className="relative z-10 text-center text-white px-6 max-w-5xl space-y-4">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">MH India Trips Dispatch</span>
-          <h1 className="text-4xl md:text-6xl font-bold font-serif mb-4 leading-tight text-white">{title}</h1>
+          <h1 className="text-3xl md:text-5xl font-bold font-serif leading-tight text-white">{title}</h1>
         </div>
       </section>
 

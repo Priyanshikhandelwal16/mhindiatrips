@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { getBlogsAction } from "@/app/actions/queries";
+import { getBlogsAction, getPageByIdAction } from "@/app/actions/queries";
 import { BlogData } from "@/data/mockData";
 import { Clock, ArrowRight, BookOpen, Compass, Sparkles, Send } from "lucide-react";
 import Reveal from "@/components/home/Reveal";
@@ -15,6 +15,7 @@ export default async function BlogIndexPage({ params, searchParams }: BlogIndexP
   const resolvedSearchParams = await searchParams;
   const activeCategory = resolvedSearchParams?.category || "";
   const blogs = await getBlogsAction();
+  const pageData = await getPageByIdAction("blog");
 
   const t: Record<string, any> = {
     en: { 
@@ -57,7 +58,15 @@ export default async function BlogIndexPage({ params, searchParams }: BlogIndexP
       newsletterBtn: "Inscrever"
     }
   };
-  const text = t[locale] || t.en;
+
+  const dbContent = pageData?.content || {};
+  const mergedT: Record<string, any> = {};
+  for (const lang of ["en", "es", "pt"]) {
+    mergedT[lang] = { ...t[lang] };
+    if (dbContent.heroTitle?.[lang]) mergedT[lang].title = dbContent.heroTitle[lang];
+    if (dbContent.heroSubtitle?.[lang]) mergedT[lang].desc = dbContent.heroSubtitle[lang];
+  }
+  const text = mergedT[locale] || mergedT.en;
 
   const categoriesList = Array.from(new Set(blogs.map((b: any) => b.category))).filter(Boolean);
   const featuredBlog = activeCategory ? null : blogs[0];
@@ -68,15 +77,13 @@ export default async function BlogIndexPage({ params, searchParams }: BlogIndexP
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
-      {/* SECTION 1: Cinematic Hero Banner (Adjusted height & padding) */}
-      <section className="relative h-[78vh] min-h-[540px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
-        <img src="/images/varanasi_ghats_aarti.png" alt="Travel Blog" className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns" loading="eager" />
-        <div className="absolute inset-0 bg-black/25" />
-        <div className="relative z-10 text-center text-white space-y-6 px-6 max-w-4xl">
+      {/* SECTION 1: Cinematic Hero Banner */}
+      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
+        <div className="relative z-10 text-center text-white space-y-4 px-6 max-w-4xl">
           <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
             {text.sub}
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-white">{text.title}</h1>
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-white">{text.title}</h1>
           <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed">{text.desc}</p>
         </div>
       </section>

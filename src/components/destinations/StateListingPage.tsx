@@ -46,21 +46,14 @@ export default function StateListingPage({ locale, state, cities }: StateListing
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero Banner */}
-      <section className="relative h-[45vh] min-h-[380px] flex items-center justify-center overflow-hidden">
-        <img
-          src={state.image || "/images/destination_fallback.jpg"}
-          alt={stateTitle}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/65" /> {/* Dark overlay */}
-        
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 text-center flex flex-col items-center justify-center space-y-4">
-          <h1 className="text-4xl md:text-6xl font-serif font-bold text-white leading-tight drop-shadow-md">
+      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col items-center justify-center space-y-4">
+          <h1 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight drop-shadow-md">
             {stateTitle}
           </h1>
 
           {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-white/80 text-xs font-light bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+          <nav className="flex items-center gap-2 text-white/80 text-xs font-light bg-black/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
             <Link href={`/${locale}`} className="hover:text-[#C3AB85] transition-colors">
               {text.home}
             </Link>

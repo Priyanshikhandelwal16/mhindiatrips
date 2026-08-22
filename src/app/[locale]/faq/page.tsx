@@ -127,18 +127,12 @@ export default async function FAQPage({ params }: FAQPageProps) {
     <div className="bg-[#FAF8F5] min-h-screen text-[#1B1B1B] font-sans">
       
       {/* Hero Banner */}
-      <section className="relative h-[78vh] min-h-[540px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
-        <img 
-          src={pageData?.heroImage || "/images/taj_mahal_sunrise.png"} 
-          alt="Traveler Info" 
-          className="absolute inset-0 w-full h-full object-cover object-[center_35%]" 
-        />
-        <div className="absolute inset-0 bg-black/25" />
-        <div className="relative z-10 text-center text-white px-6 max-w-4xl space-y-6">
+      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
+        <div className="relative z-10 text-center text-white px-6 max-w-4xl space-y-4">
           <span className="bg-gold text-royal text-[10px] font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
             {text.heroSub}
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold font-serif text-white tracking-tight leading-tight">{text.heroTitle}</h1>
+          <h1 className="text-3xl md:text-5xl font-bold font-serif text-white tracking-tight leading-tight">{text.heroTitle}</h1>
           <p className="text-sm md:text-base text-white/90 font-light max-w-2xl mx-auto leading-relaxed">{text.heroDesc}</p>
         </div>
       </section>

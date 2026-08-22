@@ -83,14 +83,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
 
       {/* Hero */}
-      <section className="relative h-[80vh] min-h-[580px] flex items-end overflow-hidden">
-        <img 
-          src={blog.featuredImage} 
-          alt={blogTitle} 
-          className="absolute inset-0 w-full h-full object-cover animate-kenburns" 
-          loading="eager" 
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
+      <section className="relative bg-[#0A2A1E] text-white pt-16 pb-12 flex items-end overflow-hidden w-full">
         
         <div className="relative z-10 w-full max-w-4xl mx-auto px-6 pb-16 space-y-5">
           {/* Back */}

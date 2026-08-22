@@ -182,7 +182,7 @@ export default function Header({ locale, contactDetails, states = [] }: HeaderPr
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[9999] w-full font-sans transition-all duration-300 animate-fade-in"
+    <header className="sticky top-0 z-[9999] w-full font-sans transition-all duration-300 animate-fade-in"
       style={{ animationDuration: "0.6s", animationFillMode: "both" }}>
       
       {/* Elegant Top Bar (viajeaindia.com style) */}
@@ -515,87 +515,87 @@ export default function Header({ locale, contactDetails, states = [] }: HeaderPr
 
       {/* Mobile Menu Panel */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-[#FCFAF6]/98 backdrop-blur-xl z-40 flex flex-col justify-start pt-28 px-8 pb-10 space-y-6 animate-fade-in lg:hidden text-royal overflow-y-auto overscroll-contain">
-          <nav className="flex flex-col space-y-4 text-center">
+        <div className="fixed inset-0 bg-[#FCFAF6]/98 backdrop-blur-xl z-40 flex flex-col justify-start pt-20 px-8 pb-10 space-y-4 animate-fade-in lg:hidden text-royal overflow-y-auto overscroll-contain">
+          <nav className="flex flex-col space-y-2.5 text-center pt-4">
             
             <Link
               href={`/${locale}`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-bold text-royal hover:text-gold transition-colors"
+              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
             >
               {labels.home}
             </Link>
-
+ 
             <Link
               href={`/${locale}/packages`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-bold text-royal hover:text-gold transition-colors"
+              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
             >
               {labels.packages}
             </Link>
-
+ 
             <Link
               href={`/${locale}/about`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-bold text-royal hover:text-gold transition-colors"
+              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
             >
               {labels.about}
             </Link>
-
+ 
             <Link
               href={getLocalizedDestinationsPath(locale)}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-bold text-royal hover:text-gold transition-colors"
+              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
             >
               {labels.destinations}
             </Link>
-
+ 
             <Link
               href={`/${locale}/monuments`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-bold text-royal hover:text-gold transition-colors"
+              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
             >
               {labels.monuments}
             </Link>
-
+ 
             <Link
               href={`/${locale}/food`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-bold text-royal hover:text-gold transition-colors"
+              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
             >
               {labels.food}
             </Link>
-
+ 
             <Link
               href={`/${locale}/faq`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-bold text-royal hover:text-gold transition-colors"
+              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
             >
               {labels.info}
             </Link>
-
+ 
             <Link
               href={`/${locale}/contact`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-bold text-royal hover:text-gold transition-colors"
+              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
             >
               {labels.contact}
             </Link>
-
+ 
             <Link
               href={`/${locale}/blog`}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-bold text-royal hover:text-gold transition-colors"
+              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
             >
               {labels.blog}
             </Link>
-
+ 
           </nav>
-          <div className="text-center pt-6 border-t border-gold/15">
+          <div className="text-center pt-4 border-t border-gold/15">
             <Link
               href={`/${locale}/contact`}
               onClick={() => setMobileMenuOpen(false)}
-              className="bg-gold text-[#0A2A1E] text-xs font-bold uppercase tracking-widest px-8 py-3.5 rounded-full inline-flex items-center gap-2 shadow-md"
+              className="bg-gold text-[#0A2A1E] text-[10px] font-bold uppercase tracking-widest px-8 py-3 rounded-full inline-flex items-center gap-2 shadow-md hover:bg-gold-light"
             >
               <span>{labels.cta}</span>
               <ArrowRight className="w-4 h-4" />

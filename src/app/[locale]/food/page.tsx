@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { getFoodsAction } from "@/app/actions/queries";
+import { getFoodsAction, getPageByIdAction } from "@/app/actions/queries";
 import { FoodData } from "@/data/mockData";
 import { Utensils, MapPin, ArrowRight, Sparkles, Compass } from "lucide-react";
 
@@ -11,6 +11,8 @@ interface FoodIndexPageProps {
 export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
   const { locale } = await params;
   const foods = (await getFoodsAction()).slice(0, 15);
+  const pageData = await getPageByIdAction("food");
+  const dbContent = pageData?.content || {};
 
   const t: Record<string, any> = {
     en: { 
@@ -36,6 +38,8 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
     }
   };
   const text = t[locale] || t.en;
+  if (dbContent.heroTitle?.[locale]) text.title = dbContent.heroTitle[locale];
+  if (dbContent.heroSubtitle?.[locale]) text.desc = dbContent.heroSubtitle[locale];
 
   // Ordered list of regions to display logically
   const regionsOrder = ["North India", "South India", "West India", "East India", "Central India", "Coastal India"];
@@ -56,19 +60,12 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
       {/* SECTION 1: Banner Header */}
-      <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden pt-28 md:pt-36">
-        <img 
-          src="/images/indian_cuisine_feast.png" 
-          alt="Indian Regional Cuisine" 
-          className="absolute inset-0 w-full h-full object-cover scale-100 animate-kenburns" 
-          loading="eager" 
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/15" />
-        <div className="relative z-10 text-center text-white space-y-6 px-6 max-w-5xl">
+      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
+        <div className="relative z-10 text-center text-white space-y-4 px-6 max-w-5xl">
           <span className="bg-[#0A2A1E]/80 border border-[#C5A862]/30 text-gold text-xs font-bold uppercase tracking-[0.25em] px-5 py-2.5 rounded-full inline-block shadow-lg">
             {text.sub}
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-normal tracking-tight leading-none text-white">
+          <h1 className="text-3xl md:text-5xl font-serif font-normal tracking-tight leading-none text-white">
             {text.title}
           </h1>
           <p className="text-sm md:text-base text-white/95 max-w-2xl mx-auto font-light leading-relaxed">
