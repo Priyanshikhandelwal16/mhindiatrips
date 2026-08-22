@@ -19516,14 +19516,1705 @@
       "indexRule": "index",
       "followRule": "follow"
     },
+    "isFeatured": true,
+    "travelTips": []
+  },
+  {
+    "slug": "rajasthan-khajuraho-varanasi-luxury-journey",
+    "title": {
+      "en": "Rajasthan Heritage, Khajuraho & Varanasi Journey",
+      "es": "Viaje a Rajasthan con Varanasi",
+      "pt": "Viagem ao Rajastão, Khajuraho e Varanasi"
+    },
+    "tagline": {
+      "en": "Discover the royal treasures of Rajasthan, the erotic temples of Khajuraho, and the eternal spirituality of Varanasi",
+      "es": "Descubre los tesoros reales de Rajasthan, los templos eróticos de Khajuraho y la espiritualidad eterna de Varanasi",
+      pt: "Descubra os tesouros reais do Rajastão, os templos eróticos de Khajuraho e a espiritualidade eterna de Varanasi"
+    },
+    "category": "Rajasthan Tours",
+    "durationDays": 18,
+    "image": "/images/varanasi_ghats_aarti.png",
+    "gallery": [],
+    "highlights": [
+      {
+        "en": "Visit the mystical Taj Mahal at sunrise",
+        "es": "Visita el místico Taj Mahal al amanecer",
+        "pt": "Visite o místico Taj Mahal ao amanhecer"
+      },
+      {
+        "en": "Experience rural India and family life in the authentic village of Hudeel",
+        "es": "Conoce la India rural y familiar en el auténtico pueblo de Hudeel",
+        "pt": "Experimente a Índia rural e a vida familiar na autêntica aldeia de Hudeel"
+      },
+      {
+        "en": "Camel ride across the Sam Sand Dunes in Jaisalmer",
+        "es": "Paseo en camello por las dunas de Sam en Jaisalmer",
+        "pt": "Passeio de camelo pelas dunas de areia de Sam em Jaisalmer"
+      },
+      {
+        "en": "Explore the carved Jain temples of Ranakpur and erotic temples of Khajuraho",
+        "es": "Explora los templos jainistas tallados de Ranakpur y los eróticos de Khajuraho",
+        "pt": "Explore os templos jainistas entalhados de Ranakpur e templos eróticos de Khajuraho"
+      },
+      {
+        "en": "Sunrise boat cruise on the sacred Ganges River in Varanasi",
+        "es": "Paseo en barco al amanecer por el sagrado río Ganges en Varanasi",
+        "pt": "Cruzeiro de barco ao amanhecer no sagrado Rio Gange em Varanasi"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": {
+          "en": "Arrival in Delhi",
+          "es": "Delhi: Llegada a Delhi",
+          "pt": "Chegada a Deli"
+        },
+        "desc": {
+          "en": "Welcome to India! Upon arrival, we will greet you at the airport. Our driver will hold a sign with your name. We will transfer you to your hotel, where we will deliver the necessary travel documents (hotel vouchers, domestic flight tickets, and train tickets if booked). Overnight in Delhi.",
+          "es": "¡Bienvenidos a la India! A su llegada le recibiremos en el aeropuerto, les esperará nuestro chofer con un cartel con su nombre. Le llevaremos a su hotel, dónde le entregaremos los documentos necesarios para su viaje, (reservas de hotel, billetes de avión interno y tren (si lo ha contratado en su viaje)). Noche en Delhi.",
+          "pt": "Bem-vindo à Índia! À chegada, iremos recebê-lo no aeroporto, o nosso motorista esperará com uma placa com o seu nome. Levamo-lo ao seu hotel, onde entregaremos os documentos de viagem necessários (vouchers de hotel, bilhetes de voo doméstico e de comboio, se contratados). Noite em Deli."
+        }
+      },
+      {
+        "day": 2,
+        "title": {
+          "en": "Delhi Sightseeing",
+          "es": "Delhi",
+          "pt": "Deli"
+        },
+        "desc": {
+          "en": "After breakfast, we begin with a guided tour of New Delhi: India Gate, President's House, Humayun's Tomb, Qutub Minar, and Laxmi Narayan Temple. After lunch, visit Old Delhi: Jama Masjid, Red Fort, and Gandhi Memorial. Overnight in Delhi.",
+          "es": "Después del desayuno, empezamos con una visita guiada por la ciudad nueva (New Delhi): India Gate, President’s Viajes India House, Humayun’s Tomb, Qutab Minar (la más grande torre en piedra tallada en India) y Laxmi Narayan Temple. Después de la comida visitaremos la antigua Delhi (Old Delhi): Jama Masjid (una de las más grandes mezquitas en Asia, se puede visitar desde fuera), Red Fort (fuerte que se construyó durante los años 1638 hasta 1648 cuando la cultura Mughal estaba en alza y desde dónde el fuerte se puede ver el rio Jamuna) y Gandhi Memorial. Noche en Delhi.",
+          "pt": "Após o pequeno-almoço, começamos com uma visita guiada por Nova Deli: Porta da Índia, Casa do Presidente, Túmulo de Humayun, Qutub Minar e Templo Laxmi Narayan. Após o almoço, visita a Velha Deli: Jama Masjid, Forte Vermelho e Memorial de Gandhi. Noite em Deli."
+        }
+      },
+      {
+        "day": 3,
+        "title": {
+          "en": "Delhi to Hudeel Rural Village Journey",
+          "es": "Delhi – Hudeel: Por carretera",
+          "pt": "Deli para Hudeel"
+        },
+        "desc": {
+          "en": "After breakfast, we travel by road to Hudeel (a traditional village in the Shekhawati region). Upon arrival at our family home homestay, you'll have free time to settle in. Later, visit the Karni Kot Temple, dedicated to Goddess Karni, located 1 km inside the desert. Return to explore Hudeel village and experience authentic rural life. Overnight at the homestay.",
+          "es": "Después del desayuno ruta hacia Hudeel (un pueblo de Shekawati). Al llegar al alojamiento, a casa de nuestros familiares, habrá tiempo libre para acomodarse. Más tarde visitaremos el templo Karni Kot (Templo dedicado a la diosa Karni la mas adorada por los Rajputs) situado a 1 km en el desierto. Al regresar visitaremos Hudeel, un típico pueblo de Rajasthan. Noche en el alojamiento.",
+          "pt": "Após o pequeno-almoço, viagem de carro para Hudeel (uma aldeia tradicional na região de Shekhawati). À chegada à casa da nossa família, tempo livre para se acomodar. Mais tarde, visita ao Templo Karni Kot no deserto. Regresso para explorar a aldeia de Hudeel. Noite no alojamento."
+        }
+      },
+      {
+        "day": 4,
+        "title": {
+          "en": "Hudeel to Bikaner",
+          "es": "Hudeel – Bikaner: Por carretera",
+          "pt": "Hudeel para Bikaner"
+        },
+        "desc": {
+          "en": "Early morning after breakfast, we head to Bikaner. Upon arrival, check in at your hotel. Afterwards, visit the imposing Junagarh Fort, built between 1588 and 1593 by Maharaja Rai Singh. Then, visit the camel breeding farm to see different breeds and witness camel milking (where you can try camel milk, ice cream, or coffee). If time permits, visit the famous Karni Mata Rat Temple in Deshnok. Overnight at the hotel.",
+          "es": "Por la mañana temprano, después del desayuno, nos dirigiremos hacia Bikaner. Al llegar, realizaremos el registro en su hotel. Posteriormente, visitaremos la imponente fortaleza de Junagarh, construida entre 1588 y 1593 por el Maharajá Jai Singh. A continuación, nos trasladaremos a la granja de cría de camellos, donde tendrás la oportunidad de observar distintas razas de camellos y presenciar el proceso de ordeño. Alojamiento en el hotel.",
+          "pt": "De manhã cedo após o pequeno-almoço, seguimos para Bikaner. À chegada, check-in no hotel. Depois, visita ao imponente Forte de Junagarh. Em seguida, visita à quinta de criação de camelos (onde poderá provar o leite de camelo). Noite no hotel."
+        }
+      },
+      {
+        "day": 5,
+        "title": {
+          "en": "Bikaner to Jaisalmer Desert Escape",
+          "es": "Bikaner – Jaisalmer: Por carretera",
+          "pt": "Bikaner para Jaisalmer"
+        },
+        "desc": {
+          "en": "In the morning after breakfast, depart for Jaisalmer, the Golden City. Upon arrival, check-in at the hotel. Later, go on an excursion to Sam Sand Dunes, where you will enjoy a 30-minute camel ride. Watch the magnificent sunset over the dunes and experience traditional desert folk music and dance. Overnight in Jaisalmer.",
+          "es": "Por la mañana, después del desayuno, partiremos hacia Jaisalmer. Al llegar, haremos el registro en el hotel. Más tarde, realizaremos una excursión a Sam (Sand Dunes), donde disfrutarás de un paseo en camello de unos 30 minutos. En el desierto podrás contemplar la magnífica puesta de sol y disfrutar del ambiente local con cantos y danzas tradicionales. Noche en el alojamiento.",
+          pt: "De manhã após o pequeno-almoço, partimos para Jaisalmer. À chegada, check-in no hotel. Mais tarde, excursão às Dunas de Sam com passeio de camelo de 30 minutos, pôr do sol e música tradicional no deserto. Noite no alojamento."
+        }
+      },
+      {
+        "day": 6,
+        "title": {
+          "en": "Jaisalmer Golden City Exploration",
+          "es": "Jaisalmer",
+          "pt": "Jaisalmer"
+        },
+        "desc": {
+          "en": "After breakfast, enjoy a full-day tour of the Golden City, Jaisalmer. Start at the artificial Gadisar Lake, visit the inside of the living Jaisalmer Fort, Jain temples, and beautifully carved Havelis (mansions). Enjoy free time to shop in the fort's local bazaars. Overnight in Jaisalmer.",
+          "es": "Después del desayuno visita durante todo el día de la ciudad de Oro, Jaisalmer. Empezaremos la visita en el lago artificial de Gadisar, visitáremos la zona de la fortaleza que rodea toda una ciudad dentro de la ciudad. Visitáremos diferentes atracciones, cómo los templos jainistas y los edificios tallados. Noche en el alojamiento.",
+          "pt": "Após o pequeno-almoço, visita de dia inteiro à Cidade Dourada de Jaisalmer: Lago Gadisar, Forte de Jaisalmer, templos jainistas e antigas mansões (Havelis) entalhadas. Noite no alojamento."
+        }
+      },
+      {
+        "day": 7,
+        "title": {
+          "en": "Jaisalmer to Jodhpur Blue City Tour",
+          "es": "Jaisalmer – Jodhpur: Por carretera",
+          "pt": "Jaisalmer para Jodhpur"
+        },
+        "desc": {
+          "en": "In the morning after breakfast, head to Jodhpur. Upon arrival, check in at the hotel. Visit the majestic Mehrangarh Fort towering over the Blue City. Enjoy views of the blue houses from the top. Later, visit the Jaswant Thada memorial and stroll around the Clock Tower and the local bazaars. Overnight in Jodhpur.",
+          "es": "Por la mañana, después del desayuno, nos dirigiremos a Jodhpur. Al llegar, haremos el registro en el hotel. Visitaremos el majestuoso Mehrangarh Fort, disfrutaremos de una impresionante vista de la ciudad azul. Por la tarde, visitaremos la Torre del Reloj, el bullicioso centro comercial de la plaza. Noche en el alojamiento.",
+          "pt": "De manhã após o pequeno-almoço, seguimos para Jodhpur. À chegada, check-in no hotel. Visita ao majestoso Forte Mehrangarh com vistas da cidade azul, Jaswant Thada e Torre do Relógio. Noite no alojamento."
+        }
+      },
+      {
+        "day": 8,
+        "title": {
+          "en": "Jodhpur to Udaipur via Ranakpur Temples",
+          "es": "Jodhpur – Udaipur: Por carretera",
+          "pt": "Jodhpur para Udaipur"
+        },
+        "desc": {
+          "en": "In the morning after breakfast, drive to Udaipur. En route, visit Ranakpur to explore the 15th-century Jain temple, the largest in the world, with 1,444 uniquely carved pillars. Continue to Udaipur. In the evening, enjoy a boat cruise on Lake Pichola, capturing views of the Lake Palace and Jagmandir. Overnight in Udaipur.",
+          "es": "Por la mañana, después del desayuno, nos dirigiremos a Udaipur. En la ruta visitaremos Ranakpur, donde exploraremos los templos jainistas del siglo XV, destacando el templo jainista más grande del mundo con 1.444 pilares tallados. Por la tarde, daremos un paseo en barca por el lago Pichhola. Noche en el alojamiento.",
+          "pt": "De manhã após o pequeno-almoço, seguimos para Udaipur. No caminho, visita ao impressionante Templo Jainista de Ranakpur com 1.444 pilares esculpidos. Cruzeiro ao entardecer no Lago Pichola em Udaipur. Noite no alojamento."
+        }
+      },
+      {
+        "day": 9,
+        "title": {
+          "en": "Udaipur Lake City Sightseeing",
+          "es": "Udaipur",
+          "pt": "Udaipur"
+        },
+        "desc": {
+          "en": "After breakfast, spend the day exploring Udaipur, the 'Venice of the East'. Visit the City Palace with its marble and peacock-decorated rooms, Saheliyon-ki-Bari (the Garden of Maidens), and the Jagdish Temple. Walk around local streets and markets. Overnight in Udaipur.",
+          "es": "Después del desayuno, dedicaremos todo el día a una visita turística por Udaipur. Comenzaremos en el City Palace, continuaremos con la visita a Saheliyon Ki Bari, unos jardines preciosos, y al templo de Jagdish, ubicado en el centro de la ciudad. Noche en el alojamiento.",
+          "pt": "Após o pequeno-almoço, visita de dia inteiro a Udaipur: Palácio da Cidade com quartos decorados, Saheliyon-ki-Bari (Jardim das Damas) e Templo Jagdish. Noite no alojamento."
+        }
+      },
+      {
+        "day": 10,
+        "title": {
+          "en": "Udaipur to Pushkar Holy Lake",
+          "es": "Udaipur – Pushkar: Por carretera",
+          "pt": "Udaipur para Pushkar"
+        },
+        "desc": {
+          "en": "In the morning after breakfast, head to Pushkar. Upon arrival, check-in at the hotel. Visit Pushkar, one of Rajasthan's holiest towns. Explore the unique Brahma Temple and walk along the sacred Pushkar Lake ghats. Capture a stunning sunset by the lake. Overnight in Pushkar.",
+          "es": "Por la mañana, después del desayuno, nos dirigiremos a Pushkar. Al llegar, haremos el registro en el hotel. Por la tarde, visitaremos esta ciudad sagrada, incluyendo el templo de Brahma y los ghats que rodean el lago sagrado. Noche en el alojamiento.",
+          "pt": "De manhã após o pequeno-almoço, seguimos para Pushkar. À chegada, check-in no hotel. Visita ao Templo de Brahma, lago sagrado e ghats. Pôr do sol às margens do lago. Noite no alojamento."
+        }
+      },
+      {
+        "day": 11,
+        "title": {
+          "en": "Pushkar to Jaipur Pink City Tour",
+          "es": "Pushkar – Jaipur: Por carretera",
+          "pt": "Pushkar para Jaipur"
+        },
+        "desc": {
+          "en": "In the morning after breakfast, drive to Jaipur, the Pink City. Upon arrival, check-in at the hotel. In the evening, explore local markets and color-splashed bazaars, and visit the beautiful marble Birla Temple. Overnight in Jaipur.",
+          "es": "Por la mañana después del desayuno iremos hasta Jaipur. Llegaremos a la preciosa Ciudad Rosada. Por la tarde, paseo por las calles y los coloridos bazares, y visitaremos el templo de Birla para conocer la vida religiosa de Jaipur. Noche en el alojamiento.",
+          "pt": "De manhã após o pequeno-almoço, seguimos para Jaipur, a Cidade Rosa. À noite, passeio pelos bazares tradicionais e visita ao Templo de mármol Birla. Noite no alojamento."
+        }
+      },
+      {
+        "day": 12,
+        "title": {
+          "en": "Jaipur Forts & Palaces",
+          "es": "Jaipur",
+          "pt": "Jaipur"
+        },
+        "desc": {
+          "en": "After breakfast, explore Jaipur's historic sites. Ride up to Amber Fort, and visit the City Palace ( Chandra Mahal, Shri Govind temple), the Jantar Mantar astronomical observatory, and snap pictures of the iconic Hawa Mahal (Palace of the Winds). Overnight in Jaipur.",
+          "es": "Después del desayuno visitaremos la Fortaleza de Amber, el Palacio de la Ciudad, el observatorio astronómico Jantar Mantar y la fachada de Hawa Mahal (Palacio de los Vientos). Noche en el alojamiento.",
+          "pt": "Após o pequeno-almoço, visita de dia inteiro: Forte Amber, Palácio da Cidade, observatório Jantar Mantar e Palácio dos Ventos (Hawa Mahal). Noite no alojamento."
+        }
+      },
+      {
+        "day": 13,
+        "title": {
+          "en": "Jaipur to Agra via Fatehpur Sikri",
+          "es": "Jaipur – Agra: Por carretera",
+          "pt": "Jaipur para Agra"
+        },
+        "desc": {
+          "en": "After breakfast, depart for Agra. En route, stop to tour the abandoned Mughal capital city of Fatehpur Sikri. Continue to Agra, check in at your hotel, and proceed to visit the world-famous white marble Taj Mahal. Overnight in Agra.",
+          "es": "Después del desayuno, viaje hacia Agra. Durante el camino, visitaremos la antigua ciudad mogol Fatehpur Sikri. Llegada a su hotel y visita al espectacular Taj Mahal. Noche en el alojamiento.",
+          "pt": "Após o pequeno-almoço, viagem para Agra. No caminho, visita à cidade imperial abandonada Fatehpur Sikri. À chegada, check-in no hotel e visita ao espetacular Taj Mahal. Noite no alojamento."
+        }
+      },
+      {
+        "day": 14,
+        "title": {
+          "en": "Agra to Orcha via Gwalior Fort",
+          "es": "Agra – Gwalior – Orcha: Por carretera",
+          "pt": "Agra para Orcha"
+        },
+        "desc": {
+          "en": "Enjoy breakfast. Drive to Orcha, stopping en route in Gwalior to see its magnificent hilltop fort, Man Mandir, and the Sas Bahu temples. Arrive in Orcha, check in, and visit the Jahangir Mahal, Raj Mahal, and the Chaturbhuj Temple. Overnight in Orcha.",
+          "es": "Desayuno. Por la mañana nos dirigiremos a Orcha, haciendo una parada en Gwalior para visitar su impresionante fortaleza. Continuaremos hacia Orcha. Visitaremos el Jahangir Mahal, el Raj Mahal y el Templo de Chaturbhuj. Noche en el alojamiento.",
+          "pt": "Pequeno-almoço. Viagem para Orcha com paragem em Gwalior para visitar o Forte e templos. À chegada a Orcha, visita ao Jahangir Mahal, Raj Mahal e Templo Chaturbhuj. Noite no alojamento."
+        }
+      },
+      {
+        "day": 15,
+        "title": {
+          "en": "Orcha to Khajuraho Erotic Temples",
+          "es": "Orcha-Khajuraho: Por carretera",
+          "pt": "Orcha para Khajuraho"
+        },
+        "desc": {
+          "en": "After breakfast, travel by road to Khajuraho. Upon arrival, check-in at the hotel. Later, explore the world-famous UNESCO-listed erotically carved Western and Eastern groups of temples, including the Lakshmana and Kandariya-Mahadeva temples. Overnight in Khajuraho.",
+          "es": "Después del desayuno, nos dirigiremos a Khajuraho. Al llegar, haremos el registro en el hotel. Más tarde, visitaremos los templos eróticos de Khajuraho, incluyendo los grupos Western y Eastern. Noche en el alojamiento.",
+          "pt": "Após o pequeno-almoço, viagem para Khajuraho. Visita aos famosos templos eróticos de Khajuraho (grupos Ocidental e Oriental). Noite no alojamento."
+        }
+      },
+      {
+        "day": 16,
+        "title": {
+          "en": "Khajuraho to Varanasi Flight",
+          "es": "Khajuraho-Varanasi (Vuelo)",
+          "pt": "Voo para Varanasi"
+        },
+        "desc": {
+          "en": "Spend the morning at leisure in Khajuraho before transfer to the airport for your flight to Varanasi, India's holiest city. Upon arrival, transfer to the hotel. In the evening, attend the mystical Ganga Aarti ceremony on the Ganges river ghats and walk through local streets. Overnight in Varanasi.",
+          "es": "Por la mañana, tiempo libre en Khajuraho hasta tomar el vuelo interno hacia Varanasi. A la llegada, traslado al hotel. Más tarde, visita a la ceremonia Aarti en los ghats por la tarde y paseo por las calles. Noche en el alojamiento.",
+          "pt": "Manhã livre em Khajuraho. Voo doméstico para Varanasi, a cidade mais sagrada da Índia. À noite, assistência à cerimônia espiritual Ganga Aarti nos ghats do Rio Ganges. Noite no alojamento."
+        }
+      },
+      {
+        "day": 17,
+        "title": {
+          "en": "Varanasi Ganges Boat Cruise & Sarnath",
+          "es": "Varanasi",
+          "pt": "Varanasi"
+        },
+        "desc": {
+          "en": "Early morning boat ride on the Ganges River to witness Hindu rituals and prayer along the ghats. Visit the Bharat Mata, Durga, and Tulsi Manas temples. In the afternoon, head to Sarnath where Buddha gave his first sermon. Overnight in Varanasi.",
+          "es": "Después del desayuno, por la mañana temprano, realizaremos un paseo en barca por el río Ganges para observar los rituales en los ghats. Visitaremos templos como Durga y nos dirigiremos a Sarnath. Noche en el alojamiento.",
+          "pt": "Passeio de barco ao amanhecer no Ganges para ver os rituais sagrados. Visita aos templos de Varanasi e Sarnath, onde Buda deu o seu primeiro sermão. Noite no alojamento."
+        }
+      },
+      {
+        "day": 18,
+        "title": {
+          "en": "Varanasi to Delhi & Departure Flight",
+          "es": "Varanasi – New Delhi – Salida (Vuelo)",
+          "pt": "Varanasi para Deli & Partida"
+        },
+        "desc": {
+          "en": "Transfer to Varanasi airport for your flight back to Delhi. Upon arrival in Delhi, transfer to the international terminal (terminal 3) for your flight back home. End of our services.",
+          "es": "A la hora indicada traslado al aeropuerto de Varanasi y viaje en avión a Delhi. Al llegar al aeropuerto de Delhi deberá tomar el autobús interno hacia la terminal de salidas internacionales para su vuelo de regreso. Fin de nuestros servicios.",
+          "pt": "Transporte para o aeroporto de Varanasi e voo de regresso a Deli. Ligação com o terminal internacional para o seu voo de regresso. Fim dos nossos serviços."
+        }
+      }
+    ],
+    "includedExperiences": [
+      {
+        "en": "Authentic rural homestay with a local family in Hudeel",
+        "es": "Hospedaje rural auténtico con una familia local en Hudeel",
+        "pt": "Estadia rural autêntica com uma família local em Hudeel"
+      },
+      {
+        "en": "Camel ride in Sam Sand Dunes of Jaisalmer",
+        "es": "Paseo en camello por las dunas de arena de Sam en Jaisalmer",
+        "pt": "Passeio de camelo nas dunas de areia de Sam em Jaisalmer"
+      },
+      {
+        "en": "Lake Pichola boat cruise in Udaipur",
+        "es": "Paseo en barco por el lago Pichola en Udaipur",
+        "pt": "Passeio de barco no lago Pichola em Udaipur"
+      },
+      {
+        "en": "Private sunset view of the Taj Mahal in Agra",
+        "es": "Vista privada al atardecer del Taj Mahal en Agra",
+        "pt": "Vista privada do pôr do sol do Taj Mahal em Agra"
+      },
+      {
+        "en": "Sunrise boat ride on the sacred Ganges in Varanasi",
+        "es": "Paseo en barco al amanecer en el Ganges sagrado en Varanasi",
+        "pt": "Passeio de barco ao amanhecer no Ganges sagrado em Varanasi"
+      }
+    ],
+    "travelTips": [],
+    "faqs": [],
     "startingLocation": "Delhi, India",
-    "endingLocation": "Goa, India",
-    "tourType": "Private Family Adventure & Cultural Tour",
-    "travelStyle": "Family, Adventure, Wildlife, Culture & Beaches",
+    "endingLocation": "Delhi, India",
+    "tourType": "Private Heritage, Culture & Spiritual Tour",
+    "travelStyle": "Heritage, Culture, Spiritual, Rural & Local Family Experience",
     "groupSize": "2–12 Travellers",
     "difficultyLevel": "Easy to Moderate",
     "status": "published",
     "isFeatured": true,
-    "travelTips": []
+    "seo": {
+      "metaTitle": {
+        "en": "Rajasthan Heritage, Khajuraho & Varanasi Journey | 18 Days",
+        "es": "Viaje a Rajasthan con Varanasi y Khajuraho | 18 Días",
+        "pt": "Viagem ao Rajastão, Khajuraho e Varanasi | 18 Dias"
+      },
+      "description": {
+        "en": "Discover Delhi, Shekhawati, Bikaner, Jaisalmer, Jodhpur, Udaipur, Pushkar, Jaipur, Agra, Gwalior, Orcha, Khajuraho and Varanasi in an 18-day private tour.",
+        "es": "Explore Delhi, Shekhawati, Bikaner, Jaisalmer, Jodhpur, Udaipur, Pushkar, Jaipur, Agra, Gwalior, Orcha, Khajuraho y Varanasi en un viaje privado de 18 días.",
+        "pt": "Explore Deli, Shekhawati, Bikaner, Jaisalmer, Jodhpur, Udaipur, Pushkar, Jaipur, Agra, Gwalior, Orcha, Khajuraho e Varanasi em um tour privado de 18 dias."
+      },
+      "keywords": {
+        "en": "Rajasthan tour, Khajuraho tour, Varanasi tour, India heritage tour, 18 days India itinerary, Delhi Agra Jaipur, Khajuraho erotic temples, Ganges boat ride, Varanasi Sarnath, India private tour",
+        "es": "viaje Rajasthan, viaje Varanasi, viaje Khajuraho, viaje India 18 dias, itinerario India, triangulo de oro, templos eroticos Khajuraho, paseo barca Ganges, viaje privado India",
+        "pt": "viagem Rajastão, viagem Varanasi, viagem Khajuraho, viagem Índia 18 dias, roteiro Índia, triângulo de ouro, templos eróticos Khajuraho, passeio barco Ganges, viagem privada Índia"
+      },
+      "ogTitle": "Rajasthan Heritage, Khajuraho & Varanasi Journey | 18 Days Private Tour",
+      "ogDescription": "Discover Delhi, Shekhawati, Bikaner, Jaisalmer, Jodhpur, Udaipur, Pushkar, Jaipur, Agra, Gwalior, Orcha, Khajuraho and Varanasi in an 18-day private tour.",
+      "canonicalUrl": "/packages/rajasthan-khajuraho-varanasi-luxury-journey",
+      "indexRule": "index",
+      "followRule": "follow"
+    }
+  },
+  {
+    "slug": "india-goa-beach-monuments-tour",
+    "title": {
+      "en": "India Monuments & Goa Beaches Tour",
+      "es": "Viaje a India con Goa",
+      "pt": "Viagem à Índia com Goa"
+    },
+    "tagline": {
+      "en": "Discover the Golden Triangle, cosmopolitan Mumbai, and relax on the paradise beaches of Goa",
+      "es": "Descubre el Triángulo de Oro, la cosmopolita Mumbai y relájate en las paradisíacas playas de Goa",
+      "pt": "Descubra o Triângulo de Ouro, a cosmopolita Mumbai e relaxe nas praias paradisíacas de Goa"
+    },
+    "category": "Beach Vacations",
+    "durationDays": 14,
+    "image": "/images/andaman islands.jpg",
+    "gallery": [],
+    "highlights": [
+      {
+        "en": "Visit the majestic monuments of the Golden Triangle: Delhi, Agra, and Jaipur",
+        "es": "Visita los majestuosos monumentos del Triángulo de Oro: Delhi, Agra y Jaipur",
+        "pt": "Visite os majestosos monumentos do Triângulo de Ouro: Deli, Agra e Jaipur"
+      },
+      {
+        "en": "Marvel at the iconic Taj Mahal and Agra Fort",
+        "es": "Contempla el emblemático Taj Mahal y la Fortaleza de Agra",
+        "pt": "Contemple o icônico Taj Mahal e o Forte de Agra"
+      },
+      {
+        "en": "Explore the vibrant and cosmopolitan city of Mumbai",
+        "es": "Explora la vibrante y cosmopolita ciudad de Mumbai",
+        "pt": "Explore a vibrante e cosmopolita cidade de Mumbai"
+      },
+      {
+        "en": "Enjoy leisure days relaxing on the paradise beaches of Goa",
+        "es": "Disfruta de días libres de relax y playa en las costas paradisíacas de Goa",
+        "pt": "Desfrute de dias livres de relaxamento nas praias paradisíacas de Goa"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": {
+          "en": "Arrival in Delhi",
+          "es": "Delhi: Llegada a Delhi",
+          "pt": "Chegada a Deli"
+        },
+        "desc": {
+          "en": "Welcome to India! Upon arrival, we will greet you at the airport. Our driver will hold a sign with your name. We will transfer you to your hotel, where we will deliver the necessary travel documents (hotel vouchers, domestic flight tickets, and train tickets if booked). Overnight in Delhi.",
+          "es": "¡Bienvenidos a la India! A su llegada le recibiremos en el aeropuerto, les esperará nuestro chofer con un cartel con su nombre. Le llevaremos a su hotel, donde le entregaremos los documentos necesarios para su viaje (reservas de hotel, billetes de avión interno y tren (si lo han contratado en su viaje)). Noche en Delhi.",
+          "pt": "Bem-vindo à Índia! À chegada, iremos recebê-lo no aeroporto, o nosso motorista esperará com uma placa com o seu nome. Levamo-lo ao seu hotel, onde entregaremos os documentos de viagem necessários (vouchers de hotel, bilhetes de voo doméstico e de comboio, se contratados). Noite em Deli."
+        }
+      },
+      {
+        "day": 2,
+        "title": {
+          "en": "Delhi Sightseeing",
+          "es": "Delhi",
+          "pt": "Deli"
+        },
+        "desc": {
+          "en": "After breakfast, we begin with a guided tour of New Delhi: India Gate, President's House, Humayun's Tomb, Qutub Minar, and Laxmi Narayan Temple. After lunch, visit Old Delhi: Jama Masjid, Red Fort, and Gandhi Memorial. Overnight in Delhi.",
+          "es": "Después del desayuno, empezamos con una visita guiada por la ciudad nueva (New Delhi): India Gate, President’s Viajes India House, Humayun’s Tomb, Qutab Minar (la más grande torre en piedra tallada en India) y Laxmi Narayan Temple. Después de la comida visitaremos la antigua Delhi (Old Delhi): Jama Masjid (una de las más grandes mezquitas en Asia, se puede visitar desde fuera), Red Fort (fuerte que se construyó durante los años 1638 hasta 1648 cuando la cultura Mughal estaba en alza y desde dónde el fuerte se puede ver el río Jamuna) y Gandhi Memorial. Noche en Delhi.",
+          "pt": "Após o pequeno-almoço, começamos com uma visita guiada por Nova Deli: Porta da Índia, Casa do Presidente, Túmulo de Humayun, Qutub Minar e Templo Laxmi Narayan. Após o almoço, visita a Velha Deli: Jama Masjid, Forte Vermelho e Memorial de Gandhi. Noite em Deli."
+        }
+      },
+      {
+        "day": 3,
+        "title": {
+          "en": "Delhi to Jaipur",
+          "es": "Delhi –Jaipur: Por carretera",
+          "pt": "Deli para Jaipur"
+        },
+        "desc": {
+          "en": "In the morning after breakfast, we drive to Jaipur, the Pink City. Upon arrival, check-in at the hotel. In the evening, explore local markets and color-splashed bazaars, and visit the beautiful marble Birla Temple. Overnight in Jaipur.",
+          "es": "Por la mañana después del desayuno iremos hasta Jaipur. Llegaremos a la preciosa Ciudad Rosada de la India (Pink city). Llegada a su hotel. Por la tarde, paseo por las calles y los coloridos bazares. Visitaremos el templo de Birla para conocer la vida religiosa de Jaipur. Noche en el alojamiento.",
+          "pt": "De manhã após o pequeno-almoço, seguimos para Jaipur, a Cidade Rosa. À noite, passeio pelos bazares tradicionais e visita ao Templo de mármol Birla. Noite no alojamento."
+        }
+      },
+      {
+        "day": 4,
+        "title": {
+          "en": "Jaipur Forts & Palaces",
+          "es": "Jaipur",
+          "pt": "Jaipur"
+        },
+        "desc": {
+          "en": "After breakfast, explore Jaipur's historic sites. Ride up to Amber Fort, and visit the City Palace (Chandra Mahal, Shri Govind temple), the Jantar Mantar astronomical observatory, and snap pictures of the iconic Hawa Mahal (Palace of the Winds). Overnight in Jaipur.",
+          "es": "Después del desayuno visitaremos la Fortaleza de Amber, el Palacio de la Ciudad, el observatorio astronómico Jantar Mantar y la fachada de Hawa Mahal (Palacio de los Vientos). Noche en el alojamiento.",
+          "pt": "Após o pequeno-almoço, visita de dia inteiro: Forte Amber, Palácio da Cidade, observatório Jantar Mantar e Palácio dos Ventos (Hawa Mahal). Noite no alojamento."
+        }
+      },
+      {
+        "day": 5,
+        "title": {
+          "en": "Jaipur to Agra via Fatehpur Sikri",
+          "es": "Jaipur – Agra: Por carretera",
+          "pt": "Jaipur para Agra"
+        },
+        "desc": {
+          "en": "After breakfast, depart for Agra. En route, stop to tour the abandoned Mughal capital city of Fatehpur Sikri. Continue to Agra, check in at your hotel, and proceed to enjoy free time. Overnight in Agra.",
+          "es": "Después del desayuno, viaje hacia Agra. Durante el camino, visitaremos la antigua ciudad mogol Fatehpur Sikri. Llegada a su hotel. Tiempo libre. Noche en el alojamiento.",
+          "pt": "Após o pequeno-almoço, viagem para Agra. No caminho, visita à cidade imperial abandonada Fatehpur Sikri. À chegada, check-in no hotel e tempo livre. Noite no alojamento."
+        }
+      },
+      {
+        "day": 6,
+        "title": {
+          "en": "Agra - Taj Mahal & Agra Fort",
+          "es": "Agra: Taj Mahal y Fortaleza",
+          "pt": "Agra: Taj Mahal e Forte"
+        },
+        "desc": {
+          "en": "After breakfast, visit the spectacular Taj Mahal and the Agra Fort. Night at the accommodation.",
+          "es": "Después del desayuno, visita al espectacular Taj Mahal y la Fortaleza de Agra. Noche en el alojamiento.",
+          "pt": "Após o pequeno-almoço, visita ao espetacular Taj Mahal e ao Forte de Agra. Noite no alojamento."
+        }
+      },
+      {
+        "day": 7,
+        "title": {
+          "en": "Agra to Delhi",
+          "es": "Agra-New Delhi: Por carretera",
+          "pt": "Agra para Deli"
+        },
+        "desc": {
+          "en": "After breakfast, we drive back to Delhi and enjoy free time. Night in Delhi.",
+          "es": "Después del desayuno iremos hasta Delhi y disfrutaremos de tiempo libre. Noche en Delhi.",
+          "pt": "Após o pequeno-almoço, voltamos para Deli e desfrutamos de tempo livre. Noite em Deli."
+        }
+      },
+      {
+        "day": 8,
+        "title": {
+          "en": "Delhi to Mumbai Flight",
+          "es": "New Delhi-Mumbai (vuelo)",
+          "pt": "Voo para Mumbai"
+        },
+        "desc": {
+          "en": "After breakfast, transfer to Delhi airport for your flight to Mumbai. Upon arrival, we will greet you and transfer you to your hotel. Free time to explore Mumbai. Overnight in Mumbai.",
+          "es": "Después del desayuno iremos hasta el aeropuerto de Delhi para coger un vuelo para Mumbai. Llegada a Mumbai. A su llegada lo recibiremos y lo llevaremos hasta su hotel. Tiempo libre en Mumbai. Noche en Mumbai.",
+          pt: "Após o pequeno-almoço, transporte para o aeroporto de Deli para voar para Mumbai. À chegada, receção e transporte para o hotel. Tempo livre em Mumbai. Noite em Mumbai."
+        }
+      },
+      {
+        "day": 9,
+        "title": {
+          "en": "Mumbai Elephanta Caves & City Sightseeing",
+          "es": "Mumbai",
+          "pt": "Mumbai"
+        },
+        "desc": {
+          "en": "After breakfast, visit the famous Elephanta Caves by boat. Then explore the Gateway of India, Flora Fountain, Marine Drive, and Crawford Market. Free time in Mumbai. Overnight in Mumbai.",
+          "es": "Después del desayuno visitaremos las cuevas de elefante, donde cogeremos un barco para hacer la visita. Después visitaremos la Puerta de la India, Flora Fountain, Marine Drive y Crawford Market. Tiempo libre en Mumbai. Noche en Mumbai.",
+          pt: "Após o pequeno-almoço, visita de barco às cavernas de Elefanta. Depois, visita ao Portal da Índia, Fonte Flora, Marine Drive e Mercado Crawford. Tempo livre. Noite em Mumbai."
+        }
+      },
+      {
+        "day": 10,
+        "title": {
+          "en": "Mumbai to Goa Flight",
+          "es": "Mumbai – Goa (Vuelo)",
+          "pt": "Voo para Goa"
+        },
+        "desc": {
+          "en": "At the designated time, transfer to Mumbai airport and fly to Goa. Upon arrival, check-in at your hotel. Free time in Goa. Overnight in Goa.",
+          "es": "A la hora indicada, traslado al aeropuerto de Mumbai y viaje en avión a Goa. A su llegada lo recibiremos y lo llevaremos hasta su hotel. Tiempo libre en Goa. Noche en Goa.",
+          pt: "Na hora indicada, transporte para o aeroporto de Mumbai e voo para Goa. À chegada, receção e transporte para o hotel. Tempo livre em Goa. Noite em Goa."
+        }
+      },
+      {
+        "day": 11,
+        "title": {
+          "en": "Goa Beach Leisure",
+          "es": "Goa",
+          "pt": "Goa"
+        },
+        "desc": {
+          "en": "Free day in Goa to enjoy its beautiful sandy beaches and tranquility. Overnight in Goa.",
+          "es": "Día libre en Goa para poder disfrutar de sus playas y tranquilidad. Noche en Goa.",
+          pt: "Dia livre em Goa para desfrutar de suas praias de areia branca e tranquilidade. Noite em Goa."
+        }
+      },
+      {
+        "day": 12,
+        "title": {
+          "en": "Goa Beach Relaxation",
+          "es": "Día libre en las Playas de Goa",
+          pt: "Praias de Goa"
+        },
+        "desc": {
+          "en": "Free day in Goa to relax on the Arabian Sea beaches or explore old colonial Portuguese Goa. Night in Goa.",
+          "es": "Día libre en Goa para relajarse en las playas del mar Arábigo o explorar Goa vieja. Noche en Goa.",
+          pt: "Dia livre em Goa para relaxar nas praias ou explorar a velha Goa colonial portuguesa. Noite em Goa."
+        }
+      },
+      {
+        "day": 13,
+        "title": {
+          "en": "Goa Beach Activities",
+          "es": "Día de relax y actividades acuáticas",
+          pt: "Relaxamento e Atividades em Goa"
+        },
+        "desc": {
+          "en": "Free day in Goa to enjoy the beaches, beautiful sunsets, and water sports. Night in Goa.",
+          "es": "Día libre en Goa para disfrutar de las playas, puestas de sol y deportes acuáticos. Noche en Goa.",
+          pt: "Dia livre em Goa para desfrutar das praias, do pôr do sol e atividades aquáticas. Noite em Goa."
+        }
+      },
+      {
+        "day": 14,
+        "title": {
+          "en": "Goa to Delhi & Departure",
+          "es": "Goa – New Delhi – Salida (vuelo)",
+          pt: "Goa para Deli & Partida"
+        },
+        "desc": {
+          "en": "At the designated time, transfer to Goa airport and fly back to Delhi. Upon arrival in Delhi, transfer to the international terminal to catch your flight back home. End of our services.",
+          es: "A la hora indicada, traslado al aeropuerto de Goa y viaje en avión a Delhi. Al llegar al aeropuerto de Delhi, deberá tomar un autobús del aeropuerto que le llevará a la terminal de salidas internacionales para su vuelo de regreso. Fin de nuestros servicios.",
+          pt: "Na hora indicada, transporte para o aeroporto de Goa e voo de regresso a Deli. Ligação com o terminal de saídas internacionais para o seu voo de regresso. Fim dos nossos serviços."
+        }
+      }
+    ],
+    "includedExperiences": [
+      {
+        "en": "Elephant (or Jeep) ride up to Amber Fort in Jaipur",
+        "es": "Paseo en elefante (o Jeep) hasta la Fortaleza de Amber en Jaipur",
+        "pt": "Passeio de elefante (ou jipe) até o Forte Amber em Jaipur"
+      },
+      {
+        "en": "Boat ride in Mumbai to visit the historic Elephanta Caves",
+        "es": "Paseo en barco en Mumbai para visitar las históricas cuevas de Elefanta",
+        "pt": "Passeio de barco em Mumbai para visitar as históricas cavernas de Elefanta"
+      },
+      {
+        "en": "Included domestic flights: Delhi-Mumbai, Mumbai-Goa, and Goa-Delhi",
+        "es": "Vuelos internos incluidos: Delhi-Mumbai, Mumbai-Goa y Goa-Delhi",
+        "pt": "Voos domésticos incluídos: Deli-Mumbai, Mumbai-Goa e Goa-Deli"
+      },
+      {
+        "en": "Private transfers in all destinations with english/spanish speaking drivers",
+        "es": "Asistencia y traslados privados en todos los destinos con chofer de habla inglesa/española",
+        "pt": "Transportes privados em todos os destinos com motorista falante de inglês/espanhol"
+      }
+    ],
+    "travelTips": [],
+    "faqs": [],
+    "startingLocation": "Delhi, India",
+    "endingLocation": "Delhi, India",
+    "tourType": "Private Cultural, City & Beach Holiday",
+    "travelStyle": "Culture, Sightseeing, City Life & Beach Relaxation",
+    "groupSize": "2–12 Travellers",
+    "difficultyLevel": "Easy",
+    "status": "published",
+    "isFeatured": true,
+    "seo": {
+      "metaTitle": {
+        "en": "India Monuments & Goa Beaches Tour | 14 Days",
+        "es": "Viaje a India con Goa y Mumbai | 14 Días",
+        "pt": "Viagem à Índia com Goa e Mumbai | 14 Dias"
+      },
+      "description": {
+        "en": "Discover Delhi, Jaipur, Agra, Mumbai and Goa in a 14-day private tour with domestic flights, heritage monuments, and beach relaxation.",
+        "es": "Explore Delhi, Jaipur, Agra, Mumbai y las playas de Goa en un viaje privado de 14 días con vuelos internos y traslados incluidos.",
+        "pt": "Explore Deli, Jaipur, Agra, Mumbai e as praias de Goa em um tour privado de 14 dias com voos domésticos incluídos."
+      },
+      "keywords": {
+        "en": "India Goa tour, Delhi Jaipur Agra Goa, Mumbai Goa vacation, India beach holiday, Golden Triangle with Goa, India private tour 14 days, Elephanta caves Mumbai",
+        "es": "viaje India Goa, triangulo de oro con Goa, viaje Mumbai Goa, vacaciones playa India, itinerario India 14 dias, cuevas Elefanta Mumbai, viaje privado India",
+        "pt": "viagem Índia Goa, triângulo de ouro com Goa, viagem Mumbai Goa, férias praia Índia, roteiro Índia 14 dias, cavernas Elefanta Mumbai, viagem privada Índia"
+      },
+      "ogTitle": "India Monuments & Goa Beaches Tour | 14 Days Private Holiday",
+      "ogDescription": "Discover Delhi, Jaipur, Agra, Mumbai and Goa in a 14-day private tour with domestic flights, heritage monuments, and beach relaxation.",
+      "canonicalUrl": "/packages/india-goa-beach-monuments-tour",
+      "indexRule": "index",
+      "followRule": "follow"
+    }
+  },
+  {
+    "slug": "india-nepal-golden-triangle-kathmandu-tour",
+    "title": {
+      "en": "India & Nepal: Golden Triangle, Varanasi & Kathmandu",
+      "es": "Viaje a India y Nepal",
+      "pt": "Viagem à Índia e Nepal"
+    },
+    "tagline": {
+      "en": "Discover the spiritual essence of India and the mystical beauty of the Himalayas in Nepal",
+      "es": "Descubre la esencia espiritual de la India y la belleza mística de los Himalayas en Nepal",
+      "pt": "Descubra a essência espiritual da Índia e a beleza mística dos Himalaias no Nepal"
+    },
+    "category": "Spiritual Tours",
+    "durationDays": 13,
+    "image": "/images/varanasi_ghats_aarti.png",
+    "gallery": [],
+    "highlights": [
+      {
+        "en": "Explore the imperial monuments of Delhi, Agra, and Jaipur",
+        "es": "Explora los monumentos imperiales de Delhi, Agra y Jaipur",
+        "pt": "Explore os monumentos imperiais de Deli, Agra e Jaipur"
+      },
+      {
+        "en": "Visit the erotic temples of Khajuraho and historic forts of Gwalior and Orcha",
+        "es": "Visita los templos eróticos de Khajuraho y las fortalezas históricas de Gwalior y Orcha",
+        "pt": "Visite os templos eróticos de Khajuraho e fortes históricos de Gwalior e Orcha"
+      },
+      {
+        "en": "Sunrise boat cruise and Aarti ceremony on the sacred Ganges in Varanasi",
+        "es": "Paseo en barco al amanecer y ceremonia Aarti en los ghats sagrados de Varanasi",
+        "pt": "Passeio de barco ao amanhecer e cerimônia Aarti nos ghats sagrados de Varanasi"
+      },
+      {
+        "en": "Discover the Buddhist stupas of Swayambhunath and Pashupatinath in Kathmandu",
+        "es": "Descubre los templos y estupas budistas de Swayambhunath y Pashupatinath en el valle de Katmandú",
+        "pt": "Descubra os templos e estupas budistas de Swayambhunath e Pashupatinath em Kathmandu"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": {
+          "en": "Arrival in Delhi",
+          "es": "Delhi: Llegada a Delhi",
+          "pt": "Chegada a Deli"
+        },
+        "desc": {
+          "en": "Welcome to India! Upon arrival, we will greet you at the airport. Our driver will hold a sign with your name. We will transfer you to your hotel, where we will deliver the necessary travel documents (hotel vouchers, domestic flight tickets, and train tickets if booked). Overnight in Delhi.",
+          "es": "¡Bienvenidos a la India! A su llegada le recibiremos en el aeropuerto, les esperará nuestro chofer con un cartel con su nombre. Le llevaremos a su hotel, dónde le entregaremos los documentos necesarios para su viaje, (reservas de hotel, billetes de avión interno y tren (si lo ha contratado en su viaje)). Noche en Delhi.",
+          "pt": "Bem-vindo à Índia! À chegada, iremos recebê-lo no aeroporto, o nosso motorista esperará com uma placa com o seu nome. Levamo-lo ao seu hotel, onde entregaremos os documentos de viagem necessários (vouchers de hotel, bilhetes de voo doméstico e de comboio, se contratados). Noite em Deli."
+        }
+      },
+      {
+        "day": 2,
+        "title": {
+          "en": "Delhi Sightseeing",
+          "es": "Delhi",
+          "pt": "Deli"
+        },
+        "desc": {
+          "en": "After breakfast, we begin with a guided tour of New Delhi: India Gate, President's House, Humayun's Tomb, Qutub Minar, and Laxmi Narayan Temple. After lunch, visit Old Delhi: Jama Masjid, Red Fort, and Gandhi Memorial. Overnight in Delhi.",
+          "es": "Después del desayuno, empezamos con una visita guiada por la ciudad nueva (New Delhi): India Gate, President’s Viajes India House, Humayun’s Tomb, Qutab Minar (la más grande torre en piedra tallada en India) y Laxmi Narayan Temple. Después de la comida visitaremos la antigua Delhi (Old Delhi): Jama Masjid (una de las más grandes mezquitas en Asia, se puede visitar desde fuera), Red Fort (fuerte que se construyó durante los años 1638 hasta 1648 cuando la cultura Mughal estaba en alza y desde dónde el fuerte se puede ver el rio Jamuna) y Gandhi Memorial. Noche en Delhi.",
+          "pt": "Após o pequeno-almoço, começamos com uma visita guiada por Nova Deli: Porta da Índia, Casa do Presidente, Túmulo de Humayun, Qutub Minar e Templo Laxmi Narayan. Após o almoço, visita a Velha Deli: Jama Masjid, Forte Vermelho e Memorial de Gandhi. Noite em Deli."
+        }
+      },
+      {
+        "day": 3,
+        "title": {
+          "en": "Delhi to Jaipur",
+          "es": "Delhi – Jaipur: Por carretera",
+          "pt": "Deli para Jaipur"
+        },
+        "desc": {
+          "en": "In the morning, after breakfast, we drive to Jaipur, the Pink City. Upon arrival, check-in at the hotel. In the evening, explore local markets and color-splashed bazaars, and visit the beautiful marble Birla Temple. Overnight in Jaipur.",
+          "es": "Por la mañana, después del desayuno, iremos hasta Jaipur. Llegaremos a la preciosa Ciudad Rosada de la India (Pink city). Llegada a su hotel. Por la tarde, paseo por las calles y los coloridos bazares. Visitaremos el templo de Birla para conocer la vida religiosa de Jaipur. Noche en el alojamiento.",
+          "pt": "De manhã, após o pequeno-almoço, seguimos para Jaipur, a Cidade Rosa. À noite, passeio pelos bazares tradicionais e visita ao Templo de mármol Birla. Noite no alojamento."
+        }
+      },
+      {
+        "day": 4,
+        "title": {
+          "en": "Jaipur Forts & Palaces",
+          "es": "Jaipur",
+          "pt": "Jaipur"
+        },
+        "desc": {
+          "en": "After breakfast, explore Jaipur's historic sites. Ride up to Amber Fort, and visit the City Palace (Chandra Mahal, Shri Govind temple), the Jantar Mantar astronomical observatory, and snap pictures of the iconic Hawa Mahal (Palace of the Winds). Overnight in Jaipur.",
+          "es": "Después del desayuno visitaremos la Fortaleza de Amber, el Palacio de la Ciudad, el observatorio astronómico Jantar Mantar y la fachada de Hawa Mahal (Palacio de los Vientos). Noche en el alojamiento.",
+          "pt": "Após o pequeno-almoço, visita de dia inteiro: Forte Amber, Palácio da Cidade, observatório Jantar Mantar e Palácio dos Ventos (Hawa Mahal). Noite no alojamento."
+        }
+      },
+      {
+        "day": 5,
+        "title": {
+          "en": "Jaipur to Agra via Fatehpur Sikri",
+          "es": "Jaipur – Agra: Por carretera",
+          "pt": "Jaipur para Agra"
+        },
+        "desc": {
+          "en": "After breakfast, depart for Agra. En route, stop to tour the abandoned Mughal capital city of Fatehpur Sikri. Continue to Agra, check in at your hotel, and proceed to enjoy a visit to the spectacular Taj Mahal. Overnight in Agra.",
+          "es": "Después del desayuno, viaje hacia Agra. Durante el camino, visitaremos la antigua ciudad mogol Fatehpur Sikri. Llegada a su hotel y visita al espectacular Taj Mahal. Noche en el alojamiento.",
+          "pt": "Após o pequeno-almoço, viagem para Agra. No caminho, visita à cidade imperial abandonada Fatehpur Sikri. À chegada, check-in no hotel e visita ao espetacular Taj Mahal. Noite no alojamento."
+        }
+      },
+      {
+        "day": 6,
+        "title": {
+          "en": "Agra to Orcha via Gwalior Fort",
+          "es": "Agra – Gwalior – Orcha",
+          "pt": "Agra para Orcha"
+        },
+        "desc": {
+          "en": "Enjoy breakfast. Drive to Orcha, stopping en route in Gwalior to see its magnificent hilltop fort, Man Mandir, and the Sas Bahu temples. Arrive in Orcha, check in, and visit the Jahangir Mahal, Raj Mahal, and the Chaturbhuj Temple. Overnight in Orcha.",
+          "es": "Desayuno. Por la mañana nos dirigiremos a Orcha, haciendo una parada en Gwalior para visitar su impresionante fortaleza, el Hombre Mandir y los templos Sas Bahu. Continuaremos hacia Orcha. A la llegada, registro en el hotel y visitas. Noche en el alojamiento.",
+          "pt": "Pequeno-almoço. Viagem para Orcha com paragem em Gwalior para visitar o Forte e templos. À chegada a Orcha, visita ao Jahangir Mahal, Raj Mahal e Templo Chaturbhuj. Noite no alojamento."
+        }
+      },
+      {
+        "day": 7,
+        "title": {
+          "en": "Orcha to Khajuraho Erotic Temples",
+          "es": "Orcha – Khajuraho: Por carretera",
+          "pt": "Orcha para Khajuraho"
+        },
+        "desc": {
+          "en": "After breakfast, travel by road to Khajuraho. Upon arrival, check-in at the hotel. Later, explore the world-famous UNESCO-listed erotically carved Western and Eastern groups of temples, including the Lakshmana and Kandariya-Mahadeva temples. Overnight in Khajuraho.",
+          "es": "Después del desayuno, nos dirigiremos a Khajuraho. A la llegada, registro en el hotel. Más tarde, visitaremos los templos eróticos de Khajuraho, incluyendo los grupos Western y Eastern, destacando los templos Kandariya-Mahadeva y Lakshmana. Noche en el alojamiento.",
+          "pt": "Após o pequeno-almoço, viagem para Khajuraho. Visita aos famosos templos eróticos de Khajuraho (grupos Ocidental e Oriental). Noite no alojamento."
+        }
+      },
+      {
+        "day": 8,
+        "title": {
+          "en": "Khajuraho to Varanasi Flight",
+          "es": "Khajuraho – Varanasi (Vuelo)",
+          "pt": "Voo para Varanasi"
+        },
+        "desc": {
+          "en": "Spend the morning at leisure in Khajuraho before transfer to the airport for your flight to Varanasi. Upon arrival, transfer to the hotel. In the evening, attend the mystical Ganga Aarti ceremony on the Ganges river ghats and walk through local streets. Overnight in Varanasi.",
+          "es": "Por la mañana, tiempo libre en Khajuraho hasta tomar el vuelo interno hacia Varanasi. A la llegada, traslado al hotel. Más tarde, visita a la ceremonia Aarti en los ghats por la tarde y paseo por las calles. Noche en el alojamiento.",
+          "pt": "Manhã livre em Khajuraho. Voo doméstico para Varanasi, a cidade mais sagrada da Índia. À noite, assistência à cerimônia espiritual Ganga Aarti nos ghats do Rio Ganges. Noite no alojamento."
+        }
+      },
+      {
+        "day": 9,
+        "title": {
+          "en": "Varanasi Ganges Boat Cruise & Sarnath",
+          "es": "Varanasi",
+          "pt": "Varanasi"
+        },
+        "desc": {
+          "en": "Early morning boat ride on the Ganges River to witness Hindu rituals and prayer along the ghats. Visit the Bharat Mata, Durga, and Tulsi Manas temples. In the afternoon, head to Sarnath where Buddha gave his first sermon. Overnight in Varanasi.",
+          "es": "Después del desayuno, por la mañana temprano, realizaremos un paseo en barca por el río Ganges para observar los rituales en los ghats. Visitaremos templos y nos dirigiremos a Sarnath. Noche en el alojamiento.",
+          "pt": "Passeio de barco ao amanhecer no Ganges para ver os rituais sagrados. Visita aos templos de Varanasi e Sarnath, onde Buda deu o seu primeiro sermão. Noite no alojamento."
+        }
+      },
+      {
+        "day": 10,
+        "title": {
+          "en": "Varanasi to Kathmandu Flight",
+          "es": "Varanasi-New Delhi-Kathmandú",
+          "pt": "Voo para Kathmandu"
+        },
+        "desc": {
+          "en": "Early morning transfer to Varanasi airport, fly to New Delhi, and catch a connecting flight to Kathmandu, Nepal. Upon arrival, transfer to your hotel. Free time. Overnight in Kathmandu.",
+          "es": "Por la mañana temprano iremos al aeropuerto de Varanasi, tomaremos un vuelo a New Delhi y desde New Delhi otro vuelo hacia Kathmandu. Llegada a kathamandu. Traslado al hotel. Tiempo libre. Alojamiento.",
+          "pt": "De manhã cedo, transporte para o aeroporto de Varanasi, voo para Nova Deli e ligação para Kathmandu. À chegada, transporte para o hotel. Noite em Kathmandu."
+        }
+      },
+      {
+        "day": 11,
+        "title": {
+          "en": "Swayambhunath Stupa & Kathmandu",
+          "es": "Kathmandú",
+          "pt": "Kathmandu"
+        },
+        "desc": {
+          "en": "Breakfast. Enjoy a sightseeing tour of the city including the ancient Buddhist stupa of Swayambhunath, located on a hill west of the city, offering panoramic views of the Kathmandu valley. Overnight in Kathmandu.",
+          "es": "Desayuno. Recorrido por la ciudad que incluye la antigua estupa budista de Swayambhunath, ubicada en lo alto de una colina al oeste de la ciudad. Tiempo libre y noche en el alojamiento.",
+          "pt": "Pequeno-almoço. Tour na cidade incluindo a antiga estupa budista de Swayambhunath, localizada no topo de uma colina com vista panorâmica. Noite no alojamento."
+        }
+      },
+      {
+        "day": 12,
+        "title": {
+          "en": "Pashupatinath Temple & Kathmandu Valley",
+          "es": "Kathmandú",
+          "pt": "Kathmandu"
+        },
+        "desc": {
+          "en": "Breakfast. Visit Pashupatinath, one of the most sacred Hindu temples dedicated to Lord Shiva. Enjoy free time to stroll through the markets. Overnight in Kathmandu.",
+          "es": "Desayuno. Visitaremos Pashupatinath, uno de los templos hindúes más sagrados, dedicado al dios Shiva. Tiempo libre y noche en el alojamiento.",
+          "pt": "Pequeno-almoço. Visita a Pashupatinath, um dos templos hindus mais sagrados, dedicado ao Deus Shiva. Tempo livre. Noite no alojamento."
+        }
+      },
+      {
+        "day": 13,
+        "title": {
+          "en": "Kathmandu to Delhi & Departure",
+          "es": "Kathmandú – New Delhi (Vuelo)",
+          "pt": "Kathmandu para Deli & Partida"
+        },
+        "desc": {
+          "en": "At the designated time, transfer to Kathmandu airport and fly back to Delhi for your onward connecting flight back home. End of our services.",
+          "es": "A la hora indicada, traslado al aeropuerto de Kathmandú y vuelo a Delhi. Fin de nuestro servicio.",
+          "pt": "Na hora indicada, transporte para o aeroporto de Kathmandu e voo para Deli. Fim dos nossos serviços."
+        }
+      }
+    ],
+    "includedExperiences": [
+      {
+        "en": "Classic elephant or Jeep ride up to Amber Fort in Jaipur",
+        "es": "Clásica subida a la Fortaleza de Amber en elefante (o Jeep) en Jaipur",
+        "pt": "Passeio de elefante ou jipe até o Forte Amber em Jaipur"
+      },
+      {
+        "en": "Ganges boat ride in Varanasi to witness daily morning rituals",
+        "es": "Paseo en barco por el río Ganges en Varanasi para presenciar los rituales locales",
+        "pt": "Passeio de barco no Ganges em Varanasi para presenciar os rituais"
+      },
+      {
+        "en": "Visit to the sacred Swayambhunath temple (Monkey Temple) in Kathmandu",
+        "es": "Visita a la sagrada estupa Swayambhunath (Templo de los Monos) en Katmandú",
+        "pt": "Visita ao templo sagrado de Swayambhunath (Templo dos Macacos) em Kathmandu"
+      },
+      {
+        "en": "All domestic and international flights between India and Nepal",
+        "es": "Vuelos internos e internacionales: Khajuraho-Varanasi, Varanasi-Katmandú y Katmandú-Delhi",
+        "pt": "Todos os voos domésticos e internacionais entre a Índia e o Nepal"
+      }
+    ],
+    "travelTips": [],
+    "faqs": [],
+    "startingLocation": "Delhi, India",
+    "endingLocation": "Delhi, India",
+    "tourType": "Private Multi-Country Cultural & Spiritual Tour",
+    "travelStyle": "Heritage, Culture, Spiritual & Himalayan Exploration",
+    "groupSize": "2–12 Travellers",
+    "difficultyLevel": "Easy to Moderate",
+    "status": "published",
+    "isFeatured": true,
+    "seo": {
+      "metaTitle": {
+        "en": "India & Nepal: Golden Triangle, Varanasi & Kathmandu | 13 Days",
+        "es": "Viaje a India y Nepal con Varanasi | 13 Días",
+        "pt": "Viagem à Índia e Nepal com Varanasi | 13 Dias"
+      },
+      "description": {
+        "en": "Discover Delhi, Jaipur, Agra, Gwalior, Orcha, Khajuraho, Varanasi and Kathmandu in a 13-day private multi-country India and Nepal tour.",
+        "es": "Explore Delhi, Jaipur, Agra, Gwalior, Orcha, Khajuraho, Varanasi y Katmandú en un viaje privado multi-país de 13 días.",
+        "pt": "Explore Deli, Jaipur, Agra, Gwalior, Orcha, Khajuraho, Varanasi e Kathmandu em um tour privado de 13 dias."
+      },
+      "keywords": {
+        "en": "India Nepal tour, Golden Triangle with Nepal, Varanasi Kathmandu tour, Khajuraho Varanasi Kathmandu, India Nepal package, Kathmandu valley tour, Ganges river boat ride, Swayambhunath stupa",
+        "es": "viaje India Nepal, triangulo de oro con Nepal, viaje Varanasi Katmandu, Khajuraho Varanasi Katmandu, viaje combinado India Nepal, estupa Swayambhunath",
+        "pt": "viagem Índia Nepal, triângulo de ouro com Nepal, viagem Varanasi Kathmandu, Khajuraho Varanasi Kathmandu, viagem combinada Índia Nepal, estupa Swayambhunath"
+      },
+      "ogTitle": "India & Nepal: Golden Triangle, Varanasi & Kathmandu | 13 Days Private Tour",
+      "ogDescription": "Discover Delhi, Jaipur, Agra, Gwalior, Orcha, Khajuraho, Varanasi and Kathmandu in a 13-day private multi-country India and Nepal tour.",
+      "canonicalUrl": "/packages/india-nepal-golden-triangle-kathmandu-tour",
+      "indexRule": "index",
+      "followRule": "follow"
+    }
+  },
+  {
+    "slug": "rajasthan-varanasi-imperial-luxury-tour",
+    "title": {
+      "en": "Rajasthan & Varanasi Imperial Journey",
+      "es": "Rajasthan y Varanasi Imperial",
+      "pt": "Rajasthan e Varanasi Imperial"
+    },
+    "tagline": {
+      "en": "The ultimate circuit through the palaces and deserts of Rajasthan, combined with the eternal spirituality of Varanasi",
+      "es": "El circuito definitivo por los palacios y desiertos del Rajasthan combinando la espiritualidad eterna de Varanasi",
+      "pt": "O circuito definitivo pelos palácios e desertos do Rajastão, combinado com a espiritualidade eterna de Varanasi"
+    },
+    "category": "Rajasthan Tours",
+    "durationDays": 16,
+    "image": "/images/rajasthan_fort_sunset.png",
+    "gallery": [],
+    "highlights": [
+      {
+        "en": "Complete tour of the royal forts and palaces of Rajasthan",
+        "es": "Visita completa de las fortalezas y palacios reales del Rajasthan",
+        "pt": "Visita completa das fortalezas e palácios reais do Rajastão"
+      },
+      {
+        "en": "Camel safari and desert camping in the Jaisalmer sand dunes",
+        "es": "Safari en camello y campamento en las dunas de Jaisalmer",
+        "pt": "Safári de camelo e acampamento nas dunas de areia de Jaisalmer"
+      },
+      {
+        "en": "Guided sunrise visit to the iconic Taj Mahal",
+        "es": "Visita al Taj Mahal al amanecer",
+        "pt": "Visita guiada ao Taj Mahal ao amanhecer"
+      },
+      {
+        "en": "Ganges boat cruise and evening Aarti ceremony on Varanasi ghats",
+        "es": "Ceremonia Aarti al atardecer en el río Ganges en Varanasi",
+        "pt": "Cruzeiro de barco no Ganges e cerimônia noturna Aarti nos ghats de Varanasi"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": {
+          "en": "Arrival in Delhi",
+          "es": "Llegada a Delhi",
+          "pt": "Chegada a Deli"
+        },
+        "desc": {
+          "en": "Arrival at Delhi International Airport. Meet and greet at airport and transfer to hotel. Overnight in Delhi.",
+          "es": "Llegada al Aeropuerto Internacional de Delhi, vibrante capital que combina modernidad y tradición milenaria. Recepción y traslado al hotel. Según el horario de llegada, breve introducción panorámica para comenzar a sentir la energía de la ciudad. Noche en Delhi.",
+          "pt": "Chegada ao Aeroporto Internacional de Deli. Receção e transporte para o hotel. Noite em Deli."
+        }
+      },
+      {
+        "day": 2,
+        "title": {
+          "en": "Delhi Sightseeing: Mughal & Colonial History",
+          "es": "Delhi – Historia Mogol y Colonial",
+          "pt": "Deli: História Mogol e Colonial"
+        },
+        "desc": {
+          "en": "Breakfast and full day sightseeing of Delhi. Visit Old Delhi (Jama Masjid, Chandni Chowk) and New Delhi (India Gate, Parliament, Qutub Minar, Lotus Temple). Overnight.",
+          "es": "Desayuno y visita completa de la ciudad. En Old Delhi exploraremos Jama Masjid y recorreremos el bullicioso mercado de Chandni Chowk en rickshaw. En New Delhi visitaremos la Puerta de la India, el Parlamento, el Qutub Minar y el Templo de Loto. Un día que revela las distintas capas históricas del país. Alojamiento.",
+          "pt": "Pequeno-almoço e visita guiada de Deli: Jama Masjid, Chandni Chowk, Porta da Índia, Parlamento, Qutub Minar e Templo de Lótus. Alojamiento."
+        }
+      },
+      {
+        "day": 3,
+        "title": {
+          "en": "Delhi to Mandawa Heritage Tour",
+          "es": "Delhi – Mandawa",
+          "pt": "Deli para Mandawa"
+        },
+        "desc": {
+          "en": "Drive to Mandawa in the Shekhawati region, famous for its 18th-century painted havelis. Stroll the streets discovering mercantile mansions. Overnight.",
+          "es": "Salida hacia Mandawa, en la región de Shekhawati, famosa por sus havelis decoradas con frescos del siglo XVIII. Paseo por sus calles tranquilas descubriendo antiguas mansiones mercantiles con pinturas murales que narran escenas mitológicas y coloniales. Alojamiento en hotel heritage.",
+          "pt": "Viagem para Mandawa, famosa pelas suas antigas mansões (Havelis) decoradas com frescos do século XVIII. Alojamento."
+        }
+      },
+      {
+        "day": 4,
+        "title": {
+          "en": "Mandawa to Bikaner Desert Fort",
+          "es": "Mandawa – Bikaner",
+          "pt": "Mandawa para Bikaner"
+        },
+        "desc": {
+          "en": "Travel to Bikaner, a desert city founded in the 15th century. Visit the unconquered Junagarh Fort, old town, and local market. Overnight.",
+          "es": "Viaje hacia Bikaner, ciudad desértica fundada en el siglo XV. Visita del Fuerte Junagarh, impresionante fortaleza que nunca fue conquistada. Recorrido por el casco antiguo y mercado local. Opcional visita al Templo de las Ratas en Deshnok. Alojamiento.",
+          "pt": "Viagem para Bikaner. Visita ao Forte Junagarh, centro histórico e mercados tradicionais. Alojamento."
+        }
+      },
+      {
+        "day": 5,
+        "title": {
+          "en": "Bikaner to Jaisalmer: The Golden City",
+          "es": "Bikaner – Jaisalmer",
+          "pt": "Bikaner para Jaisalmer"
+        },
+        "desc": {
+          "en": "Scenic route to Jaisalmer, the Golden City rising from the Thar Desert sand dunes. Check-in and free time. Overnight.",
+          "es": "Ruta hacia Jaisalmer, la “Ciudad Dorada”, que emerge entre las dunas del desierto de Thar. Llegada y tiempo libre para disfrutar del ambiente medieval. Alojamiento.",
+          "pt": "Rota para Jaisalmer, a Cidade Dourada no meio do deserto de Thar. Check-in e tempo livre. Alojamento."
+        }
+      },
+      {
+        "day": 6,
+        "title": {
+          "en": "Jaisalmer Fort & Sam Sand Dunes",
+          "es": "Jaisalmer – Fortaleza y Dunas",
+          "pt": "Jaisalmer: Forte e Dunas"
+        },
+        "desc": {
+          "en": "Explore the living Jaisalmer Fort, Havelis, and Gadisar Lake. In the afternoon, camel safari in the Sam Sand Dunes with cultural show. Overnight in desert camp or hotel.",
+          "es": "Visita del Fuerte Viviente de Jaisalmer, uno de los pocos fuertes habitados del mundo. Exploración de havelis ricamente decoradas y del lago Gadisar. Por la tarde, excursión a las dunas de Sam para disfrutar de un safari en camello al atardecer y espectáculo cultural bajo las estrellas. Noche en campamento o hotel.",
+          "pt": "Visita ao Forte habitado de Jaisalmer, Havelis e Lago Gadisar. À tarde, safári de camelo e show cultural nas dunas de Sam. Noite em acampamento ou hotel."
+        }
+      },
+      {
+        "day": 7,
+        "title": {
+          "en": "Jaisalmer to Jodhpur: The Blue City",
+          "es": "Jaisalmer – Jodhpur",
+          "pt": "Jaisalmer para Jodhpur"
+        },
+        "desc": {
+          "en": "Depart for Jodhpur, the Blue City. Visit Mehrangarh Fort, Jaswant Thada memorial, and the colorful Clock Tower markets. Overnight.",
+          "es": "Salida hacia Jodhpur, conocida como la “Ciudad Azul”. Visita del imponente Fuerte Mehrangarh, con vistas panorámicas espectaculares, y del mausoleo Jaswant Thada. Paseo por el mercado tradicional alrededor de la Torre del Reloj. Alojamiento.",
+          "pt": "Viagem para Jodhpur, a Cidade Azul. Visita ao Forte Mehrangarh, Jaswant Thada e mercado tradicional da Torre do Relógio. Alojamento."
+        }
+      },
+      {
+        "day": 8,
+        "title": {
+          "en": "Jodhpur to Udaipur via Ranakpur",
+          "es": "Jodhpur – Ranakpur – Udaipur",
+          "pt": "Jodhpur para Udaipur"
+        },
+        "desc": {
+          "en": "Drive to Udaipur with a stop at Ranakpur Jain temples, famous for its 1,444 uniquely carved marble pillars. Arrive in Udaipur. Overnight.",
+          "es": "Traslado hacia Udaipur con parada en los Templos Jainistas de Ranakpur, famosos por sus 1.444 columnas talladas, todas diferentes. Llegada a Udaipur, la ciudad más romántica de Rajasthan. Alojamiento.",
+          "pt": "Viagem para Udaipur, parando nos tempos jainistas de Ranakpur com 1.444 colunas talladas. Chegada a Udaipur. Alojamento."
+        }
+      },
+      {
+        "day": 9,
+        "title": {
+          "en": "Udaipur: City Palace & Lake Pichola Cruise",
+          "es": "Udaipur – Ciudad de los Lagos",
+          "pt": "Udaipur: Cidade dos Lagos"
+        },
+        "desc": {
+          "en": "Visit City Palace, Saheliyon-ki-Bari gardens, and Jagdish Temple. In the afternoon, boat cruise on Lake Pichola with views of the Lake Palace. Overnight.",
+          "es": "Visita del majestuoso Palacio de la Ciudad, el Jardín Saheliyon-ki-Bari y el Templo Jagdish. Por la tarde, paseo en barco por el Lago Pichola con vistas al Palacio Lake Palace y Jag Mandir. Alojamiento.",
+          "pt": "Visita ao Palácio da Cidade, Saheliyon-ki-Bari e Templo Jagdish. À tarde, cruzeiro de barco no Lago Pichola. Alojamento."
+        }
+      },
+      {
+        "day": 10,
+        "title": {
+          "en": "Udaipur to Pushkar Holy Lake",
+          "es": "Udaipur – Pushkar",
+          "pt": "Udaipur para Pushkar"
+        },
+        "desc": {
+          "en": "Drive to Pushkar, a sacred town by the lake. Stroll along the holy lake ghats and visit the rare Brahma Temple. Overnight.",
+          "es": "Salida hacia Pushkar, ciudad sagrada a orillas de su lago. Paseo por los ghats y visita al único templo dedicado al dios Brahma en la India. Ambiente espiritual y mercados bohemios. Alojamiento.",
+          "pt": "Viagem para Pushkar. Passeio pelos ghats do lago sagrado, visita ao Templo de Brahma e mercados locais. Alojamento."
+        }
+      },
+      {
+        "day": 11,
+        "title": {
+          "en": "Pushkar to Jaipur: The Pink City",
+          "es": "Pushkar – Jaipur",
+          "pt": "Pushkar para Jaipur"
+        },
+        "desc": {
+          "en": "Drive to Jaipur, the Pink City. Arrive and enjoy leisure time to explore the textile and jewelry markets. Overnight.",
+          "es": "Viaje hacia Jaipur, la famosa “Ciudad Rosa”. Llegada y tiempo libre para explorar bazares de textiles, joyas y artesanías. Alojamiento.",
+          "pt": "Viagem para Jaipur, a Cidade Rosa. Tempo livre para explorar os mercados tradicionais. Alojamento."
+        }
+      },
+      {
+        "day": 12,
+        "title": {
+          "en": "Jaipur: Amber Fort & Royal Palaces",
+          "es": "Jaipur – Palacios y Astronomía",
+          "pt": "Jaipur: Palácios e Astronomia"
+        },
+        "desc": {
+          "en": "Excursion to Amber Fort by Jeep, visit City Palace, Jantar Mantar observatory, and photo stop at Hawa Mahal. Overnight.",
+          "es": "Excursión al Fuerte Amber con subida en jeep. Visita del Palacio de la Ciudad, el observatorio astronómico Jantar Mantar y parada fotográfica en el Hawa Mahal (Palacio de los Vientos). Una jornada dedicada al esplendor real rajput. Alojamiento.",
+          "pt": "Excursão ao Forte Amber em jipe, Palácio da Cidade, observatório Jantar Mantar e paragem de fotos no Hawa Mahal. Alojamento."
+        }
+      },
+      {
+        "day": 13,
+        "title": {
+          "en": "Jaipur to Agra via Fatehpur Sikri",
+          "es": "Jaipur – Fatehpur Sikri – Agra",
+          "pt": "Jaipur para Agra"
+        },
+        "desc": {
+          "en": "Travel to Agra, stopping en route at the ancient abandoned Mughal city of Fatehpur Sikri. Check-in and relax in Agra. Overnight.",
+          "es": "Salida hacia Agra con parada en Fatehpur Sikri, ciudad mogol llamada abandonada. Llegada a Agra y descanso. Alojamiento.",
+          "pt": "Viagem para Agra com paragem em Fatehpur Sikri, cidade imperial abandonada. Chegada a Agra e descanso. Alojamento."
+        }
+      },
+      {
+        "day": 14,
+        "title": {
+          "en": "Taj Mahal Sunrise & Flight to Varanasi",
+          "es": "Agra – Taj Mahal y Vuelo a Varanasi",
+          "pt": "Agra: Taj Mahal e Voo para Varanasi"
+        },
+        "desc": {
+          "en": "Visit the Taj Mahal at sunrise, tour the Agra Fort. In the afternoon, fly to Varanasi, India's spiritual capital. Check-in and overnight.",
+          "es": "Visita al amanecer del Taj Mahal, símbolo eterno del amor. Continuación con el Fuerte de Agra. Por la tarde, traslado al aeropuerto para vuelo hacia Varanasi. Llegada y alojamiento.",
+          "pt": "Visita ao amanhecer do Taj Mahal, Forte de Agra. À tarde, voo doméstico para Varanasi. Chegada e alojamento."
+        }
+      },
+      {
+        "day": 15,
+        "title": {
+          "en": "Varanasi: Ganges Sunrise Cruise & Sarnath",
+          "es": "Varanasi – Espiritualidad en el Ganges",
+          "pt": "Varanasi: Ganges e Sarnath"
+        },
+        "desc": {
+          "en": "Sunrise boat ride on the Ganges River, visit Sarnath (Buddhist sermon site). In the evening, attend the Aarti ceremony on the ghats. Overnight.",
+          "es": "Al amanecer, paseo en barco por el río Ganges observando rituales de purificación. Visita de templos y excursión a Sarnath, lugar donde Buda dio su primer sermón. Por la tarde, ceremonia Aarti en los ghats, experiencia profundamente espiritual. Alojamiento.",
+          "pt": "Passeio de barco ao amanhecer no Ganges, visita a templos e Sarnath. À noite, assistência à cerimônia Aarti nos ghats. Alojamento."
+        }
+      },
+      {
+        "day": 16,
+        "title": {
+          "en": "Varanasi to Delhi & Departure",
+          "es": "Varanasi – New Delhi (Salida)",
+          "pt": "Varanasi para Deli & Partida"
+        },
+        "desc": {
+          "en": "Transfer to Varanasi airport for flight back to Delhi and connect with your onward international departure flight. End of services.",
+          "es": "Traslado al aeropuerto para vuelo a Delhi y conexión con vuelo internacional. Fin de nuestros servicios.",
+          "pt": "Transporte para o aeroporto para voo para Deli e ligação com o voo de regresso internacional. Fim dos serviços."
+        }
+      }
+    ],
+    "includedExperiences": [
+      {
+        "en": "Camel safari and cultural dinner in Jaisalmer dunes",
+        "es": "Safari en camello por las dunas del desierto con cena cultural en Jaisalmer",
+        "pt": "Safári de camelo e acampamento nas dunas de areia de Jaisalmer"
+      },
+      {
+        "en": "Private boat ride on the beautiful Lake Pichola in Udaipur",
+        "es": "Paseo en barco por el Lago Pichola en Udaipur",
+        "pt": "Passeio de barco privado no sagrado lago Pichola em Udaipur"
+      },
+      {
+        "en": "Traditional rickshaw ride through the markets of Old Delhi",
+        "es": "Recorrido por Chandni Chowk en rickshaw en Delhi",
+        "pt": "Passeio tradicional de riquixá pelos mercados de Velha Deli"
+      },
+      {
+        "en": "Guided sunset/sunrise tour of the Taj Mahal in Agra",
+        "es": "Visita al Taj Mahal al amanecer en Agra",
+        "pt": "Visita guiada ao Taj Mahal ao amanhecer"
+      }
+    ],
+    "travelTips": [],
+    "faqs": [],
+    "startingLocation": "Delhi, India",
+    "endingLocation": "Delhi, India",
+    "tourType": "Private Luxury Heritage & Spiritual Tour",
+    "travelStyle": "Heritage, Culture, Deserts, Palaces & Ganges Spirituality",
+    "groupSize": "2–12 Travellers",
+    "difficultyLevel": "Easy to Moderate",
+    "status": "published",
+    "isFeatured": true,
+    "seo": {
+      "metaTitle": {
+        "en": "Rajasthan & Varanasi Imperial Journey | 16 Days",
+        "es": "Rajasthan y Varanasi Imperial | 16 Días",
+        "pt": "Rajasthan e Varanasi Imperial | 16 Dias"
+      },
+      "description": {
+        "en": "Discover Delhi, Mandawa, Bikaner, Jaisalmer, Jodhpur, Udaipur, Pushkar, Jaipur, Agra and Varanasi in a 16-day private luxury tour.",
+        "es": "Explore Delhi, Mandawa, Bikaner, Jaisalmer, Jodhpur, Udaipur, Pushkar, Jaipur, Agra y Varanasi en un viaje de 16 días.",
+        "pt": "Explore Deli, Mandawa, Bikaner, Jaisalmer, Jodhpur, Udaipur, Pushkar, Jaipur, Agra e Varanasi em um tour de 16 dias."
+      },
+      "keywords": {
+        "en": "Rajasthan tour, Varanasi tour, Mandawa havelis, Jaisalmer dunes safari, Jodhpur blue city, Udaipur lake Pichola, Taj Mahal sunrise, Varanasi ganges boat ride, India private tour",
+        "es": "viaje Rajasthan, viaje Varanasi, desierto Jaisalmer, paseo barca Udaipur, Taj Mahal amanecer, ceremonia aarti Ganges, viaje privado India 16 dias",
+        "pt": "viagem Rajastão, viagem Varanasi, deserto Jaisalmer, passeio barco Udaipur, Taj Mahal amanhecer, cerimônia aarti Ganges, viagem privada Índia 16 dias"
+      },
+      "ogTitle": "Rajasthan & Varanasi Imperial Journey | 16 Days Private Tour",
+      "ogDescription": "Discover Delhi, Mandawa, Bikaner, Jaisalmer, Jodhpur, Udaipur, Pushkar, Jaipur, Agra and Varanasi in a 16-day private luxury tour.",
+      "canonicalUrl": "/packages/rajasthan-varanasi-imperial-luxury-tour",
+      "indexRule": "index",
+      "followRule": "follow"
+    }
+  },
+  {
+    "slug": "south-india-temples-backwaters-cultural-tour",
+    "title": {
+      "en": "South India Highlights: Temples & Backwaters",
+      "es": "Viaje Sur de la India",
+      "pt": "Viagem ao Sul da Índia: Templos e Remansos"
+    },
+    "tagline": {
+      "en": "Discover the tropical charm of the south: historical temples of Tamil Nadu and backwaters of Kerala",
+      "es": "Descubre el encanto tropical del sur: templos históricos de Tamil Nadu y los remansos de Kerala",
+      "pt": "Descubra o charme tropical do sul: templos históricos de Tamil Nadu e os canais de Kerala"
+    },
+    "category": "South India",
+    "durationDays": 15,
+    "image": "/images/andaman islands.jpg",
+    "gallery": [],
+    "highlights": [
+      {
+        "en": "Visit the iconic heritage temples of Kanchipuram, Tanjore, and Madurai",
+        "es": "Visita a los emblemáticos templos patrimonio de Kanchipuram, Tanjore y Madurai",
+        "pt": "Visite os templos patrimoniais de Kanchipuram, Tanjore e Madurai"
+      },
+      {
+        "en": "Overnight cruise on a traditional luxury houseboat in the Alleppey backwaters",
+        "es": "Estadía y crucero nocturno a bordo de una tradicional casa-barco (Houseboat) en Alleppey",
+        "pt": "Cruzeiro noturno em um tradicional barco-casa (houseboat) em Alleppey"
+      },
+      {
+        "en": "Relax on the golden beaches of Kovalam and explore colonial French Pondicherry and Kochi",
+        "es": "Relájate en las playas doradas de Kovalam y la influencia colonial de Pondicherry y Cochin",
+        "pt": "Relaxe nas praias de Kovalam e explore as influências coloniais de Pondicherry e Cochin"
+      },
+      {
+        "en": "Explore Munnar's sprawling tea estates and Periyar wildlife sanctuary in Thekkady",
+        "es": "Explora las plantaciones de té en las colinas de Munnar y la reserva natural en Thekkady",
+        "pt": "Explore as plantações de chá em Munnar e o santuário de vida selvagem em Thekkady"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": {
+          "en": "Arrival in Chennai",
+          "es": "Llegada a Chennai",
+          "pt": "Chegada a Chennai"
+        },
+        "desc": {
+          "en": "Arrival in Chennai. Greeted at the airport by our driver and transfer to hotel. Visit Kapaleeswarar and Parthasarathy temples if time permits. Overnight in Chennai.",
+          "es": "Llegada a Chennai: ¡Bienvenidos a la India! A su llegada, nuestro chofer le estará esperando en el aeropuerto con un cartel con su nombre y le trasladará a su hotel. Después, realizaremos una visita al Kapaleeswara Temple, Parthasarathy Temple y a la fortaleza de St. George (si el tiempo lo permite). Noche en Chennai.",
+          "pt": "Chegada a Chennai. Receção no aeroporto e transporte para o hotel. Visitas de templos conforme horário de chegada. Alojamento em Chennai."
+        }
+      },
+      {
+        "day": 2,
+        "title": {
+          "en": "Chennai to Mahabalipuram via Kanchipuram",
+          "es": "Chennai – Kanchipuram – Mahabalipuram",
+          "pt": "Chennai para Mahabalipuram"
+        },
+        "desc": {
+          "en": "After breakfast, drive to Mahabalipuram. En route, visit Kanchipuram temples (Kailasanatha, Ekambareshwarar, Vaikunda Perumal). Visit Shore Temple and Arjuna's Penance in Mahabalipuram. Overnight in Mahabalipuram.",
+          "es": "Después del desayuno, conduciremos hasta Mahabalipuram. En el camino, visitaremos Kanchipuram, donde veremos el Kailasanatha Temple, el Ekambareshwarar Temple y el Vaikunda Perumal Temple. Luego, continuaremos hacia Shore Temple y Arjuna’s Penance. Noche en Mahabalipuram.",
+          "pt": "Após o pequeno-almoço, viagem para Mahabalipuram parando nos templos de Kanchipuram. Visita ao Shore Temple em Mahabalipuram. Alojamento em Mahabalipuram."
+        }
+      },
+      {
+        "day": 3,
+        "title": {
+          "en": "Mahabalipuram to Pondicherry (French Town)",
+          "es": "Mahabalipuram – Pondicherry",
+          "pt": "Mahabalipuram para Pondicherry"
+        },
+        "desc": {
+          "en": "After breakfast, drive to Pondicherry, a former French colony. Visit Sri Aurobindo Ashram, Pondicherry Museum, and Manakula Vinayagar Temple. Overnight in Pondicherry.",
+          "es": "Después del desayuno, conduciremos hasta Pondicherry (el pueblo francés). Pondicherry, que fue una colonia francesa, se estableció a principios del siglo XVIII. Llegada al hotel y visita al Sri Aurobindo Ashram y al Templo de Manakula Vinayagar. Noche en Pondicherry.",
+          "pt": "Após o pequeno-almoço, viagem para Pondicherry. Visita ao Sri Aurobindo Ashram, Museu de Pondicherry e Templo Manakula Vinayagar. Alojamento em Pondicherry."
+        }
+      },
+      {
+        "day": 4,
+        "title": {
+          "en": "Pondicherry to Tanjore Heritage Sites",
+          "es": "Pondicherry – Tanjore: Por carretera",
+          "pt": "Pondicherry para Tanjore"
+        },
+        "desc": {
+          "en": "Drive to Tanjore, passing through Chidambaram, Gangaikondacholapuram, and Darasuram temples. Afternoon city sightseeing of Tanjore. Overnight in Tanjore.",
+          "es": "Después del desayuno, nos dirigiremos a Tanjore, pasando por Chidambaram, Gangaikondacholapuram y los templos de Darasuram. Tanjore alcanzó su fama durante la última parte del reino Chola. Llegada al hotel y visita por la tarde. Alojamiento en Tanjore.",
+          "pt": "Viagem para Tanjore, passando por Chidambaram, Gangaikondacholapuram e Darasuram. Visita da cidade à tarde. Alojamento em Tanjore."
+        }
+      },
+      {
+        "day": 5,
+        "title": {
+          "en": "Tanjore Temples & Palaces",
+          "es": "Tanjore",
+          "pt": "Tanjore"
+        },
+        "desc": {
+          "en": "After breakfast, visit the magnificent UNESCO-listed Brihadeeswara Temple, Tanjore Palace, observation towers, and the art gallery. Overnight in Tanjore.",
+          "es": "Después del desayuno, visita al templo Brahadeeswara, los amplios salones del Palacio de Tanjore, las torres de observación y el arsenal. Noche en Tanjore.",
+          "pt": "Após o pequeno-almoço, visita ao templo Brihadeeshwara, Palácio de Tanjore e galeria de arte. Alojamento em Tanjore."
+        }
+      },
+      {
+        "day": 6,
+        "title": {
+          "en": "Tanjore to Trichy & Rock Fort",
+          "es": "Tanjore – Trichy",
+          "pt": "Tanjore para Trichy"
+        },
+        "desc": {
+          "en": "After breakfast, drive to Trichy on the banks of Kaveri river. Visit the famous Rock Fort Temple built high on a rock by the Nayaks of Madurai. Overnight in Trichy.",
+          "es": "Después del desayuno, nos dirigiremos a Trichy. Llegada al hotel. Trichy, situada a orillas del río Kaveri, alberga la Roca. Visita al famoso Rock Fort, construido por los Nayaks de Madurai. Noche en Trichy.",
+          "pt": "Após o pequeno-almoço, viagem para Trichy. Visita ao templo do Forte da Rocha (Rock Fort). Alojamento em Trichy."
+        }
+      },
+      {
+        "day": 7,
+        "title": {
+          "en": "Trichy to Madurai via Chettinad Palace",
+          "es": "Trichy – Chettinad – Madurai",
+          "pt": "Trichy para Madurai"
+        },
+        "desc": {
+          "en": "Drive to Chettinad to visit Chettinad Palace, famous for local heritage homes. Continue to Madurai. Visit Sri Meenakshi Amman Temple and Nayak Palace. Overnight in Madurai.",
+          "es": "Después del desayuno, nos dirigiremos a Chettinad para visitar el Chettinad Palace. Luego, continuaremos hacia Madurai y llegada al hotel. Visita al Sri Meenakshi Amman Temple y al Nayak Palace. Noche en Madurai.",
+          "pt": "Viagem para Chettinad para visitar o Palácio Chettinad. Continuação para Madurai. Visita ao Templo Meenakshi e Palácio Nayak. Alojamento em Madurai."
+        }
+      },
+      {
+        "day": 8,
+        "title": {
+          "en": "Madurai to Kovalam Beach Resort",
+          "es": "Madurai – Kovalam",
+          "pt": "Madurai para Kovalam"
+        },
+        "desc": {
+          "en": "After breakfast, drive to Kovalam, stopping en route to visit the Padmanabhapuram Teak Palace. Check-in at the beach resort and relax. Overnight in Kovalam.",
+          "es": "Después del desayuno, nos dirigiremos a Kovalam, realizando una visita en ruta al Padmanabhapuram Teak Palace. A la llegada a Kovalam, traslado al hotel. Resto del día libre para disfrutar de sus playas. Noche en Kovalam.",
+          "pt": "Após o pequeno-almoço, viagem para Kovalam, visitando no caminho o Palácio de Madeira Padmanabhapuram. Alojamento em Kovalam."
+        }
+      },
+      {
+        "day": 9,
+        "title": {
+          "en": "Kovalam Beach Relaxation & Ayurveda",
+          "es": "Kovalam",
+          "pt": "Kovalam"
+        },
+        "desc": {
+          "en": "Free day to relax on the sandy beaches of Kovalam. Enjoy Ayurvedic massages (optional), swimming, and fresh seafood by the Arabian Sea. Overnight in Kovalam.",
+          "es": "Día libre de relax en Kovalam. Pueden pasear por las playas y darse un baño, o contratar uno de los famosos masajes ayurvédicos (Shirodhara y/o Abhyangam). Noche en Kovalam.",
+          "pt": "Dia livre em Kovalam para desfrutar da praia, tratamentos ayurvédicos e gastronomia local de frutos do mar. Alojamento em Kovalam."
+        }
+      },
+      {
+        "day": 10,
+        "title": {
+          "en": "Kovalam to Alleppey Houseboat Cruise",
+          "es": "Kovalam – Alleppey",
+          "pt": "Kovalam para Alleppey"
+        },
+        "desc": {
+          "en": "Drive to Alleppey to board a traditional luxury houseboat at 12:30 PM. Cruise through the backwaters and Vembanad Lake. Lunch and dinner on board. Overnight on Houseboat.",
+          "es": "Después del desayuno, nos dirigiremos a Alleppey a bordo de una houseboat a las 12:30 pm. Realizaremos un crucero por los canales del lago Vembanad para conocer la tradicional Kerala. Noche en Houseboat.",
+          "pt": "Viagem para Alleppey para embarque num barco-casa tradicional (houseboat) às 12:30. Cruzeiro pelos remansos. Refeições incluídas a bordo. Alojamento em barco-casa."
+        }
+      },
+      {
+        "day": 11,
+        "title": {
+          "en": "Alleppey to Thekkady (Periyar)",
+          "es": "Thekkady",
+          "pt": "Thekkady"
+        },
+        "desc": {
+          "en": "Disembark from houseboat at 9:00 AM and drive to Thekkady. Check-in at the hotel. Spend the rest of the day exploring the local spice markets. Overnight in Thekkady.",
+          "es": "Desembarcaremos del houseboat a las 9:00 am y nos dirigiremos hacia Thekkady. Llegada al hotel. Resto del día libre en Thekkady, donde podrán pasear por las calles de la ciudad. Noche en Thekkady.",
+          "pt": "Desembarque do barco-casa e viagem para Thekkady. Check-in no hotel e tempo livre nos mercados locais. Alojamento em Thekkady."
+        }
+      },
+      {
+        "day": 12,
+        "title": {
+          "en": "Periyar Wildlife Sanctuary Cruise",
+          "es": "Thekkady",
+          "pt": "Thekkady"
+        },
+        "desc": {
+          "en": "Morning boat ride on Periyar Lake inside the national park to observe wildlife like elephants, gaurs, and birds in their natural habitat. Overnight in Thekkady.",
+          "es": "Por la mañana, realizaremos un paseo en barca por el lago para ver las plantaciones de especies de Kerala en su hábitat natural. Noche en Thekkady.",
+          "pt": "Passeio de barco no lago Periyar para avistar animais selvagens e visitar plantações de especiarias. Alojamento em Thekkady."
+        }
+      },
+      {
+        "day": 13,
+        "title": {
+          "en": "Thekkady to Munnar Tea Estates",
+          "es": "Thekkady – Munnar",
+          "pt": "Thekkady para Munnar"
+        },
+        "desc": {
+          "en": "Drive to Munnar, a beautiful hill station. Visit Mattupetty Dam, Tea Museum, and see the rare Nilgiri Tahr mountain goats. Overnight in Munnar.",
+          "es": "Después del desayuno, nos dirigiremos a Munnar. Llegada al hotel y, a continuación, visita al Nilgiri Thar, Mattupetty Dam y al Museo del Té. Noche en Munnar.",
+          "pt": "Viagem para Munnar. Visita à barragem Mattupetty, Museu do Chá e mirantes panorâmicos. Alojamento em Munnar."
+        }
+      },
+      {
+        "day": 14,
+        "title": {
+          "en": "Munnar to Cochin & Kathakali Show",
+          "es": "Munnar – Cochin",
+          "pt": "Munnar para Cochin"
+        },
+        "desc": {
+          "en": "Drive to Cochin. Guided tour of Fort Cochin including St. Francis Church, Jewish Synagogue, Dutch Palace, and attend a classical Kathakali dance show. Overnight in Cochin.",
+          "es": "Después del desayuno, nos dirigiremos a Cochin. Llegada al hotel y, a continuación, tour por la Fortaleza de Fort Cochin, visitando la Sinagoga, la Iglesia de San Francisco, el Palacio Mattancherry y una representación de danza Kathakali. Noche en Cochin.",
+          "pt": "Viagem para Cochin. Visita a Fort Cochin: Sinagoga Judaica, Igreja de São Francisco, Palácio Holandês e show de dança Kathakali. Alojamento em Cochin."
+        }
+      },
+      {
+        "day": 15,
+        "title": {
+          "en": "Cochin to Chennai Flight & Departure",
+          "es": "Cochin – Chennai",
+          "pt": "Cochin para Chennai"
+        },
+        "desc": {
+          "en": "Transfer to Cochin airport for your flight back to Chennai and onward flight connections. End of our services.",
+          "es": "A la hora indicada, los trasladaremos al aeropuerto de Cochin para tomar su vuelo hacia Chennai. Fin de nuestros servicios.",
+          pt: "Transporte para o aeroporto de Cochin para voo com destino a Chennai. Fim dos nossos serviços."
+        }
+      }
+    ],
+    "includedExperiences": [
+      {
+        "en": "Private cruise and overnight stay in a traditional Kerala Houseboat",
+        "es": "Paseo en bote y estadía en una tradicional casabarco (Houseboat) de Kerala",
+        "pt": "Passeio e estadia em um tradicional barco-casa (Houseboat) em Kerala"
+      },
+      {
+        "en": "Traditional rejuvenating Ayurvedic massage session in Kovalam",
+        "es": "Masaje ayurvédico rejuvenecedor tradicional en Kovalam",
+        "pt": "Massagem ayurvédica tradicional em Kovalam"
+      },
+      {
+        "en": "Classical Kathakali dance cultural performance in Cochin",
+        "es": "Espectáculo cultural de danza Kathakali clásica en Cochin",
+        "pt": "Apresentação cultural de dança clássica Kathakali em Cochin"
+      },
+      {
+        "en": "Boat cruise on Periyar Lake in Thekkady to spot wild elephants",
+        "es": "Paseo en barca por el lago Periyar en Thekkady para ver vida silvestre",
+        "pt": "Passeio de barco no lago Periyar em Thekkady para ver vida selvagem"
+      }
+    ],
+    "travelTips": [],
+    "faqs": [],
+    "startingLocation": "Chennai, India",
+    "endingLocation": "Chennai, India",
+    "tourType": "Private Cultural, Temple & Nature Holiday",
+    "travelStyle": "Heritage Temples, Coastal Towns, Backwaters & Tea Plantations",
+    "groupSize": "2–12 Travellers",
+    "difficultyLevel": "Easy",
+    "status": "published",
+    "isFeatured": true,
+    "seo": {
+      "metaTitle": {
+        "en": "South India Highlights: Temples & Backwaters | 15 Days",
+        "es": "Viaje Sur de la India con Remansos y Templos | 15 Días",
+        "pt": "Viagem ao Sul da Índia: Templos e Remansos | 15 Dias"
+      },
+      "description": {
+        "en": "Discover Chennai, Mahabalipuram, Pondicherry, Tanjore, Trichy, Madurai, Kovalam, Alleppey backwaters, Periyar, Munnar and Kochi in a 15-day private tour.",
+        "es": "Explore Chennai, Mahabalipuram, Pondicherry, Tanjore, Trichy, Madurai, Kovalam, Alleppey, Thekkady, Munnar y Cochin en un viaje de 15 días.",
+        "pt": "Explore Chennai, Mahabalipuram, Pondicherry, Tanjore, Trichy, Madurai, Kovalam, Alleppey, Thekkady, Munnar e Cochin em um tour de 15 dias."
+      },
+      "keywords": {
+        "en": "South India tour, Kerala backwaters, Tamil nadu temples, Madurai Meenakshi temple, Tanjore Brihadeeshwara, Kovalam beach, Munnar tea plantation, Periyar elephant safari, Alleppey houseboat",
+        "es": "viaje sur India, templos tamil nadu, casa barco Alleppey, playas Kovalam, plantacion te Munnar, parque nacional Periyar, viaje privado India 15 dias",
+        "pt": "viagem sul da India, templos tamil nadu, barco casa Alleppey, praias Kovalam, plantacao cha Munnar, parque nacional Periyar, viagem privada India 15 dias"
+      },
+      "ogTitle": "South India Highlights: Temples & Backwaters | 15 Days Private Tour",
+      "ogDescription": "Discover Chennai, Mahabalipuram, Pondicherry, Tanjore, Trichy, Madurai, Kovalam, Alleppey backwaters, Periyar, Munnar and Kochi in a 15-day private tour.",
+      "canonicalUrl": "/packages/south-india-temples-backwaters-cultural-tour",
+      "indexRule": "index",
+      "followRule": "follow"
+    }
+  },
+  {
+    "slug": "rajasthan-desert-essence-10-days-tour",
+    "title": {
+      "en": "Rajasthan Desert Essence Tour",
+      "es": "Viajes Rajasthan",
+      "pt": "Viagem ao Rajastão Essência do Deserto"
+    },
+    "tagline": {
+      "en": "Discover the soul of Rajasthan in 10 days: majestic forts, sacred lakes, and authentic rural life",
+      "es": "Descubre el alma de Rajastán en 10 días: fuertes majestuosos, lagos sagrados y la vida rural auténtica",
+      "pt": "Descubra a alma do Rajastão em 10 dias: fortes majestosos, lagos sagrados e vida rural autêntica"
+    },
+    "category": "Rajasthan Tours",
+    "durationDays": 10,
+    "image": "/images/taj_mahal_sunrise.png",
+    "gallery": [],
+    "highlights": [
+      {
+        "en": "Visit the iconic Taj Mahal in Agra and the Golden Triangle forts",
+        "es": "Visita el emblemático Taj Mahal en Agra y las fortalezas del Triángulo de Oro",
+        "pt": "Visite o icônico Taj Mahal en Agra e os fortes do Triângulo de Ouro"
+      },
+      {
+        "en": "Explore the sacred temples of Pushkar and the mighty Mehrangarh Fort in Jodhpur",
+        "es": "Explora los templos sagrados de Pushkar y el imponente Fuerte Mehrangarh en Jodhpur",
+        "pt": "Explore os templos sagrados de Pushkar e o impontente Forte Mehrangarh em Jodhpur"
+      },
+      {
+        "en": "Discover the camel breeding farm and Junagarh Fort in Bikaner",
+        "es": "Conoce la granja de cría de camellos y el Fuerte Junagarh en Bikaner",
+        "pt": "Conheça a fazenda de criação de camelos e o Forte Junagarh em Bikaner"
+      },
+      {
+        "en": "Experience real India with a local family homestay in Hudeel (Shekhawati)",
+        "es": "Experimenta la India real conviviendo con una familia local en Hudeel (Shekhawati)",
+        "pt": "Experimente a Índia real hospedando-se com uma família local em Hudeel"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": {
+          "en": "Arrival in Delhi",
+          "es": "Delhi: Llegada a Delhi",
+          "pt": "Chegada a Deli"
+        },
+        "desc": {
+          "en": "Welcome to India! Upon arrival, we will greet you at the airport. Our driver will hold a sign with your name. Transfer to hotel. Overnight in Delhi.",
+          "es": "¡Bienvenidos a la India! A su llegada le recibiremos en el aeropuerto, les esperará nuestro chofer con un cartel con su nombre. Le llevaremos a su hotel, dónde le entregaremos los documentos necesarios para su viaje, (reservas de hotel, billetes de avión interno y tren (si lo ha contratado en su viaje)). Noche en Delhi.",
+          "pt": "Bem-vindo à Índia! À chegada, receção no aeroporto pelo nosso motorista e transporte para o hotel. Noite em Deli."
+        }
+      },
+      {
+        "day": 2,
+        "title": {
+          "en": "Delhi Sightseeing: Old & New Delhi",
+          "es": "Delhi",
+          "pt": "Deli"
+        },
+        "desc": {
+          "en": "After breakfast, embark on a full day guided tour of Old and New Delhi, exploring Jama Masjid, Red Fort, Qutub Minar, and India Gate. Overnight in Delhi.",
+          "es": "Después del desayuno, empezamos con una visita guiada por la ciudad nueva (New Delhi): India Gate, President’s Viajes India House, Humayun’s Tomb, Qutab Minar (la más grande torre en piedra tallada en India) y Laxmi Narayan Temple. Después de la comida visitaremos la antigua Delhi (Old Delhi): Jama Masjid, Red Fort y Gandhi Memorial. Noche en Delhi.",
+          "pt": "Após o pequeno-almoço, visita guiada por Nova Deli e Velha Deli, incluindo Jama Masjid, Forte Vermelho, Qutub Minar e Porta da Índia. Noite em Deli."
+        }
+      },
+      {
+        "day": 3,
+        "title": {
+          "en": "Delhi to Agra & Taj Mahal",
+          "es": "Delhi – Agra: Por carretera",
+          "pt": "Deli para Agra"
+        },
+        "desc": {
+          "en": "After breakfast, travel to Agra. Upon arrival, check-in at the hotel. Visit the spectacular Taj Mahal, one of the Seven Wonders of the World. Overnight in Agra.",
+          "es": "Después del desayuno, viaje hacia Agra. Llegada a su hotel. Visita al espectacular Taj Mahal. Noche en el alojamiento.",
+          "pt": "Após o pequeno-almoço, viagem para Agra. À chegada, check-in no hotel e visita ao espetacular Taj Mahal. Noite no alojamento."
+        }
+      },
+      {
+        "day": 4,
+        "title": {
+          "en": "Agra to Jaipur via Fatehpur Sikri",
+          "es": "Agra – Fatehpur Sikri – Jaipur: Por carretera",
+          "pt": "Agra para Jaipur"
+        },
+        "desc": {
+          "en": "Morning drive to Jaipur, stopping en route at the ancient abandoned Mughal city of Fatehpur Sikri. Arrive in Jaipur and explore colorful bazaars. Overnight in Jaipur.",
+          "es": "Por la mañana, después del desayuno, nos dirigiremos a Jaipur, con una parada en la antigua ciudad mogol de Fatehpur Sikri. A la llegada, check-in en el hotel. Por la tarde, paseo por las calles y los coloridos bazares de la Ciudad Rosada. Visitaremos el templo de Birla. Noche en el alojamiento.",
+          "pt": "De manhã, viagem para Jaipur com paragem em Forte de Fatehpur Sikri. À chegada, check-in e passeio pelos bazares tradicionais. Noite no alojamento."
+        }
+      },
+      {
+        "day": 5,
+        "title": {
+          "en": "Jaipur: Amber Fort & Palaces",
+          "es": "Jaipur",
+          "pt": "Jaipur"
+        },
+        "desc": {
+          "en": "After breakfast, explore Amber Fort, City Palace, Jantar Mantar observatory, and snap photos of the Palace of the Winds (Hawa Mahal). Overnight in Jaipur.",
+          "es": "Después del desayuno visitaremos la Fortaleza de Amber (subida en elefante), el Palacio de la Ciudad, el observatorio astronómico Jantar Mantar y la fachada de Hawa Mahal. Noche en el alojamiento.",
+          "pt": "Após o pequeno-almoço, visita ao Forte Amber, Palácio da Cidade, observatório Jantar Mantar e Palácio dos Ventos. Noite no alojamento."
+        }
+      },
+      {
+        "day": 6,
+        "title": {
+          "en": "Jaipur to Pushkar Holy Town",
+          "es": "Jaipur – Pushkar: Por carretera",
+          "pt": "Jaipur para Pushkar"
+        },
+        "desc": {
+          "en": "After breakfast, drive to Pushkar. Visit the rare temple of Brahma, stroll along the sacred lake ghats, and watch a beautiful sunset. Overnight in Pushkar.",
+          "es": "Por la mañana, después del desayuno, nos dirigiremos a Pushkar. A la llegada, check-in en el hotel. Por la tarde, visita al templo de Brahma y paseo por los Ghats del lago sagrado al atardecer. Noche en el alojamiento.",
+          "pt": "De manhã, viagem para Pushkar. Visita ao Templo de Brahma, passeio pelos ghats sagrados do lago e pôr do sol. Noite no alojamento."
+        }
+      },
+      {
+        "day": 7,
+        "title": {
+          "en": "Pushkar to Jodhpur: The Blue City",
+          "es": "Pushkar – Jodhpur",
+          "pt": "Pushkar para Jodhpur"
+        },
+        "desc": {
+          "en": "Drive to Jodhpur, the Blue City. Visit the magnificent hilltop Mehrangarh Fort, Jaswant Thada memorial, and the bustling Clock Tower market. Overnight in Jodhpur.",
+          "es": "Por la mañana, después del desayuno, nos dirigiremos a Jodhpur. A la llegada, check-in en el hotel. Visitaremos el majestuoso Mehrangarh Fort y Jaswant Thada. Por la tarde, exploraremos la Torre del Reloj. Noche en el alojamiento.",
+          "pt": "Viagem para Jodhpur. Visita ao monumental Forte Mehrangarh, Jaswant Thada e mercado tradicional da Torre do Relógio. Noite no alojamento."
+        }
+      },
+      {
+        "day": 8,
+        "title": {
+          "en": "Jodhpur to Bikaner Fort & Camel Farm",
+          "es": "Jodhpur – Bikaner: Por carretera",
+          "pt": "Jodhpur para Bikaner"
+        },
+        "desc": {
+          "en": "Morning drive to Bikaner. Visit Junagarh Fort, camel breeding farm (with optional camel milk tasting), and Karni Mata rat temple in Deshnok. Overnight in Bikaner.",
+          "es": "Por la mañana temprano, después del desayuno, nos dirigiremos a Bikaner. Visitaremos la fortaleza de Junagarh, la granja de cría de camellos y el templo de las ratas (Karni Mata) en Deshnok. Noche en el alojamiento.",
+          "pt": "Viagem para Bikaner. Visita ao Forte Junagarh, fazenda de camelos e Templo das Ratazanas (Karni Mata) em Deshnok. Noite no alojamento."
+        }
+      },
+      {
+        "day": 9,
+        "title": {
+          "en": "Bikaner to Hudeel Rural Village",
+          "es": "Bikaner – Hudeel: Por carretera",
+          "pt": "Bikaner para Hudeel"
+        },
+        "desc": {
+          "en": "Drive to Hudeel, a rural village in the Shekhawati region. Experience authentic village life, visit Karni Kot temple in the desert, and enjoy home hospitality with a local family. Overnight in Hudeel.",
+          "es": "Después del desayuno, ruta hacia Hudeel. Al llegar al alojamiento de nuestros familiares, tiempo libre. Visitaremos el templo Karni Kot en el desierto y el típico pueblo rural para conocer costumbres. Noche en el alojamiento.",
+          "pt": "Viagem para Hudeel, uma aldeia rural em Shekhawati. Convivência com uma família local, visita ao templo de Karni Kot no deserto. Noite em Hudeel."
+        }
+      },
+      {
+        "day": 10,
+        "title": {
+          "en": "Hudeel to Delhi & Departure",
+          "es": "Hudeel – New Delhi – Salida: Por carretera",
+          "pt": "Hudeel para Deli & Partida"
+        },
+        "desc": {
+          "en": "At the designated time, drive back to New Delhi airport for your flight back home. End of our services.",
+          "es": "A la hora indicada, nos dirigiremos a Nueva Delhi. A la llegada al aeropuerto, podrá tomar su vuelo de regreso a su país. Fin de nuestros servicios.",
+          "pt": "Na hora indicada, viagem de regresso a Nova Deli para ligação com o voo de regresso internacional. Fim dos nossos serviços."
+        }
+      }
+    ],
+    "includedExperiences": [
+      {
+        "en": "Authentic rural homestay with a local family in Hudeel",
+        "es": "Estadía de convivencia rural auténtica con una familia local en Hudeel",
+        "pt": "Estadia rural autêntica com uma família local em Hudeel"
+      },
+      {
+        "en": "Camel ride in Sam Sand Dunes of Jaisalmer or desert temple hike",
+        "es": "Paseo de safari corto en camello y templo de Karni Kot en el desierto",
+        "pt": "Passeio de camelo e visita ao Templo Karni Kot no deserto"
+      },
+      {
+        "en": "Traditional Jeep or elephant ride up to Amber Fort in Jaipur",
+        "es": "Paseo tradicional en jeep o lomos de elefante en la Fortaleza de Amber en Jaipur",
+        "pt": "Passeio de jipe ou elefante no Forte Amber em Jaipur"
+      },
+      {
+        "en": "Traditional camel milk tasting at Bikaner camel farm",
+        "es": "Degustación tradicional en la granja de camellos de Bikaner",
+        "pt": "Degustação tradicional de leite de camelo em Bikaner"
+      }
+    ],
+    "travelTips": [],
+    "faqs": [],
+    "startingLocation": "Delhi, India",
+    "endingLocation": "Delhi, India",
+    "tourType": "Private Cultural & Rural Experience",
+    "travelStyle": "Forts, Palaces, Sacred Lakes, Deserts & Authentic Rural Homestay",
+    "groupSize": "2–12 Travellers",
+    "difficultyLevel": "Easy",
+    "status": "published",
+    "isFeatured": true,
+    "seo": {
+      "metaTitle": {
+        "en": "Rajasthan Desert Essence Tour | 10 Days",
+        "es": "Viajes Rajasthan Esencia del Desierto | 10 Días",
+        "pt": "Viagem ao Rajastão Essência do Deserto | 10 Dias"
+      },
+      "description": {
+        "en": "Explore Delhi, Agra, Jaipur, Pushkar, Jodhpur, Bikaner, and Hudeel village on a 10-day private tour with Taj Mahal and local homestay.",
+        "es": "Explore Delhi, Agra, Jaipur, Pushkar, Jodhpur, Bikaner y el pueblo rural de Hudeel en un viaje de 10 días.",
+        "pt": "Explore Deli, Agra, Jaipur, Pushkar, Jodhpur, Bikaner e a aldeia rural de Hudeel em um tour de 10 dias."
+      },
+      "keywords": {
+        "en": "Rajasthan tour, desert safari, Jodhpur blue city, Taj Mahal, Pushkar lake, Brahma temple, Bikaner camel farm, Hudeel village, India private tour 10 days",
+        "es": "viaje Rajasthan, desierto India, viaje 10 dias India, fuerte Jodhpur, lago Pushkar, granja camellos Bikaner, pueblo rural Hudeel, viaje privado India",
+        "pt": "viagem Rajastão, deserto Índia, viagem 10 dias Índia, forte Jodhpur, lago Pushkar, fazenda camelos Bikaner, aldeia rural Hudeel, viagem privada Índia"
+      },
+      "ogTitle": "Rajasthan Desert Essence Tour | 10 Days Private Experience",
+      "ogDescription": "Explore Delhi, Agra, Jaipur, Pushkar, Jodhpur, Bikaner, and Hudeel village on a 10-day private tour with Taj Mahal and local homestay.",
+      "canonicalUrl": "/packages/rajasthan-desert-essence-10-days-tour",
+      "indexRule": "index",
+      "followRule": "follow"
+    }
   }
 ]

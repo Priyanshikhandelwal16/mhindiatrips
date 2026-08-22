@@ -648,15 +648,13 @@ async function ensureSeeded(collectionName: string, initialData: any[]) {
   try {
     const colRef = collection(firestore, collectionName);
     const snapshot = await getDocs(colRef);
+    const existingIds = new Set(snapshot.docs.map(d => d.id));
     
-    // Only seed if the Firestore collection is completely empty
-    if (snapshot.empty) {
-      console.log(`Collection ${collectionName} is empty. Seeding ${initialData.length} default documents in Firestore...`);
-      for (const item of initialData) {
-        const docId = item.slug || item.id;
-        if (docId) {
-          await setDoc(doc(firestore, collectionName, docId), item);
-        }
+    for (const item of initialData) {
+      const docId = (item.id && typeof item.id === "string") ? item.id : (item.slug && typeof item.slug === "string" ? item.slug : "");
+      if (docId && !existingIds.has(docId)) {
+        console.log(`Document ${docId} is missing in ${collectionName}. Seeding it...`);
+        await setDoc(doc(firestore, collectionName, docId), item);
       }
     }
   } catch (err: any) {
@@ -671,7 +669,6 @@ async function ensureSeeded(collectionName: string, initialData: any[]) {
 let seedingPromise: Promise<any> | null = null;
 let isSeeded = false;
 function checkSeeding() {
-  if (process.env.FORCE_SEED !== "true") return;
   if (!useFirestore || isSeeded) return;
   if (!seedingPromise) {
     console.log("Starting Firestore database seeding check in background...");
@@ -773,9 +770,9 @@ export const db = {
           checkSeeding();
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "blogs"));
-            // When Firestore is available, it is the single source of truth.
-            // Do NOT merge with local mock data — otherwise deleted blogs would reappear.
-            return snapshot.docs.map(d => d.data() as BlogData);
+            return snapshot.docs
+              .map(d => d.data() as BlogData)
+              .filter((b: any) => b.isDeleted !== true);
           }
         } catch (e: any) {
           console.warn("Firestore blogs.findMany failed, falling back to local:", e.message || e);
@@ -786,7 +783,7 @@ export const db = {
       }
       // Firestore not available — fall back to local JSON cache
       blogsCache = loadLocalData("blogs", mergedBlogs);
-      return blogsCache;
+      return blogsCache.filter((b: any) => b.isDeleted !== true);
     },
     findUnique: async (slug: string) => {
       if (useFirestore) {
@@ -795,14 +792,18 @@ export const db = {
           if (useFirestore) {
             const docRef = doc(firestore, "blogs", slug);
             const snapshot = await getDoc(docRef);
-            return snapshot.exists() ? snapshot.data() as BlogData : null;
+            if (snapshot.exists()) {
+              const data = snapshot.data() as any;
+              return data.isDeleted !== true ? data as BlogData : null;
+            }
+            return null;
           }
         } catch (e: any) {
           console.warn("Firestore blogs.findUnique failed, falling back to local JSON:", e.message || e);
         }
       }
       blogsCache = loadLocalData("blogs", blogsCache);
-      return blogsCache.find((b: any) => b.slug === slug) || null;
+      return blogsCache.find((b: any) => b.slug === slug && b.isDeleted !== true) || null;
     },
     create: async (data: any) => {
       const slug = data.slug || Math.random().toString(36).substring(2, 11);
@@ -846,7 +847,7 @@ export const db = {
     delete: async (slug: string) => {
       if (useFirestore) {
         try {
-          await deleteDoc(doc(firestore, "blogs", slug));
+          await setDoc(doc(firestore, "blogs", slug), { isDeleted: true }, { merge: true });
           return { slug };
         } catch (e: any) {
           console.warn("Firestore blogs.delete failed, falling back to local JSON:", e.message || e);
@@ -898,15 +899,17 @@ export const db = {
 
           const cleanFirestoreData = firestoreData.filter(s => s && s.id && s.id !== "undefined");
           const firestoreMap = new Map(cleanFirestoreData.map((s: any) => [s.id, s]));
-          const merged = localData.map((s: any) => firestoreMap.has(s.id) ? firestoreMap.get(s.id) : s);
+          const merged = localData
+            .map((s: any) => firestoreMap.has(s.id) ? firestoreMap.get(s.id) : s)
+            .filter((s: any) => s.isDeleted !== true);
           const localIds = new Set(localData.map((s: any) => s.id));
-          const extraItems = cleanFirestoreData.filter((s: any) => !localIds.has(s.id));
+          const extraItems = cleanFirestoreData.filter((s: any) => !localIds.has(s.id) && s.isDeleted !== true);
           return [...merged, ...extraItems].sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
         } catch (e: any) {
           console.warn("Firestore states.findMany failed, falling back to local:", e.message || e);
         }
       }
-      return localData.sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
+      return localData.filter((s: any) => s.isDeleted !== true).sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
     },
     findUnique: async (id: string) => {
       const allStates = await db.states.findMany();
@@ -950,7 +953,7 @@ export const db = {
     delete: async (id: string) => {
       if (useFirestore) {
         try {
-          await deleteDoc(doc(firestore, "states", id));
+          await setDoc(doc(firestore, "states", id), { isDeleted: true }, { merge: true });
         } catch (e: any) {
           console.warn("Firestore states.delete failed:", e.message || e);
         }
@@ -1001,15 +1004,17 @@ export const db = {
 
           const cleanFirestoreData = firestoreData.filter(c => c && c.id && c.id !== "undefined" && c.stateId && c.stateId !== "undefined");
           const firestoreMap = new Map(cleanFirestoreData.map((c: any) => [c.id, c]));
-          const merged = localData.map((c: any) => firestoreMap.has(c.id) ? firestoreMap.get(c.id) : c);
+          const merged = localData
+            .map((c: any) => firestoreMap.has(c.id) ? firestoreMap.get(c.id) : c)
+            .filter((c: any) => c.isDeleted !== true);
           const localIds = new Set(localData.map((c: any) => c.id));
-          const extraItems = cleanFirestoreData.filter((c: any) => !localIds.has(c.id));
+          const extraItems = cleanFirestoreData.filter((c: any) => !localIds.has(c.id) && c.isDeleted !== true);
           return [...merged, ...extraItems].sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
         } catch (e: any) {
           console.warn("Firestore cities.findMany failed, falling back to local:", e.message || e);
         }
       }
-      return localData.sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
+      return localData.filter((c: any) => c.isDeleted !== true).sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
     },
     findUnique: async (id: string) => {
       const allCities = await db.cities.findMany();
@@ -1059,7 +1064,7 @@ export const db = {
     delete: async (id: string) => {
       if (useFirestore) {
         try {
-          await deleteDoc(doc(firestore, "cities", id));
+          await setDoc(doc(firestore, "cities", id), { isDeleted: true }, { merge: true });
         } catch (e: any) {
           console.warn("Firestore cities.delete failed:", e.message || e);
         }
@@ -1082,9 +1087,11 @@ export const db = {
             const snapshot = await getDocs(collection(firestore, "foods"));
             const firestoreData = snapshot.docs.map(d => d.data() as FoodData);
             const firestoreMap = new Map(firestoreData.map((f: any) => [f.slug, f]));
-            const merged = localData.map((f: any) => firestoreMap.has(f.slug) ? firestoreMap.get(f.slug) : f);
+            const merged = localData
+              .map((f: any) => firestoreMap.has(f.slug) ? firestoreMap.get(f.slug) : f)
+              .filter((f: any) => f.isDeleted !== true);
             const localSlugs = new Set(localData.map((f: any) => f.slug));
-            const extraItems = firestoreData.filter((f: any) => !localSlugs.has(f.slug));
+            const extraItems = firestoreData.filter((f: any) => !localSlugs.has(f.slug) && f.isDeleted !== true);
             return [...merged, ...extraItems];
           }
         } catch (e: any) {
@@ -1094,7 +1101,7 @@ export const db = {
           }
         }
       }
-      return localData;
+      return localData.filter((f: any) => f.isDeleted !== true);
     },
     findUnique: async (slug: string) => {
       if (useFirestore) {
@@ -1103,14 +1110,18 @@ export const db = {
           if (useFirestore) {
             const docRef = doc(firestore, "foods", slug);
             const snapshot = await getDoc(docRef);
-            return snapshot.exists() ? snapshot.data() as FoodData : null;
+            if (snapshot.exists()) {
+              const data = snapshot.data() as any;
+              return data.isDeleted !== true ? data as FoodData : null;
+            }
+            return null;
           }
         } catch (e: any) {
           console.warn("Firestore foods.findUnique failed, falling back to local JSON:", e.message || e);
         }
       }
       foodsCache = loadLocalData("foods", foodsCache);
-      return foodsCache.find((f: any) => f.slug === slug) || null;
+      return foodsCache.find((f: any) => f.slug === slug && f.isDeleted !== true) || null;
     },
     create: async (data: any) => {
       const slug = data.slug || Math.random().toString(36).substring(2, 11);
@@ -1156,7 +1167,7 @@ export const db = {
     delete: async (slug: string) => {
       if (useFirestore) {
         try {
-          await deleteDoc(doc(firestore, "foods", slug));
+          await setDoc(doc(firestore, "foods", slug), { isDeleted: true }, { merge: true });
           return { slug };
         } catch (e: any) {
           console.warn("Firestore foods.delete failed, falling back to local JSON:", e.message || e);
@@ -1180,9 +1191,11 @@ export const db = {
             const snapshot = await getDocs(collection(firestore, "testimonials"));
             const firestoreData = snapshot.docs.map(d => d.data() as Testimonial);
             const firestoreMap = new Map(firestoreData.map((t: any) => [t.id, t]));
-            const merged = localData.map((t: any) => firestoreMap.has(t.id) ? firestoreMap.get(t.id) : t);
+            const merged = localData
+              .map((t: any) => firestoreMap.has(t.id) ? firestoreMap.get(t.id) : t)
+              .filter((t: any) => t.isDeleted !== true);
             const localIds = new Set(localData.map((t: any) => t.id));
-            const extraItems = firestoreData.filter((t: any) => !localIds.has(t.id));
+            const extraItems = firestoreData.filter((t: any) => !localIds.has(t.id) && t.isDeleted !== true);
             return [...merged, ...extraItems];
           }
         } catch (e: any) {
@@ -1192,7 +1205,7 @@ export const db = {
           }
         }
       }
-      return localData;
+      return localData.filter((t: any) => t.isDeleted !== true);
     },
     create: async (data: any) => {
       const id = data.id || Math.random().toString(36).substring(2, 11);
@@ -1233,7 +1246,7 @@ export const db = {
     delete: async (id: string) => {
       if (useFirestore) {
         try {
-          await deleteDoc(doc(firestore, "testimonials", id));
+          await setDoc(doc(firestore, "testimonials", id), { isDeleted: true }, { merge: true });
           return { id };
         } catch (e: any) {
           console.warn("Firestore testimonials.delete failed, falling back to local JSON:", e.message || e);
@@ -1257,9 +1270,11 @@ export const db = {
             const snapshot = await getDocs(collection(firestore, "tour_packages"));
             const firestoreData = snapshot.docs.map(d => d.data() as TourPackage);
             const firestoreMap = new Map(firestoreData.map((p: any) => [p.slug, p]));
-            const merged = localData.map((p: any) => firestoreMap.has(p.slug) ? firestoreMap.get(p.slug) : p);
+            const merged = localData
+              .map((p: any) => firestoreMap.has(p.slug) ? firestoreMap.get(p.slug) : p)
+              .filter((p: any) => p.isDeleted !== true);
             const localSlugs = new Set(localData.map((p: any) => p.slug));
-            const extraItems = firestoreData.filter((p: any) => !localSlugs.has(p.slug));
+            const extraItems = firestoreData.filter((p: any) => !localSlugs.has(p.slug) && p.isDeleted !== true);
             return [...merged, ...extraItems];
           }
         } catch (e: any) {
@@ -1269,23 +1284,34 @@ export const db = {
           }
         }
       }
-      return localData;
+      return localData.filter((p: any) => p.isDeleted !== true);
     },
     findUnique: async (slug: string) => {
+      let res = null;
       if (useFirestore) {
         try {
           checkSeeding();
           if (useFirestore) {
             const docRef = doc(firestore, "tour_packages", slug);
             const snapshot = await getDoc(docRef);
-            return snapshot.exists() ? snapshot.data() as TourPackage : null;
+            if (snapshot.exists()) {
+              const data = snapshot.data() as any;
+              if (data.isDeleted !== true) {
+                res = data as TourPackage;
+              } else {
+                return null;
+              }
+            }
           }
         } catch (e: any) {
           console.warn("Firestore tourPackages.findUnique failed, falling back to local JSON:", e.message || e);
         }
       }
-      tourPackagesCache = loadLocalData("tour_packages", tourPackagesCache);
-      return tourPackagesCache.find((p: any) => p.slug === slug) || null;
+      if (!res) {
+        tourPackagesCache = loadLocalData("tour_packages", tourPackagesCache);
+        res = tourPackagesCache.find((p: any) => p.slug === slug && p.isDeleted !== true) || null;
+      }
+      return res;
     },
     create: async (data: any) => {
       const slug = data.slug || Math.random().toString(36).substring(2, 11);
@@ -1327,7 +1353,7 @@ export const db = {
     delete: async (slug: string) => {
       if (useFirestore) {
         try {
-          await deleteDoc(doc(firestore, "tour_packages", slug));
+          await setDoc(doc(firestore, "tour_packages", slug), { isDeleted: true }, { merge: true });
           return { slug };
         } catch (e: any) {
           console.warn("Firestore tourPackages.delete failed, falling back to local JSON:", e.message || e);
@@ -1348,9 +1374,11 @@ export const db = {
             const snapshot = await getDocs(collection(firestore, "pages"));
             const firestoreData = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
             const firestoreMap = new Map(firestoreData.map((p: any) => [p.id, p]));
-            const merged = pagesCache.map((p: any) => firestoreMap.has(p.id) ? firestoreMap.get(p.id) : p);
+            const merged = pagesCache
+              .map((p: any) => firestoreMap.has(p.id) ? firestoreMap.get(p.id) : p)
+              .filter((p: any) => p.isDeleted !== true);
             const localIds = new Set(pagesCache.map((p: any) => p.id));
-            const extraItems = firestoreData.filter((p: any) => !localIds.has(p.id));
+            const extraItems = firestoreData.filter((p: any) => !localIds.has(p.id) && p.isDeleted !== true);
             res = [...merged, ...extraItems];
           }
         } catch (e: any) {
@@ -1359,7 +1387,7 @@ export const db = {
       }
       if (res === pagesCache) {
         pagesCache = loadLocalData("pages", pagesCache);
-        res = pagesCache;
+        res = pagesCache.filter((p: any) => p.isDeleted !== true);
       }
       return cleanEmail(res);
     },
@@ -1372,7 +1400,12 @@ export const db = {
             const docRef = doc(firestore, "pages", id);
             const snapshot = await getDoc(docRef);
             if (snapshot.exists()) {
-              res = { id: snapshot.id, ...snapshot.data() } as any;
+              const data = { id: snapshot.id, ...snapshot.data() } as any;
+              if (data.isDeleted !== true) {
+                res = data;
+              } else {
+                return null;
+              }
             }
           }
         } catch (e: any) {
@@ -1381,7 +1414,7 @@ export const db = {
       }
       if (!res) {
         pagesCache = loadLocalData("pages", pagesCache);
-        res = pagesCache.find((p: any) => p.id === id) || null;
+        res = pagesCache.find((p: any) => p.id === id && p.isDeleted !== true) || null;
       }
       return cleanEmail(res);
     },
@@ -1427,7 +1460,7 @@ export const db = {
     delete: async (id: string) => {
       if (useFirestore) {
         try {
-          await deleteDoc(doc(firestore, "pages", id));
+          await setDoc(doc(firestore, "pages", id), { isDeleted: true }, { merge: true });
           return { id };
         } catch (e: any) {
           console.warn("Firestore pages.delete failed, falling back to local JSON:", e.message || e);

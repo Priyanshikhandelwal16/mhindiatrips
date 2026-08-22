@@ -29,8 +29,18 @@ export default async function HomePage({ params }: HomePageProps) {
   // Fetch content dynamically from query database mock layer
   const states = (await getStatesAction()).filter((s: any) => s.isPublished !== false && s.id !== "undefined");
   const allPackages = (await getTourPackagesAction()).filter((p: any) => p.isPublished !== false);
-  const featuredPackages = allPackages.filter((p: any) => p.isFeatured === true);
-  const tourPackages = featuredPackages.length > 0 ? featuredPackages.slice(0, 3) : allPackages.slice(0, 3);
+  const SELECTED_SLUGS = [
+    "rajasthan-khajuraho-varanasi-luxury-journey",
+    "india-goa-beach-monuments-tour",
+    "india-nepal-golden-triangle-kathmandu-tour",
+    "rajasthan-varanasi-imperial-luxury-tour",
+    "south-india-temples-backwaters-cultural-tour",
+    "rajasthan-desert-essence-10-days-tour"
+  ];
+  const ourSixPackages = allPackages
+    .filter((p: any) => SELECTED_SLUGS.includes(p.slug))
+    .sort((a: any, b: any) => SELECTED_SLUGS.indexOf(a.slug) - SELECTED_SLUGS.indexOf(b.slug));
+  const tourPackages = ourSixPackages.length > 0 ? ourSixPackages.slice(0, 3) : allPackages.slice(0, 3);
   const blogs = (await getBlogsAction()).filter((b: any) => b.isDraft !== true);
   const testimonials = await getTestimonialsAction();
   const pageData = await getPageByIdAction("homepage");

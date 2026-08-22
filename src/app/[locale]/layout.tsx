@@ -50,7 +50,18 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const contactDetails = fetchedContactDetails ? { ...defaultContactDetails, ...fetchedContactDetails } : defaultContactDetails;
 
   const states = (await db.states.findMany()).filter((s: any) => s.isPublished);
-  const packages = (await db.tourPackages.findMany()).filter((p: any) => p.isPublished !== false);
+  const allPackages = (await db.tourPackages.findMany()).filter((p: any) => p.isPublished !== false);
+  const SELECTED_SLUGS = [
+    "rajasthan-khajuraho-varanasi-luxury-journey",
+    "india-goa-beach-monuments-tour",
+    "india-nepal-golden-triangle-kathmandu-tour",
+    "rajasthan-varanasi-imperial-luxury-tour",
+    "south-india-temples-backwaters-cultural-tour",
+    "rajasthan-desert-essence-10-days-tour"
+  ];
+  const packages = allPackages
+    .filter((p: any) => SELECTED_SLUGS.includes(p.slug))
+    .sort((a: any, b: any) => SELECTED_SLUGS.indexOf(a.slug) - SELECTED_SLUGS.indexOf(b.slug));
 
   return (
     <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
