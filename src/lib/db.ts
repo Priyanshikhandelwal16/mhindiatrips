@@ -749,21 +749,14 @@ export const db = {
 
   blogs: {
     findMany: async () => {
-      // Load latest cached JSON data
-      blogsCache = loadLocalData("blogs", mergedBlogs);
-      const localData = blogsCache;
       if (useFirestore) {
         try {
           checkSeeding();
           if (useFirestore) {
             const snapshot = await getDocs(collection(firestore, "blogs"));
-            const firestoreData = snapshot.docs.map(d => d.data() as BlogData);
-            // Merge: use Firestore version of a document if it exists, otherwise fall back to local
-            const firestoreMap = new Map(firestoreData.map((b: any) => [b.slug, b]));
-            const merged = localData.map((b: any) => firestoreMap.has(b.slug) ? firestoreMap.get(b.slug) : b);
-            const localSlugs = new Set(localData.map((b: any) => b.slug));
-            const extraItems = firestoreData.filter((b: any) => !localSlugs.has(b.slug));
-            return [...merged, ...extraItems];
+            // When Firestore is available, it is the single source of truth.
+            // Do NOT merge with local mock data — otherwise deleted blogs would reappear.
+            return snapshot.docs.map(d => d.data() as BlogData);
           }
         } catch (e: any) {
           console.warn("Firestore blogs.findMany failed, falling back to local:", e.message || e);
@@ -772,7 +765,9 @@ export const db = {
           }
         }
       }
-      return localData;
+      // Firestore not available — fall back to local JSON cache
+      blogsCache = loadLocalData("blogs", mergedBlogs);
+      return blogsCache;
     },
     findUnique: async (slug: string) => {
       if (useFirestore) {
