@@ -9,7 +9,8 @@ import HeroSlider from "@/components/home/HeroSlider";
 import StatCounter from "@/components/home/StatCounter";
 import { 
   MapPin, Clock, ArrowRight, Star, Heart, Compass, Sparkles, 
-  Award, Shield, Calendar, BookOpen, Coffee, Landmark, ArrowUpRight 
+  Award, Shield, Calendar, BookOpen, Coffee, Landmark, ArrowUpRight,
+  CheckCircle
 } from "lucide-react";
 import { getLocalizedDestinationsPath } from "@/lib/utils";
 
@@ -97,7 +98,12 @@ export default async function HomePage({ params }: HomePageProps) {
       inc4Desc: "Direct active connection line to our operations desk via WhatsApp for real-time schedule adjustments.",
       exploreBtn: "Build Custom Package",
       fromPrice: "From $180 / day per guest",
-      customizableText: "100% Customizable Private Itinerary"
+      customizableText: "100% Customizable Private Itinerary",
+      priceOnRequest: "Price On Request",
+      inquire: "Request Details",
+      privateTour: "Private Tour",
+      inclusionsTitleText: "What's included:",
+      days: "Days"
     },
     es: {
       heroSub: "TOURS PRIVADOS A MEDIDA",
@@ -160,7 +166,12 @@ export default async function HomePage({ params }: HomePageProps) {
       inc4Desc: "Contacto directo por WhatsApp con nuestro departamento de operaciones para cualquier ajuste en tiempo real.",
       exploreBtn: "Personalizar Este Viaje",
       fromPrice: "Desde $180 / día por persona",
-      customizableText: "Itinerario Privado 100% Personalizable"
+      customizableText: "Itinerario Privado 100% Personalizable",
+      priceOnRequest: "Precio a Consultar",
+      inquire: "Solicitar Detalles",
+      privateTour: "Tour Privado",
+      inclusionsTitleText: "Qué está incluido:",
+      days: "Días"
     },
     pt: {
       heroSub: "TOURS PRIVADOS SOB MEDIDA",
@@ -222,7 +233,12 @@ export default async function HomePage({ params }: HomePageProps) {
       inc4Desc: "Contato direto por WhatsApp com nossa equipe de operações para ajustes de roteiro em tempo real.",
       exploreBtn: "Personalizar Esta Viagem",
       fromPrice: "A partir de $180 / dia por pessoa",
-      customizableText: "Itinerário Privado 100% Personalizável"
+      customizableText: "Itinerário Privado 100% Personalizável",
+      priceOnRequest: "Preço Sob Consulta",
+      inquire: "Solicitar Detalhes",
+      privateTour: "Tour Privado",
+      inclusionsTitleText: "O que está incluído:",
+      days: "Dias"
     }
   };
 
@@ -576,56 +592,81 @@ export default async function HomePage({ params }: HomePageProps) {
           <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
         </div>
 
-        {/* Large, Beautiful Cards (Increased dimensions, larger padding) */}
+        {/* Large, Beautiful Cards (Matched with tour packages catalog page styling) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {tourPackages.slice(0, 10).map((pkg: any, i: number) => (
             <Reveal key={pkg.slug} delay={i * 80}>
-              <Link href={`/${locale}/packages/${pkg.slug}`} className="group block h-full perspective-1000">
-                <div className="card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full">
-                  <div className="relative h-64 shrink-0 overflow-hidden">
-                    <Image 
-                      src={pkg.image} 
-                      alt={pkg.title?.[locale] || pkg.title?.en} 
-                      fill 
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-80" />
-                    <div className="absolute top-4 left-4 flex flex-col gap-2">
-                      <span className="bg-royal/95 text-gold text-[9px] uppercase font-bold tracking-widest px-3.5 py-1.5 rounded-full shadow-md border border-[#C5A862]/20">
-                        {pkg.durationDays} {locale === "es" ? "Días" : locale === "pt" ? "Dias" : "Days"}
-                      </span>
-                    </div>
-                    <div className="absolute bottom-4 left-4">
-                      <span className="bg-gold text-royal text-[8px] font-bold uppercase tracking-widest px-3 py-1 rounded-md shadow-sm">
-                        {text.customizableText}
-                      </span>
-                    </div>
+              <div className="card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full transition-all duration-500 hover:border-[#C5A862]/30 group perspective-1000">
+                <div className="relative h-64 overflow-hidden shrink-0">
+                  <Image 
+                    src={pkg.image} 
+                    alt={pkg.title?.[locale] || pkg.title?.en} 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-65" />
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-white/95 backdrop-blur-sm text-royal text-[9px] uppercase tracking-wider font-extrabold px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1">
+                      <Calendar className="w-3.5 h-3.5 text-gold" />
+                      {pkg.durationDays} {text.days}
+                    </span>
                   </div>
-                  {/* Padding: p-8 */}
-                  <div className="p-8 flex flex-col justify-between flex-grow bg-white space-y-6">
-                    <div className="space-y-3">
-                      <h3 className="text-xl font-serif font-medium text-royal group-hover:text-gold transition-colors leading-snug">
-                        {pkg.title?.[locale] || pkg.title?.en}
-                      </h3>
-                      <p className="text-xs md:text-sm text-foreground/60 line-clamp-3 leading-relaxed font-light">
-                        {pkg.tagline?.[locale] || pkg.tagline?.en}
-                      </p>
-                    </div>
-
-                    <div className="pt-4 border-t border-[#C5A862]/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-auto">
-                      <div className="flex flex-col">
-                        <span className="text-[9px] uppercase tracking-wider text-foreground/45 font-bold">{locale === "es" ? "Tarifa Estándar" : "Standard Rate"}</span>
-                        <span className="text-sm font-bold text-royal font-serif">{text.fromPrice}</span>
-                      </div>
-                      <span className="bg-transparent hover:bg-gold border border-gold hover:border-gold text-gold hover:text-[#0A2A1E] text-[9px] font-bold uppercase tracking-wider py-2.5 px-4 rounded-full transition-all duration-300 inline-flex items-center gap-1 shadow-sm">
-                        <span>{text.exploreBtn}</span>
-                        <ArrowRight className="w-3 h-3" />
-                      </span>
-                    </div>
+                  <div className="absolute bottom-4 right-4">
+                    <span className="bg-gold/90 backdrop-blur-sm text-royal text-[9px] uppercase tracking-wider font-black px-3 py-1.5 rounded-full">
+                      {text.privateTour}
+                    </span>
+                  </div>
+                  <div className="absolute top-4 right-4">
+                    <span className="bg-[#0A2A1E] text-gold text-[8px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-gold/20">
+                      {pkg.category}
+                    </span>
                   </div>
                 </div>
-              </Link>
+
+                <div className="p-8 flex flex-col flex-grow bg-white justify-between">
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-serif font-medium text-royal leading-snug">
+                      {pkg.title?.[locale] || pkg.title?.en}
+                    </h3>
+                    <p className="text-xs md:text-sm text-foreground/55 leading-relaxed font-light">
+                      {pkg.tagline?.[locale] || pkg.tagline?.en}
+                    </p>
+
+                    {/* Dynamic Highlights from package data */}
+                    <div className="pt-4 border-t border-[#C5A862]/10 space-y-3">
+                      <span className="text-[10px] uppercase tracking-wider font-extrabold text-gold block">{text.inclusionsTitleText}</span>
+                      <div className="space-y-2">
+                        {pkg.highlights && pkg.highlights.slice(0, 4).map((hl: any, idx: number) => {
+                          const label = hl.title
+                            ? (hl.title[locale as "en" | "es" | "pt"] || hl.title.en)
+                            : (hl[locale as "en" | "es" | "pt"] || hl.en);
+                          if (!label) return null;
+                          return (
+                            <div key={idx} className="flex items-start gap-2 text-xs text-foreground/65 font-light">
+                              <CheckCircle className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
+                              <span>{label}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-6 mt-6 border-t border-[#C5A862]/15 flex justify-between items-center bg-white">
+                    <span className="text-[10px] font-extrabold tracking-wider uppercase text-gold">
+                      {text.priceOnRequest}
+                    </span>
+                    <Link
+                      href={`/${locale}/packages/${pkg.slug}`}
+                      className="text-xs font-bold uppercase tracking-wider text-royal hover:text-gold flex items-center gap-1 transition-colors"
+                    >
+                      <span>{text.inquire}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </Reveal>
           ))}
         </div>
