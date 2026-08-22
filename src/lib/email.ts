@@ -81,17 +81,21 @@ export async function sendInquiryNotification(data: InquiryData) {
 </html>`;
 
   try {
-    const result = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: `${FROM_NAME} <${FROM_EMAIL}>`,
       to: [TO_EMAIL],
       replyTo: email,
       subject: `New Inquiry: ${name}${destination ? ` - ${destination}` : ""}`,
       html,
     });
-    return { success: true, id: result.data?.id };
+    if (error) {
+      console.error("Resend API notification error:", error);
+      return { success: false, error: (error as any).message || JSON.stringify(error) };
+    }
+    return { success: true, id: data?.id };
   } catch (error: any) {
     console.error("Failed to send inquiry notification:", error);
-    return { success: false, error: error.message };
+    return { success: false, error: error.message || error };
   }
 }
 
@@ -168,16 +172,20 @@ export async function sendInquiryConfirmation(data: InquiryData) {
 </html>`;
 
   try {
-    const result = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: `${FROM_NAME} <${FROM_EMAIL}>`,
       to: [email],
       replyTo: TO_EMAIL,
       subject: `Thank You for Your Inquiry, ${name} - MH India Trips`,
       html,
     });
-    return { success: true, id: result.data?.id };
+    if (error) {
+      console.error("Resend API confirmation error:", error);
+      return { success: false, error: (error as any).message || JSON.stringify(error) };
+    }
+    return { success: true, id: data?.id };
   } catch (error: any) {
     console.error("Failed to send confirmation email:", error);
-    return { success: false, error: error.message };
+    return { success: false, error: error.message || error };
   }
 }

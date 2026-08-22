@@ -31,16 +31,25 @@ export async function createInquiryAction(formData: any) {
     };
 
     // Send both emails in parallel and await completion to prevent container shutdown on Netlify
+    let emailSent = true;
+    let emailError = null;
     try {
-      await Promise.all([
+      const emailResults = await Promise.all([
         sendInquiryNotification(emailData),
         sendInquiryConfirmation(emailData),
       ]);
-    } catch (err) {
+      const fail = emailResults.find(r => !r.success);
+      if (fail) {
+        emailSent = false;
+        emailError = fail.error;
+      }
+    } catch (err: any) {
+      emailSent = false;
+      emailError = err.message || err;
       console.error("Email sending failed:", err);
     }
 
-    return { success: true, inquiry };
+    return { success: true, inquiry, emailSent, emailError };
   } catch (error: any) {
     console.error("Error creating inquiry:", error);
     return { success: false, error: error.message || "Failed to submit inquiry" };

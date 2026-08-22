@@ -100,6 +100,9 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
       if (res.success) {
         setSuccess(true);
         setForm({ name: "", email: "", phone: "", country: "", startDate: "", duration: "", travelers: "1", experience: "Luxury", destinations: "Rajasthan", message: "" });
+        if (res.emailSent === false) {
+          console.warn("Inquiry successfully saved in database, but Resend email delivery failed. Error details:", res.emailError);
+        }
       } else {
         setError(res.error || text.errorText);
       }

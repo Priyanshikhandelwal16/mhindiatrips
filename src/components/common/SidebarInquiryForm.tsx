@@ -93,6 +93,9 @@ export default function SidebarInquiryForm({ locale, defaultDestination }: Sideb
       });
       if (res.success) {
         setSuccess(true);
+        if (res.emailSent === false) {
+          console.warn("Inquiry successfully saved in database, but Resend email delivery failed. Error details:", res.emailError);
+        }
       } else {
         setError(res.error || text.errorText);
       }

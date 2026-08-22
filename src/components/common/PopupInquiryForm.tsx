@@ -144,6 +144,9 @@ export default function PopupInquiryForm({ locale, contactDetails }: PopupInquir
       if (res.success) {
         setSuccess(true);
         sessionStorage.setItem("has_seen_inquiry_popup", "true");
+        if (res.emailSent === false) {
+          console.warn("Inquiry successfully saved in database, but Resend email delivery failed. Error details:", res.emailError);
+        }
         setTimeout(() => {
           setIsOpen(false);
         }, 3000);
