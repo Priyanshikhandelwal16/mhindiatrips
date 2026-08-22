@@ -234,17 +234,30 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
         </div>
 
         {/* Bottom copyright details bar */}
-        <div className="border-t border-royal/10 mt-16 pt-8 flex flex-col justify-center items-center gap-4 text-sm text-royal/60 font-light text-center w-full">
-          <div>
-            <span>&copy; {labels.copyright} | </span>
-            <a href="https://jainup.in" target="_blank" rel="noopener noreferrer" className="text-[#C5A862] hover:text-[#C5A862]/80 hover:underline font-semibold transition-colors duration-200">
+        <div className="border-t border-royal/10 mt-16 pt-8 flex flex-col gap-6 text-sm text-royal/60 font-light">
+          {/* Main Info Row (Copyright left, Legal Links right) */}
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-center md:text-left">
+              <span>&copy; {labels.copyright}</span>
+            </div>
+            <div className="flex flex-wrap justify-center gap-6">
+              <Link href={`/${locale}/terms`} className="hover:text-gold transition-colors">{labels.terms}</Link>
+              <Link href={`/${locale}/privacy`} className="hover:text-gold transition-colors">{labels.privacy}</Link>
+              <Link href={`/${locale}/faq`} className="hover:text-gold transition-colors">{labels.faq}</Link>
+            </div>
+          </div>
+          
+          {/* Dedicated Credits Line (Centered below, won't break/wrap awkwardly) */}
+          <div className="text-center pt-4 border-t border-royal/5">
+            <span className="text-[11px] uppercase tracking-wider text-royal/40">{labels.designedBy} </span>
+            <a 
+              href="https://jainup.in" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-[#C5A862] hover:text-[#C5A862]/80 hover:underline font-semibold transition-colors duration-200 text-xs tracking-wide"
+            >
               JAINUP | Growth System
             </a>
-          </div>
-          <div className="flex flex-wrap justify-center gap-6">
-            <Link href={`/${locale}/terms`} className="hover:text-gold transition-colors">{labels.terms}</Link>
-            <Link href={`/${locale}/privacy`} className="hover:text-gold transition-colors">{labels.privacy}</Link>
-            <Link href={`/${locale}/faq`} className="hover:text-gold transition-colors">{labels.faq}</Link>
           </div>
         </div>
       </div>
