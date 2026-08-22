@@ -506,9 +506,10 @@ export default async function HomePage({ params }: HomePageProps) {
           {states.slice(0, 6).map((st: any, i: number) => {
             const stateTitle = st.name?.[locale] || st.name?.[lang] || st.name?.en || st.title?.[locale] || st.title?.en || st.id;
             const stateTagline = st.tagline?.[locale] || st.tagline?.[lang] || st.tagline?.en || st.description?.[locale] || st.description?.[lang] || st.description?.en || "";
+            const stateSlug = st.slug ? (typeof st.slug === "object" ? (st.slug[locale] || st.slug.en || st.id) : st.slug) : st.id;
             return (
-              <Reveal key={st.slug || st.id} delay={i * 80}>
-                <Link href={getLocalizedDestinationsPath(locale, st.slug || st.id)} className="group block h-full perspective-1000">
+              <Reveal key={stateSlug} delay={i * 80}>
+                <Link href={getLocalizedDestinationsPath(locale, stateSlug)} className="group block h-full perspective-1000">
                   <div className="card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full">
                     <div className="h-80 overflow-hidden relative shrink-0">
                       <Image 
