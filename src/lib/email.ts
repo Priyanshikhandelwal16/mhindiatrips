@@ -2,7 +2,9 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const FROM_EMAIL = process.env.EMAIL_FROM || "noreply@mhindiatrips.com";
+const FROM_EMAIL = process.env.EMAIL_FROM && process.env.EMAIL_FROM !== "noreply@mhindiatrips.com" 
+  ? process.env.EMAIL_FROM 
+  : "onboarding@resend.dev";
 const TO_EMAIL = process.env.EMAIL_TO || "mhindiatrips@gmail.com";
 const FROM_NAME = "MH India Trips";
 

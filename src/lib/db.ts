@@ -37,6 +37,24 @@ const mergedFoods = [...foodsData, ...additionalFoods];
 const mergedBlogs = [...blogsData, ...additionalBlogs];
 const mergedPackages = [...initialTourPackages, ...additionalPackages];
 
+function cleanEmail(obj: any): any {
+  if (!obj) return obj;
+  if (typeof obj === "string") {
+    return obj === "info@mhindiatrips.com" ? "mhindiatrips@gmail.com" : obj;
+  }
+  if (Array.isArray(obj)) {
+    return obj.map(item => cleanEmail(item));
+  }
+  if (typeof obj === "object") {
+    const res: any = {};
+    for (const key in obj) {
+      res[key] = cleanEmail(obj[key]);
+    }
+    return res;
+  }
+  return obj;
+}
+
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -1321,6 +1339,7 @@ export const db = {
   },
   pages: {
     findMany: async () => {
+      let res = pagesCache;
       if (useFirestore) {
         try {
           checkSeeding();
@@ -1331,16 +1350,20 @@ export const db = {
             const merged = pagesCache.map((p: any) => firestoreMap.has(p.id) ? firestoreMap.get(p.id) : p);
             const localIds = new Set(pagesCache.map((p: any) => p.id));
             const extraItems = firestoreData.filter((p: any) => !localIds.has(p.id));
-            return [...merged, ...extraItems];
+            res = [...merged, ...extraItems];
           }
         } catch (e: any) {
           console.warn("Firestore pages.findMany failed, falling back to local:", e.message || e);
         }
       }
-      pagesCache = loadLocalData("pages", pagesCache);
-      return pagesCache;
+      if (res === pagesCache) {
+        pagesCache = loadLocalData("pages", pagesCache);
+        res = pagesCache;
+      }
+      return cleanEmail(res);
     },
     findUnique: async (id: string) => {
+      let res = null;
       if (useFirestore) {
         try {
           checkSeeding();
@@ -1348,15 +1371,18 @@ export const db = {
             const docRef = doc(firestore, "pages", id);
             const snapshot = await getDoc(docRef);
             if (snapshot.exists()) {
-              return { id: snapshot.id, ...snapshot.data() } as any;
+              res = { id: snapshot.id, ...snapshot.data() } as any;
             }
           }
         } catch (e: any) {
           console.warn("Firestore pages.findUnique failed, falling back to local:", e.message || e);
         }
       }
-      pagesCache = loadLocalData("pages", pagesCache);
-      return pagesCache.find((p: any) => p.id === id) || null;
+      if (!res) {
+        pagesCache = loadLocalData("pages", pagesCache);
+        res = pagesCache.find((p: any) => p.id === id) || null;
+      }
+      return cleanEmail(res);
     },
     create: async (data: any) => {
       const id = data.id || Math.random().toString(36).substring(2, 11);
@@ -1416,6 +1442,7 @@ export const db = {
     findMany: async () => {
       settingsCache = loadLocalData("settings", settingsCache);
       const localData = settingsCache;
+      let res = localData;
       if (useFirestore) {
         try {
           checkSeeding();
@@ -1426,7 +1453,7 @@ export const db = {
             const merged = localData.map((s: any) => firestoreMap.has(s.id) ? firestoreMap.get(s.id) : s);
             const localIds = new Set(localData.map((s: any) => s.id));
             const extraItems = firestoreData.filter((s: any) => !localIds.has(s.id));
-            return [...merged, ...extraItems];
+            res = [...merged, ...extraItems];
           }
         } catch (e: any) {
           console.warn("Firestore settings.findMany failed, falling back to local:", e.message || e);
@@ -1435,9 +1462,10 @@ export const db = {
           }
         }
       }
-      return localData;
+      return cleanEmail(res);
     },
     findUnique: async (id: string) => {
+      let res = null;
       if (useFirestore) {
         try {
           checkSeeding();
@@ -1445,15 +1473,18 @@ export const db = {
             const docRef = doc(firestore, "settings", id);
             const snapshot = await getDoc(docRef);
             if (snapshot.exists()) {
-              return { id: snapshot.id, ...snapshot.data() } as any;
+              res = { id: snapshot.id, ...snapshot.data() } as any;
             }
           }
         } catch (e: any) {
           console.warn("Firestore settings.findUnique failed, falling back to local JSON:", e.message || e);
         }
       }
-      settingsCache = loadLocalData("settings", settingsCache);
-      return settingsCache.find((s: any) => s.id === id) || null;
+      if (!res) {
+        settingsCache = loadLocalData("settings", settingsCache);
+        res = settingsCache.find((s: any) => s.id === id) || null;
+      }
+      return cleanEmail(res);
     },
     update: async (id: string, data: any) => {
       if (useFirestore) {

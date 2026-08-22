@@ -177,7 +177,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
       {/* Elegant Top Bar (viajeaindia.com style) */}
       <div 
         className={`bg-[#0A2A1E] text-white/90 text-[10px] md:text-xs py-2.5 px-6 border-b border-gold/10 relative z-20 transition-all duration-300 ${
-          scrolled ? "h-0 py-0 border-0 opacity-0 overflow-hidden" : "h-auto opacity-100"
+          (scrolled || mobileMenuOpen) ? "h-0 py-0 border-0 opacity-0 overflow-hidden" : "h-auto opacity-100"
         }`}
       >
         <div className="max-w-[1400px] w-full mx-auto px-6 xl:px-10 flex flex-col md:flex-row justify-between items-center gap-2">
@@ -219,7 +219,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
             <img
               src="/images/logo-transparent.png"
               alt="MH India Trips"
-              className="h-10 md:h-12 w-auto transition-transform duration-300"
+              className="h-12 md:h-14 w-auto transition-transform duration-300"
             />
           </Link>
 
@@ -498,7 +498,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
 
       {/* Mobile Menu Panel */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-[#FCFAF6]/98 backdrop-blur-xl z-40 flex flex-col justify-start pt-36 px-6 pb-10 space-y-4 animate-fade-in lg:hidden text-royal overflow-y-auto overscroll-contain">
+        <div className="fixed inset-0 bg-[#FCFAF6]/98 backdrop-blur-xl z-40 flex flex-col justify-start pt-24 px-6 pb-10 space-y-4 animate-fade-in lg:hidden text-royal overflow-y-auto overscroll-contain">
           <nav className="flex flex-col space-y-1 pt-4 text-left">
             
             {/* Home Link */}
