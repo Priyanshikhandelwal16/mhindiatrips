@@ -214,7 +214,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
             <img
               src="/images/logo-transparent.png"
               alt="MH India Trips"
-              className="h-8 md:h-10 xl:h-12 w-auto transition-all duration-300 hover:scale-[1.01]"
+              className="h-12 md:h-16 w-auto transition-all duration-300 hover:scale-[1.01]"
             />
           </Link>
 

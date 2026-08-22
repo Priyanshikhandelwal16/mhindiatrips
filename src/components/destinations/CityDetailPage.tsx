@@ -118,21 +118,7 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
       {/* Hero Banner */}
       <section className="relative bg-[#0A2A1E] text-white pt-16 pb-10 flex items-end overflow-hidden w-full">
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 space-y-3">
-          <nav className="flex items-center gap-1.5 text-white/60 text-[10px] uppercase tracking-wider font-bold">
-            <Link href={`/${locale}`} className="hover:text-white transition-colors">
-              {text.home}
-            </Link>
-            <ChevronRight className="w-3 h-3 text-white/40" />
-            <Link href={getLocalizedDestinationsPath(locale)} className="hover:text-white transition-colors">
-              {text.destinations}
-            </Link>
-            <ChevronRight className="w-3 h-3 text-white/40" />
-            <Link href={getLocalizedDestinationsPath(locale, stateSlug)} className="hover:text-white transition-colors">
-              {stateTitle}
-            </Link>
-            <ChevronRight className="w-3 h-3 text-white/40" />
-            <span className="text-[#C3AB85] font-semibold">{cityTitle}</span>
-          </nav>
+
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
             {cityTitle}

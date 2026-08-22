@@ -55,14 +55,7 @@ export default async function DestinationsCatalogPage({ locale, states }: Destin
             {text.subtitle}
           </p>
 
-          {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-white/80 text-xs font-light bg-black/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
-            <Link href={`/${locale}`} className="hover:text-[#C3AB85] transition-colors">
-              {text.home}
-            </Link>
-            <span className="text-white/40 font-light">→</span>
-            <span className="text-white/60 font-light">{text.destinations}</span>
-          </nav>
+
         </div>
       </section>
 

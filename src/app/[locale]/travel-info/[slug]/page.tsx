@@ -163,11 +163,7 @@ export default async function TravelInfoPage({ params }: TravelInfoPageProps) {
         <img src={image} alt={title} className="absolute inset-0 w-full h-full object-cover" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
         <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 pb-10 md:pb-14 space-y-3">
-          <div className="flex items-center gap-2 text-[10px] text-white/60 uppercase tracking-wider font-medium">
-            <Link href={`/${locale}`} className="hover:text-white transition">Home</Link>
-            <span>/</span>
-            <span className="text-white/90">Travel Info</span>
-          </div>
+
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-[#C5A862]/20 flex items-center justify-center">
               <Icon className="w-5 h-5 text-[#C5A862]" />
