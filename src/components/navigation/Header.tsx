@@ -15,9 +15,10 @@ interface HeaderProps {
     whatsapp: string;
   };
   states?: any[];
+  packages?: any[];
 }
 
-export default function Header({ locale, contactDetails, states = [] }: HeaderProps) {
+export default function Header({ locale, contactDetails, states = [], packages = [] }: HeaderProps) {
   const pathname = usePathname();
   if (pathname?.includes("/admin")) {
     return null;
@@ -57,7 +58,7 @@ export default function Header({ locale, contactDetails, states = [] }: HeaderPr
       packages: "Travel Packages",
       about: "About Us",
       destinations: "Destinations in India",
-      monuments: "Monuments",
+      attractions: "Attractions",
       food: "Food Guide",
       info: "Traveler Info",
       contact: "Contact",
@@ -69,7 +70,7 @@ export default function Header({ locale, contactDetails, states = [] }: HeaderPr
       packages: "Paquetes",
       about: "Sobre Nosotros",
       destinations: "Destinos en India",
-      monuments: "Monumentos",
+      attractions: "Atracciones",
       food: "Comida",
       info: "Info Viaje",
       contact: "Contacto",
@@ -81,7 +82,7 @@ export default function Header({ locale, contactDetails, states = [] }: HeaderPr
       packages: "Pacotes",
       about: "Sobre Nós",
       destinations: "Destinos na Índia",
-      monuments: "Monumentos",
+      attractions: "Atrações",
       food: "Gastronomia",
       info: "Info Viagem",
       contact: "Contato",
@@ -92,37 +93,14 @@ export default function Header({ locale, contactDetails, states = [] }: HeaderPr
 
   const labels = menuTranslations[locale] || menuTranslations.en;
 
-  const packagesList = [
-    // Heritage & Culture
-    { name: { en: "Imperial Golden Triangle", es: "Triángulo de Oro Imperial", pt: "Triângulo de Ouro Imperial" }, path: "/packages/golden-triangle-luxury" },
-    { name: { en: "Royal Rajasthan Heritage", es: "Rajastán Real y Patrimonial", pt: "Rajastão Real e Patrimonial" }, path: "/packages/rajasthan-heritage-royal-palaces-tour" },
-    { name: { en: "India Luxury Palace Circuit", es: "Circuito de Palacios de Lujo", pt: "Circuito de Palácios de Luxo" }, path: "/packages/india-luxury-palace-hotel-circuit" },
-    { name: { en: "North India Heritage & Spiritual", es: "Patrimonio Espiritual del Norte", pt: "Patrimônio Espiritual do Norte" }, path: "/packages/north-india-grand-heritage-spiritual-tour" },
-    { name: { en: "Golden Triangle + Rajasthan Combo", es: "Triángulo de Oro + Rajastán", pt: "Triângulo de Ouro + Rajastão" }, path: "/packages/golden-triangle-royal-rajasthan-combo" },
-    // South India
-    { name: { en: "Complete South India Circuit", es: "Circuito Completo del Sur", pt: "Circuito Completo do Sul" }, path: "/packages/complete-south-india-cultural-circuit" },
-    { name: { en: "South India Temples & Monuments", es: "Templos y Monumentos del Sur", pt: "Templos e Monumentos do Sul" }, path: "/packages/south-india-monuments-temples" },
-    { name: { en: "Karnataka Heritage & Coffee", es: "Patrimonio y Café de Karnataka", pt: "Patrimônio e Café de Karnataka" }, path: "/packages/karnataka-heritage-coffee-country" },
-    // Nature & Wellness
-    { name: { en: "Kerala Ayurveda & Wellness", es: "Ayurveda y Bienestar en Kerala", pt: "Ayurveda e Bem-Estar em Kerala" }, path: "/packages/kerala-ayurveda-wellness-retreat" },
-    { name: { en: "Uttarakhand Yoga & Himalayan Adventure", es: "Yoga e Himalaya en Uttarakhand", pt: "Yoga e Himalaia em Uttarakhand" }, path: "/packages/uttarakhand-yoga-himalayan-adventure" },
-    { name: { en: "Sikkim & Darjeeling Himalayan Heights", es: "Sikkim y Darjeeling", pt: "Sikkim e Darjeeling" }, path: "/packages/sikkim-darjeeling-himalayan-heights" },
-    { name: { en: "Himalayan Escape Ladakh", es: "Escapada Himalaya Ladakh", pt: "Escapada Himalaia Ladakh" }, path: "/packages/himalayan-escape-scenic-ladakh-tour" },
-    { name: { en: "Northeast India Hidden Gems", es: "Gemas del Noreste de India", pt: "Joias do Nordeste da Índia" }, path: "/packages/northeast-india-hidden-gems-explorer" },
-    // Wildlife & Adventure
-    { name: { en: "Wildlife & Royal Tiger Safaris", es: "Safari de Tigres Reales", pt: "Safáris de Tigre Real" }, path: "/packages/wildlife-royal-tiger-safaris" },
-    { name: { en: "Royal Gujarat Heritage Safari", es: "Safari y Patrimonio de Gujarat", pt: "Safári e Patrimônio de Gujarat" }, path: "/packages/royal-gujarat-heritage-safari" },
-    // Beach & Islands
-    { name: { en: "Goa Luxury Beach Vacation", es: "Vacaciones de Lujo en Goa", pt: "Férias de Luxo em Goa" }, path: "/packages/goa-luxury-beach-vacation" },
-    { name: { en: "Andaman Islands Tropical Escape", es: "Escapada Tropical a las Andamán", pt: "Refúgio Tropical nas Andamão" }, path: "/packages/andaman-islands-tropical-escape" },
-    // Special Interest
-    { name: { en: "Grand Indian Culinary Trail", es: "Gran Ruta Gastronómica", pt: "Grande Rota Gastronômica" }, path: "/packages/grand-indian-culinary-trail" },
-    { name: { en: "India Photography Expedition", es: "Expedición Fotográfica", pt: "Expedição Fotográfica" }, path: "/packages/india-photography-expedition" },
-    { name: { en: "India Family Adventure", es: "Aventura Familiar en India", pt: "Aventura Familiar na Índia" }, path: "/packages/india-family-adventure-package" },
-    { name: { en: "India Honeymoon Luxury", es: "Luna de Miel de Lujo en India", pt: "Lua de Mel de Luxo na Índia" }, path: "/packages/india-honeymoon-luxury-experience" },
-    { name: { en: "Punjab & Golden Temple Experience", es: "Punjab y Templo Dorado", pt: "Punjab e Templo Dourado" }, path: "/packages/punjab-cultural-golden-temple-experience" },
-    { name: { en: "Spiritual India — Varanasi & Bodh Gaya", es: "India Espiritual — Varanasi", pt: "Índia Espiritual — Varanasi" }, path: "/packages/spiritual-india-varanasi-bodh-gaya-pilgrimage" },
-  ];
+  const packagesList = (packages || []).map((p: any) => ({
+    name: {
+      en: p.title?.en || p.id,
+      es: p.title?.es || p.id,
+      pt: p.title?.pt || p.id
+    },
+    path: `/packages/${p.slug}`
+  }));
 
   const destinationsList = states.map((s: any) => ({
     name: {
@@ -182,7 +160,7 @@ export default function Header({ locale, contactDetails, states = [] }: HeaderPr
   };
 
   return (
-    <header className="sticky top-0 z-[9999] w-full font-sans transition-all duration-300 animate-fade-in"
+    <header className="fixed top-0 left-0 right-0 z-[9999] w-full font-sans transition-all duration-300 animate-fade-in"
       style={{ animationDuration: "0.6s", animationFillMode: "both" }}>
       
       {/* Elegant Top Bar (viajeaindia.com style) */}
@@ -342,13 +320,13 @@ export default function Header({ locale, contactDetails, states = [] }: HeaderPr
               </div>
             </div>
 
-            {/* Monuments */}
+            {/* Attractions */}
             <Link
-              href={`/${locale}/monuments`}
-              className={linkClass("/monuments")}
+              href={`/${locale}/attractions`}
+              className={linkClass("/attractions")}
             >
-              <span>{labels.monuments}</span>
-              {isActive("/monuments") && (
+              <span>{labels.attractions}</span>
+              {isActive("/attractions") && (
                 <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full" />
               )}
             </Link>
@@ -551,11 +529,11 @@ export default function Header({ locale, contactDetails, states = [] }: HeaderPr
             </Link>
  
             <Link
-              href={`/${locale}/monuments`}
+              href={`/${locale}/attractions`}
               onClick={() => setMobileMenuOpen(false)}
               className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-1"
             >
-              {labels.monuments}
+              {labels.attractions}
             </Link>
  
             <Link

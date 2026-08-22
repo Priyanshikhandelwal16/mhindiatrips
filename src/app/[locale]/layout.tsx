@@ -39,6 +39,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   };
 
   const states = (await db.states.findMany()).filter((s: any) => s.isPublished);
+  const packages = (await db.tourPackages.findMany()).filter((p: any) => p.isPublished !== false);
 
   return (
     <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
@@ -47,9 +48,9 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       </head>
       <body className="font-sans bg-background text-foreground antialiased min-h-screen flex flex-col justify-between w-full overflow-x-hidden" suppressHydrationWarning>
         <PageLoader />
-        <Header locale={locale} contactDetails={contactDetails} states={states} />
+        <Header locale={locale} contactDetails={contactDetails} states={states} packages={packages} />
         <PopupInquiryForm locale={locale} contactDetails={contactDetails} />
-        <main className="flex-grow flex flex-col w-full overflow-x-hidden">
+        <main className="flex-grow flex flex-col w-full overflow-x-hidden pt-[116px]">
           <PageTransition>
             {children}
           </PageTransition>

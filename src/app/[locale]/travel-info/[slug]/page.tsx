@@ -2,6 +2,7 @@ import React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Shield, Clock, Heart, Briefcase, Leaf, ArrowRight, CheckCircle } from "lucide-react";
+import { getPageByIdAction } from "@/app/actions/queries";
 
 interface TravelInfoPageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -138,11 +139,16 @@ export default async function TravelInfoPage({ params }: TravelInfoPageProps) {
   if (!validSlugs.includes(slug)) notFound();
   
   const page = travelInfoData[slug];
+  const pageData = await getPageByIdAction(`travel-info-${slug}`);
+  const dbContent = pageData?.content || {};
+  
   const lang = (locale === "es" || locale === "pt") ? locale : "en";
   const Icon = page.icon;
 
-  const title = page.title?.[lang] || page.title?.en;
-  const subtitle = page.subtitle?.[lang] || page.subtitle?.en;
+  const title = dbContent.heroTitle?.[locale] || page.title?.[lang] || page.title?.en;
+  const subtitle = dbContent.heroSubtitle?.[locale] || page.subtitle?.[lang] || page.subtitle?.en;
+  const image = pageData?.heroImage || page.image;
+  const sections = dbContent.sections || page.sections;
 
   const otherPages = validSlugs.filter(s => s !== slug).map(s => ({
     slug: s,
@@ -154,7 +160,7 @@ export default async function TravelInfoPage({ params }: TravelInfoPageProps) {
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1A1E1D]">
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[350px] flex items-end overflow-hidden">
-        <img src={page.image} alt={title} className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+        <img src={image} alt={title} className="absolute inset-0 w-full h-full object-cover" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
         <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 pb-10 md:pb-14 space-y-3">
           <div className="flex items-center gap-2 text-[10px] text-white/60 uppercase tracking-wider font-medium">
@@ -178,7 +184,7 @@ export default async function TravelInfoPage({ params }: TravelInfoPageProps) {
           
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-10">
-            {page.sections.map((section: any, idx: number) => (
+            {sections.map((section: any, idx: number) => (
               <div key={idx} className="space-y-4">
                 <h2 className="text-lg md:text-xl font-bold text-[#1A1E1D]">
                   {section.heading?.[lang] || section.heading?.en}

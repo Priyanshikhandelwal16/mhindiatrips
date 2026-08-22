@@ -1188,5 +1188,470 @@
         "pt": "Explore o rico patrimônio culinário e sabores da Índia"
       }
     }
+  },
+  {
+    "id": "travel-info-visa-entry-requirements",
+    "isCustom": false,
+    "title": {
+      "en": "Travel Info: Visa & Entry Requirements",
+      "es": "Guía de Viaje: Visa y Entrada",
+      "pt": "Guia de Viagem: Visto e Entrada"
+    },
+    "heroImage": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1200&auto=format",
+    "content": {
+      "heroTitle": {
+        "en": "Visa & Entry Requirements",
+        "es": "Visa y Requisitos de Entrada",
+        "pt": "Visto e Requisitos de Entrada"
+      },
+      "heroSubtitle": {
+        "en": "Everything you need to enter India seamlessly",
+        "es": "Todo lo necesario para entrar a India",
+        "pt": "Tudo que precisa para entrar na Índia"
+      },
+      "sections": [
+        {
+          "heading": {
+            "en": "e-Visa Overview",
+            "es": "Resumen de e-Visa",
+            "pt": "Visão Geral do e-Visto"
+          },
+          "content": {
+            "en": "India offers an electronic visa (e-Visa) system for citizens of 150+ countries. The e-Tourist Visa allows stays of up to 90 days for tourism, sightseeing, and casual visits. Applications are processed online within 72 hours, and the visa is valid for 1 year from the date of issue with double entry permitted.",
+            "es": "India ofrece un sistema de visa electrónica para ciudadanos de más de 150 países. La e-Visa turística permite estancias de hasta 90 días.",
+            "pt": "A Índia oferece um sistema de visto eletrônico para cidadãos de mais de 150 países."
+          }
+        },
+        {
+          "heading": {
+            "en": "Required Documents",
+            "es": "Documentos Necesarios",
+            "pt": "Documentos Necessários"
+          },
+          "bullets": {
+            "en": [
+              "Valid passport with 6+ months validity",
+              "Recent passport-size photo (white background)",
+              "Return flight ticket confirmation",
+              "Hotel booking or tour itinerary",
+              "Sufficient funds proof (bank statement)"
+            ],
+            "es": [
+              "Pasaporte válido con 6+ meses de validez",
+              "Foto reciente tamaño pasaporte",
+              "Confirmación de vuelo de regreso",
+              "Reserva de hotel o itinerario",
+              "Prueba de fondos suficientes"
+            ],
+            "pt": [
+              "Passaporte válido com 6+ meses de validade",
+              "Foto recente tamanho passaporte",
+              "Confirmação de voo de regresso",
+              "Reserva de hotel ou roteiro",
+              "Prova de fundos suficientes"
+            ]
+          }
+        },
+        {
+          "heading": {
+            "en": "Processing Time & Fees",
+            "es": "Tiempo de Procesamiento",
+            "pt": "Tempo de Processamento"
+          },
+          "content": {
+            "en": "Standard processing takes 3-5 business days. Urgent processing is available within 24-48 hours. Visa fees range from $25-80 depending on nationality and duration. We recommend applying at least 2 weeks before your travel date. MH India Trips provides complimentary visa assistance for all booked guests.",
+            "es": "El procesamiento estándar toma 3-5 días hábiles. Las tarifas varían de $25-80.",
+            "pt": "O processamento padrão leva 3-5 dias úteis. As taxas variam de $25-80."
+          }
+        },
+        {
+          "heading": {
+            "en": "Airport Arrival Tips",
+            "es": "Consejos de Llegada",
+            "pt": "Dicas de Chegada"
+          },
+          "content": {
+            "en": "Upon arrival at Delhi, Mumbai, or any major airport, proceed to the e-Visa immigration counter. Keep a printed copy of your e-Visa approval. Immigration typically takes 15-30 minutes. Our private chauffeurs will be waiting at the arrivals hall with a personalized name board. All MH India Trips guests receive VIP airport fast-track assistance.",
+            "es": "Al llegar a Delhi, Mumbai o cualquier aeropuerto principal, diríjase al mostrador de e-Visa.",
+            "pt": "Ao chegar em Delhi, Mumbai ou qualquer aeropuerto principal, dirija-se ao balcão de e-Visto."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "travel-info-best-time-climate",
+    "isCustom": false,
+    "title": {
+      "en": "Travel Info: Best Time & Climate",
+      "es": "Guía de Viaje: Mejor época y clima",
+      "pt": "Guia de Viagem: Melhor época e clima"
+    },
+    "heroImage": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1200&auto=format",
+    "content": {
+      "heroTitle": {
+        "en": "Best Time to Visit & Climate",
+        "es": "Mejor Época para Visitar",
+        "pt": "Melhor Época para Visitar"
+      },
+      "heroSubtitle": {
+        "en": "Season-by-season guide to India's diverse climates",
+        "es": "Guía estación por estación del clima de India",
+        "pt": "Guia estação por estação do clima da Índia"
+      },
+      "sections": [
+        {
+          "heading": {
+            "en": "Peak Season (October - March)",
+            "es": "Temporada Alta (Octubre - Marzo)",
+            "pt": "Alta Temporada (Outubro - Março)"
+          },
+          "content": {
+            "en": "The ideal time for most of India. Pleasant temperatures (15-30°C), clear skies, and minimal rainfall. Perfect for Rajasthan, Kerala, Goa, Delhi, Agra, and most heritage destinations. December-January can be cool in the north (5-15°C). This is wedding season, so book accommodations and flights well in advance.",
+            "es": "El momento ideal para la mayor parte de India. Temperaturas agradables, cielos despejados.",
+            "pt": "O momento ideal para a maior parte da Índia. Temperaturas agradáveis, céus limpos."
+          }
+        },
+        {
+          "heading": {
+            "en": "Shoulder Season (April - June)",
+            "es": "Temporada Media (Abril - Junio)",
+            "pt": "Meia Temporada (Abril - Junho)"
+          },
+          "content": {
+            "en": "Hot in plains (35-45°C) but excellent for Himalayan hill stations like Shimla, Manali, Darjeeling, and Ladakh. Less crowded, better hotel rates. Ideal for mountain retreats and tea plantation tours. Southern India remains manageable with beach destinations.",
+            "es": "Caluroso en las llanuras pero excelente para estaciones de montaña del Himalaya.",
+            "pt": "Quente nas planícies mas excelente para estações de montanha do Himalaia."
+          }
+        },
+        {
+          "heading": {
+            "en": "Monsoon Season (July - September)",
+            "es": "Temporada de Monzón (Julio - Septiembre)",
+            "pt": "Temporada de Monção (Julho - Setembro)"
+          },
+          "content": {
+            "en": "Lush green landscapes, Ayurvedic rejuvenation season in Kerala, and dramatic waterfalls. Rajasthan gets refreshing rains. Avoid coastal areas and hill roads during heavy rains. Best for: Kerala Ayurveda retreats, Rajasthan photography, Meghalaya living root bridges.",
+            "es": "Paisajes verdes exuberantes, temporada de Ayurveda en Kerala.",
+            "pt": "Paisagens verdes exuberantes, temporada de Ayurveda em Kerala."
+          }
+        },
+        {
+          "heading": {
+            "en": "Regional Climate Guide",
+            "es": "Guía Climática Regional",
+            "pt": "Guía Climática Regional"
+          },
+          "bullets": {
+            "en": [
+              "North India (Delhi, Agra, Rajasthan): Best Oct-Mar, hot Apr-Jun",
+              "South India (Kerala, Karnataka, Tamil Nadu): Year-round, peak Nov-Mar",
+              "Himalayas (Ladakh, Himachal, Uttarakhand): May-Oct for trekking",
+              "East India (Kolkata, Darjeeling, NE States): Oct-Mar ideal",
+              "Goa & Beaches: Nov-Feb peak, monsoon Jul-Sep for quiet beauty"
+            ],
+            "es": [
+              "Norte: Oct-Mar ideal",
+              "Sur: Todo el año, pico Nov-Mar",
+              "Himalaya: May-Oct para senderismo",
+              "Este: Oct-Mar ideal",
+              "Goa y Playas: Nov-Feb pico"
+            ],
+            "pt": [
+              "Norte: Out-Mar ideal",
+              "Sul: Todo o ano, pico Nov-Mar",
+              "Himalaia: Mai-Out para trekking",
+              "Leste: Out-Mar ideal",
+              "Goa e Praias: Nov-Fev pico"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "travel-info-solo-female-travel",
+    "isCustom": false,
+    "title": {
+      "en": "Travel Info: Solo Female Safety",
+      "es": "Guía de Viaje: Mujer sola por India",
+      "pt": "Guia de Viagem: Mulher sozinha na Índia"
+    },
+    "heroImage": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=format",
+    "content": {
+      "heroTitle": {
+        "en": "Solo Female Travel Safety",
+        "es": "Viaje de Mujer Sola por India",
+        "pt": "Viagem de Mulher Sozinha na Índia"
+      },
+      "heroSubtitle": {
+        "en": "India welcomes solo women travelers with warmth and safety",
+        "es": "India da la bienvenida a mujeres viajeras solas",
+        "pt": "A Índia dá as boas-vindas a mulheres viajantes sozinhas"
+      },
+      "sections": [
+        {
+          "heading": {
+            "en": "Safety With MH India Trips",
+            "es": "Seguridad con MH India Trips",
+            "pt": "Segurança con MH India Trips"
+          },
+          "content": {
+            "en": "All our solo female travelers receive a dedicated female guide option, verified male drivers with background checks, 24/7 emergency concierge hotline, GPS-tracked vehicles, and vetted luxury hotel accommodations. We've safely hosted 500+ solo female travelers from 40+ countries with zero safety incidents.",
+            "es": "Todas nuestras viajeras solas reciben guía femenina dedicada, conductores verificados, línea de emergencia 24/7.",
+            "pt": "Todas as nossas viajantes sozinhas recebem guia feminina dedicada, motoristas verificados, linha de emergência 24/7."
+          }
+        },
+        {
+          "heading": {
+            "en": "Dress Code & Cultural Tips",
+            "es": "Código de Vestimenta",
+            "pt": "Código de Vestimenta"
+          },
+          "content": {
+            "en": "India is generally conservative. We recommend covering shoulders and knees at temples and rural areas. In cities like Delhi and Mumbai, western clothing is perfectly fine. Carry a light scarf for temple visits. Our guides will always advise on appropriate attire for each location.",
+            "es": "India es generalmente conservadora. Recomendamos cubrir hombros y rodillas en templos.",
+            "pt": "A Índia é geralmente conservadora. Recomendamos cobrir ombros e joelhos em templos."
+          }
+        },
+        {
+          "heading": {
+            "en": "Recommended Destinations for Solo Women",
+            "es": "Destinos Recomendados",
+            "pt": "Destinos Recomendados"
+          },
+          "bullets": {
+            "en": [
+              "Kerala - Peaceful backwaters and wellness retreats",
+              "Rajasthan - Palace stays with dedicated female staff",
+              "Goa - Safe beach culture with international community",
+              "Himachal Pradesh - Mountain retreats and yoga centers",
+              "Udaipur - Romantic lake city with boutique hotels"
+            ],
+            "es": [
+              "Kerala - Retiros de bienestar",
+              "Rajastán - Palacios con personal femenino",
+              "Goa - Cultura playera segura",
+              "Himachal Pradesh - Retiros de montaña",
+              "Udaipur - Ciudad romántica del lago"
+            ],
+            "pt": [
+              "Kerala - Retiros de bem-estar",
+              "Rajastão - Palácios com staff feminino",
+              "Goa - Cultura praiana segura",
+              "Himachal Pradesh - Retiros de montanha",
+              "Udaipur - Cidade romântica do lago"
+            ]
+          }
+        },
+        {
+          "heading": {
+            "en": "Emergency Contacts & Support",
+            "es": "Contactos de Emergencia",
+            "pt": "Contactos de Emergência"
+          },
+          "content": {
+            "en": "Emergency police: 100 | Women helpline: 1091 | Tourist police: 1363. All MH India Trips guests receive our 24/7 WhatsApp concierge number. Our local team is always within 30-minute reach in all operating cities.",
+            "es": "Policía de emergencia: 100 | Línea de mujeres: 1091 | Policía turística: 1363.",
+            "pt": "Polícia de emergência: 100 | Linha feminina: 1091 | Polícia turística: 1363."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "travel-info-vaccinations-health",
+    "isCustom": false,
+    "title": {
+      "en": "Travel Info: Vaccines & Health",
+      "es": "Guía de Viaje: Vacunas y salud",
+      "pt": "Guia de Viagem: Vacinação e saúde"
+    },
+    "heroImage": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200&auto=format",
+    "content": {
+      "heroTitle": {
+        "en": "Vaccinations & Health Advice",
+        "es": "Vacunas y Salud",
+        "pt": "Vacinação e Saúde"
+      },
+      "heroSubtitle": {
+        "en": "Stay healthy throughout your India journey",
+        "es": "Mantente saludable durante tu viaje a India",
+        "pt": "Mantenha-se saudável durante sua viagem à Índia"
+      },
+      "sections": [
+        {
+          "heading": {
+            "en": "Recommended Vaccinations",
+            "es": "Vacunas Recomendadas",
+            "pt": "Vacinas Recomendadas"
+          },
+          "bullets": {
+            "en": [
+              "Hepatitis A & B (strongly recommended)",
+              "Typhoid fever vaccine",
+              "Tetanus-Diphtheria booster if needed",
+              "Japanese Encephalitis (for rural/extended stays)",
+              "Rabies (if planning wildlife activities)",
+              "COVID-19 (latest booster recommended)"
+            ],
+            "es": [
+              "Hepatitis A y B",
+              "Vacuna contra fiebre tifoidea",
+              "Refuerzo tétanos-difteria",
+              "Encefalitis japonesa (estancias rurales)",
+              "Rabia (actividades con vida silvestre)",
+              "COVID-19 (refuerzo recomendado)"
+            ],
+            "pt": [
+              "Hepatite A e B",
+              "Vacina contra febre tifóide",
+              "Reforço tétano-difteria",
+              "Encefalite japonesa (estadias rurais)",
+              "Raiva (atividades com vida selvagem)",
+              "COVID-19 (reforço recomendado)"
+            ]
+          }
+        },
+        {
+          "heading": {
+            "en": "Medicine Kit Essentials",
+            "es": "Kit Médico Esencial",
+            "pt": "Kit Médico Essencial"
+          },
+          "content": {
+            "en": "Carry: anti-diarrheal (Imodium), rehydration salts, antihistamines, sunscreen SPF50+, insect repellent (DEET-based), hand sanitizer, water purification tablets, and any personal prescriptions. Pharmacies are widely available in India and most medicines are affordable over-the-counter.",
+            "es": "Lleve: antidiarreico, sales de rehidratación, antihistamínicos, protector solar SPF50+, repelente de insectos.",
+            "pt": "Leve: antidiarreico, sais de reidratação, anti-histamínicos, protetor solar SPF50+, repelente de insetos."
+          }
+        },
+        {
+          "heading": {
+            "en": "Food & Water Safety",
+            "es": "Seguridad Alimentaria",
+            "pt": "Segurança Alimentar"
+          },
+          "content": {
+            "en": "Drink only bottled or filtered water (our hotels provide complimentary purified water). Street food is an experience but stick to freshly cooked hot items. All MH India Trips restaurant recommendations are vetted for hygiene standards. We provide filtered water bottles in all private vehicles.",
+            "es": "Beba solo agua embotellada o filtrada. La comida callejera debe estar recién cocinada.",
+            "pt": "Beba apenas água engarrafada ou filtrada. A comida de rua deve estar recém cozinhada."
+          }
+        },
+        {
+          "heading": {
+            "en": "Travel Insurance",
+            "es": "Seguro de Viaje",
+            "pt": "Seguro de Viagem"
+          },
+          "content": {
+            "en": "We strongly recommend comprehensive travel insurance covering medical emergencies, trip cancellation, and baggage loss. India has excellent private hospitals in all major cities. MH India Trips maintains partnerships with top hospitals for priority access if needed.",
+            "es": "Recomendamos seguro de viaje completo que cubra emergencias médicas.",
+            "pt": "Recomendamos seguro de viagem completo que cubra emergências médicas."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "travel-info-packing-currency",
+    "isCustom": false,
+    "title": {
+      "en": "Travel Info: Packing & Currency Guide",
+      "es": "Guía de Viaje: Equipaje y moneda",
+      "pt": "Guia de Viagem: Mala e moeda"
+    },
+    "heroImage": "https://images.unsplash.com/photo-1473186578172-c141e6798cf4?q=80&w=1200&auto=format",
+    "content": {
+      "heroTitle": {
+        "en": "Packing List & Currency Tips",
+        "es": "Packing List & Currency Tips",
+        "pt": "Packing List & Currency Tips"
+      },
+      "heroSubtitle": {
+        "en": "Pack smart for every Indian season and region",
+        "es": "Empaque inteligente para cada temporada",
+        "pt": "Faça as malas de forma inteligente para cada temporada"
+      },
+      "sections": [
+        {
+          "heading": {
+            "en": "Essential Packing List",
+            "es": "Lista Esencial",
+            "pt": "Lista Essencial"
+          },
+          "bullets": {
+            "en": [
+              "Light cotton clothing (layerable for temperature changes)",
+              "Comfortable walking shoes and sandals",
+              "Light scarf/shawl for temple visits",
+              "Sunglasses, hat, and SPF50 sunscreen",
+              "Power adapter (Type C/D, 230V)",
+              "Reusable water bottle with filter",
+              "Small daypack for excursions",
+              "Light rain jacket (all seasons)",
+              "Camera with extra memory cards"
+            ],
+            "es": [
+              "Ropa ligera de algodón",
+              "Zapatos cómodos y sandalias",
+              "Pañuelo/chal para templos",
+              "Gafas de sol, sombrero y protector solar",
+              "Adaptador de corriente",
+              "Botella de agua reutilizable",
+              "Mochila pequeña para excursiones",
+              "Chaqueta impermeable ligera",
+              "Cámara con tarjetas extra"
+            ],
+            "pt": [
+              "Roupa leve de algodão",
+              "Sapatos confortáveis e sandálias",
+              "Lenço/xale para templos",
+              "Óculos de sol, chapéu e protetor solar",
+              "Adaptador de corrente",
+              "Garrafa de água reutilizável",
+              "Mochila pequena para excursões",
+              "Jaqueta impermeável leve",
+              "Câmera com cartões extra"
+            ]
+          }
+        },
+        {
+          "heading": {
+            "en": "Season-Specific Additions",
+            "es": "Adiciones por Temporada",
+            "pt": "Adições por Temporada"
+          },
+          "content": {
+            "en": "Winter (Nov-Feb): Warm layers, thermal wear for North India mornings. Summer (Mar-Jun): Extra light fabrics, cooling towel. Monsoon (Jul-Sep): Waterproof bag covers, quick-dry clothing, umbrella. Hill stations: Warm fleece/jacket regardless of season.",
+            "es": "Invierno: Capas cálidas para el Norte. Verano: Telas extra ligeras. Monzón: Ropa impermeable.",
+            "pt": "Inverno: Camadas quentes para o Norte. Verão: Tecidos extra leves. Monção: Roupa impermeável."
+          }
+        },
+        {
+          "heading": {
+            "en": "Indian Rupee & Currency Exchange",
+            "es": "Rupia India y Cambio de Moneda",
+            "pt": "Rúpia Indiana e Câmbio"
+          },
+          "content": {
+            "en": "Currency: Indian Rupee (INR/₹). 1 USD ≈ 83 INR (approx). Exchange at airport or authorized dealers. ATMs available everywhere. Visa/Mastercard widely accepted in cities and hotels. Carry small denominations (₹100-500) for tips and local markets. UPI payments (Google Pay) are universal in India. MH India Trips handles all major payments digitally.",
+            "es": "Moneda: Rupia India (INR). 1 USD ≈ 83 INR. Cajeros en todas partes. Visa/Mastercard aceptados.",
+            "pt": "Moeda: Rúpia Indiana (INR). 1 USD ≈ 83 INR. Caixas eletrônicos em toda parte. Visa/Mastercard aceitos."
+          }
+        },
+        {
+          "heading": {
+            "en": "Tipping Guidelines",
+            "es": "Guía de Propinas",
+            "pt": "Guia de Gorjetas"
+          },
+          "content": {
+            "en": "Tipping is appreciated but not mandatory. Suggested: Hotel porter ₹100-200, restaurant 10% of bill, private driver ₹500-1000/day, guide ₹1000-2000/day, spa therapist 10-15%. MH India Trips provides tipping guidelines specific to your itinerary.",
+            "es": "Las propinas se aprecian pero no son obligatorias. Sugerido: Portero ₹100-200, restaurante 10%.",
+            "pt": "As gorjetas são apreciadas mas não obrigatórias. Sugerido: Porteiro ₹100-200, restaurante 10%."
+          }
+        }
+      ]
+    }
   }
 ]
