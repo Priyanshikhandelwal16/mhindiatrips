@@ -38,7 +38,7 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
       ctaTitle: "Need Help? We Are Here To Help You",
       ctaDesc: "We Can Tailor-Make a Special Itinerary For You. Contact our specialists directly.",
       phone: "+91 98922 47544",
-      email: "info@mhindiatrips.com",
+      email: "mhindiatrips@gmail.com",
       readMore: "Read More",
       recommended: "Recommended"
     },
@@ -59,7 +59,7 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
       ctaTitle: "¿Necesitas Ayuda? Estamos Aquí Para Ti",
       ctaDesc: "Podemos crear un itinerario especial para ti. Contacta con nuestros especialistas.",
       phone: "+91 98922 47544",
-      email: "info@mhindiatrips.com",
+      email: "mhindiatrips@gmail.com",
       readMore: "Leer Más",
       recommended: "Recomendado"
     },
@@ -80,7 +80,7 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
       ctaTitle: "Precisa de Ajuda? Estamos Aqui Para Você",
       ctaDesc: "Podemos criar um roteiro especial para você. Fale com nossos especialistas.",
       phone: "+91 98922 47544",
-      email: "info@mhindiatrips.com",
+      email: "mhindiatrips@gmail.com",
       readMore: "Leia Mais",
       recommended: "Recomendado"
     }
@@ -155,7 +155,7 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
             {/* Cover Image */}
             {cityImage && (
               <div className="h-[350px] md:h-[420px] w-full rounded-2xl overflow-hidden shadow-md">
-                <img src={cityImage} alt={cityTitle} className="w-full h-full object-cover" />
+                <img src={cityImage} alt={cityTitle} loading="lazy" className="w-full h-full object-cover" />
               </div>
             )}
 

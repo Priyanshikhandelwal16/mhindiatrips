@@ -34,7 +34,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   // Fetch dynamic settings from database (falling back to hardcoded system defaults)
   const contactDetails = (await db.settings.findUnique("contact_details")) || {
     phone: "+91 9782001006",
-    email: "info@mhindiatrips.com",
+    email: "mhindiatrips@gmail.com",
     whatsapp: "919782001006",
     address: "New Delhi, India",
     hours: "Mon - Sat: 9:00 AM - 7:00 PM IST"
@@ -46,7 +46,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
       </head>
       <body className="font-sans bg-background text-foreground antialiased min-h-screen flex flex-col justify-between w-full overflow-x-hidden" suppressHydrationWarning>
         <PageLoader />

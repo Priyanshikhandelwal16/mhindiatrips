@@ -191,29 +191,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
         </div>
       </section>
 
-      {/* SECTION 5: Expert Team (Increased Expert Team Text Sizes) */}
-      <section className="max-w-7xl mx-auto px-6 py-28 space-y-16 border-b border-gold/10">
-        <div className="text-center space-y-3 max-w-lg mx-auto">
-          <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold block">EXPERTS</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-royal tracking-tight">{text.teamTitle}</h2>
-          <p className="text-sm text-foreground/50 leading-relaxed font-light">{text.teamDesc}</p>
-          <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {team.map((member: any, i: number) => (
-            <Reveal key={i} delay={i * 80} className="bg-white border border-gold/10 overflow-hidden shadow-md transition-all duration-350 hover:-translate-y-2">
-              <div className="h-72 overflow-hidden relative">
-                <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
-              </div>
-              <div className="p-6 text-center bg-white">
-                <h4 className="text-lg font-bold text-royal">{member.name}</h4>
-                <p className="text-xs text-foreground/45 uppercase tracking-wider mt-1">{member.role}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
 
       {/* SECTION 6: Call To Action */}
       <section className="max-w-3xl mx-auto px-6 py-28 text-center space-y-6">

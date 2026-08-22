@@ -146,6 +146,7 @@ export default function TravelerInfoCarousel({ locale, cardImages = {} }: Travel
                   <img
                     src={cardImages[card.id] || card.image}
                     alt={title}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />

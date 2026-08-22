@@ -316,7 +316,7 @@ export async function getSettingsAction() {
       contactDetails: contact || {
         id: "contact_details",
         phone: "+91 9782001006",
-        email: "info@mhindiatrips.com",
+        email: "mhindiatrips@gmail.com",
         whatsapp: "919782001006",
         address: "New Delhi, India",
         hours: "Mon - Sat: 9:00 AM - 7:00 PM IST"

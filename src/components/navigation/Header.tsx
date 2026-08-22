@@ -175,9 +175,9 @@ export default function Header({ locale, contactDetails, states = [], packages =
               <Phone className="w-3.5 h-3.5 text-gold" />
               <span>{contactDetails?.phone || "+91 9782001006"}</span>
             </a>
-            <a href={`mailto:${contactDetails?.email || "info@mhindiatrips.com"}`} className="flex items-center gap-1.5 hover:text-gold transition-colors">
+            <a href={`mailto:${contactDetails?.email || "mhindiatrips@gmail.com"}`} className="flex items-center gap-1.5 hover:text-gold transition-colors">
               <Mail className="w-3.5 h-3.5 text-gold" />
-              <span>{contactDetails?.email || "info@mhindiatrips.com"}</span>
+              <span>{contactDetails?.email || "mhindiatrips@gmail.com"}</span>
             </a>
           </div>
           <div className="flex items-center gap-4 text-white/70">
@@ -493,7 +493,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
 
       {/* Mobile Menu Panel */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-[#FCFAF6]/98 backdrop-blur-xl z-40 flex flex-col justify-start pt-20 px-8 pb-10 space-y-4 animate-fade-in lg:hidden text-royal overflow-y-auto overscroll-contain">
+        <div className="fixed inset-0 bg-[#FCFAF6]/98 backdrop-blur-xl z-40 flex flex-col justify-start pt-36 px-8 pb-10 space-y-4 animate-fade-in lg:hidden text-royal overflow-y-auto overscroll-contain">
           <nav className="flex flex-col space-y-2.5 text-center pt-4">
             
             <Link

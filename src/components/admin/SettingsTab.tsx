@@ -178,7 +178,7 @@ export default function SettingsTab({
                 required
                 value={email} 
                 onChange={e => setEmail(e.target.value)}
-                placeholder="info@mhindiatrips.com"
+                placeholder="mhindiatrips@gmail.com"
                 className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold/50 transition"
               />
             </div>

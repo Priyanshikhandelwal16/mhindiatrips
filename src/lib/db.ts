@@ -115,7 +115,7 @@ let settingsCache = loadLocalData("settings", [
   {
     id: "contact_details",
     phone: "+91 9782001006",
-    email: "info@mhindiatrips.com",
+    email: "mhindiatrips@gmail.com",
     whatsapp: "919782001006",
     address: "New Delhi, India",
     hours: "Mon - Sat: 9:00 AM - 7:00 PM IST"
@@ -338,7 +338,7 @@ const defaultSystemPages = [
       heroTitle: { en: "Get In Touch", es: "Ponte en Contacto", pt: "Entre em Contato" },
       heroSubtitle: { en: "Plan your dream India journey", es: "Planifica tu viaje soñado a India", pt: "Planeje sua viagem dos sonhos à Índia" },
       addressLine: { en: "New Delhi, India", es: "Nueva Delhi, India", pt: "Nova Delhi, Índia" },
-      email: { en: "info@mhindiatrips.com", es: "info@mhindiatrips.com", pt: "info@mhindiatrips.com" },
+      email: { en: "mhindiatrips@gmail.com", es: "mhindiatrips@gmail.com", pt: "mhindiatrips@gmail.com" },
       phone: { en: "+91 98765 43210", es: "+91 98765 43210", pt: "+91 98765 43210" },
     }
   },

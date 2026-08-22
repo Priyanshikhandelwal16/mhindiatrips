@@ -222,9 +222,9 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
                 <Phone className="w-4 h-4 text-[#C5A862]" />
                 <span>{contactDetails?.phone || "+91 9782001006"}</span>
               </a>
-              <a href={`mailto:${contactDetails?.email || "info@mhindiatrips.com"}`} className="flex items-center gap-2.5 text-royal hover:text-gold transition-colors">
+              <a href={`mailto:${contactDetails?.email || "mhindiatrips@gmail.com"}`} className="flex items-center gap-2.5 text-royal hover:text-gold transition-colors">
                 <Mail className="w-4 h-4 text-[#C5A862]" />
-                <span>{contactDetails?.email || "info@mhindiatrips.com"}</span>
+                <span>{contactDetails?.email || "mhindiatrips@gmail.com"}</span>
               </a>
             </div>
 
