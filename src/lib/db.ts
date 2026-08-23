@@ -655,6 +655,13 @@ async function ensureSeeded(collectionName: string, initialData: any[]) {
       if (docId && !existingIds.has(docId)) {
         console.log(`Document ${docId} is missing in ${collectionName}. Seeding it...`);
         await setDoc(doc(firestore, collectionName, docId), item);
+      } else if (docId === "contact_details" && collectionName === "settings") {
+        const existingDoc = snapshot.docs.find(d => d.id === docId);
+        const existingData = existingDoc?.data();
+        if (existingData && (existingData.phone !== item.phone || existingData.whatsapp !== item.whatsapp)) {
+          console.log(`Updating Firestore contact_details document with new phone number...`);
+          await setDoc(doc(firestore, collectionName, docId), item, { merge: true });
+        }
       }
     }
   } catch (err: any) {
