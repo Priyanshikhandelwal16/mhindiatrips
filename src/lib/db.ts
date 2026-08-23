@@ -132,9 +132,9 @@ let tourPackagesCache = loadLocalData("tour_packages", mergedPackages);
 let settingsCache = loadLocalData("settings", [
   {
     id: "contact_details",
-    phone: "+91 9782001006",
+    phone: "+91 9829989187",
     email: "mhindiatrips@gmail.com",
-    whatsapp: "919782001006",
+    whatsapp: "919829989187",
     address: "New Delhi, India",
     hours: "Mon - Sat: 9:00 AM - 7:00 PM IST"
   },

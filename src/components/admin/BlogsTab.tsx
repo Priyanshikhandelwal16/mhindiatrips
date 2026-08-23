@@ -69,9 +69,10 @@ export default function BlogsTab({
               <input 
                 type="text" 
                 required
+                disabled={blogs.some(b => b.slug === editBlog.slug)}
                 value={editBlog.slug}
                 onChange={e => setEditBlog({...editBlog, slug: e.target.value.toLowerCase().replace(/\s+/g, "-")})}
-                className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
+                className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50 disabled:opacity-60 disabled:cursor-not-allowed font-bold"
                 placeholder="jaipur-travel-guide"
               />
             </div>

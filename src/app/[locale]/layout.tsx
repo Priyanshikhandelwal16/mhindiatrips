@@ -33,9 +33,9 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   
   // Fetch dynamic settings from database (falling back to hardcoded system defaults)
   const defaultContactDetails = {
-    phone: "+91 9782001006",
+    phone: "+91 9829989187",
     email: "mhindiatrips@gmail.com",
-    whatsapp: "919782001006",
+    whatsapp: "919829989187",
     address: "New Delhi, India",
     hours: "Mon - Sat: 9:00 AM - 7:00 PM IST",
     facebook: "https://www.facebook.com/viajeaindiaconindiasinvitation/",

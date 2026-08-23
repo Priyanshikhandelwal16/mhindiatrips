@@ -393,9 +393,10 @@ export default function PackagesTab({
                   <label className="font-bold uppercase tracking-wider block">Slug (URL identifier)</label>
                   <input 
                     type="text" required
+                    disabled={packages.some(p => p.slug === editPackage.slug)}
                     value={editPackage.slug || ""}
                     onChange={e => setEditPackage({...editPackage, slug: e.target.value.toLowerCase().replace(/\s+/g, "-")})}
-                    className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
+                    className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50 disabled:opacity-60 disabled:cursor-not-allowed font-bold"
                   />
                 </div>
                 <div className="space-y-1.5">

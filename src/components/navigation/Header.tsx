@@ -189,9 +189,9 @@ export default function Header({ locale, contactDetails, states = [], packages =
       >
         <div className="max-w-[1400px] w-full mx-auto px-6 xl:px-10 flex flex-col md:flex-row justify-between items-center gap-2">
           <div className="flex items-center gap-6">
-            <a href={`tel:${contactDetails?.phone || "+91 9782001006"}`} className="flex items-center gap-1.5 hover:text-gold transition-colors">
+            <a href={`tel:${contactDetails?.phone || "+91 9829989187"}`} className="flex items-center gap-1.5 hover:text-gold transition-colors">
               <Phone className="w-3.5 h-3.5 text-gold" />
-              <span>{contactDetails?.phone || "+91 9782001006"}</span>
+              <span>{contactDetails?.phone || "+91 9829989187"}</span>
             </a>
             <a href={`mailto:${displayEmail}`} className="flex items-center gap-1.5 hover:text-gold transition-colors">
               <Mail className="w-3.5 h-3.5 text-gold" />

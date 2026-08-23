@@ -184,7 +184,7 @@ export default function SettingsTab({
                 required
                 value={phone} 
                 onChange={e => setPhone(e.target.value)}
-                placeholder="+91 9782001006"
+                placeholder="+91 9829989187"
                 className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold/50 transition"
               />
             </div>
@@ -214,7 +214,7 @@ export default function SettingsTab({
                 required
                 value={whatsapp} 
                 onChange={e => setWhatsapp(e.target.value.replace(/[^0-9]/g, ""))}
-                placeholder="919782001006"
+                placeholder="919829989187"
                 className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold/50 transition"
               />
             </div>

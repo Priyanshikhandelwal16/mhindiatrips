@@ -805,6 +805,45 @@ export default function DestinationsTab({
             </div>
 
             <div className="space-y-4">
+              {/* City ID, Parent State, and Publish Status Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase text-[10px] tracking-wider text-royal/50 block">City ID (e.g. jaipur)</label>
+                  <input
+                    type="text" required disabled={!!editCity.id}
+                    value={editCity.id || ""}
+                    onChange={e => setEditCity({
+                      ...editCity,
+                      id: e.target.value.toLowerCase().replace(/\s+/g, "-")
+                    })}
+                    className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2.5 outline-none rounded-lg focus:border-gold/50 font-bold"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase text-[10px] tracking-wider text-royal/50 block">Parent State</label>
+                  <select
+                    value={editCity.stateId || ""}
+                    onChange={e => setEditCity({...editCity, stateId: e.target.value})}
+                    className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2.5 outline-none rounded-lg focus:border-gold/50 cursor-pointer font-bold"
+                  >
+                    {states.map(s => (
+                      <option key={s.id} value={s.id}>{s.name?.en || s.id}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="space-y-1.5">
+                  <label className="font-bold uppercase text-[10px] tracking-wider text-royal/50 block">Publish Status</label>
+                  <select
+                    value={editCity.isPublished ? "true" : "false"}
+                    onChange={e => setEditCity({...editCity, isPublished: e.target.value === "true"})}
+                    className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2.5 outline-none rounded-lg focus:border-gold/50 cursor-pointer font-bold"
+                  >
+                    <option value="true">Published</option>
+                    <option value="false">Draft / Unpublished</option>
+                  </select>
+                </div>
+              </div>
+
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <label className="font-bold uppercase text-[10px] tracking-wider text-royal/50 block">Name ({activeLang.toUpperCase()})</label>

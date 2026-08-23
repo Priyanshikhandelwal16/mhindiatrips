@@ -140,9 +140,10 @@ export default function CuisinesTab({
                   <input 
                     type="text" 
                     required
+                    disabled={foods.some(f => f.slug === editFood.slug)}
                     value={editFood.slug}
                     onChange={e => setEditFood({...editFood, slug: e.target.value.toLowerCase().replace(/\s+/g, "-")})}
-                    className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
+                    className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50 disabled:opacity-60 disabled:cursor-not-allowed font-bold"
                   />
                 </div>
                 <div className="space-y-1.5">
