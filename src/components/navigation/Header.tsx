@@ -243,7 +243,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center flex-nowrap gap-2 xl:gap-4 2xl:gap-5 shrink min-w-0 overflow-hidden">
+          <nav className="hidden lg:flex items-center flex-nowrap gap-2 xl:gap-4 2xl:gap-5 shrink min-w-0">
             
             {/* Home Link */}
             <Link
