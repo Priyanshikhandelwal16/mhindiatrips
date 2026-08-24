@@ -99,7 +99,7 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
       <div className="absolute inset-0 opacity-[0.025] bg-[radial-gradient(#0A2A1E_1.5px,transparent_1.5px)] [background-size:24px_24px] pointer-events-none" />
 
       {/* Main Footer layout */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 md:py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 md:py-28">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-12">
 
           {/* Logo & Intro Column (Spans 5) */}
@@ -209,7 +209,7 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
         </div>
 
         {/* Bottom copyright details bar */}
-        <div className="border-t border-royal/10 mt-10 pt-6 flex flex-col gap-4 text-sm text-royal/60 font-light">
+        <div className="border-t border-royal/10 mt-16 pt-8 flex flex-col gap-6 text-sm text-royal/60 font-light">
           {/* Main Info Row (Copyright left, Legal Links right) */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-center md:text-left">

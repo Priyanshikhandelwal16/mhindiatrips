@@ -1614,23 +1614,3 @@ details[open] summary {
   color: #0A2A1E; /* Forest green numbers */
   font-weight: bold;
 }
-
-/* === HEADER NAV ANTI-WRAP PROTECTION === */
-/* Ensure nav links never break to second line regardless of browser zoom */
-header nav {
-  flex-wrap: nowrap !important;
-  white-space: nowrap !important;
-}
-
-header nav a,
-header nav button {
-  white-space: nowrap !important;
-  flex-shrink: 0;
-}
-
-/* Scale header nav text relative to container, not viewport zoom */
-@media (min-width: 1024px) {
-  header .nav-links-container {
-    font-size: clamp(6px, 0.65vw, 11px);
-  }
-}
