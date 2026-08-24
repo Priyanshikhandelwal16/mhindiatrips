@@ -13,6 +13,18 @@ export default async function TermsPage({ params }: TermsPageProps) {
   const title = pageData?.title?.[locale] || pageData?.title?.en || (locale === "es" ? "Términos y Condiciones" : locale === "pt" ? "Termos e Condições" : "Terms & Conditions");
   const body = pageData?.content?.body?.[locale] || pageData?.content?.body?.en;
 
+  // Render other custom translatable fields added by the user
+  const customSections = Object.keys(pageData?.content || {})
+    .filter(k => k !== "body")
+    .map(key => {
+      const fieldVal = pageData?.content[key];
+      if (fieldVal && typeof fieldVal === "object" && (fieldVal[locale] || fieldVal.en)) {
+        return fieldVal[locale] || fieldVal.en;
+      }
+      return null;
+    })
+    .filter(Boolean) as string[];
+
   return (
     <div className="font-sans bg-[#FAF8F5] min-h-screen text-[#1B1B1B]">
       {/* Hero */}
@@ -28,8 +40,15 @@ export default async function TermsPage({ params }: TermsPageProps) {
       <section className="py-20 bg-[#FAF8F5]">
         <div className="max-w-3xl mx-auto px-6">
           <Reveal className="prose prose-lg max-w-none text-foreground/75 leading-relaxed space-y-8">
-            {body ? (
-              <div dangerouslySetInnerHTML={{ __html: body }} />
+            {(body || customSections.length > 0) ? (
+              <div className="space-y-8">
+                {body && (
+                  <div dangerouslySetInnerHTML={{ __html: body }} className="blog-content-rich" />
+                )}
+                {customSections.map((secContent, idx) => (
+                  <div key={idx} dangerouslySetInnerHTML={{ __html: secContent }} className="blog-content-rich" />
+                ))}
+              </div>
             ) : (
               <>
                 <p className="text-xs uppercase tracking-wider font-bold text-gold">Last updated: August 2026</p>

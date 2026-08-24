@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { getBlogsAction, getPageByIdAction } from "@/app/actions/queries";
 import { BlogData } from "@/data/mockData";
-import { Clock, ArrowRight, BookOpen, Compass, Sparkles, Send } from "lucide-react";
+import { Clock, ArrowRight, Sparkles } from "lucide-react";
 import Reveal from "@/components/home/Reveal";
 
 interface BlogIndexPageProps {
@@ -212,39 +212,31 @@ export default async function BlogIndexPage({ params, searchParams }: BlogIndexP
 
       {/* SECTION 5: Popular Posts List */}
       <section className="bg-white border-t border-gold/15 py-24">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-16">
-          <div className="lg:col-span-2 space-y-8">
+        <div className="max-w-6xl mx-auto px-6 space-y-8">
+          <div className="space-y-4 text-center">
             <h3 className="text-2xl font-bold text-royal">{text.popular}</h3>
-            <div className="h-px w-20 bg-gold/25" />
-            <div className="space-y-8">
-              {blogs.slice(0, 3).map((blog: any, idx: number) => (
-                <Link key={idx} href={`/${locale}/blog/${blog.slug}`} className="flex gap-6 group">
-                  <div className="w-24 h-24 overflow-hidden shrink-0">
-                    <img src={blog.featuredImage} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <div className="space-y-1">
-                    <span className="text-[10px] uppercase font-bold text-gold">{blog.category}</span>
-                    <h4 className="text-base md:text-lg font-bold text-royal group-hover:text-gold transition-colors line-clamp-2">
+            <div className="h-px w-20 bg-gold/25 mx-auto" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4">
+            {blogs.slice(0, 3).map((blog: any, idx: number) => (
+              <Link key={idx} href={`/${locale}/blog/${blog.slug}`} className="flex flex-col gap-4 group bg-[#FAF8F5] border border-gold/10 p-5 rounded-2xl shadow-sm hover:shadow-md transition">
+                <div className="w-full h-44 overflow-hidden rounded-xl relative">
+                  <img src={blog.featuredImage} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div className="space-y-2 flex-grow flex flex-col justify-between">
+                  <div>
+                    <span className="text-[9px] uppercase font-bold text-gold block tracking-wider mb-1">{blog.category}</span>
+                    <h4 className="text-sm font-bold text-royal group-hover:text-gold transition-colors line-clamp-2 leading-snug">
                       {blog.title[locale as "en"|"es"|"pt"] || blog.title.en}
                     </h4>
                   </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* SECTION 6: Private Newsletter Box */}
-          <div className="bg-[#FAF8F5] border border-gold/20 p-10 space-y-6 shadow-md h-fit">
-            <span className="text-xs uppercase tracking-wider font-bold text-gold block">{text.newsletterTitle}</span>
-            <h3 className="text-xl font-bold text-royal">{text.newsletterTitle}</h3>
-            <p className="text-xs text-foreground/50 leading-relaxed font-light">{text.newsletterDesc}</p>
-            <form className="space-y-4">
-              <input type="email" placeholder="Email Address" className="w-full bg-white border border-gold/10 focus:border-gold px-4 py-3 text-xs outline-none rounded-full" required />
-              <button type="submit" className="w-full bg-gold hover:bg-gold-light text-royal text-xs font-bold uppercase tracking-widest py-3 rounded-full transition-transform hover:scale-[1.02] flex items-center justify-center gap-2">
-                <Send className="w-3.5 h-3.5" />
-                <span>{text.newsletterBtn}</span>
-              </button>
-            </form>
+                  <div className="flex items-center gap-1.5 text-[9px] text-royal/40 pt-2 border-t border-gold/5 mt-2">
+                    <Clock className="w-3 h-3 text-gold" />
+                    <span>{blog.readingTime} Min Read</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

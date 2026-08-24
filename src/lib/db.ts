@@ -357,7 +357,7 @@ const defaultSystemPages = [
       heroSubtitle: { en: "Plan your dream India journey", es: "Planifica tu viaje soñado a India", pt: "Planeje sua viagem dos sonhos à Índia" },
       addressLine: { en: "New Delhi, India", es: "Nueva Delhi, India", pt: "Nova Delhi, Índia" },
       email: { en: "mhindiatrips@gmail.com", es: "mhindiatrips@gmail.com", pt: "mhindiatrips@gmail.com" },
-      phone: { en: "+91 98765 43210", es: "+91 98765 43210", pt: "+91 98765 43210" },
+      phone: { en: "+91 9829989187", es: "+91 9829989187", pt: "+91 9829989187" },
     }
   },
   {

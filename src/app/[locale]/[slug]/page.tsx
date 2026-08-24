@@ -21,6 +21,19 @@ export default async function CustomPage({ params }: CustomPageProps) {
 
   const title = pageData.title?.[locale] || pageData.title?.en || "MH India Trips Page";
   const body = pageData.content?.body?.[locale] || pageData.content?.body?.en || "";
+
+  // Render other custom translatable fields added by the user
+  const customSections = Object.keys(pageData?.content || {})
+    .filter(k => k !== "body")
+    .map(key => {
+      const fieldVal = pageData?.content[key];
+      if (fieldVal && typeof fieldVal === "object" && (fieldVal[locale] || fieldVal.en)) {
+        return fieldVal[locale] || fieldVal.en;
+      }
+      return null;
+    })
+    .filter(Boolean) as string[];
+
   const heroImage = pageData.heroImage || "/images/luxury_palace_train.png";
 
   const ctaBtnText = locale === "es" ? "Planificar Viaje" : locale === "pt" ? "Fale Conosco" : "Inquire Now";
@@ -42,7 +55,14 @@ export default async function CustomPage({ params }: CustomPageProps) {
       <section className="py-20 bg-[#FAF8F5]">
         <div className="max-w-3xl mx-auto px-6">
           <Reveal className="prose prose-lg max-w-none text-[#1B1B1B]/75 leading-relaxed space-y-8">
-            <div dangerouslySetInnerHTML={{ __html: body }} className="dynamic-html-content space-y-6" />
+            <div className="space-y-8">
+              {body && (
+                <div dangerouslySetInnerHTML={{ __html: body }} className="blog-content-rich" />
+              )}
+              {customSections.map((secContent, idx) => (
+                <div key={idx} dangerouslySetInnerHTML={{ __html: secContent }} className="blog-content-rich" />
+              ))}
+            </div>
           </Reveal>
         </div>
       </section>

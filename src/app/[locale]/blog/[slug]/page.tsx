@@ -4,8 +4,7 @@ import Link from "next/link";
 import { getBlogBySlugAction, getBlogsAction } from "@/app/actions/queries";
 import Reveal from "@/components/home/Reveal";
 import { 
-  Clock, ArrowLeft, ArrowRight, User, Calendar, Tag, 
-  Share2, BookOpen, ChevronRight 
+  Clock, ArrowLeft, User, Calendar, ChevronRight 
 } from "lucide-react";
 
 interface BlogDetailPageProps {
@@ -142,40 +141,14 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
             {/* Content */}
             <Reveal delay={100}>
               <div className="prose prose-lg max-w-none space-y-6">
-                <div className="text-[15px] text-[#1B1B1B]/70 leading-[1.9] whitespace-pre-line font-light">
-                  {blogContent}
-                </div>
+                <div 
+                  dangerouslySetInnerHTML={{ __html: blogContent }} 
+                  className="blog-content-rich text-[15px] text-[#1B1B1B]/70 leading-[1.9] whitespace-pre-line font-light"
+                />
               </div>
             </Reveal>
 
-            {/* Tags */}
-            {blog.tags && blog.tags.length > 0 && (
-              <Reveal delay={150}>
-                <div className="pt-8 border-t border-[#C3AB85]/15 space-y-3">
-                  <span className="text-[10px] uppercase tracking-wider font-bold text-[#C3AB85] flex items-center gap-1.5">
-                    <Tag className="w-3.5 h-3.5" />
-                    {text.tags}
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {blog.tags.map((tag: string, i: number) => (
-                      <span key={i} className="bg-[#0B0D0C]/5 text-[#1B1B1B]/60 text-[10px] font-medium px-3 py-1.5 rounded-full border border-[#0B0D0C]/5">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
-            )}
 
-            {/* Share */}
-            <Reveal delay={200}>
-              <div className="pt-8 border-t border-[#C3AB85]/15">
-                <div className="flex items-center gap-4">
-                  <Share2 className="w-4 h-4 text-[#C3AB85]" />
-                  <span className="text-xs font-bold text-[#0B0D0C]/60 uppercase tracking-wider">{text.share}</span>
-                </div>
-              </div>
-            </Reveal>
 
             {/* Author Bio Card */}
             <Reveal delay={250}>
@@ -196,27 +169,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
           {/* Sidebar */}
           <aside className="lg:col-span-4 space-y-8 lg:sticky lg:top-24 lg:self-start">
             
-            {/* Quick Info */}
-            <div className="bg-white border border-[#C3AB85]/15 p-6 space-y-5">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-[#C3AB85] flex items-center gap-1.5">
-                <BookOpen className="w-4 h-4" />
-                {text.tableOfContents}
-              </h4>
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 text-xs text-[#1B1B1B]/60">
-                  <span className="w-5 h-5 rounded-full bg-[#C3AB85]/10 flex items-center justify-center text-[8px] font-bold text-[#C3AB85]">1</span>
-                  <span>Introduction</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs text-[#1B1B1B]/60">
-                  <span className="w-5 h-5 rounded-full bg-[#C3AB85]/10 flex items-center justify-center text-[8px] font-bold text-[#C3AB85]">2</span>
-                  <span>Key Insights</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs text-[#1B1B1B]/60">
-                  <span className="w-5 h-5 rounded-full bg-[#C3AB85]/10 flex items-center justify-center text-[8px] font-bold text-[#C3AB85]">3</span>
-                  <span>Travel Tips</span>
-                </div>
-              </div>
-            </div>
+
 
             {/* CTA Card */}
             <div className="bg-[#0B0D0C] p-6 space-y-4 text-white">

@@ -77,7 +77,7 @@ export default function ConciergeSeal({ locale }: { locale: string }) {
 
             {/* Direct WhatsApp */}
             <a
-              href="https://wa.me/919999999999" // Premium placeholder
+              href="https://wa.me/919829989187"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center gap-3 px-4 py-3 bg-[#25D366] text-white font-bold text-xs transition-all hover:scale-[1.02] cursor-pointer shadow-md"
