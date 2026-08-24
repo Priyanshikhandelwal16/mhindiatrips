@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Phone, Mail, MapPin, Send, Compass } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import { getLocalizedDestinationsPath } from "@/lib/utils";
 
 interface FooterProps {
@@ -30,8 +30,6 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
   if (pathname?.includes("/admin")) {
     return null;
   }
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
 
   const footerTranslations: Record<string, any> = {
     en: {
@@ -40,10 +38,6 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
       quickLinks: "Discover More",
       destinations: "Regions",
       contactDetails: "The Travel Desk",
-      newsletterTitle: "Private Dispatch",
-      newsletterDesc: "Join our exclusive travel circle for seasonal offers, local insights, and curated private tours announcements.",
-      newsletterPlaceholder: "Enter your email address",
-      newsletterSuccess: "Subscription confirmed.",
       copyright: "2026 MH India Trips. Crafted for luxury.",
       designedBy: "Designed & Developed by",
       terms: "Terms of Service",
@@ -56,10 +50,6 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
       quickLinks: "Descubrir Más",
       destinations: "Regiones",
       contactDetails: "Mesa de Viaje",
-      newsletterTitle: "Despacho Privado",
-      newsletterDesc: "Únase a nuestro círculo de viajes exclusivo para recibir ofertas de temporada e ideas locales.",
-      newsletterPlaceholder: "Introduzca su dirección de correo electrónico",
-      newsletterSuccess: "Suscripción confirmada.",
       copyright: "2026 MH India Trips. Creado para el lujo.",
       designedBy: "Diseñado y Desarrollado por",
       terms: "Términos de Servicio",
@@ -72,10 +62,6 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
       quickLinks: "Descubra Mais",
       destinations: "Regiões",
       contactDetails: "Balcão de Viagens",
-      newsletterTitle: "Boletim Privado",
-      newsletterDesc: "Participe do nosso círculo de viagens exclusivo para ofertas sazonais e descobertas locais.",
-      newsletterPlaceholder: "Introduza o seu endereço de e-mail",
-      newsletterSuccess: "Subscrição confirmada.",
       copyright: "2026 MH India Trips. Feito para o luxo.",
       designedBy: "Design e Desenvolvimento por",
       terms: "Termos de Serviço",
@@ -104,13 +90,7 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
     { name: "Goa", url: getLocalizedDestinationsPath(locale, "goa") }
   ];
 
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubmitted(true);
-      setEmail("");
-    }
-  };
+
 
   return (
     <footer className="bg-[#FAF8F5] text-royal/75 font-sans relative overflow-hidden border-t border-gold/30">
@@ -205,48 +185,25 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
             </ul>
           </div>
 
-          {/* Newsletter Column (Spans 3) */}
+          {/* Contact Column (Spans 3) */}
           <div className="lg:col-span-3 space-y-6">
             <h4 className="text-xs uppercase tracking-[0.2em] text-[#C5A862] font-bold pb-2.5 border-b border-royal/10">
-              {labels.newsletterTitle}
+              {labels.contactDetails}
             </h4>
-            <p className="text-sm text-royal/60 leading-relaxed font-light">
-              {labels.newsletterDesc}
-            </p>
-            {submitted ? (
-              <div className="flex items-center gap-2 text-[#C5A862] text-sm font-semibold py-2">
-                <span className="w-5 h-5 rounded-full bg-gold/15 flex items-center justify-center text-gold">&bull;</span>
-                <span>{labels.newsletterSuccess}</span>
-              </div>
-            ) : (
-              <form onSubmit={handleSubscribe} className="flex bg-royal/5 border border-royal/15 rounded-full p-1.5 focus-within:border-gold transition-colors shadow-sm">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder={labels.newsletterPlaceholder}
-                  className="bg-transparent text-xs pl-4 outline-none w-full text-royal placeholder-royal/40 font-light"
-                  required
-                  suppressHydrationWarning={true}
-                />
-                <button type="submit" className="bg-gold hover:bg-gold-light text-white rounded-full p-3 transition-transform duration-200 hover:scale-105 shrink-0" aria-label="Subscribe" suppressHydrationWarning={true}>
-                  <Send className="w-3.5 h-3.5 text-white" />
-                </button>
-              </form>
-            )}
-
-            {/* Support info */}
-            <div className="space-y-3.5 pt-4 border-t border-royal/10 text-sm font-semibold">
-              <a href={`tel:${contactDetails?.phone || "+91 9829989187"}`} className="flex items-center gap-2.5 text-royal hover:text-gold transition-colors">
-                <Phone className="w-4 h-4 text-[#C5A862]" />
+            <div className="space-y-4 text-sm font-semibold">
+              <a href={`tel:${contactDetails?.phone || "+91 9829989187"}`} className="flex items-center gap-2.5 text-royal/70 hover:text-gold transition-colors">
+                <Phone className="w-4 h-4 text-[#C5A862] shrink-0" />
                 <span>{contactDetails?.phone || "+91 9829989187"}</span>
               </a>
-              <a href={`mailto:${displayEmail}`} className="flex items-center gap-2.5 text-royal hover:text-gold transition-colors">
-                <Mail className="w-4 h-4 text-[#C5A862]" />
-                <span>{displayEmail}</span>
+              <a href={`mailto:${displayEmail}`} className="flex items-center gap-2.5 text-royal/70 hover:text-gold transition-colors">
+                <Mail className="w-4 h-4 text-[#C5A862] shrink-0" />
+                <span className="break-all">{displayEmail}</span>
+              </a>
+              <a href={`https://wa.me/${contactDetails?.whatsapp || "919829989187"}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-royal/70 hover:text-gold transition-colors">
+                <svg className="w-4 h-4 fill-current text-[#C5A862] shrink-0" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <span>WhatsApp</span>
               </a>
             </div>
-
           </div>
 
         </div>
