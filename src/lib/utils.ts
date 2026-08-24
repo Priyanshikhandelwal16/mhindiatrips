@@ -99,6 +99,16 @@ export const formatRichText = (content: string): string => {
   
   let currentListType: 'ul' | 'ol' | null = null;
   let currentParagraphLines: string[] = [];
+  let inBulletSection = false;
+
+  const shouldAutoBullet = (text: string): boolean => {
+    const clean = text.toLowerCase().replace(/[:.!?]$/, "").trim();
+    const bulletSections = [
+      "travel tips", "consejos de viaje", "dicas de viagem", "travel tip",
+      "key insights", "perspectivas clave", "principais insights", "key insight"
+    ];
+    return bulletSections.includes(clean) || bulletSections.some(h => clean.startsWith(h));
+  };
 
   const closeList = () => {
     if (currentListType === 'ul') {
@@ -138,8 +148,10 @@ export const formatRichText = (content: string): string => {
       
       if (isMainHeading(headingText)) {
         result.push(`<h2 class="blog-main-heading">${headingText}</h2>`);
+        inBulletSection = shouldAutoBullet(headingText);
       } else {
         result.push(`<h3 class="blog-sub-heading">${headingText}</h3>`);
+        inBulletSection = false;
       }
       continue;
     }
@@ -181,8 +193,10 @@ export const formatRichText = (content: string): string => {
       closeParagraph();
       if (isMainHeading(line)) {
         result.push(`<h2 class="blog-main-heading">${line}</h2>`);
+        inBulletSection = shouldAutoBullet(line);
       } else {
         result.push(`<h3 class="blog-sub-heading">${line}</h3>`);
+        inBulletSection = false;
       }
       continue;
     }
@@ -197,9 +211,31 @@ export const formatRichText = (content: string): string => {
       const remainingText = inlineMainMatch[2].trim();
       
       result.push(`<h2 class="blog-main-heading">${headingText}</h2>`);
+      inBulletSection = shouldAutoBullet(headingText);
       if (remainingText) {
-        currentParagraphLines.push(remainingText);
+        if (inBulletSection) {
+          if (currentListType !== 'ul') {
+            closeList();
+            result.push('<ul class="list-disc pl-6 space-y-2 mb-4">');
+            currentListType = 'ul';
+          }
+          result.push(`<li class="text-sm text-foreground/80 leading-relaxed">${remainingText}</li>`);
+        } else {
+          currentParagraphLines.push(remainingText);
+        }
       }
+      continue;
+    }
+
+    // If we are currently under an auto-bullet section (Travel Tips / Key Insights) and have a normal text line
+    if (inBulletSection) {
+      closeParagraph();
+      if (currentListType !== 'ul') {
+        closeList();
+        result.push('<ul class="list-disc pl-6 space-y-2 mb-4">');
+        currentListType = 'ul';
+      }
+      result.push(`<li class="text-sm text-foreground/80 leading-relaxed">${line}</li>`);
       continue;
     }
 
