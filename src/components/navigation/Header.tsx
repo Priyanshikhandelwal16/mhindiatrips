@@ -172,7 +172,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
   const textColor = scrolled ? "text-white/80 hover:text-gold" : "text-royal hover:text-gold";
 
   const linkClass = (path: string) => {
-    const base = "text-[8px] xl:text-[9px] 2xl:text-[11px] font-bold uppercase tracking-[0.02em] xl:tracking-[0.08em] 2xl:tracking-[0.12em] whitespace-nowrap transition-all duration-300 relative py-1";
+    const base = "text-[7.5px] xl:text-[8.5px] 2xl:text-[10px] font-bold uppercase tracking-[0.02em] xl:tracking-[0.06em] 2xl:tracking-[0.1em] whitespace-nowrap transition-all duration-300 relative py-1";
     const activeColor = "text-gold";
     const inactiveColor = "text-royal hover:text-gold";
     return `${base} ${isActive(path) ? activeColor : inactiveColor}`;
@@ -219,7 +219,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
       <div 
         className="w-full border-b border-gold/10 relative z-50 bg-white py-3"
       >
-        <div className="max-w-[1400px] w-full mx-auto px-2 md:px-6 xl:px-10 flex items-center justify-between gap-2 xl:gap-4">
+        <div className="max-w-[1400px] w-full mx-auto px-2 md:px-4 xl:px-8 flex items-center justify-between gap-1 xl:gap-2">
           
           {/* Custom style block to support live admin logo height customization */}
           <style dangerouslySetInnerHTML={{__html: `
@@ -243,7 +243,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2.5 2xl:gap-4 shrink">
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 2xl:gap-2.5 flex-1 min-w-0 overflow-x-auto scrollbar-none" style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}>
             
             {/* Home Link */}
             <Link
@@ -272,10 +272,12 @@ export default function Header({ locale, contactDetails, states = [], packages =
               <div className="absolute left-0 top-full w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
                 <Link
                   href={`/${locale}/packages`}
-                  className="block px-5 py-2 text-[10px] font-bold uppercase tracking-wider text-royal/60 border-b border-gold/5 hover:text-gold hover:bg-gold/5 mb-1.5 pb-2"
+                  className="block px-5 py-2.5 text-[10px] font-extrabold uppercase tracking-wider text-white bg-royal hover:bg-gold hover:text-royal transition-colors mb-1 flex items-center gap-2"
                 >
-                  All Packages
+                  <span>{locale === "es" ? "Explorar Todos los Tours" : locale === "pt" ? "Explorar Todos os Tours" : "Explore All Tours"}</span>
+                  <ArrowRight className="w-3 h-3" />
                 </Link>
+                <div className="border-b border-gold/10 mb-1" />
                 {packagesList.map((pkg, idx) => (
                   <Link
                     key={idx}
@@ -417,7 +419,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
           </nav>
 
           {/* Right Action Menu */}
-          <div className="hidden lg:flex items-center gap-1.5 xl:gap-2.5 2xl:gap-4 z-20">
+          <div className="hidden lg:flex items-center gap-1 xl:gap-2 2xl:gap-3 z-20 flex-shrink-0">
             
             {/* Globe Language Toggle */}
             <div className="relative">
@@ -548,9 +550,10 @@ export default function Header({ locale, contactDetails, states = [], packages =
                   <Link
                     href={`/${locale}/packages`}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-[11px] font-bold uppercase tracking-wider text-royal/60 hover:text-gold py-1 block"
+                    className="text-[11px] font-extrabold uppercase tracking-wider text-white bg-royal hover:bg-gold hover:text-royal py-2 px-3 block rounded flex items-center gap-2"
                   >
-                    All Packages
+                    <span>{locale === "es" ? "Explorar Todos los Tours" : locale === "pt" ? "Explorar Todos os Tours" : "Explore All Tours"}</span>
+                    <ArrowRight className="w-3 h-3" />
                   </Link>
                   {packagesList.map((pkg, idx) => (
                     <Link

@@ -702,11 +702,14 @@ export default async function HomePage({ params }: HomePageProps) {
         {/* VIEW ALL Packages button */}
         <div className="text-center pt-8">
           <Link href={`/${locale}/packages`} className="inline-flex items-center gap-2 bg-royal hover:bg-royal/90 text-white text-base md:text-lg font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 shadow-xl">
-            <span>View All Packages</span>
+            <span>{locale === "es" ? "Explorar Todos los Tours" : locale === "pt" ? "Explorar Todos os Tours" : "Explore All Tours"}</span>
             <ArrowRight className="w-5 h-5 text-gold" />
           </Link>
         </div>
       </section>
+
+      {/* SECTION 4.2: Traveler Information 3D Carousel (moved here, below packages) */}
+      <TravelerInfoCarousel locale={locale} cardImages={travelInfoCardImages} />
 
       {/* SECTION 3.5: Iconic Attractions Showcase */}
       <section className="bg-white py-32 border-b border-gold/10">
@@ -858,8 +861,7 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
-      {/* SECTION 5.5: Traveler Information 3D Carousel (Screenshot 3 Theme) */}
-      <TravelerInfoCarousel locale={locale} cardImages={travelInfoCardImages} />
+      {/* SECTION 5.5: Traveler Information 3D Carousel - moved below packages section */}
 
       {/* SECTION 6: Customer Testimonials (Infinite Scroll Slider) */}
       <TestimonialSlider 
@@ -918,7 +920,7 @@ export default async function HomePage({ params }: HomePageProps) {
                       <h3 className="text-base font-bold text-royal group-hover:text-gold transition-colors leading-snug line-clamp-2 font-serif">
                         {post.title?.[locale] || post.title?.en}
                       </h3>
-                      <p className="text-xs text-foreground/55 leading-relaxed line-clamp-2 font-light">
+                      <p className="text-xs text-foreground/55 leading-relaxed line-clamp-4 font-light">
                         {post.excerpt?.[locale] || post.excerpt?.en}
                       </p>
                     </div>
