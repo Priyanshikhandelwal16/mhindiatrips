@@ -1,7 +1,7 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getBlogBySlugAction, getBlogsAction } from "@/app/actions/queries";
+import { getBlogBySlugAction, getBlogsAction, getTourPackagesAction } from "@/app/actions/queries";
 import { formatRichText } from "@/lib/utils";
 import Reveal from "@/components/home/Reveal";
 import { 
@@ -25,6 +25,17 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
     .filter((b: any) => b.slug !== slug && b.category === blog.category)
     .slice(0, 3);
 
+  // Get related tour packages (matched by category keyword in title/tagline)
+  const allPackages = await getTourPackagesAction();
+  const categoryKeywords = (blog.category || "").toLowerCase().split(/[\s&/]+/).filter((k: string) => k.length > 3);
+  const relatedPackages = allPackages
+    .filter((p: any) => {
+      const pTitle = (p.title?.en || p.title || "").toLowerCase();
+      const pTagline = (p.tagline?.en || p.tagline || "").toLowerCase();
+      return categoryKeywords.some((kw: string) => pTitle.includes(kw) || pTagline.includes(kw));
+    })
+    .slice(0, 3);
+
   const t = {
     en: {
       back: "Back to Blog",
@@ -40,6 +51,10 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
       ctaDesc: "Let our travel specialists turn your inspiration into a personalized journey.",
       ctaBtn: "Plan My Trip",
       tableOfContents: "In This Article",
+      packagesTitle: "Explore Related Packages",
+      packagesDesc: "Handcrafted journeys inspired by this article",
+      packagesBtn: "View Package",
+      packagesDuration: "days",
     },
     es: {
       back: "Volver al Blog",
@@ -55,6 +70,10 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
       ctaDesc: "Deje que nuestros especialistas conviertan su inspiración en un viaje personalizado.",
       ctaBtn: "Planear Mi Viaje",
       tableOfContents: "En Este Artículo",
+      packagesTitle: "Explorar Paquetes Relacionados",
+      packagesDesc: "Viajes artesanales inspirados en este artículo",
+      packagesBtn: "Ver Paquete",
+      packagesDuration: "días",
     },
     pt: {
       back: "Voltar ao Blog",
@@ -70,6 +89,10 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
       ctaDesc: "Deixe nossos especialistas transformar sua inspiração em uma viagem personalizada.",
       ctaBtn: "Planejar Minha Viagem",
       tableOfContents: "Neste Artigo",
+      packagesTitle: "Explorar Pacotes Relacionados",
+      packagesDesc: "Viagens artesanais inspiradas neste artigo",
+      packagesBtn: "Ver Pacote",
+      packagesDuration: "dias",
     }
   };
 
@@ -200,6 +223,64 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
           </aside>
         </div>
       </div>
+
+      {/* Related Packages */}
+      {relatedPackages.length > 0 && (
+        <section className="bg-[#0A2A1E] py-24">
+          <div className="max-w-7xl mx-auto px-6 space-y-12">
+            <Reveal className="text-center space-y-3">
+              <span className="text-[#C3AB85] text-[10px] font-bold uppercase tracking-[0.25em]">MH India Trips</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-white">{text.packagesTitle}</h2>
+              <p className="text-sm text-white/50 font-light">{text.packagesDesc}</p>
+            </Reveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {relatedPackages.map((pkg: any, i: number) => (
+                <Reveal key={pkg.slug} delay={i * 100}>
+                  <Link href={`/${locale}/packages/${pkg.slug}`} className="group block h-full">
+                    <div className="bg-white/5 border border-white/10 overflow-hidden h-full flex flex-col hover:border-[#C3AB85]/40 transition-colors duration-300">
+                      <div className="h-52 overflow-hidden relative">
+                        <img
+                          src={pkg.heroImage || pkg.image || "/images/taj_mahal_sunrise.png"}
+                          alt={pkg.title?.[lang] || pkg.title?.en || pkg.title || ""}
+                          loading="lazy"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0A2A1E]/80 to-transparent" />
+                        {pkg.duration && (
+                          <span className="absolute bottom-3 left-3 bg-[#C3AB85] text-[#0B0D0C] text-[9px] font-bold uppercase tracking-wider px-2.5 py-1">
+                            {pkg.duration} {text.packagesDuration}
+                          </span>
+                        )}
+                      </div>
+                      <div className="p-5 flex-grow flex flex-col justify-between space-y-4">
+                        <div className="space-y-2">
+                          <h3 className="font-bold text-white group-hover:text-[#C3AB85] transition-colors leading-snug line-clamp-2">
+                            {pkg.title?.[lang] || pkg.title?.en || pkg.title || ""}
+                          </h3>
+                          <p className="text-xs text-white/50 font-light line-clamp-2 leading-relaxed">
+                            {pkg.tagline?.[lang] || pkg.tagline?.en || pkg.tagline || ""}
+                          </p>
+                        </div>
+                        <div className="flex items-center justify-between pt-2 border-t border-white/10">
+                          {pkg.price && (
+                            <span className="text-[#C3AB85] text-sm font-bold">
+                              {typeof pkg.price === "object" ? (pkg.price[lang] || pkg.price.en) : pkg.price}
+                            </span>
+                          )}
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-white/60 group-hover:text-[#C3AB85] transition-colors ml-auto flex items-center gap-1">
+                            {text.packagesBtn} <ChevronRight className="w-3 h-3" />
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Related Posts */}
       {related.length > 0 && (

@@ -1553,31 +1553,55 @@ details[open] summary {
 }
 
 /* Specific heading override styles for Blogs, Terms, Privacy */
+
+/* Main heading (Introduction / Key Insights / Travel Tips) */
+/* Font: Serif — large, forest green, gold bottom border */
 .blog-content-rich .blog-main-heading {
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: 'Playfair Display', var(--font-serif), Georgia, serif;
   font-size: 2rem;
   font-weight: 900;
   color: #0A2A1E;
+  letter-spacing: -0.01em;
   border-left: none !important;
   padding-left: 0 !important;
-  border-bottom: 1.5px solid rgba(197, 168, 98, 0.3);
-  padding-bottom: 0.6rem;
-  margin-top: 3rem;
+  border-bottom: 2px solid rgba(197, 168, 98, 0.35);
+  padding-bottom: 0.65rem;
+  margin-top: 3.25rem;
   margin-bottom: 1.5rem;
-  line-height: 1.25;
+  line-height: 1.2;
   display: block;
 }
 
+/* Sub heading (e.g. city names, sub-sections inside a main section) */
+/* Font: Sans-serif — italic gold, medium weight */
 .blog-content-rich .blog-sub-heading {
-  font-family: var(--font-sans), sans-serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #C5A862;
+  font-family: 'Inter', var(--font-sans), system-ui, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-style: italic;
+  color: #B8954A;
   border-left: none !important;
   padding-left: 0 !important;
-  margin-top: 2.25rem;
-  margin-bottom: 1rem;
-  line-height: 1.35;
+  margin-top: 2rem;
+  margin-bottom: 0.85rem;
+  line-height: 1.4;
+  display: block;
+}
+
+/* Sub-sub heading (h4 level — detailed breakdown) */
+/* Font: Monospace-inspired — small caps, slate teal, left accent bar */
+.blog-content-rich h4 {
+  font-family: 'Courier New', 'Lucida Console', monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: #2E6B5B;
+  border-left: 3px solid #C5A862;
+  padding-left: 0.75rem;
+  margin-top: 1.75rem;
+  margin-bottom: 0.65rem;
+  line-height: 1.5;
   display: block;
 }
 
