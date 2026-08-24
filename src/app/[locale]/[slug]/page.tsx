@@ -4,6 +4,7 @@ import { getPageByIdAction } from "@/app/actions/queries";
 import Reveal from "@/components/home/Reveal";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { formatRichText } from "@/lib/utils";
 
 interface CustomPageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -20,7 +21,8 @@ export default async function CustomPage({ params }: CustomPageProps) {
   }
 
   const title = pageData.title?.[locale] || pageData.title?.en || "MH India Trips Page";
-  const body = pageData.content?.body?.[locale] || pageData.content?.body?.en || "";
+  const rawBody = pageData.content?.body?.[locale] || pageData.content?.body?.en || "";
+  const body = rawBody ? formatRichText(rawBody) : "";
 
   // Render other custom translatable fields added by the user
   const customSections = Object.keys(pageData?.content || {})
@@ -28,7 +30,7 @@ export default async function CustomPage({ params }: CustomPageProps) {
     .map(key => {
       const fieldVal = pageData?.content[key];
       if (fieldVal && typeof fieldVal === "object" && (fieldVal[locale] || fieldVal.en)) {
-        return fieldVal[locale] || fieldVal.en;
+        return formatRichText(fieldVal[locale] || fieldVal.en);
       }
       return null;
     })

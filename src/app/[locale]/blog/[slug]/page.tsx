@@ -2,6 +2,7 @@ import React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getBlogBySlugAction, getBlogsAction } from "@/app/actions/queries";
+import { formatRichText } from "@/lib/utils";
 import Reveal from "@/components/home/Reveal";
 import { 
   Clock, ArrowLeft, User, Calendar, ChevronRight 
@@ -76,7 +77,8 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
   const blogTitle = blog.title?.[lang] || blog.title?.en;
   const blogExcerpt = blog.excerpt?.[lang] || blog.excerpt?.en;
-  const blogContent = blog.content?.[lang] || blog.content?.en;
+  const rawContent = blog.content?.[lang] || blog.content?.en;
+  const blogContent = formatRichText(rawContent);
 
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
@@ -143,7 +145,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
               <div className="prose prose-lg max-w-none space-y-6">
                 <div 
                   dangerouslySetInnerHTML={{ __html: blogContent }} 
-                  className="blog-content-rich text-[15px] text-[#1B1B1B]/70 leading-[1.9] whitespace-pre-line font-light"
+                  className="blog-content-rich"
                 />
               </div>
             </Reveal>

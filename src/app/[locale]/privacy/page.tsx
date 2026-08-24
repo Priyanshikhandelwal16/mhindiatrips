@@ -1,7 +1,7 @@
-import React from "react";
 import { getPageByIdAction } from "@/app/actions/queries";
 import Reveal from "@/components/home/Reveal";
 import { db } from "@/lib/db";
+import { formatRichText } from "@/lib/utils";
 
 interface PrivacyPageProps {
   params: Promise<{ locale: string }>;
@@ -17,7 +17,8 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
   };
 
   const title = pageData?.title?.[locale] || pageData?.title?.en || (locale === "es" ? "Política de Privacidad" : locale === "pt" ? "Política de Privacidade" : "Privacy Policy");
-  const body = pageData?.content?.body?.[locale] || pageData?.content?.body?.en;
+  const rawBody = pageData?.content?.body?.[locale] || pageData?.content?.body?.en;
+  const body = rawBody ? formatRichText(rawBody) : "";
 
   // Render other custom translatable fields added by the user
   const customSections = Object.keys(pageData?.content || {})
@@ -25,7 +26,7 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
     .map(key => {
       const fieldVal = pageData?.content[key];
       if (fieldVal && typeof fieldVal === "object" && (fieldVal[locale] || fieldVal.en)) {
-        return fieldVal[locale] || fieldVal.en;
+        return formatRichText(fieldVal[locale] || fieldVal.en);
       }
       return null;
     })
@@ -44,7 +45,7 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
       </section>
 
       <section className="py-20 bg-[#FAF8F5]">
-        <div className="max-w-3xl mx-auto px-6">
+        <div className="max-w-4xl px-6 md:px-12 lg:px-20 text-left">
           <Reveal className="prose prose-lg max-w-none text-foreground/75 leading-relaxed space-y-8">
             {(body || customSections.length > 0) ? (
               <div className="space-y-8">
