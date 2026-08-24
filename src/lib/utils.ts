@@ -75,6 +75,17 @@ export const formatRichText = (content: string): string => {
     return content;
   }
 
+  // Helper to identify Main Headings (Introduction, Key Insights, Travel Tips)
+  const isMainHeading = (text: string): boolean => {
+    const clean = text.toLowerCase().replace(/[:.!?]$/, "").trim();
+    const mainHeadings = [
+      "introduction", "introducción", "introdução",
+      "key insights", "perspectivas clave", "principais insights", "key insight",
+      "travel tips", "consejos de viaje", "dicas de viagem", "travel tip"
+    ];
+    return mainHeadings.includes(clean) || mainHeadings.some(h => clean.startsWith(h));
+  };
+
   // 2. Process markdown-like formatting (bold & italics)
   let html = content;
   
@@ -95,13 +106,25 @@ export const formatRichText = (content: string): string => {
 
     // Explicit markdown heading checks
     if (trimmed.startsWith("### ")) {
-      return `<h3 class="font-serif font-bold text-royal text-xl mt-6 mb-3">${trimmed.substring(4)}</h3>`;
+      const headingText = trimmed.substring(4);
+      if (isMainHeading(headingText)) {
+        return `<h2 class="blog-main-heading">${headingText}</h2>`;
+      }
+      return `<h3 class="blog-sub-heading">${headingText}</h3>`;
     }
     if (trimmed.startsWith("## ")) {
-      return `<h2 class="font-serif font-bold text-royal text-2xl border-l-4 border-gold pl-3 mt-8 mb-4">${trimmed.substring(3)}</h2>`;
+      const headingText = trimmed.substring(3);
+      if (isMainHeading(headingText)) {
+        return `<h2 class="blog-main-heading">${headingText}</h2>`;
+      }
+      return `<h3 class="blog-sub-heading">${headingText}</h3>`;
     }
     if (trimmed.startsWith("# ")) {
-      return `<h1 class="font-serif font-bold text-royal text-3xl mt-10 mb-5">${trimmed.substring(2)}</h1>`;
+      const headingText = trimmed.substring(2);
+      if (isMainHeading(headingText)) {
+        return `<h2 class="blog-main-heading">${headingText}</h2>`;
+      }
+      return `<h3 class="blog-sub-heading">${headingText}</h3>`;
     }
 
     // List detection (bullet points)
@@ -133,7 +156,10 @@ export const formatRichText = (content: string): string => {
     const hasPunctuation = /[.?!]$/.test(trimmed);
     const hasMultipleLines = trimmed.includes("\n");
     if (isShort && !hasPunctuation && !hasMultipleLines) {
-      return `<h2 class="font-serif font-bold text-royal text-2xl border-l-4 border-gold pl-3 mt-8 mb-4">${trimmed}</h2>`;
+      if (isMainHeading(trimmed)) {
+        return `<h2 class="blog-main-heading">${trimmed}</h2>`;
+      }
+      return `<h3 class="blog-sub-heading">${trimmed}</h3>`;
     }
 
     // Regular Paragraph: replace single newlines inside with <br/> to keep formatting

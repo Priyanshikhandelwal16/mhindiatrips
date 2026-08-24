@@ -1551,3 +1551,42 @@ details[open] summary {
   max-width: 100%;
   height: auto;
 }
+
+/* Specific heading override styles for Blogs, Terms, Privacy */
+.blog-content-rich .blog-main-heading {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #0A2A1E;
+  border-left: none !important;
+  padding-left: 0 !important;
+  border-bottom: 1.5px solid rgba(197, 168, 98, 0.3);
+  padding-bottom: 0.6rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.25;
+  display: block;
+}
+
+.blog-content-rich .blog-sub-heading {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #C5A862;
+  border-left: none !important;
+  padding-left: 0 !important;
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+  line-height: 1.35;
+  display: block;
+}
+
+/* Marker/bullet styling */
+.blog-content-rich ul li::marker {
+  color: #C5A862; /* Gold bullets */
+}
+
+.blog-content-rich ol li::marker {
+  color: #0A2A1E; /* Forest green numbers */
+  font-weight: bold;
+}
