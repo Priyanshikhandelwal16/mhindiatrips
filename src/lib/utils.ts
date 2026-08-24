@@ -158,15 +158,15 @@ export const formatRichText = (content: string): string => {
       continue;
     }
 
-    // Check if line is a numbered list item
-    const numberMatch = line.match(/^(\d+)\.\s+(.*)/);
-    if (numberMatch) {
+    // Check if line is a numbered list item or start with Tip/Point/Step
+    const listPatternMatch = line.match(/^(\d+)[\.\)]\s+(.*)/) || line.match(/^(Tip|Point|Step)\s*\d+[\s\:\-\.]+(.*)/i);
+    if (listPatternMatch) {
       closeParagraph();
-      const itemContent = numberMatch[2].trim();
-      if (currentListType !== 'ol') {
+      const itemContent = listPatternMatch[2].trim();
+      if (currentListType !== 'ul') {
         closeList();
-        result.push('<ol class="list-decimal pl-6 space-y-2 mb-4">');
-        currentListType = 'ol';
+        result.push('<ul class="list-disc pl-6 space-y-2 mb-4">');
+        currentListType = 'ul';
       }
       result.push(`<li class="text-sm text-foreground/80 leading-relaxed">${itemContent}</li>`);
       continue;

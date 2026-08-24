@@ -68,6 +68,14 @@ export default async function BlogIndexPage({ params, searchParams }: BlogIndexP
   }
   const text = mergedT[locale] || mergedT.en;
 
+  const getLocalizedValue = (field: any, l: string): string => {
+    if (!field) return "";
+    if (typeof field === "object") {
+      return field[l] || field.en || "";
+    }
+    return String(field);
+  };
+
   const categoriesList = Array.from(new Set(blogs.map((b: any) => b.category))).filter(Boolean);
   const featuredBlog = activeCategory ? null : blogs[0];
   const displayBlogs = activeCategory
@@ -101,7 +109,7 @@ export default async function BlogIndexPage({ params, searchParams }: BlogIndexP
           <Reveal>
             <div className="bg-white border border-gold/10 overflow-hidden shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-0 relative">
               <div className="lg:col-span-6 h-[350px] lg:h-[500px] relative overflow-hidden">
-                <img src={featuredBlog.featuredImage} alt={featuredBlog.title.en} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={featuredBlog.featuredImage} alt={getLocalizedValue(featuredBlog.title, 'en')} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <span className="absolute top-5 left-5 bg-royal text-gold text-[10px] uppercase font-bold tracking-wider px-4 py-2 rounded-full">
                   {featuredBlog.category}
                 </span>
@@ -113,10 +121,10 @@ export default async function BlogIndexPage({ params, searchParams }: BlogIndexP
                   <span>{featuredBlog.createdAt}</span>
                 </div>
                 <h2 className="text-2xl md:text-4xl font-bold text-royal leading-tight">
-                  {featuredBlog.title[locale as "en"|"es"|"pt"] || featuredBlog.title.en}
+                  {getLocalizedValue(featuredBlog.title, locale)}
                 </h2>
                 <p className="text-sm md:text-base text-foreground/60 leading-relaxed font-light">
-                  {featuredBlog.excerpt[locale as "en"|"es"|"pt"] || featuredBlog.excerpt.en}
+                  {getLocalizedValue(featuredBlog.excerpt, locale)}
                 </p>
                 <div className="pt-4">
                   <Link href={`/${locale}/blog/${featuredBlog.slug}`} className="bg-gold hover:bg-gold-light text-royal text-base font-bold uppercase tracking-widest px-8 py-4 rounded-full transition-transform hover:scale-105 inline-flex items-center gap-2 shadow-md">
@@ -178,7 +186,7 @@ export default async function BlogIndexPage({ params, searchParams }: BlogIndexP
               <Link href={`/${locale}/blog/${blog.slug}`} className="group block h-full">
                 <div className="bg-white border border-gold/10 overflow-hidden shadow-lg flex flex-col h-full transition-all duration-500 hover:-translate-y-3 hover:border-gold/25 hover:shadow-2xl">
                   <div className="h-60 overflow-hidden relative shrink-0">
-                    <img src={blog.featuredImage} alt={blog.title[locale as "en"|"es"|"pt"] || blog.title.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <img src={blog.featuredImage} alt={getLocalizedValue(blog.title, locale)} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     <span className="absolute top-5 left-5 bg-royal text-gold text-[9px] uppercase font-bold tracking-wider px-3.5 py-1.5 rounded-full">
                       {blog.category}
                     </span>
@@ -190,10 +198,10 @@ export default async function BlogIndexPage({ params, searchParams }: BlogIndexP
                         <span>{blog.createdAt}</span>
                       </div>
                       <h2 className="text-xl font-bold text-royal leading-snug group-hover:text-gold transition-colors line-clamp-2">
-                        {blog.title[locale as "en"|"es"|"pt"] || blog.title.en}
+                        {getLocalizedValue(blog.title, locale)}
                       </h2>
                       <p className="text-sm text-foreground/50 leading-relaxed line-clamp-3 font-light">
-                        {blog.excerpt[locale as "en"|"es"|"pt"] || blog.excerpt.en}
+                        {getLocalizedValue(blog.excerpt, locale)}
                       </p>
                     </div>
                     <div className="pt-4 mt-6 border-t border-gold/10 flex items-center justify-between">
@@ -227,7 +235,7 @@ export default async function BlogIndexPage({ params, searchParams }: BlogIndexP
                   <div>
                     <span className="text-[9px] uppercase font-bold text-gold block tracking-wider mb-1">{blog.category}</span>
                     <h4 className="text-sm font-bold text-royal group-hover:text-gold transition-colors line-clamp-2 leading-snug">
-                      {blog.title[locale as "en"|"es"|"pt"] || blog.title.en}
+                      {getLocalizedValue(blog.title, locale)}
                     </h4>
                   </div>
                   <div className="flex items-center gap-1.5 text-[9px] text-royal/40 pt-2 border-t border-gold/5 mt-2">

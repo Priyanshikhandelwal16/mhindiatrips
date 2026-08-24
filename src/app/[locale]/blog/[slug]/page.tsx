@@ -75,9 +75,17 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
   const text = t[locale as keyof typeof t] || t.en;
 
-  const blogTitle = blog.title?.[lang] || blog.title?.en;
-  const blogExcerpt = blog.excerpt?.[lang] || blog.excerpt?.en;
-  const rawContent = blog.content?.[lang] || blog.content?.en;
+  const getLocalizedValue = (field: any, l: string): string => {
+    if (!field) return "";
+    if (typeof field === "object") {
+      return field[l] || field.en || "";
+    }
+    return String(field);
+  };
+
+  const blogTitle = getLocalizedValue(blog.title, lang);
+  const blogExcerpt = getLocalizedValue(blog.excerpt, lang);
+  const rawContent = getLocalizedValue(blog.content, lang);
   const blogContent = formatRichText(rawContent);
 
   return (
