@@ -88,85 +88,132 @@ export const formatRichText = (content: string): string => {
 
   // 2. Process markdown-like formatting (bold & italics)
   let html = content;
-  
-  // Replace markdown bold **text** or __text__ with <strong>
   html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
   html = html.replace(/__(.*?)__/g, '<strong>$1</strong>');
-  
-  // Replace markdown italic *text* or _text_ with <em>
   html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
   html = html.replace(/_(.*?)_/g, '<em>$1</em>');
 
-  // Split by double newlines to separate sections (paragraphs, headings, lists)
-  const blocks = html.split(/\n\s*\n/);
+  // Split by newlines (single or multiple) to process line-by-line
+  const rawLines = html.split(/\r?\n/);
+  const result: string[] = [];
   
-  const formattedBlocks = blocks.map(block => {
-    const trimmed = block.trim();
-    if (!trimmed) return "";
+  let currentListType: 'ul' | 'ol' | null = null;
+  let currentParagraphLines: string[] = [];
 
-    // Explicit markdown heading checks
-    if (trimmed.startsWith("### ")) {
-      const headingText = trimmed.substring(4);
+  const closeList = () => {
+    if (currentListType === 'ul') {
+      result.push('</ul>');
+    } else if (currentListType === 'ol') {
+      result.push('</ol>');
+    }
+    currentListType = null;
+  };
+
+  const closeParagraph = () => {
+    if (currentParagraphLines.length > 0) {
+      const paragraphText = currentParagraphLines.join('<br/>').trim();
+      if (paragraphText) {
+        result.push(`<p class="text-[15px] text-[#1B1B1B]/70 leading-[1.9] font-light mb-4">${paragraphText}</p>`);
+      }
+      currentParagraphLines = [];
+    }
+  };
+
+  for (let i = 0; i < rawLines.length; i++) {
+    const line = rawLines[i].trim();
+    if (!line) {
+      // Empty line closes list and paragraph
+      closeList();
+      closeParagraph();
+      continue;
+    }
+
+    // Check if line starts with markdown headers
+    const mdHeaderMatch = line.match(/^(#{1,6})\s+(.*)/);
+    if (mdHeaderMatch) {
+      closeList();
+      closeParagraph();
+      const level = mdHeaderMatch[1].length;
+      const headingText = mdHeaderMatch[2].trim();
+      
       if (isMainHeading(headingText)) {
-        return `<h2 class="blog-main-heading">${headingText}</h2>`;
+        result.push(`<h2 class="blog-main-heading">${headingText}</h2>`);
+      } else {
+        result.push(`<h3 class="blog-sub-heading">${headingText}</h3>`);
       }
-      return `<h3 class="blog-sub-heading">${headingText}</h3>`;
+      continue;
     }
-    if (trimmed.startsWith("## ")) {
-      const headingText = trimmed.substring(3);
-      if (isMainHeading(headingText)) {
-        return `<h2 class="blog-main-heading">${headingText}</h2>`;
+
+    // Check if line is a bullet list item
+    const bulletMatch = line.match(/^[-*•]\s+(.*)/);
+    if (bulletMatch) {
+      closeParagraph();
+      const itemContent = bulletMatch[1].trim();
+      if (currentListType !== 'ul') {
+        closeList();
+        result.push('<ul class="list-disc pl-6 space-y-2 mb-4">');
+        currentListType = 'ul';
       }
-      return `<h3 class="blog-sub-heading">${headingText}</h3>`;
+      result.push(`<li class="text-sm text-foreground/80 leading-relaxed">${itemContent}</li>`);
+      continue;
     }
-    if (trimmed.startsWith("# ")) {
-      const headingText = trimmed.substring(2);
-      if (isMainHeading(headingText)) {
-        return `<h2 class="blog-main-heading">${headingText}</h2>`;
+
+    // Check if line is a numbered list item
+    const numberMatch = line.match(/^(\d+)\.\s+(.*)/);
+    if (numberMatch) {
+      closeParagraph();
+      const itemContent = numberMatch[2].trim();
+      if (currentListType !== 'ol') {
+        closeList();
+        result.push('<ol class="list-decimal pl-6 space-y-2 mb-4">');
+        currentListType = 'ol';
       }
-      return `<h3 class="blog-sub-heading">${headingText}</h3>`;
+      result.push(`<li class="text-sm text-foreground/80 leading-relaxed">${itemContent}</li>`);
+      continue;
     }
 
-    // List detection (bullet points)
-    if (trimmed.startsWith("- ") || trimmed.startsWith("* ") || trimmed.startsWith("• ")) {
-      const items = trimmed.split(/\n[-*•]\s+/);
-      const listItems = items.map(item => {
-        let cleanItem = item.replace(/^[-*•]\s+/, "");
-        return `<li class="text-sm text-foreground/80 leading-relaxed">${cleanItem}</li>`;
-      }).join("");
-      return `<ul class="list-disc pl-6 space-y-2 mb-4">${listItems}</ul>`;
-    }
-
-    // Numbered list detection
-    if (/^\d+\.\s+/.test(trimmed)) {
-      const items = trimmed.split(/\n\d+\.\s+/);
-      const listItems = items.map(item => {
-        let cleanItem = item.replace(/^\d+\.\s+/, "");
-        return `<li class="text-sm text-foreground/80 leading-relaxed">${cleanItem}</li>`;
-      }).join("");
-      return `<ol class="list-decimal pl-6 space-y-2 mb-4">${listItems}</ol>`;
-    }
-
-    // Heading Auto-Detection:
-    // A block is treated as an h2 heading if:
-    // - It is short (less than 100 characters)
-    // - It does not end with common sentence ending punctuation (. or ? or !)
-    // - It is a single line (no newlines inside the block itself)
-    const isShort = trimmed.length < 100;
-    const hasPunctuation = /[.?!]$/.test(trimmed);
-    const hasMultipleLines = trimmed.includes("\n");
-    if (isShort && !hasPunctuation && !hasMultipleLines) {
-      if (isMainHeading(trimmed)) {
-        return `<h2 class="blog-main-heading">${trimmed}</h2>`;
+    // Check if line itself is a heading (short line, no ending punctuation, not empty)
+    const isShort = line.length < 100;
+    const hasPunctuation = /[.?!]$/.test(line);
+    if (isShort && !hasPunctuation) {
+      // Check if it's a main heading or sub heading
+      closeList();
+      closeParagraph();
+      if (isMainHeading(line)) {
+        result.push(`<h2 class="blog-main-heading">${line}</h2>`);
+      } else {
+        result.push(`<h3 class="blog-sub-heading">${line}</h3>`);
       }
-      return `<h3 class="blog-sub-heading">${trimmed}</h3>`;
+      continue;
     }
 
-    // Regular Paragraph: replace single newlines inside with <br/> to keep formatting
-    const contentWithBreaks = trimmed.replace(/\n/g, "<br/>");
-    return `<p class="text-[15px] text-[#1B1B1B]/70 leading-[1.9] font-light mb-4">${contentWithBreaks}</p>`;
-  });
+    // Otherwise, treat as regular paragraph line
+    // Check if the line starts with a main heading inline, e.g. "Introduction: Traveling to India is..."
+    const inlineMainMatch = line.match(/^(Introduction|Key\s+Insights|Travel\s+Tips|Introducción|Introdução|Perspectivas\s+clave|Principais\s+insights|Consejos\s+de\s+viaje|Dicas\s+de\s+viagem)[\s\:\-\*]+(.*)/i);
+    if (inlineMainMatch) {
+      closeList();
+      closeParagraph();
+      const headingText = inlineMainMatch[1].trim();
+      const remainingText = inlineMainMatch[2].trim();
+      
+      result.push(`<h2 class="blog-main-heading">${headingText}</h2>`);
+      if (remainingText) {
+        currentParagraphLines.push(remainingText);
+      }
+      continue;
+    }
 
-  return formattedBlocks.filter(Boolean).join("\n");
+    // If we are currently in a list, we might want to close it if a paragraph line starts
+    if (currentListType) {
+      closeList();
+    }
+    currentParagraphLines.push(line);
+  }
+
+  // Close any remaining list or paragraph
+  closeList();
+  closeParagraph();
+
+  return result.join('\n');
 };
 
