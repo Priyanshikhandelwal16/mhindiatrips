@@ -1,42 +1,73 @@
 [
   {
-    "slug": "butter-chicken",
-    "title": {
-      "en": "Butter Chicken (Murgh Makhani)",
-      "es": "Pollo a la Mantequilla",
-      "pt": "Frango na Manteiga"
-    },
-    "category": "North Indian",
-    "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=800",
-    "gallery": [],
-    "history": {
-      "en": "Created in Delhi in the 1950s.",
-      "es": "Creado en Delhi en los años 1950.",
-      "pt": "Criado em Deli nos anos 1950."
-    },
-    "ingredients": [
+    "bestRestaurants": [
       {
-        "en": "Tandoori chicken",
-        "es": "Pollo tandoori",
-        "pt": "Frango tandoori"
-      },
-      {
-        "en": "Butter, tomato & heavy cream",
-        "es": "Mantequilla, tomate y crema",
-        "pt": "Manteiga, tomate e creme"
+        "city": "Lucknow",
+        "name": "Tunday Kababi"
       }
     ],
-    "origin": {
-      "en": "New Delhi, India",
-      "es": "Nueva Delhi, India",
-      "pt": "Nova Deli, Índia"
-    },
-    "region": "North India",
+    "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=800",
+    "ingredients": [
+      {
+        "pt": "Arroz basmati",
+        "en": "Basmati rice",
+        "es": "Arroz basmati"
+      },
+      {
+        "pt": "Açafrão, cardamomo e carne marinada",
+        "en": "Saffron, cardamoms, and marinated meat",
+        "es": "Azafrán, cardamomo y carne marinada"
+      }
+    ],
+    "category": "Mughlai Specialty",
     "bestCities": [
       {
-        "en": "New Delhi",
+        "es": "Lucknow",
+        "en": "Lucknow",
+        "pt": "Lucknow"
+      }
+    ],
+    "travelTips": [],
+    "history": {
+      "es": "El plato real creado en las cocinas de Lucknow.",
+      "pt": "O prato real criado nas cozinhas de Lucknow.",
+      "en": "The royal dish created in the Nawabi kitchens of Lucknow."
+    },
+    "origin": {
+      "pt": "Lucknow, Uttar Pradesh",
+      "en": "Lucknow, Uttar Pradesh",
+      "es": "Lucknow, Uttar Pradesh"
+    },
+    "title": {
+      "pt": "Dum Biryani Awadhi",
+      "en": "Awadhi Dum Biryani",
+      "es": "Biryani Dum Awadhi"
+    },
+    "faqs": [],
+    "slug": "awadhi-biryani",
+    "gallery": [],
+    "region": "North India"
+  },
+  {
+    "travelTips": [],
+    "region": "North India",
+    "ingredients": [
+      {
+        "es": "Pollo tandoori",
+        "pt": "Frango tandoori",
+        "en": "Tandoori chicken"
+      },
+      {
+        "es": "Mantequilla, tomate y crema",
+        "pt": "Manteiga, tomate e creme",
+        "en": "Butter, tomato & heavy cream"
+      }
+    ],
+    "bestCities": [
+      {
         "es": "Nueva Delhi",
-        "pt": "Nova Deli"
+        "pt": "Nova Deli",
+        "en": "New Delhi"
       }
     ],
     "bestRestaurants": [
@@ -45,517 +76,685 @@
         "city": "New Delhi"
       }
     ],
-    "travelTips": [],
-    "faqs": []
+    "slug": "butter-chicken",
+    "history": {
+      "en": "Created in Delhi in the 1950s.",
+      "pt": "Criado em Deli nos anos 1950.",
+      "es": "Creado en Delhi en los años 1950."
+    },
+    "title": {
+      "en": "Butter Chicken (Murgh Makhani)",
+      "pt": "Frango na Manteiga",
+      "es": "Pollo a la Mantequilla"
+    },
+    "faqs": [],
+    "category": "North Indian",
+    "origin": {
+      "en": "New Delhi, India",
+      "pt": "Nova Deli, Índia",
+      "es": "Nueva Delhi, India"
+    },
+    "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=800",
+    "gallery": []
   },
   {
-    "slug": "masala-dosa",
-    "title": {
-      "en": "Masala Dosa",
-      "es": "Masala Dosa",
-      "pt": "Masala Dosa"
-    },
-    "category": "South Indian",
-    "image": "/images/masala dosa.jpg",
-    "gallery": [],
-    "history": {
-      "en": "Originating in Karnataka, a staple breakfast for centuries.",
-      "es": "Originario de Karnataka, un desayuno básico durante siglos.",
-      "pt": "Originário de Karnataka, um café da manhã básico por séculos."
-    },
-    "ingredients": [
-      {
-        "en": "Fermented rice batter",
-        "es": "Masa de arroz fermentado",
-        "pt": "Massa de arroz fermentado"
-      },
-      {
-        "en": "Spiced potato filling",
-        "es": "Relleno de papa condimentada",
-        "pt": "Recheio de batata temperada"
-      }
-    ],
-    "origin": {
-      "en": "Udupi, Karnataka",
-      "es": "Udupi, Karnataka",
-      "pt": "Udupi, Karnataka"
-    },
-    "region": "South India",
+    "travelTips": [],
     "bestCities": [
       {
-        "en": "Bangalore",
-        "es": "Bangalore",
-        "pt": "Bangalore"
+        "es": "Karaikudi",
+        "pt": "Karaikudi",
+        "en": "Karaikudi"
       },
       {
         "en": "Chennai",
-        "es": "Chennai",
-        "pt": "Chennai"
+        "pt": "Chennai",
+        "es": "Chennai"
+      }
+    ],
+    "faqs": [],
+    "history": {
+      "es": "Un curry de pollo picante y aromático de la región Chettinad.",
+      "en": "A fiery, aromatic chicken curry from the Chettinad region of Tamil Nadu.",
+      "pt": "Um curry de frango picante e aromático da região Chettinad."
+    },
+    "image": "/images/ooty.jpg",
+    "slug": "chettinad-chicken",
+    "origin": {
+      "es": "Karaikudi, Tamil Nadu",
+      "pt": "Karaikudi, Tamil Nadu",
+      "en": "Karaikudi, Tamil Nadu"
+    },
+    "title": {
+      "es": "Pollo Chettinad",
+      "pt": "Frango Chettinad",
+      "en": "Chettinad Chicken"
+    },
+    "gallery": [],
+    "ingredients": [
+      {
+        "en": "Chicken with fresh-ground spice paste",
+        "pt": "Frango com pasta de especiarias recém-moída",
+        "es": "Pollo con pasta de especias recién molida"
+      },
+      {
+        "pt": "Anis estrelado, kalpasi e pimenta preta",
+        "en": "Star anise, kalpasi, and black pepper",
+        "es": "Anís estrellado, kalpasi y pimienta negra"
       }
     ],
     "bestRestaurants": [
       {
-        "name": "MTR",
-        "city": "Bangalore"
+        "name": "The Bangala",
+        "city": "Karaikudi"
       }
     ],
-    "travelTips": [],
-    "faqs": []
+    "category": "South Indian",
+    "region": "South India"
   },
   {
-    "slug": "dal-baati-churma",
-    "title": {
-      "en": "Dal Baati Churma",
-      "es": "Dal Baati Churma",
-      "pt": "Dal Baati Churma"
-    },
-    "category": "West Indian",
-    "image": "/images/churma bati.jpg",
-    "gallery": [],
+    "travelTips": [],
+    "region": "North India",
+    "ingredients": [
+      {
+        "pt": "Grão-de-bico temperado (Chhole)",
+        "en": "Spicy chickpeas (Chhole)",
+        "es": "Garbanzos condimentados (Chhole)"
+      },
+      {
+        "pt": "Pão frito inflado (Bhature)",
+        "en": "Fluffy fried bread (Bhature)",
+        "es": "Pan frito inflado (Bhature)"
+      }
+    ],
+    "bestRestaurants": [
+      {
+        "city": "New Delhi",
+        "name": "Sita Ram Diwan Chand"
+      }
+    ],
+    "bestCities": [
+      {
+        "pt": "Nova Deli",
+        "en": "New Delhi",
+        "es": "Nueva Delhi"
+      },
+      {
+        "en": "Amritsar",
+        "pt": "Amritsar",
+        "es": "Amritsar"
+      }
+    ],
+    "slug": "chhole-bhature",
     "history": {
-      "en": "The iconic traditional culinary dish of Rajput warriors.",
-      "es": "El plato tradicional icónico de los guerreros Rajput.",
-      "pt": "O prato tradicional icônico dos guerreiros Rajput."
+      "es": "Una comida callejera favorita de origen punjabi.",
+      "en": "A beloved Punjabi street food staple, popularized post-independence.",
+      "pt": "Uma comida de rua favorita de origem punjabi."
+    },
+    "title": {
+      "es": "Chhole Bhature",
+      "pt": "Chhole Bhature",
+      "en": "Chhole Bhature"
+    },
+    "faqs": [],
+    "category": "North Indian",
+    "origin": {
+      "es": "Punjab / Nueva Delhi",
+      "pt": "Punjab / Nova Deli",
+      "en": "Punjab / New Delhi"
+    },
+    "image": "/images/chhole bhature.jpg",
+    "gallery": []
+  },
+  {
+    "category": "West Indian",
+    "slug": "dal-baati-churma",
+    "origin": {
+      "en": "Mewar Region, Rajasthan",
+      "pt": "Região de Mewar, Rajastão",
+      "es": "Región de Mewar, Rajastán"
+    },
+    "title": {
+      "es": "Dal Baati Churma",
+      "pt": "Dal Baati Churma",
+      "en": "Dal Baati Churma"
     },
     "ingredients": [
       {
-        "en": "Baked wheat balls (Baati)",
         "es": "Bolas de trigo horneadas (Baati)",
+        "en": "Baked wheat balls (Baati)",
         "pt": "Bolas de trigo assadas (Baati)"
       },
       {
+        "pt": "Sopa de cinco lentilhas (Dal)",
         "en": "Five-lentil soup (Dal)",
-        "es": "Sopa de cinco lentejas (Dal)",
-        "pt": "Sopa de cinco lentilhas (Dal)"
+        "es": "Sopa de cinco lentejas (Dal)"
       },
       {
+        "pt": "Trigo triturado doce (Churma)",
         "en": "Sweet crushed wheat (Churma)",
-        "es": "Trigo triturado dulce (Churma)",
-        "pt": "Trigo triturado doce (Churma)"
-      }
-    ],
-    "origin": {
-      "en": "Mewar Region, Rajasthan",
-      "es": "Región de Mewar, Rajastán",
-      "pt": "Região de Mewar, Rajastão"
-    },
-    "region": "West India",
-    "bestCities": [
-      {
-        "en": "Jaipur",
-        "es": "Jaipur",
-        "pt": "Jaipur"
-      },
-      {
-        "en": "Udaipur",
-        "es": "Udaipur",
-        "pt": "Udaipur"
+        "es": "Trigo triturado dulce (Churma)"
       }
     ],
     "bestRestaurants": [
       {
-        "name": "Chokhi Dhani",
-        "city": "Jaipur"
+        "city": "Jaipur",
+        "name": "Chokhi Dhani"
+      }
+    ],
+    "bestCities": [
+      {
+        "pt": "Jaipur",
+        "en": "Jaipur",
+        "es": "Jaipur"
+      },
+      {
+        "es": "Udaipur",
+        "en": "Udaipur",
+        "pt": "Udaipur"
       }
     ],
     "travelTips": [],
-    "faqs": []
+    "history": {
+      "es": "El plato tradicional icónico de los guerreros Rajput.",
+      "pt": "O prato tradicional icônico dos guerreiros Rajput.",
+      "en": "The iconic traditional culinary dish of Rajput warriors."
+    },
+    "faqs": [],
+    "region": "West India",
+    "gallery": [],
+    "image": "/images/churma bati.jpg"
   },
   {
-    "slug": "goan-fish-curry",
-    "title": {
-      "en": "Goan Fish Curry",
-      "es": "Curry de Pescado Goan",
-      "pt": "Caril de Peixe Goano"
+    "image": "/images/dal makhani.jpg",
+    "travelTips": [],
+    "origin": {
+      "en": "Punjab, India",
+      "pt": "Punjab, Índia",
+      "es": "Punjab, India"
     },
-    "category": "Coastal Indian",
-    "image": "/images/goan fish curry.jpg",
-    "gallery": [],
-    "history": {
-      "en": "A delicious blend of local coconut spices and Portuguese influence.",
-      "es": "Una fusión de especias de coco locales e influencia portuguesa.",
-      "pt": "Uma fusão de especiarias de coco locais e influência portuguesa."
-    },
-    "ingredients": [
+    "bestCities": [
       {
-        "en": "Fresh fish (Kingfish or Pomfret)",
-        "es": "Pescado fresco",
-        "pt": "Peixe fresco"
+        "es": "Nueva Delhi",
+        "pt": "Nova Deli",
+        "en": "New Delhi"
       },
       {
-        "en": "Coconut milk & tamarind",
-        "es": "Leche de coco y tamarindo",
-        "pt": "Leite de coco e tamarindo"
+        "pt": "Amritsar",
+        "en": "Amritsar",
+        "es": "Amritsar"
+      }
+    ],
+    "category": "Punjabi Specialty",
+    "history": {
+      "es": "Un plato cremoso de lentejas negras cocinado a fuego lento.",
+      "pt": "Um prato cremoso de lentilhas pretas cozido lentamente.",
+      "en": "A rich, creamy black lentil dish slow-cooked overnight in Punjabi dhabas."
+    },
+    "faqs": [],
+    "region": "North India",
+    "ingredients": [
+      {
+        "es": "Lentejas negras y frijoles",
+        "en": "Black urad dal & kidney beans",
+        "pt": "Lentilhas pretas e feijão"
+      },
+      {
+        "es": "Mantequilla, crema y salsa de tomate",
+        "pt": "Manteiga, creme e molho de tomate",
+        "en": "Butter, cream, and tomato gravy"
+      }
+    ],
+    "title": {
+      "es": "Dal Makhani",
+      "en": "Dal Makhani",
+      "pt": "Dal Makhani"
+    },
+    "slug": "dal-makhani",
+    "bestRestaurants": [
+      {
+        "city": "New Delhi",
+        "name": "Moti Mahal"
+      }
+    ],
+    "gallery": []
+  },
+  {
+    "travelTips": [],
+    "slug": "dhokla",
+    "history": {
+      "en": "An ancient Gujarati steamed snack, mentioned in texts from the 16th century.",
+      "pt": "Um antigo lanche ao vapor de Gujarat do século XVI.",
+      "es": "Un antiguo aperitivo al vapor de Gujarat del siglo XVI."
+    },
+    "category": "Gujarati Snack",
+    "bestCities": [
+      {
+        "es": "Ahmedabad",
+        "en": "Ahmedabad",
+        "pt": "Ahmedabad"
+      },
+      {
+        "en": "Surat",
+        "pt": "Surat",
+        "es": "Surat"
       }
     ],
     "origin": {
-      "en": "Goa, India",
-      "es": "Goa, India",
-      "pt": "Goa, Índia"
+      "en": "Gujarat, India",
+      "pt": "Gujarat, Índia",
+      "es": "Gujarat, India"
     },
-    "region": "Coastal India",
+    "faqs": [],
+    "image": "/images/dhokla.jpg",
+    "gallery": [],
+    "bestRestaurants": [
+      {
+        "city": "Ahmedabad",
+        "name": "Das Khaman"
+      }
+    ],
+    "title": {
+      "es": "Dhokla",
+      "pt": "Dhokla",
+      "en": "Dhokla"
+    },
+    "ingredients": [
+      {
+        "es": "Masa fermentada de harina de garbanzo",
+        "en": "Fermented chickpea flour batter",
+        "pt": "Massa fermentada de farinha de grão-de-bico"
+      },
+      {
+        "pt": "Temperado com sementes de mostarda",
+        "en": "Tempered with mustard seeds & green chilies",
+        "es": "Aderezado con semillas de mostaza"
+      }
+    ],
+    "region": "West India"
+  },
+  {
     "bestCities": [
       {
         "en": "Panaji",
-        "es": "Panaji",
-        "pt": "Panaji"
+        "pt": "Panaji",
+        "es": "Panaji"
       },
       {
         "en": "Margao",
-        "es": "Margao",
-        "pt": "Margao"
+        "pt": "Margao",
+        "es": "Margao"
       }
     ],
+    "travelTips": [],
+    "title": {
+      "es": "Curry de Pescado Goan",
+      "pt": "Caril de Peixe Goano",
+      "en": "Goan Fish Curry"
+    },
+    "gallery": [],
     "bestRestaurants": [
       {
         "name": "Fisherman's Wharf",
         "city": "Panaji"
       }
     ],
-    "travelTips": [],
-    "faqs": []
-  },
-  {
-    "slug": "chhole-bhature",
-    "title": {
-      "en": "Chhole Bhature",
-      "es": "Chhole Bhature",
-      "pt": "Chhole Bhature"
-    },
-    "category": "North Indian",
-    "image": "/images/chhole bhature.jpg",
-    "gallery": [],
-    "history": {
-      "en": "A beloved Punjabi street food staple, popularized post-independence.",
-      "es": "Una comida callejera favorita de origen punjabi.",
-      "pt": "Uma comida de rua favorita de origem punjabi."
-    },
     "ingredients": [
       {
-        "en": "Spicy chickpeas (Chhole)",
-        "es": "Garbanzos condimentados (Chhole)",
-        "pt": "Grão-de-bico temperado (Chhole)"
+        "es": "Pescado fresco",
+        "en": "Fresh fish (Kingfish or Pomfret)",
+        "pt": "Peixe fresco"
       },
       {
-        "en": "Fluffy fried bread (Bhature)",
-        "es": "Pan frito inflado (Bhature)",
-        "pt": "Pão frito inflado (Bhature)"
+        "pt": "Leite de coco e tamarindo",
+        "en": "Coconut milk & tamarind",
+        "es": "Leche de coco y tamarindo"
       }
     ],
     "origin": {
-      "en": "Punjab / New Delhi",
-      "es": "Punjab / Nueva Delhi",
-      "pt": "Punjab / Nova Deli"
+      "es": "Goa, India",
+      "pt": "Goa, Índia",
+      "en": "Goa, India"
     },
-    "region": "North India",
+    "slug": "goan-fish-curry",
+    "faqs": [],
+    "category": "Coastal Indian",
+    "region": "Coastal India",
+    "image": "/images/goan fish curry.jpg",
+    "history": {
+      "es": "Una fusión de especias de coco locales e influencia portuguesa.",
+      "pt": "Uma fusão de especiarias de coco locais e influência portuguesa.",
+      "en": "A delicious blend of local coconut spices and Portuguese influence."
+    }
+  },
+  {
     "bestCities": [
       {
-        "en": "New Delhi",
-        "es": "Nueva Delhi",
-        "pt": "Nova Deli"
-      },
-      {
-        "en": "Amritsar",
-        "es": "Amritsar",
-        "pt": "Amritsar"
-      }
-    ],
-    "bestRestaurants": [
-      {
-        "name": "Sita Ram Diwan Chand",
-        "city": "New Delhi"
+        "pt": "Hyderabad",
+        "en": "Hyderabad",
+        "es": "Hyderabad"
       }
     ],
     "travelTips": [],
-    "faqs": []
-  },
-  {
-    "slug": "puttu-kadala",
-    "title": {
-      "en": "Puttu & Kadala Curry",
-      "es": "Puttu y Kadala Curry",
-      "pt": "Puttu e Kadala Curry"
-    },
-    "category": "South Indian",
-    "image": "/images/puttu kadala curry.jpg",
-    "gallery": [],
     "history": {
-      "en": "The signature morning breakfast recipe of Kerala houseboats.",
-      "es": "La receta de desayuno característica de las casas barco en Kerala.",
-      "pt": "A receita de café da manhã característica das casas barco em Kerala."
-    },
-    "ingredients": [
-      {
-        "en": "Steamed rice cake rolls (Puttu)",
-        "es": "Pastel de arroz al vapor (Puttu)",
-        "pt": "Bolo de arroz ao vapor (Puttu)"
-      },
-      {
-        "en": "Black chickpeas gravy (Kadala)",
-        "es": "Guiso de garbanzos negros (Kadala)",
-        "pt": "Guisado de grão-de-bico preto (Kadala)"
-      }
-    ],
-    "origin": {
-      "en": "Kerala, India",
-      "es": "Kerala, India",
-      "pt": "Kerala, Índia"
-    },
-    "region": "South India",
-    "bestCities": [
-      {
-        "en": "Kochi",
-        "es": "Kochi",
-        "pt": "Kochi"
-      },
-      {
-        "en": "Trivandrum",
-        "es": "Trivandrum",
-        "pt": "Trivandrum"
-      }
-    ],
-    "bestRestaurants": [
-      {
-        "name": "Paragon Restaurant",
-        "city": "Kochi"
-      }
-    ],
-    "travelTips": [],
-    "faqs": []
-  },
-  {
-    "slug": "awadhi-biryani",
-    "title": {
-      "en": "Awadhi Dum Biryani",
-      "es": "Biryani Dum Awadhi",
-      "pt": "Dum Biryani Awadhi"
-    },
-    "category": "Mughlai Specialty",
-    "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=800",
-    "gallery": [],
-    "history": {
-      "en": "The royal dish created in the Nawabi kitchens of Lucknow.",
-      "es": "El plato real creado en las cocinas de Lucknow.",
-      "pt": "O prato real criado nas cozinhas de Lucknow."
-    },
-    "ingredients": [
-      {
-        "en": "Basmati rice",
-        "es": "Arroz basmati",
-        "pt": "Arroz basmati"
-      },
-      {
-        "en": "Saffron, cardamoms, and marinated meat",
-        "es": "Azafrán, cardamomo y carne marinada",
-        "pt": "Açafrão, cardamomo e carne marinada"
-      }
-    ],
-    "origin": {
-      "en": "Lucknow, Uttar Pradesh",
-      "es": "Lucknow, Uttar Pradesh",
-      "pt": "Lucknow, Uttar Pradesh"
-    },
-    "region": "North India",
-    "bestCities": [
-      {
-        "en": "Lucknow",
-        "es": "Lucknow",
-        "pt": "Lucknow"
-      }
-    ],
-    "bestRestaurants": [
-      {
-        "name": "Tunday Kababi",
-        "city": "Lucknow"
-      }
-    ],
-    "travelTips": [],
-    "faqs": []
-  },
-  {
-    "slug": "samosa-delight",
-    "title": {
-      "en": "Classic Vegetable Samosa",
-      "es": "Samosa Vegetal Clásica",
-      "pt": "Samosa de Vegetais Clássica"
-    },
-    "category": "Indian Street Snack",
-    "image": "/images/momos.jpg",
-    "gallery": [],
-    "history": {
-      "en": "Introduced to India during the Delhi Sultanate from Central Asia.",
-      "es": "Introducido en la India durante el Sultanato de Delhi.",
-      "pt": "Introduzido na Índia durante o Sultanato de Deli."
-    },
-    "ingredients": [
-      {
-        "en": "Crispy pastry wrapper",
-        "es": "Hojaldre crujiente",
-        "pt": "Massa folhada crocante"
-      },
-      {
-        "en": "Spiced potato & green peas filling",
-        "es": "Relleno de papa y guisantes con especias",
-        "pt": "Recheio de batata e ervilha com especiarias"
-      }
-    ],
-    "origin": {
-      "en": "Middle East / North India",
-      "es": "Medio Oriente / Norte de la India",
-      "pt": "Médio Oriente / Norte da Índia"
-    },
-    "region": "All India",
-    "bestCities": [
-      {
-        "en": "Mumbai",
-        "es": "Mumbai",
-        "pt": "Mumbai"
-      },
-      {
-        "en": "New Delhi",
-        "es": "Nueva Delhi",
-        "pt": "Nova Deli"
-      }
-    ],
-    "bestRestaurants": [
-      {
-        "name": "Tewari Bros",
-        "city": "Mumbai"
-      }
-    ],
-    "travelTips": [],
-    "faqs": []
-  },
-  {
-    "slug": "rogan-josh",
-    "title": {
-      "en": "Kashmiri Rogan Josh",
-      "es": "Rogan Josh Cachemir",
-      "pt": "Rogan Josh Caxemira"
-    },
-    "category": "Traditional Kashmiri",
-    "image": "/images/laal maas.jpg",
-    "gallery": [],
-    "history": {
-      "en": "An authentic Persian culinary gem introduced to Kashmir by Mughals.",
-      "es": "Una auténtica joya persa introducida en Cachemira.",
-      "pt": "Uma autêntica joia persa introduzida na Caxemira."
-    },
-    "ingredients": [
-      {
-        "en": "Tender lamb / mutton pieces",
-        "es": "Carne tierna de cordero",
-        "pt": "Carne macia de cordeiro"
-      },
-      {
-        "en": "Kashmiri red chilies, ginger & yogurt",
-        "es": "Chiles rojos, jengibre y yogur",
-        "pt": "Pimentas vermelhas, gengibre e iogurte"
-      }
-    ],
-    "origin": {
-      "en": "Kashmir Valley, India",
-      "es": "Valle de Cachemira, India",
-      "pt": "Vale de Caxemira, Índia"
-    },
-    "region": "North India",
-    "bestCities": [
-      {
-        "en": "Srinagar",
-        "es": "Srinagar",
-        "pt": "Srinagar"
-      }
-    ],
-    "bestRestaurants": [
-      {
-        "name": "Mughal Darbar",
-        "city": "Srinagar"
-      }
-    ],
-    "travelTips": [],
-    "faqs": []
-  },
-  {
-    "slug": "hyderabadi-biryani",
-    "title": {
-      "en": "Hyderabadi Dum Biryani",
-      "es": "Biryani Dum de Hyderabad",
-      "pt": "Dum Biryani de Hyderabad"
-    },
-    "category": "Mughlai Specialty",
-    "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=800",
-    "gallery": [],
-    "history": {
-      "en": "Created in the royal kitchens of the Nizam of Hyderabad, a slow-cooked masterpiece.",
       "es": "Creado en las cocinas reales del Nizam de Hyderabad.",
+      "en": "Created in the royal kitchens of the Nizam of Hyderabad, a slow-cooked masterpiece.",
       "pt": "Criado nas cozinhas reais do Nizam de Hyderabad."
     },
-    "ingredients": [
-      {
-        "en": "Basmati rice, saffron, marinated goat meat",
-        "es": "Arroz basmati, azafrán, carne de cabra marinada",
-        "pt": "Arroz basmati, açafrão, carne de cabra marinada"
-      }
-    ],
+    "category": "Mughlai Specialty",
     "origin": {
       "en": "Hyderabad, Telangana",
-      "es": "Hyderabad, Telangana",
-      "pt": "Hyderabad, Telangana"
+      "pt": "Hyderabad, Telangana",
+      "es": "Hyderabad, Telangana"
     },
-    "region": "South India",
-    "bestCities": [
-      {
-        "en": "Hyderabad",
-        "es": "Hyderabad",
-        "pt": "Hyderabad"
-      }
-    ],
+    "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=800",
+    "gallery": [],
     "bestRestaurants": [
       {
         "name": "Paradise Biryani",
         "city": "Hyderabad"
       }
     ],
+    "title": {
+      "pt": "Dum Biryani de Hyderabad",
+      "en": "Hyderabadi Dum Biryani",
+      "es": "Biryani Dum de Hyderabad"
+    },
+    "slug": "hyderabadi-biryani",
+    "ingredients": [
+      {
+        "en": "Basmati rice, saffron, marinated goat meat",
+        "pt": "Arroz basmati, açafrão, carne de cabra marinada",
+        "es": "Arroz basmati, azafrán, carne de cabra marinada"
+      }
+    ],
+    "region": "South India",
+    "faqs": []
+  },
+  {
+    "origin": {
+      "en": "Tamil Nadu & Karnataka",
+      "pt": "Tamil Nadu e Karnataka",
+      "es": "Tamil Nadu y Karnataka"
+    },
+    "ingredients": [
+      {
+        "pt": "Bolos de arroz ao vapor (Idli)",
+        "en": "Steamed rice & urad dal cakes (Idli)",
+        "es": "Tortas de arroz al vapor (Idli)"
+      },
+      {
+        "en": "Lentil vegetable stew (Sambhar)",
+        "pt": "Guisado de lentilhas e vegetais (Sambhar)",
+        "es": "Guiso de lentejas y verduras (Sambhar)"
+      }
+    ],
+    "image": "/images/idli sambhar.jpg",
+    "gallery": [],
+    "faqs": [],
+    "category": "South Indian",
+    "title": {
+      "pt": "Idli e Sambhar",
+      "en": "Idli & Sambhar",
+      "es": "Idli y Sambhar"
+    },
+    "region": "South India",
+    "bestRestaurants": [
+      {
+        "name": "Murugan Idli Shop",
+        "city": "Chennai"
+      }
+    ],
+    "slug": "idli-sambhar",
+    "history": {
+      "en": "A staple South Indian breakfast for over 1000 years, perfected in Tamil Nadu and Karnataka.",
+      "pt": "Um café da manhã básico do sul da Índia por mais de 1000 anos.",
+      "es": "Un desayuno básico del sur de la India por más de 1000 años."
+    },
+    "travelTips": [],
+    "bestCities": [
+      {
+        "pt": "Chennai",
+        "en": "Chennai",
+        "es": "Chennai"
+      },
+      {
+        "pt": "Bangalore",
+        "en": "Bangalore",
+        "es": "Bangalore"
+      }
+    ]
+  },
+  {
+    "bestRestaurants": [
+      {
+        "name": "Kayees Biryani",
+        "city": "Kochi"
+      }
+    ],
+    "region": "South India",
+    "category": "Coastal Indian",
+    "image": "/images/kerala fish curry.jpg",
+    "history": {
+      "es": "Un plato costero básico de Kerala cocinado en ollas de barro.",
+      "pt": "Um prato costeiro básico de Kerala cozido em panelas de barro.",
+      "en": "A staple coastal dish of Kerala, cooked in clay pots with kokum and coconut."
+    },
+    "ingredients": [
+      {
+        "es": "Pescado fresco con mango crudo o kokum",
+        "en": "Fresh fish with raw mango or kokum",
+        "pt": "Peixe fresco com manga crua ou kokum"
+      },
+      {
+        "es": "Leche de coco y hojas de curry",
+        "pt": "Leite de coco e folhas de caril",
+        "en": "Coconut milk, curry leaves & mustard seeds"
+      }
+    ],
+    "title": {
+      "en": "Kerala Fish Curry (Meen Curry)",
+      "pt": "Caril de Peixe de Kerala",
+      "es": "Curry de Pescado de Kerala"
+    },
+    "bestCities": [
+      {
+        "es": "Kochi",
+        "pt": "Kochi",
+        "en": "Kochi"
+      },
+      {
+        "es": "Alleppey",
+        "en": "Alleppey",
+        "pt": "Alleppey"
+      }
+    ],
+    "faqs": [],
+    "origin": {
+      "es": "Kerala, India",
+      "pt": "Kerala, Índia",
+      "en": "Kerala, India"
+    },
+    "travelTips": [],
+    "gallery": [],
+    "slug": "kerala-fish-curry"
+  },
+  {
+    "region": "West India",
+    "category": "Rajasthani Specialty",
+    "title": {
+      "es": "Laal Maas",
+      "en": "Laal Maas",
+      "pt": "Laal Maas"
+    },
+    "bestRestaurants": [
+      {
+        "city": "Jaipur",
+        "name": "Handi Restaurant"
+      }
+    ],
+    "gallery": [],
+    "origin": {
+      "pt": "Jodhpur, Rajastão",
+      "en": "Jodhpur, Rajasthan",
+      "es": "Jodhpur, Rajastán"
+    },
+    "ingredients": [
+      {
+        "es": "Carne de cordero con chiles rojos Mathania",
+        "en": "Mutton with Mathania red chilies",
+        "pt": "Carne de cordeiro com pimentas vermelhas Mathania"
+      },
+      {
+        "es": "Yogur, ajo y especias enteras",
+        "pt": "Iogurte, alho e especiarias inteiras",
+        "en": "Yogurt, garlic and whole spices"
+      }
+    ],
+    "slug": "laal-maas",
+    "image": "/images/laal maas.jpg",
+    "history": {
+      "es": "Un curry rojo intenso de cordero de la cocina guerrera Rajput.",
+      "en": "A fiery red mutton curry from the warrior kitchens of Rajput royalty.",
+      "pt": "Um curry vermelho intenso de cordeiro da cozinha guerreira Rajput."
+    },
+    "bestCities": [
+      {
+        "es": "Jodhpur",
+        "pt": "Jodhpur",
+        "en": "Jodhpur"
+      },
+      {
+        "pt": "Jaipur",
+        "en": "Jaipur",
+        "es": "Jaipur"
+      }
+    ],
     "travelTips": [],
     "faqs": []
   },
   {
-    "slug": "pav-bhaji",
-    "title": {
-      "en": "Pav Bhaji",
-      "es": "Pav Bhaji",
-      "pt": "Pav Bhaji"
-    },
-    "category": "Mumbai Street Food",
-    "image": "/images/pav bhaji.jpg",
-    "gallery": [],
+    "faqs": [],
     "history": {
-      "en": "Born on the streets of Mumbai as a quick meal for textile mill workers in the 1850s.",
-      "es": "Nacido en las calles de Mumbai como comida rápida en los años 1850.",
-      "pt": "Nascido nas ruas de Mumbai como refeição rápida nos anos 1850."
+      "en": "Originating in Karnataka, a staple breakfast for centuries.",
+      "pt": "Originário de Karnataka, um café da manhã básico por séculos.",
+      "es": "Originario de Karnataka, un desayuno básico durante siglos."
     },
-    "ingredients": [
-      {
-        "en": "Mashed mixed vegetables with butter",
-        "es": "Puré de verduras mixtas con mantequilla",
-        "pt": "Purê de vegetais mistos com manteiga"
-      },
-      {
-        "en": "Toasted buttered bread rolls (Pav)",
-        "es": "Panecillos tostados con mantequilla",
-        "pt": "Pãezinhos torrados com manteiga"
-      }
-    ],
-    "origin": {
-      "en": "Mumbai, Maharashtra",
-      "es": "Mumbai, Maharashtra",
-      "pt": "Mumbai, Maharashtra"
+    "region": "South India",
+    "image": "/images/masala dosa.jpg",
+    "slug": "masala-dosa",
+    "title": {
+      "es": "Masala Dosa",
+      "en": "Masala Dosa",
+      "pt": "Masala Dosa"
     },
-    "region": "West India",
     "bestCities": [
       {
-        "en": "Mumbai",
+        "es": "Bangalore",
+        "pt": "Bangalore",
+        "en": "Bangalore"
+      },
+      {
+        "pt": "Chennai",
+        "en": "Chennai",
+        "es": "Chennai"
+      }
+    ],
+    "ingredients": [
+      {
+        "es": "Masa de arroz fermentado",
+        "pt": "Massa de arroz fermentado",
+        "en": "Fermented rice batter"
+      },
+      {
+        "es": "Relleno de papa condimentada",
+        "en": "Spiced potato filling",
+        "pt": "Recheio de batata temperada"
+      }
+    ],
+    "gallery": [],
+    "origin": {
+      "es": "Udupi, Karnataka",
+      "en": "Udupi, Karnataka",
+      "pt": "Udupi, Karnataka"
+    },
+    "travelTips": [],
+    "bestRestaurants": [
+      {
+        "name": "MTR",
+        "city": "Bangalore"
+      }
+    ],
+    "category": "South Indian"
+  },
+  {
+    "gallery": [],
+    "slug": "momos",
+    "bestCities": [
+      {
+        "es": "Darjeeling",
+        "en": "Darjeeling",
+        "pt": "Darjeeling"
+      },
+      {
+        "es": "Delhi",
+        "en": "Delhi",
+        "pt": "Delhi"
+      }
+    ],
+    "travelTips": [],
+    "region": "North & Northeast India",
+    "faqs": [],
+    "ingredients": [
+      {
+        "es": "Envoltorios finos de harina de trigo",
+        "pt": "Invólucros finos de farinha de trigo",
+        "en": "Thin wheat flour wrappers"
+      },
+      {
+        "en": "Minced meat or vegetables filling",
+        "pt": "Recheio de carne picada ou vegetais",
+        "es": "Relleno de carne picada o verduras"
+      }
+    ],
+    "category": "Himalayan Street Food",
+    "title": {
+      "es": "Momos del Himalaya",
+      "en": "Himalayan Momos",
+      "pt": "Momos do Himalaia"
+    },
+    "bestRestaurants": [
+      {
+        "name": "Dolma Aunty Momos",
+        "city": "Delhi"
+      }
+    ],
+    "image": "/images/momos.jpg",
+    "history": {
+      "en": "Tibetan dumplings that became India's favorite street food in the Himalayan regions.",
+      "pt": "Dumplings tibetanos que se tornaram comida de rua favorita.",
+      "es": "Dumplings tibetanos que se convirtieron en comida callejera favorita."
+    },
+    "origin": {
+      "es": "Tibet / Noreste de India",
+      "en": "Tibet / Northeast India",
+      "pt": "Tibet / Nordeste da Índia"
+    }
+  },
+  {
+    "slug": "pav-bhaji",
+    "history": {
+      "es": "Nacido en las calles de Mumbai como comida rápida en los años 1850.",
+      "pt": "Nascido nas ruas de Mumbai como refeição rápida nos anos 1850.",
+      "en": "Born on the streets of Mumbai as a quick meal for textile mill workers in the 1850s."
+    },
+    "image": "/images/pav bhaji.jpg",
+    "region": "West India",
+    "faqs": [],
+    "travelTips": [],
+    "bestCities": [
+      {
         "es": "Mumbai",
+        "en": "Mumbai",
         "pt": "Mumbai"
       }
     ],
@@ -565,537 +764,338 @@
         "city": "Mumbai"
       }
     ],
-    "travelTips": [],
-    "faqs": []
-  },
-  {
-    "slug": "tandoori-chicken",
-    "title": {
-      "en": "Tandoori Chicken",
-      "es": "Pollo Tandoori",
-      "pt": "Frango Tandoori"
-    },
-    "category": "North Indian",
-    "image": "/images/tandoori chicken.jpg",
     "gallery": [],
-    "history": {
-      "en": "Originated in Peshawar, popularized at Moti Mahal restaurant in Delhi post-1947.",
-      "es": "Originado en Peshawar, popularizado en Delhi después de 1947.",
-      "pt": "Originado em Peshawar, popularizado em Delhi após 1947."
-    },
-    "ingredients": [
-      {
-        "en": "Whole chicken marinated in yogurt & spices",
-        "es": "Pollo entero marinado en yogur y especias",
-        "pt": "Frango inteiro marinado em iogurte e especiarias"
-      },
-      {
-        "en": "Cooked in cylindrical clay tandoor oven",
-        "es": "Cocinado en horno de barro tandoor",
-        "pt": "Cozido em forno de barro tandoor"
-      }
-    ],
-    "origin": {
-      "en": "Delhi / Punjab",
-      "es": "Delhi / Punjab",
-      "pt": "Delhi / Punjab"
-    },
-    "region": "North India",
-    "bestCities": [
-      {
-        "en": "New Delhi",
-        "es": "Nueva Delhi",
-        "pt": "Nova Deli"
-      },
-      {
-        "en": "Amritsar",
-        "es": "Amritsar",
-        "pt": "Amritsar"
-      }
-    ],
-    "bestRestaurants": [
-      {
-        "name": "Moti Mahal Delux",
-        "city": "New Delhi"
-      }
-    ],
-    "travelTips": [],
-    "faqs": []
-  },
-  {
-    "slug": "vada-pav",
-    "title": {
-      "en": "Vada Pav",
-      "es": "Vada Pav",
-      "pt": "Vada Pav"
-    },
     "category": "Mumbai Street Food",
-    "image": "/images/vada pav.jpg",
-    "gallery": [],
-    "history": {
-      "en": "Mumbai's iconic vegetarian burger, created in the 1960s outside Dadar station.",
-      "es": "La hamburguesa vegetariana icónica de Mumbai.",
-      "pt": "O hambúrguer vegetariano icônico de Mumbai."
-    },
-    "ingredients": [
-      {
-        "en": "Spiced potato fritter (Vada)",
-        "es": "Croqueta de papa condimentada",
-        "pt": "Croquete de batata temperada"
-      },
-      {
-        "en": "Bread bun with garlic & green chutneys",
-        "es": "Pan con chutneys de ajo y verde",
-        "pt": "Pão com chutneys de alho e verde"
-      }
-    ],
     "origin": {
-      "en": "Mumbai, Maharashtra",
       "es": "Mumbai, Maharashtra",
+      "en": "Mumbai, Maharashtra",
       "pt": "Mumbai, Maharashtra"
     },
-    "region": "West India",
-    "bestCities": [
-      {
-        "en": "Mumbai",
-        "es": "Mumbai",
-        "pt": "Mumbai"
-      }
-    ],
-    "bestRestaurants": [
-      {
-        "name": "Ashok Vada Pav",
-        "city": "Mumbai"
-      }
-    ],
-    "travelTips": [],
-    "faqs": []
-  },
-  {
-    "slug": "laal-maas",
     "title": {
-      "en": "Laal Maas",
-      "es": "Laal Maas",
-      "pt": "Laal Maas"
-    },
-    "category": "Rajasthani Specialty",
-    "image": "/images/laal maas.jpg",
-    "gallery": [],
-    "history": {
-      "en": "A fiery red mutton curry from the warrior kitchens of Rajput royalty.",
-      "es": "Un curry rojo intenso de cordero de la cocina guerrera Rajput.",
-      "pt": "Um curry vermelho intenso de cordeiro da cozinha guerreira Rajput."
+      "pt": "Pav Bhaji",
+      "en": "Pav Bhaji",
+      "es": "Pav Bhaji"
     },
     "ingredients": [
       {
-        "en": "Mutton with Mathania red chilies",
-        "es": "Carne de cordero con chiles rojos Mathania",
-        "pt": "Carne de cordeiro com pimentas vermelhas Mathania"
+        "es": "Puré de verduras mixtas con mantequilla",
+        "pt": "Purê de vegetais mistos com manteiga",
+        "en": "Mashed mixed vegetables with butter"
       },
       {
-        "en": "Yogurt, garlic and whole spices",
-        "es": "Yogur, ajo y especias enteras",
-        "pt": "Iogurte, alho e especiarias inteiras"
+        "pt": "Pãezinhos torrados com manteiga",
+        "en": "Toasted buttered bread rolls (Pav)",
+        "es": "Panecillos tostados con mantequilla"
       }
-    ],
-    "origin": {
-      "en": "Jodhpur, Rajasthan",
-      "es": "Jodhpur, Rajastán",
-      "pt": "Jodhpur, Rajastão"
-    },
-    "region": "West India",
-    "bestCities": [
-      {
-        "en": "Jodhpur",
-        "es": "Jodhpur",
-        "pt": "Jodhpur"
-      },
-      {
-        "en": "Jaipur",
-        "es": "Jaipur",
-        "pt": "Jaipur"
-      }
-    ],
-    "bestRestaurants": [
-      {
-        "name": "Handi Restaurant",
-        "city": "Jaipur"
-      }
-    ],
-    "travelTips": [],
-    "faqs": []
+    ]
   },
   {
-    "slug": "idli-sambhar",
-    "title": {
-      "en": "Idli & Sambhar",
-      "es": "Idli y Sambhar",
-      "pt": "Idli e Sambhar"
-    },
     "category": "South Indian",
-    "image": "/images/idli sambhar.jpg",
-    "gallery": [],
-    "history": {
-      "en": "A staple South Indian breakfast for over 1000 years, perfected in Tamil Nadu and Karnataka.",
-      "es": "Un desayuno básico del sur de la India por más de 1000 años.",
-      "pt": "Um café da manhã básico do sul da Índia por mais de 1000 anos."
-    },
     "ingredients": [
       {
-        "en": "Steamed rice & urad dal cakes (Idli)",
-        "es": "Tortas de arroz al vapor (Idli)",
-        "pt": "Bolos de arroz ao vapor (Idli)"
+        "es": "Pastel de arroz al vapor (Puttu)",
+        "en": "Steamed rice cake rolls (Puttu)",
+        "pt": "Bolo de arroz ao vapor (Puttu)"
       },
       {
-        "en": "Lentil vegetable stew (Sambhar)",
-        "es": "Guiso de lentejas y verduras (Sambhar)",
-        "pt": "Guisado de lentilhas e vegetais (Sambhar)"
+        "es": "Guiso de garbanzos negros (Kadala)",
+        "en": "Black chickpeas gravy (Kadala)",
+        "pt": "Guisado de grão-de-bico preto (Kadala)"
       }
     ],
-    "origin": {
-      "en": "Tamil Nadu & Karnataka",
-      "es": "Tamil Nadu y Karnataka",
-      "pt": "Tamil Nadu e Karnataka"
+    "faqs": [],
+    "travelTips": [],
+    "title": {
+      "es": "Puttu y Kadala Curry",
+      "pt": "Puttu e Kadala Curry",
+      "en": "Puttu & Kadala Curry"
     },
-    "region": "South India",
     "bestCities": [
       {
-        "en": "Chennai",
-        "es": "Chennai",
-        "pt": "Chennai"
+        "pt": "Kochi",
+        "en": "Kochi",
+        "es": "Kochi"
       },
       {
-        "en": "Bangalore",
-        "es": "Bangalore",
-        "pt": "Bangalore"
+        "pt": "Trivandrum",
+        "en": "Trivandrum",
+        "es": "Trivandrum"
       }
     ],
-    "bestRestaurants": [
-      {
-        "name": "Murugan Idli Shop",
-        "city": "Chennai"
-      }
-    ],
-    "travelTips": [],
-    "faqs": []
-  },
-  {
-    "slug": "kerala-fish-curry",
-    "title": {
-      "en": "Kerala Fish Curry (Meen Curry)",
-      "es": "Curry de Pescado de Kerala",
-      "pt": "Caril de Peixe de Kerala"
-    },
-    "category": "Coastal Indian",
-    "image": "/images/kerala fish curry.jpg",
     "gallery": [],
-    "history": {
-      "en": "A staple coastal dish of Kerala, cooked in clay pots with kokum and coconut.",
-      "es": "Un plato costero básico de Kerala cocinado en ollas de barro.",
-      "pt": "Um prato costeiro básico de Kerala cozido em panelas de barro."
-    },
-    "ingredients": [
-      {
-        "en": "Fresh fish with raw mango or kokum",
-        "es": "Pescado fresco con mango crudo o kokum",
-        "pt": "Peixe fresco com manga crua ou kokum"
-      },
-      {
-        "en": "Coconut milk, curry leaves & mustard seeds",
-        "es": "Leche de coco y hojas de curry",
-        "pt": "Leite de coco e folhas de caril"
-      }
-    ],
+    "region": "South India",
+    "slug": "puttu-kadala",
+    "image": "/images/puttu kadala curry.jpg",
     "origin": {
       "en": "Kerala, India",
-      "es": "Kerala, India",
-      "pt": "Kerala, Índia"
+      "pt": "Kerala, Índia",
+      "es": "Kerala, India"
     },
-    "region": "South India",
-    "bestCities": [
-      {
-        "en": "Kochi",
-        "es": "Kochi",
-        "pt": "Kochi"
-      },
-      {
-        "en": "Alleppey",
-        "es": "Alleppey",
-        "pt": "Alleppey"
-      }
-    ],
+    "history": {
+      "es": "La receta de desayuno característica de las casas barco en Kerala.",
+      "pt": "A receita de café da manhã característica das casas barco em Kerala.",
+      "en": "The signature morning breakfast recipe of Kerala houseboats."
+    },
     "bestRestaurants": [
       {
-        "name": "Kayees Biryani",
+        "name": "Paragon Restaurant",
         "city": "Kochi"
       }
-    ],
-    "travelTips": [],
-    "faqs": []
+    ]
   },
   {
-    "slug": "dhokla",
-    "title": {
-      "en": "Dhokla",
-      "es": "Dhokla",
-      "pt": "Dhokla"
-    },
-    "category": "Gujarati Snack",
-    "image": "/images/dhokla.jpg",
     "gallery": [],
-    "history": {
-      "en": "An ancient Gujarati steamed snack, mentioned in texts from the 16th century.",
-      "es": "Un antiguo aperitivo al vapor de Gujarat del siglo XVI.",
-      "pt": "Um antigo lanche ao vapor de Gujarat do século XVI."
-    },
-    "ingredients": [
-      {
-        "en": "Fermented chickpea flour batter",
-        "es": "Masa fermentada de harina de garbanzo",
-        "pt": "Massa fermentada de farinha de grão-de-bico"
-      },
-      {
-        "en": "Tempered with mustard seeds & green chilies",
-        "es": "Aderezado con semillas de mostaza",
-        "pt": "Temperado com sementes de mostarda"
-      }
-    ],
-    "origin": {
-      "en": "Gujarat, India",
-      "es": "Gujarat, India",
-      "pt": "Gujarat, Índia"
-    },
-    "region": "West India",
-    "bestCities": [
-      {
-        "en": "Ahmedabad",
-        "es": "Ahmedabad",
-        "pt": "Ahmedabad"
-      },
-      {
-        "en": "Surat",
-        "es": "Surat",
-        "pt": "Surat"
-      }
-    ],
-    "bestRestaurants": [
-      {
-        "name": "Das Khaman",
-        "city": "Ahmedabad"
-      }
-    ],
-    "travelTips": [],
-    "faqs": []
-  },
-  {
-    "slug": "momos",
-    "title": {
-      "en": "Himalayan Momos",
-      "es": "Momos del Himalaya",
-      "pt": "Momos do Himalaia"
-    },
-    "category": "Himalayan Street Food",
-    "image": "/images/momos.jpg",
-    "gallery": [],
-    "history": {
-      "en": "Tibetan dumplings that became India's favorite street food in the Himalayan regions.",
-      "es": "Dumplings tibetanos que se convirtieron en comida callejera favorita.",
-      "pt": "Dumplings tibetanos que se tornaram comida de rua favorita."
-    },
-    "ingredients": [
-      {
-        "en": "Thin wheat flour wrappers",
-        "es": "Envoltorios finos de harina de trigo",
-        "pt": "Invólucros finos de farinha de trigo"
-      },
-      {
-        "en": "Minced meat or vegetables filling",
-        "es": "Relleno de carne picada o verduras",
-        "pt": "Recheio de carne picada ou vegetais"
-      }
-    ],
-    "origin": {
-      "en": "Tibet / Northeast India",
-      "es": "Tibet / Noreste de India",
-      "pt": "Tibet / Nordeste da Índia"
-    },
-    "region": "North & Northeast India",
-    "bestCities": [
-      {
-        "en": "Darjeeling",
-        "es": "Darjeeling",
-        "pt": "Darjeeling"
-      },
-      {
-        "en": "Delhi",
-        "es": "Delhi",
-        "pt": "Delhi"
-      }
-    ],
-    "bestRestaurants": [
-      {
-        "name": "Dolma Aunty Momos",
-        "city": "Delhi"
-      }
-    ],
-    "travelTips": [],
-    "faqs": []
-  },
-  {
-    "slug": "dal-makhani",
-    "title": {
-      "en": "Dal Makhani",
-      "es": "Dal Makhani",
-      "pt": "Dal Makhani"
-    },
-    "category": "Punjabi Specialty",
-    "image": "/images/dal makhani.jpg",
-    "gallery": [],
-    "history": {
-      "en": "A rich, creamy black lentil dish slow-cooked overnight in Punjabi dhabas.",
-      "es": "Un plato cremoso de lentejas negras cocinado a fuego lento.",
-      "pt": "Um prato cremoso de lentilhas pretas cozido lentamente."
-    },
-    "ingredients": [
-      {
-        "en": "Black urad dal & kidney beans",
-        "es": "Lentejas negras y frijoles",
-        "pt": "Lentilhas pretas e feijão"
-      },
-      {
-        "en": "Butter, cream, and tomato gravy",
-        "es": "Mantequilla, crema y salsa de tomate",
-        "pt": "Manteiga, creme e molho de tomate"
-      }
-    ],
-    "origin": {
-      "en": "Punjab, India",
-      "es": "Punjab, India",
-      "pt": "Punjab, Índia"
-    },
-    "region": "North India",
-    "bestCities": [
-      {
-        "en": "New Delhi",
-        "es": "Nueva Delhi",
-        "pt": "Nova Deli"
-      },
-      {
-        "en": "Amritsar",
-        "es": "Amritsar",
-        "pt": "Amritsar"
-      }
-    ],
-    "bestRestaurants": [
-      {
-        "name": "Moti Mahal",
-        "city": "New Delhi"
-      }
-    ],
-    "travelTips": [],
-    "faqs": []
-  },
-  {
-    "slug": "rasgulla",
-    "title": {
-      "en": "Rasgulla",
-      "es": "Rasgulla",
-      "pt": "Rasgulla"
-    },
+    "faqs": [],
     "category": "Bengali Sweet",
-    "image": "/images/rasgulla.jpg",
-    "gallery": [],
-    "history": {
-      "en": "A spongy white sweet from Bengal, soaked in sugar syrup, dating to the 19th century.",
-      "es": "Un dulce esponjoso de Bengala empapado en jarabe de azúcar.",
-      "pt": "Um doce esponjoso de Bengala embebido em xarope de açúcar."
-    },
-    "ingredients": [
-      {
-        "en": "Fresh chhena cheese balls",
-        "es": "Bolitas de queso chhena fresco",
-        "pt": "Bolinhas de queijo chhena fresco"
-      },
-      {
-        "en": "Light sugar syrup with cardamom",
-        "es": "Jarabe de azúcar ligero con cardamomo",
-        "pt": "Xarope de açúcar leve com cardamomo"
-      }
-    ],
-    "origin": {
-      "en": "Kolkata, West Bengal",
-      "es": "Calcuta, Bengala Occidental",
-      "pt": "Calcutá, Bengala Ocidental"
-    },
-    "region": "East India",
-    "bestCities": [
-      {
-        "en": "Kolkata",
-        "es": "Calcuta",
-        "pt": "Calcutá"
-      }
-    ],
     "bestRestaurants": [
       {
         "name": "K.C. Das",
         "city": "Kolkata"
       }
     ],
+    "title": {
+      "es": "Rasgulla",
+      "pt": "Rasgulla",
+      "en": "Rasgulla"
+    },
+    "origin": {
+      "es": "Calcuta, Bengala Occidental",
+      "pt": "Calcutá, Bengala Ocidental",
+      "en": "Kolkata, West Bengal"
+    },
+    "slug": "rasgulla",
+    "ingredients": [
+      {
+        "pt": "Bolinhas de queijo chhena fresco",
+        "en": "Fresh chhena cheese balls",
+        "es": "Bolitas de queso chhena fresco"
+      },
+      {
+        "pt": "Xarope de açúcar leve com cardamomo",
+        "en": "Light sugar syrup with cardamom",
+        "es": "Jarabe de azúcar ligero con cardamomo"
+      }
+    ],
+    "image": "/images/rasgulla.jpg",
+    "history": {
+      "es": "Un dulce esponjoso de Bengala empapado en jarabe de azúcar.",
+      "pt": "Um doce esponjoso de Bengala embebido em xarope de açúcar.",
+      "en": "A spongy white sweet from Bengal, soaked in sugar syrup, dating to the 19th century."
+    },
     "travelTips": [],
-    "faqs": []
+    "bestCities": [
+      {
+        "es": "Calcuta",
+        "pt": "Calcutá",
+        "en": "Kolkata"
+      }
+    ],
+    "region": "East India"
   },
   {
-    "slug": "chettinad-chicken",
-    "title": {
-      "en": "Chettinad Chicken",
-      "es": "Pollo Chettinad",
-      "pt": "Frango Chettinad"
+    "origin": {
+      "pt": "Vale de Caxemira, Índia",
+      "en": "Kashmir Valley, India",
+      "es": "Valle de Cachemira, India"
     },
-    "category": "South Indian",
-    "image": "/images/ooty.jpg",
+    "slug": "rogan-josh",
+    "ingredients": [
+      {
+        "pt": "Carne macia de cordeiro",
+        "en": "Tender lamb / mutton pieces",
+        "es": "Carne tierna de cordero"
+      },
+      {
+        "es": "Chiles rojos, jengibre y yogur",
+        "pt": "Pimentas vermelhas, gengibre e iogurte",
+        "en": "Kashmiri red chilies, ginger & yogurt"
+      }
+    ],
     "gallery": [],
+    "bestRestaurants": [
+      {
+        "city": "Srinagar",
+        "name": "Mughal Darbar"
+      }
+    ],
+    "bestCities": [
+      {
+        "es": "Srinagar",
+        "pt": "Srinagar",
+        "en": "Srinagar"
+      }
+    ],
+    "travelTips": [],
+    "category": "Traditional Kashmiri",
+    "title": {
+      "es": "Rogan Josh Cachemir",
+      "en": "Kashmiri Rogan Josh",
+      "pt": "Rogan Josh Caxemira"
+    },
+    "faqs": [],
     "history": {
-      "en": "A fiery, aromatic chicken curry from the Chettinad region of Tamil Nadu.",
-      "es": "Un curry de pollo picante y aromático de la región Chettinad.",
-      "pt": "Um curry de frango picante e aromático da região Chettinad."
+      "pt": "Uma autêntica joia persa introduzida na Caxemira.",
+      "en": "An authentic Persian culinary gem introduced to Kashmir by Mughals.",
+      "es": "Una auténtica joya persa introducida en Cachemira."
+    },
+    "region": "North India",
+    "image": "/images/laal maas.jpg"
+  },
+  {
+    "category": "Indian Street Snack",
+    "region": "All India",
+    "faqs": [],
+    "title": {
+      "es": "Samosa Vegetal Clásica",
+      "pt": "Samosa de Vegetais Clássica",
+      "en": "Classic Vegetable Samosa"
     },
     "ingredients": [
       {
-        "en": "Chicken with fresh-ground spice paste",
-        "es": "Pollo con pasta de especias recién molida",
-        "pt": "Frango com pasta de especiarias recém-moída"
+        "pt": "Massa folhada crocante",
+        "en": "Crispy pastry wrapper",
+        "es": "Hojaldre crujiente"
       },
       {
-        "en": "Star anise, kalpasi, and black pepper",
-        "es": "Anís estrellado, kalpasi y pimienta negra",
-        "pt": "Anis estrelado, kalpasi e pimenta preta"
+        "es": "Relleno de papa y guisantes con especias",
+        "en": "Spiced potato & green peas filling",
+        "pt": "Recheio de batata e ervilha com especiarias"
+      }
+    ],
+    "slug": "samosa-delight",
+    "gallery": [],
+    "bestRestaurants": [
+      {
+        "name": "Tewari Bros",
+        "city": "Mumbai"
       }
     ],
     "origin": {
-      "en": "Karaikudi, Tamil Nadu",
-      "es": "Karaikudi, Tamil Nadu",
-      "pt": "Karaikudi, Tamil Nadu"
+      "es": "Medio Oriente / Norte de la India",
+      "pt": "Médio Oriente / Norte da Índia",
+      "en": "Middle East / North India"
     },
-    "region": "South India",
+    "image": "/images/momos.jpg",
+    "history": {
+      "pt": "Introduzido na Índia durante o Sultanato de Deli.",
+      "en": "Introduced to India during the Delhi Sultanate from Central Asia.",
+      "es": "Introducido en la India durante el Sultanato de Delhi."
+    },
+    "travelTips": [],
     "bestCities": [
       {
-        "en": "Karaikudi",
-        "es": "Karaikudi",
-        "pt": "Karaikudi"
+        "es": "Mumbai",
+        "en": "Mumbai",
+        "pt": "Mumbai"
       },
       {
-        "en": "Chennai",
-        "es": "Chennai",
-        "pt": "Chennai"
+        "en": "New Delhi",
+        "pt": "Nova Deli",
+        "es": "Nueva Delhi"
       }
-    ],
+    ]
+  },
+  {
     "bestRestaurants": [
       {
-        "name": "The Bangala",
-        "city": "Karaikudi"
+        "city": "New Delhi",
+        "name": "Moti Mahal Delux"
+      }
+    ],
+    "ingredients": [
+      {
+        "es": "Pollo entero marinado en yogur y especias",
+        "en": "Whole chicken marinated in yogurt & spices",
+        "pt": "Frango inteiro marinado em iogurte e especiarias"
+      },
+      {
+        "es": "Cocinado en horno de barro tandoor",
+        "en": "Cooked in cylindrical clay tandoor oven",
+        "pt": "Cozido em forno de barro tandoor"
+      }
+    ],
+    "title": {
+      "en": "Tandoori Chicken",
+      "pt": "Frango Tandoori",
+      "es": "Pollo Tandoori"
+    },
+    "gallery": [],
+    "region": "North India",
+    "bestCities": [
+      {
+        "es": "Nueva Delhi",
+        "en": "New Delhi",
+        "pt": "Nova Deli"
+      },
+      {
+        "es": "Amritsar",
+        "pt": "Amritsar",
+        "en": "Amritsar"
       }
     ],
     "travelTips": [],
+    "faqs": [],
+    "history": {
+      "es": "Originado en Peshawar, popularizado en Delhi después de 1947.",
+      "en": "Originated in Peshawar, popularized at Moti Mahal restaurant in Delhi post-1947.",
+      "pt": "Originado em Peshawar, popularizado em Delhi após 1947."
+    },
+    "category": "North Indian",
+    "origin": {
+      "en": "Delhi / Punjab",
+      "pt": "Delhi / Punjab",
+      "es": "Delhi / Punjab"
+    },
+    "slug": "tandoori-chicken",
+    "image": "/images/tandoori chicken.jpg"
+  },
+  {
+    "image": "/images/vada pav.jpg",
+    "region": "West India",
+    "category": "Mumbai Street Food",
+    "gallery": [],
+    "ingredients": [
+      {
+        "pt": "Croquete de batata temperada",
+        "en": "Spiced potato fritter (Vada)",
+        "es": "Croqueta de papa condimentada"
+      },
+      {
+        "es": "Pan con chutneys de ajo y verde",
+        "pt": "Pão com chutneys de alho e verde",
+        "en": "Bread bun with garlic & green chutneys"
+      }
+    ],
+    "travelTips": [],
+    "slug": "vada-pav",
+    "bestCities": [
+      {
+        "es": "Mumbai",
+        "en": "Mumbai",
+        "pt": "Mumbai"
+      }
+    ],
+    "origin": {
+      "es": "Mumbai, Maharashtra",
+      "pt": "Mumbai, Maharashtra",
+      "en": "Mumbai, Maharashtra"
+    },
+    "title": {
+      "pt": "Vada Pav",
+      "en": "Vada Pav",
+      "es": "Vada Pav"
+    },
+    "history": {
+      "en": "Mumbai's iconic vegetarian burger, created in the 1960s outside Dadar station.",
+      "pt": "O hambúrguer vegetariano icônico de Mumbai.",
+      "es": "La hamburguesa vegetariana icónica de Mumbai."
+    },
+    "bestRestaurants": [
+      {
+        "city": "Mumbai",
+        "name": "Ashok Vada Pav"
+      }
+    ],
     "faqs": []
   }
 ]

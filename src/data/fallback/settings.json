@@ -1,14 +1,14 @@
 [
   {
-    "id": "contact_details",
-    "phone": "+91 9829989187",
-    "email": "mhindiatrips@gmail.com",
-    "whatsapp": "919829989187",
-    "address": "New Delhi, India",
-    "hours": "Mon - Sat: 9:00 AM - 7:00 PM IST"
-  },
-  {
     "id": "admin_credentials",
     "customPassword": ""
+  },
+  {
+    "whatsapp": "919829989187",
+    "phone": "+91 9829989187",
+    "id": "contact_details",
+    "hours": "Mon - Sat: 9:00 AM - 7:00 PM IST",
+    "email": "mhindiatrips@gmail.com",
+    "address": "New Delhi, India"
   }
 ]

@@ -1,884 +1,331 @@
 [
   {
-    "id": "homepage",
-    "isCustom": false,
     "title": {
-      "en": "Homepage",
-      "es": "Página Principal",
-      "pt": "Página Inicial"
-    },
-    "heroImage": "/images/rajasthan_fort_sunset.png",
-    "content": {
-      "slides": [
-        {
-          "image": "/images/taj_mahal_sunrise.png",
-          "title": {
-            "en": "Experience India in Absolute Luxury",
-            "es": "Viaje a India en Lujo Absoluto",
-            "pt": "Viaje para a Índia em Luxo Absoluto"
-          },
-          "desc": {
-            "en": "Curated itineraries featuring private guides, heritage palace hotels, and bespoke travel arrangements.",
-            "es": "Itinerarios a medida con guías privados, hoteles palacio y servicios exclusivos.",
-            "pt": "Itinerários à medida com guias privados, hotéis palácio e serviços exclusivos."
-          },
-          "location": {
-            "en": "Taj Mahal, Agra",
-            "es": "Taj Mahal, Agra",
-            "pt": "Taj Mahal, Agra"
-          },
-          "sub": {
-            "en": "BESPOKE PRIVATE TOURS",
-            "es": "TOURS PRIVADOS A MEDIDA",
-            "pt": "TOURS PRIVADOS SOB MEDIDA"
-          },
-          "cta1Text": {
-            "en": "See Our Packages",
-            "es": "Ver Paquetes",
-            "pt": "Ver Pacotes"
-          },
-          "cta1Link": "/packages",
-          "cta2Text": {
-            "en": "Inquire Now",
-            "es": "Consultar Ahora",
-            "pt": "Consultar Agora"
-          },
-          "cta2Link": "/contact"
-        },
-        {
-          "image": "/images/rajasthan_fort_sunset.png",
-          "title": {
-            "en": "The Royal Magic of Rajasthan",
-            "es": "La Magia Real de Rajastán",
-            "pt": "A Magia Real do Rajastão"
-          },
-          "desc": {
-            "en": "Explore desert dunes, medieval forts, and dine inside authentic royal lakeside palaces.",
-            "es": "Explore dunas de arena, fuertes medievales y cene dentro de auténticos palacios reales.",
-            "pt": "Explore dunas de areia, fortes medievais e jante dentro de autênticos palácios reais."
-          },
-          "location": {
-            "en": "Mehrangarh Fort, Jodhpur",
-            "es": "Fuerte Mehrangarh, Jodhpur",
-            "pt": "Forte Mehrangarh, Jodhpur"
-          },
-          "sub": {
-            "en": "HERITAGE PALACES",
-            "es": "PALACIOS HISTÓRICOS",
-            "pt": "PALÁCIOS HISTÓRICOS"
-          },
-          "cta1Text": {
-            "en": "Explore Rajasthan",
-            "es": "Explorar Rajastán",
-            "pt": "Explorar Rajastão"
-          },
-          "cta1Link": "/destinations/rajasthan",
-          "cta2Text": {
-            "en": "Royal Packages",
-            "es": "Paquetes Reales",
-            "pt": "Pacotes Reais"
-          },
-          "cta2Link": "/packages"
-        },
-        {
-          "image": "/images/kerala_backwaters_houseboat.png",
-          "title": {
-            "en": "Tropical Serenity in Kerala",
-            "es": "Serenidad Tropical en Kerala",
-            "pt": "Serenidade Tropical em Kerala"
-          },
-          "desc": {
-            "en": "Cruise through emerald backwaters and rejuvenate with authentic wellness Ayurvedic rituals.",
-            "es": "Navegue por canales de esmeralda y rejuvenezca con auténticos rituales ayurvédicos.",
-            "pt": "Navegue por canais de esmeralda e rejuvenesça com autênticos rituais ayurvédicos."
-          },
-          "location": {
-            "en": "Backwaters, Alleppey",
-            "es": "Remansos de Alleppey, Kerala",
-            "pt": "Canais de Alleppey, Kerala"
-          },
-          "sub": {
-            "en": "HOLISTIC RETREATS",
-            "es": "RETIROS HOLÍSTICOS",
-            "pt": "RETIROS HOLÍSTICOS"
-          },
-          "cta1Text": {
-            "en": "Kerala Retreats",
-            "es": "Kerala Retiros",
-            "pt": "Retiros Kerala"
-          },
-          "cta1Link": "/destinations/kerala",
-          "cta2Text": {
-            "en": "Plan My Trip",
-            "es": "Planear mi Viaje",
-            "pt": "Planear minha Viagem"
-          },
-          "cta2Link": "/contact"
-        },
-        {
-          "image": "/images/Jaipur.jpg",
-          "title": {
-            "en": "Pink City Wonders of Jaipur",
-            "es": "Maravillas de la Ciudad Rosa de Jaipur",
-            "pt": "Maravilhas da Cidade Rosa de Jaipur"
-          },
-          "desc": {
-            "en": "Marvel at the astronomical Jantar Mantar and the beautiful honeycomb structure of Hawa Mahal.",
-            "es": "Maravíllate con el astronómico Jantar Mantar y la hermosa estructura de Hawa Mahal.",
-            "pt": "Maravilhe-se com o astronômico Jantar Mantar e a bela estrutura de Hawa Mahal."
-          },
-          "location": {
-            "en": "Hawa Mahal, Jaipur",
-            "es": "Hawa Mahal, Jaipur",
-            "pt": "Hawa Mahal, Jaipur"
-          },
-          "sub": {
-            "en": "ROYAL ARCHITECTURE",
-            "es": "ARQUITECTURA REAL",
-            "pt": "ARQUITETURA REAL"
-          },
-          "cta1Text": {
-            "en": "Explore Jaipur",
-            "es": "Explorar Jaipur",
-            "pt": "Explorar Jaipur"
-          },
-          "cta1Link": "/destinations/rajasthan",
-          "cta2Text": {
-            "en": "Inquire Now",
-            "es": "Planear Ahora",
-            "pt": "Planejar Agora"
-          },
-          "cta2Link": "/contact"
-        },
-        {
-          "image": "/images/Udaipur.jpg",
-          "title": {
-            "en": "Udaipur: Venice of the East",
-            "es": "Udaipur: La Venecia del Este",
-            "pt": "Udaipur: A Veneza do Oriente"
-          },
-          "desc": {
-            "en": "Sail across shimmering Lake Pichola and stay in floating marble palaces under the stars.",
-            "es": "Navega por el reluciente lago Pichola y alójate en palacios de mármol flotantes.",
-            "pt": "Navegue pelo brilhante Lago Pichola e hospede-se em palácios de mármore flutuantes."
-          },
-          "location": {
-            "en": "Lake Pichola, Udaipur",
-            "es": "Lago Pichola, Udaipur",
-            "pt": "Lago Pichola, Udaipur"
-          },
-          "sub": {
-            "en": "ROMANTIC ESCAPES",
-            "es": "ESCAPADAS ROMÁNTICAS",
-            "pt": "ESCAPADAS ROMÂNTICAS"
-          },
-          "cta1Text": {
-            "en": "See Packages",
-            "es": "Ver Paquetes",
-            "pt": "Ver Pacotes"
-          },
-          "cta1Link": "/packages",
-          "cta2Text": {
-            "en": "Inquire Now",
-            "es": "Planear Ahora",
-            "pt": "Planejar Agora"
-          },
-          "cta2Link": "/contact"
-        },
-        {
-          "image": "/images/varanasi.jpg",
-          "title": {
-            "en": "Spiritual Awakenings in Varanasi",
-            "es": "Despertar Espiritual en Varanasi",
-            "pt": "Despertar Espiritual em Varanasi"
-          },
-          "desc": {
-            "en": "Witness the intense devotion of evening Ganga Aarti ceremonies by the sacred ghats.",
-            "es": "Presencie la intensa devoción de las ceremonias nocturnas de Ganga Aarti junto a los ghats.",
-            "pt": "Assista à intensa devoção das cerimônias noturnas de Ganga Aarti junto aos ghats."
-          },
-          "location": {
-            "en": "Ganga Ghats, Varanasi",
-            "es": "Ghats del Ganges, Varanasi",
-            "pt": "Ghats do Ganges, Varanasi"
-          },
-          "sub": {
-            "en": "SACRED PLACES",
-            "es": "LUGARES SAGRADOS",
-            "pt": "LUGARES SAGRADOS"
-          },
-          "cta1Text": {
-            "en": "Spiritual Itineraries",
-            "es": "Itinerarios Espirituales",
-            "pt": "Roteiros Espirituais"
-          },
-          "cta1Link": "/destinations/uttar-pradesh",
-          "cta2Text": {
-            "en": "Inquire Now",
-            "es": "Planear Ahora",
-            "pt": "Planejar Agora"
-          },
-          "cta2Link": "/contact"
-        },
-        {
-          "image": "/images/goa.jpg",
-          "title": {
-            "en": "Golden Sands & Heritage of Goa",
-            "es": "Arenas Doradas y Patrimonio de Goa",
-            "pt": "Areias Douradas e Patrimônio de Goa"
-          },
-          "desc": {
-            "en": "Relax on pristine tropical beaches and explore colonial Portuguese churches in old Goa.",
-            "es": "Relájese en playas tropicales y explore las iglesias coloniales portuguesas en el viejo Goa.",
-            "pt": "Relaxe em praias tropicais e explore as iglesias coloniales portuguesas na antiga Goa."
-          },
-          "location": {
-            "en": "Baga & Old Goa, Goa",
-            "es": "Playas e Historia, Goa",
-            "pt": "Praias e História, Goa"
-          },
-          "sub": {
-            "en": "BEACH LUXURY",
-            "es": "LUJO DE PLAYA",
-            "pt": "LUXO DE PRAIA"
-          },
-          "cta1Text": {
-            "en": "Explore Goa",
-            "es": "Explorar Goa",
-            "pt": "Explorar Goa"
-          },
-          "cta1Link": "/destinations/goa",
-          "cta2Text": {
-            "en": "Plan Itinerary",
-            "es": "Planear Viaje",
-            "pt": "Planejar Roteiro"
-          },
-          "cta2Link": "/contact"
-        },
-        {
-          "image": "/images/munnar.jpg",
-          "title": {
-            "en": "Misty Tea Hills of Munnar",
-            "es": "Colinas de Té de Munnar",
-            "pt": "Colinas de Chá de Munnar"
-          },
-          "desc": {
-            "en": "Breathe the fresh mountain air of rolling tea estates and misty peaks in South India.",
-            "es": "Respire el aire fresco de la montaña en las plantaciones de té en el sur de la India.",
-            "pt": "Respire o ar fresco da montanha nas plantações de chá no sul da Índia."
-          },
-          "location": {
-            "en": "Munnar Tea Estates, Kerala",
-            "es": "Plantaciones de Munnar, Kerala",
-            "pt": "Plantações de Munnar, Kerala"
-          },
-          "sub": {
-            "en": "HIMALAYAS & HILLS",
-            "es": "MONTAÑAS Y COLINAS",
-            "pt": "MONTANHAS E COLINAS"
-          },
-          "cta1Text": {
-            "en": "Kerala Guides",
-            "es": "Guías de Kerala",
-            "pt": "Guias de Kerala"
-          },
-          "cta1Link": "/destinations/kerala",
-          "cta2Text": {
-            "en": "Inquire Now",
-            "es": "Planear Ahora",
-            "pt": "Planejar Agora"
-          },
-          "cta2Link": "/contact"
-        },
-        {
-          "image": "/images/ranthambore.jpg",
-          "title": {
-            "en": "Tiger Safaris in Ranthambore",
-            "es": "Safari de Tigres en Ranthambore",
-            "pt": "Safáris de Tigre em Ranthambore"
-          },
-          "desc": {
-            "en": "Search for the majestic Royal Bengal Tiger in the ancient hunting grounds of Maharajas.",
-            "es": "Busque al tigre de Bengala en los antiguos campos de caza de los Maharajás.",
-            "pt": "Procure o tigre de Bengala nos antigos campos de caça dos Maharajas."
-          },
-          "location": {
-            "en": "National Park, Ranthambore",
-            "es": "Parque Ranthambore, Rajasthan",
-            "pt": "Parque Ranthambore, Rajastão"
-          },
-          "sub": {
-            "en": "WILDLIFE ADVENTURES",
-            "es": "SAFARIS SALVAJES",
-            "pt": "SAFÁRIS SELVAGENS"
-          },
-          "cta1Text": {
-            "en": "Wildlife Packages",
-            "es": "Paquetes de Vida Silvestre",
-            "pt": "Pacotes de Vida Selvagem"
-          },
-          "cta1Link": "/packages",
-          "cta2Text": {
-            "en": "Inquire Now",
-            "es": "Planear Ahora",
-            "pt": "Planejar Agora"
-          },
-          "cta2Link": "/contact"
-        },
-        {
-          "image": "/images/andaman islands.jpg",
-          "title": {
-            "en": "Andaman Islands: Tropical Blue Havens",
-            "es": "Islas Andamán: Paraíso Azul Tropical",
-            "pt": "Ilhas Andaman: Paraíso Azul Tropical"
-          },
-          "desc": {
-            "en": "Swim in turquoise waters and dive into the pristine marine life and coral reefs of Havelock.",
-            "es": "Nade en aguas turquesas y explore los arrecifes de coral en la isla Havelock.",
-            "pt": "Nade em águas turquesas e explore os recifes de coral na ilha Havelock."
-          },
-          "location": {
-            "en": "Radhanagar Beach, Havelock",
-            "es": "Playa Radhanagar, Havelock",
-            "pt": "Praia Radhanagar, Havelock"
-          },
-          "sub": {
-            "en": "ISLAND GETAWAYS",
-            "es": "ESCAPADAS DE ISLAS",
-            "pt": "ESCAPADAS EM ILHAS"
-          },
-          "cta1Text": {
-            "en": "Island Tours",
-            "es": "Tours de Islas",
-            "pt": "Tours nas Ilhas"
-          },
-          "cta1Link": "/packages",
-          "cta2Text": {
-            "en": "Inquire Now",
-            "es": "Planear Ahora",
-            "pt": "Planejar Agora"
-          },
-          "cta2Link": "/contact"
-        }
-      ],
-      "stats": [
-        {
-          "value": 12,
-          "suffix": "",
-          "label": {
-            "en": "Years of experience",
-            "es": "Años de experiencia",
-            "pt": "Anos de experiência"
-          }
-        },
-        {
-          "value": 97,
-          "suffix": "%",
-          "label": {
-            "en": "Retention rate",
-            "es": "Tasa de retención",
-            "pt": "Taxa de retenção"
-          }
-        },
-        {
-          "value": 2400,
-          "suffix": "+",
-          "label": {
-            "en": "Happy travelers served",
-            "es": "Viajeros satisfechos",
-            "pt": "Viajantes satisfeitos"
-          }
-        },
-        {
-          "value": 15,
-          "suffix": "+",
-          "label": {
-            "en": "Indian states covered",
-            "es": "Estados indios cubiertos",
-            "pt": "Estados indianos cobertos"
-          }
-        }
-      ],
-      "philosophy": {
-        "image": "/images/rajasthan_fort_sunset.png",
-        "title": {
-          "en": "Why Travelers Choose MH India Trips",
-          "es": "Por Qué Elegir MH India Trips",
-          "pt": "Por Que Escolher a MH India Trips"
-        },
-        "subtitle": {
-          "en": "Our Philosophy",
-          "es": "Nuestra Filosofía",
-          "pt": "Nossa Filosofia"
-        }
-      },
-      "howItWorks": [
-        {
-          "title": {
-            "en": "Select or Customize",
-            "es": "Seleccione o Personalice",
-            "pt": "Selecione ou Personalize"
-          },
-          "desc": {
-            "en": "Browse our signature routes or share your bucket-list regions with our specialist desk.",
-            "es": "Examine nuestras rutas exclusivas o comparta sus regiones deseadas.",
-            "pt": "Examine nossas rotas exclusivas ou compartilhe suas regiões desejadas."
-          }
-        },
-        {
-          "title": {
-            "en": "Co-Design with an Advisor",
-            "es": "Co-diseñe con un Asesor",
-            "pt": "Co-planeje com um Consultor"
-          },
-          "desc": {
-            "en": "Your dedicated destination expert builds the details: hotel classes, private vehicles, and local guides.",
-            "es": "Un especialista diseña sus detalles: hoteles, vehículos y guías.",
-            "pt": "Um especialista planeja seus detalhes: hotéis, veículos e guias."
-          }
-        },
-        {
-          "title": {
-            "en": "Board & Travel in Peace",
-            "es": "Viaje con Tranquilidad",
-            "pt": "Viaje com Tranquilidade"
-          },
-          "desc": {
-            "en": "Our on-ground ops desk coordinates all logistics, including professional drivers and 24/7 concierge.",
-            "es": "Nuestro equipo gestiona toda la logística con choferes y asistencia 24/7.",
-            "pt": "Nossa equipe gere toda a logística com motoristas e assistência 24/7."
-          }
-        }
-      ],
-      "inclusions": [
-        {
-          "title": {
-            "en": "Private Professional Chauffeur",
-            "es": "Chofer Profesional Privado",
-            "pt": "Motorista Profissional Privado"
-          },
-          "desc": {
-            "en": "Air-conditioned luxury SUVs with verified drivers.",
-            "es": "SUVs premium con choferes verificados.",
-            "pt": "SUVs premium com motoristas verificados."
-          },
-          "icon": "car"
-        },
-        {
-          "title": {
-            "en": "Licensed Local Guides",
-            "es": "Guías Certificados",
-            "pt": "Guias Certificados"
-          },
-          "desc": {
-            "en": "Government-certified guides at every heritage site.",
-            "es": "Guías oficiales en cada monumento.",
-            "pt": "Guias oficiais em cada monumento."
-          },
-          "icon": "compass"
-        },
-        {
-          "title": {
-            "en": "Boutique & Heritage Stays",
-            "es": "Hoteles de Patrimonio",
-            "pt": "Hotéis de Patrimônio"
-          },
-          "desc": {
-            "en": "Hand-curated bookings in restored royal palaces.",
-            "es": "Estancias en palacios restaurados.",
-            "pt": "Estadías em palácios restaurados."
-          },
-          "icon": "hotel"
-        },
-        {
-          "title": {
-            "en": "24/7 Concierge Support",
-            "es": "Soporte 24/7",
-            "pt": "Suporte 24/7"
-          },
-          "desc": {
-            "en": "Direct WhatsApp line to our operations desk.",
-            "es": "Contacto directo por WhatsApp.",
-            "pt": "Contacto direto por WhatsApp."
-          },
-          "icon": "headset"
-        }
-      ],
-      "foodSection": {
-        "image": "/images/indian_cuisine_feast.png",
-        "title": {
-          "en": "Flavor Journeys",
-          "es": "Viajes de Sabor",
-          "pt": "Viagens de Sabor"
-        },
-        "subtitle": {
-          "en": "Culinary Heritage",
-          "es": "Patrimonio Culinario",
-          "pt": "Patrimônio Culinário"
-        },
-        "desc": {
-          "en": "Taste the heritage of royal Mughal kitchens and aromatic local street spices.",
-          "es": "Saboree el patrimonio de las cocinas reales mogoles.",
-          "pt": "Saboreie o patrimônio das cozinhas reais mogóis."
-        }
-      },
-      "ctaBanner": {
-        "title": {
-          "en": "Begin Your Private Passage",
-          "es": "Comience Su Viaje Privado",
-          "pt": "Comece Sua Viagem Privada"
-        },
-        "subtitle": {
-          "en": "Speak to a luxury travel advisor to draft your tailored itinerary.",
-          "es": "Hable con un asesor de viajes de lujo.",
-          "pt": "Fale com um consultor de viagens de luxo."
-        },
-        "btnText": {
-          "en": "Inquire Now",
-          "es": "Planificar Ahora",
-          "pt": "Planejar Agora"
-        }
-      },
-      "faqs": [
-        {
-          "q": {
-            "en": "Is it safe to travel to India?",
-            "es": "¿Es seguro viajar a la India?",
-            "pt": "É seguro viajar para a Índia?"
-          },
-          "a": {
-            "en": "Yes, India is generally safe for tourists. Our expert guides ensure your comfort and security at all times.",
-            "es": "Sí, generalmente segura para turistas.",
-            "pt": "Sim, geralmente segura para turistas."
-          }
-        },
-        {
-          "q": {
-            "en": "What is the best time to visit India?",
-            "es": "¿Cuál es la mejor época?",
-            "pt": "Qual é a melhor época?"
-          },
-          "a": {
-            "en": "October to March is ideal for most regions. South India can be visited year-round.",
-            "es": "Octubre a marzo es ideal.",
-            "pt": "Outubro a março é ideal."
-          }
-        },
-        {
-          "q": {
-            "en": "Do I need a visa for India?",
-            "es": "¿Necesito visa?",
-            "pt": "Preciso de visto?"
-          },
-          "a": {
-            "en": "Yes, most nationalities require a visa. The e-Visa online is processed within 72 hours.",
-            "es": "Sí, la mayoría necesitan visa.",
-            "pt": "Sim, a maioria precisa de visto."
-          }
-        },
-        {
-          "q": {
-            "en": "Can I customize my travel package?",
-            "es": "¿Puedo personalizar mi viaje?",
-            "pt": "Posso personalizar?"
-          },
-          "a": {
-            "en": "Absolutely. Every detail is tailormade — route, duration, hotels, and activities.",
-            "es": "Por supuesto, todo se personaliza.",
-            "pt": "Certamente, tudo é personalizado."
-          }
-        },
-        {
-          "q": {
-            "en": "How is local transportation managed?",
-            "es": "¿Cómo es el transporte?",
-            "pt": "Como é o transporte?"
-          },
-          "a": {
-            "en": "We provide private luxury SUVs with experienced English-speaking drivers.",
-            "es": "Vehículos privados de lujo con conductores.",
-            "pt": "Veículos de luxo com motoristas."
-          }
-        }
-      ],
-      "destinationsSection": {
-        "subtitle": {
-          "en": "Custom Destinations",
-          "es": "Destinos Personalizados",
-          "pt": "Destinos Personalizados"
-        },
-        "title": {
-          "en": "Destinations in India",
-          "es": "Destinos en India",
-          "pt": "Destinos na Índia"
-        },
-        "desc": {
-          "en": "From the grand palaces of Rajasthan to the serene canals of Kerala, discover a tailored world.",
-          "es": "Desde los palacios de Rajasthan hasta los canales de Kerala.",
-          "pt": "Dos palácios do Rajastão aos canais de Kerala."
-        }
-      },
-      "packagesSection": {
-        "subtitle": {
-          "en": "Featured Journeys",
-          "es": "Viajes Destacados",
-          "pt": "Viagens Em Destaque"
-        },
-        "title": {
-          "en": "Travel Packages",
-          "es": "Paquetes de Viaje",
-          "pt": "Pacotes de Viagem"
-        },
-        "desc": {
-          "en": "Elite itineraries hand-designed by our specialist destination managers.",
-          "es": "Itinerarios de élite diseñados por especialistas.",
-          "pt": "Itinerários de elite desenhados por especialistas."
-        }
-      },
-      "testimonialsSection": {
-        "subtitle": {
-          "en": "Traveler Whispers",
-          "es": "Ecos de Viajeros",
-          "pt": "Sussurros de Viajantes"
-        },
-        "title": {
-          "en": "What Our Guests Say",
-          "es": "Lo Que Dicen Nuestros Huéspedes",
-          "pt": "O Que Dizem Nossos Hóspedes"
-        }
-      },
-      "blogsSection": {
-        "subtitle": {
-          "en": "Travel Inspiration",
-          "es": "Inspiración de Viaje",
-          "pt": "Inspiração de Viagem"
-        },
-        "title": {
-          "en": "Travel Blogs",
-          "es": "Blogs de Viaje",
-          "pt": "Blogs de Viagem"
-        },
-        "desc": {
-          "en": "Curated stories, travel guides, and cultural insights from India's most enchanting destinations.",
-          "es": "Historias, guías y perspectivas culturales.",
-          "pt": "Histórias, guias e perspectivas culturais."
-        }
-      },
-      "monumentsSection": {
-        "btnText": {
-          "en": "View All Monuments",
-          "es": "Ver Todos los Monumentos",
-          "pt": "Ver Todos os Monumentos"
-        }
-      }
-    }
-  },
-  {
-    "id": "about",
-    "isCustom": false,
-    "title": {
+      "pt": "Sobre Nós",
       "en": "About Us",
-      "es": "Sobre Nosotros",
-      "pt": "Sobre Nós"
+      "es": "Sobre Nosotros"
     },
-    "heroImage": "/images/kerala_backwaters_houseboat.png",
+    "isCustom": false,
+    "id": "about",
     "content": {
+      "team": [
+        {
+          "role": "Founder & Lead Travel Designer",
+          "img": "/images/team_rahul.png",
+          "name": "Rahul Sharma"
+        },
+        {
+          "img": "/images/team_priya.png",
+          "name": "Priya Kapoor",
+          "role": "Senior Destination Expert"
+        },
+        {
+          "img": "/images/team_vikram.png",
+          "name": "Vikram Singh",
+          "role": "Heritage & Culture Specialist"
+        },
+        {
+          "img": "/images/team_anita.png",
+          "name": "Anita Desai",
+          "role": "Client Relations Manager"
+        }
+      ],
       "heroTitle": {
+        "pt": "Sobre MH India Trips",
         "en": "About MH India Trips",
-        "es": "Sobre MH India Trips",
-        "pt": "Sobre MH India Trips"
+        "es": "Sobre MH India Trips"
       },
       "heroSubtitle": {
         "en": "Your Trusted India Travel Partner",
-        "es": "Tu socio de viajes de confianza en India",
-        "pt": "Seu parceiro de viagem confiável na Índia"
-      },
-      "missionTitle": {
-        "en": "Our Mission",
-        "es": "Nuestra Misión",
-        "pt": "Nossa Missão"
+        "pt": "Seu parceiro de viagem confiável na Índia",
+        "es": "Tu socio de viajes de confianza en India"
       },
       "missionText": {
+        "pt": "Criar experiências de viagem transformadoras.",
         "en": "To create transformative travel experiences that connect discerning travelers with the authentic soul of India.",
-        "es": "Crear experiencias de viaje transformadoras.",
-        "pt": "Criar experiências de viagem transformadoras."
+        "es": "Crear experiencias de viaje transformadoras."
       },
-      "team": [
-        {
-          "name": "Rahul Sharma",
-          "role": "Founder & Lead Travel Designer",
-          "img": "/images/team_rahul.png"
-        },
-        {
-          "name": "Priya Kapoor",
-          "role": "Senior Destination Expert",
-          "img": "/images/team_priya.png"
-        },
-        {
-          "name": "Vikram Singh",
-          "role": "Heritage & Culture Specialist",
-          "img": "/images/team_vikram.png"
-        },
-        {
-          "name": "Anita Desai",
-          "role": "Client Relations Manager",
-          "img": "/images/team_anita.png"
-        }
-      ]
-    }
+      "missionTitle": {
+        "es": "Nuestra Misión",
+        "pt": "Nossa Missão",
+        "en": "Our Mission"
+      }
+    },
+    "heroImage": "/images/kerala_backwaters_houseboat.png"
   },
   {
-    "id": "contact",
+    "content": {
+      "heroSubtitle": {
+        "pt": "Explore os locais, templos e palácios mais impressionantes da Índia",
+        "en": "Explore India's most breathtaking sites, temples, and palaces",
+        "es": "Explore los sitios, templos y palacios más impresionantes de la India"
+      },
+      "heroTitle": {
+        "pt": "Principais Atrações na Índia",
+        "en": "Top Attractions in India",
+        "es": "Principales Atracciones en la India"
+      },
+      "featuredAttractions": [
+        {
+          "name": "Taj Mahal",
+          "state": "Uttar Pradesh",
+          "desc": "The legendary white marble monument of love, a UNESCO World Heritage site and global icon.",
+          "city": "Agra",
+          "image": "/images/taj_mahal_sunrise.png"
+        },
+        {
+          "name": "Amber Fort",
+          "state": "Rajasthan",
+          "city": "Jaipur",
+          "desc": "A magnificent hilltop fortress featuring detailed royal palace halls, courts, and lake views.",
+          "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787390393/mhindiatrips/ide2xcpa5fi4vljxelkx.jpg"
+        },
+        {
+          "state": "Rajasthan",
+          "name": "Mehrangarh Fort",
+          "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787390397/mhindiatrips/ulp9gkzxpcevl3gho27q.jpg",
+          "desc": "A massive fort overlooking the Blue City, housing royal relics, courtyards, and palace galleries.",
+          "city": "Jodhpur"
+        },
+        {
+          "name": "Kerala Backwaters",
+          "image": "/images/kerala_backwaters_houseboat.png",
+          "desc": "A serene network of canals, lakes, and rivers traversed by traditional luxury houseboats.",
+          "city": "Alleppey",
+          "state": "Kerala"
+        },
+        {
+          "image": "/images/ranthambore_tiger_safari.png",
+          "state": "Rajasthan",
+          "name": "Ranthambore Tiger Reserve",
+          "desc": "A world-renowned wildlife sanctuary, home to the Royal Bengal Tigers and ancient fortress ruins.",
+          "city": "Sawai Madhopur"
+        },
+        {
+          "city": "Hampi",
+          "desc": "The ancient capital of the Vijayanagara Empire, showcasing dramatic boulder landscapes and temples.",
+          "image": "/images/hampi-ruins.jpg",
+          "name": "Hampi Ruins",
+          "state": "Karnataka"
+        }
+      ]
+    },
+    "heroImage": "/images/rajasthan_fort_sunset.png",
     "isCustom": false,
     "title": {
-      "en": "Contact Us",
-      "es": "Contáctenos",
-      "pt": "Fale Conosco"
+      "es": "Atracciones",
+      "en": "Attractions",
+      "pt": "Atrações"
     },
-    "heroImage": "/images/Jaipur.jpg",
+    "id": "attractions"
+  },
+  {
     "content": {
-      "heroTitle": {
-        "en": "Get In Touch",
-        "es": "Ponte en Contacto",
-        "pt": "Entre em Contato"
-      },
       "heroSubtitle": {
-        "en": "Plan your dream India journey",
-        "es": "Planifica tu viaje soñado a India",
-        "pt": "Planeje sua viagem dos sonhos à Índia"
+        "es": "Consejos de expertos, ideas culturales y secretos de viajes de lujo",
+        "en": "Expert tips, cultural insights, and luxury travel secrets",
+        "pt": "Dicas de especialistas, insights culturais e segredos de viagem"
+      },
+      "heroTitle": {
+        "pt": "Histórias e Inspirações",
+        "en": "Stories & Insights",
+        "es": "Historias e Ideas"
+      }
+    },
+    "isCustom": false,
+    "title": {
+      "es": "Blog de Viajes",
+      "pt": "Blog de Viagens",
+      "en": "Travel Blog"
+    },
+    "id": "blog",
+    "heroImage": "/images/varanasi_ghats_aarti.png"
+  },
+  {
+    "isCustom": false,
+    "title": {
+      "pt": "Fale Conosco",
+      "en": "Contact Us",
+      "es": "Contáctenos"
+    },
+    "content": {
+      "email": {
+        "en": "mhindiatrips@gmail.com",
+        "pt": "mhindiatrips@gmail.com",
+        "es": "mhindiatrips@gmail.com"
+      },
+      "heroTitle": {
+        "es": "Ponte en Contacto",
+        "pt": "Entre em Contato",
+        "en": "Get In Touch"
+      },
+      "phone": {
+        "es": "9829989187",
+        "pt": "9829989187",
+        "en": "9829989187"
       },
       "addressLine": {
         "en": "New Delhi, India",
-        "es": "Nueva Delhi, India",
-        "pt": "Nova Delhi, Índia"
+        "pt": "Nova Delhi, Índia",
+        "es": "Nueva Delhi, India"
       },
-      "email": {
-        "en": "mhindiatrips@gmail.com",
-        "es": "mhindiatrips@gmail.com",
-        "pt": "mhindiatrips@gmail.com"
+      "heroSubtitle": {
+        "es": "Planifica tu viaje soñado a India",
+        "en": "Plan your dream India journey",
+        "pt": "Planeje sua viagem dos sonhos à Índia"
+      }
+    },
+    "heroImage": "/images/Jaipur.jpg",
+    "id": "contact"
+  },
+  {
+    "heroImage": "/images/rajasthan_fort_sunset.png",
+    "id": "destinations",
+    "isCustom": false,
+    "title": {
+      "en": "Destinations Catalog",
+      "pt": "Catálogo de Destinos",
+      "es": "Catálogo de Destinos"
+    },
+    "content": {
+      "heroTitle": {
+        "en": "Explore India's Regions",
+        "pt": "Explore as Regiões da Índia",
+        "es": "Explore las Regiones de la India"
       },
-      "phone": {
-        "en": "+91 9829989187",
-        "es": "+91 9829989187",
-        "pt": "+91 9829989187"
+      "heroSubtitle": {
+        "es": "Desde los grandes palacios de Rajastán hasta los canales de Kerala",
+        "pt": "Dos grandes palácios do Rajastão aos canais de Kerala",
+        "en": "From the grand palaces of Rajasthan to the serene canals of Kerala"
       }
     }
   },
   {
     "id": "faq",
     "isCustom": false,
+    "heroImage": "/images/rajasthan.jpg",
     "title": {
-      "en": "FAQ",
       "es": "Preguntas Frecuentes",
+      "en": "FAQ",
       "pt": "Perguntas Frequentes"
     },
-    "heroImage": "/images/rajasthan.jpg",
     "content": {
-      "heroTitle": {
-        "en": "Frequently Asked Questions",
-        "es": "Preguntas Frecuentes",
-        "pt": "Perguntas Frequentes"
-      },
       "heroSubtitle": {
         "en": "Everything you need to know before visiting India",
-        "es": "Todo lo que necesitas saber antes de visitar India",
-        "pt": "Tudo o que precisa saber antes de visitar a Índia"
+        "pt": "Tudo o que precisa saber antes de visitar a Índia",
+        "es": "Todo lo que necesitas saber antes de visitar India"
       },
       "faqs": [
         {
           "q": {
+            "pt": "É seguro viajar para a Índia?",
             "en": "Is it safe to travel to India?",
-            "es": "¿Es seguro viajar a la India?",
-            "pt": "É seguro viajar para a Índia?"
+            "es": "¿Es seguro viajar a la India?"
           },
           "a": {
             "en": "Yes, India is generally safe for tourists. Our expert guides ensure your comfort and security at all times. We carefully plan routes and accommodations for the safest experience.",
-            "es": "Sí, la India es generalmente segura para turistas. Nuestros guías expertos aseguran su comodidad y seguridad en todo momento.",
-            "pt": "Sim, a Índia é geralmente segura para turistas. Nossos guias especialistas garantem seu conforto e segurança em todos os momentos."
+            "pt": "Sim, a Índia é geralmente segura para turistas. Nossos guias especialistas garantem seu conforto e segurança em todos os momentos.",
+            "es": "Sí, la India es generalmente segura para turistas. Nuestros guías expertos aseguran su comodidad y seguridad en todo momento."
           }
         },
         {
-          "q": {
-            "en": "What is the best time to visit India?",
-            "es": "¿Cuál es la mejor época para visitar la India?",
-            "pt": "Qual é a melhor época para visitar a Índia?"
-          },
           "a": {
-            "en": "October to March is ideal for most regions. South India can be visited year-round. We'll help you choose the perfect timing based on your itinerary and interests.",
             "es": "Octubre a marzo es ideal para la mayoría de regiones. El sur se puede visitar todo el año. Le ayudaremos a elegir según su itinerario.",
+            "en": "October to March is ideal for most regions. South India can be visited year-round. We'll help you choose the perfect timing based on your itinerary and interests.",
             "pt": "Outubro a março é ideal para a maioria das regiões. O sul pode ser visitado durante todo o ano."
+          },
+          "q": {
+            "pt": "Qual é a melhor época para visitar a Índia?",
+            "en": "What is the best time to visit India?",
+            "es": "¿Cuál es la mejor época para visitar la India?"
           }
         },
         {
-          "q": {
-            "en": "Do I need a visa for India?",
-            "es": "¿Necesito visa para la India?",
-            "pt": "Preciso de visto para a Índia?"
-          },
           "a": {
             "en": "Yes, most nationalities require a visa. The e-Visa (online) is the easiest option and is typically processed within 72 hours. We provide guidance on the application process.",
-            "es": "Sí, la mayoría de nacionalidades necesitan visa. La e-Visa online es la opción más fácil y la procesamos en 72 horas.",
-            "pt": "Sim, a maioria das nacionalidades precisa de visto. O e-Visa online é a opção mais fácil."
+            "pt": "Sim, a maioria das nacionalidades precisa de visto. O e-Visa online é a opção mais fácil.",
+            "es": "Sí, la mayoría de nacionalidades necesitan visa. La e-Visa online es la opción más fácil y la procesamos en 72 horas."
+          },
+          "q": {
+            "es": "¿Necesito visa para la India?",
+            "en": "Do I need a visa for India?",
+            "pt": "Preciso de visto para a Índia?"
           }
         },
         {
           "q": {
             "en": "How do your private tours work?",
-            "es": "¿Cómo funcionan sus tours privados?",
-            "pt": "Como funcionam seus tours privados?"
+            "pt": "Como funcionam seus tours privados?",
+            "es": "¿Cómo funcionan sus tours privados?"
           },
           "a": {
+            "pt": "Cada tour é desenhado completamente sob medida. Você escolhe destinos, duração e atividades.",
             "en": "Every tour is fully customized. You choose destinations, duration, luxury level, and activities. We handle all logistics including transport, accommodation, guides, and experiences.",
-            "es": "Cada tour se diseña completamente a medida. Usted elige destinos, duración, nivel de lujo y actividades.",
-            "pt": "Cada tour é desenhado completamente sob medida. Você escolhe destinos, duração e atividades."
+            "es": "Cada tour se diseña completamente a medida. Usted elige destinos, duración, nivel de lujo y actividades."
           }
         },
         {
           "q": {
-            "en": "How much does a trip to India cost?",
             "es": "¿Cuánto cuesta un viaje a la India?",
-            "pt": "Quanto custa uma viagem à Índia?"
+            "pt": "Quanto custa uma viagem à Índia?",
+            "en": "How much does a trip to India cost?"
           },
           "a": {
-            "en": "Pricing varies based on duration, luxury level, and destinations. Luxury tours typically start from $200/day per person. Contact us for a personalized quote.",
             "es": "Los precios varían según la duración, nivel de lujo y destinos. Tours de lujo empiezan desde $200/día por persona.",
-            "pt": "Os preços variam conforme duração, nível de luxo e destinos. Tours de luxo começam em $200/dia por pessoa."
+            "pt": "Os preços variam conforme duração, nível de luxo e destinos. Tours de luxo começam em $200/dia por pessoa.",
+            "en": "Pricing varies based on duration, luxury level, and destinations. Luxury tours typically start from $200/day per person. Contact us for a personalized quote."
           }
         },
         {
-          "q": {
-            "en": "What's included in your packages?",
-            "es": "¿Qué incluyen sus paquetes?",
-            "pt": "O que incluem seus pacotes?"
-          },
           "a": {
             "en": "Our packages include accommodation, private transport, expert guides, monument entries, and curated cultural experiences. Meals and flights can be added.",
-            "es": "Nuestros paquetes incluyen alojamiento, transporte privado, guías, entradas a monumentos y experiencias culturales.",
-            "pt": "Nossos pacotes incluem alojamento, transporte privado, guias, entradas a monumentos e experiências culturais."
+            "pt": "Nossos pacotes incluem alojamento, transporte privado, guias, entradas a monumentos e experiências culturais.",
+            "es": "Nuestros paquetes incluyen alojamiento, transporte privado, guías, entradas a monumentos y experiencias culturales."
+          },
+          "q": {
+            "es": "¿Qué incluyen sus paquetes?",
+            "pt": "O que incluem seus pacotes?",
+            "en": "What's included in your packages?"
           }
         }
-      ]
+      ],
+      "heroTitle": {
+        "pt": "Perguntas Frequentes",
+        "en": "Frequently Asked Questions",
+        "es": "Preguntas Frecuentes"
+      }
     }
   },
   {
-    "id": "gallery",
+    "content": {
+      "heroTitle": {
+        "es": "Guía Culinaria Sabor de la India",
+        "en": "Taste of India Culinary Guide",
+        "pt": "Guia Culinário Sabor da Índia"
+      },
+      "heroSubtitle": {
+        "en": "Explore the rich culinary heritage and regional flavors of India",
+        "pt": "Explore o rico patrimônio culinário e sabores da Índia",
+        "es": "Explore el rico patrimonio culinario y sabores de la India"
+      }
+    },
+    "heroImage": "/images/indian_cuisine_feast.png",
     "isCustom": false,
     "title": {
-      "en": "Gallery",
-      "es": "Galería",
-      "pt": "Galeria"
+      "en": "Food Guide",
+      "pt": "Guia Gastronômico",
+      "es": "Guía de Comida"
     },
+    "id": "food"
+  },
+  {
+    "isCustom": false,
     "heroImage": "/images/udaipur.jpg",
     "content": {
       "heroTitle": {
-        "en": "India Through Our Lens",
         "es": "India a través de nuestro lente",
-        "pt": "Índia através das nossas lentes"
-      },
-      "heroSubtitle": {
-        "en": "A visual journey across the subcontinent",
-        "es": "Un viaje visual por el subcontinente",
-        "pt": "Uma jornada visual pelo subcontinente"
+        "pt": "Índia através das nossas lentes",
+        "en": "India Through Our Lens"
       },
       "images": [
         {
@@ -887,469 +334,982 @@
           "span": "col-span-2 row-span-2"
         },
         {
-          "src": "/images/rajasthan_fort_sunset.png",
           "alt": "Jaipur Palace",
+          "src": "/images/rajasthan_fort_sunset.png",
           "span": "col-span-1 row-span-1"
         },
         {
-          "src": "/images/kerala_backwaters_houseboat.png",
           "alt": "Kerala Backwaters",
+          "src": "/images/kerala_backwaters_houseboat.png",
           "span": "col-span-1 row-span-2"
         },
         {
-          "src": "/images/varanasi_ghats_aarti.png",
           "alt": "Varanasi Ghats",
-          "span": "col-span-1 row-span-1"
+          "span": "col-span-1 row-span-1",
+          "src": "/images/varanasi_ghats_aarti.png"
         },
         {
-          "src": "/images/luxury_palace_train.png",
           "alt": "Luxury Palace Train",
+          "src": "/images/luxury_palace_train.png",
           "span": "col-span-1 row-span-1"
         },
         {
+          "span": "col-span-2 row-span-1",
           "src": "/images/ranthambore_tiger_safari.png",
-          "alt": "Ranthambore Tiger Safari",
-          "span": "col-span-2 row-span-1"
+          "alt": "Ranthambore Tiger Safari"
         },
         {
+          "span": "col-span-1 row-span-1",
           "src": "/images/indian_cuisine_feast.png",
-          "alt": "Indian Cuisine Feast",
-          "span": "col-span-1 row-span-1"
+          "alt": "Indian Cuisine Feast"
         },
         {
+          "span": "col-span-1 row-span-1",
           "src": "/images/rajasthan_fort_sunset.png",
-          "alt": "Rajasthan Fort",
-          "span": "col-span-1 row-span-1"
+          "alt": "Rajasthan Fort"
         }
-      ]
-    }
+      ],
+      "heroSubtitle": {
+        "es": "Un viaje visual por el subcontinente",
+        "en": "A visual journey across the subcontinent",
+        "pt": "Uma jornada visual pelo subcontinente"
+      }
+    },
+    "title": {
+      "en": "Gallery",
+      "pt": "Galeria",
+      "es": "Galería"
+    },
+    "id": "gallery"
   },
   {
-    "id": "monuments",
-    "isCustom": false,
-    "title": {
-      "en": "Monuments",
-      "es": "Monumentos",
-      "pt": "Monumentos"
+    "content": {
+      "slides": [
+        {
+          "image": "/images/taj_mahal_sunrise.png",
+          "cta1Link": "/packages",
+          "desc": {
+            "en": "Curated itineraries featuring private guides, heritage palace hotels, and bespoke travel arrangements.",
+            "pt": "Itinerários à medida com guias privados, hotéis palácio e serviços exclusivos.",
+            "es": "Itinerarios a medida con guías privados, hoteles palacio y servicios exclusivos."
+          },
+          "cta2Link": "/contact",
+          "cta1Text": {
+            "en": "See Our Packages",
+            "pt": "Ver Pacotes",
+            "es": "Ver Paquetes"
+          },
+          "sub": {
+            "es": "TOURS PRIVADOS A MEDIDA",
+            "en": "BESPOKE PRIVATE TOURS",
+            "pt": "TOURS PRIVADOS SOB MEDIDA"
+          },
+          "title": {
+            "en": "Experience India in Absolute Luxury",
+            "pt": "Viaje para a Índia em Luxo Absoluto",
+            "es": "Viaje a India en Lujo Absoluto"
+          },
+          "location": {
+            "es": "Taj Mahal, Agra",
+            "en": "Taj Mahal, Agra",
+            "pt": "Taj Mahal, Agra"
+          },
+          "cta2Text": {
+            "es": "Consultar Ahora",
+            "en": "Inquire Now",
+            "pt": "Consultar Agora"
+          }
+        },
+        {
+          "location": {
+            "pt": "Forte Mehrangarh, Jodhpur",
+            "en": "Mehrangarh Fort, Jodhpur",
+            "es": "Fuerte Mehrangarh, Jodhpur"
+          },
+          "sub": {
+            "es": "PALACIOS HISTÓRICOS",
+            "pt": "PALÁCIOS HISTÓRICOS",
+            "en": "HERITAGE PALACES"
+          },
+          "cta2Text": {
+            "es": "Paquetes Reales",
+            "en": "Royal Packages",
+            "pt": "Pacotes Reais"
+          },
+          "image": "/images/rajasthan_fort_sunset.png",
+          "cta2Link": "/packages",
+          "title": {
+            "es": "La Magia Real de Rajastán",
+            "pt": "A Magia Real do Rajastão",
+            "en": "The Royal Magic of Rajasthan"
+          },
+          "cta1Text": {
+            "pt": "Explorar Rajastão",
+            "en": "Explore Rajasthan",
+            "es": "Explorar Rajastán"
+          },
+          "desc": {
+            "pt": "Explore dunas de areia, fortes medievais e jante dentro de autênticos palácios reais.",
+            "en": "Explore desert dunes, medieval forts, and dine inside authentic royal lakeside palaces.",
+            "es": "Explore dunas de arena, fuertes medievales y cene dentro de auténticos palacios reales."
+          },
+          "cta1Link": "/destinations/rajasthan"
+        },
+        {
+          "title": {
+            "pt": "Serenidade Tropical em Kerala",
+            "en": "Tropical Serenity in Kerala",
+            "es": "Serenidad Tropical en Kerala"
+          },
+          "desc": {
+            "en": "Cruise through emerald backwaters and rejuvenate with authentic wellness Ayurvedic rituals.",
+            "pt": "Navegue por canais de esmeralda e rejuvenesça com autênticos rituais ayurvédicos.",
+            "es": "Navegue por canales de esmeralda y rejuvenezca con auténticos rituales ayurvédicos."
+          },
+          "cta1Text": {
+            "es": "Kerala Retiros",
+            "pt": "Retiros Kerala",
+            "en": "Kerala Retreats"
+          },
+          "cta2Link": "/contact",
+          "sub": {
+            "es": "RETIROS HOLÍSTICOS",
+            "pt": "RETIROS HOLÍSTICOS",
+            "en": "HOLISTIC RETREATS"
+          },
+          "cta1Link": "/destinations/kerala",
+          "location": {
+            "pt": "Canais de Alleppey, Kerala",
+            "en": "Backwaters, Alleppey",
+            "es": "Remansos de Alleppey, Kerala"
+          },
+          "image": "/images/kerala_backwaters_houseboat.png",
+          "cta2Text": {
+            "es": "Planear mi Viaje",
+            "en": "Plan My Trip",
+            "pt": "Planear minha Viagem"
+          }
+        },
+        {
+          "desc": {
+            "pt": "Maravilhe-se com o astronômico Jantar Mantar e a bela estrutura de Hawa Mahal.",
+            "en": "Marvel at the astronomical Jantar Mantar and the beautiful honeycomb structure of Hawa Mahal.",
+            "es": "Maravíllate con el astronómico Jantar Mantar y la hermosa estructura de Hawa Mahal."
+          },
+          "image": "/images/Jaipur.jpg",
+          "location": {
+            "en": "Hawa Mahal, Jaipur",
+            "pt": "Hawa Mahal, Jaipur",
+            "es": "Hawa Mahal, Jaipur"
+          },
+          "cta2Text": {
+            "en": "Inquire Now",
+            "pt": "Planejar Agora",
+            "es": "Planear Ahora"
+          },
+          "title": {
+            "es": "Maravillas de la Ciudad Rosa de Jaipur",
+            "en": "Pink City Wonders of Jaipur",
+            "pt": "Maravilhas da Cidade Rosa de Jaipur"
+          },
+          "cta1Link": "/destinations/rajasthan",
+          "cta2Link": "/contact",
+          "sub": {
+            "es": "ARQUITECTURA REAL",
+            "pt": "ARQUITETURA REAL",
+            "en": "ROYAL ARCHITECTURE"
+          },
+          "cta1Text": {
+            "en": "Explore Jaipur",
+            "pt": "Explorar Jaipur",
+            "es": "Explorar Jaipur"
+          }
+        },
+        {
+          "title": {
+            "pt": "Udaipur: A Veneza do Oriente",
+            "en": "Udaipur: Venice of the East",
+            "es": "Udaipur: La Venecia del Este"
+          },
+          "sub": {
+            "pt": "ESCAPADAS ROMÂNTICAS",
+            "en": "ROMANTIC ESCAPES",
+            "es": "ESCAPADAS ROMÁNTICAS"
+          },
+          "cta2Link": "/contact",
+          "cta1Text": {
+            "pt": "Ver Pacotes",
+            "en": "See Packages",
+            "es": "Ver Paquetes"
+          },
+          "cta1Link": "/packages",
+          "desc": {
+            "es": "Navega por el reluciente lago Pichola y alójate en palacios de mármol flotantes.",
+            "en": "Sail across shimmering Lake Pichola and stay in floating marble palaces under the stars.",
+            "pt": "Navegue pelo brilhante Lago Pichola e hospede-se em palácios de mármore flutuantes."
+          },
+          "location": {
+            "pt": "Lago Pichola, Udaipur",
+            "en": "Lake Pichola, Udaipur",
+            "es": "Lago Pichola, Udaipur"
+          },
+          "image": "/images/Udaipur.jpg",
+          "cta2Text": {
+            "es": "Planear Ahora",
+            "en": "Inquire Now",
+            "pt": "Planejar Agora"
+          }
+        },
+        {
+          "desc": {
+            "en": "Witness the intense devotion of evening Ganga Aarti ceremonies by the sacred ghats.",
+            "pt": "Assista à intensa devoção das cerimônias noturnas de Ganga Aarti junto aos ghats.",
+            "es": "Presencie la intensa devoción de las ceremonias nocturnas de Ganga Aarti junto a los ghats."
+          },
+          "cta1Link": "/destinations/uttar-pradesh",
+          "cta1Text": {
+            "pt": "Roteiros Espirituais",
+            "en": "Spiritual Itineraries",
+            "es": "Itinerarios Espirituales"
+          },
+          "title": {
+            "pt": "Despertar Espiritual em Varanasi",
+            "en": "Spiritual Awakenings in Varanasi",
+            "es": "Despertar Espiritual en Varanasi"
+          },
+          "cta2Link": "/contact",
+          "cta2Text": {
+            "en": "Inquire Now",
+            "pt": "Planejar Agora",
+            "es": "Planear Ahora"
+          },
+          "image": "/images/varanasi.jpg",
+          "sub": {
+            "en": "SACRED PLACES",
+            "pt": "LUGARES SAGRADOS",
+            "es": "LUGARES SAGRADOS"
+          },
+          "location": {
+            "es": "Ghats del Ganges, Varanasi",
+            "pt": "Ghats do Ganges, Varanasi",
+            "en": "Ganga Ghats, Varanasi"
+          }
+        },
+        {
+          "location": {
+            "es": "Playas e Historia, Goa",
+            "en": "Baga & Old Goa, Goa",
+            "pt": "Praias e História, Goa"
+          },
+          "cta2Text": {
+            "es": "Planear Viaje",
+            "pt": "Planejar Roteiro",
+            "en": "Plan Itinerary"
+          },
+          "image": "/images/goa.jpg",
+          "desc": {
+            "en": "Relax on pristine tropical beaches and explore colonial Portuguese churches in old Goa.",
+            "pt": "Relaxe em praias tropicais e explore as iglesias coloniales portuguesas na antiga Goa.",
+            "es": "Relájese en playas tropicales y explore las iglesias coloniales portuguesas en el viejo Goa."
+          },
+          "sub": {
+            "es": "LUJO DE PLAYA",
+            "en": "BEACH LUXURY",
+            "pt": "LUXO DE PRAIA"
+          },
+          "cta1Link": "/destinations/goa",
+          "cta2Link": "/contact",
+          "title": {
+            "es": "Arenas Doradas y Patrimonio de Goa",
+            "en": "Golden Sands & Heritage of Goa",
+            "pt": "Areias Douradas e Patrimônio de Goa"
+          },
+          "cta1Text": {
+            "es": "Explorar Goa",
+            "pt": "Explorar Goa",
+            "en": "Explore Goa"
+          }
+        },
+        {
+          "image": "/images/munnar.jpg",
+          "sub": {
+            "es": "MONTAÑAS Y COLINAS",
+            "pt": "MONTANHAS E COLINAS",
+            "en": "HIMALAYAS & HILLS"
+          },
+          "cta1Link": "/destinations/kerala",
+          "cta2Link": "/contact",
+          "desc": {
+            "en": "Breathe the fresh mountain air of rolling tea estates and misty peaks in South India.",
+            "pt": "Respire o ar fresco da montanha nas plantações de chá no sul da Índia.",
+            "es": "Respire el aire fresco de la montaña en las plantaciones de té en el sur de la India."
+          },
+          "cta1Text": {
+            "es": "Guías de Kerala",
+            "en": "Kerala Guides",
+            "pt": "Guias de Kerala"
+          },
+          "title": {
+            "es": "Colinas de Té de Munnar",
+            "pt": "Colinas de Chá de Munnar",
+            "en": "Misty Tea Hills of Munnar"
+          },
+          "location": {
+            "es": "Plantaciones de Munnar, Kerala",
+            "en": "Munnar Tea Estates, Kerala",
+            "pt": "Plantações de Munnar, Kerala"
+          },
+          "cta2Text": {
+            "es": "Planear Ahora",
+            "pt": "Planejar Agora",
+            "en": "Inquire Now"
+          }
+        },
+        {
+          "cta1Text": {
+            "en": "Wildlife Packages",
+            "pt": "Pacotes de Vida Selvagem",
+            "es": "Paquetes de Vida Silvestre"
+          },
+          "cta2Link": "/contact",
+          "cta1Link": "/packages",
+          "title": {
+            "es": "Safari de Tigres en Ranthambore",
+            "pt": "Safáris de Tigre em Ranthambore",
+            "en": "Tiger Safaris in Ranthambore"
+          },
+          "location": {
+            "es": "Parque Ranthambore, Rajasthan",
+            "pt": "Parque Ranthambore, Rajastão",
+            "en": "National Park, Ranthambore"
+          },
+          "sub": {
+            "es": "SAFARIS SALVAJES",
+            "pt": "SAFÁRIS SELVAGENS",
+            "en": "WILDLIFE ADVENTURES"
+          },
+          "desc": {
+            "es": "Busque al tigre de Bengala en los antiguos campos de caza de los Maharajás.",
+            "pt": "Procure o tigre de Bengala nos antigos campos de caça dos Maharajas.",
+            "en": "Search for the majestic Royal Bengal Tiger in the ancient hunting grounds of Maharajas."
+          },
+          "image": "/images/ranthambore.jpg",
+          "cta2Text": {
+            "es": "Planear Ahora",
+            "en": "Inquire Now",
+            "pt": "Planejar Agora"
+          }
+        },
+        {
+          "cta1Text": {
+            "es": "Tours de Islas",
+            "pt": "Tours nas Ilhas",
+            "en": "Island Tours"
+          },
+          "cta2Link": "/contact",
+          "desc": {
+            "en": "Swim in turquoise waters and dive into the pristine marine life and coral reefs of Havelock.",
+            "pt": "Nade em águas turquesas e explore os recifes de coral na ilha Havelock.",
+            "es": "Nade en aguas turquesas y explore los arrecifes de coral en la isla Havelock."
+          },
+          "title": {
+            "es": "Islas Andamán: Paraíso Azul Tropical",
+            "pt": "Ilhas Andaman: Paraíso Azul Tropical",
+            "en": "Andaman Islands: Tropical Blue Havens"
+          },
+          "cta1Link": "/packages",
+          "image": "/images/andaman islands.jpg",
+          "cta2Text": {
+            "es": "Planear Ahora",
+            "pt": "Planejar Agora",
+            "en": "Inquire Now"
+          },
+          "location": {
+            "es": "Playa Radhanagar, Havelock",
+            "en": "Radhanagar Beach, Havelock",
+            "pt": "Praia Radhanagar, Havelock"
+          },
+          "sub": {
+            "en": "ISLAND GETAWAYS",
+            "pt": "ESCAPADAS EM ILHAS",
+            "es": "ESCAPADAS DE ISLAS"
+          }
+        }
+      ],
+      "faqs": [
+        {
+          "a": {
+            "pt": "Sim, geralmente segura para turistas.",
+            "en": "Yes, India is generally safe for tourists. Our expert guides ensure your comfort and security at all times.",
+            "es": "Sí, generalmente segura para turistas."
+          },
+          "q": {
+            "pt": "É seguro viajar para a Índia?",
+            "en": "Is it safe to travel to India?",
+            "es": "¿Es seguro viajar a la India?"
+          }
+        },
+        {
+          "a": {
+            "en": "October to March is ideal for most regions. South India can be visited year-round.",
+            "pt": "Outubro a março é ideal.",
+            "es": "Octubre a marzo es ideal."
+          },
+          "q": {
+            "es": "¿Cuál es la mejor época?",
+            "en": "What is the best time to visit India?",
+            "pt": "Qual é a melhor época?"
+          }
+        },
+        {
+          "a": {
+            "es": "Sí, la mayoría necesitan visa.",
+            "pt": "Sim, a maioria precisa de visto.",
+            "en": "Yes, most nationalities require a visa. The e-Visa online is processed within 72 hours."
+          },
+          "q": {
+            "pt": "Preciso de visto?",
+            "en": "Do I need a visa for India?",
+            "es": "¿Necesito visa?"
+          }
+        },
+        {
+          "a": {
+            "pt": "Certamente, tudo é personalizado.",
+            "en": "Absolutely. Every detail is tailormade — route, duration, hotels, and activities.",
+            "es": "Por supuesto, todo se personaliza."
+          },
+          "q": {
+            "pt": "Posso personalizar?",
+            "en": "Can I customize my travel package?",
+            "es": "¿Puedo personalizar mi viaje?"
+          }
+        },
+        {
+          "q": {
+            "es": "¿Cómo es el transporte?",
+            "en": "How is local transportation managed?",
+            "pt": "Como é o transporte?"
+          },
+          "a": {
+            "en": "We provide private luxury SUVs with experienced English-speaking drivers.",
+            "pt": "Veículos de luxo com motoristas.",
+            "es": "Vehículos privados de lujo con conductores."
+          }
+        }
+      ],
+      "stats": [
+        {
+          "suffix": "",
+          "label": {
+            "pt": "Anos de experiência",
+            "en": "Years of experience",
+            "es": "Años de experiencia"
+          },
+          "value": 12
+        },
+        {
+          "label": {
+            "en": "Retention rate",
+            "pt": "Taxa de retenção",
+            "es": "Tasa de retención"
+          },
+          "value": 97,
+          "suffix": "%"
+        },
+        {
+          "value": 2400,
+          "suffix": "+",
+          "label": {
+            "es": "Viajeros satisfechos",
+            "en": "Happy travelers served",
+            "pt": "Viajantes satisfeitos"
+          }
+        },
+        {
+          "value": 15,
+          "suffix": "+",
+          "label": {
+            "es": "Estados indios cubiertos",
+            "pt": "Estados indianos cobertos",
+            "en": "Indian states covered"
+          }
+        }
+      ],
+      "howItWorks": [
+        {
+          "desc": {
+            "pt": "Examine nossas rotas exclusivas ou compartilhe suas regiões desejadas.",
+            "en": "Browse our signature routes or share your bucket-list regions with our specialist desk.",
+            "es": "Examine nuestras rutas exclusivas o comparta sus regiones deseadas."
+          },
+          "title": {
+            "es": "Seleccione o Personalice",
+            "en": "Select or Customize",
+            "pt": "Selecione ou Personalize"
+          }
+        },
+        {
+          "desc": {
+            "es": "Un especialista diseña sus detalles: hoteles, vehículos y guías.",
+            "en": "Your dedicated destination expert builds the details: hotel classes, private vehicles, and local guides.",
+            "pt": "Um especialista planeja seus detalhes: hotéis, veículos e guias."
+          },
+          "title": {
+            "es": "Co-diseñe con un Asesor",
+            "pt": "Co-planeje com um Consultor",
+            "en": "Co-Design with an Advisor"
+          }
+        },
+        {
+          "title": {
+            "pt": "Viaje com Tranquilidade",
+            "en": "Board & Travel in Peace",
+            "es": "Viaje con Tranquilidad"
+          },
+          "desc": {
+            "es": "Nuestro equipo gestiona toda la logística con choferes y asistencia 24/7.",
+            "pt": "Nossa equipe gere toda a logística com motoristas e assistência 24/7.",
+            "en": "Our on-ground ops desk coordinates all logistics, including professional drivers and 24/7 concierge."
+          }
+        }
+      ],
+      "ctaBanner": {
+        "btnText": {
+          "en": "Inquire Now",
+          "pt": "Planejar Agora",
+          "es": "Planificar Ahora"
+        },
+        "subtitle": {
+          "es": "Hable con un asesor de viajes de lujo.",
+          "en": "Speak to a luxury travel advisor to draft your tailored itinerary.",
+          "pt": "Fale com um consultor de viagens de luxo."
+        },
+        "title": {
+          "en": "Begin Your Private Passage",
+          "pt": "Comece Sua Viagem Privada",
+          "es": "Comience Su Viaje Privado"
+        }
+      },
+      "packagesSection": {
+        "title": {
+          "es": "Paquetes de Viaje",
+          "pt": "Pacotes de Viagem",
+          "en": "Travel Packages"
+        },
+        "desc": {
+          "en": "Elite itineraries hand-designed by our specialist destination managers.",
+          "pt": "Itinerários de elite desenhados por especialistas.",
+          "es": "Itinerarios de élite diseñados por especialistas."
+        },
+        "subtitle": {
+          "en": "Featured Journeys",
+          "pt": "Viagens Em Destaque",
+          "es": "Viajes Destacados"
+        }
+      },
+      "destinationsSection": {
+        "desc": {
+          "pt": "Dos palácios do Rajastão aos canais de Kerala.",
+          "en": "From the grand palaces of Rajasthan to the serene canals of Kerala, discover a tailored world.",
+          "es": "Desde los palacios de Rajasthan hasta los canales de Kerala."
+        },
+        "subtitle": {
+          "es": "Destinos Personalizados",
+          "pt": "Destinos Personalizados",
+          "en": "Custom Destinations"
+        },
+        "title": {
+          "es": "Destinos en India",
+          "pt": "Destinos na Índia",
+          "en": "Destinations in India"
+        }
+      },
+      "monumentsSection": {
+        "btnText": {
+          "pt": "Ver Todos os Monumentos",
+          "en": "View All Monuments",
+          "es": "Ver Todos los Monumentos"
+        }
+      },
+      "philosophy": {
+        "title": {
+          "en": "Why Travelers Choose MH India Trips",
+          "pt": "Por Que Escolher a MH India Trips",
+          "es": "Por Qué Elegir MH India Trips"
+        },
+        "subtitle": {
+          "en": "Our Philosophy",
+          "pt": "Nossa Filosofia",
+          "es": "Nuestra Filosofía"
+        },
+        "image": "/images/rajasthan_fort_sunset.png"
+      },
+      "testimonialsSection": {
+        "title": {
+          "pt": "O Que Dizem Nossos Hóspedes",
+          "en": "What Our Guests Say",
+          "es": "Lo Que Dicen Nuestros Huéspedes"
+        },
+        "subtitle": {
+          "es": "Ecos de Viajeros",
+          "en": "Traveler Whispers",
+          "pt": "Sussurros de Viajantes"
+        }
+      },
+      "blogsSection": {
+        "title": {
+          "pt": "Blogs de Viagem",
+          "en": "Travel Blogs",
+          "es": "Blogs de Viaje"
+        },
+        "subtitle": {
+          "pt": "Inspiração de Viagem",
+          "en": "Travel Inspiration",
+          "es": "Inspiración de Viaje"
+        },
+        "desc": {
+          "es": "Historias, guías y perspectivas culturales.",
+          "en": "Curated stories, travel guides, and cultural insights from India's most enchanting destinations.",
+          "pt": "Histórias, guias e perspectivas culturais."
+        }
+      },
+      "inclusions": [
+        {
+          "icon": "car",
+          "title": {
+            "pt": "Motorista Profissional Privado",
+            "en": "Private Professional Chauffeur",
+            "es": "Chofer Profesional Privado"
+          },
+          "desc": {
+            "en": "Air-conditioned luxury SUVs with verified drivers.",
+            "pt": "SUVs premium com motoristas verificados.",
+            "es": "SUVs premium con choferes verificados."
+          }
+        },
+        {
+          "icon": "compass",
+          "title": {
+            "pt": "Guias Certificados",
+            "en": "Licensed Local Guides",
+            "es": "Guías Certificados"
+          },
+          "desc": {
+            "es": "Guías oficiales en cada monumento.",
+            "pt": "Guias oficiais em cada monumento.",
+            "en": "Government-certified guides at every heritage site."
+          }
+        },
+        {
+          "icon": "hotel",
+          "desc": {
+            "pt": "Estadías em palácios restaurados.",
+            "en": "Hand-curated bookings in restored royal palaces.",
+            "es": "Estancias en palacios restaurados."
+          },
+          "title": {
+            "es": "Hoteles de Patrimonio",
+            "pt": "Hotéis de Patrimônio",
+            "en": "Boutique & Heritage Stays"
+          }
+        },
+        {
+          "title": {
+            "es": "Soporte 24/7",
+            "pt": "Suporte 24/7",
+            "en": "24/7 Concierge Support"
+          },
+          "desc": {
+            "pt": "Contacto direto por WhatsApp.",
+            "en": "Direct WhatsApp line to our operations desk.",
+            "es": "Contacto directo por WhatsApp."
+          },
+          "icon": "headset"
+        }
+      ],
+      "foodSection": {
+        "title": {
+          "es": "Viajes de Sabor",
+          "en": "Flavor Journeys",
+          "pt": "Viagens de Sabor"
+        },
+        "subtitle": {
+          "es": "Patrimonio Culinario",
+          "en": "Culinary Heritage",
+          "pt": "Patrimônio Culinário"
+        },
+        "desc": {
+          "es": "Saboree el patrimonio de las cocinas reales mogoles.",
+          "en": "Taste the heritage of royal Mughal kitchens and aromatic local street spices.",
+          "pt": "Saboreie o patrimônio das cozinhas reais mogóis."
+        },
+        "image": "/images/indian_cuisine_feast.png"
+      }
     },
     "heroImage": "/images/rajasthan_fort_sunset.png",
+    "title": {
+      "es": "Página Principal",
+      "en": "Homepage",
+      "pt": "Página Inicial"
+    },
+    "isCustom": false,
+    "id": "homepage"
+  },
+  {
+    "isCustom": false,
+    "heroImage": "/images/rajasthan_fort_sunset.png",
+    "title": {
+      "pt": "Monumentos",
+      "en": "Monuments",
+      "es": "Monumentos"
+    },
+    "id": "monuments",
     "content": {
       "heroSub": {
         "en": "Heritage & Architecture",
-        "es": "Patrimonio y Arquitectura",
-        "pt": "Patrimônio e Arquitetura"
-      },
-      "heroTitle": {
-        "en": "Iconic Monuments of India",
-        "es": "Monumentos Icónicos de la India",
-        "pt": "Monumentos Icônicos da Índia"
-      },
-      "heroDesc": {
-        "en": "Discover centuries-old palaces, grand Mughal forts, ancient temples, and UNESCO World Heritage sites.",
-        "es": "Descubra palacios centenarios, grandes fuertes mogoles y sitios del Patrimonio Mundial.",
-        "pt": "Descubra palácios centenários, grandes fortes mogóis e locais do Patrimônio Mundial."
+        "pt": "Patrimônio e Arquitetura",
+        "es": "Patrimonio y Arquitectura"
       },
       "featuredMonuments": [
         {
-          "name": "Taj Mahal",
-          "city": "Agra",
-          "state": "Uttar Pradesh",
-          "era": "1632 AD",
           "image": "/images/taj_mahal_sunrise.png",
-          "desc": "A UNESCO World Heritage ivory-white marble mausoleum, widely considered the finest example of Mughal architecture and one of the New Seven Wonders of the World."
+          "era": "1632 AD",
+          "state": "Uttar Pradesh",
+          "city": "Agra",
+          "desc": "A UNESCO World Heritage ivory-white marble mausoleum, widely considered the finest example of Mughal architecture and one of the New Seven Wonders of the World.",
+          "name": "Taj Mahal"
         },
         {
-          "name": "Amber Fort",
-          "city": "Jaipur",
           "state": "Rajasthan",
           "era": "1592 AD",
-          "image": "/images/Jaipur.jpg",
-          "desc": "A majestic sandstone and marble fortress perched on a hillside, featuring stunning mirror work, elephant rides, and panoramic views of Maota Lake."
+          "name": "Amber Fort",
+          "city": "Jaipur",
+          "desc": "A majestic sandstone and marble fortress perched on a hillside, featuring stunning mirror work, elephant rides, and panoramic views of Maota Lake.",
+          "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787390233/mhindiatrips/yuwaasnm78zltzh9dpgx.jpg"
         },
         {
-          "name": "Mehrangarh Fort",
-          "city": "Jodhpur",
-          "state": "Rajasthan",
           "era": "1459 AD",
+          "city": "Jodhpur",
+          "desc": "One of India's largest forts towering 125 meters above the Blue City, with intricate carvings, expansive courtyards, and a museum of royal artifacts.",
           "image": "/images/rajasthan_fort_sunset.png",
-          "desc": "One of India's largest forts towering 125 meters above the Blue City, with intricate carvings, expansive courtyards, and a museum of royal artifacts."
+          "name": "Mehrangarh Fort",
+          "state": "Rajasthan"
         },
         {
           "name": "Hawa Mahal",
-          "city": "Jaipur",
-          "state": "Rajasthan",
-          "era": "1799 AD",
           "image": "/images/Jaipur.jpg",
-          "desc": "The iconic Palace of Winds with 953 small windows designed for royal women to observe street festivals without being seen from outside."
+          "city": "Jaipur",
+          "desc": "The iconic Palace of Winds with 953 small windows designed for royal women to observe street festivals without being seen from outside.",
+          "era": "1799 AD",
+          "state": "Rajasthan"
         },
         {
           "name": "Mysore Palace",
+          "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787424490/mhindiatrips/jjqg3ei13brzkijfawfy.jpg",
+          "desc": "A grand Indo-Saracenic palace illuminated by 97,000 lights on Sundays and public holidays, home to the Wadiyar royal family's treasures.",
           "city": "Mysore",
-          "state": "Karnataka",
           "era": "1912 AD",
-          "image": "/images/karanataka.jpg",
-          "desc": "A grand Indo-Saracenic palace illuminated by 97,000 lights on Sundays and public holidays, home to the Wadiyar royal family's treasures."
+          "state": "Karnataka"
         },
         {
           "name": "Hampi Ruins",
+          "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787424501/mhindiatrips/eiejrmzjmtyhcga65meq.jpg",
+          "desc": "The sprawling UNESCO ruins of the Vijayanagara Empire, featuring over 1,600 surviving monuments including temples, royal enclosures, and market streets.",
           "city": "Hampi",
-          "state": "Karnataka",
           "era": "14th Century",
-          "image": "/images/hampi-ruins.jpg",
-          "desc": "The sprawling UNESCO ruins of the Vijayanagara Empire, featuring over 1,600 surviving monuments including temples, royal enclosures, and market streets."
+          "state": "Karnataka"
         }
-      ]
-    }
-  },
-  {
-    "id": "privacy",
-    "isCustom": false,
-    "title": {
-      "en": "Privacy Policy",
-      "es": "Política de Privacidad",
-      "pt": "Política de Privacidade"
-    },
-    "heroImage": "",
-    "content": {
-      "body": {
-        "en": "<p>Your privacy is important to us. This policy explains how we collect and use your data.</p>",
-        "es": "<p>Su privacidad es importante para nosotros.</p>",
-        "pt": "<p>A sua privacidade é importante para nós.</p>"
-      }
-    }
-  },
-  {
-    "id": "terms",
-    "isCustom": false,
-    "title": {
-      "en": "Terms & Conditions",
-      "es": "Términos y Condiciones",
-      "pt": "Termos e Condições"
-    },
-    "heroImage": "",
-    "content": {
-      "body": {
-        "en": "<p>These terms govern your use of MH India Trips services.</p>",
-        "es": "<p>Estos términos rigen el uso de los servicios de MH India Trips.</p>",
-        "pt": "<p>Estes termos regem a utilização dos serviços da MH India Trips.</p>"
-      }
-    }
-  },
-  {
-    "id": "attractions",
-    "isCustom": false,
-    "title": {
-      "en": "Attractions",
-      "es": "Atracciones",
-      "pt": "Atrações"
-    },
-    "heroImage": "/images/rajasthan_fort_sunset.png",
-    "content": {
+      ],
       "heroTitle": {
-        "en": "Top Attractions in India",
-        "es": "Principales Atracciones en la India",
-        "pt": "Principais Atrações na Índia"
+        "en": "Iconic Monuments of India",
+        "pt": "Monumentos Icônicos da Índia",
+        "es": "Monumentos Icónicos de la India"
       },
-      "heroSubtitle": {
-        "en": "Explore India's most breathtaking sites, temples, and palaces",
-        "es": "Explore los sitios, templos y palacios más impresionantes de la India",
-        "pt": "Explore os locais, templos e palácios mais impressionantes da Índia"
-      },
-      "featuredAttractions": [
-        {
-          "name": "Taj Mahal",
-          "city": "Agra",
-          "state": "Uttar Pradesh",
-          "image": "/images/taj_mahal_sunrise.png",
-          "desc": "The legendary white marble monument of love, a UNESCO World Heritage site and global icon."
-        },
-        {
-          "name": "Amber Fort",
-          "city": "Jaipur",
-          "state": "Rajasthan",
-          "image": "/images/Jaipur.jpg",
-          "desc": "A magnificent hilltop fortress featuring detailed royal palace halls, courts, and lake views."
-        },
-        {
-          "name": "Mehrangarh Fort",
-          "city": "Jodhpur",
-          "state": "Rajasthan",
-          "image": "/images/rajasthan_fort_sunset.png",
-          "desc": "A massive fort overlooking the Blue City, housing royal relics, courtyards, and palace galleries."
-        },
-        {
-          "name": "Kerala Backwaters",
-          "city": "Alleppey",
-          "state": "Kerala",
-          "image": "/images/kerala_backwaters_houseboat.png",
-          "desc": "A serene network of canals, lakes, and rivers traversed by traditional luxury houseboats."
-        },
-        {
-          "name": "Ranthambore Tiger Reserve",
-          "city": "Sawai Madhopur",
-          "state": "Rajasthan",
-          "image": "/images/ranthambore_tiger_safari.png",
-          "desc": "A world-renowned wildlife sanctuary, home to the Royal Bengal Tigers and ancient fortress ruins."
-        },
-        {
-          "name": "Hampi Ruins",
-          "city": "Hampi",
-          "state": "Karnataka",
-          "image": "/images/hampi-ruins.jpg",
-          "desc": "The ancient capital of the Vijayanagara Empire, showcasing dramatic boulder landscapes and temples."
-        }
-      ]
-    }
-  },
-  {
-    "id": "blog",
-    "isCustom": false,
-    "title": {
-      "en": "Travel Blog",
-      "es": "Blog de Viajes",
-      "pt": "Blog de Viagens"
-    },
-    "heroImage": "/images/varanasi_ghats_aarti.png",
-    "content": {
-      "heroTitle": {
-        "en": "Stories & Insights",
-        "es": "Historias e Ideas",
-        "pt": "Histórias e Inspirações"
-      },
-      "heroSubtitle": {
-        "en": "Expert tips, cultural insights, and luxury travel secrets",
-        "es": "Consejos de expertos, ideas culturales y secretos de viajes de lujo",
-        "pt": "Dicas de especialistas, insights culturais e segredos de viagem"
-      }
-    }
-  },
-  {
-    "id": "destinations",
-    "isCustom": false,
-    "title": {
-      "en": "Destinations Catalog",
-      "es": "Catálogo de Destinos",
-      "pt": "Catálogo de Destinos"
-    },
-    "heroImage": "/images/rajasthan_fort_sunset.png",
-    "content": {
-      "heroTitle": {
-        "en": "Explore India's Regions",
-        "es": "Explore las Regiones de la India",
-        "pt": "Explore as Regiões da Índia"
-      },
-      "heroSubtitle": {
-        "en": "From the grand palaces of Rajasthan to the serene canals of Kerala",
-        "es": "Desde los grandes palacios de Rajastán hasta los canales de Kerala",
-        "pt": "Dos grandes palácios do Rajastão aos canais de Kerala"
+      "heroDesc": {
+        "en": "Discover centuries-old palaces, grand Mughal forts, ancient temples, and UNESCO World Heritage sites.",
+        "pt": "Descubra palácios centenários, grandes fortes mogóis e locais do Patrimônio Mundial.",
+        "es": "Descubra palacios centenarios, grandes fuertes mogoles y sitios del Patrimonio Mundial."
       }
     }
   },
   {
     "id": "packages",
-    "isCustom": false,
     "title": {
       "en": "Travel Packages Catalog",
-      "es": "Catálogo de Paquetes",
-      "pt": "Catálogo de Pacotes"
+      "pt": "Catálogo de Pacotes",
+      "es": "Catálogo de Paquetes"
     },
+    "isCustom": false,
     "heroImage": "/images/luxury_palace_train.png",
     "content": {
       "heroTitle": {
-        "en": "Travel Packages",
         "es": "Paquetes de Viaje",
+        "en": "Travel Packages",
         "pt": "Pacotes de Viagem"
       },
       "heroSubtitle": {
+        "pt": "Roteiros de elite desenhados por nossos especialistas",
         "en": "Elite itineraries hand-designed by our specialist managers",
-        "es": "Itinerarios de élite diseñados a mano por nuestros expertos",
-        "pt": "Roteiros de elite desenhados por nossos especialistas"
+        "es": "Itinerarios de élite diseñados a mano por nuestros expertos"
       }
     }
   },
   {
-    "id": "food",
-    "isCustom": false,
     "title": {
-      "en": "Food Guide",
-      "es": "Guía de Comida",
-      "pt": "Guia Gastronômico"
+      "pt": "Planeje sua Viagem",
+      "en": "Plan Your Trip",
+      "es": "Planifica tu Viaje"
     },
-    "heroImage": "/images/indian_cuisine_feast.png",
+    "id": "plan-your-trip",
+    "isCustom": false,
     "content": {
-      "heroTitle": {
-        "en": "Taste of India Culinary Guide",
-        "es": "Guía Culinaria Sabor de la India",
-        "pt": "Guia Culinário Sabor da Índia"
-      },
       "heroSubtitle": {
-        "en": "Explore the rich culinary heritage and regional flavors of India",
-        "es": "Explore el rico patrimonio culinario y sabores de la India",
-        "pt": "Explore o rico patrimônio culinário e sabores da Índia"
+        "en": "Use our trip planner to build your dream itinerary",
+        "pt": "Use nosso planejador de viagens",
+        "es": "Usa nuestro planificador de viajes"
+      },
+      "heroTitle": {
+        "es": "Planifica tu viaje perfecto a India",
+        "pt": "Planeje sua viagem perfeita à Índia",
+        "en": "Plan Your Perfect India Trip"
+      }
+    },
+    "heroImage": "/images/rajasthan_fort_sunset.png"
+  },
+  {
+    "isCustom": false,
+    "heroImage": "",
+    "id": "privacy",
+    "title": {
+      "pt": "Política de Privacidade",
+      "en": "Privacy Policy",
+      "es": "Política de Privacidad"
+    },
+    "content": {
+      "HOW WE USE YOUR INFORMATION": {
+        "pt": "<h2>Como Utilizamos as Suas Informações</h2>\n<p>Podemos utilizar as informações recolhidas para responder a consultas, fornecer serviços de viagem, preparar itinerários personalizados, gerir reservas, comunicar atualizações importantes e melhorar o nosso website e os nossos serviços.</p>",
+        "en": "<h2>How We Use Your Information</h2> <p>We may use the information we collect to respond to enquiries, provide travel services, prepare personalised itineraries, process bookings, communicate important updates, and improve our website and services.</p>",
+        "es": "<h2>Cómo Utilizamos su Información</h2>\n<p>Podemos utilizar la información recopilada para responder a consultas, proporcionar servicios de viaje, preparar itinerarios personalizados, gestionar reservas, comunicar actualizaciones importantes y mejorar nuestro sitio web y nuestros servicios.</p>"
+      },
+      "INFORMATION WE COLLECT": {
+        "es": "<h2>Information We Collect</h2>\n<p>We may collect information that you voluntarily provide when you contact us, submit an enquiry, request a travel package, make a booking, or communicate with our team.</p>\n<ul>\n<li>Name and contact details</li>\n<li>Email address and phone number</li>\n<li>Travel preferences and requirements</li>\n<li>Booking and enquiry details</li>\n<li>Any other information you choose to provide</li>\n</ul>",
+        "en": "<h2>Information We Collect</h2> <p>We may collect information that you voluntarily provide when you contact us, submit an enquiry, request a travel package, make a booking, or communicate with our team.</p> <ul> <li>Name and contact details</li> <li>Email address and phone number</li> <li>Travel preferences and requirements</li> <li>Booking and enquiry details</li> <li>Any other information you choose to provide</li> </ul>",
+        "pt": "<h2>Informações que Recolhemos</h2>\n<p>Podemos recolher informações que fornece voluntariamente quando entra em contacto connosco, envia uma consulta, solicita um pacote de viagem, faz uma reserva ou comunica com a nossa equipa.</p>\n<ul>\n<li>Nome e dados de contacto</li>\n<li>Endereço de e-mail e número de telefone</li>\n<li>Preferências e necessidades de viagem</li>\n<li>Detalhes de reservas e consultas</li>\n<li>Qualquer outra informação que decida fornecer</li>\n</ul>"
+      },
+      "body": {
+        "es": "<p>Su privacidad es importante para nosotros. Esta Política de Privacidad explica cómo recopilamos, utilizamos, almacenamos y protegemos su información personal cuando visita nuestro sitio web, se pone en contacto con nosotros, realiza una consulta o utiliza nuestros servicios de viaje.</p>\n\n<p>Nos comprometemos a gestionar su información de forma responsable y transparente. Solo recopilamos la información necesaria para prestar nuestros servicios, responder a sus solicitudes, mejorar su experiencia y comunicarnos con usted sobre servicios de viaje relevantes.</p>\n\n<p>Al utilizar nuestro sitio web o enviar su información mediante nuestros formularios de contacto o consulta, reconoce y acepta las prácticas descritas en esta Política de Privacidad.</p>\n\n<p>Le recomendamos leer esta política detenidamente para comprender cómo puede gestionarse su información y qué opciones puede tener con respecto a sus datos personales.</p>",
+        "en": "<p>Your privacy is important to us. This Privacy Policy explains how we collect, use, store, and protect your personal information when you visit our website, contact us, make an enquiry, or use our travel services.</p>\n\n<p>We are committed to handling your information responsibly and transparently. We only collect information that is necessary to provide our services, respond to your requests, improve your experience, and communicate with you about relevant travel services.</p>\n\n<p>By using our website or submitting your information through our enquiry or contact forms, you acknowledge and agree to the practices described in this Privacy Policy.</p>\n\n<p>We encourage you to read this policy carefully to understand how your information may be handled and what choices you may have regarding your personal data.</p>",
+        "pt": "<p>A sua privacidade é importante para nós. Esta Política de Privacidade explica como recolhemos, utilizamos, armazenamos e protegemos as suas informações pessoais quando visita o nosso website, entra em contacto connosco, envia uma consulta ou utiliza os nossos serviços de viagem.</p>\n\n<p>Comprometemo-nos a tratar as suas informações de forma responsável e transparente. Recolhemos apenas as informações necessárias para prestar os nossos serviços, responder aos seus pedidos, melhorar a sua experiência e comunicar consigo sobre serviços de viagem relevantes.</p>\n\n<p>Ao utilizar o nosso website ou enviar as suas informações através dos nossos formulários de contacto ou consulta, reconhece e aceita as práticas descritas nesta Política de Privacidade.</p>\n\n<p>Recomendamos que leia esta política atentamente para compreender como as suas informações podem ser tratadas e quais as opções que poderá ter relativamente aos seus dados pessoais.</p>"
+      },
+      "POLICY UPDATES & CONTACT": {
+        "pt": "<h2>Atualizações da Política e Contacto</h2>\n<p>Podemos atualizar esta Política de Privacidade periodicamente para refletir alterações nos nossos serviços, práticas do website ou requisitos aplicáveis. Qualquer versão atualizada será publicada nesta página.</p>\n\n<p>Se tiver dúvidas, preocupações ou pedidos relacionados com esta Política de Privacidade, entre em contacto com a nossa equipa através dos dados disponíveis no nosso website.</p>",
+        "en": "<h2>Policy Updates & Contact</h2> <p>We may update this Privacy Policy from time to time to reflect changes in our services, website practices, or applicable requirements. Any updated version will be published on this page.</p>  <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please contact our team through the contact details provided on our website.</p>",
+        "es": "<h2>Actualizaciones de la Política y Contacto</h2> <p>Podemos actualizar esta Política de Privacidad periódicamente para reflejar cambios en nuestros servicios, prácticas del sitio web o requisitos aplicables. Cualquier versión actualizada se publicará en esta página.</p>  <p>Si tiene preguntas, inquietudes o solicitudes relacionadas con esta Política de Privacidad, póngase en contacto con nuestro equipo mediante los datos disponibles en nuestro sitio web.</p>"
+      },
+      "DATA SECURITY & YOUR RIGHTS": {
+        "es": "<h2>Seguridad de los Datos y Sus Derechos</h2>\n<p>Adoptamos medidas razonables para proteger su información personal frente al acceso no autorizado, uso indebido, alteración, divulgación o pérdida.</p>\n\n<p>Dependiendo de las leyes aplicables, usted puede tener derechos sobre su información personal, incluido el derecho a solicitar acceso, corrección, actualización o eliminación de determinada información.</p>\n\n<p>Si tiene alguna inquietud sobre cómo gestionamos su información, puede ponerse en contacto con nosotros mediante los datos disponibles en nuestro sitio web.</p>",
+        "pt": "<h2>Seguridad de los Datos y Sus Derechos</h2>\n<p>Adoptamos medidas razonables para proteger su información personal frente al acceso no autorizado, uso indebido, alteración, divulgación o pérdida.</p>\n\n<p>Dependiendo de las leyes aplicables, usted puede tener derechos sobre su información personal, incluido el derecho a solicitar acceso, corrección, actualización o eliminación de determinada información.</p>\n\n<p>Si tiene alguna inquietud sobre cómo gestionamos su información, puede ponerse en contacto con nosotros mediante los datos disponibles en nuestro sitio web.</p>",
+        "en": "<h2>Data Security & Your Rights</h2> <p>We take reasonable measures to protect your personal information from unauthorised access, misuse, alteration, disclosure, or loss.</p>  <p>Depending on applicable laws, you may have rights regarding your personal information, including the right to request access, correction, updating, or deletion of certain information.</p>  <p>If you have concerns about how your information is handled, you may contact us using the contact details provided on our website.</p>"
+      },
+      "COOKIES & THIRD-PARTY SERVICES": {
+        "en": "<h2>Cookies & Third-Party Services</h2> <p>Our website may use cookies and similar technologies to improve functionality, understand website usage, and enhance your browsing experience.</p>  <p>We may also work with trusted third-party service providers, travel partners, hotels, transportation providers, payment services, or other partners when necessary to provide requested services.</p>  <p>Third-party websites or services linked from our website may have their own privacy policies, and we are not responsible for their privacy practices.</p>",
+        "pt": "<h2>Cookies y Servicios de Terceros</h2>\n<p>Nuestro sitio web puede utilizar cookies y tecnologías similares para mejorar su funcionamiento, comprender el uso del sitio y mejorar su experiencia de navegación.</p>\n\n<p>También podemos trabajar con proveedores de servicios de confianza, socios de viaje, hoteles, proveedores de transporte, servicios de pago u otros socios cuando sea necesario para proporcionar los servicios solicitados.</p>\n\n<p>Los sitios web o servicios de terceros enlazados desde nuestro sitio pueden tener sus propias políticas de privacidad y no somos responsables de sus prácticas de privacidad.</p>",
+        "es": "<h2>Cookies y Servicios de Terceros</h2>\n<p>Nuestro sitio web puede utilizar cookies y tecnologías similares para mejorar su funcionamiento, comprender el uso del sitio y mejorar su experiencia de navegación.</p>\n\n<p>También podemos trabajar con proveedores de servicios de confianza, socios de viaje, hoteles, proveedores de transporte, servicios de pago u otros socios cuando sea necesario para proporcionar los servicios solicitados.</p>\n\n<p>Los sitios web o servicios de terceros enlazados desde nuestro sitio pueden tener sus propias políticas de privacidad y no somos responsables de sus prácticas de privacidad.</p>"
       }
     }
   },
   {
-    "id": "travel-info-visa-entry-requirements",
+    "id": "terms",
+    "heroImage": "",
+    "content": {
+      "WEBSITE USE & POLICY UPDATES": {
+        "es": "<h2>Uso del Sitio Web y Actualizaciones de la Política</h2>\n<p>El contenido disponible en nuestro sitio web se proporciona con fines generales de información y planificación de viajes. Aunque procuramos mantener la información precisa y actualizada, los detalles de viaje, precios, horarios, disponibilidad y regulaciones pueden cambiar.</p>\n\n<p>Usted acepta no utilizar el sitio web de forma indebida, intentar obtener acceso no autorizado, interferir con su funcionamiento ni utilizar su contenido para fines ilegales.</p>\n\n<p>Podemos actualizar estos Términos y Condiciones periódicamente para reflejar cambios en nuestros servicios, prácticas del sitio web o requisitos aplicables. Los términos actualizados se publicarán en esta página.</p>\n\n<p>Si tiene alguna pregunta sobre estos Términos y Condiciones, póngase en contacto con nuestro equipo mediante los datos disponibles en nuestro sitio web.</p>",
+        "en": "<h2>Website Use & Policy Updates</h2> <p>The content available on our website is provided for general travel information and planning purposes. While we aim to keep information accurate and updated, travel details, prices, schedules, availability, and regulations may change.</p>  <p>You agree not to misuse the website, attempt to gain unauthorised access, interfere with its operation, or use its content for unlawful purposes.</p>  <p>We may update these Terms & Conditions from time to time to reflect changes in our services, website practices, or applicable requirements. Updated terms will be published on this page.</p>  <p>If you have any questions regarding these Terms & Conditions, please contact our team through the contact details provided on our website.</p>",
+        "pt": "<h2>Uso del Sitio Web y Actualizaciones de la Política</h2>\n<p>El contenido disponible en nuestro sitio web se proporciona con fines generales de información y planificación de viajes. Aunque procuramos mantener la información precisa y actualizada, los detalles de viaje, precios, horarios, disponibilidad y regulaciones pueden cambiar.</p>\n\n<p>Usted acepta no utilizar el sitio web de forma indebida, intentar obtener acceso no autorizado, interferir con su funcionamiento ni utilizar su contenido para fines ilegales.</p>\n\n<p>Podemos actualizar estos Términos y Condiciones periódicamente para reflejar cambios en nuestros servicios, prácticas del sitio web o requisitos aplicables. Los términos actualizados se publicarán en esta página.</p>\n\n<p>Si tiene alguna pregunta sobre estos Términos y Condiciones, póngase en contacto con nuestro equipo mediante los datos disponibles en nuestro sitio web.</p>"
+      },
+      "PAYMENTS, CANCELLATIONS & REFUNDS": {
+        "en": "<h2>Payments, Cancellations & Refunds</h2> <p>Payment requirements, booking deadlines, cancellation conditions, and refund policies may vary depending on the travel package, accommodation, transportation provider, activity, or other service involved.</p>  <p>Any applicable cancellation charges or refund conditions will be communicated before or during the booking process where applicable.</p>  <p>Refunds, where applicable, may be subject to the policies of third-party suppliers and the payment method used for the booking.</p>",
+        "pt": "<h2>Pagamentos, Cancelamentos e Reembolsos</h2>\n<p>Os requisitos de pagamento, prazos de reserva, condições de cancelamento e políticas de reembolso podem variar consoante o pacote de viagem, alojamento, fornecedor de transporte, atividade ou outro serviço envolvido.</p>\n\n<p>Quaisquer taxas de cancelamento ou condições de reembolso aplicáveis serão comunicadas antes ou durante o processo de reserva, quando aplicável.</p>\n\n<p>Os reembolsos, quando aplicáveis, podem estar sujeitos às políticas dos fornecedores terceiros e ao método de pagamento utilizado para a reserva.</p>",
+        "es": "<h2>Pagos, Cancelaciones y Reembolsos</h2>\n<p>Los requisitos de pago, los plazos de reserva, las condiciones de cancelación y las políticas de reembolso pueden variar según el paquete de viaje, alojamiento, proveedor de transporte, actividad u otro servicio contratado.</p>\n\n<p>Cualquier cargo de cancelación o condición de reembolso aplicable se comunicará antes o durante el proceso de reserva, cuando corresponda.</p>\n\n<p>Los reembolsos, cuando correspondan, pueden estar sujetos a las políticas de los proveedores externos y al método de pago utilizado para la reserva.</p>"
+      },
+      "BOOKINGS & TRAVEL SERVICES": {
+        "es": "<h2>Reservas y Servicios de Viaje</h2>\n<p>Todas las reservas de viaje están sujetas a disponibilidad y confirmación. Los detalles sobre alojamiento, transporte, actividades, itinerarios, servicios incluidos y precios se comunicarán durante el proceso de reserva.</p>\n\n<p>Nos reservamos el derecho de realizar cambios razonables en un itinerario cuando sea necesario debido a disponibilidad, condiciones meteorológicas, circunstancias operativas, seguridad o situaciones fuera de nuestro control.</p>\n\n<p>Los viajeros son responsables de proporcionar información precisa para realizar y gestionar sus reservas.</p>",
+        "en": "<h2>Bookings & Travel Services</h2> <p>All travel bookings are subject to availability and confirmation. Details such as accommodation, transportation, activities, itineraries, inclusions, and pricing will be communicated during the booking process.</p>  <p>We reserve the right to make reasonable changes to an itinerary when required due to availability, weather, operational conditions, safety considerations, or circumstances beyond our control.</p>  <p>Travellers are responsible for providing accurate information required for making and managing their bookings.</p>",
+        "pt": "<h2>Reservas e Serviços de Viagem</h2>\n<p>Todas as reservas de viagem estão sujeitas a disponibilidade e confirmação. Os detalhes relativos a alojamento, transporte, atividades, itinerários, serviços incluídos e preços serão comunicados durante o processo de reserva.</p>\n\n<p>Reservamo-nos o direito de efetuar alterações razoáveis a um itinerário quando necessário devido à disponibilidade, condições meteorológicas, circunstâncias operacionais, segurança ou situações fora do nosso controlo.</p>\n\n<p>Os viajantes são responsáveis por fornecer informações corretas necessárias para efetuar e gerir as suas reservas.</p>"
+      },
+      "TRAVELER RESPONSIBILITIES": {
+        "pt": "<h2>Responsabilidades do Viajante</h2>\n<p>Os viajantes são responsáveis por garantir que possuem passaportes, vistos, autorizações, seguro de viagem e quaisquer outros documentos necessários para a sua viagem.</p>\n\n<p>Os viajantes devem fornecer informações pessoais e de viagem corretas e cumprir as instruções, regras de segurança e regulamentos locais aplicáveis à sua viagem.</p>\n\n<p>Os viajantes também são responsáveis pelos seus pertences pessoais e pelo cumprimento das regras de hotéis, fornecedores de transporte, atrações, guias e outros prestadores de serviços.</p>",
+        "en": "<h2>Traveller Responsibilities</h2> <p>Travellers are responsible for ensuring that they have valid passports, visas, permits, travel insurance, and any other documents required for their journey.</p>  <p>Travellers should provide accurate personal and travel information and follow the instructions, safety guidelines, and local regulations applicable to their trip.</p>  <p>Travellers are also responsible for their personal belongings and for complying with the rules of hotels, transport providers, attractions, guides, and other service providers.</p>",
+        "es": "<h2>Responsabilidades del Viajero</h2>\n<p>Los viajeros son responsables de asegurarse de disponer de pasaportes, visados, permisos, seguros de viaje y cualquier otro documento necesario para su viaje.</p>\n\n<p>Los viajeros deben proporcionar información personal y de viaje precisa y seguir las instrucciones, normas de seguridad y regulaciones locales aplicables a su viaje.</p>\n\n<p>Los viajeros también son responsables de sus pertenencias personales y de cumplir las normas de hoteles, proveedores de transporte, atracciones, guías y otros proveedores de servicios.</p>"
+      },
+      "THIRD-PARTY SERVICES & LIABILITY": {
+        "es": "<h2>Servicios de Terceros y Responsabilidad</h2>\n<p>Algunos servicios de viaje pueden ser proporcionados por proveedores externos independientes, incluidos hoteles, aerolíneas, empresas de transporte, guías, operadores de actividades y otros socios de servicios.</p>\n\n<p>Aunque procuramos trabajar con socios confiables, la disponibilidad, calidad, horarios y funcionamiento de los servicios de terceros pueden estar fuera de nuestro control directo.</p>\n\n<p>No somos responsables de retrasos, cancelaciones, cambios, pérdidas o interrupciones causados por circunstancias fuera de nuestro control razonable, incluidas condiciones meteorológicas, fenómenos naturales, restricciones gubernamentales, interrupciones del transporte u otras circunstancias imprevistas.</p>",
+        "pt": "<h2>Serviços de Terceiros e Responsabilidade</h2>\n<p>Alguns serviços de viagem podem ser fornecidos por fornecedores terceiros independentes, incluindo hotéis, companhias aéreas, empresas de transporte, guias, operadores de atividades e outros parceiros de serviços.</p>\n\n<p>Embora procuremos trabalhar com parceiros confiáveis, a disponibilidade, qualidade, horários e funcionamento dos serviços de terceiros podem estar fora do nosso controlo direto.</p>\n\n<p>Não somos responsáveis por atrasos, cancelamentos, alterações, perdas ou interrupções causados por circunstâncias fora do nosso controlo razoável, incluindo condições meteorológicas, fenómenos naturais, restrições governamentais, interrupções de transporte ou outras circunstâncias imprevistas.</p>",
+        "en": "<h2>Third-Party Services & Liability</h2> <p>Some travel services may be provided by independent third-party suppliers, including hotels, airlines, transportation providers, guides, activity operators, and other service partners.</p>  <p>While we aim to work with reliable partners, the availability, quality, schedules, and operation of third-party services may be outside our direct control.</p>  <p>We are not responsible for delays, cancellations, changes, losses, or disruptions caused by circumstances beyond our reasonable control, including weather conditions, natural events, government restrictions, transportation disruptions, or other unforeseen circumstances.</p>"
+      },
+      "body": {
+        "es": "<p>Estos Términos y Condiciones regulan el uso de nuestro sitio web y los servicios de viaje proporcionados a través de nuestra plataforma. Al acceder a nuestro sitio web, enviar una consulta o reservar un servicio de viaje, usted acepta cumplir con estos términos.</p>\n\n<p>Nuestros servicios están diseñados para ayudar a los viajeros a descubrir y planificar viajes por India y otros destinos ofrecidos a través de nuestros programas de viaje. Los servicios pueden incluir proveedores de alojamiento, empresas de transporte, guías, proveedores de actividades y otros socios externos.</p>\n\n<p>Le recomendamos leer detenidamente estos Términos y Condiciones antes de realizar una reserva o utilizar nuestros servicios. Al continuar utilizando nuestro sitio web o nuestros servicios, usted reconoce que ha comprendido y aceptado estos términos.</p>",
+        "pt": "<p>Estes Termos e Condições regulam a utilização do nosso website e dos serviços de viagem fornecidos através da nossa plataforma. Ao aceder ao nosso website, enviar uma consulta ou reservar um serviço de viagem, aceita cumprir estes termos.</p>\n\n<p>Os nossos serviços foram concebidos para ajudar os viajantes a descobrir e planear viagens pela Índia e outros destinos oferecidos através dos nossos programas de viagem. Os serviços podem envolver fornecedores de alojamento, empresas de transporte, guias, fornecedores de atividades e outros parceiros terceiros.</p>\n\n<p>Recomendamos que leia atentamente estes Termos e Condições antes de efetuar uma reserva ou utilizar os nossos serviços. Ao continuar a utilizar o nosso website ou os nossos serviços, reconhece que compreendeu e aceitou estes termos.</p>",
+        "en": "<p>These Terms & Conditions govern your use of our website and the travel services provided through our platform. By accessing our website, submitting an enquiry, or booking a travel service, you agree to comply with these terms.</p>\n\n<p>Our services are designed to help travellers discover and plan trips across India and other destinations offered through our travel programmes. Travel arrangements may involve accommodation providers, transportation companies, guides, activity providers, and other third-party partners.</p>\n\n<p>Please read these Terms & Conditions carefully before making a booking or using our services. By continuing to use our website or services, you acknowledge that you have understood and accepted these terms.</p>"
+      }
+    },
     "isCustom": false,
     "title": {
-      "en": "Travel Info: Visa & Entry Requirements",
-      "es": "Guía de Viaje: Visa y Entrada",
-      "pt": "Guia de Viagem: Visto e Entrada"
-    },
-    "heroImage": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1200&auto=format",
-    "content": {
-      "heroTitle": {
-        "en": "Visa & Entry Requirements",
-        "es": "Visa y Requisitos de Entrada",
-        "pt": "Visto e Requisitos de Entrada"
-      },
-      "heroSubtitle": {
-        "en": "Everything you need to enter India seamlessly",
-        "es": "Todo lo necesario para entrar a India",
-        "pt": "Tudo que precisa para entrar na Índia"
-      },
-      "sections": [
-        {
-          "heading": {
-            "en": "e-Visa Overview",
-            "es": "Resumen de e-Visa",
-            "pt": "Visão Geral do e-Visto"
-          },
-          "content": {
-            "en": "India offers an electronic visa (e-Visa) system for citizens of 150+ countries. The e-Tourist Visa allows stays of up to 90 days for tourism, sightseeing, and casual visits. Applications are processed online within 72 hours, and the visa is valid for 1 year from the date of issue with double entry permitted.",
-            "es": "India ofrece un sistema de visa electrónica para ciudadanos de más de 150 países. La e-Visa turística permite estancias de hasta 90 días.",
-            "pt": "A Índia oferece um sistema de visto eletrônico para cidadãos de mais de 150 países."
-          }
-        },
-        {
-          "heading": {
-            "en": "Required Documents",
-            "es": "Documentos Necesarios",
-            "pt": "Documentos Necessários"
-          },
-          "bullets": {
-            "en": [
-              "Valid passport with 6+ months validity",
-              "Recent passport-size photo (white background)",
-              "Return flight ticket confirmation",
-              "Hotel booking or tour itinerary",
-              "Sufficient funds proof (bank statement)"
-            ],
-            "es": [
-              "Pasaporte válido con 6+ meses de validez",
-              "Foto reciente tamaño pasaporte",
-              "Confirmación de vuelo de regreso",
-              "Reserva de hotel o itinerario",
-              "Prueba de fondos suficientes"
-            ],
-            "pt": [
-              "Passaporte válido com 6+ meses de validade",
-              "Foto recente tamanho passaporte",
-              "Confirmação de voo de regresso",
-              "Reserva de hotel ou roteiro",
-              "Prova de fundos suficientes"
-            ]
-          }
-        },
-        {
-          "heading": {
-            "en": "Processing Time & Fees",
-            "es": "Tiempo de Procesamiento",
-            "pt": "Tempo de Processamento"
-          },
-          "content": {
-            "en": "Standard processing takes 3-5 business days. Urgent processing is available within 24-48 hours. Visa fees range from $25-80 depending on nationality and duration. We recommend applying at least 2 weeks before your travel date. MH India Trips provides complimentary visa assistance for all booked guests.",
-            "es": "El procesamiento estándar toma 3-5 días hábiles. Las tarifas varían de $25-80.",
-            "pt": "O processamento padrão leva 3-5 dias úteis. As taxas variam de $25-80."
-          }
-        },
-        {
-          "heading": {
-            "en": "Airport Arrival Tips",
-            "es": "Consejos de Llegada",
-            "pt": "Dicas de Chegada"
-          },
-          "content": {
-            "en": "Upon arrival at Delhi, Mumbai, or any major airport, proceed to the e-Visa immigration counter. Keep a printed copy of your e-Visa approval. Immigration typically takes 15-30 minutes. Our private chauffeurs will be waiting at the arrivals hall with a personalized name board. All MH India Trips guests receive VIP airport fast-track assistance.",
-            "es": "Al llegar a Delhi, Mumbai o cualquier aeropuerto principal, diríjase al mostrador de e-Visa.",
-            "pt": "Ao chegar em Delhi, Mumbai ou qualquer aeropuerto principal, dirija-se ao balcão de e-Visto."
-          }
-        }
-      ]
+      "es": "Términos y Condiciones",
+      "en": "Terms & Conditions",
+      "pt": "Termos e Condições"
     }
   },
   {
+    "title": {
+      "pt": "Guia de Viagem: Melhor época e clima",
+      "en": "Travel Info: Best Time & Climate",
+      "es": "Guía de Viaje: Mejor época y clima"
+    },
     "id": "travel-info-best-time-climate",
     "isCustom": false,
-    "title": {
-      "en": "Travel Info: Best Time & Climate",
-      "es": "Guía de Viaje: Mejor época y clima",
-      "pt": "Guia de Viagem: Melhor época e clima"
-    },
-    "heroImage": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1200&auto=format",
+    "heroImage": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787390765/mhindiatrips/zzws6x2jl4uzlujwqrqh.jpg",
     "content": {
-      "heroTitle": {
-        "en": "Best Time to Visit & Climate",
-        "es": "Mejor Época para Visitar",
-        "pt": "Melhor Época para Visitar"
-      },
-      "heroSubtitle": {
-        "en": "Season-by-season guide to India's diverse climates",
-        "es": "Guía estación por estación del clima de India",
-        "pt": "Guia estação por estação do clima da Índia"
-      },
       "sections": [
         {
-          "heading": {
-            "en": "Peak Season (October - March)",
-            "es": "Temporada Alta (Octubre - Marzo)",
-            "pt": "Alta Temporada (Outubro - Março)"
-          },
           "content": {
             "en": "The ideal time for most of India. Pleasant temperatures (15-30°C), clear skies, and minimal rainfall. Perfect for Rajasthan, Kerala, Goa, Delhi, Agra, and most heritage destinations. December-January can be cool in the north (5-15°C). This is wedding season, so book accommodations and flights well in advance.",
-            "es": "El momento ideal para la mayor parte de India. Temperaturas agradables, cielos despejados.",
-            "pt": "O momento ideal para a maior parte da Índia. Temperaturas agradáveis, céus limpos."
+            "pt": "O momento ideal para a maior parte da Índia. Temperaturas agradáveis, céus limpos.",
+            "es": "El momento ideal para la mayor parte de India. Temperaturas agradables, cielos despejados."
+          },
+          "heading": {
+            "en": "Peak Season (October - March)",
+            "pt": "Alta Temporada (Outubro - Março)",
+            "es": "Temporada Alta (Octubre - Marzo)"
           }
         },
         {
-          "heading": {
-            "en": "Shoulder Season (April - June)",
-            "es": "Temporada Media (Abril - Junio)",
-            "pt": "Meia Temporada (Abril - Junho)"
-          },
           "content": {
-            "en": "Hot in plains (35-45°C) but excellent for Himalayan hill stations like Shimla, Manali, Darjeeling, and Ladakh. Less crowded, better hotel rates. Ideal for mountain retreats and tea plantation tours. Southern India remains manageable with beach destinations.",
             "es": "Caluroso en las llanuras pero excelente para estaciones de montaña del Himalaya.",
+            "en": "Hot in plains (35-45°C) but excellent for Himalayan hill stations like Shimla, Manali, Darjeeling, and Ladakh. Less crowded, better hotel rates. Ideal for mountain retreats and tea plantation tours. Southern India remains manageable with beach destinations.",
             "pt": "Quente nas planícies mas excelente para estações de montanha do Himalaia."
+          },
+          "heading": {
+            "es": "Temporada Media (Abril - Junio)",
+            "pt": "Meia Temporada (Abril - Junho)",
+            "en": "Shoulder Season (April - June)"
           }
         },
         {
           "heading": {
+            "pt": "Temporada de Monção (Julho - Setembro)",
             "en": "Monsoon Season (July - September)",
-            "es": "Temporada de Monzón (Julio - Septiembre)",
-            "pt": "Temporada de Monção (Julho - Setembro)"
+            "es": "Temporada de Monzón (Julio - Septiembre)"
           },
           "content": {
+            "pt": "Paisagens verdes exuberantes, temporada de Ayurveda em Kerala.",
             "en": "Lush green landscapes, Ayurvedic rejuvenation season in Kerala, and dramatic waterfalls. Rajasthan gets refreshing rains. Avoid coastal areas and hill roads during heavy rains. Best for: Kerala Ayurveda retreats, Rajasthan photography, Meghalaya living root bridges.",
-            "es": "Paisajes verdes exuberantes, temporada de Ayurveda en Kerala.",
-            "pt": "Paisagens verdes exuberantes, temporada de Ayurveda em Kerala."
+            "es": "Paisajes verdes exuberantes, temporada de Ayurveda en Kerala."
           }
         },
         {
-          "heading": {
-            "en": "Regional Climate Guide",
-            "es": "Guía Climática Regional",
-            "pt": "Guía Climática Regional"
-          },
           "bullets": {
-            "en": [
-              "North India (Delhi, Agra, Rajasthan): Best Oct-Mar, hot Apr-Jun",
-              "South India (Kerala, Karnataka, Tamil Nadu): Year-round, peak Nov-Mar",
-              "Himalayas (Ladakh, Himachal, Uttarakhand): May-Oct for trekking",
-              "East India (Kolkata, Darjeeling, NE States): Oct-Mar ideal",
-              "Goa & Beaches: Nov-Feb peak, monsoon Jul-Sep for quiet beauty"
-            ],
             "es": [
               "Norte: Oct-Mar ideal",
               "Sur: Todo el año, pico Nov-Mar",
@@ -1363,223 +1323,61 @@
               "Himalaia: Mai-Out para trekking",
               "Leste: Out-Mar ideal",
               "Goa e Praias: Nov-Fev pico"
-            ]
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "travel-info-solo-female-travel",
-    "isCustom": false,
-    "title": {
-      "en": "Travel Info: Solo Female Safety",
-      "es": "Guía de Viaje: Mujer sola por India",
-      "pt": "Guia de Viagem: Mulher sozinha na Índia"
-    },
-    "heroImage": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=format",
-    "content": {
-      "heroTitle": {
-        "en": "Solo Female Travel Safety",
-        "es": "Viaje de Mujer Sola por India",
-        "pt": "Viagem de Mulher Sozinha na Índia"
-      },
-      "heroSubtitle": {
-        "en": "India welcomes solo women travelers with warmth and safety",
-        "es": "India da la bienvenida a mujeres viajeras solas",
-        "pt": "A Índia dá as boas-vindas a mulheres viajantes sozinhas"
-      },
-      "sections": [
-        {
-          "heading": {
-            "en": "Safety With MH India Trips",
-            "es": "Seguridad con MH India Trips",
-            "pt": "Segurança con MH India Trips"
-          },
-          "content": {
-            "en": "All our solo female travelers receive a dedicated female guide option, verified male drivers with background checks, 24/7 emergency concierge hotline, GPS-tracked vehicles, and vetted luxury hotel accommodations. We've safely hosted 500+ solo female travelers from 40+ countries with zero safety incidents.",
-            "es": "Todas nuestras viajeras solas reciben guía femenina dedicada, conductores verificados, línea de emergencia 24/7.",
-            "pt": "Todas as nossas viajantes sozinhas recebem guia feminina dedicada, motoristas verificados, linha de emergência 24/7."
-          }
-        },
-        {
-          "heading": {
-            "en": "Dress Code & Cultural Tips",
-            "es": "Código de Vestimenta",
-            "pt": "Código de Vestimenta"
-          },
-          "content": {
-            "en": "India is generally conservative. We recommend covering shoulders and knees at temples and rural areas. In cities like Delhi and Mumbai, western clothing is perfectly fine. Carry a light scarf for temple visits. Our guides will always advise on appropriate attire for each location.",
-            "es": "India es generalmente conservadora. Recomendamos cubrir hombros y rodillas en templos.",
-            "pt": "A Índia é geralmente conservadora. Recomendamos cobrir ombros e joelhos em templos."
-          }
-        },
-        {
-          "heading": {
-            "en": "Recommended Destinations for Solo Women",
-            "es": "Destinos Recomendados",
-            "pt": "Destinos Recomendados"
-          },
-          "bullets": {
+            ],
             "en": [
-              "Kerala - Peaceful backwaters and wellness retreats",
-              "Rajasthan - Palace stays with dedicated female staff",
-              "Goa - Safe beach culture with international community",
-              "Himachal Pradesh - Mountain retreats and yoga centers",
-              "Udaipur - Romantic lake city with boutique hotels"
-            ],
-            "es": [
-              "Kerala - Retiros de bienestar",
-              "Rajastán - Palacios con personal femenino",
-              "Goa - Cultura playera segura",
-              "Himachal Pradesh - Retiros de montaña",
-              "Udaipur - Ciudad romántica del lago"
-            ],
-            "pt": [
-              "Kerala - Retiros de bem-estar",
-              "Rajastão - Palácios com staff feminino",
-              "Goa - Cultura praiana segura",
-              "Himachal Pradesh - Retiros de montanha",
-              "Udaipur - Cidade romântica do lago"
+              "North India (Delhi, Agra, Rajasthan): Best Oct-Mar, hot Apr-Jun",
+              "South India (Kerala, Karnataka, Tamil Nadu): Year-round, peak Nov-Mar",
+              "Himalayas (Ladakh, Himachal, Uttarakhand): May-Oct for trekking",
+              "East India (Kolkata, Darjeeling, NE States): Oct-Mar ideal",
+              "Goa & Beaches: Nov-Feb peak, monsoon Jul-Sep for quiet beauty"
             ]
-          }
-        },
-        {
-          "heading": {
-            "en": "Emergency Contacts & Support",
-            "es": "Contactos de Emergencia",
-            "pt": "Contactos de Emergência"
           },
-          "content": {
-            "en": "Emergency police: 100 | Women helpline: 1091 | Tourist police: 1363. All MH India Trips guests receive our 24/7 WhatsApp concierge number. Our local team is always within 30-minute reach in all operating cities.",
-            "es": "Policía de emergencia: 100 | Línea de mujeres: 1091 | Policía turística: 1363.",
-            "pt": "Polícia de emergência: 100 | Linha feminina: 1091 | Polícia turística: 1363."
+          "heading": {
+            "en": "Regional Climate Guide",
+            "pt": "Guía Climática Regional",
+            "es": "Guía Climática Regional"
           }
         }
-      ]
-    }
-  },
-  {
-    "id": "travel-info-vaccinations-health",
-    "isCustom": false,
-    "title": {
-      "en": "Travel Info: Vaccines & Health",
-      "es": "Guía de Viaje: Vacunas y salud",
-      "pt": "Guia de Viagem: Vacinação e saúde"
-    },
-    "heroImage": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200&auto=format",
-    "content": {
-      "heroTitle": {
-        "en": "Vaccinations & Health Advice",
-        "es": "Vacunas y Salud",
-        "pt": "Vacinação e Saúde"
-      },
+      ],
       "heroSubtitle": {
-        "en": "Stay healthy throughout your India journey",
-        "es": "Mantente saludable durante tu viaje a India",
-        "pt": "Mantenha-se saudável durante sua viagem à Índia"
+        "es": "Guía estación por estación del clima de India",
+        "en": "Season-by-season guide to India's diverse climates",
+        "pt": "Guia estação por estação do clima da Índia"
       },
-      "sections": [
-        {
-          "heading": {
-            "en": "Recommended Vaccinations",
-            "es": "Vacunas Recomendadas",
-            "pt": "Vacinas Recomendadas"
-          },
-          "bullets": {
-            "en": [
-              "Hepatitis A & B (strongly recommended)",
-              "Typhoid fever vaccine",
-              "Tetanus-Diphtheria booster if needed",
-              "Japanese Encephalitis (for rural/extended stays)",
-              "Rabies (if planning wildlife activities)",
-              "COVID-19 (latest booster recommended)"
-            ],
-            "es": [
-              "Hepatitis A y B",
-              "Vacuna contra fiebre tifoidea",
-              "Refuerzo tétanos-difteria",
-              "Encefalitis japonesa (estancias rurales)",
-              "Rabia (actividades con vida silvestre)",
-              "COVID-19 (refuerzo recomendado)"
-            ],
-            "pt": [
-              "Hepatite A e B",
-              "Vacina contra febre tifóide",
-              "Reforço tétano-difteria",
-              "Encefalite japonesa (estadias rurais)",
-              "Raiva (atividades com vida selvagem)",
-              "COVID-19 (reforço recomendado)"
-            ]
-          }
-        },
-        {
-          "heading": {
-            "en": "Medicine Kit Essentials",
-            "es": "Kit Médico Esencial",
-            "pt": "Kit Médico Essencial"
-          },
-          "content": {
-            "en": "Carry: anti-diarrheal (Imodium), rehydration salts, antihistamines, sunscreen SPF50+, insect repellent (DEET-based), hand sanitizer, water purification tablets, and any personal prescriptions. Pharmacies are widely available in India and most medicines are affordable over-the-counter.",
-            "es": "Lleve: antidiarreico, sales de rehidratación, antihistamínicos, protector solar SPF50+, repelente de insectos.",
-            "pt": "Leve: antidiarreico, sais de reidratação, anti-histamínicos, protetor solar SPF50+, repelente de insetos."
-          }
-        },
-        {
-          "heading": {
-            "en": "Food & Water Safety",
-            "es": "Seguridad Alimentaria",
-            "pt": "Segurança Alimentar"
-          },
-          "content": {
-            "en": "Drink only bottled or filtered water (our hotels provide complimentary purified water). Street food is an experience but stick to freshly cooked hot items. All MH India Trips restaurant recommendations are vetted for hygiene standards. We provide filtered water bottles in all private vehicles.",
-            "es": "Beba solo agua embotellada o filtrada. La comida callejera debe estar recién cocinada.",
-            "pt": "Beba apenas água engarrafada ou filtrada. A comida de rua deve estar recém cozinhada."
-          }
-        },
-        {
-          "heading": {
-            "en": "Travel Insurance",
-            "es": "Seguro de Viaje",
-            "pt": "Seguro de Viagem"
-          },
-          "content": {
-            "en": "We strongly recommend comprehensive travel insurance covering medical emergencies, trip cancellation, and baggage loss. India has excellent private hospitals in all major cities. MH India Trips maintains partnerships with top hospitals for priority access if needed.",
-            "es": "Recomendamos seguro de viaje completo que cubra emergencias médicas.",
-            "pt": "Recomendamos seguro de viagem completo que cubra emergências médicas."
-          }
-        }
-      ]
+      "heroTitle": {
+        "pt": "Melhor Época para Visitar",
+        "en": "Best Time to Visit & Climate",
+        "es": "Mejor Época para Visitar"
+      }
     }
   },
   {
-    "id": "travel-info-packing-currency",
     "isCustom": false,
     "title": {
+      "pt": "Guia de Viagem: Mala e moeda",
       "en": "Travel Info: Packing & Currency Guide",
-      "es": "Guía de Viaje: Equipaje y moneda",
-      "pt": "Guia de Viagem: Mala e moeda"
+      "es": "Guía de Viaje: Equipaje y moneda"
     },
-    "heroImage": "https://images.unsplash.com/photo-1473186578172-c141e6798cf4?q=80&w=1200&auto=format",
     "content": {
       "heroTitle": {
-        "en": "Packing List & Currency Tips",
         "es": "Packing List & Currency Tips",
+        "en": "Packing List & Currency Tips",
         "pt": "Packing List & Currency Tips"
       },
-      "heroSubtitle": {
-        "en": "Pack smart for every Indian season and region",
-        "es": "Empaque inteligente para cada temporada",
-        "pt": "Faça as malas de forma inteligente para cada temporada"
-      },
       "sections": [
         {
-          "heading": {
-            "en": "Essential Packing List",
-            "es": "Lista Esencial",
-            "pt": "Lista Essencial"
-          },
           "bullets": {
+            "pt": [
+              "Roupa leve de algodão",
+              "Sapatos confortáveis e sandálias",
+              "Lenço/xale para templos",
+              "Óculos de sol, chapéu e protetor solar",
+              "Adaptador de corrente",
+              "Garrafa de água reutilizável",
+              "Mochila pequena para excursões",
+              "Jaqueta impermeável leve",
+              "Câmera com cartões extra"
+            ],
             "en": [
               "Light cotton clothing (layerable for temperature changes)",
               "Comfortable walking shoes and sandals",
@@ -1601,57 +1399,331 @@
               "Mochila pequeña para excursiones",
               "Chaqueta impermeable ligera",
               "Cámara con tarjetas extra"
+            ]
+          },
+          "heading": {
+            "es": "Lista Esencial",
+            "en": "Essential Packing List",
+            "pt": "Lista Essencial"
+          }
+        },
+        {
+          "heading": {
+            "pt": "Adições por Temporada",
+            "en": "Season-Specific Additions",
+            "es": "Adiciones por Temporada"
+          },
+          "content": {
+            "en": "Winter (Nov-Feb): Warm layers, thermal wear for North India mornings. Summer (Mar-Jun): Extra light fabrics, cooling towel. Monsoon (Jul-Sep): Waterproof bag covers, quick-dry clothing, umbrella. Hill stations: Warm fleece/jacket regardless of season.",
+            "pt": "Inverno: Camadas quentes para o Norte. Verão: Tecidos extra leves. Monção: Roupa impermeável.",
+            "es": "Invierno: Capas cálidas para el Norte. Verano: Telas extra ligeras. Monzón: Ropa impermeable."
+          }
+        },
+        {
+          "content": {
+            "pt": "Moeda: Rúpia Indiana (INR). 1 USD ≈ 83 INR. Caixas eletrônicos em toda parte. Visa/Mastercard aceitos.",
+            "en": "Currency: Indian Rupee (INR/₹). 1 USD ≈ 83 INR (approx). Exchange at airport or authorized dealers. ATMs available everywhere. Visa/Mastercard widely accepted in cities and hotels. Carry small denominations (₹100-500) for tips and local markets. UPI payments (Google Pay) are universal in India. MH India Trips handles all major payments digitally.",
+            "es": "Moneda: Rupia India (INR). 1 USD ≈ 83 INR. Cajeros en todas partes. Visa/Mastercard aceptados."
+          },
+          "heading": {
+            "pt": "Rúpia Indiana e Câmbio",
+            "en": "Indian Rupee & Currency Exchange",
+            "es": "Rupia India y Cambio de Moneda"
+          }
+        },
+        {
+          "content": {
+            "en": "Tipping is appreciated but not mandatory. Suggested: Hotel porter ₹100-200, restaurant 10% of bill, private driver ₹500-1000/day, guide ₹1000-2000/day, spa therapist 10-15%. MH India Trips provides tipping guidelines specific to your itinerary.",
+            "pt": "As gorjetas são apreciadas mas não obrigatórias. Sugerido: Porteiro ₹100-200, restaurante 10%.",
+            "es": "Las propinas se aprecian pero no son obligatorias. Sugerido: Portero ₹100-200, restaurante 10%."
+          },
+          "heading": {
+            "es": "Guía de Propinas",
+            "pt": "Guia de Gorjetas",
+            "en": "Tipping Guidelines"
+          }
+        }
+      ],
+      "heroSubtitle": {
+        "es": "Empaque inteligente para cada temporada",
+        "en": "Pack smart for every Indian season and region",
+        "pt": "Faça as malas de forma inteligente para cada temporada"
+      }
+    },
+    "id": "travel-info-packing-currency",
+    "heroImage": "https://images.unsplash.com/photo-1473186578172-c141e6798cf4?q=80&w=1200&auto=format"
+  },
+  {
+    "title": {
+      "es": "Guía de Viaje: Mujer sola por India",
+      "pt": "Guia de Viagem: Mulher sozinha na Índia",
+      "en": "Travel Info: Solo Female Safety"
+    },
+    "heroImage": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787390643/mhindiatrips/qnedzmhwecdt935bfuww.jpg",
+    "id": "travel-info-solo-female-travel",
+    "isCustom": false,
+    "content": {
+      "heroSubtitle": {
+        "en": "India welcomes solo women travelers with warmth and safety",
+        "pt": "A Índia dá as boas-vindas a mulheres viajantes sozinhas",
+        "es": "India da la bienvenida a mujeres viajeras solas"
+      },
+      "sections": [
+        {
+          "heading": {
+            "pt": "Segurança con MH India Trips",
+            "en": "Safety With MH India Trips",
+            "es": "Seguridad con MH India Trips"
+          },
+          "content": {
+            "es": "Todas nuestras viajeras solas reciben guía femenina dedicada, conductores verificados, línea de emergencia 24/7.",
+            "en": "All our solo female travelers receive a dedicated female guide option, verified male drivers with background checks, 24/7 emergency concierge hotline, GPS-tracked vehicles, and vetted luxury hotel accommodations. We've safely hosted 500+ solo female travelers from 40+ countries with zero safety incidents.",
+            "pt": "Todas as nossas viajantes sozinhas recebem guia feminina dedicada, motoristas verificados, linha de emergência 24/7."
+          }
+        },
+        {
+          "content": {
+            "pt": "A Índia é geralmente conservadora. Recomendamos cobrir ombros e joelhos em templos.",
+            "en": "India is generally conservative. We recommend covering shoulders and knees at temples and rural areas. In cities like Delhi and Mumbai, western clothing is perfectly fine. Carry a light scarf for temple visits. Our guides will always advise on appropriate attire for each location.",
+            "es": "India es generalmente conservadora. Recomendamos cubrir hombros y rodillas en templos."
+          },
+          "heading": {
+            "es": "Código de Vestimenta",
+            "pt": "Código de Vestimenta",
+            "en": "Dress Code & Cultural Tips"
+          }
+        },
+        {
+          "heading": {
+            "en": "Recommended Destinations for Solo Women",
+            "pt": "Destinos Recomendados",
+            "es": "Destinos Recomendados"
+          },
+          "bullets": {
+            "en": [
+              "Kerala - Peaceful backwaters and wellness retreats",
+              "Rajasthan - Palace stays with dedicated female staff",
+              "Goa - Safe beach culture with international community",
+              "Himachal Pradesh - Mountain retreats and yoga centers",
+              "Udaipur - Romantic lake city with boutique hotels"
             ],
             "pt": [
-              "Roupa leve de algodão",
-              "Sapatos confortáveis e sandálias",
-              "Lenço/xale para templos",
-              "Óculos de sol, chapéu e protetor solar",
-              "Adaptador de corrente",
-              "Garrafa de água reutilizável",
-              "Mochila pequena para excursões",
-              "Jaqueta impermeável leve",
-              "Câmera com cartões extra"
+              "Kerala - Retiros de bem-estar",
+              "Rajastão - Palácios com staff feminino",
+              "Goa - Cultura praiana segura",
+              "Himachal Pradesh - Retiros de montanha",
+              "Udaipur - Cidade romântica do lago"
+            ],
+            "es": [
+              "Kerala - Retiros de bienestar",
+              "Rajastán - Palacios con personal femenino",
+              "Goa - Cultura playera segura",
+              "Himachal Pradesh - Retiros de montaña",
+              "Udaipur - Ciudad romántica del lago"
             ]
           }
         },
         {
           "heading": {
-            "en": "Season-Specific Additions",
-            "es": "Adiciones por Temporada",
-            "pt": "Adições por Temporada"
+            "en": "Emergency Contacts & Support",
+            "pt": "Contactos de Emergência",
+            "es": "Contactos de Emergencia"
           },
           "content": {
-            "en": "Winter (Nov-Feb): Warm layers, thermal wear for North India mornings. Summer (Mar-Jun): Extra light fabrics, cooling towel. Monsoon (Jul-Sep): Waterproof bag covers, quick-dry clothing, umbrella. Hill stations: Warm fleece/jacket regardless of season.",
-            "es": "Invierno: Capas cálidas para el Norte. Verano: Telas extra ligeras. Monzón: Ropa impermeable.",
-            "pt": "Inverno: Camadas quentes para o Norte. Verão: Tecidos extra leves. Monção: Roupa impermeável."
-          }
-        },
-        {
-          "heading": {
-            "en": "Indian Rupee & Currency Exchange",
-            "es": "Rupia India y Cambio de Moneda",
-            "pt": "Rúpia Indiana e Câmbio"
-          },
-          "content": {
-            "en": "Currency: Indian Rupee (INR/₹). 1 USD ≈ 83 INR (approx). Exchange at airport or authorized dealers. ATMs available everywhere. Visa/Mastercard widely accepted in cities and hotels. Carry small denominations (₹100-500) for tips and local markets. UPI payments (Google Pay) are universal in India. MH India Trips handles all major payments digitally.",
-            "es": "Moneda: Rupia India (INR). 1 USD ≈ 83 INR. Cajeros en todas partes. Visa/Mastercard aceptados.",
-            "pt": "Moeda: Rúpia Indiana (INR). 1 USD ≈ 83 INR. Caixas eletrônicos em toda parte. Visa/Mastercard aceitos."
-          }
-        },
-        {
-          "heading": {
-            "en": "Tipping Guidelines",
-            "es": "Guía de Propinas",
-            "pt": "Guia de Gorjetas"
-          },
-          "content": {
-            "en": "Tipping is appreciated but not mandatory. Suggested: Hotel porter ₹100-200, restaurant 10% of bill, private driver ₹500-1000/day, guide ₹1000-2000/day, spa therapist 10-15%. MH India Trips provides tipping guidelines specific to your itinerary.",
-            "es": "Las propinas se aprecian pero no son obligatorias. Sugerido: Portero ₹100-200, restaurante 10%.",
-            "pt": "As gorjetas são apreciadas mas não obrigatórias. Sugerido: Porteiro ₹100-200, restaurante 10%."
+            "en": "Emergency police: 100 | Women helpline: 1091 | Tourist police: 1363. All MH India Trips guests receive our 24/7 WhatsApp concierge number. Our local team is always within 30-minute reach in all operating cities.",
+            "pt": "Polícia de emergência: 100 | Linha feminina: 1091 | Polícia turística: 1363.",
+            "es": "Policía de emergencia: 100 | Línea de mujeres: 1091 | Policía turística: 1363."
           }
         }
-      ]
+      ],
+      "heroTitle": {
+        "es": "Viaje de Mujer Sola por India",
+        "pt": "Viagem de Mulher Sozinha na Índia",
+        "en": "Solo Female Travel Safety"
+      }
     }
+  },
+  {
+    "id": "travel-info-vaccinations-health",
+    "content": {
+      "sections": [
+        {
+          "heading": {
+            "en": "Recommended Vaccinations",
+            "pt": "Vacinas Recomendadas",
+            "es": "Vacunas Recomendadas"
+          },
+          "bullets": {
+            "en": [
+              "Hepatitis A & B (strongly recommended)",
+              "Typhoid fever vaccine",
+              "Tetanus-Diphtheria booster if needed",
+              "Japanese Encephalitis (for rural/extended stays)",
+              "Rabies (if planning wildlife activities)",
+              "COVID-19 (latest booster recommended)"
+            ],
+            "pt": [
+              "Hepatite A e B",
+              "Vacina contra febre tifóide",
+              "Reforço tétano-difteria",
+              "Encefalite japonesa (estadias rurais)",
+              "Raiva (atividades com vida selvagem)",
+              "COVID-19 (reforço recomendado)"
+            ],
+            "es": [
+              "Hepatitis A y B",
+              "Vacuna contra fiebre tifoidea",
+              "Refuerzo tétanos-difteria",
+              "Encefalitis japonesa (estancias rurales)",
+              "Rabia (actividades con vida silvestre)",
+              "COVID-19 (refuerzo recomendado)"
+            ]
+          }
+        },
+        {
+          "content": {
+            "en": "Carry: anti-diarrheal (Imodium), rehydration salts, antihistamines, sunscreen SPF50+, insect repellent (DEET-based), hand sanitizer, water purification tablets, and any personal prescriptions. Pharmacies are widely available in India and most medicines are affordable over-the-counter.",
+            "pt": "Leve: antidiarreico, sais de reidratação, anti-histamínicos, protetor solar SPF50+, repelente de insetos.",
+            "es": "Lleve: antidiarreico, sales de rehidratación, antihistamínicos, protector solar SPF50+, repelente de insectos."
+          },
+          "heading": {
+            "es": "Kit Médico Esencial",
+            "en": "Medicine Kit Essentials",
+            "pt": "Kit Médico Essencial"
+          }
+        },
+        {
+          "content": {
+            "es": "Beba solo agua embotellada o filtrada. La comida callejera debe estar recién cocinada.",
+            "en": "Drink only bottled or filtered water (our hotels provide complimentary purified water). Street food is an experience but stick to freshly cooked hot items. All MH India Trips restaurant recommendations are vetted for hygiene standards. We provide filtered water bottles in all private vehicles.",
+            "pt": "Beba apenas água engarrafada ou filtrada. A comida de rua deve estar recém cozinhada."
+          },
+          "heading": {
+            "es": "Seguridad Alimentaria",
+            "pt": "Segurança Alimentar",
+            "en": "Food & Water Safety"
+          }
+        },
+        {
+          "heading": {
+            "es": "Seguro de Viaje",
+            "en": "Travel Insurance",
+            "pt": "Seguro de Viagem"
+          },
+          "content": {
+            "pt": "Recomendamos seguro de viagem completo que cubra emergências médicas.",
+            "en": "We strongly recommend comprehensive travel insurance covering medical emergencies, trip cancellation, and baggage loss. India has excellent private hospitals in all major cities. MH India Trips maintains partnerships with top hospitals for priority access if needed.",
+            "es": "Recomendamos seguro de viaje completo que cubra emergencias médicas."
+          }
+        }
+      ],
+      "heroTitle": {
+        "es": "Vacunas y Salud",
+        "pt": "Vacinação e Saúde",
+        "en": "Vaccinations & Health Advice"
+      },
+      "heroSubtitle": {
+        "en": "Stay healthy throughout your India journey",
+        "pt": "Mantenha-se saudável durante sua viagem à Índia",
+        "es": "Mantente saludable durante tu viaje a India"
+      }
+    },
+    "heroImage": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200&auto=format",
+    "title": {
+      "es": "Guía de Viaje: Vacunas y salud",
+      "en": "Travel Info: Vaccines & Health",
+      "pt": "Guia de Viagem: Vacinação e saúde"
+    },
+    "isCustom": false
+  },
+  {
+    "title": {
+      "es": "Guía de Viaje: Visa y Entrada",
+      "pt": "Guia de Viagem: Visto e Entrada",
+      "en": "Travel Info: Visa & Entry Requirements"
+    },
+    "content": {
+      "heroSubtitle": {
+        "es": "Todo lo necesario para entrar a India",
+        "pt": "Tudo que precisa para entrar na Índia",
+        "en": "Everything you need to enter India seamlessly"
+      },
+      "sections": [
+        {
+          "heading": {
+            "pt": "Visão Geral do e-Visto",
+            "en": "e-Visa Overview",
+            "es": "Resumen de e-Visa"
+          },
+          "content": {
+            "en": "India offers an electronic visa (e-Visa) system for citizens of 150+ countries. The e-Tourist Visa allows stays of up to 90 days for tourism, sightseeing, and casual visits. Applications are processed online within 72 hours, and the visa is valid for 1 year from the date of issue with double entry permitted.",
+            "pt": "A Índia oferece um sistema de visto eletrônico para cidadãos de mais de 150 países.",
+            "es": "India ofrece un sistema de visa electrónica para ciudadanos de más de 150 países. La e-Visa turística permite estancias de hasta 90 días."
+          }
+        },
+        {
+          "bullets": {
+            "en": [
+              "Valid passport with 6+ months validity",
+              "Recent passport-size photo (white background)",
+              "Return flight ticket confirmation",
+              "Hotel booking or tour itinerary",
+              "Sufficient funds proof (bank statement)"
+            ],
+            "pt": [
+              "Passaporte válido com 6+ meses de validade",
+              "Foto recente tamanho passaporte",
+              "Confirmação de voo de regresso",
+              "Reserva de hotel ou roteiro",
+              "Prova de fundos suficientes"
+            ],
+            "es": [
+              "Pasaporte válido con 6+ meses de validez",
+              "Foto reciente tamaño pasaporte",
+              "Confirmación de vuelo de regreso",
+              "Reserva de hotel o itinerario",
+              "Prueba de fondos suficientes"
+            ]
+          },
+          "heading": {
+            "es": "Documentos Necesarios",
+            "pt": "Documentos Necessários",
+            "en": "Required Documents"
+          }
+        },
+        {
+          "content": {
+            "pt": "O processamento padrão leva 3-5 dias úteis. As taxas variam de $25-80.",
+            "en": "Standard processing takes 3-5 business days. Urgent processing is available within 24-48 hours. Visa fees range from $25-80 depending on nationality and duration. We recommend applying at least 2 weeks before your travel date. MH India Trips provides complimentary visa assistance for all booked guests.",
+            "es": "El procesamiento estándar toma 3-5 días hábiles. Las tarifas varían de $25-80."
+          },
+          "heading": {
+            "es": "Tiempo de Procesamiento",
+            "pt": "Tempo de Processamento",
+            "en": "Processing Time & Fees"
+          }
+        },
+        {
+          "heading": {
+            "es": "Consejos de Llegada",
+            "en": "Airport Arrival Tips",
+            "pt": "Dicas de Chegada"
+          },
+          "content": {
+            "en": "Upon arrival at Delhi, Mumbai, or any major airport, proceed to the e-Visa immigration counter. Keep a printed copy of your e-Visa approval. Immigration typically takes 15-30 minutes. Our private chauffeurs will be waiting at the arrivals hall with a personalized name board. All MH India Trips guests receive VIP airport fast-track assistance.",
+            "pt": "Ao chegar em Delhi, Mumbai ou qualquer aeropuerto principal, dirija-se ao balcão de e-Visto.",
+            "es": "Al llegar a Delhi, Mumbai o cualquier aeropuerto principal, diríjase al mostrador de e-Visa."
+          }
+        }
+      ],
+      "heroTitle": {
+        "es": "Visa y Requisitos de Entrada",
+        "pt": "Visto e Requisitos de Entrada",
+        "en": "Visa & Entry Requirements"
+      }
+    },
+    "isCustom": false,
+    "id": "travel-info-visa-entry-requirements",
+    "heroImage": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1200&auto=format"
   }
 ]
