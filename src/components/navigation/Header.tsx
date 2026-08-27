@@ -172,7 +172,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
   const textColor = scrolled ? "text-white/80 hover:text-gold" : "text-royal hover:text-gold";
 
   const linkClass = (path: string) => {
-    const base = "text-[8px] lg:text-[9px] xl:text-[10px] 2xl:text-[11px] font-bold uppercase tracking-[0.03em] xl:tracking-[0.08em] 2xl:tracking-[0.12em] whitespace-nowrap transition-all duration-300 relative py-2 shrink-0";
+    const base = "text-[9px] xl:text-[9.5px] 2xl:text-[11px] font-bold uppercase tracking-[0.03em] xl:tracking-[0.06em] 2xl:tracking-[0.1em] whitespace-nowrap transition-all duration-300 relative py-2 shrink-0";
     const activeColor = "text-gold";
     const inactiveColor = "text-royal hover:text-gold";
     return `${base} ${isActive(path) ? activeColor : inactiveColor}`;
@@ -243,7 +243,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center flex-nowrap gap-2 xl:gap-4 2xl:gap-5 shrink min-w-0">
+          <nav className="hidden xl:flex items-center flex-nowrap gap-2.5 xl:gap-3 2xl:gap-5 shrink-0">
             
             {/* Home Link */}
             <Link
@@ -417,13 +417,13 @@ export default function Header({ locale, contactDetails, states = [], packages =
           </nav>
 
           {/* Right Action Menu */}
-          <div className="hidden lg:flex items-center gap-1.5 xl:gap-2.5 2xl:gap-4 z-20">
+          <div className="hidden xl:flex items-center gap-1.5 xl:gap-2 2xl:gap-4 z-20">
             
             {/* Globe Language Toggle */}
             <div className="relative">
               <button 
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
-                className="flex items-center gap-1 text-[9px] xl:text-[10px] font-bold uppercase tracking-wider text-royal border border-gold/25 hover:border-gold hover:text-gold px-2.5 py-1.5 xl:px-4 xl:py-2 rounded-full cursor-pointer transition-all duration-300"
+                className="flex items-center gap-1 text-[9px] xl:text-[9.5px] 2xl:text-[10px] font-bold uppercase tracking-wider text-royal border border-gold/25 hover:border-gold hover:text-gold px-2.5 py-1.5 xl:px-3 xl:py-2 2xl:px-4 2xl:py-2 rounded-full cursor-pointer transition-all duration-300"
                 aria-label="Language Selector"
                 suppressHydrationWarning={true}
               >
@@ -455,7 +455,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
             {/* Inquire CTA Button */}
             <Link 
               href={`/${locale}/contact`}
-              className="bg-[#0A2A1E] hover:bg-[#C5A862] hover:text-[#0A2A1E] text-white text-[9px] xl:text-[10px] font-bold uppercase tracking-[0.05em] xl:tracking-[0.15em] px-3 py-2 xl:px-5 xl:py-3.5 rounded-full transition-all duration-300 hover:scale-105 inline-flex items-center gap-1.5 shadow-md border border-royal/10 whitespace-nowrap"
+              className="bg-[#0A2A1E] hover:bg-[#C5A862] hover:text-[#0A2A1E] text-white text-[9px] xl:text-[9.5px] 2xl:text-[10px] font-bold uppercase tracking-[0.05em] xl:tracking-[0.1em] px-3 py-2 xl:px-4 xl:py-2.5 2xl:px-5 2xl:py-3.5 rounded-full transition-all duration-300 hover:scale-105 inline-flex items-center gap-1.5 shadow-md border border-royal/10 whitespace-nowrap"
             >
               <span>{labels.cta}</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -463,7 +463,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
           </div>
 
           {/* Mobile Buttons */}
-          <div className="flex lg:hidden items-center gap-2 z-20">
+          <div className="flex xl:hidden items-center gap-2 z-20">
             
             {/* Lang Button */}
             <button
@@ -517,7 +517,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
 
       {/* Mobile Menu Panel */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-[#FCFAF6]/98 backdrop-blur-xl z-40 flex flex-col justify-start pt-24 px-6 pb-10 space-y-4 animate-fade-in lg:hidden text-royal overflow-y-auto overscroll-contain">
+        <div className="fixed inset-0 bg-[#FCFAF6]/98 backdrop-blur-xl z-40 flex flex-col justify-start pt-24 px-6 pb-10 space-y-4 animate-fade-in xl:hidden text-royal overflow-y-auto overscroll-contain">
           <nav className="flex flex-col space-y-1 pt-4 text-left">
             
             {/* Home Link */}
