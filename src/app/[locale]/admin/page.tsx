@@ -178,8 +178,8 @@ export default function AdminDashboard() {
   }, [user]);
 
   // Load CMS Data
-  const loadCMSData = async () => {
-    setLoading(true);
+  const loadCMSData = async (showLoader: boolean = true) => {
+    if (showLoader) setLoading(true);
     try {
       // Load each collection independently so one failure doesn't kill all
       const [inqs, blgs, pkgs, fds, sts, tsts, pgs, settingsRes, parentsRes] = await Promise.all([
@@ -197,7 +197,6 @@ export default function AdminDashboard() {
       setBlogs(blgs || []);
       setPackages(pkgs || []);
       setFoods(fds || []);
-      console.log("[ADMIN DEBUG] States received:", Array.isArray(sts) ? sts.length : "NOT ARRAY", "Goa cities:", sts?.find?.((s: any) => s.slug === "goa")?.cities?.length || 0);
       setStates(sts || []);
       setTestimonials(tsts || []);
       setPages(pgs || []);
@@ -209,7 +208,7 @@ export default function AdminDashboard() {
       console.error("Error loading CMS collections:", e);
       showStatus("Error refreshing live data collections.", "error");
     } finally {
-      setLoading(false);
+      if (showLoader) setLoading(false);
     }
   };
 
@@ -279,27 +278,23 @@ export default function AdminDashboard() {
   };
 
   const handleUpdateInquiry = async (id: string, updatedData: any) => {
-    setLoading(true);
     const res = await updateInquiryAction(id, updatedData);
     if (res.success) {
       showStatus("Inquiry updated successfully.", "success");
-      await loadCMSData();
+      loadCMSData(false);
     } else {
       showStatus(res.error || "Failed to update inquiry.", "error");
-      setLoading(false);
     }
   };
 
   const handleDeleteInquiry = async (id: string) => {
     if (window.confirm("Are you sure you want to delete this inquiry permanently?")) {
-      setLoading(true);
       const res = await deleteInquiryAction(id);
       if (res.success) {
         showStatus("Inquiry deleted successfully.", "success");
-        await loadCMSData();
+        loadCMSData(false);
       } else {
         showStatus(res.error || "Failed to delete.", "error");
-        setLoading(false);
       }
     }
   };
@@ -309,7 +304,6 @@ export default function AdminDashboard() {
     e.preventDefault();
     if (!editBlog.slug || !editBlog.title?.en) return showStatus("Slug and title are required.", "error");
 
-    setLoading(true);
     const isNew = !blogs.find(b => b.slug === editBlog.slug);
     const res = isNew 
       ? await createBlogAction(editBlog)
@@ -318,22 +312,19 @@ export default function AdminDashboard() {
     if (res.success) {
       showStatus("Blog article saved successfully!", "success");
       setEditBlog(null);
-      await loadCMSData();
+      loadCMSData(false);
     } else {
       showStatus(res.error || "Failed to save blog.", "error");
-      setLoading(false);
     }
   };
 
   const handleDeleteBlog = async (slug: string) => {
-    setLoading(true);
     const res = await deleteBlogAction(slug);
     if (res.success) {
       showStatus("Article deleted.", "success");
-      await loadCMSData();
+      loadCMSData(false);
     } else {
       showStatus(res.error || "Failed to delete article.", "error");
-      setLoading(false);
     }
   };
 
@@ -342,7 +333,6 @@ export default function AdminDashboard() {
     e.preventDefault();
     if (!editPackage.slug || !editPackage.title?.en) return showStatus("Slug and title are required.", "error");
 
-    setLoading(true);
     const isNew = !packages.find(p => p.slug === editPackage.slug);
     const res = isNew 
       ? await createTourPackageAction(editPackage)
@@ -351,22 +341,19 @@ export default function AdminDashboard() {
     if (res.success) {
       showStatus("Tour package layout saved successfully!", "success");
       setEditPackage(null);
-      await loadCMSData();
+      loadCMSData(false);
     } else {
       showStatus(res.error || "Failed to save package.", "error");
-      setLoading(false);
     }
   };
 
   const handleDeletePackage = async (slug: string) => {
-    setLoading(true);
     const res = await deleteTourPackageAction(slug);
     if (res.success) {
       showStatus("Package listing removed.", "success");
-      await loadCMSData();
+      loadCMSData(false);
     } else {
       showStatus(res.error || "Failed to delete package.", "error");
-      setLoading(false);
     }
   };
 
@@ -375,7 +362,6 @@ export default function AdminDashboard() {
     e.preventDefault();
     if (!editFood.slug || !editFood.title?.en) return showStatus("Slug and title are required.", "error");
 
-    setLoading(true);
     const isNew = !foods.find(f => f.slug === editFood.slug);
     const res = isNew 
       ? await createFoodAction(editFood)
@@ -384,22 +370,19 @@ export default function AdminDashboard() {
     if (res.success) {
       showStatus("Food guide configured successfully!", "success");
       setEditFood(null);
-      await loadCMSData();
+      loadCMSData(false);
     } else {
       showStatus(res.error || "Failed to save cuisine catalog.", "error");
-      setLoading(false);
     }
   };
 
   const onDeleteFood = async (slug: string) => {
-    setLoading(true);
     const res = await deleteFoodAction(slug);
     if (res.success) {
       showStatus("Cuisine card deleted successfully.", "success");
-      await loadCMSData();
+      loadCMSData(false);
     } else {
       showStatus(res.error || "Failed to delete food catalog.", "error");
-      setLoading(false);
     }
   };
 
@@ -408,7 +391,6 @@ export default function AdminDashboard() {
     e.preventDefault();
     if (!editState.slug || !editState.title?.en) return showStatus("Slug and title are required.", "error");
 
-    setLoading(true);
     const isNew = !states.find(s => s.slug === editState.slug);
     const res = isNew
       ? await createStateAction(editState)
@@ -417,37 +399,32 @@ export default function AdminDashboard() {
     if (res.success) {
       showStatus("Destination details saved!", "success");
       setEditState(null);
-      await loadCMSData();
+      loadCMSData(false);
     } else {
       showStatus(res.error || "Failed to save state.", "error");
-      setLoading(false);
     }
   };
 
   const onDeleteState = async (slug: string) => {
-    setLoading(true);
     const res = await deleteStateAction(slug);
     if (res.success) {
       showStatus("State deleted successfully.", "success");
-      await loadCMSData();
+      loadCMSData(false);
     } else {
       showStatus(res.error || "Failed to delete destination.", "error");
-      setLoading(false);
     }
   };
 
   const handleUpdateStateStatus = async (slug: string, status: "published" | "draft" | "unpublished") => {
-    setLoading(true);
     const res = await updateStateStatusAction(slug, status);
     if (res.success) {
       showStatus(`Destination ${status}.`, "success");
-      await loadCMSData();
+      loadCMSData(false);
       if (editState && editState.slug === slug) {
         setEditState({ ...editState, status });
       }
     } else {
       showStatus(res.error || "Failed to update status.", "error");
-      setLoading(false);
     }
   };
 
@@ -460,46 +437,38 @@ export default function AdminDashboard() {
     }
   };
 
-
-
   // TESTIMONIALS ACTIONS
   const handleSaveTestimonial = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newTestimonial.name || !newTestimonial.quote?.en) return showStatus("Name and English quote are required.", "error");
 
-    setLoading(true);
     const res = await createTestimonialAction(newTestimonial);
     if (res.success) {
       showStatus("Review added successfully!", "success");
       setNewTestimonial(null);
-      await loadCMSData();
+      loadCMSData(false);
     } else {
       showStatus(res.error || "Failed to save testimonial.", "error");
-      setLoading(false);
     }
   };
 
   const onUpdateTestimonial = async (id: string, data: any) => {
-    setLoading(true);
     const res = await updateTestimonialAction(id, data);
     if (res.success) {
       showStatus("Review updated successfully.", "success");
-      await loadCMSData();
+      loadCMSData(false);
     } else {
       showStatus(res.error || "Failed to save changes.", "error");
-      setLoading(false);
     }
   };
 
   const onDeleteTestimonial = async (id: string) => {
-    setLoading(true);
     const res = await deleteTestimonialAction(id);
     if (res.success) {
       showStatus("Review deleted successfully.", "success");
-      await loadCMSData();
+      loadCMSData(false);
     } else {
       showStatus(res.error || "Failed to delete review.", "error");
-      setLoading(false);
     }
   };
 
@@ -508,15 +477,13 @@ export default function AdminDashboard() {
     e.preventDefault();
     if (!editPage.title?.en) return showStatus("Title is required.", "error");
 
-    setLoading(true);
     const res = await updatePageAction(editPage.id, editPage);
     if (res.success) {
       showStatus("Layout edits saved successfully!", "success");
       setEditPage(null);
-      await loadCMSData();
+      loadCMSData(false);
     } else {
       showStatus(res.error || "Failed to update page.", "error");
-      setLoading(false);
     }
   };
 
@@ -525,7 +492,6 @@ export default function AdminDashboard() {
     if (!newCustomPage.id || !newCustomPage.title?.en) return showStatus("Slug and Title are required.", "error");
     const slug = newCustomPage.id.toLowerCase().replace(/[^a-z0-9-_]/g, "-");
     
-    setLoading(true);
     const pageData = {
       ...newCustomPage,
       id: slug,
@@ -539,23 +505,20 @@ export default function AdminDashboard() {
     if (res.success) {
       showStatus("Custom landing page created!", "success");
       setNewCustomPage(null);
-      await loadCMSData();
+      loadCMSData(false);
     } else {
       showStatus(res.error || "Failed to construct page.", "error");
-      setLoading(false);
     }
   };
 
   const handleDeletePage = async (id: string) => {
     if (window.confirm("Delete this custom static page?")) {
-      setLoading(true);
       const res = await deletePageAction(id);
       if (res.success) {
         showStatus("Page deleted.", "success");
-        await loadCMSData();
+        loadCMSData(false);
       } else {
         showStatus(res.error || "Failed to delete page.", "error");
-        setLoading(false);
       }
     }
   };

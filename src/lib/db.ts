@@ -654,6 +654,13 @@ if (missingSystemPages.length > 0) {
 // ----------------------------------------------------
 // FIRESTORE HELPER WRAPPERS (Server Admin SDK Preferred)
 // ----------------------------------------------------
+function withTimeout<T>(promise: Promise<T>, ms: number = 1500): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<T>((_, reject) => setTimeout(() => reject(new Error("FIRESTORE_TIMEOUT")), ms))
+  ]);
+}
+
 async function fetchCollectionDocs(colName: string): Promise<any[] | null> {
   const adminDb = getAdminFirestore();
   if (adminDb) {
@@ -666,10 +673,13 @@ async function fetchCollectionDocs(colName: string): Promise<any[] | null> {
   }
   if (useFirestore && firestore) {
     try {
-      const snapshot = await getDocs(collection(firestore, colName));
+      const snapshot = await withTimeout(getDocs(collection(firestore, colName)));
       return snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
     } catch (e: any) {
-      console.warn(`[db] Web SDK collection(${colName}).get() error:`, e.message || e);
+      console.warn(`[db] Web SDK collection(${colName}).get() error or timeout, falling back:`, e.message || e);
+      if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("TIMEOUT") || e.message.includes("disabled"))) {
+        useFirestore = false;
+      }
     }
   }
   return null;
@@ -687,10 +697,13 @@ async function writeDoc(colName: string, docId: string, data: any, merge: boolea
   }
   if (useFirestore && firestore) {
     try {
-      await setDoc(doc(firestore, colName, docId), data, { merge });
+      await withTimeout(setDoc(doc(firestore, colName, docId), data, { merge }));
       return true;
     } catch (e: any) {
-      console.warn(`[db] Web SDK doc(${colName}/${docId}).set() error:`, e.message || e);
+      console.warn(`[db] Web SDK doc(${colName}/${docId}).set() error or timeout, falling back:`, e.message || e);
+      if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("TIMEOUT") || e.message.includes("disabled"))) {
+        useFirestore = false;
+      }
     }
   }
   return false;
@@ -708,10 +721,13 @@ async function addDocToCollection(colName: string, data: any): Promise<string | 
   }
   if (useFirestore && firestore) {
     try {
-      const ref = await addDoc(collection(firestore, colName), data);
+      const ref = await withTimeout(addDoc(collection(firestore, colName), data));
       return ref.id;
     } catch (e: any) {
-      console.warn(`[db] Web SDK collection(${colName}).add() error:`, e.message || e);
+      console.warn(`[db] Web SDK collection(${colName}).add() error or timeout, falling back:`, e.message || e);
+      if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("TIMEOUT") || e.message.includes("disabled"))) {
+        useFirestore = false;
+      }
     }
   }
   return null;
@@ -729,10 +745,13 @@ async function deleteDocFromCollection(colName: string, docId: string): Promise<
   }
   if (useFirestore && firestore) {
     try {
-      await deleteDoc(doc(firestore, colName, docId));
+      await withTimeout(deleteDoc(doc(firestore, colName, docId)));
       return true;
     } catch (e: any) {
-      console.warn(`[db] Web SDK doc(${colName}/${docId}).delete() error:`, e.message || e);
+      console.warn(`[db] Web SDK doc(${colName}/${docId}).delete() error or timeout, falling back:`, e.message || e);
+      if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("TIMEOUT") || e.message.includes("disabled"))) {
+        useFirestore = false;
+      }
     }
   }
   return false;
@@ -741,7 +760,7 @@ async function deleteDocFromCollection(colName: string, docId: string): Promise<
 // Simple check to seed Firestore collection if it has fewer items than source
 async function ensureSeeded(collectionName: string, initialData: any[]) {
   const adminDb = getAdminFirestore();
-  if (!adminDb && !useFirestore) return;
+  if (!adminDb) return;
   try {
     const existing = await fetchCollectionDocs(collectionName);
     if (!existing) return;
@@ -752,12 +771,6 @@ async function ensureSeeded(collectionName: string, initialData: any[]) {
       if (docId && !existingIds.has(docId)) {
         console.log(`Document ${docId} is missing in ${collectionName}. Seeding it...`);
         await writeDoc(collectionName, docId, item);
-      } else if (docId === "contact_details" && collectionName === "settings") {
-        const existingDoc = existing.find(d => d.id === docId);
-        if (existingDoc && (existingDoc.phone !== item.phone || existingDoc.whatsapp !== item.whatsapp)) {
-          console.log(`Updating Firestore contact_details document with new phone number...`);
-          await writeDoc(collectionName, docId, item, true);
-        }
       }
     }
   } catch (err: any) {
@@ -769,7 +782,8 @@ async function ensureSeeded(collectionName: string, initialData: any[]) {
 let seedingPromise: Promise<any> | null = null;
 let isSeeded = false;
 function checkSeeding() {
-  if (!useFirestore || isSeeded) return;
+  const adminDb = getAdminFirestore();
+  if (!adminDb || isSeeded) return;
   if (!seedingPromise) {
     console.log("Starting Firestore database seeding check in background...");
     seedingPromise = Promise.all([
