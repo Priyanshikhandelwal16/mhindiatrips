@@ -855,45 +855,23 @@ export const db = {
 
   blogs: {
     findMany: async () => {
-      if (useFirestore) {
-        try {
-          checkSeeding();
-          if (useFirestore) {
-            const snapshot = await getDocs(collection(firestore, "blogs"));
-            return snapshot.docs
-              .map(d => d.data() as BlogData)
-              .filter((b: any) => b.isDeleted !== true);
-          }
-        } catch (e: any) {
-          console.warn("Firestore blogs.findMany failed, falling back to local:", e.message || e);
-          if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("disabled"))) {
-            useFirestore = false;
-          }
-        }
+      const firestoreData = await fetchCollectionDocs("blogs");
+      if (firestoreData) {
+        const firestoreMap = new Map(firestoreData.map((b: any) => [b.slug, b]));
+        const localData = mergedBlogs;
+        const merged = localData
+          .map((b: any) => firestoreMap.has(b.slug) ? firestoreMap.get(b.slug) : b)
+          .filter((b: any) => b.isDeleted !== true);
+        const localSlugs = new Set(localData.map((b: any) => b.slug));
+        const extraItems = firestoreData.filter((b: any) => !localSlugs.has(b.slug) && b.isDeleted !== true);
+        return [...merged, ...extraItems];
       }
-      // Firestore not available — fall back to local JSON cache
       blogsCache = loadLocalData("blogs", mergedBlogs);
       return blogsCache.filter((b: any) => b.isDeleted !== true);
     },
     findUnique: async (slug: string) => {
-      if (useFirestore) {
-        try {
-          checkSeeding();
-          if (useFirestore) {
-            const docRef = doc(firestore, "blogs", slug);
-            const snapshot = await getDoc(docRef);
-            if (snapshot.exists()) {
-              const data = snapshot.data() as any;
-              return data.isDeleted !== true ? data as BlogData : null;
-            }
-            return null;
-          }
-        } catch (e: any) {
-          console.warn("Firestore blogs.findUnique failed, falling back to local JSON:", e.message || e);
-        }
-      }
-      blogsCache = loadLocalData("blogs", blogsCache);
-      return blogsCache.find((b: any) => b.slug === slug && b.isDeleted !== true) || null;
+      const allBlogs = await db.blogs.findMany();
+      return allBlogs.find((b: any) => b.slug === slug && b.isDeleted !== true) || null;
     },
     create: async (data: any) => {
       const slug = data.slug || Math.random().toString(36).substring(2, 11);
@@ -951,31 +929,16 @@ export const db = {
         saveLocalData("states", statesCache);
       }
 
-      if (useFirestore) {
-        try {
-          const snapshot = await getDocs(collection(firestore, "states"));
-          const firestoreData = snapshot.docs.map(d => d.data() as any);
-          
-          // Delete from Firestore if "undefined" document exists
-          if (firestoreData.some(s => !s.id || s.id === "undefined")) {
-            try {
-              await deleteDoc(doc(firestore, "states", "undefined"));
-            } catch (fsErr) {
-              console.warn("Firestore failed to delete undefined state doc:", fsErr);
-            }
-          }
-
-          const cleanFirestoreData = firestoreData.filter(s => s && s.id && s.id !== "undefined");
-          const firestoreMap = new Map(cleanFirestoreData.map((s: any) => [s.id, s]));
-          const merged = localData
-            .map((s: any) => firestoreMap.has(s.id) ? firestoreMap.get(s.id) : s)
-            .filter((s: any) => s.isDeleted !== true);
-          const localIds = new Set(localData.map((s: any) => s.id));
-          const extraItems = cleanFirestoreData.filter((s: any) => !localIds.has(s.id) && s.isDeleted !== true);
-          return [...merged, ...extraItems].sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
-        } catch (e: any) {
-          console.warn("Firestore states.findMany failed, falling back to local:", e.message || e);
-        }
+      const firestoreData = await fetchCollectionDocs("states");
+      if (firestoreData) {
+        const cleanFirestoreData = firestoreData.filter((s: any) => s && s.id && s.id !== "undefined");
+        const firestoreMap = new Map(cleanFirestoreData.map((s: any) => [s.id, s]));
+        const merged = localData
+          .map((s: any) => firestoreMap.has(s.id) ? firestoreMap.get(s.id) : s)
+          .filter((s: any) => s.isDeleted !== true);
+        const localIds = new Set(localData.map((s: any) => s.id));
+        const extraItems = cleanFirestoreData.filter((s: any) => !localIds.has(s.id) && s.isDeleted !== true);
+        return [...merged, ...extraItems].sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
       }
       return localData.filter((s: any) => s.isDeleted !== true).sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
     },
@@ -1047,31 +1010,16 @@ export const db = {
         saveLocalData("cities", citiesCache);
       }
 
-      if (useFirestore) {
-        try {
-          const snapshot = await getDocs(collection(firestore, "cities"));
-          const firestoreData = snapshot.docs.map(d => d.data() as any);
-
-          // Delete from Firestore if "undefined" document exists
-          if (firestoreData.some(c => !c.id || c.id === "undefined")) {
-            try {
-              await deleteDoc(doc(firestore, "cities", "undefined"));
-            } catch (fsErr) {
-              console.warn("Firestore failed to delete undefined city doc:", fsErr);
-            }
-          }
-
-          const cleanFirestoreData = firestoreData.filter(c => c && c.id && c.id !== "undefined" && c.stateId && c.stateId !== "undefined");
-          const firestoreMap = new Map(cleanFirestoreData.map((c: any) => [c.id, c]));
-          const merged = localData
-            .map((c: any) => firestoreMap.has(c.id) ? firestoreMap.get(c.id) : c)
-            .filter((c: any) => c.isDeleted !== true);
-          const localIds = new Set(localData.map((c: any) => c.id));
-          const extraItems = cleanFirestoreData.filter((c: any) => !localIds.has(c.id) && c.isDeleted !== true);
-          return [...merged, ...extraItems].sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
-        } catch (e: any) {
-          console.warn("Firestore cities.findMany failed, falling back to local:", e.message || e);
-        }
+      const firestoreData = await fetchCollectionDocs("cities");
+      if (firestoreData) {
+        const cleanFirestoreData = firestoreData.filter((c: any) => c && c.id && c.id !== "undefined" && c.stateId && c.stateId !== "undefined");
+        const firestoreMap = new Map(cleanFirestoreData.map((c: any) => [c.id, c]));
+        const merged = localData
+          .map((c: any) => firestoreMap.has(c.id) ? firestoreMap.get(c.id) : c)
+          .filter((c: any) => c.isDeleted !== true);
+        const localIds = new Set(localData.map((c: any) => c.id));
+        const extraItems = cleanFirestoreData.filter((c: any) => !localIds.has(c.id) && c.isDeleted !== true);
+        return [...merged, ...extraItems].sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
       }
       return localData.filter((c: any) => c.isDeleted !== true).sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
     },
@@ -1127,51 +1075,23 @@ export const db = {
 
   foods: {
     findMany: async () => {
-      // Load latest cached JSON data
       foodsCache = loadLocalData("foods", mergedFoods);
       const localData = foodsCache;
-      if (useFirestore) {
-        try {
-          checkSeeding();
-          if (useFirestore) {
-            const snapshot = await getDocs(collection(firestore, "foods"));
-            const firestoreData = snapshot.docs.map(d => d.data() as FoodData);
-            const firestoreMap = new Map(firestoreData.map((f: any) => [f.slug, f]));
-            const merged = localData
-              .map((f: any) => firestoreMap.has(f.slug) ? firestoreMap.get(f.slug) : f)
-              .filter((f: any) => f.isDeleted !== true);
-            const localSlugs = new Set(localData.map((f: any) => f.slug));
-            const extraItems = firestoreData.filter((f: any) => !localSlugs.has(f.slug) && f.isDeleted !== true);
-            return [...merged, ...extraItems];
-          }
-        } catch (e: any) {
-          console.warn("Firestore foods.findMany failed, falling back to local:", e.message || e);
-          if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("disabled"))) {
-            useFirestore = false;
-          }
-        }
+      const firestoreData = await fetchCollectionDocs("foods");
+      if (firestoreData) {
+        const firestoreMap = new Map(firestoreData.map((f: any) => [f.slug, f]));
+        const merged = localData
+          .map((f: any) => firestoreMap.has(f.slug) ? firestoreMap.get(f.slug) : f)
+          .filter((f: any) => f.isDeleted !== true);
+        const localSlugs = new Set(localData.map((f: any) => f.slug));
+        const extraItems = firestoreData.filter((f: any) => !localSlugs.has(f.slug) && f.isDeleted !== true);
+        return [...merged, ...extraItems];
       }
       return localData.filter((f: any) => f.isDeleted !== true);
     },
     findUnique: async (slug: string) => {
-      if (useFirestore) {
-        try {
-          checkSeeding();
-          if (useFirestore) {
-            const docRef = doc(firestore, "foods", slug);
-            const snapshot = await getDoc(docRef);
-            if (snapshot.exists()) {
-              const data = snapshot.data() as any;
-              return data.isDeleted !== true ? data as FoodData : null;
-            }
-            return null;
-          }
-        } catch (e: any) {
-          console.warn("Firestore foods.findUnique failed, falling back to local JSON:", e.message || e);
-        }
-      }
-      foodsCache = loadLocalData("foods", foodsCache);
-      return foodsCache.find((f: any) => f.slug === slug && f.isDeleted !== true) || null;
+      const allFoods = await db.foods.findMany();
+      return allFoods.find((f: any) => f.slug === slug && f.isDeleted !== true) || null;
     },
     create: async (data: any) => {
       const slug = data.slug || Math.random().toString(36).substring(2, 11);
@@ -1184,45 +1104,23 @@ export const db = {
         faqs: [],
         ...data
       };
-      if (useFirestore) {
-        try {
-          await setDoc(doc(firestore, "foods", slug), newFood);
-          return newFood;
-        } catch (e: any) {
-          console.warn("Firestore foods.create failed, falling back to local JSON:", e.message || e);
-        }
-      }
+      await writeDoc("foods", slug, newFood);
       foodsCache.push(newFood);
       saveLocalData("foods", foodsCache);
       return newFood;
     },
     update: async (slug: string, data: any) => {
-      if (useFirestore) {
-        try {
-          const docRef = doc(firestore, "foods", slug);
-          await updateDoc(docRef, data);
-          return { slug, ...data };
-        } catch (e: any) {
-          console.warn("Firestore foods.update failed, falling back to local JSON:", e.message || e);
-        }
-      }
+      await writeDoc("foods", slug, data, true);
       const idx = foodsCache.findIndex((f: any) => f.slug === slug);
       if (idx !== -1) {
         foodsCache[idx] = { ...foodsCache[idx], ...data };
         saveLocalData("foods", foodsCache);
         return foodsCache[idx];
       }
-      return null;
+      return { slug, ...data };
     },
     delete: async (slug: string) => {
-      if (useFirestore) {
-        try {
-          await setDoc(doc(firestore, "foods", slug), { isDeleted: true }, { merge: true });
-          return { slug };
-        } catch (e: any) {
-          console.warn("Firestore foods.delete failed, falling back to local JSON:", e.message || e);
-        }
-      }
+      await writeDoc("foods", slug, { isDeleted: true }, true);
       foodsCache = foodsCache.filter((f: any) => f.slug !== slug);
       saveLocalData("foods", foodsCache);
       return { slug };
@@ -1231,29 +1129,17 @@ export const db = {
 
   testimonials: {
     findMany: async () => {
-      // Load latest cached JSON data
       testimonialsCache = loadLocalData("testimonials", initialTestimonials);
       const localData = testimonialsCache;
-      if (useFirestore) {
-        try {
-          checkSeeding();
-          if (useFirestore) {
-            const snapshot = await getDocs(collection(firestore, "testimonials"));
-            const firestoreData = snapshot.docs.map(d => d.data() as Testimonial);
-            const firestoreMap = new Map(firestoreData.map((t: any) => [t.id, t]));
-            const merged = localData
-              .map((t: any) => firestoreMap.has(t.id) ? firestoreMap.get(t.id) : t)
-              .filter((t: any) => t.isDeleted !== true);
-            const localIds = new Set(localData.map((t: any) => t.id));
-            const extraItems = firestoreData.filter((t: any) => !localIds.has(t.id) && t.isDeleted !== true);
-            return [...merged, ...extraItems];
-          }
-        } catch (e: any) {
-          console.warn("Firestore testimonials.findMany failed, falling back to local:", e.message || e);
-          if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("disabled"))) {
-            useFirestore = false;
-          }
-        }
+      const firestoreData = await fetchCollectionDocs("testimonials");
+      if (firestoreData) {
+        const firestoreMap = new Map(firestoreData.map((t: any) => [t.id, t]));
+        const merged = localData
+          .map((t: any) => firestoreMap.has(t.id) ? firestoreMap.get(t.id) : t)
+          .filter((t: any) => t.isDeleted !== true);
+        const localIds = new Set(localData.map((t: any) => t.id));
+        const extraItems = firestoreData.filter((t: any) => !localIds.has(t.id) && t.isDeleted !== true);
+        return [...merged, ...extraItems];
       }
       return localData.filter((t: any) => t.isDeleted !== true);
     },
@@ -1288,58 +1174,23 @@ export const db = {
 
   tourPackages: {
     findMany: async () => {
-      // Load latest cached JSON data
       tourPackagesCache = loadLocalData("tour_packages", mergedPackages);
       const localData = tourPackagesCache;
-      if (useFirestore) {
-        try {
-          checkSeeding();
-          if (useFirestore) {
-            const snapshot = await getDocs(collection(firestore, "tour_packages"));
-            const firestoreData = snapshot.docs.map(d => d.data() as TourPackage);
-            const firestoreMap = new Map(firestoreData.map((p: any) => [p.slug, p]));
-            const merged = localData
-              .map((p: any) => firestoreMap.has(p.slug) ? firestoreMap.get(p.slug) : p)
-              .filter((p: any) => p.isDeleted !== true);
-            const localSlugs = new Set(localData.map((p: any) => p.slug));
-            const extraItems = firestoreData.filter((p: any) => !localSlugs.has(p.slug) && p.isDeleted !== true);
-            return [...merged, ...extraItems];
-          }
-        } catch (e: any) {
-          console.warn("Firestore tourPackages.findMany failed, falling back to local:", e.message || e);
-          if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("disabled"))) {
-            useFirestore = false;
-          }
-        }
+      const firestoreData = await fetchCollectionDocs("tour_packages");
+      if (firestoreData) {
+        const firestoreMap = new Map(firestoreData.map((p: any) => [p.slug, p]));
+        const merged = localData
+          .map((p: any) => firestoreMap.has(p.slug) ? firestoreMap.get(p.slug) : p)
+          .filter((p: any) => p.isDeleted !== true);
+        const localSlugs = new Set(localData.map((p: any) => p.slug));
+        const extraItems = firestoreData.filter((p: any) => !localSlugs.has(p.slug) && p.isDeleted !== true);
+        return [...merged, ...extraItems];
       }
       return localData.filter((p: any) => p.isDeleted !== true);
     },
     findUnique: async (slug: string) => {
-      let res = null;
-      if (useFirestore) {
-        try {
-          checkSeeding();
-          if (useFirestore) {
-            const docRef = doc(firestore, "tour_packages", slug);
-            const snapshot = await getDoc(docRef);
-            if (snapshot.exists()) {
-              const data = snapshot.data() as any;
-              if (data.isDeleted !== true) {
-                res = data as TourPackage;
-              } else {
-                return null;
-              }
-            }
-          }
-        } catch (e: any) {
-          console.warn("Firestore tourPackages.findUnique failed, falling back to local JSON:", e.message || e);
-        }
-      }
-      if (!res) {
-        tourPackagesCache = loadLocalData("tour_packages", tourPackagesCache);
-        res = tourPackagesCache.find((p: any) => p.slug === slug && p.isDeleted !== true) || null;
-      }
-      return res;
+      const allPkgs = await db.tourPackages.findMany();
+      return allPkgs.find((p: any) => p.slug === slug && p.isDeleted !== true) || null;
     },
     create: async (data: any) => {
       const slug = data.slug || Math.random().toString(36).substring(2, 11);
@@ -1372,57 +1223,22 @@ export const db = {
   },
   pages: {
     findMany: async () => {
-      let res = pagesCache;
-      if (useFirestore) {
-        try {
-          checkSeeding();
-          if (useFirestore) {
-            const snapshot = await getDocs(collection(firestore, "pages"));
-            const firestoreData = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-            const firestoreMap = new Map(firestoreData.map((p: any) => [p.id, p]));
-            const merged = pagesCache
-              .map((p: any) => firestoreMap.has(p.id) ? firestoreMap.get(p.id) : p)
-              .filter((p: any) => p.isDeleted !== true);
-            const localIds = new Set(pagesCache.map((p: any) => p.id));
-            const extraItems = firestoreData.filter((p: any) => !localIds.has(p.id) && p.isDeleted !== true);
-            res = [...merged, ...extraItems];
-          }
-        } catch (e: any) {
-          console.warn("Firestore pages.findMany failed, falling back to local:", e.message || e);
-        }
+      const firestoreData = await fetchCollectionDocs("pages");
+      if (firestoreData) {
+        const firestoreMap = new Map(firestoreData.map((p: any) => [p.id, p]));
+        const merged = pagesCache
+          .map((p: any) => firestoreMap.has(p.id) ? firestoreMap.get(p.id) : p)
+          .filter((p: any) => p.isDeleted !== true);
+        const localIds = new Set(pagesCache.map((p: any) => p.id));
+        const extraItems = firestoreData.filter((p: any) => !localIds.has(p.id) && p.isDeleted !== true);
+        return cleanEmail([...merged, ...extraItems]);
       }
-      if (res === pagesCache) {
-        pagesCache = loadLocalData("pages", pagesCache);
-        res = pagesCache.filter((p: any) => p.isDeleted !== true);
-      }
-      return cleanEmail(res);
+      pagesCache = loadLocalData("pages", pagesCache);
+      return cleanEmail(pagesCache.filter((p: any) => p.isDeleted !== true));
     },
     findUnique: async (id: string) => {
-      let res = null;
-      if (useFirestore) {
-        try {
-          checkSeeding();
-          if (useFirestore) {
-            const docRef = doc(firestore, "pages", id);
-            const snapshot = await getDoc(docRef);
-            if (snapshot.exists()) {
-              const data = { id: snapshot.id, ...snapshot.data() } as any;
-              if (data.isDeleted !== true) {
-                res = data;
-              } else {
-                return null;
-              }
-            }
-          }
-        } catch (e: any) {
-          console.warn("Firestore pages.findUnique failed, falling back to local:", e.message || e);
-        }
-      }
-      if (!res) {
-        pagesCache = loadLocalData("pages", pagesCache);
-        res = pagesCache.find((p: any) => p.id === id && p.isDeleted !== true) || null;
-      }
-      return cleanEmail(res);
+      const allPages = await db.pages.findMany();
+      return allPages.find((p: any) => p.id === id && p.isDeleted !== true) || null;
     },
     create: async (data: any) => {
       const id = data.id || Math.random().toString(36).substring(2, 11);
@@ -1460,48 +1276,19 @@ export const db = {
     findMany: async () => {
       settingsCache = loadLocalData("settings", settingsCache);
       const localData = settingsCache;
-      let res = localData;
-      if (useFirestore) {
-        try {
-          checkSeeding();
-          if (useFirestore) {
-            const snapshot = await getDocs(collection(firestore, "settings"));
-            const firestoreData = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-            const firestoreMap = new Map(firestoreData.map((s: any) => [s.id, s]));
-            const merged = localData.map((s: any) => firestoreMap.has(s.id) ? firestoreMap.get(s.id) : s);
-            const localIds = new Set(localData.map((s: any) => s.id));
-            const extraItems = firestoreData.filter((s: any) => !localIds.has(s.id));
-            res = [...merged, ...extraItems];
-          }
-        } catch (e: any) {
-          console.warn("Firestore settings.findMany failed, falling back to local:", e.message || e);
-          if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("disabled"))) {
-            useFirestore = false;
-          }
-        }
+      const firestoreData = await fetchCollectionDocs("settings");
+      if (firestoreData) {
+        const firestoreMap = new Map(firestoreData.map((s: any) => [s.id, s]));
+        const merged = localData.map((s: any) => firestoreMap.has(s.id) ? firestoreMap.get(s.id) : s);
+        const localIds = new Set(localData.map((s: any) => s.id));
+        const extraItems = firestoreData.filter((s: any) => !localIds.has(s.id));
+        return cleanEmail([...merged, ...extraItems]);
       }
-      return cleanEmail(res);
+      return cleanEmail(localData);
     },
     findUnique: async (id: string) => {
-      let res = null;
-      if (useFirestore) {
-        try {
-          checkSeeding();
-          if (useFirestore) {
-            const docRef = doc(firestore, "settings", id);
-            const snapshot = await getDoc(docRef);
-            if (snapshot.exists()) {
-              res = { id: snapshot.id, ...snapshot.data() } as any;
-            }
-          }
-        } catch (e: any) {
-          console.warn("Firestore settings.findUnique failed, falling back to local JSON:", e.message || e);
-        }
-      }
-      if (!res) {
-        settingsCache = loadLocalData("settings", settingsCache);
-        res = settingsCache.find((s: any) => s.id === id) || null;
-      }
+      const allSettings = await db.settings.findMany();
+      const res = allSettings.find((s: any) => s.id === id) || null;
       return cleanEmail(res);
     },
     update: async (id: string, data: any) => {
