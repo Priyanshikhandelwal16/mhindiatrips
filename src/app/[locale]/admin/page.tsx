@@ -43,7 +43,9 @@ import {
   createCityAction,
   updateCityAction,
   deleteCityAction,
-  previewDestinationAction
+  previewDestinationAction,
+  logoutAdminAction,
+  checkAdminSessionAction
 } from "@/app/actions/admin";
 import { 
   getBlogsAction,
@@ -120,27 +122,42 @@ export default function AdminDashboard() {
 
   // Monitor Auth State
   useEffect(() => {
-    const savedUser = localStorage.getItem("admin_user");
-    if (savedUser) {
+    async function verifySessionOnMount() {
       try {
-        setUser(JSON.parse(savedUser));
+        const sessionRes = await checkAdminSessionAction();
+        if (sessionRes.success && sessionRes.user) {
+          setUser(sessionRes.user);
+          localStorage.setItem("admin_user", JSON.stringify(sessionRes.user));
+          setAuthLoading(false);
+          return;
+        }
+      } catch (e) {}
+
+      const savedUser = localStorage.getItem("admin_user");
+      if (savedUser) {
+        try {
+          setUser(JSON.parse(savedUser));
+          setAuthLoading(false);
+          return;
+        } catch (e) {}
+      }
+
+      if (!auth) {
+        setUser({ email: "offline-developer-mode@mhindiatrips.com" });
         setAuthLoading(false);
         return;
-      } catch (e) {}
+      }
+
+      const unsubscribe = onAuthStateChanged(auth, (usr) => {
+        if (usr) {
+          setUser(usr);
+        }
+        setAuthLoading(false);
+      });
+      return () => unsubscribe();
     }
 
-    if (!auth) {
-      setUser({ email: "offline-developer-mode@mhindiatrips.com" });
-      setAuthLoading(false);
-      return;
-    }
-    const unsubscribe = onAuthStateChanged(auth, (usr) => {
-      if (usr) {
-        setUser(usr);
-      }
-      setAuthLoading(false);
-    });
-    return () => unsubscribe();
+    verifySessionOnMount();
   }, []);
 
   // Listen to Sidebar navigation hashes
@@ -240,6 +257,9 @@ export default function AdminDashboard() {
   };
 
   const handleLogout = async () => {
+    try {
+      await logoutAdminAction();
+    } catch (e) {}
     localStorage.removeItem("admin_user");
     setUser(null);
     if (auth) {

@@ -2,8 +2,12 @@
 
 import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
+import { createAdminSession, clearAdminSession, requireAdminSession, verifyAdminSession } from "@/lib/admin-session";
 
 export async function updateInquiryStatusAction(id: string, status: string) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     const updated = await db.inquiries.update(id, { status });
     return { success: true, updated };
@@ -13,6 +17,9 @@ export async function updateInquiryStatusAction(id: string, status: string) {
 }
 
 export async function updateInquiryAction(id: string, data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     const updated = await db.inquiries.update(id, data);
     return { success: true, updated };
@@ -22,6 +29,9 @@ export async function updateInquiryAction(id: string, data: any) {
 }
 
 export async function deleteInquiryAction(id: string) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     await db.inquiries.delete(id);
     return { success: true };
@@ -32,6 +42,9 @@ export async function deleteInquiryAction(id: string) {
 
 // BLOG ACTIONS
 export async function createBlogAction(data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     const blog = await db.blogs.create(data);
     revalidatePath("/[locale]/blog", "layout");
@@ -42,6 +55,9 @@ export async function createBlogAction(data: any) {
 }
 
 export async function updateBlogAction(slug: string, data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     const blog = await db.blogs.update(slug, data);
     revalidatePath("/[locale]/blog", "layout");
@@ -53,6 +69,9 @@ export async function updateBlogAction(slug: string, data: any) {
 }
 
 export async function deleteBlogAction(slug: string) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     await db.blogs.delete(slug);
     revalidatePath("/[locale]/blog", "layout");
@@ -64,6 +83,9 @@ export async function deleteBlogAction(slug: string) {
 
 // TESTIMONIAL ACTIONS
 export async function createTestimonialAction(data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     const testimonial = await db.testimonials.create(data);
     revalidatePath("/[locale]", "page");
@@ -73,8 +95,37 @@ export async function createTestimonialAction(data: any) {
   }
 }
 
+export async function updateTestimonialAction(id: string, data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
+  try {
+    const testimonial = await db.testimonials.update(id, data);
+    revalidatePath("/[locale]", "page");
+    return { success: true, testimonial };
+  } catch (error: any) {
+    return { success: false, error: error.message || "Failed to update testimonial" };
+  }
+}
+
+export async function deleteTestimonialAction(id: string) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
+  try {
+    await db.testimonials.delete(id);
+    revalidatePath("/[locale]", "page");
+    return { success: true };
+  } catch (error: any) {
+    return { success: false, error: error.message || "Failed to delete testimonial" };
+  }
+}
+
 // TOUR PACKAGE ACTIONS
 export async function createTourPackageAction(data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     const pkg = await db.tourPackages.create(data);
     revalidatePath("/[locale]/packages", "page");
@@ -85,6 +136,9 @@ export async function createTourPackageAction(data: any) {
 }
 
 export async function updateTourPackageAction(slug: string, data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     const pkg = await db.tourPackages.update(slug, data);
     revalidatePath("/[locale]/packages", "page");
@@ -95,6 +149,9 @@ export async function updateTourPackageAction(slug: string, data: any) {
 }
 
 export async function deleteTourPackageAction(slug: string) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     await db.tourPackages.delete(slug);
     revalidatePath("/[locale]/packages", "page");
@@ -106,6 +163,9 @@ export async function deleteTourPackageAction(slug: string) {
 
 // FOOD / CUISINE ACTIONS
 export async function createFoodAction(data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     const food = await db.foods.create(data);
     revalidatePath("/[locale]/food", "layout");
@@ -116,6 +176,9 @@ export async function createFoodAction(data: any) {
 }
 
 export async function updateFoodAction(slug: string, data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     const food = await db.foods.update(slug, data);
     revalidatePath("/[locale]/food", "layout");
@@ -126,8 +189,25 @@ export async function updateFoodAction(slug: string, data: any) {
   }
 }
 
+export async function deleteFoodAction(slug: string) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
+  try {
+    await db.foods.delete(slug);
+    revalidatePath("/[locale]/food", "layout");
+    revalidatePath(`/[locale]/food/${slug}`, "page");
+    return { success: true };
+  } catch (error: any) {
+    return { success: false, error: error.message || "Failed to delete food catalog item" };
+  }
+}
+
 // DESTINATION / STATE ACTIONS
 export async function createStateAction(data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     const state = await db.states.create(data);
     revalidatePath("/[locale]/destinations-in-india", "layout");
@@ -140,6 +220,9 @@ export async function createStateAction(data: any) {
 }
 
 export async function updateStateAction(id: string, data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     const state = await db.states.update(id, data);
     revalidatePath("/[locale]/destinations-in-india", "layout");
@@ -154,48 +237,10 @@ export async function updateStateAction(id: string, data: any) {
   }
 }
 
-// PAGE ACTIONS
-export async function createPageAction(data: any) {
-  try {
-    const page = await db.pages.create(data);
-    revalidatePath("/[locale]/[slug]", "page");
-    revalidatePath("/[locale]", "layout");
-    return { success: true, page };
-  } catch (error: any) {
-    return { success: false, error: error.message || "Failed to create page" };
-  }
-}
-
-export async function updatePageAction(id: string, data: any) {
-  try {
-    const page = await db.pages.update(id, data);
-    revalidatePath("/[locale]", "layout");
-    revalidatePath(`/[locale]/${id}`, "page");
-    revalidatePath(`/[locale]/about`, "page");
-    revalidatePath(`/[locale]/contact`, "page");
-    revalidatePath(`/[locale]/faq`, "page");
-    revalidatePath(`/[locale]/gallery`, "page");
-    revalidatePath(`/[locale]/monuments`, "page");
-    revalidatePath(`/[locale]/privacy`, "page");
-    revalidatePath(`/[locale]/terms`, "page");
-    return { success: true, page };
-  } catch (error: any) {
-    return { success: false, error: error.message || "Failed to update page" };
-  }
-}
-
-export async function deletePageAction(id: string) {
-  try {
-    await db.pages.delete(id);
-    revalidatePath("/[locale]", "layout");
-    revalidatePath(`/[locale]/${id}`, "page");
-    return { success: true };
-  } catch (error: any) {
-    return { success: false, error: error.message || "Failed to delete page" };
-  }
-}
-
 export async function deleteStateAction(id: string) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     const cities = await db.cities.findByState(id);
     if (cities.length > 0) {
@@ -212,6 +257,9 @@ export async function deleteStateAction(id: string) {
 }
 
 export async function updateStateStatusAction(id: string, status: "published" | "draft" | "unpublished") {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     const updated = await db.states.update(id, { isPublished: status === "published" });
     revalidatePath("/[locale]/destinations-in-india", "layout");
@@ -224,6 +272,9 @@ export async function updateStateStatusAction(id: string, status: "published" | 
 }
 
 export async function createCityAction(stateId: string, data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     const cityId = data.id || Math.random().toString(36).substring(2, 11);
     const newCity = {
@@ -243,6 +294,9 @@ export async function createCityAction(stateId: string, data: any) {
 }
 
 export async function updateCityAction(stateId: string, cityId: string, data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     const city = await db.cities.update(cityId, { ...data, stateId });
     revalidatePath("/[locale]/destinations-in-india", "layout");
@@ -255,6 +309,9 @@ export async function updateCityAction(stateId: string, cityId: string, data: an
 }
 
 export async function deleteCityAction(stateId: string, cityId: string) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     await db.cities.delete(cityId);
     revalidatePath("/[locale]/destinations-in-india", "layout");
@@ -276,34 +333,53 @@ export async function previewDestinationAction(id: string) {
   }
 }
 
-export async function deleteFoodAction(slug: string) {
+// PAGE ACTIONS
+export async function createPageAction(data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
-    await db.foods.delete(slug);
-    revalidatePath("/[locale]/food", "layout");
-    revalidatePath(`/[locale]/food/${slug}`, "page");
-    return { success: true };
+    const page = await db.pages.create(data);
+    revalidatePath("/[locale]/[slug]", "page");
+    revalidatePath("/[locale]", "layout");
+    return { success: true, page };
   } catch (error: any) {
-    return { success: false, error: error.message || "Failed to delete food catalog item" };
+    return { success: false, error: error.message || "Failed to create page" };
   }
 }
 
-export async function updateTestimonialAction(id: string, data: any) {
+export async function updatePageAction(id: string, data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
-    const testimonial = await db.testimonials.update(id, data);
-    revalidatePath("/[locale]", "page");
-    return { success: true, testimonial };
+    const page = await db.pages.update(id, data);
+    revalidatePath("/[locale]", "layout");
+    revalidatePath(`/[locale]/${id}`, "page");
+    revalidatePath(`/[locale]/about`, "page");
+    revalidatePath(`/[locale]/contact`, "page");
+    revalidatePath(`/[locale]/faq`, "page");
+    revalidatePath(`/[locale]/gallery`, "page");
+    revalidatePath(`/[locale]/monuments`, "page");
+    revalidatePath(`/[locale]/privacy`, "page");
+    revalidatePath(`/[locale]/terms`, "page");
+    return { success: true, page };
   } catch (error: any) {
-    return { success: false, error: error.message || "Failed to update testimonial" };
+    return { success: false, error: error.message || "Failed to update page" };
   }
 }
 
-export async function deleteTestimonialAction(id: string) {
+export async function deletePageAction(id: string) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
-    await db.testimonials.delete(id);
-    revalidatePath("/[locale]", "page");
+    await db.pages.delete(id);
+    revalidatePath("/[locale]", "layout");
+    revalidatePath(`/[locale]/${id}`, "page");
     return { success: true };
   } catch (error: any) {
-    return { success: false, error: error.message || "Failed to delete testimonial" };
+    return { success: false, error: error.message || "Failed to delete page" };
   }
 }
 
@@ -335,6 +411,9 @@ export async function getSettingsAction() {
 }
 
 export async function updateContactDetailsAction(data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     const updated = await db.settings.update("contact_details", data);
     revalidatePath("/[locale]", "layout");
@@ -346,6 +425,9 @@ export async function updateContactDetailsAction(data: any) {
 }
 
 export async function updateAdminPasswordAction(newPassword: string) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
   try {
     const updated = await db.settings.update("admin_credentials", { customPassword: newPassword });
     return { success: true, updated };
@@ -366,10 +448,22 @@ export async function verifyAdminCredentialsAction(emailInput: string, passwordI
     const allowedPassword = creds?.customPassword || (process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "admin").replace(/['"]/g, "").trim();
 
     if (passwordInput.trim() === allowedPassword) {
+      // Issue secure HttpOnly session cookie on the server
+      await createAdminSession(adminEmail);
       return { success: true };
     }
     return { success: false, error: "Invalid credentials" };
   } catch (error: any) {
     return { success: false, error: error.message || "Failed to authenticate" };
   }
+}
+
+export async function logoutAdminAction() {
+  await clearAdminSession();
+  return { success: true };
+}
+
+export async function checkAdminSessionAction() {
+  const session = await verifyAdminSession();
+  return { success: session.authenticated, user: session.user };
 }

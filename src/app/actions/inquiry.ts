@@ -56,6 +56,10 @@ export async function createInquiryAction(formData: any) {
   }
 }
 
+import { requireAdminSession } from "@/lib/admin-session";
+
 export async function getInquiriesAction() {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return [];
   return await db.inquiries.findMany();
 }

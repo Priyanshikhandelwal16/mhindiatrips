@@ -16,6 +16,7 @@ import {
   Testimonial
 } from "@/data/mockData";
 import { additionalStates, additionalPackages, additionalFoods, additionalBlogs } from "@/data/additionalData";
+import { getAdminFirestore } from "./firebase-admin";
 // Load pre-built states data directly from filesystem at module init
 import fs from "fs";
 import path from "path";
@@ -143,7 +144,7 @@ let settingsCache = loadLocalData("settings", [
     phone: "+91 9829989187",
     email: "mhindiatrips@gmail.com",
     whatsapp: "919829989187",
-    address: "New Delhi, India",
+    address: "",
     hours: "Mon - Sat: 9:00 AM - 7:00 PM IST"
   },
   {
@@ -650,33 +651,117 @@ if (missingSystemPages.length > 0) {
   saveLocalData("pages", pagesCache);
 }
 
+// ----------------------------------------------------
+// FIRESTORE HELPER WRAPPERS (Server Admin SDK Preferred)
+// ----------------------------------------------------
+async function fetchCollectionDocs(colName: string): Promise<any[] | null> {
+  const adminDb = getAdminFirestore();
+  if (adminDb) {
+    try {
+      const snapshot = await adminDb.collection(colName).get();
+      return snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+    } catch (e: any) {
+      console.warn(`[db] Admin SDK collection(${colName}).get() error:`, e.message || e);
+    }
+  }
+  if (useFirestore && firestore) {
+    try {
+      const snapshot = await getDocs(collection(firestore, colName));
+      return snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+    } catch (e: any) {
+      console.warn(`[db] Web SDK collection(${colName}).get() error:`, e.message || e);
+    }
+  }
+  return null;
+}
+
+async function writeDoc(colName: string, docId: string, data: any, merge: boolean = false): Promise<boolean> {
+  const adminDb = getAdminFirestore();
+  if (adminDb) {
+    try {
+      await adminDb.collection(colName).doc(docId).set(data, { merge });
+      return true;
+    } catch (e: any) {
+      console.warn(`[db] Admin SDK doc(${colName}/${docId}).set() error:`, e.message || e);
+    }
+  }
+  if (useFirestore && firestore) {
+    try {
+      await setDoc(doc(firestore, colName, docId), data, { merge });
+      return true;
+    } catch (e: any) {
+      console.warn(`[db] Web SDK doc(${colName}/${docId}).set() error:`, e.message || e);
+    }
+  }
+  return false;
+}
+
+async function addDocToCollection(colName: string, data: any): Promise<string | null> {
+  const adminDb = getAdminFirestore();
+  if (adminDb) {
+    try {
+      const ref = await adminDb.collection(colName).add(data);
+      return ref.id;
+    } catch (e: any) {
+      console.warn(`[db] Admin SDK collection(${colName}).add() error:`, e.message || e);
+    }
+  }
+  if (useFirestore && firestore) {
+    try {
+      const ref = await addDoc(collection(firestore, colName), data);
+      return ref.id;
+    } catch (e: any) {
+      console.warn(`[db] Web SDK collection(${colName}).add() error:`, e.message || e);
+    }
+  }
+  return null;
+}
+
+async function deleteDocFromCollection(colName: string, docId: string): Promise<boolean> {
+  const adminDb = getAdminFirestore();
+  if (adminDb) {
+    try {
+      await adminDb.collection(colName).doc(docId).delete();
+      return true;
+    } catch (e: any) {
+      console.warn(`[db] Admin SDK doc(${colName}/${docId}).delete() error:`, e.message || e);
+    }
+  }
+  if (useFirestore && firestore) {
+    try {
+      await deleteDoc(doc(firestore, colName, docId));
+      return true;
+    } catch (e: any) {
+      console.warn(`[db] Web SDK doc(${colName}/${docId}).delete() error:`, e.message || e);
+    }
+  }
+  return false;
+}
+
 // Simple check to seed Firestore collection if it has fewer items than source
 async function ensureSeeded(collectionName: string, initialData: any[]) {
-  if (!useFirestore) return;
+  const adminDb = getAdminFirestore();
+  if (!adminDb && !useFirestore) return;
   try {
-    const colRef = collection(firestore, collectionName);
-    const snapshot = await getDocs(colRef);
-    const existingIds = new Set(snapshot.docs.map(d => d.id));
+    const existing = await fetchCollectionDocs(collectionName);
+    if (!existing) return;
+    const existingIds = new Set(existing.map(d => d.id));
     
     for (const item of initialData) {
       const docId = (item.id && typeof item.id === "string") ? item.id : (item.slug && typeof item.slug === "string" ? item.slug : "");
       if (docId && !existingIds.has(docId)) {
         console.log(`Document ${docId} is missing in ${collectionName}. Seeding it...`);
-        await setDoc(doc(firestore, collectionName, docId), item);
+        await writeDoc(collectionName, docId, item);
       } else if (docId === "contact_details" && collectionName === "settings") {
-        const existingDoc = snapshot.docs.find(d => d.id === docId);
-        const existingData = existingDoc?.data();
-        if (existingData && (existingData.phone !== item.phone || existingData.whatsapp !== item.whatsapp)) {
+        const existingDoc = existing.find(d => d.id === docId);
+        if (existingDoc && (existingDoc.phone !== item.phone || existingDoc.whatsapp !== item.whatsapp)) {
           console.log(`Updating Firestore contact_details document with new phone number...`);
-          await setDoc(doc(firestore, collectionName, docId), item, { merge: true });
+          await writeDoc(collectionName, docId, item, true);
         }
       }
     }
   } catch (err: any) {
     console.warn(`Firestore seeding error on ${collectionName}:`, err.message || err);
-    if (err.message && (err.message.includes("PERMISSION_DENIED") || err.message.includes("disabled"))) {
-      useFirestore = false;
-    }
   }
 }
 
@@ -708,52 +793,35 @@ function checkSeeding() {
 export const db = {
   inquiries: {
     findMany: async () => {
-      if (useFirestore) {
-        try {
-          const snapshot = await getDocs(collection(firestore, "inquiries"));
-          return snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-        } catch (e: any) {
-          console.warn("Firestore inquiries.findMany failed, falling back to local JSON:", e.message || e);
-          if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("disabled"))) {
-            useFirestore = false;
-          }
-        }
+      const docs = await fetchCollectionDocs("inquiries");
+      if (docs) {
+        return docs;
       }
       inquiriesCache = loadLocalData("inquiries", inquiriesCache);
       return inquiriesCache;
     },
     create: async (data: any) => {
-      if (useFirestore) {
-        try {
-          const docRef = await addDoc(collection(firestore, "inquiries"), {
-            status: "NEW",
-            createdAt: new Date().toISOString(),
-            ...data
-          });
-          return { id: docRef.id, ...data };
-        } catch (e: any) {
-          console.warn("Firestore inquiries.create failed, falling back to local JSON:", e.message || e);
-        }
-      }
-      const newInquiry = {
-        id: Math.random().toString(36).substring(2, 11),
+      const payload = {
         status: "NEW",
         createdAt: new Date().toISOString(),
         ...data
+      };
+      const createdId = await addDocToCollection("inquiries", payload);
+      if (createdId) {
+        return { id: createdId, ...payload };
+      }
+      const newInquiry = {
+        id: Math.random().toString(36).substring(2, 11),
+        ...payload
       };
       inquiriesCache.push(newInquiry);
       saveLocalData("inquiries", inquiriesCache);
       return newInquiry;
     },
     update: async (id: string, data: any) => {
-      if (useFirestore) {
-        try {
-          const docRef = doc(firestore, "inquiries", id);
-          await updateDoc(docRef, data);
-          return { id, ...data };
-        } catch (e: any) {
-          console.warn("Firestore inquiries.update failed, falling back to local JSON:", e.message || e);
-        }
+      const success = await writeDoc("inquiries", id, data, true);
+      if (success) {
+        return { id, ...data };
       }
       const idx = inquiriesCache.findIndex((i: any) => i.id === id);
       if (idx !== -1) {
@@ -764,14 +832,7 @@ export const db = {
       return null;
     },
     delete: async (id: string) => {
-      if (useFirestore) {
-        try {
-          await deleteDoc(doc(firestore, "inquiries", id));
-          return { id };
-        } catch (e: any) {
-          console.warn("Firestore inquiries.delete failed, falling back to local JSON:", e.message || e);
-        }
-      }
+      await deleteDocFromCollection("inquiries", id);
       inquiriesCache = inquiriesCache.filter((i: any) => i.id !== id);
       saveLocalData("inquiries", inquiriesCache);
       return { id };
@@ -829,45 +890,23 @@ export const db = {
         author: "MHIndiaTrips Editor",
         ...data
       };
-      if (useFirestore) {
-        try {
-          await setDoc(doc(firestore, "blogs", slug), newBlog);
-          return newBlog;
-        } catch (e: any) {
-          console.warn("Firestore blogs.create failed, falling back to local JSON:", e.message || e);
-        }
-      }
+      await writeDoc("blogs", slug, newBlog);
       blogsCache.push(newBlog);
       saveLocalData("blogs", blogsCache);
       return newBlog;
     },
     update: async (slug: string, data: any) => {
-      if (useFirestore) {
-        try {
-          const docRef = doc(firestore, "blogs", slug);
-          await updateDoc(docRef, data);
-          return { slug, ...data };
-        } catch (e: any) {
-          console.warn("Firestore blogs.update failed, falling back to local JSON:", e.message || e);
-        }
-      }
+      await writeDoc("blogs", slug, data, true);
       const idx = blogsCache.findIndex((b: any) => b.slug === slug);
       if (idx !== -1) {
         blogsCache[idx] = { ...blogsCache[idx], ...data };
         saveLocalData("blogs", blogsCache);
         return blogsCache[idx];
       }
-      return null;
+      return { slug, ...data };
     },
     delete: async (slug: string) => {
-      if (useFirestore) {
-        try {
-          await setDoc(doc(firestore, "blogs", slug), { isDeleted: true }, { merge: true });
-          return { slug };
-        } catch (e: any) {
-          console.warn("Firestore blogs.delete failed, falling back to local JSON:", e.message || e);
-        }
-      }
+      await writeDoc("blogs", slug, { isDeleted: true }, true);
       blogsCache = blogsCache.filter((b: any) => b.slug !== slug);
       saveLocalData("blogs", blogsCache);
       return { slug };
@@ -947,41 +986,23 @@ export const db = {
         displayOrder: 0,
         ...data
       };
-      if (useFirestore) {
-        try {
-          await setDoc(doc(firestore, "states", id), newState);
-        } catch (e: any) {
-          console.warn("Firestore states.create failed:", e.message || e);
-        }
-      }
+      await writeDoc("states", id, newState);
       statesCache.push(newState);
       saveLocalData("states", statesCache);
       return newState;
     },
     update: async (id: string, data: any) => {
-      if (useFirestore) {
-        try {
-          await setDoc(doc(firestore, "states", id), { ...data, id }, { merge: true });
-        } catch (e: any) {
-          console.warn("Firestore states.update failed:", e.message || e);
-        }
-      }
+      await writeDoc("states", id, { ...data, id }, true);
       const localIdx = statesCache.findIndex((s: any) => s.id === id);
       if (localIdx !== -1) {
         statesCache[localIdx] = { ...statesCache[localIdx], ...data, id };
         saveLocalData("states", statesCache);
         return statesCache[localIdx];
       }
-      return null;
+      return { id, ...data };
     },
     delete: async (id: string) => {
-      if (useFirestore) {
-        try {
-          await setDoc(doc(firestore, "states", id), { isDeleted: true }, { merge: true });
-        } catch (e: any) {
-          console.warn("Firestore states.delete failed:", e.message || e);
-        }
-      }
+      await writeDoc("states", id, { isDeleted: true }, true);
       statesCache = statesCache.filter((s: any) => s.id !== id);
       saveLocalData("states", statesCache);
       return { id };
@@ -1067,41 +1088,23 @@ export const db = {
         relatedPackages: [],
         ...data
       };
-      if (useFirestore) {
-        try {
-          await setDoc(doc(firestore, "cities", id), newCity);
-        } catch (e: any) {
-          console.warn("Firestore cities.create failed:", e.message || e);
-        }
-      }
+      await writeDoc("cities", id, newCity);
       citiesCache.push(newCity);
       saveLocalData("cities", citiesCache);
       return newCity;
     },
     update: async (id: string, data: any) => {
-      if (useFirestore) {
-        try {
-          await setDoc(doc(firestore, "cities", id), { ...data, id }, { merge: true });
-        } catch (e: any) {
-          console.warn("Firestore cities.update failed:", e.message || e);
-        }
-      }
+      await writeDoc("cities", id, { ...data, id }, true);
       const localIdx = citiesCache.findIndex((c: any) => c.id === id);
       if (localIdx !== -1) {
         citiesCache[localIdx] = { ...citiesCache[localIdx], ...data, id };
         saveLocalData("cities", citiesCache);
         return citiesCache[localIdx];
       }
-      return null;
+      return { id, ...data };
     },
     delete: async (id: string) => {
-      if (useFirestore) {
-        try {
-          await setDoc(doc(firestore, "cities", id), { isDeleted: true }, { merge: true });
-        } catch (e: any) {
-          console.warn("Firestore cities.delete failed:", e.message || e);
-        }
-      }
+      await writeDoc("cities", id, { isDeleted: true }, true);
       citiesCache = citiesCache.filter((c: any) => c.id !== id);
       saveLocalData("cities", citiesCache);
       return { id };
@@ -1246,45 +1249,23 @@ export const db = {
         id,
         ...data
       };
-      if (useFirestore) {
-        try {
-          await setDoc(doc(firestore, "testimonials", id), newTestimonial);
-          return newTestimonial;
-        } catch (e: any) {
-          console.warn("Firestore testimonials.create failed, falling back to local JSON:", e.message || e);
-        }
-      }
+      await writeDoc("testimonials", id, newTestimonial);
       testimonialsCache.push(newTestimonial);
       saveLocalData("testimonials", testimonialsCache);
       return newTestimonial;
     },
     update: async (id: string, data: any) => {
-      if (useFirestore) {
-        try {
-          const docRef = doc(firestore, "testimonials", id);
-          await updateDoc(docRef, data);
-          return { id, ...data };
-        } catch (e: any) {
-          console.warn("Firestore testimonials.update failed, falling back to local JSON:", e.message || e);
-        }
-      }
+      await writeDoc("testimonials", id, data, true);
       const idx = testimonialsCache.findIndex((t: any) => t.id === id);
       if (idx !== -1) {
         testimonialsCache[idx] = { ...testimonialsCache[idx], ...data };
         saveLocalData("testimonials", testimonialsCache);
         return testimonialsCache[idx];
       }
-      return null;
+      return { id, ...data };
     },
     delete: async (id: string) => {
-      if (useFirestore) {
-        try {
-          await setDoc(doc(firestore, "testimonials", id), { isDeleted: true }, { merge: true });
-          return { id };
-        } catch (e: any) {
-          console.warn("Firestore testimonials.delete failed, falling back to local JSON:", e.message || e);
-        }
-      }
+      await writeDoc("testimonials", id, { isDeleted: true }, true);
       testimonialsCache = testimonialsCache.filter((t: any) => t.id !== id);
       saveLocalData("testimonials", testimonialsCache);
       return { id };
@@ -1353,45 +1334,23 @@ export const db = {
         highlights: [],
         ...data
       };
-      if (useFirestore) {
-        try {
-          await setDoc(doc(firestore, "tour_packages", slug), newPkg);
-          return newPkg;
-        } catch (e: any) {
-          console.warn("Firestore tourPackages.create failed, falling back to local JSON:", e.message || e);
-        }
-      }
+      await writeDoc("tour_packages", slug, newPkg);
       tourPackagesCache.push(newPkg);
       saveLocalData("tour_packages", tourPackagesCache);
       return newPkg;
     },
     update: async (slug: string, data: any) => {
-      if (useFirestore) {
-        try {
-          const docRef = doc(firestore, "tour_packages", slug);
-          await updateDoc(docRef, data);
-          return { slug, ...data };
-        } catch (e: any) {
-          console.warn("Firestore tourPackages.update failed, falling back to local JSON:", e.message || e);
-        }
-      }
+      await writeDoc("tour_packages", slug, data, true);
       const idx = tourPackagesCache.findIndex((p: any) => p.slug === slug);
       if (idx !== -1) {
         tourPackagesCache[idx] = { ...tourPackagesCache[idx], ...data };
         saveLocalData("tour_packages", tourPackagesCache);
         return tourPackagesCache[idx];
       }
-      return null;
+      return { slug, ...data };
     },
     delete: async (slug: string) => {
-      if (useFirestore) {
-        try {
-          await setDoc(doc(firestore, "tour_packages", slug), { isDeleted: true }, { merge: true });
-          return { slug };
-        } catch (e: any) {
-          console.warn("Firestore tourPackages.delete failed, falling back to local JSON:", e.message || e);
-        }
-      }
+      await writeDoc("tour_packages", slug, { isDeleted: true }, true);
       tourPackagesCache = tourPackagesCache.filter((p: any) => p.slug !== slug);
       saveLocalData("tour_packages", tourPackagesCache);
       return { slug };
@@ -1460,45 +1419,23 @@ export const db = {
         content: {},
         ...data
       };
-      if (useFirestore) {
-        try {
-          await setDoc(doc(firestore, "pages", id), newPage);
-          return newPage;
-        } catch (e: any) {
-          console.warn("Firestore pages.create failed, falling back to local JSON:", e.message || e);
-        }
-      }
+      await writeDoc("pages", id, newPage);
       pagesCache.push(newPage);
       saveLocalData("pages", pagesCache);
       return newPage;
     },
     update: async (id: string, data: any) => {
-      if (useFirestore) {
-        try {
-          const docRef = doc(firestore, "pages", id);
-          await updateDoc(docRef, data);
-          return { id, ...data };
-        } catch (e: any) {
-          console.warn("Firestore pages.update failed, falling back to local JSON:", e.message || e);
-        }
-      }
+      await writeDoc("pages", id, data, true);
       const idx = pagesCache.findIndex((p: any) => p.id === id);
       if (idx !== -1) {
         pagesCache[idx] = { ...pagesCache[idx], ...data };
         saveLocalData("pages", pagesCache);
         return pagesCache[idx];
       }
-      return null;
+      return { id, ...data };
     },
     delete: async (id: string) => {
-      if (useFirestore) {
-        try {
-          await setDoc(doc(firestore, "pages", id), { isDeleted: true }, { merge: true });
-          return { id };
-        } catch (e: any) {
-          console.warn("Firestore pages.delete failed, falling back to local JSON:", e.message || e);
-        }
-      }
+      await writeDoc("pages", id, { isDeleted: true }, true);
       pagesCache = pagesCache.filter((p: any) => p.id !== id);
       saveLocalData("pages", pagesCache);
       return { id };
@@ -1554,15 +1491,7 @@ export const db = {
       return cleanEmail(res);
     },
     update: async (id: string, data: any) => {
-      if (useFirestore) {
-        try {
-          const docRef = doc(firestore, "settings", id);
-          await setDoc(docRef, data, { merge: true });
-          return { id, ...data };
-        } catch (e: any) {
-          console.warn("Firestore settings.update failed, falling back to local JSON:", e.message || e);
-        }
-      }
+      await writeDoc("settings", id, data, true);
       const all = await db.settings.findMany();
       const idx = all.findIndex((s: any) => s.id === id);
       if (idx !== -1) {

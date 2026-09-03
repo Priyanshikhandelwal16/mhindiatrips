@@ -19,7 +19,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
   const contactDetails = (await db.settings.findUnique("contact_details")) || {
     phone: "+91 9829989187",
     email: "mhindiatrips@gmail.com",
-    address: "New Delhi, India",
+    address: "",
     hours: "Mon - Sat: 9:00 AM - 7:00 PM IST",
     whatsapp: "919829989187"
   };
@@ -32,7 +32,6 @@ export default async function ContactPage({ params }: ContactPageProps) {
       infoTitle: "Concierge Desk",
       phone: contactDetails.phone || "+91 9829989187",
       email: contactDetails.email || "mhindiatrips@gmail.com",
-      address: contactDetails.address || "New Delhi, India",
       hours: contactDetails.hours || "Mon - Sat: 9:00 AM - 7:00 PM IST",
       whatsappBtn: "Chat on WhatsApp",
     },
@@ -43,7 +42,6 @@ export default async function ContactPage({ params }: ContactPageProps) {
       infoTitle: "Mesa de Conserjería",
       phone: contactDetails.phone || "+91 9829989187",
       email: contactDetails.email || "mhindiatrips@gmail.com",
-      address: contactDetails.address || "Nueva Delhi, India",
       hours: contactDetails.hours || "Lun - Sáb: 9:00 AM - 7:00 PM IST",
       whatsappBtn: "Chat en WhatsApp",
     },
@@ -54,7 +52,6 @@ export default async function ContactPage({ params }: ContactPageProps) {
       infoTitle: "Mesa de Concierge",
       phone: contactDetails.phone || "+91 9829989187",
       email: contactDetails.email || "mhindiatrips@gmail.com",
-      address: contactDetails.address || "Nova Deli, Índia",
       hours: contactDetails.hours || "Seg - Sáb: 9:00 AM - 7:00 PM IST",
       whatsappBtn: "Conversar no WhatsApp",
     }
@@ -77,7 +74,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
       image: "/images/taj_mahal_sunrise.png",
       title: text.hero,
       subtitle: text.heroSub,
-      location: text.address,
+      location: "India Concierge",
       description: text.heroDesc,
       objectPosition: "center 25%"
     },
@@ -85,7 +82,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
       image: "/images/rajasthan_fort_sunset.png",
       title: "24/7 Concierge Support",
       subtitle: text.heroSub,
-      location: "New Delhi Travel Desk",
+      location: "MH India Trips Desk",
       description: "Our luxury travel advisors are available 24/7 to design your custom journey.",
       objectPosition: "center 25%"
     }
@@ -133,16 +130,6 @@ export default async function ContactPage({ params }: ContactPageProps) {
                   <p className="text-sm font-semibold text-royal group-hover:text-gold transition-colors mt-0.5">{text.email}</p>
                 </div>
               </a>
-              
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0 shadow-sm">
-                  <MapPin className="w-4 h-4 text-gold" />
-                </div>
-                <div>
-                  <p className="text-[10px] uppercase tracking-wider font-bold text-foreground/45">Headquarters</p>
-                  <p className="text-sm font-semibold text-royal mt-0.5">{text.address}</p>
-                </div>
-              </div>
               
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0 shadow-sm">
