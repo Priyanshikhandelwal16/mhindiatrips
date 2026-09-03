@@ -210,7 +210,7 @@ export default function PagesTab({
                   </div>
                   {editPage.heroImage && (
                     <div className="h-20 w-full overflow-hidden border border-gold/10 bg-[#FAF8F5] rounded-xl shadow-inner">
-                      <img src={editPage.heroImage} alt="Hero preview" className="w-full h-full object-cover" />
+                      <img src={editPage.heroImage || "/images/destination_fallback.jpg"} alt="Hero preview" className="w-full h-full object-cover" />
                     </div>
                   )}
                 </div>
@@ -558,7 +558,7 @@ export default function PagesTab({
                 <div key={p.id} className="bg-white border border-beige/45 rounded-3xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-gold/30 transition">
                   {p.heroImage ? (
                     <div className="h-36 overflow-hidden bg-[#FAF8F5] relative">
-                      <img src={p.heroImage} alt={p.title?.en} className="w-full h-full object-cover" />
+                      <img src={p.heroImage || "/images/destination_fallback.jpg"} alt={p.title?.en} className="w-full h-full object-cover" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                     </div>
                   ) : (
@@ -606,7 +606,7 @@ export default function PagesTab({
                   <div key={p.id} className="bg-white border border-beige/45 rounded-3xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-gold/30 transition">
                     {p.heroImage ? (
                       <div className="h-36 overflow-hidden bg-[#FAF8F5]">
-                        <img src={p.heroImage} alt={p.title?.en} className="w-full h-full object-cover" />
+                        <img src={p.heroImage || "/images/destination_fallback.jpg"} alt={p.title?.en} className="w-full h-full object-cover" />
                       </div>
                     ) : (
                       <div className="h-36 bg-light-gray flex items-center justify-center border-b border-beige/25">

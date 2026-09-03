@@ -241,10 +241,12 @@ export default function AdminDashboard() {
 
       if (isSignUp) {
         await createUserWithEmailAndPassword(auth, email, password);
+        await checkAdminSessionAction();
         showStatus("Admin account created successfully!", "success");
       } else {
         const credential = await signInWithEmailAndPassword(auth, email, password);
-        const firebaseUser = { email: credential.user.email, uid: credential.user.uid };
+        await checkAdminSessionAction();
+        const firebaseUser = { email: credential.user.email || email, uid: credential.user.uid };
         setUser(firebaseUser);
         localStorage.setItem("admin_user", JSON.stringify(firebaseUser));
       }

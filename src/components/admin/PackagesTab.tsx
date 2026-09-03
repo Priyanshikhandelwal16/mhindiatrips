@@ -555,7 +555,7 @@ export default function PackagesTab({
                 </div>
                 {editPackage.image && (
                   <div className="col-span-full h-44 w-full overflow-hidden border border-gold/10 rounded-2xl shadow-inner relative">
-                    <img src={editPackage.image} alt="Package banner" className="w-full h-full object-cover" />
+                    <img src={editPackage.image || "/images/destination_fallback.jpg"} alt="Package banner" className="w-full h-full object-cover" />
                   </div>
                 )}
               </div>
@@ -1562,7 +1562,7 @@ export default function PackagesTab({
           {(packages || []).map((pkg) => (
             <div key={pkg.slug} className="bg-white border border-beige/45 rounded-3xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-gold/30 transition">
               <div className="h-40 w-full overflow-hidden bg-light-gray relative">
-                <img src={pkg.image} alt={pkg.title?.en} className="h-full w-full object-cover" />
+                <img src={pkg.image || "/images/destination_fallback.jpg"} alt={pkg.title?.en} className="h-full w-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent"></div>
               </div>
               <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">

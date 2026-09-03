@@ -227,7 +227,7 @@ export default function TestimonialsTab({
             </div>
             {editTestimonial.image && (
               <div className="col-span-full h-16 w-16 overflow-hidden rounded-full ring-2 ring-gold/15">
-                <img src={editTestimonial.image} alt="Avatar" className="w-full h-full object-cover" />
+                <img src={editTestimonial.image || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=100"} alt="Avatar" className="w-full h-full object-cover" />
               </div>
             )}
           </div>

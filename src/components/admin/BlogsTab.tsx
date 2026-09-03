@@ -120,7 +120,7 @@ export default function BlogsTab({
             </div>
             {editBlog.featuredImage && (
               <div className="col-span-full h-40 w-full overflow-hidden border border-gold/10 rounded-2xl shadow-inner">
-                <img src={editBlog.featuredImage} alt="Cover preview" className="w-full h-full object-cover" />
+                <img src={editBlog.featuredImage || "/images/destination_fallback.jpg"} alt="Cover preview" className="w-full h-full object-cover" />
               </div>
             )}
           </div>
@@ -149,7 +149,7 @@ export default function BlogsTab({
 
           {/* HTML Content (Translations) */}
           <div className="space-y-3">
-            <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Article HTML Content (Paragraphs)</span>
+            <span className="font-black uppercase tracking-widest text-[9px] text-gold block font-serif">Article Content</span>
             <div className="grid grid-cols-1 gap-6">
               {["en", "es", "pt"].map((lang) => (
                 <div key={lang} className="space-y-1">
@@ -266,7 +266,7 @@ export default function BlogsTab({
           {(blogs || []).map((b) => (
             <div key={b.slug} className="bg-white border border-beige/45 rounded-3xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-gold/30 transition">
               <div className="h-40 w-full overflow-hidden bg-light-gray relative">
-                <img src={b.featuredImage} alt={b.title?.en} className="h-full w-full object-cover" />
+                <img src={b.featuredImage || "/images/destination_fallback.jpg"} alt={b.title?.en} className="h-full w-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent"></div>
               </div>
               <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">

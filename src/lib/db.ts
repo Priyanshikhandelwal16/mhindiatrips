@@ -666,7 +666,7 @@ async function fetchCollectionDocs(colName: string): Promise<any[] | null> {
   if (adminDb) {
     try {
       const snapshot = await adminDb.collection(colName).get();
-      return snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+      return snapshot.docs.map((d: any) => ({ id: d.id, ...d.data() }));
     } catch (e: any) {
       console.warn(`[db] Admin SDK collection(${colName}).get() error:`, e.message || e);
     }
