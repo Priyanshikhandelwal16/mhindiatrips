@@ -133,6 +133,9 @@ const travelInfoData: Record<string, any> = {
 
 const validSlugs = Object.keys(travelInfoData);
 
+import PageHeroSlider from "@/components/common/PageHeroSlider";
+import { ExternalLink } from "lucide-react";
+
 export default async function TravelInfoPage({ params }: TravelInfoPageProps) {
   const { locale, slug } = await params;
   
@@ -156,23 +159,73 @@ export default async function TravelInfoPage({ params }: TravelInfoPageProps) {
     icon: travelInfoData[s].icon
   }));
 
+  const cleanSubtitle = subtitle.length > 90 ? subtitle.slice(0, 87) + "..." : subtitle;
+  const infoSlides = [
+    {
+      image: image,
+      title: title,
+      subtitle: "MH India Trips Travel Guide",
+      location: "India Travel Desk",
+      description: cleanSubtitle,
+      objectPosition: "center 25%"
+    },
+    {
+      image: "/images/taj_mahal_sunrise.png",
+      title: "Luxury Travel Concierge",
+      subtitle: "MH India Trips",
+      location: "India Desk",
+      description: "Everything you need to know for a seamless luxury journey across India.",
+      objectPosition: "center 25%"
+    }
+  ];
+
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1A1E1D]">
-      {/* Hero Header */}
-      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
-        <div className="relative z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center justify-center space-y-4">
-          <div className="flex items-center gap-3 justify-center">
-            <div className="w-10 h-10 bg-[#C5A862]/20 flex items-center justify-center rounded-full shrink-0">
-              <Icon className="w-5 h-5 text-[#C5A862]" />
-            </div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-white tracking-tight leading-tight">{title}</h1>
-          </div>
-          <p className="text-xs sm:text-sm text-white/80 font-light max-w-2xl mx-auto leading-relaxed">{subtitle}</p>
-        </div>
-      </section>
+      {/* Hero Slider */}
+      <PageHeroSlider locale={locale} slides={infoSlides} showBreadcrumb={`MH India Trips / Travel Guide / ${title}`} />
 
       {/* Content */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-20">
+
+        {/* Official Visa Notice Banner if Visa Page */}
+        {slug === "visa-entry-requirements" && (
+          <div className="mb-12 bg-gradient-to-r from-[#0A2A1E] to-[#124230] text-white p-6 md:p-8 rounded-2xl shadow-xl border border-[#C5A862]/30 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-[#C5A862]/20 flex items-center justify-center text-[#C5A862] shrink-0">
+                <Shield className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-[10px] uppercase tracking-[0.2em] text-[#C5A862] font-bold block">
+                  Official Government e-Visa Portal
+                </span>
+                <h3 className="text-xl font-serif font-bold text-white">
+                  Apply Directly on the Official Government Website
+                </h3>
+              </div>
+            </div>
+            
+            <p className="text-xs md:text-sm text-white/85 font-light leading-relaxed">
+              {lang === "es"
+                ? "ADVERTENCIA: Aplique su e-Visa únicamente en el sitio web oficial del Gobierno de la India. Tenga cuidado con agencias de terceros o sitios web no autorizados que cobran tarifas excesivas."
+                : lang === "pt"
+                ? "AVISO: Solicite seu e-Visa exclusivamente no site oficial do Governo da Índia. Cuidado com sites de terceiros ou agências não autorizadas que cobram taxas abusivas."
+                : "IMPORTANT NOTICE: Apply for your official Indian e-Visa ONLY via the official Indian Government portal. Beware of fraudulent third-party agency websites charging unauthorized service fees."}
+            </p>
+
+            <div className="pt-2 flex flex-wrap items-center gap-4">
+              <a
+                href="https://indianvisaonline.gov.in/evisa/tvoa.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#C5A862] hover:bg-[#D8BE83] text-[#0A2A1E] text-xs font-bold uppercase tracking-wider py-3.5 px-6 rounded-full transition-all shadow-md hover:scale-105"
+              >
+                <span>Visit Official Govt Website (indianvisaonline.gov.in)</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           
           {/* Main Content */}
@@ -203,14 +256,35 @@ export default async function TravelInfoPage({ params }: TravelInfoPageProps) {
 
           {/* Sidebar */}
           <div className="space-y-6 lg:sticky lg:top-24 h-fit">
+            {/* Official Visa Card if Visa Page */}
+            {slug === "visa-entry-requirements" && (
+              <div className="bg-[#FAF8F5] border-2 border-[#C5A862]/40 p-5 rounded-xl space-y-3">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#0A2A1E] flex items-center gap-2">
+                  <Shield className="w-4 h-4 text-[#C5A862]" />
+                  <span>Official e-Visa Portal</span>
+                </h4>
+                <p className="text-[11px] text-[#1A1E1D]/70 leading-relaxed font-light">
+                  Direct official link to Indian Govt e-Visa portal:
+                </p>
+                <a
+                  href="https://indianvisaonline.gov.in/evisa/tvoa.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-center bg-[#0A2A1E] text-white hover:bg-[#0A2A1E]/90 text-[10px] font-bold uppercase tracking-wider py-2.5 px-3 rounded-lg transition-colors"
+                >
+                  Govt e-Visa Website
+                </a>
+              </div>
+            )}
+
             {/* Other Travel Info Pages */}
-            <div className="bg-white border border-[#C5A862]/15 p-6 space-y-4">
+            <div className="bg-white border border-[#C5A862]/15 p-6 space-y-4 rounded-xl">
               <h3 className="text-[10px] uppercase tracking-widest font-bold text-[#1A1E1D]">More Travel Info</h3>
               <div className="space-y-2">
                 {otherPages.map((p) => {
                   const OtherIcon = p.icon;
                   return (
-                    <Link key={p.slug} href={`/${locale}/travel-info/${p.slug}`} className="flex items-center gap-3 p-3 hover:bg-[#FAF8F5] transition-colors group">
+                    <Link key={p.slug} href={`/${locale}/travel-info/${p.slug}`} className="flex items-center gap-3 p-3 hover:bg-[#FAF8F5] transition-colors group rounded-lg">
                       <OtherIcon className="w-4 h-4 text-[#C5A862] shrink-0" />
                       <span className="text-xs font-medium text-[#1A1E1D]/70 group-hover:text-[#C5A862] transition-colors">{p.title}</span>
                       <ArrowRight className="w-3 h-3 text-[#C5A862] ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -221,12 +295,12 @@ export default async function TravelInfoPage({ params }: TravelInfoPageProps) {
             </div>
 
             {/* CTA */}
-            <div className="bg-[#0A2A1E] p-6 space-y-4 text-white">
+            <div className="bg-[#0A2A1E] p-6 space-y-4 text-white rounded-xl">
               <h4 className="text-sm font-bold">Need Help Planning?</h4>
               <p className="text-[11px] text-white/60 font-light leading-relaxed">
                 Our travel experts can answer all your questions and help plan the perfect India trip.
               </p>
-              <Link href={`/${locale}/contact`} className="block w-full text-center bg-[#C5A862] text-[#0A2A1E] text-[10px] font-bold uppercase tracking-wider py-3 hover:bg-[#D8BE83] transition-colors">
+              <Link href={`/${locale}/contact`} className="block w-full text-center bg-[#C5A862] text-[#0A2A1E] text-[10px] font-bold uppercase tracking-wider py-3 hover:bg-[#D8BE83] transition-colors rounded-lg">
                 Contact Us
               </Link>
             </div>

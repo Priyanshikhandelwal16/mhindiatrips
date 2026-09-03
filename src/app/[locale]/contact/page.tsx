@@ -10,6 +10,8 @@ interface ContactPageProps {
   params: Promise<{ locale: string }>;
 }
 
+import PageHeroSlider from "@/components/common/PageHeroSlider";
+
 export default async function ContactPage({ params }: ContactPageProps) {
   const { locale } = await params;
   const pageData = await getPageByIdAction("contact");
@@ -70,19 +72,30 @@ export default async function ContactPage({ params }: ContactPageProps) {
   }
   const text = mergedT[locale] || mergedT.en;
 
+  const contactSlides = [
+    {
+      image: "/images/taj_mahal_sunrise.png",
+      title: text.hero,
+      subtitle: text.heroSub,
+      location: text.address,
+      description: text.heroDesc,
+      objectPosition: "center 25%"
+    },
+    {
+      image: "/images/rajasthan_fort_sunset.png",
+      title: "24/7 Concierge Support",
+      subtitle: text.heroSub,
+      location: "New Delhi Travel Desk",
+      description: "Our luxury travel advisors are available 24/7 to design your custom journey.",
+      objectPosition: "center 25%"
+    }
+  ];
+
   return (
     <div className="font-sans bg-[#FAF8F5] min-h-screen text-[#1B1B1B]">
       
-      {/* SECTION 1: Banner Header */}
-      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
-        <div className="relative z-10 text-center text-white space-y-4 px-6 max-w-5xl">
-          <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
-            {text.heroSub}
-          </span>
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-white">{text.hero}</h1>
-          <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed">{text.heroDesc}</p>
-        </div>
-      </section>
+      {/* SECTION 1: Hero Slider */}
+      <PageHeroSlider locale={locale} slides={contactSlides} showBreadcrumb={`MH India Trips / ${text.heroSub}`} />
 
       {/* SECTION 2: Split columns */}
       <section className="max-w-7xl mx-auto px-6 py-24">

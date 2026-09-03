@@ -108,7 +108,7 @@ export default function TravelerInfoCarousel({ locale, cardImages = {} }: Travel
               <Shield className="w-4 h-4" />
               {text.subtitle}
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+            <h2 className="text-4xl md:text-5xl font-bold font-serif tracking-tight text-white">
               {text.title}
             </h2>
             <p className="text-sm md:text-base text-white/60 leading-relaxed font-light">

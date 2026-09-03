@@ -8,6 +8,7 @@ import {
   ChevronLeft, Info, HelpCircle, DollarSign, ShieldAlert, Globe
 } from "lucide-react";
 import Reveal from "@/components/home/Reveal";
+import PageHeroSlider from "@/components/common/PageHeroSlider";
 
 interface PackageDetailProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -187,12 +188,6 @@ export default async function PackageDetailPage({ params }: PackageDetailProps) 
 
   const text = t[locale as keyof typeof t] || t.en;
 
-  // Get related packages
-  const allPackages = await getTourPackagesAction();
-  const related = allPackages
-    .filter((p: any) => p.slug !== slug && p.category === pkg.category)
-    .slice(0, 3);
-
   // Currency Formatter helper
   const formatPrice = (val: number, currency: string = "USD") => {
     return new Intl.NumberFormat(locale === "es" ? "es-ES" : locale === "pt" ? "pt-BR" : "en-US", {
@@ -201,26 +196,33 @@ export default async function PackageDetailPage({ params }: PackageDetailProps) 
     }).format(val);
   };
 
+  // Get related packages
+  const allPackages = await getTourPackagesAction();
+  const related = allPackages
+    .filter((p: any) => p.slug !== slug && p.category === pkg.category)
+    .slice(0, 3);
+
+  const pkgTitle = pkg.title?.[lang] || pkg.title?.en || "";
+  const pkgTagline = pkg.tagline?.[lang] || pkg.tagline?.en || "";
+
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
 
-      {/* 1. Hero Section */}
-      <section className="relative bg-[#0A2A1E] text-white pt-16 pb-12 flex items-end overflow-hidden w-full">
-        
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-16 space-y-5">
-          {/* Back link */}
-          <Link href={`/${locale}/packages`} className="inline-flex items-center gap-1.5 text-white/60 hover:text-white text-xs font-medium transition-colors">
-            <ChevronLeft className="w-4 h-4" />
+      {/* Hero Banner */}
+      <section className="relative bg-[#0A2A1E] text-white pt-14 pb-14 overflow-hidden border-b border-[#C5A862]/20">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#134432] via-[#0A2A1E] to-[#04140D] opacity-95 pointer-events-none" />
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 space-y-4">
+          <Link href={`/${locale}/packages`} className="inline-flex items-center gap-1.5 text-white/70 hover:text-white text-xs font-medium transition-colors">
+            <ChevronLeft className="w-4 h-4 text-[#C5A862]" />
             <span>{text.backToPackages}</span>
           </Link>
 
-          {/* Badges */}
           <div className="flex flex-wrap items-center gap-3">
-            <span className="bg-[#C3AB85] text-[#0B0D0C] text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+            <span className="bg-[#C5A862] text-[#0A2A1E] text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
               {pkg.category}
             </span>
             <span className="bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full flex items-center gap-1.5">
-              <Calendar className="w-3.5 h-3.5" />
+              <Calendar className="w-3.5 h-3.5 text-[#C5A862]" />
               {pkg.durationDays} {text.daysLabel} / {pkg.durationNights || (pkg.durationDays - 1)} Nights
             </span>
             <span className="bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
@@ -228,12 +230,11 @@ export default async function PackageDetailPage({ params }: PackageDetailProps) 
             </span>
           </div>
 
-          {/* 2. Title & Tagline */}
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] max-w-4xl font-serif">
-            {pkg.title?.[lang] || pkg.title?.en}
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight max-w-4xl">
+            {pkgTitle}
           </h1>
-          <p className="text-sm md:text-base text-white/75 max-w-2xl font-light leading-relaxed">
-            {pkg.tagline?.[lang] || pkg.tagline?.en}
+          <p className="text-sm md:text-base text-white/80 max-w-2xl font-light leading-relaxed">
+            {pkgTagline}
           </p>
         </div>
       </section>

@@ -237,7 +237,7 @@ export default function ItineraryPlanner({ locale }: { locale: string }) {
             <Sparkles className="w-4 h-4 animate-pulse" />
             Interactive Bespoke Concierge
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-bold font-serif tracking-tight text-white">
             Design Your Perfect India Journey
           </h2>
           <p className="text-sm md:text-base text-white/70 font-light max-w-2xl mx-auto leading-relaxed">

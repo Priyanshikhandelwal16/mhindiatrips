@@ -3,6 +3,7 @@ import { getPageByIdAction } from "@/app/actions/queries";
 import Reveal from "@/components/home/Reveal";
 import Link from "next/link";
 import { ArrowRight, Shield, Calendar, Heart, Compass, Wallet, Briefcase } from "lucide-react";
+import PageHeroSlider from "@/components/common/PageHeroSlider";
 
 interface FAQPageProps {
   params: Promise<{ locale: string }>;
@@ -62,15 +63,15 @@ export default async function FAQPage({ params }: FAQPageProps) {
       sectionTitle: "Guias Essenciais",
       sectionDesc: "Conselhos importantes categorizados para a tranquilidade do viajante.",
       faqTitle: "Perguntas Frequentes",
-      faqDesc: "Encontre respostas para as dúvidas mais comuns de concierge antes de sua partida.",
-      ctaTitle: "Tem requisitos específicos?",
-      ctaBtn: "Fale Conosco",
-      guide1Title: "Mulher viajando sozinha",
-      guide1Desc: "A Índia é acolhedora para os visitantes. Para mulheres viajando sozinhas, garantimos traslados privados com motoristas profissionais verificados, guias locais credenciados e assistência de concierge ativa 24/7.",
-      guide2Title: "Quando viajar e Clima",
-      guide2Desc: "De outubro a março é a temporada ideal para a maioria das regiões, com dias amenos e noites frescas. O Himalaia é perfeito no verão e o sul permanece verde e exuberante o ano todo.",
-      guide3Title: "Vacinas e Saúde na Índia",
-      guide3Desc: "Precauções básicas garantem férias perfeitas. Recomendamos vacinas de rotina atualizadas. Beba apenas água mineral engarrafada, coma em locais higiênicos selecionados e leve itens básicos de saúde.",
+      faqDesc: "Encontre respostas para as perguntas mais comuns de concierge antes de sua partida.",
+      ctaTitle: "Tem solicitações personalizadas?",
+      ctaBtn: "Consultar Agora",
+      guide1Title: "Mulher viajando sozinha na Índia",
+      guide1Desc: "A Índia é muito acolhedora para visitantes. Para mulheres viajando sozinhas, garantimos traslados privados com motoristas verificados, guias locais certificados e suporte 24h.",
+      guide2Title: "Melhor Época para Visitar",
+      guide2Desc: "De outubro a março é a época ideal para a maior parte da Índia. As regiões do Himalaia são perfeitas no verão, e o Sul permanece verde o ano todo.",
+      guide3Title: "Vacinação e Saúde",
+      guide3Desc: "Precauções básicas garantem ótimas férias. Recomendamos vacinas de rotina em dia, beber apenas água engarrafada e comer em restaurantes verificados.",
       guide4Title: "Moeda e Pagamentos",
       guide4Desc: "A moeda local é a Rúpia Indiana (INR). Cartões de crédito internacionais são amplamente aceitos em hotéis de luxo, boutiques e restaurantes. Ter dinheiro em mãos é útil para gorjetas e mercados locais.",
       guide5Title: "Bagagem e Roupas",
@@ -89,6 +90,33 @@ export default async function FAQPage({ params }: FAQPageProps) {
     }
   }
   const text = mergedT[locale] || mergedT.en;
+
+  const faqSlides = [
+    {
+      image: "/images/taj_mahal_sunrise.png",
+      title: text.heroTitle,
+      subtitle: text.heroSub,
+      location: "India Travel Desk",
+      description: text.heroDesc,
+      objectPosition: "center 25%"
+    },
+    {
+      image: "/images/rajasthan_fort_sunset.png",
+      title: text.guide1Title,
+      subtitle: text.heroSub,
+      location: "Private Chauffeur & Verified Guides",
+      description: text.guide1Desc,
+      objectPosition: "center 25%"
+    },
+    {
+      image: "/images/kerala_backwaters_houseboat.png",
+      title: text.guide2Title,
+      subtitle: text.heroSub,
+      location: "Climate & Seasons",
+      description: text.guide2Desc,
+      objectPosition: "center 25%"
+    }
+  ];
 
   const dbFaqs = pageData?.content?.faqs || [];
   const faqs = dbFaqs.length > 0 
@@ -126,16 +154,8 @@ export default async function FAQPage({ params }: FAQPageProps) {
   return (
     <div className="bg-[#FAF8F5] min-h-screen text-[#1B1B1B] font-sans">
       
-      {/* Hero Banner */}
-      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
-        <div className="relative z-10 text-center text-white px-6 max-w-4xl space-y-4">
-          <span className="bg-gold text-royal text-[10px] font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
-            {text.heroSub}
-          </span>
-          <h1 className="text-3xl md:text-5xl font-bold font-serif text-white tracking-tight leading-tight">{text.heroTitle}</h1>
-          <p className="text-sm md:text-base text-white/90 font-light max-w-2xl mx-auto leading-relaxed">{text.heroDesc}</p>
-        </div>
-      </section>
+      {/* Hero Slider */}
+      <PageHeroSlider locale={locale} slides={faqSlides} showBreadcrumb={`MH India Trips / ${text.heroSub}`} />
 
       {/* Info Sections Grid */}
       <section className="py-28 max-w-7xl mx-auto px-6 space-y-20">

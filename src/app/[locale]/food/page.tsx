@@ -8,6 +8,8 @@ interface FoodIndexPageProps {
   params: Promise<{ locale: string }>;
 }
 
+import PageHeroSlider from "@/components/common/PageHeroSlider";
+
 export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
   const { locale } = await params;
   const foods = (await getFoodsAction()).slice(0, 15);
@@ -41,6 +43,36 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
   if (dbContent.heroTitle?.[locale]) text.title = dbContent.heroTitle[locale];
   if (dbContent.heroSubtitle?.[locale]) text.desc = dbContent.heroSubtitle[locale];
 
+  const lang = (locale === "es" || locale === "pt") ? locale : "en";
+
+  // Build slider slides from food list
+  const foodSlides = foods.slice(0, 5).map((f: any) => {
+    const rawDesc = f.description?.[lang] || f.description?.en || text.desc;
+    const cleanDesc = rawDesc.length > 90 ? rawDesc.slice(0, 87) + "..." : rawDesc;
+
+    return {
+      image: f.image || "/images/destination_fallback.jpg",
+      title: f.name?.[lang] || f.name?.en || text.title,
+      subtitle: f.region || text.sub,
+      location: f.region || "India",
+      description: cleanDesc,
+      objectPosition: "center 25%",
+      ctaText: text.cta,
+      ctaLink: `/food/${f.slug}`
+    };
+  });
+
+  if (foodSlides.length === 0) {
+    foodSlides.push({
+      image: "/images/indian_cuisine_feast.png",
+      title: text.title,
+      subtitle: text.sub,
+      location: "India",
+      description: text.desc,
+      objectPosition: "center 25%"
+    });
+  }
+
   // Ordered list of regions to display logically
   const regionsOrder = ["North India", "South India", "West India", "East India", "Central India", "Coastal India"];
   
@@ -59,20 +91,8 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
-      {/* SECTION 1: Banner Header */}
-      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
-        <div className="relative z-10 text-center text-white space-y-4 px-6 max-w-5xl">
-          <span className="bg-[#0A2A1E]/80 border border-[#C5A862]/30 text-gold text-xs font-bold uppercase tracking-[0.25em] px-5 py-2.5 rounded-full inline-block shadow-lg">
-            {text.sub}
-          </span>
-          <h1 className="text-3xl md:text-5xl font-serif font-normal tracking-tight leading-none text-white">
-            {text.title}
-          </h1>
-          <p className="text-sm md:text-base text-white/95 max-w-2xl mx-auto font-light leading-relaxed">
-            {text.desc}
-          </p>
-        </div>
-      </section>
+      {/* SECTION 1: Hero Slider */}
+      <PageHeroSlider locale={locale} slides={foodSlides} showBreadcrumb={`MH India Trips / ${text.sub}`} />
  
       {/* SECTION 2: Regions lists */}
       <section className="max-w-7xl mx-auto px-6 py-28 space-y-24">

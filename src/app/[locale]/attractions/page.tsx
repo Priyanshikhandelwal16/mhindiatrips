@@ -10,6 +10,8 @@ interface AttractionsPageProps {
   params: Promise<{ locale: string }>;
 }
 
+import PageHeroSlider from "@/components/common/PageHeroSlider";
+
 export default async function AttractionsPage({ params }: AttractionsPageProps) {
   const { locale } = await params;
   const pageData = await getPageByIdAction("attractions");
@@ -69,23 +71,27 @@ export default async function AttractionsPage({ params }: AttractionsPageProps) 
     { name: "Hampi Ruins", city: "Hampi", state: "Karnataka", image: "/images/hampi-ruins.jpg", desc: "The ancient capital of the Vijayanagara Empire, showcasing dramatic boulder landscapes and temples." }
   ];
 
+  const attractionSlides = attractions.slice(0, 5).map((att: any) => {
+    const rawDesc = att.desc || heroSubtitle;
+    const cleanDesc = rawDesc.length > 90 ? rawDesc.slice(0, 87) + "..." : rawDesc;
+
+    return {
+      image: att.image || "/images/destination_fallback.jpg",
+      title: att.name || heroTitle,
+      subtitle: text.sub,
+      location: `${att.city ? att.city + ", " : ""}${att.state || "India"}`,
+      description: cleanDesc,
+      objectPosition: "center 25%",
+      ctaText: text.inquireBtn,
+      ctaLink: "/contact"
+    };
+  });
+
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
-      {/* 1. Dynamic Hero Header */}
-      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
-        <div className="relative z-10 text-center text-white space-y-4 px-6 max-w-4xl">
-          <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
-            {text.sub}
-          </span>
-          <h1 className="text-3xl md:text-5xl font-serif font-normal tracking-tight leading-tight text-white">
-            {heroTitle}
-          </h1>
-          <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
-            {heroSubtitle}
-          </p>
-        </div>
-      </section>
+      {/* 1. Dynamic Hero Slider */}
+      <PageHeroSlider locale={locale} slides={attractionSlides} showBreadcrumb={`MH India Trips / ${text.sub}`} />
 
       {/* 2. Intro Section */}
       <section className="max-w-4xl mx-auto px-6 py-20 text-center space-y-6">

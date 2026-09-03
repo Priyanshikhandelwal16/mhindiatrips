@@ -22,17 +22,23 @@ import path from "path";
 
 // Read states.json synchronously at module initialization
 let statesJsonArray: any[] = [];
+let citiesJsonArray: any[] = [];
 try {
   const statesFilePath = path.join(process.cwd(), "src", "data", "fallback", "states.json");
   if (fs.existsSync(statesFilePath)) {
     statesJsonArray = JSON.parse(fs.readFileSync(statesFilePath, "utf-8"));
   }
+  const citiesFilePath = path.join(process.cwd(), "src", "data", "fallback", "cities.json");
+  if (fs.existsSync(citiesFilePath)) {
+    citiesJsonArray = JSON.parse(fs.readFileSync(citiesFilePath, "utf-8"));
+  }
 } catch (e) {
   // Fallback silently
 }
 
-// Use states.json if it has data, otherwise fall back to mockData merge
+// Use fallback JSON if available, otherwise fall back to mockData merge
 const mergedStates: any[] = (statesJsonArray && statesJsonArray.length > 0) ? statesJsonArray : [...statesData, ...additionalStates];
+const mergedCities: any[] = (citiesJsonArray && citiesJsonArray.length > 0) ? citiesJsonArray : [];
 const mergedFoods = [...foodsData, ...additionalFoods];
 const mergedBlogs = [...blogsData, ...additionalBlogs];
 const mergedPackages = [...initialTourPackages, ...additionalPackages];
@@ -122,8 +128,10 @@ const saveLocalData = (name: string, data: any) => {
 // Initialize cache from local storage if available
 let inquiriesCache = loadLocalData("inquiries", []);
 let blogsCache = loadLocalData("blogs", mergedBlogs);
-let statesCache = loadLocalData("states", []);
-let citiesCache = loadLocalData("cities", []);
+let statesCache = loadLocalData("states", mergedStates);
+let citiesCache = loadLocalData("cities", mergedCities);
+if (!statesCache || statesCache.length === 0) statesCache = mergedStates;
+if (!citiesCache || citiesCache.length === 0) citiesCache = mergedCities;
 let foodsCache = loadLocalData("foods", mergedFoods);
 let testimonialsCache = loadLocalData("testimonials", initialTestimonials);
 let tourPackagesCache = loadLocalData("tour_packages", mergedPackages);
@@ -920,7 +928,16 @@ export const db = {
     },
     findUnique: async (id: string) => {
       const allStates = await db.states.findMany();
-      return allStates.find((s: any) => s.id === id || s.slug?.en === id || s.slug?.es === id || s.slug?.pt === id) || null;
+      if (!id) return null;
+      const target = String(id).toLowerCase().trim();
+      return allStates.find((s: any) => {
+        if (!s) return false;
+        const sId = String(s.id || "").toLowerCase();
+        const slugEn = String(s.slug?.en || s.slug || "").toLowerCase();
+        const slugEs = String(s.slug?.es || s.slug || "").toLowerCase();
+        const slugPt = String(s.slug?.pt || s.slug || "").toLowerCase();
+        return sId === target || slugEn === target || slugEs === target || slugPt === target;
+      }) || null;
     },
     create: async (data: any) => {
       const id = data.id || Math.random().toString(36).substring(2, 11);
@@ -1025,7 +1042,16 @@ export const db = {
     },
     findUnique: async (id: string) => {
       const allCities = await db.cities.findMany();
-      return allCities.find((c: any) => c.id === id || c.slug?.en === id || c.slug?.es === id || c.slug?.pt === id) || null;
+      if (!id) return null;
+      const target = String(id).toLowerCase().trim();
+      return allCities.find((c: any) => {
+        if (!c) return false;
+        const cId = String(c.id || "").toLowerCase();
+        const slugEn = String(c.slug?.en || c.slug || "").toLowerCase();
+        const slugEs = String(c.slug?.es || c.slug || "").toLowerCase();
+        const slugPt = String(c.slug?.pt || c.slug || "").toLowerCase();
+        return cId === target || slugEn === target || slugEs === target || slugPt === target;
+      }) || null;
     },
     findByState: async (stateId: string) => {
       const allCities = await db.cities.findMany();

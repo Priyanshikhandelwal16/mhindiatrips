@@ -4,6 +4,7 @@ import { getBlogsAction, getPageByIdAction } from "@/app/actions/queries";
 import { BlogData } from "@/data/mockData";
 import { Clock, ArrowRight, Sparkles } from "lucide-react";
 import Reveal from "@/components/home/Reveal";
+import PageHeroSlider from "@/components/common/PageHeroSlider";
 
 interface BlogIndexPageProps {
   params: Promise<{ locale: string }>;
@@ -67,6 +68,7 @@ export default async function BlogIndexPage({ params, searchParams }: BlogIndexP
     if (dbContent.heroSubtitle?.[lang]) mergedT[lang].desc = dbContent.heroSubtitle[lang];
   }
   const text = mergedT[locale] || mergedT.en;
+  const lang = (locale === "es" || locale === "pt") ? locale : "en";
 
   const getLocalizedValue = (field: any, l: string): string => {
     if (!field) return "";
@@ -82,19 +84,39 @@ export default async function BlogIndexPage({ params, searchParams }: BlogIndexP
     ? blogs.filter((b: any) => (b.category || "").toLowerCase() === activeCategory.toLowerCase())
     : blogs.slice(1);
 
+  // Build blog slides
+  const blogSlides = blogs.slice(0, 5).map((b: any) => {
+    const rawDesc = getLocalizedValue(b.excerpt, lang) || text.desc;
+    const cleanDesc = rawDesc.length > 90 ? rawDesc.slice(0, 87) + "..." : rawDesc;
+
+    return {
+      image: b.image || "/images/destination_fallback.jpg",
+      title: getLocalizedValue(b.title, lang) || text.title,
+      subtitle: b.category || text.sub,
+      location: b.readTime || "India",
+      description: cleanDesc,
+      objectPosition: "center 25%",
+      ctaText: text.cta,
+      ctaLink: `/blog/${b.slug}`
+    };
+  });
+
+  if (blogSlides.length === 0) {
+    blogSlides.push({
+      image: "/images/rajasthan_fort_sunset.png",
+      title: text.title,
+      subtitle: text.sub,
+      location: "India",
+      description: text.desc,
+      objectPosition: "center 25%"
+    });
+  }
+
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
-      {/* SECTION 1: Cinematic Hero Banner */}
-      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
-        <div className="relative z-10 text-center text-white space-y-4 px-6 max-w-4xl">
-          <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
-            {text.sub}
-          </span>
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-white">{text.title}</h1>
-          <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed">{text.desc}</p>
-        </div>
-      </section>
+      {/* SECTION 1: Hero Slider */}
+      <PageHeroSlider locale={locale} slides={blogSlides} showBreadcrumb={`MH India Trips / ${text.sub}`} />
 
       {/* SECTION 2: Featured Article Spotlight */}
       {featuredBlog && (

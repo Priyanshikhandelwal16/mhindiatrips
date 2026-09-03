@@ -168,7 +168,7 @@ export default function MonumentsAccordion({ locale, monuments }: MonumentsAccor
           {/* Title */}
           <div className="text-center space-y-3">
             <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">Heritage Sites</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-royal tracking-tight" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+            <h2 className="text-4xl md:text-5xl font-bold font-serif text-royal tracking-tight">
               {text.sectionTitle}
             </h2>
             <div className="h-[2px] w-20 bg-gold/30 mx-auto mt-4" />
@@ -205,7 +205,7 @@ export default function MonumentsAccordion({ locale, monuments }: MonumentsAccor
                     <div className="absolute inset-0 flex items-center justify-center z-10">
                       <span
                         className="text-white/90 font-bold text-[11px] uppercase tracking-[0.2em] whitespace-nowrap select-none"
-                        style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", fontFamily: "Helvetica, Arial, sans-serif" }}
+                        style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
                       >
                         {verticalTitleText}
                       </span>
@@ -220,7 +220,7 @@ export default function MonumentsAccordion({ locale, monuments }: MonumentsAccor
                           <MapPin className="w-3.5 h-3.5 text-gold" />
                           <span className="text-[10px] uppercase tracking-widest text-gold font-bold">{item.city}, {item.state}</span>
                         </div>
-                        <h3 className="text-2xl md:text-3xl font-bold text-white leading-tight" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+                        <h3 className="text-2xl md:text-3xl font-bold font-serif text-white leading-tight">
                           {titleText}
                         </h3>
                       </div>
@@ -282,7 +282,7 @@ export default function MonumentsAccordion({ locale, monuments }: MonumentsAccor
                   <MapPin className="w-3.5 h-3.5 text-gold" />
                   <span className="text-[10px] uppercase tracking-widest text-gold font-bold">{selectedMonument.city}, {selectedMonument.state}</span>
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+                <h2 className="text-2xl md:text-3xl font-bold font-serif text-white">
                   {selectedMonument.title[locale as "en" | "es" | "pt"]}
                 </h2>
               </div>

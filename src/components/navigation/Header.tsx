@@ -145,6 +145,13 @@ export default function Header({ locale, contactDetails, states = [], packages =
     { code: "pt", name: "Português" }
   ];
 
+  const handleSelectLanguage = (targetLocale: string) => {
+    if (typeof document !== "undefined") {
+      document.cookie = `NEXT_LOCALE=${targetLocale}; path=/; max-age=31536000; SameSite=Lax`;
+    }
+    setLangMenuOpen(false);
+  };
+
   const switchLocalePath = (targetLocale: string) => {
     if (!pathname) return `/${targetLocale}`;
     const segments = pathname.split("/");
@@ -153,7 +160,14 @@ export default function Header({ locale, contactDetails, states = [], packages =
     } else {
       segments.splice(1, 0, targetLocale);
     }
-    return segments.join("/");
+
+    if (segments[2] === "destinations-in-india" || segments[2] === "destinos-en-india" || segments[2] === "destinos-na-india") {
+      if (targetLocale === "es") segments[2] = "destinos-en-india";
+      else if (targetLocale === "pt") segments[2] = "destinos-na-india";
+      else segments[2] = "destinations-in-india";
+    }
+
+    return segments.join("/") || `/${targetLocale}`;
   };
 
   const isActive = (path: string) => {
@@ -172,22 +186,22 @@ export default function Header({ locale, contactDetails, states = [], packages =
   const textColor = scrolled ? "text-white/80 hover:text-gold" : "text-royal hover:text-gold";
 
   const linkClass = (path: string) => {
-    const base = "text-[9px] xl:text-[9.5px] 2xl:text-[11px] font-bold uppercase tracking-[0.03em] xl:tracking-[0.06em] 2xl:tracking-[0.1em] whitespace-nowrap transition-all duration-300 relative py-2 shrink-0";
+    const base = "text-[8.5px] xl:text-[9px] 2xl:text-[10.5px] font-bold uppercase tracking-normal xl:tracking-tight 2xl:tracking-[0.08em] whitespace-nowrap transition-all duration-300 relative py-1.5 shrink-0";
     const activeColor = "text-gold";
     const inactiveColor = "text-royal hover:text-gold";
     return `${base} ${isActive(path) ? activeColor : inactiveColor}`;
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[9999] w-full font-sans border-b border-gold/10">
+    <header className="fixed top-0 left-0 right-0 z-[9999] w-full font-sans border-b border-gold/10 overflow-x-clip">
       
       {/* Elegant Top Bar (viajeaindia.com style) */}
       <div 
-        className={`bg-[#0A2A1E] text-white/90 text-[10px] md:text-xs py-2.5 px-6 border-b border-gold/10 relative z-20 transition-all duration-300 ${
+        className={`bg-[#0A2A1E] text-white/90 text-[10px] md:text-xs py-2.5 px-4 xl:px-6 border-b border-gold/10 relative z-20 transition-all duration-300 ${
           (scrolled || mobileMenuOpen) ? "h-0 py-0 border-0 opacity-0 overflow-hidden" : "h-auto opacity-100"
         }`}
       >
-        <div className="max-w-[1400px] w-full mx-auto px-6 xl:px-10 flex flex-col md:flex-row justify-between items-center gap-2">
+        <div className="max-w-[1600px] w-full mx-auto px-4 xl:px-8 flex flex-col md:flex-row justify-between items-center gap-2">
           <div className="flex items-center gap-6">
             <a href={`tel:${contactDetails?.phone || "+91 9829989187"}`} className="flex items-center gap-1.5 hover:text-gold transition-colors">
               <Phone className="w-3.5 h-3.5 text-gold" />
@@ -217,18 +231,23 @@ export default function Header({ locale, contactDetails, states = [], packages =
 
       {/* Main Premium Sticky Header (Full-width, clean white background, viajeaindia.com style) */}
       <div 
-        className="w-full border-b border-gold/10 relative z-50 bg-white py-4"
+        className="w-full border-b border-gold/10 relative z-50 bg-white py-3 2xl:py-4"
       >
-        <div className="max-w-[1400px] w-full mx-auto px-4 md:px-6 xl:px-10 flex items-center justify-between gap-3 xl:gap-5 flex-nowrap">
+        <div className="max-w-[1600px] w-full mx-auto px-3 xl:px-5 2xl:px-8 flex items-center justify-between gap-1.5 xl:gap-2.5 2xl:gap-5 flex-nowrap">
           
           {/* Custom style block to support live admin logo height customization */}
           <style dangerouslySetInnerHTML={{__html: `
             .logo-custom-height {
-              height: ${contactDetails?.logoHeightMobile || "48"}px !important;
+              height: ${contactDetails?.logoHeightMobile || "40"}px !important;
             }
             @media (min-width: 768px) {
               .logo-custom-height {
-                height: ${contactDetails?.logoHeightDesktop || "56"}px !important;
+                height: ${contactDetails?.logoHeightDesktop ? Math.min(Number(contactDetails.logoHeightDesktop), 46) : "44"}px !important;
+              }
+            }
+            @media (min-width: 1536px) {
+              .logo-custom-height {
+                height: ${contactDetails?.logoHeightDesktop || "54"}px !important;
               }
             }
           `}} />
@@ -243,7 +262,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center flex-nowrap gap-2.5 xl:gap-3 2xl:gap-5 shrink-0">
+          <nav className="hidden xl:flex items-center flex-nowrap gap-1.5 xl:gap-2 2xl:gap-4 shrink-0">
             
             {/* Home Link */}
             <Link
@@ -417,17 +436,17 @@ export default function Header({ locale, contactDetails, states = [], packages =
           </nav>
 
           {/* Right Action Menu */}
-          <div className="hidden xl:flex items-center gap-1.5 xl:gap-2 2xl:gap-4 z-20">
+          <div className="hidden xl:flex items-center gap-1 xl:gap-1.5 2xl:gap-3 z-20 shrink-0">
             
             {/* Globe Language Toggle */}
             <div className="relative">
               <button 
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
-                className="flex items-center gap-1 text-[9px] xl:text-[9.5px] 2xl:text-[10px] font-bold uppercase tracking-wider text-royal border border-gold/25 hover:border-gold hover:text-gold px-2.5 py-1.5 xl:px-3 xl:py-2 2xl:px-4 2xl:py-2 rounded-full cursor-pointer transition-all duration-300"
+                className="flex items-center gap-1 text-[8px] xl:text-[8.5px] 2xl:text-[10px] font-bold uppercase tracking-wider text-royal border border-gold/25 hover:border-gold hover:text-gold px-2 py-1 xl:px-2.5 xl:py-1.5 2xl:px-4 2xl:py-2 rounded-full cursor-pointer transition-all duration-300"
                 aria-label="Language Selector"
                 suppressHydrationWarning={true}
               >
-                <Globe className="w-3.5 h-3.5 text-gold" />
+                <Globe className="w-3 h-3 2xl:w-3.5 2xl:h-3.5 text-gold" />
                 <span>{locale}</span>
               </button>
               
@@ -439,7 +458,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
                       <Link
                         key={lang.code}
                         href={switchLocalePath(lang.code)}
-                        onClick={() => setLangMenuOpen(false)}
+                        onClick={() => handleSelectLanguage(lang.code)}
                         className={`block px-5 py-2 text-[11px] font-semibold tracking-wider uppercase text-royal hover:bg-gold/5 hover:text-gold transition-colors ${
                           locale === lang.code ? "text-gold font-extrabold bg-gold/5" : ""
                         }`}
@@ -455,10 +474,10 @@ export default function Header({ locale, contactDetails, states = [], packages =
             {/* Inquire CTA Button */}
             <Link 
               href={`/${locale}/contact`}
-              className="bg-[#0A2A1E] hover:bg-[#C5A862] hover:text-[#0A2A1E] text-white text-[9px] xl:text-[9.5px] 2xl:text-[10px] font-bold uppercase tracking-[0.05em] xl:tracking-[0.1em] px-3 py-2 xl:px-4 xl:py-2.5 2xl:px-5 2xl:py-3.5 rounded-full transition-all duration-300 hover:scale-105 inline-flex items-center gap-1.5 shadow-md border border-royal/10 whitespace-nowrap"
+              className="bg-[#0A2A1E] hover:bg-[#C5A862] hover:text-[#0A2A1E] text-white text-[8px] xl:text-[8.5px] 2xl:text-[10px] font-bold uppercase tracking-[0.03em] 2xl:tracking-[0.1em] px-2.5 py-1.5 xl:px-3.5 xl:py-2 2xl:px-5 2xl:py-3 rounded-full transition-all duration-300 hover:scale-105 inline-flex items-center gap-1 2xl:gap-1.5 shadow-md border border-royal/10 whitespace-nowrap"
             >
               <span>{labels.cta}</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3 h-3 2xl:w-3.5 2xl:h-3.5" />
             </Link>
           </div>
 

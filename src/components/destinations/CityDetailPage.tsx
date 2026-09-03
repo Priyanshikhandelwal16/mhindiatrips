@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { ChevronRight, Clock, HelpCircle, Phone, Mail, MapPin, Utensils, Hotel, Bus, Lightbulb, HelpCircle as FAQ } from "lucide-react";
 import SidebarInquiryForm from "@/components/common/SidebarInquiryForm";
+import PageHeroSlider from "@/components/common/PageHeroSlider";
 import { getLocalizedDestinationsPath } from "@/lib/utils";
 
 interface CityDetailPageProps {
@@ -76,7 +77,7 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
       gettingAround: "Como Se Locomover",
       localFood: "Gastronomia Local",
       travelInfo: "Informações de Viagem",
-      relatedToursTitle: "Pacotes de Viagens Sugeridos",
+      relatedToursTitle: "Pacotes Sugeridos",
       ctaTitle: "Precisa de Ajuda? Estamos Aqui Para Você",
       ctaDesc: "Podemos criar um roteiro especial para você. Fale com nossos especialistas.",
       phone: "+91 9829989187",
@@ -113,23 +114,55 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
   // Parse localFoodDishes
   const localFoodDishes = Array.isArray(city.localFoodDishes) ? city.localFoodDishes : [];
 
+  // Build slider slides for City
+  const cleanCityDesc = cityShortDesc.length > 90 ? cityShortDesc.slice(0, 87) + "..." : cityShortDesc;
+  const sliderSlides: any[] = [
+    {
+      image: cityImage,
+      title: cityTitle,
+      subtitle: `${stateTitle}, India`,
+      location: `${cityTitle}, ${stateTitle}`,
+      description: cleanCityDesc,
+      objectPosition: "center 25%"
+    }
+  ];
+
+  highlights.forEach((h: any) => {
+    const img = h.image || h.img;
+    if (img && sliderSlides.length < 5) {
+      const rawHDesc = getLocText(h.description);
+      const cleanHDesc = rawHDesc.length > 90 ? rawHDesc.slice(0, 87) + "..." : rawHDesc;
+      sliderSlides.push({
+        image: img,
+        title: getLocText(h.title) || cityTitle,
+        subtitle: text.highlights,
+        location: `${cityTitle}, ${stateTitle}`,
+        description: cleanHDesc,
+        objectPosition: "center 25%"
+      });
+    }
+  });
+
+  experiences.forEach((exp: any) => {
+    const img = exp.image || exp.img;
+    if (img && sliderSlides.length < 5) {
+      const rawExpDesc = getLocText(exp.description);
+      const cleanExpDesc = rawExpDesc.length > 90 ? rawExpDesc.slice(0, 87) + "..." : rawExpDesc;
+      sliderSlides.push({
+        image: img,
+        title: getLocText(exp.title) || cityTitle,
+        subtitle: text.experiences,
+        location: `${cityTitle}, ${stateTitle}`,
+        description: cleanExpDesc,
+        objectPosition: "center 25%"
+      });
+    }
+  });
+
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
-      {/* Hero Banner */}
-      <section className="relative bg-[#0A2A1E] text-white pt-16 pb-10 flex items-end overflow-hidden w-full">
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 space-y-3">
-
-
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
-            {cityTitle}
-          </h1>
-          {cityShortDesc && (
-            <p className="text-xs md:text-sm text-white/80 font-light max-w-3xl leading-relaxed">
-              {cityShortDesc}
-            </p>
-          )}
-        </div>
-      </section>
+      {/* Hero Header */}
+      <PageHeroSlider locale={locale} slides={sliderSlides} showBreadcrumb={`${stateTitle} / ${cityTitle}`} />
 
       {/* Main Content */}
       <section className="max-w-7xl mx-auto px-6 py-12 md:py-16">

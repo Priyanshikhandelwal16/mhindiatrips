@@ -4,6 +4,7 @@ import { Compass, Users, Heart, Star, Shield, Award, ArrowRight } from "lucide-r
 import { getPageByIdAction } from "@/app/actions/queries";
 import Reveal from "@/components/home/Reveal";
 import AboutStatsCounter from "@/components/common/AboutStatsCounter";
+import PageHeroSlider from "@/components/common/PageHeroSlider";
 
 interface AboutPageProps {
   params: Promise<{ locale: string }>;
@@ -58,29 +59,60 @@ export default async function AboutPage({ params }: AboutPageProps) {
       storyP1: "Fundada há mais de uma década, a MH India Trips nasceu de uma visão simples: mostrar o rico patrimônio, as cores vibrantes e a profundidade espiritual da Índia sem comprometer o conforto.",
       storyP2: "De jantares privados em fortes medievais do deserto a passeios sob medida em barcos nos canais de Kerala, nossa equipe trabalha incansavelmente para que cada detalhe seja perfeito.",
       missionTitle: "Nossa Missão",
-      missionText: "Unir o conforto de luxo com encontros locais autênticos, oferecendo total tranquilidade através de especialistas.",
+      missionText: "Unir o conforto de luxo com encontros locais autênticos, oferecendo total tranquilidade através de especialistas locais.",
       visionTitle: "Nossa Visão",
-      visionText: "Seguir sendo o designer de viagens privadas líder na Índia, reconhecido pelo nosso serviço excepcional e estadias em palácios reais.",
-      valuesTitle: "Nossos Valores Core",
+      visionText: "Continuar sendo o designer de viagens privadas líder na Índia, reconhecido globalmente por nosso serviço excepcional.",
+      valuesTitle: "Nossos Valores Principais",
       teamTitle: "Nossa Equipe de Especialistas",
-      teamDesc: "Conheça nossos consultores de destino bilíngues e coordenadores de logística.",
-      ctaTitle: "Pronto Para Planejar Sua Viagem à Índia?",
-      ctaDesc: "Entre em contato com nossos consultores de viagens de luxo hoje para começar a planejar seu itinerário sob medida.",
-      ctaBtn: "Fale Conosco",
+      teamDesc: "Conheça nossos consultores de viagem bilingues e especialistas em logística.",
+      ctaTitle: "Pronto Para Criar Sua Viagem?",
+      ctaDesc: "Entre em contato com nossos especialistas hoje para começar o planejamento.",
+      ctaBtn: "Solicitar Agora",
     }
   };
 
   const dbContent = pageData?.content || {};
-  const mergedT: Record<string, any> = {};
-  for (const lang of ["en", "es", "pt"]) {
-    mergedT[lang] = { ...t[lang] };
-    for (const key in dbContent) {
-      if (dbContent[key]?.[lang] !== undefined) {
-        mergedT[lang][key] = dbContent[key][lang];
+  const mergedT: Record<string, any> = { ...t };
+  if (dbContent) {
+    for (const l of ["en", "es", "pt"]) {
+      if (mergedT[l]) {
+        if (dbContent.heroSub?.[l]) mergedT[l].heroSub = dbContent.heroSub[l];
+        if (dbContent.hero?.[l]) mergedT[l].hero = dbContent.hero[l];
+        if (dbContent.heroDesc?.[l]) mergedT[l].heroDesc = dbContent.heroDesc[l];
       }
     }
   }
   const text = mergedT[locale] || mergedT.en;
+
+  const aboutSlides = [
+    {
+      image: "/images/rajasthan_fort_sunset.png",
+      title: text.hero,
+      subtitle: text.heroSub,
+      location: "Rajasthan & North India",
+      description: locale === "es" ? "Diseñando itinerarios privados de lujo desde 2010." : locale === "pt" ? "Criando roteiros privados de luxo desde 2010." : "Crafting bespoke private luxury journeys across India.",
+      ctaText: text.ctaBtn,
+      ctaLink: "/contact"
+    },
+    {
+      image: "/images/taj_mahal_sunrise.png",
+      title: text.storyTitle,
+      subtitle: text.heroSub,
+      location: "Agra & Taj Mahal",
+      description: locale === "es" ? "Patrimonio real y servicio personalizado incomparable." : locale === "pt" ? "Patrimônio real e serviço personalizado incomparável." : "Royal heritage hospitality with 24/7 dedicated concierge.",
+      ctaText: text.ctaBtn,
+      ctaLink: "/contact"
+    },
+    {
+      image: "/images/kerala_backwaters_houseboat.png",
+      title: "Kerala Backwaters & Serenity",
+      subtitle: text.heroSub,
+      location: "Kerala & South India",
+      description: locale === "es" ? "Cruceros privados y retiros de bienestar auténticos." : locale === "pt" ? "Cruzeiros privados e retiros de bem-estar autênticos." : "Private houseboat cruises and tranquil wellness retreats.",
+      ctaText: text.ctaBtn,
+      ctaLink: "/contact"
+    }
+  ];
 
   const values = [
     { icon: Shield, title: locale === "es" ? "Seguridad y Confianza" : locale === "pt" ? "Segurança e Confiança" : "Safety & Trust", desc: locale === "es" ? "Conductores experimentados y guías certificados en todo momento." : locale === "pt" ? "Motoristas experientes e guias certificados em todos os momentos." : "Fully certified bilingual guides and highly vetted private tourist drivers." },

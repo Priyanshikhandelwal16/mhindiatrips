@@ -65,26 +65,40 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
       onTouchEnd={handleTouchEnd}
     >
       {/* Slides */}
-      {slides.map((slide, i) => (
-        <div 
-          key={i} 
-          className={`hero-slide absolute inset-0 transition-all duration-700 ${i === current ? "z-10 opacity-100 visible" : "z-0 opacity-0 invisible pointer-events-none"}`}
-        >
-          <Image
-            src={slide.image}
-            alt={slide.title}
-            fill
-            priority={i === 0}
-            loading={i === 0 ? "eager" : "lazy"}
-            sizes="100vw"
-            className={`absolute inset-0 w-full h-full object-cover transition-[transform,opacity] duration-[3000ms] ease-out ${
-              i === current ? "scale-100 opacity-100" : "scale-[1.04] opacity-0"
-            }`}
-            style={{ objectPosition: slide.objectPosition || "center 30%" }}
-          />
-          {/* Premium center gradient overlay for readable text */}
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/55" />
+      {slides.map((slide, i) => {
+        let imgSrc = slide.image
+          ? slide.image.startsWith("/")
+            ? encodeURI(slide.image)
+            : slide.image
+          : "/images/destination_fallback.jpg";
+
+        if (imgSrc.includes("unsplash.com")) {
+          imgSrc = imgSrc.replace(/w=\d+/, "w=2560").replace(/q=\d+/, "q=95");
+          if (!imgSrc.includes("w=2560")) {
+            imgSrc += (imgSrc.includes("?") ? "&" : "?") + "w=2560&q=95";
+          }
+        }
+
+        return (
+          <div 
+            key={i} 
+            className={`hero-slide absolute inset-0 transition-all duration-1000 ${i === current ? "z-10 opacity-100 visible" : "z-0 opacity-0 invisible pointer-events-none"}`}
+          >
+            <Image
+              src={imgSrc}
+              alt={slide.title}
+              fill
+              priority={i === 0}
+              quality={100}
+              unoptimized
+              sizes="100vw"
+              className={`absolute inset-0 w-full h-full object-cover transform-gpu transition-transform duration-[4000ms] ease-out ${
+                i === current ? "scale-100" : "scale-[1.04]"
+              }`}
+              style={{ objectPosition: slide.objectPosition || "center center" }}
+            />
+            {/* Clean bottom vignette overlay for crystal clear photo rendering & readable text */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none" />
 
           {/* Content (Left aligned, shifted down and to the left) */}
           <div className="relative z-10 h-full flex items-end pb-24 md:pb-28">
@@ -107,7 +121,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
                 )}
 
                 {/* Title */}
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4.5rem] font-bold tracking-tight leading-[1.08]" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4.5rem] font-bold tracking-tight leading-[1.08] font-serif">
                   {slide.title}
                 </h1>
 
@@ -136,7 +150,8 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
             </div>
           </div>
         </div>
-      ))}
+      );
+    })}
 
       {/* Navigation Arrows */}
       <button

@@ -7,6 +7,7 @@ import Reveal from "@/components/home/Reveal";
 import { 
   Clock, ArrowLeft, User, Calendar, ChevronRight 
 } from "lucide-react";
+import PageHeroSlider from "@/components/common/PageHeroSlider";
 
 interface BlogDetailPageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -68,7 +69,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
       relatedDesc: "Más historias que podrían interesarle",
       ctaTitle: "¿Inspirado por Esta Historia?",
       ctaDesc: "Deje que nuestros especialistas conviertan su inspiración en un viaje personalizado.",
-      ctaBtn: "Planear Mi Viaje",
+      ctaBtn: "Planificar Mi Viaje",
       tableOfContents: "En Este Artículo",
       packagesTitle: "Explorar Paquetes Relacionados",
       packagesDesc: "Viajes artesanales inspirados en este artículo",
@@ -82,15 +83,15 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
       category: "Categoria",
       tags: "Tags",
       share: "Compartilhar Esta História",
-      authorBio: "Escritora de viagens e especialista em Índia com mais de 8 anos de experiência em narrativas de viagens de luxo.",
+      authorBio: "Escritora de viagens e especialista na Índia com mais de 8 anos de experiência em narrativas de viagens de luxo.",
       relatedTitle: "Continue Lendo",
       relatedDesc: "Mais histórias que você pode gostar",
       ctaTitle: "Inspirado por Esta História?",
-      ctaDesc: "Deixe nossos especialistas transformar sua inspiração em uma viagem personalizada.",
+      ctaDesc: "Deixe nossos especialistas transformarem sua inspiração em uma viagem personalizada.",
       ctaBtn: "Planejar Minha Viagem",
       tableOfContents: "Neste Artigo",
       packagesTitle: "Explorar Pacotes Relacionados",
-      packagesDesc: "Viagens artesanais inspiradas neste artigo",
+      packagesDesc: "Viagens inspiradas neste artigo",
       packagesBtn: "Ver Pacote",
       packagesDuration: "dias",
     }
@@ -114,44 +115,40 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
 
-      {/* Hero */}
-      <section className="relative bg-[#0A2A1E] text-white pt-16 pb-12 flex items-end overflow-hidden w-full">
-        
-        <div className="relative z-10 w-full max-w-4xl mx-auto px-6 pb-16 space-y-5">
-          {/* Back */}
-          <Link href={`/${locale}/blog`} className="inline-flex items-center gap-1.5 text-white/60 hover:text-white text-xs font-medium transition-colors">
-            <ArrowLeft className="w-4 h-4" />
+      {/* Hero Banner */}
+      <section className="relative bg-[#0A2A1E] text-white pt-14 pb-14 overflow-hidden border-b border-[#C5A862]/20">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#134432] via-[#0A2A1E] to-[#04140D] opacity-95 pointer-events-none" />
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-6 space-y-4">
+          <Link href={`/${locale}/blog`} className="inline-flex items-center gap-1.5 text-white/70 hover:text-white text-xs font-medium transition-colors">
+            <ArrowLeft className="w-4 h-4 text-[#C5A862]" />
             <span>{text.back}</span>
           </Link>
 
-          {/* Category badge */}
           <div className="flex flex-wrap items-center gap-3">
-            <span className="bg-[#C3AB85] text-[#0B0D0C] text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+            <span className="bg-[#C5A862] text-[#0A2A1E] text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
               {blog.category}
             </span>
-            <span className="text-white/50 text-xs flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5" />
+            <span className="text-white/60 text-xs flex items-center gap-1.5">
+              <Clock className="w-3.5 h-3.5 text-[#C5A862]" />
               {blog.readingTime} {text.readTime}
             </span>
-            <span className="text-white/50 text-xs flex items-center gap-1.5">
-              <Calendar className="w-3.5 h-3.5" />
+            <span className="text-white/60 text-xs flex items-center gap-1.5">
+              <Calendar className="w-3.5 h-3.5 text-[#C5A862]" />
               {blog.createdAt}
             </span>
           </div>
 
-          {/* Title */}
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1]">
+          <h1 className="text-3xl md:text-5xl font-bold font-serif text-white leading-tight">
             {blogTitle}
           </h1>
 
-          {/* Author */}
           <div className="flex items-center gap-3 pt-2">
-            <div className="w-10 h-10 rounded-full bg-[#C3AB85]/20 flex items-center justify-center">
-              <User className="w-5 h-5 text-[#C3AB85]" />
+            <div className="w-9 h-9 rounded-full bg-[#C5A862]/20 border border-[#C5A862]/40 flex items-center justify-center">
+              <User className="w-4 h-4 text-[#C5A862]" />
             </div>
             <div>
-              <p className="text-sm font-medium text-white">{blog.author}</p>
-              <p className="text-[10px] text-white/40 uppercase tracking-wider">Travel Writer</p>
+              <p className="text-xs font-medium text-white">{blog.author}</p>
+              <p className="text-[9px] text-white/50 uppercase tracking-wider">Travel Writer</p>
             </div>
           </div>
         </div>

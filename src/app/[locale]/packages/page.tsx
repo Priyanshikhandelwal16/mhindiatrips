@@ -4,6 +4,7 @@ import { getTourPackagesAction, getPageByIdAction } from "@/app/actions/queries"
 import { ArrowRight, Sparkles } from "lucide-react";
 import PackagesFilterSection from "@/components/packages/PackagesFilterSection";
 import Reveal from "@/components/home/Reveal";
+import PageHeroSlider from "@/components/common/PageHeroSlider";
 
 interface PackagesPageProps {
   params: Promise<{ locale: string }>;
@@ -53,30 +54,35 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
       inclusionsTitle: dbContent.inclusionsTitle?.en || "What's included:"
     },
     es: {
+      heroSub: "Experiencias Curadas",
+      heroTitle: "Paquetes de Viajes Exclusivos",
+      heroDesc: "Itinerarios de lujo diseñados a mano por nuestros expertos locales. Cada viaje se adapta a su ritmo e intereses.",
+      allTitle: "Todos Los Paquetes de Viaje",
       allDesc: "Explore nuestra colección de viajes curados — desde palacios patrimoniales hasta retiros espirituales.",
       featuredSub: "Viaje Destacado",
       featuredTitle: "Triángulo de Oro Imperial",
       featuredDesc: "Nuestro tour de lujo más popular combinando Delhi, Agra y Jaipur. Hoteles-palacio, acceso privado al Taj Mahal al amanecer y exploración de fortalezas reales.",
       featuredCta: "Consultar Sobre Este Tour",
-      whySub: "La Promesa MH India Trips",
+      whySub: "La Promesa de MH India Trips",
       whyTitle: "Por Qué Reservar Con Nosotros",
       processSub: "Cómo Funciona",
-      processTitle: "Su Viaje en 4 Pasos Simples",
+      processTitle: "Su Viaje en 4 Simples Pasos",
       ctaTitle: "¿Listo Para Su Viaje a la India?",
       ctaDesc: "Cuéntenos su itinerario soñado y nuestros expertos crearán el paquete perfecto.",
-      ctaBtn: "Planear Mi Viaje",
+      ctaBtn: "Diseñar Mi Viaje",
       days: "Días",
       inquire: "Solicitar Detalles",
       privateTour: "Tour Privado",
-      priceOnRequest: "Precio a Consultar",
+      priceOnRequest: "Precio Bajo Consulta",
       viewDetails: "Ver Detalles",
-      inclusionsTitle: "Qué está incluido:"
+      inclusionsTitle: "Lo que incluye:"
     },
     pt: {
-      heroSub: "Experiências Selecionadas",
-      heroTitle: "Pacotes de Tour Exclusivos",
-      heroDesc: "Itinerários de luxo desenhados por especialistas locais. Cada viagem é adaptada ao seu ritmo, interesses e estilo pessoal.",
-      allTitle: "Todos os Pacotes",
+      heroSub: "Experiências Curadas",
+      heroTitle: "Pacotes de Viagens Exclusivos",
+      heroDesc: "Itinerários de luxo desenhados à mão por nossos especialistas locais. Cada viagem é sob medida.",
+      heroSub2: "Experiências Curadas",
+      allTitle: "Todos os Pacotes de Viagem",
       allDesc: "Explore nossa coleção de viagens curadas — de palácios patrimoniais a retiros espirituais.",
       featuredSub: "Viagem em Destaque",
       featuredTitle: "Triângulo de Ouro Imperial",
@@ -101,6 +107,32 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
   const text = t[locale] || t.en;
   if (dbContent.heroTitle?.[locale]) text.heroTitle = dbContent.heroTitle[locale];
   if (dbContent.heroSubtitle?.[locale]) text.heroDesc = dbContent.heroSubtitle[locale];
+
+  // Construct slider slides from tour packages
+  const sliderSlides = packages.slice(0, 5).map((pkg: any) => {
+    const rawDesc = pkg.shortDescription?.[lang] || pkg.shortDescription?.en || pkg.description?.[lang] || pkg.description?.en || text.heroDesc;
+    const cleanDesc = rawDesc.length > 90 ? rawDesc.slice(0, 87) + "..." : rawDesc;
+
+    return {
+      image: pkg.image || "/images/destination_fallback.jpg",
+      title: pkg.title?.[lang] || pkg.title?.en || text.heroTitle,
+      subtitle: `${pkg.duration || 10} ${text.days} - ${text.privateTour}`,
+      location: pkg.title?.[lang] || pkg.title?.en || "India",
+      description: cleanDesc,
+      ctaText: text.viewDetails,
+      ctaLink: `/packages/${pkg.slug}`
+    };
+  });
+
+  if (sliderSlides.length === 0) {
+    sliderSlides.push({
+      image: "/images/rajasthan_fort_sunset.png",
+      title: text.heroTitle,
+      subtitle: text.heroSub,
+      location: "India",
+      description: text.heroDesc
+    });
+  }
 
   const processSteps = [
     {

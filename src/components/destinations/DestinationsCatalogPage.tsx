@@ -10,6 +10,8 @@ interface DestinationsCatalogPageProps {
   states: any[];
 }
 
+import PageHeroSlider from "@/components/common/PageHeroSlider";
+
 export default async function DestinationsCatalogPage({ locale, states }: DestinationsCatalogPageProps) {
   const pageData = await getPageByIdAction("destinations");
   const dbContent = pageData?.content || {};
@@ -43,21 +45,40 @@ export default async function DestinationsCatalogPage({ locale, states }: Destin
   if (dbContent.heroTitle?.[locale]) text.title = dbContent.heroTitle[locale];
   if (dbContent.heroSubtitle?.[locale]) text.subtitle = dbContent.heroSubtitle[locale];
 
+  // Map state images into slides
+  const sliderSlides: any[] = states.slice(0, 5).map((st: any) => {
+    const rawDesc = st.description?.[lang] || st.description?.en || text.subtitle;
+    const cleanDesc = rawDesc.length > 90 ? rawDesc.slice(0, 87) + "..." : rawDesc;
+
+    return {
+      image: st.image || "/images/destination_fallback.jpg",
+      title: st.name?.[lang] || st.name?.en || st.id,
+      subtitle: text.title,
+      location: st.name?.[lang] || st.name?.en || "India",
+      description: cleanDesc,
+      objectPosition: "center 25%",
+      ctaText: text.cardCta,
+      ctaLink: getLocalizedDestinationsPath(locale, st.slug?.[lang] || st.slug?.en || st.id)
+    };
+  });
+
+  if (sliderSlides.length === 0) {
+    sliderSlides.push({
+      image: "/images/taj_mahal_sunrise.png",
+      title: text.title,
+      subtitle: "Explore Incredible India",
+      location: "India",
+      description: text.subtitle,
+      objectPosition: "center 25%",
+      ctaText: text.cardCta,
+      ctaLink: getLocalizedDestinationsPath(locale)
+    });
+  }
+
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
-      {/* Hero Banner */}
-      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col items-center justify-center space-y-4">
-          <h1 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight drop-shadow-md">
-            {text.title}
-          </h1>
-          <p className="text-sm md:text-base text-white/80 max-w-2xl font-light">
-            {text.subtitle}
-          </p>
-
-
-        </div>
-      </section>
+      {/* Hero Header */}
+      <PageHeroSlider locale={locale} slides={sliderSlides} showBreadcrumb={text.destinations} />
 
       {/* States Catalog Grid */}
       <section className="max-w-7xl mx-auto px-6 py-20">

@@ -112,9 +112,9 @@
   --color-sand: var(--muted-sand);
   --color-ivory: var(--ivory);
 
-  --font-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-display: Georgia, Cambria, "Times New Roman", Times, serif;
 
   --animate-fade-up: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   --animate-fade-in: fade-in 0.6s ease-out forwards;

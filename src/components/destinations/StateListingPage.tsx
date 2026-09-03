@@ -10,9 +10,12 @@ interface StateListingPageProps {
   cities: any[];
 }
 
+import PageHeroSlider from "@/components/common/PageHeroSlider";
+
 export default function StateListingPage({ locale, state, cities }: StateListingPageProps) {
   const lang = (locale === "es" || locale === "pt") ? locale : "en";
   const stateTitle = state.name?.[lang] || state.name?.en || state.id;
+  const stateDesc = state.description?.[lang] || state.description?.en || "";
 
   const t: Record<string, any> = {
     en: {
@@ -43,18 +46,54 @@ export default function StateListingPage({ locale, state, cities }: StateListing
 
   const text = t[locale] || t.en;
 
+  // Build slider slides from cities and state image
+  const sliderSlides: any[] = [];
+  if (state.image) {
+    const cleanStateDesc = stateDesc.length > 90 ? stateDesc.slice(0, 87) + "..." : stateDesc;
+    sliderSlides.push({
+      image: state.image,
+      title: stateTitle,
+      subtitle: `${text.destinations} / ${stateTitle}`,
+      location: stateTitle,
+      description: cleanStateDesc,
+      objectPosition: "center 25%"
+    });
+  }
+
+  cities.slice(0, 5).forEach((city: any) => {
+    const cTitle = city.name?.[lang] || city.name?.en || city.id;
+    const rawCDesc = city.description?.[lang] || city.description?.en || "";
+    const cleanCDesc = rawCDesc.length > 90 ? rawCDesc.slice(0, 87) + "..." : rawCDesc;
+    const citySlug = city.slug?.[lang] || city.slug?.en || city.id;
+    const stateSlug = state.slug?.[lang] || state.slug?.en || state.id;
+    if (city.image) {
+      sliderSlides.push({
+        image: city.image,
+        title: cTitle,
+        subtitle: stateTitle,
+        location: `${cTitle}, ${stateTitle}`,
+        description: cleanCDesc,
+        objectPosition: "center 25%",
+        ctaText: text.readMore,
+        ctaLink: getLocalizedDestinationsPath(locale, stateSlug, citySlug)
+      });
+    }
+  });
+
+  if (sliderSlides.length === 0) {
+    sliderSlides.push({
+      image: "/images/destination_fallback.jpg",
+      title: stateTitle,
+      subtitle: text.destinations,
+      location: stateTitle,
+      description: stateDesc
+    });
+  }
+
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
-      {/* Hero Banner */}
-      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col items-center justify-center space-y-4">
-          <h1 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight drop-shadow-md">
-            {stateTitle}
-          </h1>
-
-
-        </div>
-      </section>
+      {/* Hero Header */}
+      <PageHeroSlider locale={locale} slides={sliderSlides} showBreadcrumb={stateTitle} />
 
       {/* Cities Section */}
       <section className="max-w-7xl mx-auto px-6 py-20 space-y-12">

@@ -821,7 +821,7 @@ export const statesData: StateData[] = [
     region: "Central",
     country: "India",
     parentDestination: "india",
-    image: "/images/madhya pradesh.jpg",
+    image: "/images/Western Group of Temples.jpg",
     gallery: [],
     description: { en: "Central India's heartland, featuring massive tiger reserves and legendary UNESCO heritage temples.", es: "El corazón de la India central, que cuenta con reservas de tigres y templos históricos de la UNESCO.", pt: "O coração da Índia central, com reservas de tigres e templos históricos da UNESCO." },
     history: { en: "Ruled by Chandela dynasty and Maurya empires.", es: "Gobernado por la dinastía Chandela y los imperios Maurya.", pt: "Governado pela dinastia Chandela e os impérios Maurya." },
@@ -830,7 +830,7 @@ export const statesData: StateData[] = [
     bestTime: { en: "October to April.", es: "De octubre a abril.", pt: "De outubro a abril." },
     travelTips: [],
     faqs: [],
-    cities: [createMockCity("madhya-pradesh", "khajuraho", "Khajuraho", "Khajuraho", "Khajuraho", "Ancient UNESCO Erotic Sculptured Temples", "/images/madhya pradesh.jpg")]
+    cities: [createMockCity("madhya-pradesh", "khajuraho", "Khajuraho", "Khajuraho", "Khajuraho", "Ancient UNESCO Erotic Sculptured Temples", "/images/Western Group of Temples.jpg")]
   },
   {
     slug: "tamil-nadu",
