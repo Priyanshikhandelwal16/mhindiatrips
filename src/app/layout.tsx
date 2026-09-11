@@ -6,9 +6,9 @@ export const metadata: Metadata = {
     description: "Experience Incredible India with bespoke luxury itineraries, custom heritage palace accommodations, private transfers, and curated local guides.",
     keywords: ["India travel guide", "luxury India tour", "private tour India", "Golden Triangle tour", "Rajasthan custom travel"],
     robots: { index: true, follow: true },
-    verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ? {
-        google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
-    } : undefined,
+    verification: {
+        google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "ndlbpsyV01lZ9W_Nsgup3JMk1RTg55FY9q9eZ6Trf2A",
+    },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

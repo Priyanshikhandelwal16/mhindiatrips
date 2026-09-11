@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     description: "Bespoke luxury itineraries, heritage palace stays, and curated cultural experiences across India.",
     type: "website",
   },
-  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ? {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
-  } : undefined,
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "ndlbpsyV01lZ9W_Nsgup3JMk1RTg55FY9q9eZ6Trf2A",
+  },
 };
 
 export const dynamic = "force-dynamic";
