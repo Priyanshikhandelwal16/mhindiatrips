@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/components/navigation/Header";
 import Footer from "@/components/navigation/Footer";
 import PageTransition from "@/components/common/PageTransition";
@@ -17,6 +18,9 @@ export const metadata: Metadata = {
     description: "Bespoke luxury itineraries, heritage palace stays, and curated cultural experiences across India.",
     type: "website",
   },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ? {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  } : undefined,
 };
 
 export const dynamic = "force-dynamic";
@@ -63,6 +67,8 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     .filter((p: any) => SELECTED_SLUGS.includes(p.slug))
     .sort((a: any, b: any) => SELECTED_SLUGS.indexOf(a.slug) - SELECTED_SLUGS.indexOf(b.slug));
 
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-ZCKSQWLRHX";
+
   return (
     <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
       <head>
@@ -79,6 +85,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         </main>
         <Footer locale={locale} contactDetails={contactDetails} />
       </body>
+      {gaId && <GoogleAnalytics gaId={gaId} />}
     </html>
   );
 }
