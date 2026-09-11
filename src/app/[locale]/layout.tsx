@@ -73,6 +73,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.png" type="image/png" />
+        <meta name="google-site-verification" content="ndlbpsyV01lZ9W_Nsgup3JMk1RTg55FY9q9eZ6Trf2A" />
       </head>
       <body className="font-sans bg-background text-foreground antialiased min-h-screen flex flex-col justify-between w-full overflow-x-hidden" suppressHydrationWarning>
         <PageLoader />
