@@ -186,7 +186,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
   const textColor = scrolled ? "text-white/80 hover:text-gold" : "text-royal hover:text-gold";
 
   const linkClass = (path: string) => {
-    const base = "text-[8.5px] xl:text-[9px] 2xl:text-[10.5px] font-bold uppercase tracking-normal xl:tracking-tight 2xl:tracking-[0.08em] whitespace-nowrap transition-all duration-300 relative py-1.5 shrink-0";
+    const base = "text-[11px] xl:text-xs 2xl:text-[13px] font-bold uppercase tracking-wide transition-all duration-300 relative py-1.5 shrink-0";
     const activeColor = "text-gold";
     const inactiveColor = "text-royal hover:text-gold";
     return `${base} ${isActive(path) ? activeColor : inactiveColor}`;
@@ -231,23 +231,23 @@ export default function Header({ locale, contactDetails, states = [], packages =
 
       {/* Main Premium Sticky Header (Full-width, clean white background, viajeaindia.com style) */}
       <div 
-        className="w-full border-b border-gold/10 relative z-50 bg-white py-3 2xl:py-4"
+        className="w-full border-b border-gold/10 relative z-50 bg-white py-3.5 2xl:py-5"
       >
-        <div className="max-w-[1600px] w-full mx-auto px-3 xl:px-5 2xl:px-8 flex items-center justify-between gap-1.5 xl:gap-2.5 2xl:gap-5 flex-nowrap">
+        <div className="max-w-[1700px] w-full mx-auto px-4 xl:px-6 2xl:px-10 flex items-center justify-between gap-3 xl:gap-5 2xl:gap-8 flex-nowrap">
           
           {/* Custom style block to support live admin logo height customization */}
           <style dangerouslySetInnerHTML={{__html: `
             .logo-custom-height {
-              height: ${contactDetails?.logoHeightMobile || "40"}px !important;
+              height: ${contactDetails?.logoHeightMobile || "46"}px !important;
             }
             @media (min-width: 768px) {
               .logo-custom-height {
-                height: ${contactDetails?.logoHeightDesktop ? Math.min(Number(contactDetails.logoHeightDesktop), 46) : "44"}px !important;
+                height: ${contactDetails?.logoHeightDesktop ? Number(contactDetails.logoHeightDesktop) : "58"}px !important;
               }
             }
             @media (min-width: 1536px) {
               .logo-custom-height {
-                height: ${contactDetails?.logoHeightDesktop || "54"}px !important;
+                height: ${contactDetails?.logoHeightDesktop ? Math.max(Number(contactDetails.logoHeightDesktop), 64) : "68"}px !important;
               }
             }
           `}} />
@@ -262,7 +262,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center flex-nowrap gap-1.5 xl:gap-2 2xl:gap-4 shrink-0">
+          <nav className="hidden xl:flex items-center flex-nowrap gap-3 xl:gap-4 2xl:gap-6 shrink-0">
             
             {/* Home Link */}
             <Link
@@ -294,6 +294,13 @@ export default function Header({ locale, contactDetails, states = [], packages =
                   className="block px-5 py-2 text-[10px] font-bold uppercase tracking-wider text-royal/60 border-b border-gold/5 hover:text-gold hover:bg-gold/5 mb-1.5 pb-2"
                 >
                   All Packages
+                </Link>
+                <Link
+                  href={`/${locale}/packages?category=Outbound`}
+                  className="block px-5 py-2 text-[10px] font-bold uppercase tracking-wider text-gold bg-gold/5 border-b border-gold/10 hover:bg-gold/10 mb-1.5 pb-2 flex items-center justify-between"
+                >
+                  <span>✈️ Outbound International</span>
+                  <span className="text-[8px] bg-gold text-royal px-1.5 py-0.5 rounded font-black">NEW</span>
                 </Link>
                 {packagesList.map((pkg, idx) => (
                   <Link
@@ -362,17 +369,6 @@ export default function Header({ locale, contactDetails, states = [], packages =
                 })}
               </div>
             </div>
-
-            {/* Attractions */}
-            <Link
-              href={`/${locale}/attractions`}
-              className={linkClass("/attractions")}
-            >
-              <span>{labels.attractions}</span>
-              {isActive("/attractions") && (
-                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full" />
-              )}
-            </Link>
 
             {/* Food Guide */}
             <Link
@@ -648,15 +644,6 @@ export default function Header({ locale, contactDetails, states = [], packages =
               className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-2.5 px-4 block border-b border-gold/5"
             >
               {labels.about}
-            </Link>
-
-            {/* Attractions Link */}
-            <Link
-              href={`/${locale}/attractions`}
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-2.5 px-4 block border-b border-gold/5"
-            >
-              {labels.attractions}
             </Link>
 
             {/* Food Guide Link */}

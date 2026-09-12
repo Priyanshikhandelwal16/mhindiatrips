@@ -288,6 +288,9 @@ export interface TourPackage {
     currency?: string; // EUR, USD, GBP, INR
     priceType?: string;
     discountPrice?: number;
+    discountPercent?: number;
+    seasonalDiscountNote?: string;
+    saleBadge?: string;
     groupPricing?: string;
     priceIncludes?: string;
     priceExcludes?: string;

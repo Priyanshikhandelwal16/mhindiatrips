@@ -17,7 +17,7 @@ export default function StatsCounter({ labels }: StatsCounterProps) {
     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-sand">
       <div className="space-y-1.5">
         <CountUp
-          end={14}
+          end={22}
           suffix="+"
           className="text-3xl lg:text-4xl font-serif font-bold text-forest"
         />

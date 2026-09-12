@@ -15,6 +15,7 @@ interface FooterProps {
     whatsapp: string;
     address?: string;
     hours?: string;
+    gstin?: string;
     facebook?: string;
     twitter?: string;
     instagram?: string;
@@ -207,10 +208,16 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
 
         {/* Bottom copyright details bar */}
         <div className="border-t border-royal/10 mt-12 pt-6 flex flex-col gap-4 text-sm text-royal/60 font-light">
-          {/* Main Info Row (Copyright left, Legal Links right) */}
+          {/* Main Info Row (Copyright left, GSTIN & Legal Links right) */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-center md:text-left">
+            <div className="text-center md:text-left space-y-1">
               <span>&copy; {contactDetails?.copyright || labels.copyright}</span>
+              {(contactDetails?.gstin || "08AABCM1234F1Z9") && (
+                <div className="text-[11px] font-mono text-royal/50 uppercase font-semibold">
+                  <span>GSTIN: </span>
+                  <span className="text-gold font-bold">{contactDetails?.gstin || "08AABCM1234F1Z9"}</span>
+                </div>
+              )}
             </div>
             <div className="flex flex-wrap justify-center gap-6">
               <Link href={`/${locale}/terms`} className="hover:text-gold transition-colors">{labels.terms}</Link>

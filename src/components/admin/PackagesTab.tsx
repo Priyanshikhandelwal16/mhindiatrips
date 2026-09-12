@@ -189,6 +189,66 @@ export default function PackagesTab({
     setEditPackage({ ...editPackage, itinerary: updated });
   };
 
+  const handleMoveDayUp = (idx: number) => {
+    if (idx <= 0) return;
+    const updated = [...(editPackage.itinerary || [])];
+    const temp = updated[idx - 1];
+    updated[idx - 1] = updated[idx];
+    updated[idx] = temp;
+    const reindexed = updated.map((d: any, i: number) => ({ ...d, day: i + 1 }));
+    setEditPackage({ ...editPackage, itinerary: reindexed });
+  };
+
+  const handleMoveDayDown = (idx: number) => {
+    const updated = [...(editPackage.itinerary || [])];
+    if (idx >= updated.length - 1) return;
+    const temp = updated[idx + 1];
+    updated[idx + 1] = updated[idx];
+    updated[idx] = temp;
+    const reindexed = updated.map((d: any, i: number) => ({ ...d, day: i + 1 }));
+    setEditPackage({ ...editPackage, itinerary: reindexed });
+  };
+
+  const handleDuplicateDay = (idx: number) => {
+    const updated = [...(editPackage.itinerary || [])];
+    const sourceDay = updated[idx];
+    const duplicated = JSON.parse(JSON.stringify(sourceDay));
+    updated.splice(idx + 1, 0, duplicated);
+    const reindexed = updated.map((d: any, i: number) => ({ ...d, day: i + 1 }));
+    setEditPackage({ ...editPackage, itinerary: reindexed });
+  };
+
+  const handleAddDayActivity = (dayIdx: number) => {
+    const updated = [...(editPackage.itinerary || [])];
+    const currentActs = updated[dayIdx].activities || [];
+    updated[dayIdx] = {
+      ...updated[dayIdx],
+      activities: [...currentActs, ""]
+    };
+    setEditPackage({ ...editPackage, itinerary: updated });
+  };
+
+  const handleUpdateDayActivity = (dayIdx: number, actIdx: number, val: string) => {
+    const updated = [...(editPackage.itinerary || [])];
+    const currentActs = [...(updated[dayIdx].activities || [])];
+    currentActs[actIdx] = val;
+    updated[dayIdx] = {
+      ...updated[dayIdx],
+      activities: currentActs
+    };
+    setEditPackage({ ...editPackage, itinerary: updated });
+  };
+
+  const handleRemoveDayActivity = (dayIdx: number, actIdx: number) => {
+    const updated = [...(editPackage.itinerary || [])];
+    const currentActs = (updated[dayIdx].activities || []).filter((_: any, i: number) => i !== actIdx);
+    updated[dayIdx] = {
+      ...updated[dayIdx],
+      activities: currentActs
+    };
+    setEditPackage({ ...editPackage, itinerary: updated });
+  };
+
   // GALLERY IMAGE HANDLERS
   const handleAddGalleryImage = () => {
     const newImg = { url: "", title: "", alt: "", caption: "", displayOrder: (editPackage.gallery || []).length + 1 };
@@ -358,9 +418,30 @@ export default function PackagesTab({
       {/* EDIT PACKAGE FORM */}
       {editPackage && (
         <form onSubmit={handleSavePackage} className="bg-white border border-gold/20 rounded-3xl p-6 md:p-8 shadow-xl space-y-6">
-          <div className="flex justify-between items-center border-b border-beige/40 pb-4">
-            <h3 className="text-base font-bold font-serif">{editPackage.slug ? `Edit Package: ${editPackage.title?.en}` : "Create New Tour Package"}</h3>
-            <button type="button" onClick={() => setEditPackage(null)} className="text-royal/50 hover:text-royal font-bold">Cancel</button>
+          <div className="flex justify-between items-center border-b border-beige/40 pb-4 flex-wrap gap-2">
+            <div className="flex items-center gap-3">
+              <h3 className="text-base font-bold font-serif">{editPackage.slug ? `Edit Package: ${editPackage.title?.en}` : "Create New Tour Package"}</h3>
+              {editPackage.slug && (
+                <span className={`text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded ${
+                  editPackage.status === "draft" ? "bg-amber-100 text-amber-800" : "bg-emerald-100 text-emerald-800"
+                }`}>
+                  {editPackage.status || "Published"}
+                </span>
+              )}
+            </div>
+            <div className="flex items-center gap-3">
+              {editPackage.slug && (
+                <a 
+                  href={`/en/packages/${editPackage.slug}?preview=true`} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-[#0A2A1E] text-[#C5A862] hover:bg-gold hover:text-royal font-bold text-[10px] uppercase tracking-wider px-3.5 py-1.5 rounded-lg border border-gold/30 transition flex items-center gap-1.5 shadow-sm"
+                >
+                  <span>Preview Itinerary 👁️</span>
+                </a>
+              )}
+              <button type="button" onClick={() => setEditPackage(null)} className="text-royal/50 hover:text-royal font-bold text-xs">Cancel</button>
+            </div>
           </div>
 
           {/* Sub tabs selectors */}
@@ -497,11 +578,11 @@ export default function PackagesTab({
                 </div>
               </div>
 
-              {/* Title & Tagline translations */}
-              {["title", "tagline", "description", "bestFor"].map((field) => (
+              {/* Title & Tagline & Subtitle Route translations */}
+              {["title", "tagline", "routeSubtitle", "seasonalDiscountNote", "description", "bestFor"].map((field) => (
                 <div key={field} className="border border-gold/10 p-5 rounded-2xl bg-[#FAF8F5] space-y-3">
                   <span className="font-bold text-[10px] text-gold uppercase tracking-wider block">
-                    {field === "description" ? "Full Description" : field.replace(/([A-Z])/g, " $1").trim()} Translations
+                    {field === "description" ? "Full Description" : field === "routeSubtitle" ? "Route Subtitle (e.g. Delhi - Jaipur - Agra)" : field === "seasonalDiscountNote" ? "Yellow Highlight Notice Note (e.g. Peak season warning)" : field.replace(/([A-Z])/g, " $1").trim()} Translations
                   </span>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {["en", "es", "pt"].map((l) => (
@@ -887,42 +968,81 @@ export default function PackagesTab({
           {/* TAB 5: DAY-BY-DAY ITINERARY */}
           {subTab === "itinerary" && (
             <div className="space-y-6 animate-fade-in">
-              <div className="flex justify-between items-center">
-                <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Day-by-Day Itinerary Planner</span>
+              <div className="flex justify-between items-center bg-[#FAF8F5] p-4 rounded-2xl border border-gold/15">
+                <div>
+                  <span className="font-serif font-bold text-sm text-royal block">Day-by-Day Itinerary Builder</span>
+                  <span className="text-[10px] text-royal/50">Add, reorder, duplicate, and configure activities, schedule, and meals for each day.</span>
+                </div>
                 <button
                   type="button" onClick={handleAddItineraryDay}
-                  className="bg-gold/15 text-royal border border-gold/25 font-bold text-[9px] tracking-wider uppercase px-3 py-1.5 rounded transition hover:bg-gold hover:text-royal cursor-pointer"
+                  className="bg-royal text-white hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2 rounded-xl transition cursor-pointer flex items-center gap-1.5 shadow-sm"
                 >
-                  + Add Itinerary Day
+                  <Plus className="w-3.5 h-3.5" />
+                  <span>Add Itinerary Day</span>
                 </button>
               </div>
 
               {(!editPackage.itinerary || editPackage.itinerary.length === 0) ? (
-                <div className="py-12 text-center text-royal/40 italic bg-[#FAF8F5] rounded-2xl border border-dashed border-gold/20">
-                  No itinerary days configured. Click "Add Itinerary Day" to create a detailed day-by-day tour breakdown.
+                <div className="py-12 text-center text-royal/40 italic bg-[#FAF8F5] rounded-2xl border border-dashed border-gold/20 space-y-2">
+                  <Calendar className="w-8 h-8 text-gold/50 mx-auto" />
+                  <p>No itinerary days configured yet. Click "Add Itinerary Day" to build day-by-day tour details.</p>
                 </div>
               ) : (
-                <div className="space-y-6">
+                <div className="space-y-8">
                   {editPackage.itinerary.map((dayItem: any, idx: number) => (
-                    <div key={idx} className="border border-gold/15 bg-white p-6 rounded-2xl space-y-4 shadow-sm relative">
-                      <div className="flex justify-between items-center pb-2 border-b border-beige/40">
-                        <div className="flex items-center gap-2">
-                          <span className="w-6 h-6 rounded-full bg-royal text-white flex items-center justify-center font-bold text-[10px]">
-                            {dayItem.day}
+                    <div key={idx} className="border border-gold/20 bg-white p-6 md:p-8 rounded-3xl space-y-6 shadow-sm relative">
+                      
+                      {/* Day Header Bar with Control Actions */}
+                      <div className="flex flex-wrap justify-between items-center pb-3 border-b border-beige/40 gap-3">
+                        <div className="flex items-center gap-3">
+                          <span className="w-8 h-8 rounded-xl bg-[#0A2A1E] text-[#C5A862] font-mono font-bold flex items-center justify-center text-xs shadow-sm">
+                            {dayItem.day < 10 ? `0${dayItem.day}` : dayItem.day}
                           </span>
-                          <span className="font-serif font-bold text-sm text-royal">Day Itinerary Details</span>
+                          <span className="font-serif font-bold text-base text-royal">Day {dayItem.day} Configurator</span>
                         </div>
-                        <button
-                          type="button" onClick={() => handleRemoveItineraryDay(idx)}
-                          className="text-red-500 hover:text-red-700 font-bold uppercase tracking-wider text-[9px]"
-                        >
-                          Delete Day {dayItem.day}
-                        </button>
+
+                        {/* Action Buttons: Move Up, Move Down, Duplicate, Delete */}
+                        <div className="flex items-center gap-2">
+                          <button
+                            type="button"
+                            disabled={idx === 0}
+                            onClick={() => handleMoveDayUp(idx)}
+                            className="bg-[#FAF8F5] hover:bg-gold/20 text-royal disabled:opacity-30 disabled:cursor-not-allowed text-[10px] font-bold px-2.5 py-1 rounded-lg border border-gold/15 transition"
+                            title="Move Day Up"
+                          >
+                            ⬆ Up
+                          </button>
+                          <button
+                            type="button"
+                            disabled={idx === (editPackage.itinerary || []).length - 1}
+                            onClick={() => handleMoveDayDown(idx)}
+                            className="bg-[#FAF8F5] hover:bg-gold/20 text-royal disabled:opacity-30 disabled:cursor-not-allowed text-[10px] font-bold px-2.5 py-1 rounded-lg border border-gold/15 transition"
+                            title="Move Day Down"
+                          >
+                            ⬇ Down
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => handleDuplicateDay(idx)}
+                            className="bg-gold/10 hover:bg-gold/25 text-royal font-bold text-[10px] px-2.5 py-1 rounded-lg border border-gold/20 transition"
+                            title="Duplicate Day"
+                          >
+                            📋 Duplicate
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => handleRemoveItineraryDay(idx)}
+                            className="bg-red-50 hover:bg-red-100 text-red-600 font-bold text-[10px] px-2.5 py-1 rounded-lg border border-red-200 transition"
+                            title="Delete Day"
+                          >
+                            🗑 Delete
+                          </button>
+                        </div>
                       </div>
 
                       {/* Day Title Translations */}
-                      <div className="space-y-3">
-                        <span className="font-bold text-[9px] uppercase tracking-wider text-royal/60 block">Day Activity Title Translations</span>
+                      <div className="space-y-2">
+                        <span className="font-bold text-[10px] uppercase tracking-wider text-royal/60 block">Day Activity Title (EN / ES / PT)</span>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                           {["en", "es", "pt"].map((l) => (
                             <div key={l} className="space-y-1">
@@ -930,7 +1050,7 @@ export default function PackagesTab({
                               <input 
                                 type="text" value={dayItem.title?.[l] || ""}
                                 onChange={e => handleUpdateItineraryDay(idx, "title", l, e.target.value)}
-                                className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded-lg text-xs"
+                                className="w-full bg-[#FAF8F5] border border-gold/15 px-3.5 py-2.5 outline-none rounded-xl text-xs font-semibold"
                                 placeholder={`Day ${dayItem.day} Title (${l})`}
                               />
                             </div>
@@ -938,95 +1058,46 @@ export default function PackagesTab({
                         </div>
                       </div>
 
-                      {/* Day Description Translations */}
-                      <div className="space-y-3 pt-2">
-                        <span className="font-bold text-[9px] uppercase tracking-wider text-royal/60 block">Day Description Details</span>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                          {["en", "es", "pt"].map((l) => (
-                            <div key={l} className="space-y-1">
-                              <span className="text-[8px] uppercase text-royal/40 font-bold block">{l.toUpperCase()} Description</span>
-                              <textarea
-                                value={dayItem.desc?.[l] || ""}
-                                onChange={e => handleUpdateItineraryDay(idx, "desc", l, e.target.value)}
-                                className="w-full h-24 bg-[#FAF8F5] border border-gold/10 p-3 outline-none rounded-lg text-xs"
-                                placeholder={`Enter Day ${dayItem.day} detailed guidelines and attractions...`}
-                              />
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Itinerary Day Specifics */}
-                      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 border-t border-gold/5 pt-4">
-                        <div className="space-y-1">
-                          <span className="font-bold text-[8px] uppercase text-royal/50 block">Sightseeing (comma list)</span>
-                          <input 
-                            type="text" value={dayItem.sightseeing || ""}
-                            onChange={e => handleUpdateItineraryDay(idx, "sightseeing", null, e.target.value)}
-                            className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded text-xs"
-                          />
-                        </div>
-                        <div className="space-y-1">
-                          <span className="font-bold text-[8px] uppercase text-royal/50 block">Meals Included (e.g. Breakfast, Dinner)</span>
-                          <input 
-                            type="text" value={dayItem.meals || ""}
-                            onChange={e => handleUpdateItineraryDay(idx, "meals", null, e.target.value)}
-                            className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded text-xs"
-                          />
-                        </div>
-                        <div className="space-y-1">
-                          <span className="font-bold text-[8px] uppercase text-royal/50 block">Overnight Stay Place</span>
-                          <input 
-                            type="text" value={dayItem.overnight || ""}
-                            onChange={e => handleUpdateItineraryDay(idx, "overnight", null, e.target.value)}
-                            className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded text-xs"
-                          />
-                        </div>
-                        <div className="space-y-1">
-                          <span className="font-bold text-[8px] uppercase text-royal/50 block">Hotel / Lodge name</span>
-                          <input 
-                            type="text" value={dayItem.hotel || ""}
-                            onChange={e => handleUpdateItineraryDay(idx, "hotel", null, e.target.value)}
-                            className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded text-xs"
-                          />
-                        </div>
-                      </div>
-
+                      {/* Destination / Location Name */}
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div className="space-y-1">
-                          <span className="font-bold text-[8px] uppercase text-royal/50 block">Location Name</span>
+                          <span className="font-bold text-[9px] uppercase tracking-wider text-royal/60 block">Destination / Location Badge</span>
                           <input 
                             type="text" value={dayItem.location || ""}
                             onChange={e => handleUpdateItineraryDay(idx, "location", null, e.target.value)}
-                            className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded text-xs"
+                            placeholder="e.g. Delhi → Agra"
+                            className="w-full bg-[#FAF8F5] border border-gold/15 px-3.5 py-2.5 outline-none rounded-xl text-xs"
                           />
                         </div>
                         <div className="space-y-1">
-                          <span className="font-bold text-[8px] uppercase text-royal/50 block">Travel Distance (e.g. 240 km)</span>
+                          <span className="font-bold text-[9px] uppercase tracking-wider text-royal/60 block">Travel Distance</span>
                           <input 
                             type="text" value={dayItem.travelDistance || ""}
                             onChange={e => handleUpdateItineraryDay(idx, "travelDistance", null, e.target.value)}
-                            className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded text-xs"
+                            placeholder="e.g. 210 km"
+                            className="w-full bg-[#FAF8F5] border border-gold/15 px-3.5 py-2.5 outline-none rounded-xl text-xs"
                           />
                         </div>
                         <div className="space-y-1">
-                          <span className="font-bold text-[8px] uppercase text-royal/50 block">Travel Time (e.g. 4.5 hours)</span>
+                          <span className="font-bold text-[9px] uppercase tracking-wider text-royal/60 block">Travel Duration / Transit Time</span>
                           <input 
                             type="text" value={dayItem.travelTime || ""}
                             onChange={e => handleUpdateItineraryDay(idx, "travelTime", null, e.target.value)}
-                            className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded text-xs"
+                            placeholder="e.g. 4.5 Hours"
+                            className="w-full bg-[#FAF8F5] border border-gold/15 px-3.5 py-2.5 outline-none rounded-xl text-xs"
                           />
                         </div>
                       </div>
 
-                      {/* Day Image and Optional Exp */}
-                      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+                      {/* Day Photo URL & Cloudinary Upload */}
+                      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-end bg-[#FAF8F5] p-4 rounded-2xl border border-gold/10">
                         <div className="md:col-span-8 space-y-1">
-                          <label className="font-bold uppercase tracking-wider block text-royal/50 text-[8px]">Day Photo URL</label>
+                          <label className="font-bold uppercase tracking-wider block text-royal/60 text-[9px]">Large Destination Photo URL</label>
                           <input 
                             type="text" value={dayItem.image || ""}
                             onChange={e => handleUpdateItineraryDay(idx, "image", null, e.target.value)}
-                            className="w-full bg-[#FAF8F5] border border-gold/10 px-3 py-2 outline-none rounded text-xs"
+                            placeholder="https://res.cloudinary.com/..."
+                            className="w-full bg-white border border-gold/15 px-3.5 py-2.5 outline-none rounded-xl text-xs"
                           />
                         </div>
                         <div className="md:col-span-4 pb-0.5">
@@ -1038,6 +1109,148 @@ export default function PackagesTab({
                           />
                         </div>
                       </div>
+
+                      {/* Day Description Translations */}
+                      <div className="space-y-2 pt-2">
+                        <span className="font-bold text-[10px] uppercase tracking-wider text-royal/60 block">Day Full Description</span>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          {["en", "es", "pt"].map((l) => (
+                            <div key={l} className="space-y-1">
+                              <span className="text-[8px] uppercase text-royal/40 font-bold block">{l.toUpperCase()} Description</span>
+                              <textarea
+                                value={dayItem.desc?.[l] || ""}
+                                onChange={e => handleUpdateItineraryDay(idx, "desc", l, e.target.value)}
+                                className="w-full h-28 bg-[#FAF8F5] border border-gold/15 p-3 outline-none rounded-xl text-xs leading-relaxed"
+                                placeholder={`Enter Day ${dayItem.day} detailed description in ${l.toUpperCase()}...`}
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Activities List Sub-Editor */}
+                      <div className="bg-[#FAF8F5] border border-gold/15 p-5 rounded-2xl space-y-3">
+                        <div className="flex justify-between items-center border-b border-gold/10 pb-2">
+                          <span className="font-bold uppercase tracking-wider text-[10px] text-gold flex items-center gap-1.5">
+                            <Check className="w-3.5 h-3.5 text-gold" />
+                            <span>Day {dayItem.day} Activities List (Bullets)</span>
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => handleAddDayActivity(idx)}
+                            className="bg-white hover:bg-gold/20 text-royal font-bold text-[9px] uppercase px-3 py-1 rounded-lg border border-gold/20 transition cursor-pointer"
+                          >
+                            + Add Activity Bullet
+                          </button>
+                        </div>
+
+                        {(!dayItem.activities || dayItem.activities.length === 0) ? (
+                          <p className="text-[10px] text-royal/40 italic py-2">No specific activity bullets added. Click "+ Add Activity Bullet" to list attractions.</p>
+                        ) : (
+                          <div className="space-y-2">
+                            {dayItem.activities.map((act: any, aIdx: number) => {
+                              const actVal = typeof act === 'string' ? act : (act.en || "");
+                              return (
+                                <div key={aIdx} className="flex items-center gap-2">
+                                  <span className="text-gold font-bold">•</span>
+                                  <input 
+                                    type="text"
+                                    value={actVal}
+                                    onChange={e => handleUpdateDayActivity(idx, aIdx, e.target.value)}
+                                    placeholder={`Activity #${aIdx + 1} (e.g. Guided tour of Taj Mahal at sunrise)`}
+                                    className="flex-grow bg-white border border-gold/15 px-3 py-2 outline-none rounded-xl text-xs"
+                                  />
+                                  <button
+                                    type="button"
+                                    onClick={() => handleRemoveDayActivity(idx, aIdx)}
+                                    className="text-red-500 hover:text-red-700 font-bold text-[9px] px-2 py-1 uppercase"
+                                  >
+                                    Remove
+                                  </button>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Daily Schedule Breakdown (Optional: Morning / Afternoon / Evening) */}
+                      <div className="space-y-2 pt-2">
+                        <span className="font-bold text-[10px] uppercase tracking-wider text-royal/60 block">Daily Schedule Breakdown (Optional)</span>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          <div className="space-y-1">
+                            <span className="font-bold text-[9px] uppercase text-[#C5A862] block">🌅 Morning Schedule</span>
+                            <input 
+                              type="text" value={dayItem.morning || ""}
+                              onChange={e => handleUpdateItineraryDay(idx, "morning", null, e.target.value)}
+                              placeholder="e.g. 07:00 AM Hotel breakfast, 08:30 AM Old Delhi walking tour"
+                              className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2 outline-none rounded-xl text-xs"
+                            />
+                          </div>
+                          <div className="space-y-1">
+                            <span className="font-bold text-[9px] uppercase text-[#C5A862] block">☀️ Afternoon Schedule</span>
+                            <input 
+                              type="text" value={dayItem.afternoon || ""}
+                              onChange={e => handleUpdateItineraryDay(idx, "afternoon", null, e.target.value)}
+                              placeholder="e.g. Lunch at Mughal restaurant & drive to Agra"
+                              className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2 outline-none rounded-xl text-xs"
+                            />
+                          </div>
+                          <div className="space-y-1">
+                            <span className="font-bold text-[9px] uppercase text-[#C5A862] block">🌙 Evening Schedule</span>
+                            <input 
+                              type="text" value={dayItem.evening || ""}
+                              onChange={e => handleUpdateItineraryDay(idx, "evening", null, e.target.value)}
+                              placeholder="e.g. Sunset boat ride on Yamuna river & palace check-in"
+                              className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2 outline-none rounded-xl text-xs"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Itinerary Day Specific Specs (Meals, Accommodation, Transportation, Special Notes) */}
+                      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 border-t border-gold/10 pt-4 text-xs">
+                        <div className="space-y-1">
+                          <span className="font-bold text-[9px] uppercase text-royal/60 block">Meals Included</span>
+                          <input 
+                            type="text" value={dayItem.meals || ""}
+                            onChange={e => handleUpdateItineraryDay(idx, "meals", null, e.target.value)}
+                            placeholder="e.g. Breakfast, Dinner"
+                            className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2 outline-none rounded-xl text-xs"
+                          />
+                        </div>
+                        <div className="space-y-1">
+                          <span className="font-bold text-[9px] uppercase text-royal/60 block">Accommodation / Hotel Name</span>
+                          <input 
+                            type="text" value={dayItem.hotel || dayItem.overnight || ""}
+                            onChange={e => {
+                              handleUpdateItineraryDay(idx, "hotel", null, e.target.value);
+                              handleUpdateItineraryDay(idx, "overnight", null, e.target.value);
+                            }}
+                            placeholder="e.g. The Taj Mahal Palace Hotel"
+                            className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2 outline-none rounded-xl text-xs"
+                          />
+                        </div>
+                        <div className="space-y-1">
+                          <span className="font-bold text-[9px] uppercase text-royal/60 block">Transportation Info</span>
+                          <input 
+                            type="text" value={dayItem.transportation || ""}
+                            onChange={e => handleUpdateItineraryDay(idx, "transportation", null, e.target.value)}
+                            placeholder="e.g. Private Luxury SUV Transfer"
+                            className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2 outline-none rounded-xl text-xs"
+                          />
+                        </div>
+                        <div className="space-y-1">
+                          <span className="font-bold text-[9px] uppercase text-royal/60 block">Special Daily Note</span>
+                          <input 
+                            type="text" value={dayItem.specialNote || ""}
+                            onChange={e => handleUpdateItineraryDay(idx, "specialNote", null, e.target.value)}
+                            placeholder="e.g. Carry comfortable walking shoes for Taj Mahal"
+                            className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2 outline-none rounded-xl text-xs"
+                          />
+                        </div>
+                      </div>
+
                     </div>
                   ))}
                 </div>
@@ -1045,104 +1258,216 @@ export default function PackagesTab({
             </div>
           )}
 
-          {/* TAB 6: PRICING */}
+          {/* TAB 6: PRICING & SEASONAL DISCOUNTS */}
           {subTab === "pricing" && (
-            <div className="space-y-6 animate-fade-in bg-[#FAF8F5] border border-gold/15 p-6 rounded-2xl">
-              <span className="font-black uppercase tracking-widest text-[9px] text-gold block border-b border-gold/10 pb-2">Tour Package Pricing configuration</span>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="space-y-1.5">
-                  <label className="font-bold uppercase block text-royal/60">Starting Price</label>
-                  <input 
-                    type="number"
-                    value={editPackage.pricing?.startingPrice ?? ""}
-                    onChange={e => handleUpdatePricing("startingPrice", parseFloat(e.target.value) || 0)}
-                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <label className="font-bold uppercase block text-royal/60">Price Per Person (Double Sharing)</label>
-                  <input 
-                    type="number"
-                    value={editPackage.pricing?.pricePerPerson ?? ""}
-                    onChange={e => handleUpdatePricing("pricePerPerson", parseFloat(e.target.value) || 0)}
-                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <label className="font-bold uppercase block text-royal/60">Currency</label>
-                  <select
-                    value={editPackage.pricing?.currency || "USD"}
-                    onChange={e => handleUpdatePricing("currency", e.target.value)}
-                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold cursor-pointer"
-                  >
-                    {["EUR", "USD", "GBP", "INR"].map(c => (
-                      <option key={c} value={c}>{c}</option>
-                    ))}
-                  </select>
+            <div className="space-y-8 animate-fade-in bg-[#FAF8F5] border border-gold/15 p-6 md:p-8 rounded-3xl shadow-sm">
+              
+              <div className="border-b border-gold/15 pb-3">
+                <span className="font-serif font-bold text-base text-royal block">Tour Package Pricing & Seasonal Discount Controls</span>
+                <span className="text-[10px] text-royal/50">Manage base prices, per-person rates, seasonal discount percentage (OFF), sale badges, and off-season price notices.</span>
+              </div>
+
+              {/* Basic Price Inputs */}
+              <div className="bg-white p-6 rounded-2xl border border-gold/10 space-y-4">
+                <span className="font-bold uppercase tracking-wider text-[10px] text-gold block">1. Regular Price & Currency Setup</span>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                  <div className="space-y-1.5">
+                    <label className="font-bold uppercase block text-royal/70 text-[10px]">Starting / Base Price ($)</label>
+                    <input 
+                      type="number" placeholder="e.g. 1499"
+                      value={editPackage.pricing?.startingPrice ?? ""}
+                      onChange={e => handleUpdatePricing("startingPrice", parseFloat(e.target.value) || 0)}
+                      className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold font-bold"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="font-bold uppercase block text-royal/70 text-[10px]">Price Per Person (Sharing)</label>
+                    <input 
+                      type="number" placeholder="e.g. 1199"
+                      value={editPackage.pricing?.pricePerPerson ?? ""}
+                      onChange={e => handleUpdatePricing("pricePerPerson", parseFloat(e.target.value) || 0)}
+                      className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold font-bold"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="font-bold uppercase block text-royal/70 text-[10px]">Currency</label>
+                    <select
+                      value={editPackage.pricing?.currency || "USD"}
+                      onChange={e => handleUpdatePricing("currency", e.target.value)}
+                      className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold cursor-pointer font-bold"
+                    >
+                      {["EUR", "USD", "GBP", "INR"].map(c => (
+                        <option key={c} value={c}>{c}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="font-bold uppercase block text-royal/70 text-[10px]">Price Model</label>
+                    <input 
+                      type="text" placeholder="per_person"
+                      value={editPackage.pricing?.priceType || "per_person"}
+                      onChange={e => handleUpdatePricing("priceType", e.target.value)}
+                      className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold"
+                    />
+                  </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="space-y-1.5">
-                  <label className="font-bold uppercase block text-royal/60">Price Type (e.g. per person, group total)</label>
-                  <input 
-                    type="text"
-                    value={editPackage.pricing?.priceType || "per_person"}
-                    onChange={e => handleUpdatePricing("priceType", e.target.value)}
-                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold"
-                  />
+              {/* 🔥 PROMINENT SEASONAL OFF / DISCOUNT CONTROLS BOX */}
+              <div className="bg-gradient-to-r from-amber-500/10 via-yellow-500/5 to-amber-500/10 border-2 border-[#C5A862] p-6 rounded-2xl space-y-6 shadow-md">
+                
+                <div className="flex items-center justify-between border-b border-[#C5A862]/30 pb-3 flex-wrap gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl">🔥</span>
+                    <span className="font-serif font-bold text-base text-[#0A2A1E]">Seasonal Discount & Offer Controls (OFF %)</span>
+                  </div>
+                  
+                  <span className="bg-[#0A2A1E] text-[#C5A862] text-[10px] font-extrabold uppercase tracking-widest px-3.5 py-1.5 rounded-full">
+                    {editPackage.pricing?.discountPercent ? `${editPackage.pricing.discountPercent}% OFF ACTIVE` : "NO DISCOUNT ACTIVE"}
+                  </span>
                 </div>
-                <div className="space-y-1.5">
-                  <label className="font-bold uppercase block text-royal/60">Discount Price (0 if none)</label>
-                  <input 
-                    type="number"
-                    value={editPackage.pricing?.discountPrice ?? ""}
-                    onChange={e => handleUpdatePricing("discountPrice", parseFloat(e.target.value) || 0)}
-                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold"
-                  />
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  
+                  {/* Discount Percentage */}
+                  <div className="bg-white p-4 rounded-xl border border-[#C5A862]/20 space-y-1.5">
+                    <label className="font-bold uppercase block text-[#0A2A1E] text-[10px]">Discount Percentage (% OFF)</label>
+                    <div className="flex items-center gap-2">
+                      <input 
+                        type="number" placeholder="e.g. 20 for 20% OFF"
+                        value={editPackage.pricing?.discountPercent ?? ""}
+                        onChange={e => {
+                          const pct = parseFloat(e.target.value) || 0;
+                          const startPrice = editPackage.pricing?.startingPrice || 0;
+                          const discPrice = pct > 0 && startPrice > 0 ? Math.round(startPrice * (1 - pct / 100)) : 0;
+                          setEditPackage({
+                            ...editPackage,
+                            pricing: {
+                              ...(editPackage.pricing || {}),
+                              discountPercent: pct,
+                              discountPrice: discPrice
+                            }
+                          });
+                        }}
+                        className="w-full bg-[#FAF8F5] border border-[#C5A862]/30 px-4 py-2.5 outline-none rounded-lg font-extrabold text-emerald-700 text-lg"
+                      />
+                      <span className="font-extrabold text-lg text-[#0A2A1E]">%</span>
+                    </div>
+                    <span className="text-[9px] text-[#0A2A1E]/50 font-medium block">Enter percentage to auto-calculate discounted price.</span>
+                  </div>
+
+                  {/* Discounted Price Output */}
+                  <div className="bg-white p-4 rounded-xl border border-[#C5A862]/20 space-y-1.5">
+                    <label className="font-bold uppercase block text-[#0A2A1E] text-[10px]">Discounted Offer Price ($)</label>
+                    <input 
+                      type="number" placeholder="e.g. 1199"
+                      value={editPackage.pricing?.discountPrice ?? ""}
+                      onChange={e => handleUpdatePricing("discountPrice", parseFloat(e.target.value) || 0)}
+                      className="w-full bg-[#FAF8F5] border border-[#C5A862]/30 px-4 py-2.5 outline-none rounded-lg font-extrabold text-[#0A2A1E] text-lg"
+                    />
+                    <span className="text-[9px] text-[#0A2A1E]/50 font-medium block">Override final offer price shown to guests.</span>
+                  </div>
+
+                  {/* Sale Badge Label */}
+                  <div className="bg-white p-4 rounded-xl border border-[#C5A862]/20 space-y-1.5">
+                    <label className="font-bold uppercase block text-[#0A2A1E] text-[10px]">Sale Badge Text (e.g. 20% OFF Special)</label>
+                    <input 
+                      type="text" placeholder="e.g. 20% OFF - Monsoon Special"
+                      value={editPackage.pricing?.saleBadge || ""}
+                      onChange={e => handleUpdatePricing("saleBadge", e.target.value)}
+                      className="w-full bg-[#FAF8F5] border border-[#C5A862]/30 px-4 py-2.5 outline-none rounded-lg font-bold text-[#0A2A1E] text-xs"
+                    />
+                    <span className="text-[9px] text-[#0A2A1E]/50 font-medium block">Badge shown on tour cards and itinerary header.</span>
+                  </div>
+
                 </div>
-                <div className="flex items-center gap-2 pt-8">
+
+                {/* Seasonal Discount Notice (Yellow Box Text on Itinerary Page) */}
+                <div className="bg-white p-5 rounded-xl border border-[#C5A862]/20 space-y-3">
+                  <span className="font-bold uppercase tracking-wider text-[10px] text-[#CA8A04] block flex items-center gap-1.5">
+                    <span>🟡 Seasonal Price Notice Note (Displayed in Yellow Box on Itinerary Page)</span>
+                  </span>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {["en", "es", "pt"].map((l) => (
+                      <div key={l} className="space-y-1">
+                        <label className="font-bold text-[9px] uppercase text-[#0A2A1E]/60">{l.toUpperCase()} Seasonal Notice</label>
+                        <textarea
+                          value={editPackage.seasonalDiscountNote?.[l] || (typeof editPackage.pricing?.seasonalDiscountNote === 'string' && l === 'en' ? editPackage.pricing.seasonalDiscountNote : "")}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            setEditPackage({
+                              ...editPackage,
+                              seasonalDiscountNote: {
+                                ...(editPackage.seasonalDiscountNote || {}),
+                                [l]: val
+                              },
+                              pricing: {
+                                ...(editPackage.pricing || {}),
+                                seasonalDiscountNote: val
+                              }
+                            });
+                          }}
+                          className="w-full h-20 bg-[#FAF8F5] border border-[#C5A862]/30 p-2.5 outline-none rounded-lg text-xs leading-relaxed"
+                          placeholder={`Enter seasonal price notice note in ${l.toUpperCase()}...`}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Price Visibility & Enquire Toggles */}
+              <div className="bg-white p-6 rounded-2xl border border-gold/10 space-y-4">
+                <span className="font-bold uppercase tracking-wider text-[10px] text-gold block">3. Display & Inquiry Settings</span>
+                
+                <div className="flex items-center gap-3">
                   <input 
                     type="checkbox" id="toggle-enquire"
                     checked={editPackage.pricing?.enquireForPrice === true}
                     onChange={e => handleUpdatePricing("enquireForPrice", e.target.checked)}
-                    className="w-4 h-4 cursor-pointer accent-royal"
+                    className="w-5 h-5 cursor-pointer accent-royal"
                   />
-                  <label htmlFor="toggle-enquire" className="font-bold uppercase tracking-wider block cursor-pointer">Enquire for price only (Hide values)</label>
+                  <label htmlFor="toggle-enquire" className="font-bold uppercase tracking-wider block cursor-pointer text-xs">
+                    Hide Prices & Display "Price Available On Request" Only
+                  </label>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+                  <div className="space-y-1.5">
+                    <label className="font-bold uppercase block text-royal/60 text-[10px]">Group Pricing Details Note</label>
+                    <input 
+                      type="text" placeholder="e.g. Special discounts for 4+ guests"
+                      value={editPackage.pricing?.groupPricing || ""}
+                      onChange={e => handleUpdatePricing("groupPricing", e.target.value)}
+                      className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl text-xs"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="font-bold uppercase block text-royal/60 text-[10px]">Price Includes (Short summary)</label>
+                    <input 
+                      type="text" placeholder="e.g. Private SUV, 5-Star Hotels, Breakfast"
+                      value={editPackage.pricing?.priceIncludes || ""}
+                      onChange={e => handleUpdatePricing("priceIncludes", e.target.value)}
+                      className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl text-xs"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="font-bold uppercase block text-royal/60 text-[10px]">Price Excludes (Short summary)</label>
+                    <input 
+                      type="text" placeholder="e.g. Flights & personal expenses"
+                      value={editPackage.pricing?.priceExcludes || ""}
+                      onChange={e => handleUpdatePricing("priceExcludes", e.target.value)}
+                      className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl text-xs"
+                    />
+                  </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-                <div className="space-y-1.5">
-                  <label className="font-bold uppercase block text-royal/60">Group Pricing Details note</label>
-                  <input 
-                    type="text" placeholder="e.g. Discounts for 4+ travellers"
-                    value={editPackage.pricing?.groupPricing || ""}
-                    onChange={e => handleUpdatePricing("groupPricing", e.target.value)}
-                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <label className="font-bold uppercase block text-royal/60">Price Includes (short note)</label>
-                  <input 
-                    type="text"
-                    value={editPackage.pricing?.priceIncludes || ""}
-                    onChange={e => handleUpdatePricing("priceIncludes", e.target.value)}
-                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <label className="font-bold uppercase block text-royal/60">Price Excludes (short note)</label>
-                  <input 
-                    type="text"
-                    value={editPackage.pricing?.priceExcludes || ""}
-                    onChange={e => handleUpdatePricing("priceExcludes", e.target.value)}
-                    className="w-full bg-white border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold"
-                  />
-                </div>
-              </div>
             </div>
           )}
+
 
           {/* TAB 7: TRAVEL INFORMATION */}
           {subTab === "travelInfo" && (
@@ -1570,7 +1895,12 @@ export default function PackagesTab({
                   <div className="flex items-center justify-between gap-1 flex-wrap">
                     <span className="text-[8px] bg-royal/10 text-royal px-2.5 py-0.5 rounded uppercase font-bold tracking-wider border border-gold/15">{pkg.category}</span>
                     <div className="flex items-center gap-1">
-                      {pkg.isFeatured && <span className="text-[8px] bg-gold text-royal px-2.5 py-0.5 rounded uppercase font-bold tracking-wider">⭐ Homepage</span>}
+                      <span className={`text-[8px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
+                        pkg.isDraft ? "bg-amber-100 text-amber-800" : "bg-emerald-100 text-emerald-800"
+                      }`}>
+                        {pkg.isDraft ? "Draft" : "Published"}
+                      </span>
+                      {pkg.isFeatured && <span className="text-[8px] bg-gold text-royal px-2 py-0.5 rounded uppercase font-bold tracking-wider">⭐ Featured</span>}
                       <span className="text-[10px] text-foreground/45 font-semibold">{pkg.durationDays} Days</span>
                     </div>
                   </div>
@@ -1578,14 +1908,22 @@ export default function PackagesTab({
                   <p className="text-xs text-foreground/50 line-clamp-2 leading-relaxed font-light">{pkg.tagline?.en}</p>
                 </div>
 
-                <div className="flex justify-between items-center pt-4 border-t border-beige/25 text-xs">
+                <div className="flex flex-wrap justify-between items-center pt-4 border-t border-beige/25 text-xs gap-2">
                   <button
                     onClick={() => setEditPackage(pkg)}
                     className="text-royal hover:text-gold flex items-center gap-1 font-bold uppercase tracking-wider cursor-pointer"
                   >
                     <Edit2 className="w-3.5 h-3.5" />
-                    <span>Edit Package</span>
+                    <span>Edit</span>
                   </button>
+                  <a
+                    href={`/en/packages/${pkg.slug}?preview=true`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gold hover:text-royal flex items-center gap-1 font-bold uppercase tracking-wider"
+                  >
+                    <span>Preview 👁️</span>
+                  </a>
                   <button
                     onClick={() => {
                       if (window.confirm(`Are you sure you want to delete "${pkg.title?.en}" package?`)) {

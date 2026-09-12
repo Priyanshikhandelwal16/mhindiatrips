@@ -215,11 +215,68 @@ export default async function AboutPage({ params }: AboutPageProps) {
       <section className="bg-royal text-white py-24 border-b border-gold/10 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.015] bg-[radial-gradient(#B8964B_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <AboutStatsCounter stats={stats} />
+          <AboutStatsCounter stats={[
+            { number: "22+", label: "Years of Experience" },
+            { number: "12,000+", label: "Happy Travelers" },
+            { number: "Pan India", label: "Regional Coverage" },
+            { number: "10+", label: "Outbound Countries" },
+            { number: "4.9/5", label: "Average Rating" },
+            { number: "98%", label: "Satisfaction Rate" },
+          ]} />
         </div>
       </section>
 
+      {/* SECTION 5: Leadership & Founder Profiles */}
+      <section className="max-w-7xl mx-auto px-6 py-28 border-b border-gold/10 space-y-16">
+        <div className="text-center space-y-3 max-w-xl mx-auto">
+          <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">OUR LEADERSHIP</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-royal font-serif tracking-tight">
+            {locale === "es" ? "Fundadores y Dirección" : locale === "pt" ? "Fundadores e Liderança" : "Founders & Executive Leadership"}
+          </h2>
+          <p className="text-sm text-foreground/60 font-light leading-relaxed">
+            {locale === "es" ? "Con más de 22 años de trayectoria guiando viajeros por la India e itinerarios internacionales." : locale === "pt" ? "Com mais de 22 anos de trajetória guiando viajantes pela Índia e itinerários internacionais." : "Backed by 22+ years of dedicated expertise in crafting elite private journeys."}
+          </p>
+          <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
+        </div>
 
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          {/* Founder Card 1 */}
+          <Reveal className="bg-white border border-gold/20 rounded-3xl p-8 shadow-xl text-center space-y-6 relative overflow-hidden group hover:border-gold/50 transition-all duration-300">
+            <div className="w-48 h-48 rounded-full overflow-hidden mx-auto border-4 border-gold/30 p-1 shadow-md relative bg-royal/5">
+              <img 
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" 
+                alt="Abhilash Sharma - Lead Founder" 
+                className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-500" 
+              />
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-2xl font-bold text-royal font-serif">Abhilash Sharma</h3>
+              <p className="text-xs uppercase tracking-widest text-gold font-extrabold">Founder & Managing Director</p>
+              <p className="text-xs text-foreground/60 font-light leading-relaxed pt-2">
+                With 22+ years of on-ground travel design expertise across Rajasthan, North & South India, and International Outbound safaris.
+              </p>
+            </div>
+          </Reveal>
+
+          {/* Founder Card 2 */}
+          <Reveal delay={150} className="bg-white border border-gold/20 rounded-3xl p-8 shadow-xl text-center space-y-6 relative overflow-hidden group hover:border-gold/50 transition-all duration-300">
+            <div className="w-48 h-48 rounded-full overflow-hidden mx-auto border-4 border-gold/30 p-1 shadow-md relative bg-royal/5">
+              <img 
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80" 
+                alt="Co-Founder & Operations Director" 
+                className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-500" 
+              />
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-2xl font-bold text-royal font-serif">Deepak Sharma</h3>
+              <p className="text-xs uppercase tracking-widest text-gold font-extrabold">Co-Founder & Head of Operations</p>
+              <p className="text-xs text-foreground/60 font-light leading-relaxed pt-2">
+                Overseeing on-ground luxury chauffeurs, palace bookings, guest safety, and 24/7 live concierge support for over two decades.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       {/* SECTION 6: Call To Action */}
       <section className="max-w-3xl mx-auto px-6 py-28 text-center space-y-6">

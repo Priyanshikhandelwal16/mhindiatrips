@@ -36,8 +36,10 @@ export function getAdminFirestore(): any {
       app = initializeApp({
         credential: cert({ projectId, clientEmail, privateKey })
       });
-    } else if (projectId) {
-      app = initializeApp({ projectId });
+    } else {
+      // Without private key or service account, default credentials will fail and hang
+      adminFirestore = null;
+      return null;
     }
 
     if (app) {

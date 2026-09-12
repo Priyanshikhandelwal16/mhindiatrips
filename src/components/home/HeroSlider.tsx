@@ -31,7 +31,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
     if (paused) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 3500);
+    }, 2200);
     return () => clearInterval(timer);
   }, [paused, slides.length]);
 

@@ -13,17 +13,8 @@ interface PackagesPageProps {
 export default async function PackagesPage({ params }: PackagesPageProps) {
   const { locale } = await params;
   const allPackages = await getTourPackagesAction();
-  const SELECTED_SLUGS = [
-    "rajasthan-khajuraho-varanasi-luxury-journey",
-    "india-goa-beach-monuments-tour",
-    "india-nepal-golden-triangle-kathmandu-tour",
-    "rajasthan-varanasi-imperial-luxury-tour",
-    "south-india-temples-backwaters-cultural-tour",
-    "rajasthan-desert-essence-10-days-tour"
-  ];
   const packages = allPackages
-    .filter((p: any) => SELECTED_SLUGS.includes(p.slug) && p.isPublished !== false)
-    .sort((a: any, b: any) => SELECTED_SLUGS.indexOf(a.slug) - SELECTED_SLUGS.indexOf(b.slug));
+    .filter((p: any) => p.isPublished !== false);
   const pageData = await getPageByIdAction("packages");
   const lang = (locale === "es" || locale === "pt") ? locale : "en";
 

@@ -30,9 +30,12 @@ export default function SettingsTab({
   const [loadingPassword, setLoadingPassword] = useState(false);
 
   // Contact fields state
+  const [companyName, setCompanyName] = useState(contactDetails?.companyName || "MH India Trips");
+  const [gstin, setGstin] = useState(contactDetails?.gstin || "08AABCM1234F1Z9");
   const [phone, setPhone] = useState(contactDetails?.phone || "");
   const [email, setEmail] = useState(contactDetails?.email || "");
   const [whatsapp, setWhatsapp] = useState(contactDetails?.whatsapp || "");
+  const [website, setWebsite] = useState(contactDetails?.website || "https://mhindiatrips.com");
   const [address, setAddress] = useState(contactDetails?.address || "");
   const [hours, setHours] = useState(contactDetails?.hours || "");
   const [facebook, setFacebook] = useState(contactDetails?.facebook || "");
@@ -51,9 +54,12 @@ export default function SettingsTab({
   // Sync state if contactDetails is loaded asynchronously
   React.useEffect(() => {
     if (contactDetails) {
+      setCompanyName(contactDetails.companyName || "MH India Trips");
+      setGstin(contactDetails.gstin || "08AABCM1234F1Z9");
       setPhone(contactDetails.phone || "");
       setEmail(contactDetails.email || "");
       setWhatsapp(contactDetails.whatsapp || "");
+      setWebsite(contactDetails.website || "https://mhindiatrips.com");
       setAddress(contactDetails.address || "");
       setHours(contactDetails.hours || "");
       setFacebook(contactDetails.facebook || "");
@@ -71,9 +77,12 @@ export default function SettingsTab({
     setLoadingContact(true);
     try {
       const res = await updateContactDetailsAction({
+        companyName,
+        gstin,
         phone,
         email,
         whatsapp,
+        website,
         address,
         hours,
         facebook,
@@ -176,6 +185,35 @@ export default function SettingsTab({
           <div className="space-y-4">
             <div className="space-y-1.5">
               <label className="font-bold uppercase tracking-wider text-royal/60 flex items-center gap-1.5">
+                <span>Company Legal Name</span>
+              </label>
+              <input 
+                type="text" 
+                required
+                value={companyName} 
+                onChange={e => setCompanyName(e.target.value)}
+                placeholder="MH India Trips"
+                className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold/50 transition font-semibold"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="font-bold uppercase tracking-wider text-royal/60 flex items-center gap-1.5">
+                <span className="bg-gold/20 text-gold px-1.5 py-0.5 rounded font-black text-[9px]">TAX</span>
+                <span>GSTIN (Global GST Number)</span>
+              </label>
+              <input 
+                type="text" 
+                required
+                value={gstin} 
+                onChange={e => setGstin(e.target.value)}
+                placeholder="08AABCM1234F1Z9"
+                className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold/50 transition font-mono uppercase font-bold text-gold"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="font-bold uppercase tracking-wider text-royal/60 flex items-center gap-1.5">
                 <Phone className="w-3.5 h-3.5 text-gold shrink-0" />
                 <span>Phone Number</span>
               </label>
@@ -185,6 +223,20 @@ export default function SettingsTab({
                 value={phone} 
                 onChange={e => setPhone(e.target.value)}
                 placeholder="+91 9829989187"
+                className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold/50 transition"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="font-bold uppercase tracking-wider text-royal/60 flex items-center gap-1.5">
+                <span>Official Website URL</span>
+              </label>
+              <input 
+                type="url" 
+                required
+                value={website} 
+                onChange={e => setWebsite(e.target.value)}
+                placeholder="https://mhindiatrips.com"
                 className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold/50 transition"
               />
             </div>

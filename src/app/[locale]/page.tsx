@@ -323,7 +323,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
   // Build slides from CMS data
   const cmsSlides = cms.slides || [];
-  const slides = cmsSlides.length > 0 ? cmsSlides.map((s: any) => {
+  const slides = cmsSlides.length >= 20 ? cmsSlides.map((s: any) => {
     const resolveField = (fieldVal: any, fallbackVal: string) => {
       if (!fieldVal) return fallbackVal;
       if (typeof fieldVal === "string") return fieldVal;
@@ -355,11 +355,27 @@ export default async function HomePage({ params }: HomePageProps) {
     { image: "/images/goa 2.jpg", sub: "BEACH LUXURY", title: "Golden Sands & Heritage of Goa", desc: "Relax on pristine tropical beaches and explore colonial Portuguese churches in old Goa.", location: "Baga & Old Goa, Goa", objectPosition: "center center", cta1Text: "Explore Goa", cta1Link: getLocalizedDestinationsPath(locale, "goa"), cta2Text: "Plan Itinerary", cta2Link: "/contact" },
     { image: "/images/munnar.jpg", sub: "HIMALAYAS & HILLS", title: "Misty Tea Hills of Munnar", desc: "Breathe the fresh mountain air of rolling tea estates and misty peaks in South India.", location: "Munnar Tea Estates, Kerala", objectPosition: "center center", cta1Text: "Kerala Guides", cta1Link: getLocalizedDestinationsPath(locale, "kerala"), cta2Text: "Inquire Now", cta2Link: "/contact" },
     { image: "/images/ranthambore_tiger_safari.png", sub: "WILDLIFE ADVENTURES", title: "Tiger Safaris in Ranthambore", desc: "Search for the majestic Royal Bengal Tiger in the ancient hunting grounds of Maharajas.", location: "National Park, Ranthambore", objectPosition: "center center", cta1Text: "Wildlife Packages", cta1Link: "/packages", cta2Text: "Inquire Now", cta2Link: "/contact" },
-    { image: "/images/port blair.jpg", sub: "ISLAND GETAWAYS", title: "Andaman Islands: Tropical Blue Havens", desc: "Swim in turquoise waters and dive into the pristine marine life and coral reefs of Havelock.", location: "Radhanagar Beach, Havelock", objectPosition: "center center", cta1Text: "Island Tours", cta1Link: "/packages", cta2Text: "Inquire Now", cta2Link: "/contact" }
+    { image: "/images/port blair.jpg", sub: "ISLAND GETAWAYS", title: "Andaman Islands: Tropical Blue Havens", desc: "Swim in turquoise waters and dive into the pristine marine life and coral reefs of Havelock.", location: "Radhanagar Beach, Havelock", objectPosition: "center center", cta1Text: "Island Tours", cta1Link: "/packages", cta2Text: "Inquire Now", cta2Link: "/contact" },
+    { image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1600&q=80", sub: "OUTBOUND LUXURY", title: "Maldives Overwater Paradise", desc: "Escape to private water villas over turquoise lagoons and coral reefs.", location: "Maldives Islands", objectPosition: "center center", cta1Text: "Outbound Packages", cta1Link: "/packages?category=Outbound", cta2Text: "Inquire Now", cta2Link: "/contact" },
+    { image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1600&q=80", sub: "OUTBOUND ADVENTURE", title: "Bali Tropical Sanctuaries", desc: "Explore emerald rice terraces, cliffside temples, and luxury beach resorts in Bali.", location: "Ubud & Seminyak, Bali", objectPosition: "center center", cta1Text: "Outbound Tours", cta1Link: "/packages?category=Outbound", cta2Text: "Plan My Trip", cta2Link: "/contact" },
+    { image: "https://images.unsplash.com/photo-1506665531195-3566fe2b4dfa?w=1600&q=80", sub: "OUTBOUND EXPLORER", title: "Thailand Islands & Temples", desc: "Discover Bangkok's golden spires, Chiang Mai sanctuaries, and Phuket beaches.", location: "Phuket & Chiang Mai, Thailand", objectPosition: "center center", cta1Text: "Thailand Packages", cta1Link: "/packages?category=Outbound", cta2Text: "Inquire Now", cta2Link: "/contact" },
+    { image: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?w=1600&q=80", sub: "OUTBOUND ODYSSEY", title: "Sri Lanka Heritage & Wildlife Safaris", desc: "Journey through Sigiriya fortress rock, tea plantations, and leopard safaris.", location: "Sigiriya & Ella, Sri Lanka", objectPosition: "center center", cta1Text: "Sri Lanka Packages", cta1Link: "/packages?category=Outbound", cta2Text: "Inquire Now", cta2Link: "/contact" },
+    { image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1600&q=80", sub: "OUTBOUND EXPEDITIONS", title: "Nepal & Majestic Himalayan Vistas", desc: "Witness Everest panoramas, ancient Kathmandu squares, and peaceful Pokhara lakes.", location: "Kathmandu & Pokhara, Nepal", objectPosition: "center center", cta1Text: "Nepal Tours", cta1Link: "/packages?category=Outbound", cta2Text: "Inquire Now", cta2Link: "/contact" },
+    { image: "https://images.unsplash.com/photo-1578637387939-43c525550085?w=1600&q=80", sub: "OUTBOUND KINGDOMS", title: "Bhutan: The Land of Thunder Dragon", desc: "Hike to Tiger's Nest monastery and experience pristine Himalayan spirituality.", location: "Paro & Thimphu, Bhutan", objectPosition: "center center", cta1Text: "Bhutan Tours", cta1Link: "/packages?category=Outbound", cta2Text: "Inquire Now", cta2Link: "/contact" },
+    { image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1600&q=80", sub: "OUTBOUND METROPOLIS", title: "Singapore Skyline & Garden City", desc: "Experience futuristic Gardens by the Bay, Marina Bay, and vibrant food streets.", location: "Marina Bay, Singapore", objectPosition: "center center", cta1Text: "Singapore Tours", cta1Link: "/packages?category=Outbound", cta2Text: "Inquire Now", cta2Link: "/contact" },
+    { image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1600&q=80", sub: "OUTBOUND CULTURAL", title: "Malaysia Towers & Tropical Rainforests", desc: "Explore Kuala Lumpur Twin Towers and ancient rainforests of Langkawi.", location: "Kuala Lumpur & Langkawi, Malaysia", objectPosition: "center center", cta1Text: "Malaysia Tours", cta1Link: "/packages?category=Outbound", cta2Text: "Inquire Now", cta2Link: "/contact" },
+    { image: "https://images.unsplash.com/photo-1540611025311-01df3cef54b5?w=1600&q=80", sub: "OUTBOUND HERITAGE", title: "Laos: Luang Prabang Serenity", desc: "Discover golden Buddhist temples, Mekong river cruises, and Kuang Si waterfalls.", location: "Luang Prabang, Laos", objectPosition: "center center", cta1Text: "Laos Packages", cta1Link: "/packages?category=Outbound", cta2Text: "Inquire Now", cta2Link: "/contact" },
+    { image: "/images/Jaisalmer.jpg", sub: "DESERT FORTRESSES", title: "Golden Sands of Jaisalmer", desc: "Stay in luxury desert safari camps amidst rolling dunes of Thar Desert.", location: "Thar Desert, Jaisalmer", objectPosition: "center center", cta1Text: "Desert Packages", cta1Link: getLocalizedDestinationsPath(locale, "rajasthan"), cta2Text: "Inquire Now", cta2Link: "/contact" }
   ];
 
   // CMS stats
-  const cmsStats = cms.stats || [];
+  const cmsStats = (cms.stats && cms.stats.length > 0) ? cms.stats.map((st: any) => {
+    // If value was 12 or 15, update to 22
+    if (st.value === 12 || st.value === 15 || String(st.label?.en || "").toLowerCase().includes("experience")) {
+      return { ...st, value: 22 };
+    }
+    return st;
+  }) : [];
   // CMS how-it-works
   const cmsHowItWorks = cms.howItWorks || [];
   // CMS inclusions
@@ -400,10 +416,10 @@ export default async function HomePage({ params }: HomePageProps) {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
             {(cmsStats.length > 0 ? cmsStats : [
-              { value: 12, suffix: "", label: { en: "Years of experience", es: "Años de experiencia", pt: "Anos de experiência" } },
+              { value: 22, suffix: "", label: { en: "Years of experience", es: "Años de experiencia", pt: "Anos de experiência" } },
               { value: 97, suffix: "%", label: { en: "Retention rate", es: "Tasa de retención", pt: "Taxa de retenção" } },
-              { value: 8, suffix: "k", label: { en: "Tours completed", es: "Tour completado", pt: "Tour completado" } },
-              { value: 19, suffix: "k", label: { en: "Happy clients", es: "Cliente feliz", pt: "Cliente feliz" } }
+              { value: 12, suffix: "k", label: { en: "Tours completed", es: "Tour completado", pt: "Tour completado" } },
+              { value: 25, suffix: "k", label: { en: "Happy clients", es: "Cliente feliz", pt: "Cliente feliz" } }
             ]).map((stat: any, i: number) => (
               <Reveal key={i} delay={50 + i * 70} className="text-center space-y-5">
                 <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-white border border-[#C5A862]/30 shadow-md mx-auto">
@@ -434,7 +450,7 @@ export default async function HomePage({ params }: HomePageProps) {
             {text.whyTitle}
           </h2>
           <p className="text-base md:text-lg text-foreground/60 leading-relaxed font-light">
-            We believe travel is not about ticking off boxes; it is a fine art. For over 15 years, our on-ground concierge desks have unlocked private access to monuments, designed authentic cultural encounters, and hosted global travelers in India’s finest grand suites.
+            We believe travel is not about ticking off boxes; it is a fine art. For over 22 years, our on-ground concierge desks have unlocked private access to monuments, designed authentic cultural encounters, and hosted global travelers in India’s finest grand suites as well as exotic outbound destinations.
           </p>
           <div className="grid grid-cols-2 gap-8 pt-6">
             <div className="space-y-2">

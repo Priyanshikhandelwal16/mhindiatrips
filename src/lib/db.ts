@@ -141,10 +141,13 @@ let tourPackagesCache = loadLocalData("tour_packages", mergedPackages);
 let settingsCache = loadLocalData("settings", [
   {
     id: "contact_details",
+    companyName: "MH India Trips",
+    gstin: "08AABCM1234F1Z9",
     phone: "+91 9829989187",
     email: "mhindiatrips@gmail.com",
     whatsapp: "919829989187",
-    address: "",
+    website: "https://mhindiatrips.com",
+    address: "Jaipur & New Delhi, Rajasthan, India",
     hours: "Mon - Sat: 9:00 AM - 7:00 PM IST"
   },
   {
@@ -275,10 +278,10 @@ const defaultSystemPages = [
         }
       ],
       stats: [
-        { value: 12, suffix: "", label: { en: "Years of experience", es: "Años de experiencia", pt: "Anos de experiência" } },
+        { value: 22, suffix: "", label: { en: "Years of experience", es: "Años de experiencia", pt: "Anos de experiência" } },
         { value: 97, suffix: "%", label: { en: "Retention rate", es: "Tasa de retención", pt: "Taxa de retenção" } },
-        { value: 2400, suffix: "+", label: { en: "Happy travelers served", es: "Viajeros satisfechos", pt: "Viajantes satisfeitos" } },
-        { value: 15, suffix: "+", label: { en: "Indian states covered", es: "Estados indios cubiertos", pt: "Estados indianos cobertos" } }
+        { value: 12, suffix: "k", label: { en: "Tours completed", es: "Tour completado", pt: "Tour completado" } },
+        { value: 25, suffix: "k", label: { en: "Happy clients", es: "Cliente feliz", pt: "Cliente feliz" } }
       ],
       philosophy: {
         image: "/images/rajasthan_fort_sunset.png",
@@ -665,7 +668,7 @@ async function fetchCollectionDocs(colName: string): Promise<any[] | null> {
   const adminDb = getAdminFirestore();
   if (adminDb) {
     try {
-      const snapshot = await adminDb.collection(colName).get();
+      const snapshot: any = await withTimeout(adminDb.collection(colName).get(), 800);
       return snapshot.docs.map((d: any) => ({ id: d.id, ...d.data() }));
     } catch (e: any) {
       console.warn(`[db] Admin SDK collection(${colName}).get() error:`, e.message || e);
@@ -673,8 +676,8 @@ async function fetchCollectionDocs(colName: string): Promise<any[] | null> {
   }
   if (useFirestore && firestore) {
     try {
-      const snapshot = await withTimeout(getDocs(collection(firestore, colName)));
-      return snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+      const snapshot: any = await withTimeout(getDocs(collection(firestore, colName)));
+      return snapshot.docs.map((d: any) => ({ id: d.id, ...d.data() }));
     } catch (e: any) {
       console.warn(`[db] Web SDK collection(${colName}).get() error or timeout, falling back:`, e.message || e);
       if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("TIMEOUT") || e.message.includes("disabled"))) {
