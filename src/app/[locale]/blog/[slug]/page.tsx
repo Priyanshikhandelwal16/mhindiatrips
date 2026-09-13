@@ -245,21 +245,24 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
           {/* Sidebar */}
           <aside className="lg:col-span-4 space-y-8 lg:sticky lg:top-24 lg:self-start">
             
-
-
-            {/* CTA Card */}
-            <div className="bg-[#0B0D0C] p-6 space-y-4 text-white">
-              <h4 className="text-base font-bold">{text.ctaTitle}</h4>
-              <p className="text-xs text-white/50 font-light leading-relaxed">{text.ctaDesc}</p>
-              <Link href={`/${locale}/contact`} className="block w-full bg-[#C3AB85] hover:bg-[#D5C49A] text-[#0B0D0C] text-[10px] font-bold uppercase tracking-widest px-5 py-3 rounded-full text-center transition-colors">
+            {/* Luxury Concierge CTA Card */}
+            <div className="bg-[#0A2A1E] p-7 rounded-3xl border-2 border-[#C5A862] shadow-xl text-white space-y-4">
+              <div className="w-10 h-10 rounded-2xl bg-[#C5A862]/20 flex items-center justify-center text-[#C5A862]">
+                <Sparkles className="w-5 h-5 text-[#C5A862]" />
+              </div>
+              <div className="space-y-1.5">
+                <h4 className="text-lg font-serif font-bold text-white leading-snug">{text.ctaTitle}</h4>
+                <p className="text-xs text-white/75 font-light leading-relaxed">{text.ctaDesc}</p>
+              </div>
+              <Link href={`/${locale}/contact`} className="block w-full bg-[#C5A862] hover:bg-[#D8BE83] text-[#0A2A1E] text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-full text-center transition-all shadow-md hover:scale-105">
                 {text.ctaBtn}
               </Link>
             </div>
 
-            {/* Category */}
-            <div className="bg-white border border-[#C3AB85]/15 p-6 space-y-3">
-              <span className="text-[10px] uppercase tracking-wider font-bold text-[#1B1B1B]/40">{text.category}</span>
-              <Link href={`/${locale}/blog`} className="block text-sm font-bold text-[#0B0D0C] hover:text-[#C3AB85] transition-colors">
+            {/* Category Card */}
+            <div className="bg-white border border-[#C5A862]/30 p-7 rounded-3xl shadow-md space-y-3">
+              <span className="text-[10px] uppercase tracking-widest font-extrabold text-[#C5A862] block">{text.category}</span>
+              <Link href={`/${locale}/blog`} className="block text-base font-serif font-bold text-[#0A2A1E] hover:text-[#C5A862] transition-colors">
                 {blog.category}
               </Link>
             </div>

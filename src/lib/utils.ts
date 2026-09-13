@@ -69,187 +69,310 @@ export const getLocalizedDestinationsPath = (
 export const formatRichText = (content: string): string => {
   if (!content) return "";
 
-  // 1. If it already contains HTML tags (e.g. <p> or <h2>), assume it's pre-rendered HTML
-  const hasHtml = /<[a-z][\s\S]*>/i.test(content);
-  if (hasHtml) {
+  // 1. If it already contains HTML card wrappers (e.g. blog-intro-card or blog-tips-card), assume it's pre-rendered
+  const hasCustomCards = /class="[^"]*blog-(intro-card|key-insights|tips-card)[^"]*"/i.test(content);
+  if (hasCustomCards) {
     return content;
   }
 
-  // Helper to identify Main Headings (Introduction, Key Insights, Travel Tips)
-  const isMainHeading = (text: string): boolean => {
-    const clean = text.toLowerCase().replace(/[:.!?]$/, "").trim();
-    const mainHeadings = [
-      "introduction", "introducción", "introdução",
-      "key insights", "perspectivas clave", "principais insights", "key insight",
-      "travel tips", "consejos de viaje", "dicas de viagem", "travel tip"
-    ];
-    return mainHeadings.includes(clean) || mainHeadings.some(h => clean.startsWith(h));
-  };
-
-  // 2. Process markdown-like formatting (bold & italics)
+  // 2. Pre-process markdown-like bold and italic syntax
   let html = content;
   html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
   html = html.replace(/__(.*?)__/g, '<strong>$1</strong>');
   html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
   html = html.replace(/_(.*?)_/g, '<em>$1</em>');
 
-  // Split by newlines (single or multiple) to process line-by-line
   const rawLines = html.split(/\r?\n/);
-  const result: string[] = [];
+
+  type SectionType = 'intro' | 'key_insights' | 'tips' | 'general';
   
-  let currentListType: 'ul' | 'ol' | null = null;
-  let currentParagraphLines: string[] = [];
-  let inBulletSection = false;
+  interface Section {
+    type: SectionType;
+    headingText: string;
+    lines: string[];
+  }
 
-  const shouldAutoBullet = (text: string): boolean => {
-    const clean = text.toLowerCase().replace(/[:.!?]$/, "").trim();
-    const bulletSections = [
-      "travel tips", "consejos de viaje", "dicas de viagem", "travel tip",
-      "key insights", "perspectivas clave", "principais insights", "key insight"
-    ];
-    return bulletSections.includes(clean) || bulletSections.some(h => clean.startsWith(h));
-  };
+  const sections: Section[] = [];
+  let currentSection: Section = { type: 'general', headingText: '', lines: [] };
 
-  const closeList = () => {
-    if (currentListType === 'ul') {
-      result.push('</ul>');
-    } else if (currentListType === 'ol') {
-      result.push('</ol>');
+  const getSectionType = (text: string): SectionType | null => {
+    const clean = text.toLowerCase().replace(/[:.!?#*_-]/g, "").trim();
+    if (["introduction", "introducción", "introdução", "overview", "visión general"].includes(clean) || clean.startsWith("introduction") || clean.startsWith("introducción") || clean.startsWith("introdução")) {
+      return 'intro';
     }
-    currentListType = null;
-  };
-
-  const closeParagraph = () => {
-    if (currentParagraphLines.length > 0) {
-      const paragraphText = currentParagraphLines.join('<br/>').trim();
-      if (paragraphText) {
-        result.push(`<p class="text-[15px] text-[#1B1B1B]/70 leading-[1.9] font-light mb-4">${paragraphText}</p>`);
-      }
-      currentParagraphLines = [];
+    if (["key insights", "key insight", "perspectivas clave", "principais insights", "regional climate insights"].includes(clean) || clean.startsWith("key insight") || clean.startsWith("perspectivas clave") || clean.startsWith("principais insight")) {
+      return 'key_insights';
     }
+    if (["travel tips", "travel tip", "consejos de viaje", "dicas de viagem", "tips for travel"].includes(clean) || clean.startsWith("travel tip") || clean.startsWith("consejos de viaje") || clean.startsWith("dicas de viagem")) {
+      return 'tips';
+    }
+    return null;
   };
 
   for (let i = 0; i < rawLines.length; i++) {
     const line = rawLines[i].trim();
     if (!line) {
-      // Empty line closes list and paragraph
-      closeList();
-      closeParagraph();
+      if (currentSection.lines.length > 0) {
+        currentSection.lines.push('');
+      }
       continue;
     }
 
-    // Check if line starts with markdown headers
     const mdHeaderMatch = line.match(/^(#{1,6})\s+(.*)/);
-    if (mdHeaderMatch) {
-      closeList();
-      closeParagraph();
-      const level = mdHeaderMatch[1].length;
-      const headingText = mdHeaderMatch[2].trim();
-      
-      if (isMainHeading(headingText)) {
-        result.push(`<h2 class="blog-main-heading">${headingText}</h2>`);
-        inBulletSection = shouldAutoBullet(headingText);
-      } else {
-        result.push(`<h3 class="blog-sub-heading">${headingText}</h3>`);
-        inBulletSection = false;
+    const cleanHeadingText = mdHeaderMatch ? mdHeaderMatch[2].trim() : line;
+    const detectedType = getSectionType(cleanHeadingText);
+
+    if (detectedType) {
+      if (currentSection.lines.length > 0 || currentSection.headingText) {
+        sections.push(currentSection);
       }
+      currentSection = {
+        type: detectedType,
+        headingText: cleanHeadingText,
+        lines: []
+      };
       continue;
     }
 
-    // Check if line is a bullet list item
-    const bulletMatch = line.match(/^[-*•]\s+(.*)/);
-    if (bulletMatch) {
-      closeParagraph();
-      const itemContent = bulletMatch[1].trim();
-      if (currentListType !== 'ul') {
-        closeList();
-        result.push('<ul class="list-disc pl-6 space-y-2 mb-4">');
-        currentListType = 'ul';
-      }
-      result.push(`<li class="text-sm text-foreground/80 leading-relaxed">${itemContent}</li>`);
-      continue;
-    }
-
-    // Check if line is a numbered list item or start with Tip/Point/Step
-    const listPatternMatch = line.match(/^(\d+)[\.\)]\s+(.*)/) || line.match(/^(Tip|Point|Step)\s*\d+[\s\:\-\.]+(.*)/i);
-    if (listPatternMatch) {
-      closeParagraph();
-      const itemContent = listPatternMatch[2].trim();
-      if (currentListType !== 'ul') {
-        closeList();
-        result.push('<ul class="list-disc pl-6 space-y-2 mb-4">');
-        currentListType = 'ul';
-      }
-      result.push(`<li class="text-sm text-foreground/80 leading-relaxed">${itemContent}</li>`);
-      continue;
-    }
-
-    // Check if line itself is a heading (short line, no ending punctuation, not empty)
-    const isShort = line.length < 100;
-    const hasPunctuation = /[.?!]$/.test(line);
-    if (isShort && !hasPunctuation) {
-      // Check if it's a main heading or sub heading
-      closeList();
-      closeParagraph();
-      if (isMainHeading(line)) {
-        result.push(`<h2 class="blog-main-heading">${line}</h2>`);
-        inBulletSection = shouldAutoBullet(line);
-      } else {
-        result.push(`<h3 class="blog-sub-heading">${line}</h3>`);
-        inBulletSection = false;
-      }
-      continue;
-    }
-
-    // Otherwise, treat as regular paragraph line
-    // Check if the line starts with a main heading inline, e.g. "Introduction: Traveling to India is..."
-    const inlineMainMatch = line.match(/^(Introduction|Key\s+Insights|Travel\s+Tips|Introducción|Introdução|Perspectivas\s+clave|Principais\s+insights|Consejos\s+de\s+viaje|Dicas\s+de\s+viagem)[\s\:\-\*]+(.*)/i);
-    if (inlineMainMatch) {
-      closeList();
-      closeParagraph();
-      const headingText = inlineMainMatch[1].trim();
-      const remainingText = inlineMainMatch[2].trim();
-      
-      result.push(`<h2 class="blog-main-heading">${headingText}</h2>`);
-      inBulletSection = shouldAutoBullet(headingText);
-      if (remainingText) {
-        if (inBulletSection) {
-          if (currentListType !== 'ul') {
-            closeList();
-            result.push('<ul class="list-disc pl-6 space-y-2 mb-4">');
-            currentListType = 'ul';
-          }
-          result.push(`<li class="text-sm text-foreground/80 leading-relaxed">${remainingText}</li>`);
-        } else {
-          currentParagraphLines.push(remainingText);
+    // Check for inline headings like "Introduction: Traveling to India is..."
+    const inlineMatch = line.match(/^(Introduction|Key\s+Insights|Travel\s+Tips|Introducción|Introdução|Perspectivas\s+clave|Principais\s+insights|Consejos\s+de\s+viaje|Dicas\s+de\s+viagem)[\s\:\-\*]+(.*)/i);
+    if (inlineMatch) {
+      const type = getSectionType(inlineMatch[1]);
+      if (type) {
+        if (currentSection.lines.length > 0 || currentSection.headingText) {
+          sections.push(currentSection);
         }
+        currentSection = {
+          type,
+          headingText: inlineMatch[1].trim(),
+          lines: inlineMatch[2].trim() ? [inlineMatch[2].trim()] : []
+        };
+        continue;
       }
-      continue;
     }
 
-    // If we are currently under an auto-bullet section (Travel Tips / Key Insights) and have a normal text line
-    if (inBulletSection) {
-      closeParagraph();
-      if (currentListType !== 'ul') {
-        closeList();
-        result.push('<ul class="list-disc pl-6 space-y-2 mb-4">');
-        currentListType = 'ul';
-      }
-      result.push(`<li class="text-sm text-foreground/80 leading-relaxed">${line}</li>`);
-      continue;
-    }
-
-    // If we are currently in a list, we might want to close it if a paragraph line starts
-    if (currentListType) {
-      closeList();
-    }
-    currentParagraphLines.push(line);
+    currentSection.lines.push(line);
   }
 
-  // Close any remaining list or paragraph
-  closeList();
-  closeParagraph();
+  if (currentSection.lines.length > 0 || currentSection.headingText) {
+    sections.push(currentSection);
+  }
 
-  return result.join('\n');
+  const output: string[] = [];
+
+  const getRegionIcon = (name: string): string => {
+    const lower = name.toLowerCase();
+    if (lower.includes("north")) return "🕌";
+    if (lower.includes("rajasthan") || lower.includes("desert")) return "🐫";
+    if (lower.includes("south")) return "🌴";
+    if (lower.includes("goa")) return "🏖️";
+    if (lower.includes("himalaya") || lower.includes("mountain") || lower.includes("shimla") || lower.includes("manali")) return "🏔️";
+    if (lower.includes("northeast") || lower.includes("meghalaya") || lower.includes("assam") || lower.includes("sikkim")) return "🌿";
+    if (lower.includes("central") || lower.includes("madhya")) return "🐅";
+    if (lower.includes("ladakh")) return "🏔️";
+    if (lower.includes("monsoon")) return "🌧️";
+    return "📍";
+  };
+
+  for (const sec of sections) {
+    if (sec.type === 'intro') {
+      output.push(`
+        <div class="blog-intro-card">
+          <div class="blog-intro-card-header">
+            <span class="blog-intro-badge">✨ Overview</span>
+            <h2 class="blog-intro-card-title">${sec.headingText || 'Introduction'}</h2>
+          </div>
+          <div class="space-y-4">
+      `);
+      
+      let pLines: string[] = [];
+      for (const line of sec.lines) {
+        if (!line) {
+          if (pLines.length > 0) {
+            output.push(`<p class="text-[15px] text-[#1B1B1B]/80 leading-relaxed font-light">${pLines.join(' ')}</p>`);
+            pLines = [];
+          }
+        } else {
+          pLines.push(line);
+        }
+      }
+      if (pLines.length > 0) {
+        output.push(`<p class="text-[15px] text-[#1B1B1B]/80 leading-relaxed font-light">${pLines.join(' ')}</p>`);
+      }
+
+      output.push(`
+          </div>
+        </div>
+      `);
+    } else if (sec.type === 'key_insights') {
+      output.push(`
+        <div class="blog-key-insights-container">
+          <div class="blog-key-insights-header">
+            <span class="blog-key-insights-badge">💡 Essential Regional Guide</span>
+            <h2 class="blog-main-heading">${sec.headingText || 'Key Insights'}</h2>
+          </div>
+          <div class="blog-regional-cards-grid">
+      `);
+
+      interface RegionalItem {
+        title: string;
+        bestTime: string;
+        desc: string[];
+      }
+
+      const items: RegionalItem[] = [];
+      let currentItem: RegionalItem | null = null;
+
+      for (let i = 0; i < sec.lines.length; i++) {
+        const line = sec.lines[i].trim();
+        if (!line) continue;
+
+        const bestTimeMatch = line.match(/^(Best time[^\:\n]*|Mejor época[^\:\n]*|Melhor época[^\:\n]*)\s*:\s*(.*)/i);
+
+        if (bestTimeMatch) {
+          if (!currentItem) {
+            currentItem = {
+              title: 'Regional Insights',
+              bestTime: `${bestTimeMatch[1].trim()}: ${bestTimeMatch[2].trim()}`,
+              desc: []
+            };
+          } else {
+            currentItem.bestTime = `${bestTimeMatch[1].trim()}: ${bestTimeMatch[2].trim()}`;
+          }
+          continue;
+        }
+
+        const isShortRegionTitle = line.length < 60 && !/[.?!]$/.test(line);
+
+        if (isShortRegionTitle) {
+          if (currentItem) {
+            items.push(currentItem);
+          }
+          currentItem = {
+            title: line,
+            bestTime: '',
+            desc: []
+          };
+        } else {
+          if (!currentItem) {
+            currentItem = {
+              title: 'Regional Insights',
+              bestTime: '',
+              desc: [line]
+            };
+          } else {
+            currentItem.desc.push(line);
+          }
+        }
+      }
+      if (currentItem) {
+        items.push(currentItem);
+      }
+
+      for (const item of items) {
+        const icon = getRegionIcon(item.title);
+        output.push(`
+          <div class="blog-regional-card">
+            <div class="blog-regional-card-header">
+              <div class="blog-regional-title">
+                <span class="text-xl">${icon}</span>
+                <span>${item.title}</span>
+              </div>
+              ${item.bestTime ? `<span class="blog-best-time-badge">🗓️ ${item.bestTime}</span>` : ''}
+            </div>
+            <p class="blog-regional-desc">${item.desc.join(' ')}</p>
+          </div>
+        `);
+      }
+
+      output.push(`
+          </div>
+        </div>
+      `);
+    } else if (sec.type === 'tips') {
+      output.push(`
+        <div class="blog-tips-card">
+          <div class="blog-tips-header">
+            <span class="blog-tips-badge">✈️ Essential Recommendations</span>
+            <h2 class="blog-tips-title">${sec.headingText || 'Travel Tips'}</h2>
+          </div>
+          <ul class="blog-tips-list">
+      `);
+
+      for (const line of sec.lines) {
+        const clean = line.replace(/^[-*•\d\.\)]+\s*/, '').trim();
+        if (!clean) continue;
+        
+        // Skip solo author signature at the bottom
+        if (/^[A-Z][a-z]+\s+[A-Z][a-z]+$/.test(clean) && clean.length < 30) {
+          output.push(`
+            </ul>
+            <div class="pt-6 mt-4 border-t border-white/20 flex items-center justify-between text-xs text-white/80 font-medium">
+              <span>Verified by <strong>${clean}</strong></span>
+              <span class="text-[#C5A862]">MH India Trips Concierge</span>
+            </div>
+          `);
+          continue;
+        }
+
+        output.push(`
+          <li class="blog-tips-item">
+            <span class="blog-tip-check">✓</span>
+            <span>${clean}</span>
+          </li>
+        `);
+      }
+
+      output.push(`
+          </ul>
+        </div>
+      `);
+    } else {
+      if (sec.headingText) {
+        output.push(`<h2 class="blog-main-heading">${sec.headingText}</h2>`);
+      }
+      let pLines: string[] = [];
+      for (const line of sec.lines) {
+        if (!line) {
+          if (pLines.length > 0) {
+            output.push(`<p class="text-[15px] text-[#1B1B1B]/70 leading-[1.9] font-light mb-4">${pLines.join(' ')}</p>`);
+            pLines = [];
+          }
+          continue;
+        }
+
+        const mdMatch = line.match(/^(#{1,6})\s+(.*)/);
+        if (mdMatch) {
+          if (pLines.length > 0) {
+            output.push(`<p class="text-[15px] text-[#1B1B1B]/70 leading-[1.9] font-light mb-4">${pLines.join(' ')}</p>`);
+            pLines = [];
+          }
+          output.push(`<h3 class="blog-sub-heading">${mdMatch[2]}</h3>`);
+          continue;
+        }
+
+        if (/^[A-Z][a-zA-Z\s]+$/.test(line) && line.length < 30 && sec.lines.indexOf(line) === sec.lines.length - 1) {
+          if (pLines.length > 0) {
+            output.push(`<p class="text-[15px] text-[#1B1B1B]/70 leading-[1.9] font-light mb-4">${pLines.join(' ')}</p>`);
+            pLines = [];
+          }
+          output.push(`
+            <div class="pt-6 border-t border-[#C5A862]/20 flex items-center justify-between text-xs text-[#0A2A1E]/70 font-medium">
+              <span>Written by <strong>${line}</strong></span>
+              <span class="text-[#C5A862]">MH India Trips Expert</span>
+            </div>
+          `);
+          continue;
+        }
+
+        pLines.push(line);
+      }
+      if (pLines.length > 0) {
+        output.push(`<p class="text-[15px] text-[#1B1B1B]/70 leading-[1.9] font-light mb-4">${pLines.join(' ')}</p>`);
+      }
+    }
+  }
+
+  return output.join('\n');
 };
 
