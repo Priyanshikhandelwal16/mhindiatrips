@@ -24,35 +24,64 @@ export default function PackagesFilterSection({
 
   const filteredPackages = selectedCategory === "All"
     ? packages
+    : selectedCategory === "Outbound"
+    ? packages.filter((pkg: any) => pkg.category === "Outbound" || pkg.isOutbound === true || pkg.travelStyle?.includes("Outbound"))
+    : selectedCategory === "Domestic"
+    ? packages.filter((pkg: any) => pkg.category !== "Outbound" && !pkg.isOutbound && !pkg.travelStyle?.includes("Outbound"))
     : packages.filter((pkg: any) => pkg.category === selectedCategory);
 
   return (
     <div className="space-y-12">
       {/* Category Tabs */}
-      <Reveal className="flex flex-wrap justify-center gap-3">
-        <button
-          onClick={() => setSelectedCategory("All")}
-          className={`px-5 py-2.5 rounded-full border text-[10px] font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-sm ${
-            selectedCategory === "All"
-              ? "bg-gold border-gold text-[#0A2A1E] shadow-md scale-[1.03]"
-              : "bg-white border-[#C5A862]/15 text-royal hover:border-[#C5A862]/30 hover:bg-[#FAF8F5]/50"
-          }`}
-        >
-          {locale === "es" ? "Todos" : locale === "pt" ? "Todos" : "All Tours"}
-        </button>
-        {categories.map((cat: string) => (
+      <Reveal className="w-full">
+        <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-3 pt-1 px-2 scrollbar-none flex-nowrap md:flex-wrap md:justify-center max-w-full">
           <button
-            key={cat}
-            onClick={() => setSelectedCategory(cat)}
-            className={`px-5 py-2.5 rounded-full border text-[10px] font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-sm ${
-              selectedCategory === cat
+            onClick={() => setSelectedCategory("All")}
+            className={`px-4 sm:px-5 py-2.5 rounded-full border text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer shrink-0 shadow-sm ${
+              selectedCategory === "All"
                 ? "bg-gold border-gold text-[#0A2A1E] shadow-md scale-[1.03]"
                 : "bg-white border-[#C5A862]/15 text-royal hover:border-[#C5A862]/30 hover:bg-[#FAF8F5]/50"
             }`}
           >
-            {cat}
+            {locale === "es" ? "Todos los Viajes" : locale === "pt" ? "Todos os Pacotes" : "All Tours"}
           </button>
-        ))}
+
+          <button
+            onClick={() => setSelectedCategory("Domestic")}
+            className={`px-4 sm:px-5 py-2.5 rounded-full border text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer shrink-0 shadow-sm ${
+              selectedCategory === "Domestic"
+                ? "bg-[#0A2A1E] border-[#0A2A1E] text-[#C5A862] shadow-md scale-[1.03]"
+                : "bg-white border-[#C5A862]/15 text-royal hover:border-[#C5A862]/30 hover:bg-[#FAF8F5]/50"
+            }`}
+          >
+            🇮🇳 {locale === "es" ? "India Doméstico" : locale === "pt" ? "Índia Doméstico" : "Domestic (India)"}
+          </button>
+
+          <button
+            onClick={() => setSelectedCategory("Outbound")}
+            className={`px-4 sm:px-5 py-2.5 rounded-full border text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer shrink-0 shadow-sm ${
+              selectedCategory === "Outbound"
+                ? "bg-[#C5A862] border-[#C5A862] text-[#0A2A1E] shadow-md scale-[1.03]"
+                : "bg-white border-[#C5A862]/15 text-royal hover:border-[#C5A862]/30 hover:bg-[#FAF8F5]/50"
+            }`}
+          >
+            ✈️ {locale === "es" ? "Paquetes Internacionales" : locale === "pt" ? "Pacotes Internacionais" : "Outbound / International"}
+          </button>
+
+          {categories.filter(c => c !== "Outbound" && c !== "Domestic").map((cat: string) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-4 sm:px-5 py-2.5 rounded-full border text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer shrink-0 shadow-sm ${
+                selectedCategory === cat
+                  ? "bg-gold border-gold text-[#0A2A1E] shadow-md scale-[1.03]"
+                  : "bg-white border-[#C5A862]/15 text-royal hover:border-[#C5A862]/30 hover:bg-[#FAF8F5]/50"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
       </Reveal>
 
       {/* Grid of Large Cards with Clear Inclusions details */}

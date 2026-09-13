@@ -137,6 +137,22 @@ let foodsCache = loadLocalData("foods", mergedFoods);
 let testimonialsCache = loadLocalData("testimonials", initialTestimonials);
 let tourPackagesCache = loadLocalData("tour_packages", mergedPackages);
 
+// Ensure any missing packages (such as newly added Outbound packages) are merged into cache & fallback file
+if (Array.isArray(tourPackagesCache)) {
+  const existingSlugs = new Set(tourPackagesCache.map((p: any) => p.slug));
+  let hasNew = false;
+  for (const pkg of mergedPackages) {
+    if (pkg && pkg.slug && !existingSlugs.has(pkg.slug)) {
+      tourPackagesCache.push(pkg);
+      existingSlugs.add(pkg.slug);
+      hasNew = true;
+    }
+  }
+  if (hasNew) {
+    saveLocalData("tour_packages", tourPackagesCache);
+  }
+}
+
 // Initialize settings cache with default system contact and auth details
 let settingsCache = loadLocalData("settings", [
   {
@@ -654,10 +670,9 @@ if (missingSystemPages.length > 0) {
   saveLocalData("pages", pagesCache);
 }
 
-// ----------------------------------------------------
-// FIRESTORE HELPER WRAPPERS (Server Admin SDK Preferred)
-// ----------------------------------------------------
-function withTimeout<T>(promise: Promise<T>, ms: number = 1500): Promise<T> {
+let isFirestoreHealthy = true;
+
+function withTimeout<T>(promise: Promise<T>, ms: number = 300): Promise<T> {
   return Promise.race([
     promise,
     new Promise<T>((_, reject) => setTimeout(() => reject(new Error("FIRESTORE_TIMEOUT")), ms))
@@ -665,18 +680,23 @@ function withTimeout<T>(promise: Promise<T>, ms: number = 1500): Promise<T> {
 }
 
 async function fetchCollectionDocs(colName: string): Promise<any[] | null> {
+  if (!isFirestoreHealthy && !useFirestore) return null;
+
   const adminDb = getAdminFirestore();
-  if (adminDb) {
+  if (adminDb && isFirestoreHealthy) {
     try {
-      const snapshot: any = await withTimeout(adminDb.collection(colName).get(), 800);
+      const snapshot: any = await withTimeout(adminDb.collection(colName).get(), 300);
       return snapshot.docs.map((d: any) => ({ id: d.id, ...d.data() }));
     } catch (e: any) {
-      console.warn(`[db] Admin SDK collection(${colName}).get() error:`, e.message || e);
+      console.warn(`[db] Admin SDK collection(${colName}).get() fallback to local JSON:`, e.message || e);
+      if (e.message && (e.message.includes("TIMEOUT") || e.message.includes("FIRESTORE_TIMEOUT"))) {
+        isFirestoreHealthy = false;
+      }
     }
   }
   if (useFirestore && firestore) {
     try {
-      const snapshot: any = await withTimeout(getDocs(collection(firestore, colName)));
+      const snapshot: any = await withTimeout(getDocs(collection(firestore, colName)), 300);
       return snapshot.docs.map((d: any) => ({ id: d.id, ...d.data() }));
     } catch (e: any) {
       console.warn(`[db] Web SDK collection(${colName}).get() error or timeout, falling back:`, e.message || e);
@@ -1178,6 +1198,20 @@ export const db = {
   tourPackages: {
     findMany: async () => {
       tourPackagesCache = loadLocalData("tour_packages", mergedPackages);
+      if (Array.isArray(tourPackagesCache)) {
+        const existingSlugs = new Set(tourPackagesCache.map((p: any) => p.slug));
+        let hasNew = false;
+        for (const pkg of mergedPackages) {
+          if (pkg && pkg.slug && !existingSlugs.has(pkg.slug)) {
+            tourPackagesCache.push(pkg);
+            existingSlugs.add(pkg.slug);
+            hasNew = true;
+          }
+        }
+        if (hasNew) {
+          saveLocalData("tour_packages", tourPackagesCache);
+        }
+      }
       const localData = tourPackagesCache;
       const firestoreData = await fetchCollectionDocs("tour_packages");
       if (firestoreData) {

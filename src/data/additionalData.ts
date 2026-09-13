@@ -1251,9 +1251,9 @@ export const additionalPackages: TourPackage[] = [
     ],
     includedExperiences: [
       {
-        en: "Authentic rural homestay with a local family in Hudeel",
-        es: "Hospedaje rural auténtico con una familia local en Hudeel",
-        pt: "Estadia rural autêntica com uma família local em Hudeel"
+        en: "Heritage haveli exploration in Mandawa and Nawalgarh (Shekhawati)",
+        es: "Exploración de havelis históricas en Mandawa y Nawalgarh (Shekhawati)",
+        pt: "Exploração de havelis históricas em Mandawa e Nawalgarh (Shekhawati)"
       },
       {
         en: "Camel ride in Sam Sand Dunes of Jaisalmer",
@@ -2476,9 +2476,9 @@ export const additionalPackages: TourPackage[] = [
         pt: "Conheça a fazenda de criação de camelos e o Forte Junagarh em Bikaner"
       },
       {
-        en: "Experience real India with a local family homestay in Hudeel (Shekhawati)",
-        es: "Experimenta la India real conviviendo con una familia local en Hudeel (Shekhawati)",
-        pt: "Experimente a Índia real hospedando-se com uma família local em Hudeel"
+        en: "Experience authentic painted havelis in Mandawa & Nawalgarh (Shekhawati)",
+        es: "Experimenta la belleza de las havelis pintadas en Mandawa y Nawalgarh (Shekhawati)",
+        pt: "Experimente a beleza das havelis pintadas em Mandawa e Nawalgarh (Shekhawati)"
       }
     ],
     itinerary: [
@@ -2589,14 +2589,14 @@ export const additionalPackages: TourPackage[] = [
       {
         day: 9,
         title: {
-          en: "Bikaner to Hudeel Rural Village",
-          es: "Bikaner – Hudeel: Por carretera",
-          pt: "Bikaner para Hudeel"
+          en: "Bikaner to Mandawa & Nawalgarh Heritage Havelis",
+          es: "Bikaner – Mandawa y Nawalgarh: Por carretera",
+          pt: "Bikaner para Mandawa e Nawalgarh"
         },
         desc: {
-          en: "Drive to Hudeel, a rural village in the Shekhawati region. Experience authentic village life, visit Karni Kot temple in the desert, and enjoy home hospitality with a local family. Overnight in Hudeel.",
-          es: "Después del desayuno, ruta hacia Hudeel. Al llegar al alojamiento de nuestros familiares, tiempo libre. Visitaremos el templo Karni Kot en el desierto y el típico pueblo rural para conocer costumbres. Noche en el alojamiento.",
-          pt: "Viagem para Hudeel, uma aldeia rural em Shekhawati. Convivência com uma família local, visita ao templo de Karni Kot no deserto. Noite em Hudeel."
+          en: "Drive to Mandawa and Nawalgarh in the Shekhawati region. Explore the open-air art galleries of painted havelis, Castle Mandawa, and Poddar Haveli Museum. Overnight in Mandawa.",
+          es: "Ruta hacia Mandawa y Nawalgarh en Shekhawati. Explore la galería de arte al aire libre con sus magníficas havelis pintadas, el Castillo de Mandawa y el Museo Poddar Haveli. Noche en Mandawa.",
+          pt: "Viagem para Mandawa e Nawalgarh em Shekhawati. Visita às havelis pintadas, ao Castelo de Mandawa e ao Museu Poddar Haveli. Noite em Mandawa."
         }
       },
       {
@@ -2652,17 +2652,17 @@ export const additionalPackages: TourPackage[] = [
         pt: "Viagem ao Rajastão Essência do Deserto | 10 Dias"
       },
       description: {
-        en: "Explore Delhi, Agra, Jaipur, Pushkar, Jodhpur, Bikaner, and Hudeel village on a 10-day private tour with Taj Mahal and local homestay.",
-        es: "Explore Delhi, Agra, Jaipur, Pushkar, Jodhpur, Bikaner y el pueblo rural de Hudeel en un viaje de 10 días.",
-        pt: "Explore Deli, Agra, Jaipur, Pushkar, Jodhpur, Bikaner e a aldeia rural de Hudeel em um tour de 10 dias."
+        en: "Explore Delhi, Agra, Jaipur, Pushkar, Jodhpur, Bikaner, Mandawa, and Nawalgarh on a 10-day private tour with Taj Mahal and heritage havelis.",
+        es: "Explore Delhi, Agra, Jaipur, Pushkar, Jodhpur, Bikaner, Mandawa y Nawalgarh en un viaje de 10 días.",
+        pt: "Explore Deli, Agra, Jaipur, Pushkar, Jodhpur, Bikaner, Mandawa e Nawalgarh em um tour de 10 dias."
       },
       keywords: {
-        en: "Rajasthan tour, desert safari, Jodhpur blue city, Taj Mahal, Pushkar lake, Brahma temple, Bikaner camel farm, Hudeel village, India private tour 10 days",
-        es: "viaje Rajasthan, desierto India, viaje 10 dias India, fuerte Jodhpur, lago Pushkar, granja camellos Bikaner, pueblo rural Hudeel, viaje privado India",
-        pt: "viagem Rajastão, deserto Índia, viagem 10 dias Índia, forte Jodhpur, lago Pushkar, fazenda camelos Bikaner, aldeia rural Hudeel, viagem privada Índia"
+        en: "Rajasthan tour, desert safari, Jodhpur blue city, Taj Mahal, Pushkar lake, Mandawa havelis, Nawalgarh palace, Bikaner camel farm, India private tour 10 days",
+        es: "viaje Rajasthan, desierto India, viaje 10 dias India, fuerte Jodhpur, lago Pushkar, havelis Mandawa, palacio Nawalgarh, viaje privado India",
+        pt: "viagem Rajastão, deserto Índia, viagem 10 dias Índia, forte Jodhpur, lago Pushkar, havelis Mandawa, palácio Nawalgarh, viagem privada Índia"
       },
-      ogTitle: "Rajasthan Desert Essence Tour | 10 Days Private Experience",
-      ogDescription: "Explore Delhi, Agra, Jaipur, Pushkar, Jodhpur, Bikaner, and Hudeel village on a 10-day private tour with Taj Mahal and local homestay.",
+      ogTitle: "Rajasthan Desert & Heritage Tour | 10 Days Private Experience",
+      ogDescription: "Explore Delhi, Agra, Jaipur, Pushkar, Jodhpur, Bikaner, Mandawa, and Nawalgarh on a 10-day private tour with Taj Mahal and heritage havelis.",
       canonicalUrl: "/packages/rajasthan-desert-essence-10-days-tour",
       indexRule: "index",
       followRule: "follow"

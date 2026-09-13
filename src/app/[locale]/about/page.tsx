@@ -187,8 +187,8 @@ export default async function AboutPage({ params }: AboutPageProps) {
         </Reveal>
       </section>
 
-      {/* SECTION 3: Core Values Grid (Increased Core Values Text Sizes) */}
-      <section className="max-w-7xl mx-auto px-6 py-28 space-y-16 border-b border-gold/10">
+      {/* SECTION 3: Core Values Grid */}
+      <section className="max-w-7xl mx-auto px-6 py-24 space-y-16 border-b border-gold/10">
         <div className="text-center space-y-3 max-w-lg mx-auto">
           <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold block">STANDARDS</span>
           <h2 className="text-3xl md:text-4xl font-bold text-royal tracking-tight">{text.valuesTitle}</h2>
@@ -199,15 +199,149 @@ export default async function AboutPage({ params }: AboutPageProps) {
           {values.map((val, i) => {
             const Icon = val.icon;
             return (
-              <Reveal key={i} delay={i * 60} className="bg-white border border-gold/10 p-10 shadow-sm space-y-5">
+              <Reveal key={i} delay={i * 60} className="bg-white border border-gold/10 p-8 rounded-2xl shadow-sm space-y-4">
                 <span className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
                   <Icon className="w-6 h-6" />
                 </span>
                 <h4 className="text-lg font-bold text-royal uppercase tracking-wider">{val.title}</h4>
-                <p className="text-sm md:text-base text-foreground/50 leading-relaxed font-light">{val.desc}</p>
+                <p className="text-sm text-foreground/60 leading-relaxed font-light">{val.desc}</p>
               </Reveal>
             );
           })}
+        </div>
+      </section>
+
+      {/* SECTION 3.5: WHY CHOOSE US (Dedicated High Impact Section) */}
+      <section className="bg-gradient-to-b from-[#0A2A1E]/5 via-[#FAF8F5] to-[#FAF8F5] py-24 border-b border-gold/10">
+        <div className="max-w-7xl mx-auto px-6 space-y-16">
+          
+          <div className="text-center space-y-4 max-w-2xl mx-auto">
+            <span className="bg-[#C5A862] text-[#0A2A1E] text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block">
+              {locale === "es" ? "¿Por Qué Elegirnos?" : locale === "pt" ? "Por Que Nos Escolher?" : "Why Choose Us"}
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#0A2A1E] tracking-tight">
+              {locale === "es" 
+                ? "La Diferencia MH India Trips" 
+                : locale === "pt" 
+                ? "A Diferença MH India Trips" 
+                : "The MH India Trips Advantage"}
+            </h2>
+            <p className="text-sm md:text-base text-[#1B1B1B]/70 font-light leading-relaxed">
+              {locale === "es"
+                ? "Diseñamos cada viaje con dedicación artesanal, garantizando privacidad absoluta, guías multilingües y momentos inolvidables."
+                : locale === "pt"
+                ? "Criamos cada viagem com dedicação artesanal, garantindo privacidade absoluta, guias multilíngues e momentos inesquecíveis."
+                : "We craft every itinerary with master precision, combining royal heritage comfort, boots-on-the-ground concierge support, and transparent luxury."}
+            </p>
+            <div className="h-px w-24 bg-[#C5A862] mx-auto mt-2" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            {/* Pillar 1 */}
+            <Reveal delay={100} className="bg-white p-8 rounded-3xl border border-[#C5A862]/30 shadow-lg hover:shadow-xl transition-all duration-300 space-y-5 group hover:-translate-y-1">
+              <div className="w-14 h-14 rounded-2xl bg-[#0A2A1E] text-[#C5A862] flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-[#C5A862] group-hover:text-[#0A2A1E] transition-colors">
+                <Compass className="w-7 h-7" />
+              </div>
+              <h3 className="text-xl font-serif font-bold text-[#0A2A1E]">
+                {locale === "es" ? "Itinerarios 100% Personalizados" : locale === "pt" ? "Roteiros 100% Personalizáveis" : "100% Tailor-Made Journeys"}
+              </h3>
+              <p className="text-xs sm:text-sm text-[#2C2C2C]/80 leading-relaxed font-normal">
+                {locale === "es"
+                  ? "Sin tours rígidos en grupo. Diseñamos cada día según su ritmo, preferencias culinarias y pasiones personales."
+                  : locale === "pt"
+                  ? "Sem excursões rígidas em grupo. Criamos cada dia de acordo com seu ritmo e preferências pessoais."
+                  : "No rigid group tours. Every day, pace, palace hotel, and monument experience is crafted tailored specifically to you."}
+              </p>
+            </Reveal>
+
+            {/* Pillar 2 */}
+            <Reveal delay={200} className="bg-white p-8 rounded-3xl border border-[#C5A862]/30 shadow-lg hover:shadow-xl transition-all duration-300 space-y-5 group hover:-translate-y-1">
+              <div className="w-14 h-14 rounded-2xl bg-[#0A2A1E] text-[#C5A862] flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-[#C5A862] group-hover:text-[#0A2A1E] transition-colors">
+                <Shield className="w-7 h-7" />
+              </div>
+              <h3 className="text-xl font-serif font-bold text-[#0A2A1E]">
+                {locale === "es" ? "Concierge Personal 24/7" : locale === "pt" ? "Concierge Pessoal 24/7" : "24/7 Dedicated Concierge"}
+              </h3>
+              <p className="text-xs sm:text-sm text-[#2C2C2C]/80 leading-relaxed font-normal">
+                {locale === "es"
+                  ? "Asistencia telefónica y presencial continua desde su llegada hasta su vuelo de regreso. Tranquilidad total."
+                  : locale === "pt"
+                  ? "Assistência telefônica e presencial contínua do momento em que você desembarca até o voo de volta."
+                  : "From airport VIP reception to 24/7 WhatsApp concierge support, your dedicated trip manager ensures flawless execution."}
+              </p>
+            </Reveal>
+
+            {/* Pillar 3 */}
+            <Reveal delay={300} className="bg-white p-8 rounded-3xl border border-[#C5A862]/30 shadow-lg hover:shadow-xl transition-all duration-300 space-y-5 group hover:-translate-y-1">
+              <div className="w-14 h-14 rounded-2xl bg-[#0A2A1E] text-[#C5A862] flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-[#C5A862] group-hover:text-[#0A2A1E] transition-colors">
+                <Star className="w-7 h-7" />
+              </div>
+              <h3 className="text-xl font-serif font-bold text-[#0A2A1E]">
+                {locale === "es" ? "Hoteles y Palacios Seleccionados" : locale === "pt" ? "Hotéis e Palácios Selecionados" : "Handpicked Royal Stays"}
+              </h3>
+              <p className="text-xs sm:text-sm text-[#2C2C2C]/80 leading-relaxed font-normal">
+                {locale === "es"
+                  ? "Hospedaje en palacios reales de maharajás, resorts 5 estrellas y havelis boutique de patrimonio histórico."
+                  : locale === "pt"
+                  ? "Hospedagem em palácios reais de maharajas, resorts 5 estrelas e havelis históricas de luxo."
+                  : "Stay in authentic 18th-century royal palaces, 5-star luxury resorts, and oceanfront private villas."}
+              </p>
+            </Reveal>
+
+            {/* Pillar 4 */}
+            <Reveal delay={400} className="bg-white p-8 rounded-3xl border border-[#C5A862]/30 shadow-lg hover:shadow-xl transition-all duration-300 space-y-5 group hover:-translate-y-1">
+              <div className="w-14 h-14 rounded-2xl bg-[#0A2A1E] text-[#C5A862] flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-[#C5A862] group-hover:text-[#0A2A1E] transition-colors">
+                <Users className="w-7 h-7" />
+              </div>
+              <h3 className="text-xl font-serif font-bold text-[#0A2A1E]">
+                {locale === "es" ? "Guias Multilingües Certificados" : locale === "pt" ? "Guias Multilíngues Certificados" : "Multilingual Licensed Guides"}
+              </h3>
+              <p className="text-xs sm:text-sm text-[#2C2C2C]/80 leading-relaxed font-normal">
+                {locale === "es"
+                  ? "Guias oficiales que hablan español, portugués e inglés con fluidez y conductores privados altamente experimentados."
+                  : locale === "pt"
+                  ? "Guias oficiais fluentes em espanhol, português e inglês com motoristas privados extremamente experientes."
+                  : "Expert local storytellers fluent in English, Spanish, and Portuguese, accompanied by professional private chauffeurs."}
+              </p>
+            </Reveal>
+
+            {/* Pillar 5 */}
+            <Reveal delay={500} className="bg-white p-8 rounded-3xl border border-[#C5A862]/30 shadow-lg hover:shadow-xl transition-all duration-300 space-y-5 group hover:-translate-y-1">
+              <div className="w-14 h-14 rounded-2xl bg-[#0A2A1E] text-[#C5A862] flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-[#C5A862] group-hover:text-[#0A2A1E] transition-colors">
+                <Award className="w-7 h-7" />
+              </div>
+              <h3 className="text-xl font-serif font-bold text-[#0A2A1E]">
+                {locale === "es" ? "Pan India & Destinos Outbound" : locale === "pt" ? "Pan Índia e Destinos Outbound" : "Pan India & Outbound Reach"}
+              </h3>
+              <p className="text-xs sm:text-sm text-[#2C2C2C]/80 leading-relaxed font-normal">
+                {locale === "es"
+                  ? "Cobertura total en todos los estados de India y paquetes internacionales a Laos, Nepal, Bali, Malasia, Singapur, Tailandia y Maldivas."
+                  : locale === "pt"
+                  ? "Cobertura completa na Índia e pacotes internacionais para Laos, Nepal, Bali, Malásia, Singapura, Tailândia e Maldivas."
+                  : "Unmatched expertise covering all Indian destinations alongside exotic outbound packages in Laos, Nepal, Bali, Malaysia, Singapore, Thailand & Maldives."}
+              </p>
+            </Reveal>
+
+            {/* Pillar 6 */}
+            <Reveal delay={600} className="bg-white p-8 rounded-3xl border border-[#C5A862]/30 shadow-lg hover:shadow-xl transition-all duration-300 space-y-5 group hover:-translate-y-1">
+              <div className="w-14 h-14 rounded-2xl bg-[#0A2A1E] text-[#C5A862] flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-[#C5A862] group-hover:text-[#0A2A1E] transition-colors">
+                <Heart className="w-7 h-7" />
+              </div>
+              <h3 className="text-xl font-serif font-bold text-[#0A2A1E]">
+                {locale === "es" ? "Precios Transparentes sin Sorpresas" : locale === "pt" ? "Preços Transparentes sem Surpresas" : "Transparent Price Guarantee"}
+              </h3>
+              <p className="text-xs sm:text-sm text-[#2C2C2C]/80 leading-relaxed font-normal">
+                {locale === "es"
+                  ? "Tarifas directas sin intermediarios, políticas de cancelación flexibles y total transparencia en cada cotización."
+                  : locale === "pt"
+                  ? "Tarifas diretas de operador local sem intermediários e total transparência em cada orçamento."
+                  : "Direct local operator rates with zero hidden charges, transparent inclusions, and flexible cancellation policies."}
+              </p>
+            </Reveal>
+
+          </div>
+
         </div>
       </section>
 

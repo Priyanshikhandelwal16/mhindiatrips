@@ -298,48 +298,53 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
         </div>
 
         {/* Top Floating Bar inside Cover */}
-        <div className="relative z-20 w-full max-w-6xl mx-auto px-6 pt-8 flex items-center justify-between gap-4 print:hidden">
+        <div className="relative z-20 w-full max-w-6xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8 flex items-center justify-between gap-3 sm:gap-4 print:hidden">
           <Link 
             href={`/${locale}/packages`} 
-            className="inline-flex items-center gap-2 bg-black/50 hover:bg-black/80 backdrop-blur-md border border-white/20 text-white text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full transition-all shadow-lg hover:scale-105"
+            className="inline-flex items-center gap-1.5 sm:gap-2 bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/25 text-white text-[10px] sm:text-xs font-bold uppercase tracking-wider px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-full transition-all shadow-lg hover:scale-105 shrink-0"
           >
-            <ChevronLeft className="w-4 h-4 text-[#C5A862]" />
+            <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C5A862]" />
             <span>{text.backToPackages}</span>
           </Link>
 
-          {/* Cursive Brand Signature Overlay Top Right */}
-          <div className="shrink-0 text-right">
-            <span className="font-serif italic text-2xl md:text-3xl text-[#C5A862] font-bold tracking-wide drop-shadow-md">
-              {settings.companyName || "MH India Trips"}
-            </span>
-          </div>
+          {/* Official MH India Trips Brand Logo (Highlighted with pristine white glass backdrop) */}
+          <Link 
+            href={`/${locale}`} 
+            className="shrink-0 bg-white/95 hover:bg-white backdrop-blur-md px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-2xl border-2 border-[#C5A862] shadow-2xl transition-all duration-300 flex items-center justify-center hover:scale-105"
+          >
+            <img 
+              src="/images/logo-transparent.png" 
+              alt={settings.companyName || "MH India Trips"} 
+              className="h-7 sm:h-10 md:h-12 w-auto object-contain"
+            />
+          </Link>
         </div>
 
         {/* Centered Hero Content Block */}
-        <div className="relative z-20 w-full max-w-5xl mx-auto px-6 pb-20 md:pb-28 text-center space-y-6">
+        <div className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 pb-16 sm:pb-24 md:pb-28 text-center space-y-5 sm:space-y-6">
           
           {/* Category Pill & Duration Badge */}
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <span className="bg-[#C5A862] text-[#0A2A1E] text-xs uppercase font-extrabold tracking-widest px-4 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            <span className="bg-[#C5A862] text-[#0A2A1E] text-[10px] sm:text-xs uppercase font-extrabold tracking-widest px-3 py-1 sm:px-4 sm:py-1.5 rounded-full shadow-md flex items-center gap-1.5">
               <Award className="w-3.5 h-3.5 text-[#0A2A1E]" />
               {pkg.category || "Luxury Private Journey"}
             </span>
 
-            <span className="bg-black/60 backdrop-blur-md text-[#C5A862] border border-[#C5A862]/40 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
+            <span className="bg-black/60 backdrop-blur-md text-[#C5A862] border border-[#C5A862]/40 text-[10px] sm:text-xs font-bold uppercase tracking-widest px-3 py-1 sm:px-4 sm:py-1.5 rounded-full shadow-md flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-[#C5A862]" />
               {pkg.durationDays} {text.daysLabel} / {pkg.durationNights || pkg.durationDays - 1} {text.nightsLabel}
             </span>
           </div>
 
           {/* Main Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-extrabold text-white tracking-tight leading-[1.15] drop-shadow-2xl max-w-4xl mx-auto">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-extrabold text-white tracking-tight leading-[1.15] drop-shadow-2xl max-w-4xl mx-auto">
             {pkgTitle}
           </h1>
 
           {/* Subtitle Route Bar below Title */}
           {routeText && (
-            <div className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-md border border-white/20 text-white text-sm md:text-lg font-serif font-medium tracking-wide px-6 py-2.5 rounded-2xl shadow-xl max-w-3xl">
-              <MapPin className="w-4 h-4 text-[#C5A862] shrink-0" />
+            <div className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs sm:text-base md:text-lg font-serif font-medium tracking-wide px-4 py-2 sm:px-6 sm:py-2.5 rounded-xl sm:rounded-2xl shadow-xl max-w-3xl">
+              <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C5A862] shrink-0" />
               <span>{routeText}</span>
             </div>
           )}
@@ -356,8 +361,21 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
 
       {/* Sticky Quick Actions Navigation Bar */}
       <div className="bg-white/95 backdrop-blur-md border-b border-[#C5A862]/20 sticky top-0 z-40 shadow-md print:hidden">
-        <div className="max-w-6xl mx-auto px-6 py-3 flex flex-wrap items-center justify-between gap-4 text-xs">
-          
+        
+        {/* Mobile View Layout (Compact side-by-side buttons) */}
+        <div className="flex sm:hidden items-center justify-between gap-2 px-3 py-2 text-xs">
+          <PrintBrochureButton label="PDF Brochure" />
+          <Link 
+            href={`/${locale}/contact?package=${slug}`} 
+            className="bg-[#0A2A1E] hover:bg-[#C5A862] text-white hover:text-[#0A2A1E] text-[10px] font-bold uppercase tracking-wider px-3.5 py-2 rounded-full transition-all flex items-center justify-center gap-1.5 shadow-md shrink-0"
+          >
+            <span>{text.inquireCta}</span>
+            <ArrowRight className="w-3 h-3" />
+          </Link>
+        </div>
+
+        {/* Tablet & Desktop View Layout */}
+        <div className="hidden sm:flex max-w-6xl mx-auto px-6 py-3 items-center justify-between gap-4 text-xs">
           <div className="flex flex-wrap items-center gap-4 text-[#0A2A1E]">
             <span className="font-bold flex items-center gap-1.5 bg-[#0A2A1E]/5 px-3.5 py-1.5 rounded-full border border-[#0A2A1E]/10">
               <Clock className="w-4 h-4 text-[#C5A862]" />
@@ -391,63 +409,64 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
             </Link>
           </div>
         </div>
+
       </div>
 
       {/* --------------------------------------------------
           2. INNER CONTENT WRAPPER
          -------------------------------------------------- */}
-      <div className="relative max-w-5xl mx-auto px-6 py-12 md:py-16 space-y-14">
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 py-10 md:py-16 space-y-12 md:space-y-14">
 
-        {/* Subtle Brand Watermark Background */}
-        <div 
-          className="absolute inset-0 opacity-[0.03] bg-repeat pointer-events-none z-0" 
-          style={{ backgroundImage: `url('/images/logo-transparent.png')`, backgroundSize: '200px' }}
-        />
-
-        <div className="relative z-10 space-y-14">
+        <div className="relative z-10 space-y-12 md:space-y-14">
 
           {/* Luxury Feature Quick Highlights Cards Bar */}
           <Reveal>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-white p-5 rounded-2xl border border-[#C5A862]/20 shadow-sm flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#0A2A1E]/5 flex items-center justify-center text-[#0A2A1E] shrink-0 border border-[#C5A862]/30">
-                  <Car className="w-5 h-5 text-[#C5A862]" />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 items-stretch">
+              
+              <div className="bg-white p-4 sm:p-5 rounded-2xl border border-[#C5A862]/20 shadow-sm flex items-center gap-3 h-full min-h-[90px]">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0A2A1E]/5 flex items-center justify-center text-[#0A2A1E] shrink-0 border border-[#C5A862]/30">
+                  <Car className="w-4 h-4 sm:w-5 sm:h-5 text-[#C5A862]" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#0A2A1E] uppercase tracking-wider">{text.privateTour}</h4>
-                  <p className="text-[11px] text-[#1B1B1B]/60 font-light">Chauffeur & Car</p>
+                  <h4 className="text-[11px] sm:text-xs font-bold text-[#0A2A1E] uppercase tracking-wider">{text.privateTour}</h4>
+                  <p className="text-[10px] sm:text-[11px] text-[#1B1B1B]/70 font-medium">Chauffeur & Car</p>
                 </div>
               </div>
 
-              <div className="bg-white p-5 rounded-2xl border border-[#C5A862]/20 shadow-sm flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#0A2A1E]/5 flex items-center justify-center text-[#0A2A1E] shrink-0 border border-[#C5A862]/30">
-                  <Hotel className="w-5 h-5 text-[#C5A862]" />
+              <div className="bg-white p-4 sm:p-5 rounded-2xl border border-[#C5A862]/20 shadow-sm flex items-center gap-3 h-full min-h-[90px]">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0A2A1E]/5 flex items-center justify-center text-[#0A2A1E] shrink-0 border border-[#C5A862]/30">
+                  <Hotel className="w-4 h-4 sm:w-5 sm:h-5 text-[#C5A862]" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#0A2A1E] uppercase tracking-wider">{text.hotelCategory}</h4>
-                  <p className="text-[11px] text-[#1B1B1B]/60 font-light">{pkg.hotelCategory || "4★ & 5★ Luxury Palace"}</p>
+                  <h4 className="text-[11px] sm:text-xs font-bold text-[#0A2A1E] uppercase tracking-wider">{text.hotelCategory}</h4>
+                  <p className="text-[10px] sm:text-[11px] text-[#1B1B1B]/70 font-medium line-clamp-1">{pkg.hotelCategory || "4★ & 5★ Luxury Palace"}</p>
                 </div>
               </div>
 
-              <div className="bg-white p-5 rounded-2xl border border-[#C5A862]/20 shadow-sm flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#0A2A1E]/5 flex items-center justify-center text-[#0A2A1E] shrink-0 border border-[#C5A862]/30">
-                  <Compass className="w-5 h-5 text-[#C5A862]" />
+              <div className="bg-white p-4 sm:p-5 rounded-2xl border border-[#C5A862]/20 shadow-sm flex items-center gap-3 h-full min-h-[90px]">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0A2A1E]/5 flex items-center justify-center text-[#0A2A1E] shrink-0 border border-[#C5A862]/30">
+                  <Compass className="w-4 h-4 sm:w-5 sm:h-5 text-[#C5A862]" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#0A2A1E] uppercase tracking-wider">{text.style}</h4>
-                  <p className="text-[11px] text-[#1B1B1B]/60 font-light">{pkg.travelStyle || "Bespoke Cultural"}</p>
+                  <h4 className="text-[11px] sm:text-xs font-bold text-[#0A2A1E] uppercase tracking-wider">{text.style}</h4>
+                  <p className="text-[10px] sm:text-[11px] text-[#1B1B1B]/70 font-medium line-clamp-2">
+                    {typeof pkg.travelStyle === 'string'
+                      ? (pkg.travelStyle.includes(',') ? pkg.travelStyle.split(',')[0] + " & Heritage" : pkg.travelStyle)
+                      : "Bespoke Cultural"}
+                  </p>
                 </div>
               </div>
 
-              <div className="bg-white p-5 rounded-2xl border border-[#C5A862]/20 shadow-sm flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#0A2A1E]/5 flex items-center justify-center text-[#0A2A1E] shrink-0 border border-[#C5A862]/30">
-                  <Users className="w-5 h-5 text-[#C5A862]" />
+              <div className="bg-white p-4 sm:p-5 rounded-2xl border border-[#C5A862]/20 shadow-sm flex items-center gap-3 h-full min-h-[90px]">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0A2A1E]/5 flex items-center justify-center text-[#0A2A1E] shrink-0 border border-[#C5A862]/30">
+                  <Users className="w-4 h-4 sm:w-5 sm:h-5 text-[#C5A862]" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#0A2A1E] uppercase tracking-wider">{text.minTravellers}</h4>
-                  <p className="text-[11px] text-[#1B1B1B]/60 font-light">2 Guests Min</p>
+                  <h4 className="text-[11px] sm:text-xs font-bold text-[#0A2A1E] uppercase tracking-wider">{text.minTravellers}</h4>
+                  <p className="text-[10px] sm:text-[11px] text-[#1B1B1B]/70 font-medium">2 Guests Min</p>
                 </div>
               </div>
+
             </div>
           </Reveal>
 
@@ -511,7 +530,7 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
               </div>
 
               {/* Day Cards Stack with Left Visual Timeline Bar */}
-              <div className="relative space-y-10 pl-4 md:pl-8 border-l-2 border-[#C5A862]/40 ml-2 md:ml-4">
+              <div className="relative space-y-8 pl-5 sm:pl-8 md:pl-10 border-l-2 border-[#C5A862]/40 ml-3 sm:ml-4 md:ml-6">
                 
                 {pkg.itinerary.map((day: any, idx: number) => {
                   const dayTitle = day.title?.[lang] || day.title?.en || day.title?.es || (typeof day.title === 'string' ? day.title : "");
@@ -529,38 +548,38 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                       <div className="relative group">
                         
                         {/* Timeline Node Badge on Vertical Line */}
-                        <div className="absolute -left-[31px] md:-left-[47px] top-6 w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#0A2A1E] border-2 border-[#C5A862] text-[#C5A862] text-xs font-extrabold flex items-center justify-center shadow-lg z-20 group-hover:scale-110 transition-transform">
+                        <div className="absolute -left-[31px] sm:-left-[43px] md:-left-[51px] top-4 w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-[#0A2A1E] border-2 border-[#C5A862] text-[#C5A862] text-[10px] sm:text-xs font-extrabold flex items-center justify-center shadow-lg z-20 group-hover:scale-110 transition-transform">
                           {dayNum}
                         </div>
 
                         {/* Main Day Card */}
-                        <article className="bg-white rounded-3xl border border-[#C5A862]/20 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden space-y-0">
+                        <article className="bg-white rounded-2xl sm:rounded-3xl border border-[#C5A862]/20 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden space-y-0">
                           
                           {/* Day Header Bar */}
-                          <div className="p-6 md:p-8 bg-[#0A2A1E]/3 border-b border-[#C5A862]/15 flex flex-wrap items-center justify-between gap-4">
+                          <div className="p-4 sm:p-6 md:p-8 bg-[#0A2A1E]/3 border-b border-[#C5A862]/15 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                             <div className="space-y-1">
                               <span className="text-[10px] uppercase font-bold tracking-widest text-[#C5A862] block">
                                 {text.dayLabel} {dayNum}
                               </span>
-                              <h3 className="text-xl md:text-2xl font-serif font-bold text-[#0A2A1E]">
+                              <h3 className="text-lg sm:text-xl md:text-2xl font-serif font-bold text-[#0A2A1E]">
                                 {dayTitle}
                               </h3>
                             </div>
 
                             {day.location && (
-                              <span className="bg-[#0A2A1E] text-white text-[11px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
-                                <MapPin className="w-3.5 h-3.5 text-[#C5A862]" />
+                              <span className="bg-[#0A2A1E] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-wider px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full flex items-center gap-1.5 shadow-sm self-start sm:self-auto">
+                                <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#C5A862]" />
                                 <span>{day.location}</span>
                               </span>
                             )}
                           </div>
 
                           {/* Day Card Body */}
-                          <div className="p-6 md:p-8 space-y-6">
+                          <div className="p-4 sm:p-6 md:p-8 space-y-5 sm:space-y-6">
                             
                             {/* Day Destination Image Showcase */}
                             {dayImg && (
-                              <div className="relative w-full h-64 sm:h-80 md:h-[420px] rounded-2xl overflow-hidden shadow-md group/img border border-[#C5A862]/20">
+                              <div className="relative w-full h-48 sm:h-72 md:h-[400px] rounded-xl sm:rounded-2xl overflow-hidden shadow-md group/img border border-[#C5A862]/20">
                                 <img 
                                   src={dayImg} 
                                   alt={dayTitle} 
@@ -569,8 +588,8 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
                                 {day.location && (
-                                  <div className="absolute bottom-4 left-4 z-10">
-                                    <span className="bg-black/70 backdrop-blur-md text-white text-[11px] font-serif font-semibold px-4 py-1.5 rounded-xl border border-white/20">
+                                  <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 z-10">
+                                    <span className="bg-black/70 backdrop-blur-md text-white text-[10px] sm:text-[11px] font-serif font-semibold px-3 py-1 sm:px-4 sm:py-1.5 rounded-lg sm:rounded-xl border border-white/20">
                                       📍 {day.location}
                                     </span>
                                   </div>
@@ -580,19 +599,19 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
 
                             {/* Narrative Paragraph */}
                             {dayDesc && (
-                              <p className="text-sm md:text-base text-[#2C2C2C] font-normal leading-relaxed">
+                              <p className="text-xs sm:text-sm md:text-base text-[#2C2C2C] font-normal leading-relaxed">
                                 {dayDesc}
                               </p>
                             )}
 
                             {/* Morning / Afternoon Highlights Pills */}
                             {(morningText || afternoonText) && (
-                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 pt-2">
                                 {morningText && (
-                                  <div className="bg-[#FAF8F5] p-4 rounded-2xl border border-[#C5A862]/20 flex items-start gap-3">
-                                    <span className="text-lg mt-0.5">🌅</span>
+                                  <div className="bg-[#FAF8F5] p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-[#C5A862]/20 flex items-start gap-3">
+                                    <span className="text-base sm:text-lg mt-0.5">🌅</span>
                                     <div>
-                                      <strong className="text-xs font-bold text-[#0A2A1E] uppercase tracking-wider block mb-0.5">
+                                      <strong className="text-[11px] sm:text-xs font-bold text-[#0A2A1E] uppercase tracking-wider block mb-0.5">
                                         {text.morning}
                                       </strong>
                                       <p className="text-xs text-[#2C2C2C]/80 font-light leading-relaxed">{morningText}</p>
@@ -601,10 +620,10 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                                 )}
 
                                 {afternoonText && (
-                                  <div className="bg-[#FAF8F5] p-4 rounded-2xl border border-[#C5A862]/20 flex items-start gap-3">
-                                    <span className="text-lg mt-0.5">☀️</span>
+                                  <div className="bg-[#FAF8F5] p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-[#C5A862]/20 flex items-start gap-3">
+                                    <span className="text-base sm:text-lg mt-0.5">☀️</span>
                                     <div>
-                                      <strong className="text-xs font-bold text-[#0A2A1E] uppercase tracking-wider block mb-0.5">
+                                      <strong className="text-[11px] sm:text-xs font-bold text-[#0A2A1E] uppercase tracking-wider block mb-0.5">
                                         {text.afternoon}
                                       </strong>
                                       <p className="text-xs text-[#2C2C2C]/80 font-light leading-relaxed">{afternoonText}</p>
@@ -627,9 +646,9 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                                     return (
                                       <span 
                                         key={aIdx}
-                                        className="bg-[#0A2A1E]/5 text-[#0A2A1E] text-xs font-semibold px-3 py-1.5 rounded-full border border-[#C5A862]/30 flex items-center gap-1.5"
+                                        className="bg-[#0A2A1E]/5 text-[#0A2A1E] text-[11px] sm:text-xs font-semibold px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full border border-[#C5A862]/30 flex items-center gap-1.5"
                                       >
-                                        <Check className="w-3.5 h-3.5 text-[#CA8A04]" />
+                                        <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#CA8A04]" />
                                         <span>{actText}</span>
                                       </span>
                                     );
@@ -640,13 +659,13 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
 
                             {/* Accommodation Card */}
                             {(day.hotel || day.overnight || day.accommodation) && (
-                              <div className="bg-[#0A2A1E] text-white p-4 rounded-2xl flex items-center justify-between gap-4 shadow-md">
+                              <div className="bg-[#0A2A1E] text-white p-3.5 sm:p-4 rounded-xl sm:rounded-2xl flex flex-wrap items-center justify-between gap-3 shadow-md">
                                 <div className="flex items-center gap-3">
-                                  <div className="w-9 h-9 rounded-full bg-[#C5A862]/20 text-[#C5A862] flex items-center justify-center shrink-0">
+                                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#C5A862]/20 text-[#C5A862] flex items-center justify-center shrink-0">
                                     <Hotel className="w-4 h-4 text-[#C5A862]" />
                                   </div>
                                   <div>
-                                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C5A862] block">
+                                    <span className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest text-[#C5A862] block">
                                       {text.accommodation}
                                     </span>
                                     <p className="text-xs font-semibold text-white">
@@ -681,21 +700,21 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
              -------------------------------------------------- */}
           {(pkg.includedExperiences?.length > 0 || pkg.exclusions?.length > 0) && (
             <Reveal>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 pt-4">
                 
                 {/* Services Included */}
                 {pkg.includedExperiences && pkg.includedExperiences.length > 0 && (
-                  <div className="bg-[#059669]/5 border border-[#059669]/20 p-8 rounded-3xl space-y-6 shadow-sm">
+                  <div className="bg-[#059669]/5 border border-[#059669]/20 p-5 sm:p-8 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-6 shadow-sm">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[#059669]/15 text-[#059669] flex items-center justify-center shrink-0">
-                        <CheckCircle className="w-5 h-5 text-[#059669]" />
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#059669]/15 text-[#059669] flex items-center justify-center shrink-0">
+                        <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#059669]" />
                       </div>
-                      <h3 className="text-xl font-serif font-bold text-[#065F46]">
+                      <h3 className="text-lg sm:text-xl font-serif font-bold text-[#065F46]">
                         {text.inclusions}
                       </h3>
                     </div>
 
-                    <ul className="space-y-3 text-xs md:text-sm text-[#1B1B1B]/80 font-normal leading-relaxed">
+                    <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm text-[#1B1B1B]/80 font-normal leading-relaxed">
                       {pkg.includedExperiences.map((exp: any, i: number) => {
                         const val = typeof exp === 'string' ? exp : (exp[lang] || exp[locale] || exp.en || exp.es);
                         return (
@@ -711,17 +730,17 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
 
                 {/* Services Excluded */}
                 {pkg.exclusions && pkg.exclusions.length > 0 && (
-                  <div className="bg-[#DC2626]/5 border border-[#DC2626]/20 p-8 rounded-3xl space-y-6 shadow-sm">
+                  <div className="bg-[#DC2626]/5 border border-[#DC2626]/20 p-5 sm:p-8 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-6 shadow-sm">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[#DC2626]/15 text-[#DC2626] flex items-center justify-center shrink-0">
-                        <XCircle className="w-5 h-5 text-[#DC2626]" />
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#DC2626]/15 text-[#DC2626] flex items-center justify-center shrink-0">
+                        <XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#DC2626]" />
                       </div>
-                      <h3 className="text-xl font-serif font-bold text-[#991B1B]">
+                      <h3 className="text-lg sm:text-xl font-serif font-bold text-[#991B1B]">
                         {text.exclusions}
                       </h3>
                     </div>
 
-                    <ul className="space-y-3 text-xs md:text-sm text-[#1B1B1B]/80 font-normal leading-relaxed">
+                    <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm text-[#1B1B1B]/80 font-normal leading-relaxed">
                       {pkg.exclusions.map((exc: any, i: number) => {
                         const val = typeof exc === 'string' ? exc : (exc[lang] || exc[locale] || exc.en || exc.es);
                         return (
@@ -740,38 +759,158 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
           )}
 
           {/* --------------------------------------------------
-              5. SPECIAL NOTES & TRAVEL POLICIES
+              5. CANCELLATION POLICY, TERMS & IMPORTANT TRAVEL NOTES
+             -------------------------------------------------- */}
+          {/* --------------------------------------------------
+              5. CANCELLATION POLICY, TERMS & IMPORTANT TRAVEL NOTES
              -------------------------------------------------- */}
           <Reveal>
-            <div className="bg-white p-8 md:p-10 rounded-3xl border border-[#C5A862]/25 shadow-md space-y-6">
-              <div className="flex items-center gap-3 border-b border-[#C5A862]/20 pb-4">
-                <Info className="w-6 h-6 text-[#C5A862]" />
-                <h3 className="text-xl md:text-2xl font-serif font-bold text-[#0A2A1E]">
-                  {text.importantNotes}
-                </h3>
+            <div className="space-y-8">
+              
+              {/* Section Header */}
+              <div className="border-b border-[#C5A862]/30 pb-4">
+                <span className="text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-[#C5A862] block">
+                  Transparency & Guest Guidelines
+                </span>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#0A2A1E]">
+                  Cancellation Policy & Terms and Conditions
+                </h2>
               </div>
 
-              <ul className="space-y-3 text-xs md:text-sm text-[#2C2C2C] font-normal leading-relaxed">
-                {pkg.policies?.importantNotes ? (
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-[#C5A862] font-bold">•</span>
-                    <span>{pkg.policies.importantNotes[lang] || pkg.policies.importantNotes[locale] || pkg.policies.importantNotes.en || pkg.policies.importantNotes.es || pkg.policies.importantNotes}</span>
-                  </li>
-                ) : (
-                  text.defaultNotes.map((noteStr: string, nIdx: number) => (
-                    <li key={nIdx} className="flex items-start gap-2.5">
-                      <span className="text-[#C5A862] font-bold">•</span>
-                      <span>{noteStr}</span>
-                    </li>
-                  ))
-                )}
-                {pkg.policies?.cancellation && (
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-[#C5A862] font-bold">•</span>
-                    <span>{pkg.policies.cancellation[lang] || pkg.policies.cancellation[locale] || pkg.policies.cancellation.en || pkg.policies.cancellation.es || pkg.policies.cancellation}</span>
-                  </li>
-                )}
-              </ul>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                {/* 1. Cancellation Policy Card */}
+                <div className="bg-white p-7 sm:p-9 rounded-3xl border-2 border-[#C5A862]/30 shadow-lg space-y-6 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 text-[#0A2A1E] border-b border-[#C5A862]/20 pb-4">
+                      <div className="w-10 h-10 rounded-full bg-[#CA8A04]/10 text-[#CA8A04] flex items-center justify-center shrink-0 border border-[#CA8A04]/20">
+                        <ShieldCheck className="w-5 h-5 text-[#CA8A04]" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-serif font-bold text-[#0A2A1E]">
+                          Cancellation Policy
+                        </h3>
+                        <span className="text-[11px] text-[#CA8A04] font-semibold uppercase tracking-wider block">
+                          Flexible Guest Friendly Protection
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="text-sm sm:text-base text-[#1A1A1A] space-y-3 leading-relaxed font-normal">
+                      {pkg.policies?.cancellation ? (
+                        <div className="whitespace-pre-line space-y-2">
+                          {typeof pkg.policies.cancellation === 'string' 
+                            ? pkg.policies.cancellation 
+                            : (pkg.policies.cancellation[lang] || pkg.policies.cancellation.en || pkg.policies.cancellation.es)}
+                        </div>
+                      ) : (
+                        <ul className="space-y-3 text-sm sm:text-base text-[#1B1B1B]">
+                          <li className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20">
+                            <span className="text-[#059669] font-bold text-lg leading-none">✓</span>
+                            <span><strong>30+ Days Before Departure:</strong> Free cancellation & 100% refund of deposit.</span>
+                          </li>
+                          <li className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20">
+                            <span className="text-[#CA8A04] font-bold text-lg leading-none">•</span>
+                            <span><strong>15 - 29 Days Before Departure:</strong> 50% refund on total tour package cost.</span>
+                          </li>
+                          <li className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20">
+                            <span className="text-[#DC2626] font-bold text-lg leading-none">✕</span>
+                            <span><strong>Under 14 Days Before Arrival:</strong> Non-refundable due to pre-paid hotel & chauffeur reservations.</span>
+                          </li>
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                  <div className="pt-3 border-t border-[#C5A862]/15">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#CA8A04] bg-[#FEF08A]/70 px-4 py-1.5 rounded-full inline-block">
+                      🛡️ Guaranteed Protection
+                    </span>
+                  </div>
+                </div>
+
+                {/* 2. Terms & Conditions Card */}
+                <div className="bg-white p-7 sm:p-9 rounded-3xl border-2 border-[#C5A862]/30 shadow-lg space-y-6 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 text-[#0A2A1E] border-b border-[#C5A862]/20 pb-4">
+                      <div className="w-10 h-10 rounded-full bg-[#0A2A1E]/10 text-[#0A2A1E] flex items-center justify-center shrink-0 border border-[#0A2A1E]/20">
+                        <Info className="w-5 h-5 text-[#0A2A1E]" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-serif font-bold text-[#0A2A1E]">
+                          Terms & Conditions
+                        </h3>
+                        <span className="text-[11px] text-[#0A2A1E]/70 font-semibold uppercase tracking-wider block">
+                          Transparent Booking Rules
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="text-sm sm:text-base text-[#1A1A1A] space-y-3 leading-relaxed font-normal">
+                      {pkg.policies?.termsAndConditions ? (
+                        <div className="whitespace-pre-line space-y-2">
+                          {typeof pkg.policies.termsAndConditions === 'string'
+                            ? pkg.policies.termsAndConditions
+                            : (pkg.policies.termsAndConditions[lang] || pkg.policies.termsAndConditions.en || pkg.policies.termsAndConditions.es)}
+                        </div>
+                      ) : (
+                        <ul className="space-y-3 text-sm sm:text-base text-[#1B1B1B]">
+                          <li className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20">
+                            <span className="text-[#C5A862] font-bold text-lg leading-none">•</span>
+                            <span><strong>Booking Deposit:</strong> 25% deposit required to confirm reservations; balance due 15 days prior to arrival.</span>
+                          </li>
+                          <li className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20">
+                            <span className="text-[#C5A862] font-bold text-lg leading-none">•</span>
+                            <span><strong>Private Chauffeur & SUV:</strong> Air-conditioned private vehicle included daily with experienced English-speaking driver.</span>
+                          </li>
+                          <li className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20">
+                            <span className="text-[#C5A862] font-bold text-lg leading-none">•</span>
+                            <span><strong>Hotel Timings:</strong> Standard check-in is 12:00 PM / 2:00 PM and check-out is 11:00 AM / 12:00 PM.</span>
+                          </li>
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                  <div className="pt-3 border-t border-[#C5A862]/15">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#0A2A1E] bg-[#0A2A1E]/10 px-4 py-1.5 rounded-full inline-block border border-[#0A2A1E]/20">
+                      📋 Standard Operating Policy
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* 3. Important Travel Notes Card (Full Width) */}
+              <div className="bg-[#0A2A1E] text-white p-7 sm:p-9 rounded-3xl border-2 border-[#C5A862] shadow-xl space-y-5">
+                <div className="flex items-center gap-3 border-b border-white/20 pb-4">
+                  <div className="w-10 h-10 rounded-full bg-[#C5A862]/20 text-[#C5A862] flex items-center justify-center shrink-0 border border-[#C5A862]/40">
+                    <AlertCircle className="w-5 h-5 text-[#C5A862]" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-serif font-bold text-white">
+                      {text.importantNotes}
+                    </h3>
+                    <span className="text-[11px] text-[#C5A862] font-semibold uppercase tracking-wider block">
+                      Essential Information For Travelers
+                    </span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm sm:text-base text-white/90 leading-relaxed">
+                  {pkg.policies?.importantNotes ? (
+                    <div className="col-span-2 whitespace-pre-line bg-white/10 p-4 rounded-2xl border border-white/15">
+                      {pkg.policies.importantNotes[lang] || pkg.policies.importantNotes[locale] || pkg.policies.importantNotes.en || pkg.policies.importantNotes.es || pkg.policies.importantNotes}
+                    </div>
+                  ) : (
+                    text.defaultNotes.map((noteStr: string, nIdx: number) => (
+                      <div key={nIdx} className="flex items-start gap-3 bg-white/10 p-3.5 rounded-2xl border border-white/15">
+                        <span className="text-[#C5A862] font-bold text-base mt-0.5">•</span>
+                        <span>{noteStr}</span>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+
             </div>
           </Reveal>
 
@@ -841,11 +980,13 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 
-                <div className="text-right">
-                  <span className="font-serif italic text-3xl text-[#C5A862] font-bold tracking-wide drop-shadow-md">
-                    {settings.companyName || "MH India Trips"}
-                  </span>
-                </div>
+                <Link href={`/${locale}`} className="shrink-0 group">
+                  <img 
+                    src="/images/logo-transparent.png" 
+                    alt={settings.companyName || "MH India Trips"} 
+                    className="h-10 md:h-14 w-auto object-contain filter drop-shadow-md group-hover:scale-105 transition-transform"
+                  />
+                </Link>
               </div>
 
             </div>

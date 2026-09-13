@@ -18594,5 +18594,1314 @@
       "es": "Safaris de Vida Silvestre y Tigres Reales es un viaje privado de 7 días cuidadosamente diseñado que combina la emoción de la naturaleza salvaje de la India con la comodidad, el patrimonio y la hospitalidad de Rajastán.\n\nEl recorrido lleva al viajero desde la vibrante capital, Delhi, hasta los paisajes naturales de Ranthambore, uno de los destinos más conocidos de India para disfrutar de safaris y observar tigres. Sus bosques, lagos, praderas y antiguas ruinas crean un escenario espectacular para descubrir la fauna india.\n\nEl viaje comienza en Delhi antes de continuar hacia Ranthambore. Después de instalarse en un alojamiento de naturaleza o resort cuidadosamente seleccionado, comenzará la experiencia de safari. Los siguientes días estarán dedicados a explorar el parque nacional acompañado por profesionales de la vida silvestre, con posibilidades de observar tigres de Bengala, leopardos, osos perezosos, ciervos sambar, chital, jabalíes, cocodrilos y numerosas especies de aves.\n\nRanthambore no es solamente un destino de vida silvestre. El paisaje también está marcado por el histórico Fuerte de Ranthambore y restos de antiguas construcciones que aparecen entre los bosques.\n\nLos safaris se realizan en zonas autorizadas y de acuerdo con las normas del parque. Los avistamientos de animales nunca están garantizados, lo que hace que cada safari sea una experiencia única influenciada por la naturaleza, la estación y el comportamiento de los animales.\n\nDespués de la experiencia de safari, el viaje continúa hacia Jaipur, la famosa Ciudad Rosa de Rajastán. Descubra el patrimonio real de la región a través de fortalezas, palacios, mercados tradicionales y calles llenas de color antes de regresar a Delhi.\n\nEste viaje es ideal para quienes desean algo más que unas vacaciones tradicionales de turismo. Combina fotografía de naturaleza, vida silvestre, patrimonio real de Rajastán y viajes privados cómodos en una experiencia inmersiva.\n\nEl itinerario puede personalizarse según sus preferencias de safari, categoría de alojamiento, fechas de viaje, intereses fotográficos y experiencias adicionales en Rajastán."
     },
     "isFeatured": true
+  },
+  {
+    "slug": "thailand-tropical-islands-temples-luxury-tour",
+    "title": {
+      "en": "Thailand Tropical Islands & Golden Temples Safari",
+      "es": "Tailandia Islas Tropicales y Templos Dorados",
+      "pt": "Tailândia Ilhas Tropicais e Templos Dourados"
+    },
+    "tagline": {
+      "en": "Bangkok Grand Palace, Chiang Mai Sanctuaries & Phuket Island Cruises",
+      "es": "Gran Palacio de Bangkok, Santuarios de Chiang Mai y Cruceros en Phuket",
+      "pt": "Grande Palácio de Bangkok, Santuários de Chiang Mai e Cruzeiros em Phuket"
+    },
+    "category": "Outbound",
+    "durationDays": 7,
+    "durationNights": 6,
+    "startingLocation": "Bangkok",
+    "endingLocation": "Phuket",
+    "tourType": "Private International Tour",
+    "travelStyle": "Luxury Outbound",
+    "image": "https://images.unsplash.com/photo-1506665531195-3566fe2b4dfa?w=1200&q=80",
+    "gallery": [],
+    "pricing": {
+      "startingPrice": 1299,
+      "pricePerPerson": 1039,
+      "currency": "USD",
+      "discountPercent": 20,
+      "discountPrice": 1039,
+      "seasonalDiscountNote": "December Off-Season Special 20% Off",
+      "saleBadge": "20% OFF - December Special",
+      "priceIncludes": "Private transfers, 5-star island resorts, internal flight, English-speaking guide, daily breakfast & speed-boat tour.",
+      "priceExcludes": "International airfare, visa fees, personal expense & tipping."
+    },
+    "travelInfo": {
+      "startingPoint": "Bangkok Airport (BKK)",
+      "endingPoint": "Phuket Airport (HKT)",
+      "duration": "7 Days / 6 Nights",
+      "transportation": "Private Luxury Van & Speedboat",
+      "accommodation": "5-Star Beach Resorts & Boutique Villas",
+      "tourType": "Private Outbound Tour",
+      "bestTime": "November to April",
+      "languages": "English, Spanish, Portuguese"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Free cancellation up to 30 days before departure. 50% refund within 15-29 days. Non-refundable within 14 days.",
+        "es": "Cancelación gratuita hasta 30 días antes de la salida. 50% de reembolso entre 15-29 días.",
+        "pt": "Cancelamento gratuito até 30 dias antes da partida."
+      }
+    },
+    "highlights": [
+      {
+        "en": "Private boat tour to Phi Phi Islands & Maya Bay",
+        "es": "Tour privado en barco a las Islas Phi Phi",
+        "pt": "Passeio privado de barco às Ilhas Phi Phi"
+      },
+      {
+        "en": "Guided tour of Bangkok Grand Palace & Reclining Buddha",
+        "es": "Visita guiada al Gran Palacio de Bangkok",
+        "pt": "Visita guiada ao Grande Palácio de Bangkok"
+      },
+      {
+        "en": "Ethical Elephant Sanctuary day experience in Chiang Mai",
+        "es": "Día en el santuario ético de elefantes en Chiang Mai",
+        "pt": "Dia no santuário ético de elefantes em Chiang Mai"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": {
+          "en": "Arrival in Bangkok & Sunset Chao Phraya Cruise",
+          "es": "Llegada a Bangkok y Crucero",
+          "pt": "Chegada a Bangkok e Cruzeiro"
+        },
+        "desc": {
+          "en": "Welcome to Thailand! Transfer to luxury hotel by the river and enjoy an evening dinner cruise.",
+          "es": "¡Bienvenidos a Tailandia! Traslado al hotel de lujo.",
+          "pt": "Bem-vindo à Tailândia! Traslado para o hotel de luxo."
+        }
+      },
+      {
+        "day": 2,
+        "title": {
+          "en": "Bangkok Temples & Floating Market",
+          "es": "Templos de Bangkok y Mercado Flotante",
+          "pt": "Templos de Bangkok e Mercado Flutuante"
+        },
+        "desc": {
+          "en": "Visit Wat Phra Kaew, Grand Palace, and Damnoen Saduak floating market.",
+          "es": "Visita al Gran Palacio y mercado flotante.",
+          "pt": "Visita ao Grande Palácio e mercado flutuante."
+        }
+      },
+      {
+        "day": 3,
+        "title": {
+          "en": "Fly to Phuket & Beach Resort Check-in",
+          "es": "Vuelo a Phuket y Check-in en Resort",
+          "pt": "Voo para Phuket e Check-in no Resort"
+        },
+        "desc": {
+          "en": "Flight to Phuket. Relax on pristine Andaman Sea beaches.",
+          "es": "Vuelo a Phuket y descanso en la playa.",
+          "pt": "Voo para Phuket e relaxamento na praia."
+        }
+      }
+    ],
+    "includedExperiences": [
+      {
+        "en": "Private speed-boat island cruise & snorkeling equipment",
+        "es": "Paseo privado en lancha rápida y equipo de snorkel",
+        "pt": "Passeio privado de barco e equipamento de mergulho"
+      }
+    ],
+    "travelTips": [],
+    "faqs": []
+  },
+  {
+    "slug": "bali-indonesia-island-paradise-tour",
+    "title": {
+      "en": "Bali & Nusa Penida Luxury Island Escape",
+      "es": "Bali y Nusa Penida Escape de Lujo",
+      "pt": "Bali e Nusa Penida Escape de Luxo"
+    },
+    "tagline": {
+      "en": "Ubud Rainforest Villas, Uluwatu Sunset Temples & Crystal Bay Snorkeling",
+      "es": "Villas en Ubud, Atardecer en Uluwatu y Snorkel en Nusa Penida",
+      "pt": "Villas em Ubud, Pôr do Sol em Uluwatu e Mergulho em Nusa Penida"
+    },
+    "category": "Outbound",
+    "durationDays": 8,
+    "durationNights": 7,
+    "startingLocation": "Denpasar (Bali)",
+    "endingLocation": "Denpasar (Bali)",
+    "tourType": "Private International Tour",
+    "travelStyle": "Luxury Outbound",
+    "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80",
+    "gallery": [],
+    "pricing": {
+      "startingPrice": 1499,
+      "pricePerPerson": 1274,
+      "currency": "USD",
+      "discountPercent": 15,
+      "discountPrice": 1274,
+      "seasonalDiscountNote": "Early Bird 15% Off Outbound Offer",
+      "saleBadge": "15% OFF - Early Bird",
+      "priceIncludes": "Private chauffeur transfers, pool villa resort stays, Nusa Penida yacht trip & entrance tickets.",
+      "priceExcludes": "International flights & personal expenses."
+    },
+    "travelInfo": {
+      "startingPoint": "Ngurah Rai International Airport (DPS)",
+      "endingPoint": "Ngurah Rai International Airport (DPS)",
+      "duration": "8 Days / 7 Nights",
+      "transportation": "Private SUV & Luxury Speedboat",
+      "accommodation": "5-Star Jungle Pool Villas & Beachfront Resorts",
+      "tourType": "Private Outbound Tour",
+      "bestTime": "April to October",
+      "languages": "English, Spanish, Portuguese"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Free cancellation up to 30 days before travel.",
+        "es": "Cancelación gratuita hasta 30 días antes del viaje.",
+        "pt": "Cancelamento gratuito até 30 dias antes da viagem."
+      }
+    },
+    "highlights": [
+      {
+        "en": "Stay in private infinity pool villa overlooking Ubud jungle",
+        "es": "Estancia en villa privada con piscina en Ubud",
+        "pt": "Estadia em villa privada com piscina em Ubud"
+      },
+      {
+        "en": "Uluwatu cliffside sunset temple & Kecak fire dance performance",
+        "es": "Templo Uluwatu al atardecer y danza Kecak",
+        "pt": "Templo Uluwatu ao pôr do sol e dança Kecak"
+      },
+      {
+        "en": "Day cruise to Nusa Penida: Kelingking T-Rex Beach & Angel's Billabong",
+        "es": "Crucero a Nusa Penida y playa Kelingking",
+        "pt": "Cruzeiro para Nusa Penida e praia Kelingking"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": {
+          "en": "Arrival in Bali & Ubud Jungle Resort Welcome",
+          "es": "Llegada a Bali y Traslado a Ubud",
+          "pt": "Chegada a Bali e Traslado para Ubud"
+        },
+        "desc": {
+          "en": "Arrival at Denpasar Airport, meet private driver and transfer to luxury Ubud resort.",
+          "es": "Llegada a Bali y traslado al resort de lujo en Ubud.",
+          "pt": "Chegada a Bali e traslado para o resort de luxo em Ubud."
+        }
+      }
+    ],
+    "includedExperiences": [
+      {
+        "en": "Floating breakfast in private pool villa",
+        "es": "Desayuno flotante en piscina privada",
+        "pt": "Café da manhã flutuante na piscina privada"
+      }
+    ],
+    "travelTips": [],
+    "faqs": []
+  },
+  {
+    "slug": "maldives-overwater-palace-luxury-retreat",
+    "title": {
+      "en": "Maldives Overwater Palace & Coral Reef Retreat",
+      "es": "Maldivas Palacio Sobre el Agua y Arrecifes de Coral",
+      "pt": "Maldivas Palácio Sobre a Água e Recifes de Coral"
+    },
+    "tagline": {
+      "en": "Private Ocean Villa, Turquoise Lagoons & Sunset Dolphin Cruises",
+      "es": "Villa Privada Sobre el Océano, Lagunas Turquesas y Delfines al Atardecer",
+      "pt": "Villa Privada Sobre o Oceano, Lagoas Turquesas e Golfinhos ao Pôr do Sol"
+    },
+    "category": "Outbound",
+    "durationDays": 5,
+    "durationNights": 4,
+    "startingLocation": "Male (Maldives)",
+    "endingLocation": "Male (Maldives)",
+    "tourType": "Private International Tour",
+    "travelStyle": "Luxury Outbound",
+    "image": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1200&q=80",
+    "gallery": [],
+    "pricing": {
+      "startingPrice": 2499,
+      "pricePerPerson": 2499,
+      "currency": "USD",
+      "discountPercent": 0,
+      "priceIncludes": "Seaplane airport transfers, Overwater Villa with glass floor, all-inclusive luxury dining & sunset dolphin boat tour.",
+      "priceExcludes": "International flights."
+    },
+    "travelInfo": {
+      "startingPoint": "Velana International Airport, Male (MLE)",
+      "endingPoint": "Velana International Airport, Male (MLE)",
+      "duration": "5 Days / 4 Nights",
+      "transportation": "Luxury Seaplane & Speedboat",
+      "accommodation": "5-Star Overwater Pool Villa",
+      "tourType": "Private Outbound Tour",
+      "bestTime": "November to April",
+      "languages": "English, Spanish, Portuguese"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Free cancellation up to 30 days before departure.",
+        "es": "Cancelación gratuita hasta 30 días antes de la salida.",
+        "pt": "Cancelamento gratuito até 30 dias antes da partida."
+      }
+    },
+    "highlights": [
+      {
+        "en": "Overwater bungalow with direct ocean stairs & glass floor panel",
+        "es": "Bungalow sobre el agua con acceso directo al océano",
+        "pt": "Bungalow sobre a água com acesso direto ao oceano"
+      },
+      {
+        "en": "Guided snorkeling with manta rays and sea turtles",
+        "es": "Snorkel guiado con mantarrayas y tortugas marinas",
+        "pt": "Mergulho guiado com arraias e tartarugas marinhas"
+      },
+      {
+        "en": "Romantic candlelight beach dinner under the stars",
+        "es": "Cena romántica a la luz de las velas en la playa",
+        "pt": "Jantar romântico na praia sob as estrelas"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": {
+          "en": "Seaplane Transfer to Private Island Resort",
+          "es": "Traslado en Hidroavión a la Isla Privada",
+          "pt": "Traslado de Hidroavião para a Ilha Privada"
+        },
+        "desc": {
+          "en": "Scenic seaplane flight over turquoise atolls. Check in to Overwater Villa.",
+          "es": "Vuelo escénico en hidroavión sobre atolones.",
+          "pt": "Voo cênico de hidroavião sobre atóis."
+        }
+      }
+    ],
+    "includedExperiences": [
+      {
+        "en": "Sunset dolphin cruise with champagne",
+        "es": "Crucero de delfines al atardecer con champán",
+        "pt": "Cruzeiro de golfinhos ao pôr do sol com champanhe"
+      }
+    ],
+    "travelTips": [],
+    "faqs": []
+  },
+  {
+    "slug": "sri-lanka-heritage-wildlife-beach-odyssey",
+    "title": {
+      "en": "Sri Lanka Cultural Heritage & Wildlife Safari",
+      "es": "Sri Lanka Patrimonio Cultural y Safari de Vida Silvestre",
+      "pt": "Sri Lanka Patrimônio Cultural e Safári de Vida Selvagem"
+    },
+    "tagline": {
+      "en": "Sigiriya Fortress Rock, Ella Tea Country Train & Yala Leopard Safaris",
+      "es": "Roca de Sigiriya, Tren del Té en Ella y Safari de Leopardos en Yala",
+      "pt": "Rocha de Sigiriya, Trem do Chá em Ella e Safári de Leopardos em Yala"
+    },
+    "category": "Outbound",
+    "durationDays": 9,
+    "durationNights": 8,
+    "startingLocation": "Colombo",
+    "endingLocation": "Colombo",
+    "tourType": "Private International Tour",
+    "travelStyle": "Luxury Outbound",
+    "image": "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?w=1200&q=80",
+    "gallery": [],
+    "pricing": {
+      "startingPrice": 1399,
+      "pricePerPerson": 1399,
+      "currency": "USD",
+      "discountPercent": 0,
+      "priceIncludes": "Private SUV chauffeur, boutique tea bungalow & beach resort stays, scenic Ella train tickets & Yala safari 4x4.",
+      "priceExcludes": "International flights."
+    },
+    "travelInfo": {
+      "startingPoint": "Bandaranaike International Airport (CMB)",
+      "endingPoint": "Bandaranaike International Airport (CMB)",
+      "duration": "9 Days / 8 Nights",
+      "transportation": "Private SUV & Heritage Train",
+      "accommodation": "Heritage Colonial Bungalows & Beach Resorts",
+      "tourType": "Private Outbound Tour",
+      "bestTime": "December to April",
+      "languages": "English, Spanish, Portuguese"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Free cancellation up to 30 days before departure.",
+        "es": "Cancelación gratuita 30 días antes.",
+        "pt": "Cancelamento gratuito 30 dias antes."
+      }
+    },
+    "highlights": [
+      {
+        "en": "Climb UNESCO Sigiriya Lion Rock Fortress",
+        "es": "Escalada a la Fortaleza de la Roca del León en Sigiriya",
+        "pt": "Escalada à Fortaleza da Rocha do Leão em Sigiriya"
+      },
+      {
+        "en": "Scenic train journey through misty Nuwara Eliya tea hills",
+        "es": "Paseo panorámico en tren por las colinas de té",
+        "pt": "Passeio panorâmico de trem pelas colinas de chá"
+      },
+      {
+        "en": "4x4 jeep safari in Yala National Park searching for leopards",
+        "es": "Safari en jeep 4x4 en el Parque Nacional Yala",
+        "pt": "Safári em jeep 4x4 no Parque Nacional Yala"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": {
+          "en": "Arrival in Colombo & Transfer to Negombo",
+          "es": "Llegada a Colombo",
+          "pt": "Chegada a Colombo"
+        },
+        "desc": {
+          "en": "Welcome to Sri Lanka! Relaxation at coastal resort.",
+          "es": "¡Bienvenidos a Sri Lanka! Descanso junto al mar.",
+          "pt": "Bem-vindo ao Sri Lanka!"
+        }
+      }
+    ],
+    "includedExperiences": [
+      {
+        "en": "Traditional Ceylon tea tasting class in Nuwara Eliya",
+        "es": "Cata de té de Ceilán tradicional",
+        "pt": "Degustação de chá de Ceilão tradicional"
+      }
+    ],
+    "travelTips": [],
+    "faqs": []
+  },
+  {
+    "slug": "nepal-himalayas-everest-vista-tour",
+    "title": {
+      "en": "Nepal & Himalayas Everest Mountain Vista Tour",
+      "es": "Nepal y Vistas del Everest en el Himalaya",
+      "pt": "Nepal e Vistas do Everest no Himalaia"
+    },
+    "tagline": {
+      "en": "Kathmandu UNESCO Durbar Squares, Mt. Everest Mountain Flight & Pokhara Lakes",
+      "es": "Plazas Durbar de Katmandú, Vuelo de Montaña al Everest y Lagos de Pokhara",
+      "pt": "Praças Durbar de Catmandu, Voo de Montanha ao Everest e Lagos de Pokhara"
+    },
+    "category": "Outbound",
+    "durationDays": 6,
+    "durationNights": 5,
+    "startingLocation": "Kathmandu",
+    "endingLocation": "Kathmandu",
+    "tourType": "Private International Tour",
+    "travelStyle": "Luxury Outbound",
+    "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1200&q=80",
+    "gallery": [],
+    "pricing": {
+      "startingPrice": 1199,
+      "pricePerPerson": 1199,
+      "currency": "USD",
+      "discountPercent": 0,
+      "priceIncludes": "Private chauffeur, 5-star mountain view resorts, Everest scenic mountain flight & temple entry fees.",
+      "priceExcludes": "International flights."
+    },
+    "travelInfo": {
+      "startingPoint": "Tribhuvan International Airport, Kathmandu (KTM)",
+      "endingPoint": "Tribhuvan International Airport, Kathmandu (KTM)",
+      "duration": "6 Days / 5 Nights",
+      "transportation": "Private SUV & Scenic Mountain Flight",
+      "accommodation": "5-Star Heritage & Mountain View Resorts",
+      "tourType": "Private Outbound Tour",
+      "bestTime": "October to December & March to May",
+      "languages": "English, Spanish, Portuguese"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Free cancellation up to 30 days before departure.",
+        "es": "Cancelación gratuita 30 días antes.",
+        "pt": "Cancelamento gratuito 30 dias antes."
+      }
+    },
+    "highlights": [
+      {
+        "en": "Panoramic Mountain Flight close to Mount Everest peak",
+        "es": "Vuelo panorámico de montaña al monte Everest",
+        "pt": "Voo panorâmico de montanha ao monte Everest"
+      },
+      {
+        "en": "Boating on Phewa Lake in Pokhara with Annapurna reflection",
+        "es": "Paseo en barco en el lago Phewa en Pokhara",
+        "pt": "Passeio de barco no lago Phewa em Pokhara"
+      },
+      {
+        "en": "Guided tour of Bhaktapur & Patan Durbar Squares",
+        "es": "Visita guiada a las plazas Durbar de Bhaktapur y Patan",
+        "pt": "Visita guiada às praças Durbar de Bhaktapur e Patan"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": {
+          "en": "Arrival in Kathmandu & Thamel Welcome",
+          "es": "Llegada a Katmandú",
+          "pt": "Chegada a Catmandu"
+        },
+        "desc": {
+          "en": "Transfer to luxury heritage hotel in Kathmandu.",
+          "es": "Traslado al hotel de lujo en Katmandú.",
+          "pt": "Traslado para o hotel de luxo em Catmandu."
+        }
+      }
+    ],
+    "includedExperiences": [
+      {
+        "en": "Buddhist singing bowl healing meditation session",
+        "es": "Sesión de meditación con cuencos tibetanos",
+        "pt": "Sessão de meditação com taças tibetanas"
+      }
+    ],
+    "travelTips": [],
+    "faqs": []
+  },
+  {
+    "slug": "bhutan-thunder-dragon-spiritual-safari",
+    "title": {
+      "en": "Bhutan: Kingdom of Happiness & Tiger's Nest Safari",
+      "es": "Bután: Reino de la Felicidad y Nido del Tigre",
+      "pt": "Butão: Reino da Felicidade e Ninho do Tigre"
+    },
+    "tagline": {
+      "en": "Paro Taktsang Monastery, Punakha Dzong Fortress & Traditional Hot Stone Baths",
+      "es": "Monasterio Taktsang Nido del Tigre, Fortaleza Punakha Dzong y Baños Tradicionales",
+      "pt": "Monastério Taktsang Ninho do Tigre, Fortaleza Punakha Dzong e Banhos Tradicionais"
+    },
+    "category": "Outbound",
+    "durationDays": 7,
+    "durationNights": 6,
+    "startingLocation": "Paro (Bhutan)",
+    "endingLocation": "Paro (Bhutan)",
+    "tourType": "Private International Tour",
+    "travelStyle": "Luxury Outbound",
+    "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?w=1200&q=80",
+    "gallery": [],
+    "pricing": {
+      "startingPrice": 1899,
+      "pricePerPerson": 1899,
+      "currency": "USD",
+      "discountPercent": 0,
+      "priceIncludes": "Sustainable Development Fee (SDF), private guide, SUV, luxury lodge stays, all meals & Tiger's Nest entry.",
+      "priceExcludes": "International flight to Paro."
+    },
+    "travelInfo": {
+      "startingPoint": "Paro International Airport (PBH)",
+      "endingPoint": "Paro International Airport (PBH)",
+      "duration": "7 Days / 6 Nights",
+      "transportation": "Private Luxury SUV",
+      "accommodation": "5-Star Bhutanese Heritage Lodges",
+      "tourType": "Private Outbound Tour",
+      "bestTime": "September to November & March to May",
+      "languages": "English, Spanish, Portuguese"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Free cancellation up to 30 days before departure.",
+        "es": "Cancelación gratuita 30 días antes.",
+        "pt": "Cancelamento gratuito 30 dias antes."
+      }
+    },
+    "highlights": [
+      {
+        "en": "Hike to the iconic Tiger's Nest (Paro Taktsang) cliffside monastery",
+        "es": "Caminata al emblemático monasterio Nido del Tigre",
+        "pt": "Caminhada ao emblemático monastério Ninho do Tigre"
+      },
+      {
+        "en": "Visit Punakha Dzong at the confluence of Pho Chhu & Mo Chhu rivers",
+        "es": "Visita a Punakha Dzong entre ríos sagrados",
+        "pt": "Visita a Punakha Dzong entre rios sagrados"
+      },
+      {
+        "en": "Traditional Bhutanese Hot Stone Herbal Bath & Archery lesson",
+        "es": "Baño herbal de piedras calientes y tiro con arco",
+        "pt": "Banho herbal de pedras quentes e tiro com arco"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": {
+          "en": "Fly into Paro Valley & Scenic Lodge Check-in",
+          "es": "Llegada al Valle de Paro",
+          "pt": "Chegada ao Vale de Paro"
+        },
+        "desc": {
+          "en": "Breathtaking flight over Mount Everest and Himalayan peaks into Paro.",
+          "es": "Vuelo espectacular sobre el Everest hacia Paro.",
+          "pt": "Voo espetacular sobre o Everest para Paro."
+        }
+      }
+    ],
+    "includedExperiences": [
+      {
+        "en": "Private Bhutanese archery demonstration & cultural dress tryout",
+        "es": "Demostración privada de tiro con arco y traje tradicional",
+        "pt": "Demonstração privada de tiro com arco e trajes tradicionais"
+      }
+    ],
+    "travelTips": [],
+    "faqs": []
+  },
+  {
+    "slug": "laos-luang-prabang-heritage-mekong-escape",
+    "title": {
+      "en": "Laos: Luang Prabang Heritage & Mekong Cruise",
+      "es": "Laos: Patrimonio de Luang Prabang y Crucero por el Mekong",
+      "pt": "Laos: Patrimônio de Luang Prabang e Cruzeiro pelo Mekong"
+    },
+    "tagline": {
+      "en": "UNESCO Temple Monks, Kuang Si Waterfalls & Mekong Sunset River Cruise",
+      "es": "Templos UNESCO de Luang Prabang, Cascadas Kuang Si y Crucero por el Mekong",
+      "pt": "Templos UNESCO de Luang Prabang, Cachoeiras Kuang Si e Cruzeiro pelo Mekong"
+    },
+    "routeSubtitle": {
+      "en": "Luang Prabang - Pak Ou Caves - Kuang Si Falls - Vang Vieng - Vientiane",
+      "es": "Luang Prabang - Cuevas Pak Ou - Cascadas Kuang Si - Vang Vieng - Vientiane",
+      "pt": "Luang Prabang - Cavernas Pak Ou - Cachoeiras Kuang Si - Vang Vieng - Vientiane"
+    },
+    "seasonalDiscountNote": {
+      "en": "Special seasonal discounts apply for bookings from May to October.",
+      "es": "Descuentos especiales de temporada aplican para reservas de Mayo a Octubre.",
+      "pt": "Descontos especiais de temporada se aplicam para reservas de Maio a Outubro."
+    },
+    "category": "Outbound",
+    "country": "Laos",
+    "durationDays": 6,
+    "durationNights": 5,
+    "startingLocation": "Luang Prabang (Laos)",
+    "endingLocation": "Vientiane (Laos)",
+    "tourType": "Private International Tour",
+    "travelStyle": "Luxury Outbound",
+    "image": "https://images.unsplash.com/photo-1540611025311-01df3cef54b5?w=1200&q=80",
+    "gallery": [],
+    "pricing": {
+      "startingPrice": 1250,
+      "pricePerPerson": 1250,
+      "currency": "USD",
+      "discountPercent": 0,
+      "priceIncludes": "Boutique hotel stays, private guide, Mekong cruise & waterfall tickets.",
+      "priceExcludes": "International flights."
+    },
+    "travelInfo": {
+      "startingPoint": "Luang Prabang Airport (LPQ)",
+      "endingPoint": "Wattay Airport Vientiane (VTE)",
+      "duration": "6 Days / 5 Nights",
+      "transportation": "Private SUV & Private Mekong Boat",
+      "accommodation": "Luxury Boutique Heritage Hotels",
+      "tourType": "Private Outbound Tour",
+      "bestTime": "November to March"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Free cancellation up to 30 days before departure.",
+        "es": "Cancelación gratuita 30 días antes.",
+        "pt": "Cancelamento gratuito 30 dias antes."
+      },
+      "importantNotes": {
+        "en": "Respect monk alms-giving ritual protocols.",
+        "es": "Respetar el protocolo del ritual de limosna de los monjes.",
+        "pt": "Respeitar o protocolo do ritual dos monges."
+      }
+    },
+    "highlights": [
+      {
+        "en": "Dawn Alms Giving Ceremony (Tak Bat) with Buddhist monks in Luang Prabang",
+        "es": "Ceremonia matutina de limosnas con monjes budistas",
+        "pt": "Cerimônia matinal de esmolas com monges budistas"
+      },
+      {
+        "en": "Swim in turquoise pools of Kuang Si Waterfalls",
+        "es": "Nadar en las piscinas turquesa de las cascadas Kuang Si",
+        "pt": "Nadar nas piscinas turquesa das cachoeiras Kuang Si"
+      },
+      {
+        "en": "Sunset cruise on the sacred Mekong River with Lao cuisine",
+        "es": "Crucero al atardecer en el río Mekong con cena laosiana",
+        "pt": "Cruzeiro ao pôr do sol no rio Mekong com jantar laosiano"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": {
+          "en": "Arrival in Luang Prabang & Sunset Mount Phousi",
+          "es": "Llegada a Luang Prabang",
+          "pt": "Chegada a Luang Prabang"
+        },
+        "desc": {
+          "en": "Transfer to boutique heritage hotel. Climb Mount Phousi for 360-degree sunset views.",
+          "es": "Traslado al hotel de lujo. Subida al Monte Phousi para ver el atardecer.",
+          "pt": "Traslado ao hotel de luxo. Subida ao Monte Phousi."
+        },
+        "morning": "Arrival at Luang Prabang International Airport and private transfer to luxury boutique hotel.",
+        "afternoon": "Guided walk through UNESCO colonial streets and climb 328 steps up Mount Phousi.",
+        "hotel": "Luang Prabang Heritage Resort"
+      },
+      {
+        "day": 2,
+        "title": {
+          "en": "Tak Bat Monks Alms & Kuang Si Waterfalls",
+          "es": "Monjes Tak Bat y Cascadas Kuang Si",
+          "pt": "Monges Tak Bat e Cachoeiras Kuang Si"
+        },
+        "desc": {
+          "en": "Witness quiet morning alms ritual followed by turquoise Kuang Si Waterfalls.",
+          "es": "Presencie el ritual matutino de los monjes y visite las cascadas Kuang Si.",
+          "pt": "Testemunhe o ritual matinal dos monges e visite Kuang Si."
+        },
+        "morning": "Dawn procession of saffron-robed monks (Tak Bat) & morning market stroll.",
+        "afternoon": "Drive to Kuang Si Waterfalls, swim in natural pools, and visit Bear Rescue Center.",
+        "hotel": "Luang Prabang Heritage Resort"
+      }
+    ],
+    "includedExperiences": [
+      {
+        "en": "Private Mekong River sunset boat cruise",
+        "es": "Crucero privado en barco por el Mekong al atardecer",
+        "pt": "Cruzeiro privado de barco pelo Mekong ao pôr do sol"
+      }
+    ],
+    "exclusions": [
+      {
+        "en": "International flights",
+        "es": "Vuelos internacionales",
+        "pt": "Voos internacionais"
+      }
+    ],
+    "travelTips": [],
+    "faqs": []
+  },
+  {
+    "slug": "bali-tropical-paradise-ubud-seminyak",
+    "title": {
+      "en": "Indonesia: Bali Tropical Paradise & Ubud Cultural Sanctuary",
+      "es": "Indonesia: Paraíso Tropical de Bali y Santuario Cultural de Ubud",
+      "pt": "Indonésia: Paraíso Tropical de Bali e Santuário Cultural de Ubud"
+    },
+    "tagline": {
+      "en": "Tegallalang Rice Terraces, Uluwatu Temple Sunset & Luxury Beach Villa",
+      "es": "Terrazas de Arroz Tegallalang, Atardecer en Templo Uluwatu y Villa de Lujo",
+      "pt": "Terraços de Arroz Tegallalang, Pôr do Sol em Uluwatu e Vila de Luxo"
+    },
+    "routeSubtitle": {
+      "en": "Denpasar - Ubud - Tegallalang - Tanha Lot - Uluwatu - Seminyak",
+      "es": "Denpasar - Ubud - Tegallalang - Tanah Lot - Uluwatu - Seminyak",
+      "pt": "Denpasar - Ubud - Tegallalang - Tanah Lot - Uluwatu - Seminyak"
+    },
+    "seasonalDiscountNote": {
+      "en": "Special peak season rates apply from December 20 to January 10.",
+      "es": "Estos precios no son válidos para el período del 20 de Diciembre hasta el 10 de Enero (temporada alta).",
+      "pt": "Estes preços não são válidos para o período de 20 de Dezembro a 10 de Janeiro (alta temporada)."
+    },
+    "category": "Outbound",
+    "country": "Indonesia",
+    "durationDays": 7,
+    "durationNights": 6,
+    "startingLocation": "Bali / Denpasar (Indonesia)",
+    "endingLocation": "Bali / Denpasar (Indonesia)",
+    "tourType": "Private International Tour",
+    "travelStyle": "Luxury Outbound",
+    "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80",
+    "gallery": [],
+    "pricing": {
+      "startingPrice": 1450,
+      "pricePerPerson": 1450,
+      "currency": "USD",
+      "discountPercent": 0,
+      "priceIncludes": "Private pool villa, chauffeur, temple entry fees, Kepak Kecak dance tickets & spa session.",
+      "priceExcludes": "International flights."
+    },
+    "travelInfo": {
+      "startingPoint": "Ngurah Rai International Airport Denpasar (DPS)",
+      "endingPoint": "Ngurah Rai International Airport Denpasar (DPS)",
+      "duration": "7 Days / 6 Nights",
+      "transportation": "Private SUV Chauffeur",
+      "accommodation": "Luxury Private Pool Villa in Ubud & Beach Resort in Seminyak",
+      "tourType": "Private Outbound Tour",
+      "bestTime": "April to October"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Free cancellation up to 30 days before departure.",
+        "es": "Cancelación gratuita 30 días antes.",
+        "pt": "Cancelamento gratuito 30 dias antes."
+      }
+    },
+    "highlights": [
+      {
+        "en": "Emerald Tegallalang Rice Terraces walk & jungle swing",
+        "es": "Paseo por las terrazas de arroz Tegallalang y columpio en la selva",
+        "pt": "Caminhada pelos terraços de arroz Tegallalang e balanço na selva"
+      },
+      {
+        "en": "Cliffside Uluwatu Temple & traditional Kecak Fire Dance at sunset",
+        "es": "Templo Uluwatu en el acantilado y danza del fuego Kecak al atardecer",
+        "pt": "Templo Uluwatu na falésia e dança do fogo Kecak ao pôr do sol"
+      },
+      {
+        "en": "Private Balinese flower bath & luxury spa massage",
+        "es": "Baño de flores balinés privado y masaje en spa de lujo",
+        "pt": "Banho de flores balinês privado e massagem de luxo"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": {
+          "en": "Arrival in Bali & Check-in to Private Ubud Pool Villa",
+          "es": "Llegada a Bali y Villa en Ubud",
+          "pt": "Chegada a Bali e Vila em Ubud"
+        },
+        "desc": {
+          "en": "Private airport reception and transfer to luxury Ubud forest pool villa.",
+          "es": "Recepción privada en el aeropuerto y traslado a villa con piscina en Ubud.",
+          "pt": "Recepção privada e traslado para vila de luxo em Ubud."
+        },
+        "morning": "Arrival at Denpasar International Airport (DPS) and VIP greeting.",
+        "afternoon": "Check-in to private pool villa overlooking Ayung River valley.",
+        "hotel": "Ubud Luxury Pool Villa"
+      },
+      {
+        "day": 2,
+        "title": {
+          "en": "Tegallalang Rice Terraces & Tirta Empul Holy Water Temple",
+          "es": "Terrazas de Arroz y Templo Tirta Empul",
+          "pt": "Terraços de Arroz e Templo Tirta Empul"
+        },
+        "desc": {
+          "en": "Explore emerald rice terraces and experience sacred Balinese water purification.",
+          "es": "Explore las terrazas de arroz y purificación en templo de agua sagrada.",
+          "pt": "Explore os terraços de arroz e purificação em templo sagrado."
+        },
+        "morning": "Morning walk through Tegallalang rice fields & coffee plantation tasting.",
+        "afternoon": "Purification ritual at Tirta Empul water temple & Sacred Monkey Forest sanctuary.",
+        "hotel": "Ubud Luxury Pool Villa"
+      }
+    ],
+    "includedExperiences": [
+      {
+        "en": "Couples Balinese holistic aromatherapy spa package",
+        "es": "Paquete de spa holístico aromaterapéutico balinés",
+        "pt": "Pacote de spa holístico aromaterápico balinês"
+      }
+    ],
+    "exclusions": [
+      {
+        "en": "International flights",
+        "es": "Vuelos internacionales",
+        "pt": "Voos internacionais"
+      }
+    ],
+    "travelTips": [],
+    "faqs": []
+  },
+  {
+    "slug": "malaysia-kuala-lumpur-langkawi-getaway",
+    "title": {
+      "en": "Malaysia: Kuala Lumpur Towers & Langkawi Island Beach Retreat",
+      "es": "Malasia: Torres de Kuala Lumpur y Playas de la Isla Langkawi",
+      "pt": "Malásia: Torres de Kuala Lumpur e Praias da Ilha Langkawi"
+    },
+    "tagline": {
+      "en": "Petronas Twin Towers, Batu Caves Rainbow Steps & Langkawi Luxury Beach Resort",
+      "es": "Torres Gemelas Petronas, Cuevas Batu y Resort de Lujo en Langkawi",
+      "pt": "Torres Gêmeas Petronas, Cavernas Batu e Resort de Luxo em Langkawi"
+    },
+    "routeSubtitle": {
+      "en": "Kuala Lumpur - Batu Caves - Genting Highlands - Langkawi Island",
+      "es": "Kuala Lumpur - Cuevas Batu - Genting Highlands - Isla Langkawi",
+      "pt": "Kuala Lumpur - Cavernas Batu - Genting Highlands - Ilha Langkawi"
+    },
+    "seasonalDiscountNote": {
+      "en": "Prices are subject to peak holiday surcharges from Dec 20 to Jan 5.",
+      "es": "Estos precios no son válidos para el período del 20 de Diciembre hasta el 05 de Enero.",
+      "pt": "Estes preços não são válidos para o período de 20 de Dezembro a 05 de Janeiro."
+    },
+    "category": "Outbound",
+    "country": "Malaysia",
+    "durationDays": 6,
+    "durationNights": 5,
+    "startingLocation": "Kuala Lumpur (Malaysia)",
+    "endingLocation": "Langkawi (Malaysia)",
+    "tourType": "Private International Tour",
+    "travelStyle": "Luxury Outbound",
+    "image": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1200&q=80",
+    "gallery": [],
+    "pricing": {
+      "startingPrice": 1180,
+      "pricePerPerson": 1180,
+      "currency": "USD",
+      "discountPercent": 0,
+      "priceIncludes": "5-star hotels, domestic flight to Langkawi, private guide & transfers.",
+      "priceExcludes": "International flights."
+    },
+    "travelInfo": {
+      "startingPoint": "Kuala Lumpur International Airport (KUL)",
+      "endingPoint": "Langkawi Airport (LGK)",
+      "duration": "6 Days / 5 Nights",
+      "transportation": "Private Car & Flight to Langkawi",
+      "accommodation": "5-Star Petronas View Hotel KL & Luxury Beach Resort Langkawi",
+      "tourType": "Private Outbound Tour",
+      "bestTime": "Year Round"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Free cancellation up to 30 days before departure.",
+        "es": "Cancelación gratuita 30 días antes.",
+        "pt": "Cancelamento gratuito 30 dias antes."
+      }
+    },
+    "highlights": [
+      {
+        "en": "Skybridge walk at the iconic Petronas Twin Towers in Kuala Lumpur",
+        "es": "Paseo por la pasarela de las Torres Gemelas Petronas",
+        "pt": "Passeio pela passarela das Torres Gêmeas Petronas"
+      },
+      {
+        "en": "Climb the 272 rainbow steps at sacred Hindu Batu Caves",
+        "es": "Subida a los 272 escalones arcoíris de las Sagradas Cuevas Batu",
+        "pt": "Subida dos 272 degraus arco-íris das Cavernas Batu"
+      },
+      {
+        "en": "Langkawi SkyCab cable car & SkyBridge suspended high over rainforest",
+        "es": "Teleférico SkyCab de Langkawi y puente suspendido en la selva",
+        "pt": "Teleférico SkyCab de Langkawi e ponte suspensa na selva"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": {
+          "en": "Arrival in Kuala Lumpur & Petronas Twin Towers Skybridge",
+          "es": "Llegada a Kuala Lumpur",
+          "pt": "Chegada a Kuala Lumpur"
+        },
+        "desc": {
+          "en": "Transfer to luxury city hotel overlooking Petronas Twin Towers.",
+          "es": "Traslado al hotel de lujo frente a las Torres Gemelas.",
+          "pt": "Traslado ao hotel de luxo frente às Torres Gêmeas."
+        },
+        "morning": "Arrival at KLIA airport and chauffeur transfer to 5-star city hotel.",
+        "afternoon": "VIP access to Petronas Twin Towers Skybridge & Observatory Deck.",
+        "hotel": "Grand Hyatt Kuala Lumpur"
+      },
+      {
+        "day": 2,
+        "title": {
+          "en": "Batu Caves Rainbow Steps & Fly to Langkawi Island",
+          "es": "Cuevas Batu y Vuelo a Langkawi",
+          "pt": "Cavernas Batu e Voo para Langkawi"
+        },
+        "desc": {
+          "en": "Visit rainbow steps at Batu Caves then take a short flight to tropical Langkawi.",
+          "es": "Visite las escaleras arcoíris de Batu Caves y vuele a Langkawi.",
+          "pt": "Visite os degraus arco-íris de Batu Caves e voe para Langkawi."
+        },
+        "morning": "Guided tour of Batu Caves shrine & Lord Murugan giant golden statue.",
+        "afternoon": "Domestic flight to Langkawi island & beach resort check-in.",
+        "hotel": "The Ritz-Carlton Langkawi"
+      }
+    ],
+    "includedExperiences": [
+      {
+        "en": "Sunset catamaran sailing cruise around Langkawi archipelagos",
+        "es": "Crucero en catamarán al atardecer por el archipiélago de Langkawi",
+        "pt": "Cruzeiro em catamarã ao pôr do sol pelo arquipélago de Langkawi"
+      }
+    ],
+    "exclusions": [
+      {
+        "en": "International flights",
+        "es": "Vuelos internacionales",
+        "pt": "Voos internacionais"
+      }
+    ],
+    "travelTips": [],
+    "faqs": []
+  },
+  {
+    "slug": "singapore-futuristic-city-sentosa-retreat",
+    "title": {
+      "en": "Singapore: Futuristic Gardens, Marina Bay & Sentosa Escape",
+      "es": "Singapur: Jardines Futuristas, Marina Bay y Escapada a Sentosa",
+      "pt": "Singapura: Jardins Futuristas, Marina Bay e Sentosa"
+    },
+    "tagline": {
+      "en": "Gardens by the Bay Supertrees, Marina Bay Sands SkyPark & Universal Sentosa",
+      "es": "Superárboles de Gardens by the Bay, Marina Bay Sands y Isla Sentosa",
+      "pt": "Superárvores de Gardens by the Bay, Marina Bay Sands e Ilha Sentosa"
+    },
+    "routeSubtitle": {
+      "en": "Singapore City - Gardens by the Bay - Marina Bay Sands - Sentosa Island",
+      "es": "Singapur Ciudad - Gardens by the Bay - Marina Bay Sands - Isla Sentosa",
+      "pt": "Singapura Cidade - Gardens by the Bay - Marina Bay Sands - Ilha Sentosa"
+    },
+    "seasonalDiscountNote": {
+      "en": "Peak pricing notice: Surcharges apply from Dec 20 to Jan 5 and F1 Grand Prix week.",
+      "es": "Estos precios no son válidos para el período del 20 de Diciembre hasta el 05 de Enero.",
+      "pt": "Estes preços não são válidos para o período de 20 de Dezembro a 05 de Janeiro."
+    },
+    "category": "Outbound",
+    "country": "Singapore",
+    "durationDays": 5,
+    "durationNights": 4,
+    "startingLocation": "Singapore",
+    "endingLocation": "Singapore",
+    "tourType": "Private International Tour",
+    "travelStyle": "Luxury Outbound",
+    "image": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1200&q=80",
+    "gallery": [],
+    "pricing": {
+      "startingPrice": 1590,
+      "pricePerPerson": 1590,
+      "currency": "USD",
+      "discountPercent": 0,
+      "priceIncludes": "5-star hotel, private airport transfers, Gardens by the Bay dome tickets & Night Safari entry.",
+      "priceExcludes": "International flights."
+    },
+    "travelInfo": {
+      "startingPoint": "Singapore Changi Airport (SIN)",
+      "endingPoint": "Singapore Changi Airport (SIN)",
+      "duration": "5 Days / 4 Nights",
+      "transportation": "Private Luxury Chauffeur",
+      "accommodation": "5-Star Marina Bay Hotel",
+      "tourType": "Private Outbound Tour",
+      "bestTime": "Year Round"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Free cancellation up to 30 days before departure.",
+        "es": "Cancelación gratuita 30 días antes.",
+        "pt": "Cancelamento gratuito 30 dias antes."
+      }
+    },
+    "highlights": [
+      {
+        "en": "Illuminated Supertree Grove sound & light show at Gardens by the Bay",
+        "es": "Espectáculo de luz y sonido en los Superárboles de Gardens by the Bay",
+        "pt": "Show de luz e som nas Superárvores de Gardens by the Bay"
+      },
+      {
+        "en": "Panoramas from Marina Bay Sands SkyPark Observation Deck",
+        "es": "Vistas panorámicas desde el mirador SkyPark de Marina Bay Sands",
+        "pt": "Vistas panorâmicas do mirante SkyPark de Marina Bay Sands"
+      },
+      {
+        "en": "Private VIP tram experience at Singapore Night Safari",
+        "es": "Tranvía VIP privado en el famoso Night Safari de Singapur",
+        "pt": "Bonde VIP privado no famoso Night Safari de Singapura"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": {
+          "en": "Arrival at Changi Airport & Jewel Rain Vortex",
+          "es": "Llegada a Singapur y cascada Jewel",
+          "pt": "Chegada a Singapura e cascata Jewel"
+        },
+        "desc": {
+          "en": "Changi Airport Jewel waterfall tour and transfer to Marina Bay hotel.",
+          "es": "Llegada a Singapur, recorrido por Jewel y hotel en Marina Bay.",
+          "pt": "Chegada a Singapura, tour por Jewel e hotel em Marina Bay."
+        },
+        "morning": "Land at world-best Changi Airport and view the 40m indoor Rain Vortex waterfall.",
+        "afternoon": "Chauffeur transfer to luxury 5-star hotel and evening cocktail at rooftop lounge.",
+        "hotel": "Marina Bay Sands / The Fullerton Hotel"
+      },
+      {
+        "day": 2,
+        "title": {
+          "en": "Gardens by the Bay Domes & Supertree Light Show",
+          "es": "Jardines de la Bahía y Espectáculo Nocturno",
+          "pt": "Gardens by the Bay e Show Noturno"
+        },
+        "desc": {
+          "en": "Cloud Forest indoor waterfall dome and evening Supertree light show.",
+          "es": "Domo Cloud Forest con cascada interior y show de luces.",
+          "pt": "Domo Cloud Forest com cascata interior e show de luzes."
+        },
+        "morning": "Visit Flower Dome & Cloud Forest featuring the world's tallest indoor waterfall.",
+        "afternoon": "Evening walk on OCBC Skyway & witness Garden Rhapsody light show.",
+        "hotel": "Marina Bay Sands / The Fullerton Hotel"
+      }
+    ],
+    "includedExperiences": [
+      {
+        "en": "Singapore River scenic bumboat cruise through Clarke Quay",
+        "es": "Paseo en barco tradicional por el río Singapur en Clarke Quay",
+        "pt": "Passeio em barco tradicional pelo rio Singapura em Clarke Quay"
+      }
+    ],
+    "exclusions": [
+      {
+        "en": "International flights",
+        "es": "Vuelos internacionales",
+        "pt": "Voos internacionais"
+      }
+    ],
+    "travelTips": [],
+    "faqs": []
+  },
+  {
+    "slug": "thailand-golden-temples-phuket-islands",
+    "title": {
+      "en": "Thailand: Golden Temples of Bangkok & Phuket Island Beaches",
+      "es": "Tailandia: Templos Dorados de Bangkok y Playas de Phuket",
+      "pt": "Tailândia: Templos Dourados de Bangkok e Praias de Phuket"
+    },
+    "tagline": {
+      "en": "Grand Palace Emerald Buddha, Longtail Boat River Tour & Phi Phi Islands Cruise",
+      "es": "Gran Palacio Buda de Esmeralda, Barco de Cola Larga y Crucero por las Islas Phi Phi",
+      "pt": "Grande Palácio Buda de Esmeralda, Barco Cauda Longa e Cruzeiro pelas Ilhas Phi Phi"
+    },
+    "routeSubtitle": {
+      "en": "Bangkok - Grand Palace - Ayutthaya - Phuket - Phi Phi Islands - James Bond Island",
+      "es": "Bangkok - Gran Palacio - Ayutthaya - Phuket - Islas Phi Phi - Isla James Bond",
+      "pt": "Bangkok - Grande Palácio - Ayutthaya - Phuket - Ilhas Phi Phi - Ilha James Bond"
+    },
+    "seasonalDiscountNote": {
+      "en": "These rates are valid except peak Christmas & New Year dates (Dec 20 to Jan 5).",
+      "es": "Estos precios no son válidos para el período del 20 de Diciembre hasta el 05 de Enero.",
+      "pt": "Estes preços não são válidos para o período de 20 de Dezembro a 05 de Janeiro."
+    },
+    "category": "Outbound",
+    "country": "Thailand",
+    "durationDays": 8,
+    "durationNights": 7,
+    "startingLocation": "Bangkok (Thailand)",
+    "endingLocation": "Phuket (Thailand)",
+    "tourType": "Private International Tour",
+    "travelStyle": "Luxury Outbound",
+    "image": "https://images.unsplash.com/photo-1506665531195-3566fe294677?w=1200&q=80",
+    "gallery": [],
+    "pricing": {
+      "startingPrice": 1320,
+      "pricePerPerson": 1320,
+      "currency": "USD",
+      "discountPercent": 0,
+      "priceIncludes": "5-star hotels, domestic flight to Phuket, private guide, Phi Phi speedboat & temple tickets.",
+      "priceExcludes": "International flights."
+    },
+    "travelInfo": {
+      "startingPoint": "Suvarnabhumi Airport Bangkok (BKK)",
+      "endingPoint": "Phuket International Airport (HKT)",
+      "duration": "8 Days / 7 Nights",
+      "transportation": "Private Chauffeur, Domestic Flight & Speedboat",
+      "accommodation": "5-Star Bangkok City Hotel & Luxury Ocean View Resort Phuket",
+      "tourType": "Private Outbound Tour",
+      "bestTime": "November to April"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Free cancellation up to 30 days before departure.",
+        "es": "Cancelación gratuita 30 días antes.",
+        "pt": "Cancelamento gratuito 30 dias antes."
+      }
+    },
+    "highlights": [
+      {
+        "en": "Grand Palace & Emerald Buddha Temple (Wat Phra Kaew) guided tour",
+        "es": "Visita al Gran Palacio y Templo del Buda de Esmeralda",
+        "pt": "Visita ao Grande Palácio e Templo do Buda de Esmeralda"
+      },
+      {
+        "en": "Longtail boat cruise along Chao Phraya river and Bangkok canals (klongs)",
+        "es": "Paseo en barco de cola larga por el río Chao Phraya y los canales de Bangkok",
+        "pt": "Passeio em barco cauda longa pelo rio Chao Phraya e canais de Bangkok"
+      },
+      {
+        "en": "Private catamaran speedboat trip to Maya Bay & Phi Phi Islands",
+        "es": "Excursión privada en lancha rápida a Maya Bay y las Islas Phi Phi",
+        "pt": "Excursão privada de lancha rápida a Maya Bay e Ilhas Phi Phi"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": {
+          "en": "Arrival in Bangkok & Chao Phraya River Sunset",
+          "es": "Llegada a Bangkok",
+          "pt": "Chegada a Bangkok"
+        },
+        "desc": {
+          "en": "Transfer to riverside 5-star hotel in Bangkok.",
+          "es": "Traslado al hotel de 5 estrellas junto al río en Bangkok.",
+          "pt": "Traslado ao hotel 5 estrelas junto ao rio em Bangkok."
+        },
+        "morning": "VIP greeting at Suvarnabhumi International Airport (BKK).",
+        "afternoon": "Check-in to riverside hotel and evening dinner cruise on Chao Phraya River.",
+        "hotel": "Mandarin Oriental / Anantara Riverside Bangkok"
+      },
+      {
+        "day": 2,
+        "title": {
+          "en": "Grand Palace, Wat Pho Reclining Buddha & Floating Market",
+          "es": "Gran Palacio y Buda Reclinado",
+          "pt": "Grande Palácio e Buda Reclinado"
+        },
+        "desc": {
+          "en": "Explore Bangkok's most sacred golden temples and canal life.",
+          "es": "Explore los templos dorados más sagrados de Bangkok.",
+          "pt": "Explore os templos dourados mais sagrados de Bangkok."
+        },
+        "morning": "Guided walk through Grand Palace, Emerald Buddha & Wat Pho's 46m Reclining Buddha.",
+        "afternoon": "Traditional longtail boat cruise through Thonburi canals & Wat Arun dawn temple.",
+        "hotel": "Mandarin Oriental / Anantara Riverside Bangkok"
+      }
+    ],
+    "includedExperiences": [
+      {
+        "en": "Full-day Phi Phi Islands speedboat tour with buffet lunch & snorkeling",
+        "es": "Excursión de día entero a las Islas Phi Phi con almuerzo y esnórquel",
+        "pt": "Excursão de dia inteiro às Ilhas Phi Phi com almoço e mergulho"
+      }
+    ],
+    "exclusions": [
+      {
+        "en": "International flights",
+        "es": "Vuelos internacionales",
+        "pt": "Voos internacionais"
+      }
+    ],
+    "travelTips": [],
+    "faqs": []
+  },
+  {
+    "slug": "maldives-luxury-water-villa-overwater-escape",
+    "title": {
+      "en": "Maldives: Luxury Overwater Villa & Marine Paradise Retreat",
+      "es": "Maldivas: Villa Sobre el Agua de Lujo y Paraíso Marino",
+      "pt": "Maldivas: Vila Sobre a Água de Luxo e Paraíso Marinho"
+    },
+    "tagline": {
+      "en": "Private Pool Overwater Villa, Sunset Dolphin Cruise & Turquoise Lagoon",
+      "es": "Villa Sobre el Agua con Piscina Privada, Crucero con Delfines y Laguna Turquesa",
+      "pt": "Vila Sobre a Água com Piscina Privada, Cruzeiro com Golfinhos e Lagoa Turquesa"
+    },
+    "routeSubtitle": {
+      "en": "Malé - North Malé Atoll - Luxury Private Island Resort - Coral Reefs",
+      "es": "Malé - Atolón de Malé Norte - Resort de Isla Privada - Arrecifes de Coral",
+      "pt": "Malé - Atol de Malé Norte - Resort de Ilha Privada - Recifes de Coral"
+    },
+    "seasonalDiscountNote": {
+      "en": "These prices are not valid for the period from December 20 to January 10 (festive peak season).",
+      "es": "Estos precios no son válidos para el período del 20 de Diciembre hasta el 10 de Enero, ya que es temporada alta y los precios varían.",
+      "pt": "Estes preços não são válidos para o período de 20 de Dezembro a 10 de Janeiro (alta temporada)."
+    },
+    "category": "Outbound",
+    "country": "Maldives",
+    "durationDays": 5,
+    "durationNights": 4,
+    "startingLocation": "Malé / Maldives",
+    "endingLocation": "Malé / Maldives",
+    "tourType": "Private International Tour",
+    "travelStyle": "Luxury Outbound",
+    "image": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1200&q=80",
+    "gallery": [],
+    "pricing": {
+      "startingPrice": 2200,
+      "pricePerPerson": 2200,
+      "currency": "USD",
+      "discountPercent": 0,
+      "priceIncludes": "5-star overwater villa, speedboat / seaplane transfer, half board dining & dolphin cruise.",
+      "priceExcludes": "International flights."
+    },
+    "travelInfo": {
+      "startingPoint": "Velana International Airport Malé (MLE)",
+      "endingPoint": "Velana International Airport Malé (MLE)",
+      "duration": "5 Days / 4 Nights",
+      "transportation": "Luxury Speedboat or Seaplane Flight",
+      "accommodation": "5-Star Water Villa with Private Infinity Pool",
+      "tourType": "Private Outbound Tour",
+      "bestTime": "November to April"
+    },
+    "policies": {
+      "cancellation": {
+        "en": "Free cancellation up to 30 days before departure.",
+        "es": "Cancelación gratuita 30 días antes.",
+        "pt": "Cancelamento gratuito 30 dias antes."
+      }
+    },
+    "highlights": [
+      {
+        "en": "Stay in a luxury overwater villa with direct ladder into the ocean lagoon",
+        "es": "Estancia en villa sobre el agua de lujo con acceso directo a la laguna",
+        "pt": "Estadia em vila sobre a água de luxo com acesso direto à lagoa"
+      },
+      {
+        "en": "Sunset luxury yacht cruise searching for wild spinner dolphins",
+        "es": "Crucero en yate al atardecer para avistar delfines giradores",
+        "pt": "Cruzeiro em iate ao pôr do sol para avistar golfinhos"
+      },
+      {
+        "en": "Guided house-reef snorkeling with sea turtles & gentle manta rays",
+        "es": "Esnórquel guiado en el arrecife con tortugas marinas y mantarrayas",
+        "pt": "Mergulho guiado no recife com tartarugas marinhas e raias-manta"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": {
+          "en": "Arrival in Malé & Seaplane / Speedboat to Private Island",
+          "es": "Llegada a Malé y Traslado al Resort",
+          "pt": "Chegada a Malé e Traslado ao Resort"
+        },
+        "desc": {
+          "en": "Scenic seaplane transfer over turquoise atolls to your private island resort.",
+          "es": "Vuelo panorámico en hidroavión sobre atolones hacia su resort de isla privada.",
+          "pt": "Voo panorâmico em hidroavião sobre atóis para seu resort privado."
+        },
+        "morning": "Arrival at Velana International Airport (MLE) and escort to private resort lounge.",
+        "afternoon": "Seaplane flight over coral atolls and check-in to luxury Overwater Villa.",
+        "hotel": "Luxury 5-Star Maldives Overwater Resort"
+      },
+      {
+        "day": 2,
+        "title": {
+          "en": "Lagoon Relaxation & Sunset Dolphin Yacht Cruise",
+          "es": "Relajación en la Laguna y Crucero con Delfines",
+          "pt": "Relaxamento na Lagoa e Cruzeiro com Golfinhos"
+        },
+        "desc": {
+          "en": "Relax in your private pool and embark on a sunset dolphin cruise.",
+          "es": "Relájese en su piscina privada y embárquese en un crucero de atardecer.",
+          "pt": "Relaxe na sua piscina privada e embarque em um cruzeiro ao pôr do sol."
+        },
+        "morning": "Floating breakfast in private villa pool and lagoon snorkeling.",
+        "afternoon": "Board traditional wooden Dhoni or luxury yacht for sunset dolphin cruise.",
+        "hotel": "Luxury 5-Star Maldives Overwater Resort"
+      }
+    ],
+    "includedExperiences": [
+      {
+        "en": "Complimentary floating breakfast served in private villa pool",
+        "es": "Desayuno flotante de cortesía servido en la piscina de la villa",
+        "pt": "Café da manhã flutuante de cortesia servido na piscina da vila"
+      }
+    ],
+    "exclusions": [
+      {
+        "en": "International flights",
+        "es": "Vuelos internacionales",
+        "pt": "Voos internacionais"
+      }
+    ],
+    "travelTips": [],
+    "faqs": []
   }
 ]

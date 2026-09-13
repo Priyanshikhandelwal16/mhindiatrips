@@ -481,13 +481,25 @@ export default function PackagesTab({
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="font-bold uppercase tracking-wider block">Category (e.g. Luxury, Wellness, Wildlife)</label>
-                  <input 
-                    type="text" required
-                    value={editPackage.category || ""}
-                    onChange={e => setEditPackage({...editPackage, category: e.target.value})}
-                    className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
-                  />
+                  <label className="font-bold uppercase tracking-wider block">Category (Domestic vs Outbound)</label>
+                  <select
+                    value={editPackage.category || "Luxury"}
+                    onChange={e => setEditPackage({
+                      ...editPackage, 
+                      category: e.target.value,
+                      isOutbound: e.target.value === "Outbound"
+                    })}
+                    className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50 font-bold"
+                  >
+                    <option value="Outbound">✈️ Outbound / International</option>
+                    <option value="Luxury Private Journey">🇮🇳 Domestic - Luxury Private Journey</option>
+                    <option value="Golden Triangle">🇮🇳 Domestic - Golden Triangle</option>
+                    <option value="Heritage & Culture">🇮🇳 Domestic - Heritage & Culture</option>
+                    <option value="Wildlife Safari">🇮🇳 Domestic - Wildlife Safari</option>
+                    <option value="Spiritual & Pilgrimage">🇮🇳 Domestic - Spiritual & Pilgrimage</option>
+                    <option value="Beach & Backwaters">🇮🇳 Domestic - Beach & Backwaters</option>
+                    <option value="Himalayan Adventure">🇮🇳 Domestic - Himalayan Adventure</option>
+                  </select>
                 </div>
                 <div className="space-y-1.5">
                   <label className="font-bold uppercase tracking-wider block">Tour Type</label>
@@ -496,7 +508,7 @@ export default function PackagesTab({
                     onChange={e => setEditPackage({...editPackage, tourType: e.target.value})}
                     className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50"
                   >
-                    {["Private Tour", "Group Tour", "Family Tour", "Honeymoon Tour", "Custom Tour"].map(t => (
+                    {["Private International Tour", "Private Tour", "Group Tour", "Family Tour", "Honeymoon Tour", "Custom Tour"].map(t => (
                       <option key={t} value={t}>{t}</option>
                     ))}
                   </select>

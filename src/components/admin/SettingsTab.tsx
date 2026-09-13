@@ -301,6 +301,47 @@ export default function SettingsTab({
               />
             </div>
 
+            {/* Global Cancellation & Terms Policies */}
+            <div className="pt-4 border-t border-gold/10 space-y-4">
+              <span className="text-[10px] font-bold text-gold uppercase tracking-wider block">Default Cancellation Policy & Terms (Site-Wide)</span>
+              
+              <div className="space-y-1.5">
+                <label className="font-bold uppercase tracking-wider text-royal/60 flex items-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-gold shrink-0" />
+                  <span>Default Cancellation Policy (English)</span>
+                </label>
+                <textarea
+                  rows={3}
+                  value={typeof contactDetails?.defaultCancellationPolicy === 'string' ? contactDetails.defaultCancellationPolicy : (contactDetails?.defaultCancellationPolicy?.en || "")}
+                  onChange={e => {
+                    const existing = contactDetails?.defaultCancellationPolicy || {};
+                    const updated = typeof existing === 'string' ? { en: e.target.value, es: e.target.value, pt: e.target.value } : { ...existing, en: e.target.value };
+                    setContactDetails({ ...contactDetails, defaultCancellationPolicy: updated });
+                  }}
+                  placeholder="Enter default cancellation terms..."
+                  className="w-full bg-[#FAF8F5] border border-gold/15 p-3 outline-none rounded-xl text-xs"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="font-bold uppercase tracking-wider text-royal/60 flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-gold shrink-0" />
+                  <span>Default Terms & Conditions (English)</span>
+                </label>
+                <textarea
+                  rows={3}
+                  value={typeof contactDetails?.defaultTermsConditions === 'string' ? contactDetails.defaultTermsConditions : (contactDetails?.defaultTermsConditions?.en || "")}
+                  onChange={e => {
+                    const existing = contactDetails?.defaultTermsConditions || {};
+                    const updated = typeof existing === 'string' ? { en: e.target.value, es: e.target.value, pt: e.target.value } : { ...existing, en: e.target.value };
+                    setContactDetails({ ...contactDetails, defaultTermsConditions: updated });
+                  }}
+                  placeholder="Enter default terms & conditions..."
+                  className="w-full bg-[#FAF8F5] border border-gold/15 p-3 outline-none rounded-xl text-xs"
+                />
+              </div>
+            </div>
+
             {/* Social Channels */}
             <div className="pt-4 border-t border-gold/10">
               <span className="text-[10px] font-bold text-gold uppercase tracking-wider block mb-3">Social Network Links</span>
