@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Globe, Plus, Edit2, Trash2, CheckCircle, AlertTriangle, Sparkles, Image as ImageIcon, Search, Star, MapPin, Calendar, Compass, List } from "lucide-react";
 import { createOutboundAction, updateOutboundAction, deleteOutboundAction } from "@/app/actions/admin";
-import CloudinaryUpload from "./CloudinaryUpload";
+import { CloudinaryUpload } from "./CloudinaryUpload";
 
 interface OutboundTabProps {
   outboundList: any[];
@@ -279,7 +279,7 @@ export default function OutboundTab({
                 />
                 <div className="shrink-0">
                   <CloudinaryUpload 
-                    onUploadComplete={(url) => setEditItem({ ...editItem, image: url })} 
+                    onUploadComplete={(url: string) => setEditItem({ ...editItem, image: url })} 
                     label="Upload Destination Photo"
                     showStatus={showStatus}
                     defaultSearch={editItem.title?.en || editItem.slug || ""}
