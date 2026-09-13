@@ -10,24 +10,16 @@
     "content": {
       "team": [
         {
+          "name": "Rahul Sharma",
           "role": "Founder & Lead Travel Designer",
           "img": "/images/team_rahul.png",
-          "name": "Rahul Sharma"
+          "desc": "Over 22 years of hands-on expertise curating ultra-luxury private safaris and royal palace stays across India."
         },
         {
+          "name": "Priya Patel",
+          "role": "Co-Founder & Senior Destination Specialist",
           "img": "/images/team_priya.png",
-          "name": "Priya Kapoor",
-          "role": "Senior Destination Expert"
-        },
-        {
-          "img": "/images/team_vikram.png",
-          "name": "Vikram Singh",
-          "role": "Heritage & Culture Specialist"
-        },
-        {
-          "img": "/images/team_anita.png",
-          "name": "Anita Desai",
-          "role": "Client Relations Manager"
+          "desc": "Specializes in Rajasthan heritage hospitality, Kerala wellness retreats, and seamless international outbound itineraries."
         }
       ],
       "heroTitle": {

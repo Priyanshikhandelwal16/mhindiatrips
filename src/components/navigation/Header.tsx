@@ -468,6 +468,21 @@ export default function Header({ locale, contactDetails, states = [], packages =
                   </div>
 
                 </div>
+
+                {/* Luxury Bottom Banner inside Dropdown */}
+                <div className="bg-[#0A2A1E] text-white p-3 px-6 border-t border-[#C5A862]/30 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#C5A862] animate-pulse" />
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-white/90">Need Custom Circuit Planning?</span>
+                  </div>
+                  <Link
+                    href={`/${locale}/contact`}
+                    className="bg-[#C5A862] text-[#0A2A1E] hover:bg-white text-[9px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full transition-colors flex items-center gap-1"
+                  >
+                    <span>Talk to Concierge</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
               </div>
             </div>
 

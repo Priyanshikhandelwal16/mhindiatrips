@@ -145,7 +145,12 @@ export default async function AboutPage({ params }: AboutPageProps) {
     }
   ];
 
-  const team = (dbContent.team && dbContent.team.length > 0) ? dbContent.team.slice(0, 2) : defaultTeam;
+  const teamRaw = (dbContent.team && dbContent.team.length > 0) ? dbContent.team.slice(0, 2) : defaultTeam;
+  const team = teamRaw.map((member: any, idx: number) => ({
+    ...defaultTeam[idx],
+    ...member,
+    desc: member.desc || defaultTeam[idx]?.desc || defaultTeam[0].desc
+  }));
 
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">

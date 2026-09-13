@@ -371,10 +371,8 @@ const defaultSystemPages = [
       missionTitle: { en: "Our Mission", es: "Nuestra Misión", pt: "Nossa Missão" },
       missionText: { en: "To create transformative travel experiences that connect discerning travelers with the authentic soul of India.", es: "Crear experiencias de viaje transformadoras.", pt: "Criar experiências de viagem transformadoras." },
       team: [
-        { name: "Rahul Sharma", role: "Founder & Lead Travel Designer", img: "/images/team_rahul.png" },
-        { name: "Priya Kapoor", role: "Senior Destination Expert", img: "/images/team_priya.png" },
-        { name: "Vikram Singh", role: "Heritage & Culture Specialist", img: "/images/team_vikram.png" },
-        { name: "Anita Desai", role: "Client Relations Manager", img: "/images/team_anita.png" }
+        { name: "Rahul Sharma", role: "Founder & Lead Travel Designer", img: "/images/team_rahul.png", desc: "Over 22 years of hands-on expertise curating ultra-luxury private safaris and royal palace stays across India." },
+        { name: "Priya Patel", role: "Co-Founder & Senior Destination Specialist", img: "/images/team_priya.png", desc: "Specializes in Rajasthan heritage hospitality, Kerala wellness retreats, and seamless international outbound itineraries." }
       ]
     }
   },
