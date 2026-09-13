@@ -130,11 +130,11 @@ export default function TestimonialSlider({ locale, reviews: initialReviews, lab
             {doubleReviews.map((review: any, i: number) => (
               <div
                 key={`review-${i}`}
-                className="flex-shrink-0 w-[360px] md:w-[420px]"
+                className="flex-shrink-0 w-[320px] sm:w-[380px] md:w-[400px]"
               >
-                <div className="bg-white border border-[#C5A862]/10 p-8 h-full flex flex-col justify-between shadow-md hover:shadow-xl hover:border-[#C5A862]/30 transition-all duration-500 relative group">
+                <div className="bg-white border border-[#C5A862]/20 p-6 sm:p-8 rounded-2xl h-full flex flex-col justify-between shadow-sm hover:shadow-md hover:border-[#C5A862]/40 transition-colors duration-300 relative group min-h-[240px]">
                   {/* Google review logo overlay */}
-                  <div className="absolute top-8 right-8 text-black/10 group-hover:text-[#4285F4]/20 transition-colors">
+                  <div className="absolute top-6 right-6 text-black/10 group-hover:text-[#4285F4]/20 transition-colors">
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
                       <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
@@ -143,35 +143,35 @@ export default function TestimonialSlider({ locale, reviews: initialReviews, lab
                     </svg>
                   </div>
                   
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     {/* Stars */}
                     <div className="flex items-center gap-0.5">
-                      {Array.from({ length: review.stars }).map((_, idx) => (
+                      {Array.from({ length: review.stars || 5 }).map((_, idx) => (
                         <Star key={idx} className="w-3.5 h-3.5 fill-gold text-gold" />
                       ))}
                     </div>
                     {/* Quote Text */}
-                    <p className="text-[13px] text-foreground/60 leading-relaxed font-light">
-                      &ldquo;{review.quote[locale as "en" | "es" | "pt"] || review.quote.en}&rdquo;
+                    <p className="text-xs sm:text-[13px] text-foreground/75 leading-relaxed font-light line-clamp-4">
+                      &ldquo;{review.quote[locale as "en" | "es" | "pt"] || review.quote.en || review.quote}&rdquo;
                     </p>
                   </div>
 
                   {/* Author */}
-                  <div className="flex items-center justify-between mt-8 pt-6 border-t border-[#C5A862]/10">
-                    <div className="flex items-center gap-3.5">
+                  <div className="flex items-center justify-between mt-6 pt-4 border-t border-[#C5A862]/15">
+                    <div className="flex items-center gap-3">
                       <img
-                        src={review.image}
+                        src={review.image || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&q=80"}
                         alt={review.name}
                         loading="lazy"
-                        className="w-11 h-11 rounded-full object-cover ring-2 ring-[#C5A862]/10"
+                        className="w-10 h-10 rounded-full object-cover ring-2 ring-[#C5A862]/20 shrink-0"
                       />
                       <div>
-                        <p className="text-sm font-semibold text-royal">{review.name}</p>
-                        <p className="text-[11px] text-foreground/45 uppercase tracking-wider font-medium">{review.location}</p>
+                        <p className="text-xs font-semibold text-royal line-clamp-1">{review.name}</p>
+                        <p className="text-[10px] text-foreground/50 uppercase tracking-wider font-medium line-clamp-1">{review.location}</p>
                       </div>
                     </div>
-                    <span className="text-[9px] text-[#4285F4] bg-[#4285F4]/5 border border-[#4285F4]/15 px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">
-                      Google Review
+                    <span className="text-[9px] text-[#4285F4] bg-[#4285F4]/5 border border-[#4285F4]/15 px-2.5 py-1 rounded-full font-bold uppercase tracking-wider shrink-0">
+                      Google
                     </span>
                   </div>
                 </div>

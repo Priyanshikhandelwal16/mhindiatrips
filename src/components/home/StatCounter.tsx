@@ -3,17 +3,21 @@
 import React, { useEffect, useRef, useState } from "react";
 
 interface StatCounterProps {
-  target: number;
+  target: number | string;
   suffix?: string;
   duration?: number;
 }
 
 export default function StatCounter({ target, suffix = "", duration = 1500 }: StatCounterProps) {
+  const isString = typeof target === "string" && isNaN(Number(target));
+  const numTarget = typeof target === "number" ? target : (parseFloat(target) || 0);
+
   const [count, setCount] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
+    if (isString) return;
     const el = ref.current;
     if (!el) return;
 
@@ -28,10 +32,10 @@ export default function StatCounter({ target, suffix = "", duration = 1500 }: St
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [hasStarted]);
+  }, [hasStarted, isString]);
 
   useEffect(() => {
-    if (!hasStarted) return;
+    if (!hasStarted || isString) return;
 
     let startTimestamp: number | null = null;
     let animationFrame: number;
@@ -39,17 +43,21 @@ export default function StatCounter({ target, suffix = "", duration = 1500 }: St
     const step = (timestamp: number) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // Smooth ease-out cubic
-      setCount(Math.floor(eased * target));
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * numTarget));
       if (progress < 1) {
         animationFrame = window.requestAnimationFrame(step);
       } else {
-        setCount(target);
+        setCount(numTarget);
       }
     };
     animationFrame = window.requestAnimationFrame(step);
     return () => cancelAnimationFrame(animationFrame);
-  }, [hasStarted, target, duration]);
+  }, [hasStarted, numTarget, duration, isString]);
+
+  if (isString) {
+    return <span ref={ref}>{target}{suffix}</span>;
+  }
 
   return <span ref={ref}>{count}{suffix}</span>;
 }

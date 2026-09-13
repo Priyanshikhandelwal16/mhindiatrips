@@ -75,7 +75,9 @@ export default function Header({ locale, contactDetails, states = [], packages =
       home: "Home",
       packages: "Travel Packages",
       about: "About Us",
-      destinations: "Destinations in India",
+      destinations: "Destinations",
+      indiaDestinations: "India Destinations",
+      outboundTrips: "International Trips",
       attractions: "Attractions",
       food: "Food Guide",
       info: "Traveler Info",
@@ -87,7 +89,9 @@ export default function Header({ locale, contactDetails, states = [], packages =
       home: "Inicio",
       packages: "Paquetes",
       about: "Sobre Nosotros",
-      destinations: "Destinos en India",
+      destinations: "Destinos",
+      indiaDestinations: "Destinos en India",
+      outboundTrips: "Viajes Internacionales",
       attractions: "Atracciones",
       food: "Comida",
       info: "Info Viaje",
@@ -99,7 +103,9 @@ export default function Header({ locale, contactDetails, states = [], packages =
       home: "Início",
       packages: "Pacotes",
       about: "Sobre Nós",
-      destinations: "Destinos na Índia",
+      destinations: "Destinos",
+      indiaDestinations: "Destinos na Índia",
+      outboundTrips: "Viagens Internacionais",
       attractions: "Atrações",
       food: "Gastronomia",
       info: "Info Viagem",
@@ -129,6 +135,18 @@ export default function Header({ locale, contactDetails, states = [], packages =
     },
     path: getLocalizedDestinationsPath(locale, s.slug?.[locale as "en" | "es" | "pt"] || s.id)
   }));
+
+  const outboundList = [
+    { name: { en: "Dubai & UAE", es: "Dubái y Emiratos", pt: "Dubai e Emirados" }, path: "/international-trips/dubai" },
+    { name: { en: "Bali, Indonesia", es: "Bali, Indonesia", pt: "Bali, Indonésia" }, path: "/international-trips/bali" },
+    { name: { en: "Thailand", es: "Tailandia", pt: "Tailândia" }, path: "/international-trips/thailand" },
+    { name: { en: "Maldives", es: "Maldivas", pt: "Maldivas" }, path: "/international-trips/maldives" },
+    { name: { en: "Vietnam", es: "Vietnam", pt: "Vietnã" }, path: "/international-trips/vietnam" },
+    { name: { en: "Singapore & Malaysia", es: "Singapur y Malasia", pt: "Cingapura e Indonésia" }, path: "/international-trips/singapore" },
+    { name: { en: "Nepal & Bhutan", es: "Nepal y Bután", pt: "Nepal e Butão" }, path: "/international-trips/nepal" },
+    { name: { en: "Sri Lanka", es: "Sri Lanka", pt: "Sri Lanka" }, path: "/international-trips/sri-lanka" },
+    { name: { en: "Laos", es: "Laos", pt: "Laos" }, path: "/international-trips/laos" }
+  ];
 
   const infoList = [
     { name: { en: "Solo Female Traveler", es: "Mujer viajando sola por la India", pt: "Mulher viajando sozinha na Índia" }, path: "/travel-info/solo-female-travel" },
@@ -178,12 +196,11 @@ export default function Header({ locale, contactDetails, states = [], packages =
       return currentPath.startsWith("/destinations-in-india") || 
              currentPath.startsWith("/destinos-en-india") || 
              currentPath.startsWith("/destinos-na-india") ||
-             currentPath.startsWith("/destinations");
+             currentPath.startsWith("/destinations") ||
+             currentPath.startsWith("/international-trips");
     }
     return path !== "/" && currentPath.startsWith(path);
   };
-
-  const textColor = scrolled ? "text-white/80 hover:text-gold" : "text-royal hover:text-gold";
 
   const linkClass = (path: string) => {
     const base = "text-[11px] xl:text-xs 2xl:text-[13px] font-bold uppercase tracking-wide transition-all duration-300 relative py-1.5 shrink-0";
@@ -195,7 +212,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
   return (
     <header className="fixed top-0 left-0 right-0 z-[9999] w-full font-sans border-b border-gold/10 overflow-x-clip">
       
-      {/* Elegant Top Bar (viajeaindia.com style) */}
+      {/* Elegant Top Bar */}
       <div 
         className={`bg-[#0A2A1E] text-white/90 text-[10px] md:text-xs py-2.5 px-4 xl:px-6 border-b border-gold/10 relative z-20 transition-all duration-300 ${
           (scrolled || mobileMenuOpen) ? "h-0 py-0 border-0 opacity-0 overflow-hidden" : "h-auto opacity-100"
@@ -229,25 +246,24 @@ export default function Header({ locale, contactDetails, states = [], packages =
         </div>
       </div>
 
-      {/* Main Premium Sticky Header (Full-width, clean white background, viajeaindia.com style) */}
+      {/* Main Premium Sticky Header */}
       <div 
-        className="w-full border-b border-gold/10 relative z-50 bg-white py-3.5 2xl:py-5"
+        className="w-full border-b border-gold/10 relative z-50 bg-white py-3 2xl:py-4"
       >
-        <div className="max-w-[1700px] w-full mx-auto px-4 xl:px-6 2xl:px-10 flex items-center justify-between gap-3 xl:gap-5 2xl:gap-8 flex-nowrap">
+        <div className="max-w-[1700px] w-full mx-auto px-4 xl:px-6 2xl:px-8 flex items-center justify-between gap-3 xl:gap-5 flex-nowrap">
           
-          {/* Custom style block to support live admin logo height customization */}
           <style dangerouslySetInnerHTML={{__html: `
             .logo-custom-height {
-              height: ${contactDetails?.logoHeightMobile || "46"}px !important;
+              height: ${contactDetails?.logoHeightMobile || "44"}px !important;
             }
             @media (min-width: 768px) {
               .logo-custom-height {
-                height: ${contactDetails?.logoHeightDesktop ? Number(contactDetails.logoHeightDesktop) : "58"}px !important;
+                height: ${contactDetails?.logoHeightDesktop ? Number(contactDetails.logoHeightDesktop) : "54"}px !important;
               }
             }
             @media (min-width: 1536px) {
               .logo-custom-height {
-                height: ${contactDetails?.logoHeightDesktop ? Math.max(Number(contactDetails.logoHeightDesktop), 64) : "68"}px !important;
+                height: ${contactDetails?.logoHeightDesktop ? Math.max(Number(contactDetails.logoHeightDesktop), 60) : "62"}px !important;
               }
             }
           `}} />
@@ -262,7 +278,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center flex-nowrap gap-3 xl:gap-4 2xl:gap-6 shrink-0">
+          <nav className="hidden xl:flex items-center flex-nowrap gap-2.5 xl:gap-3.5 2xl:gap-5 shrink-0">
             
             {/* Home Link */}
             <Link
@@ -288,7 +304,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
               </Link>
               
               {/* Dropdown Container */}
-              <div className="absolute left-0 top-full w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
+              <div className="absolute left-0 top-full w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50 rounded-b-xl">
                 <Link
                   href={`/${locale}/packages`}
                   className="block px-5 py-2 text-[10px] font-bold uppercase tracking-wider text-royal/60 border-b border-gold/5 hover:text-gold hover:bg-gold/5 mb-1.5 pb-2"
@@ -325,48 +341,88 @@ export default function Header({ locale, contactDetails, states = [], packages =
               )}
             </Link>
 
-            {/* Destinations Dropdown */}
+            {/* Destinations Super-Dropdown (India + Outbound) */}
             <div className="relative group py-2.5">
               <Link
                 href={getLocalizedDestinationsPath(locale)}
                 className={linkClass("/destinations")}
               >
                 <span className="flex items-center gap-1">
-                  {labels.destinations}
+                  <span>{labels.destinations}</span>
                   <ChevronDown className="w-3 h-3 text-gold" />
                 </span>
               </Link>
               
-              {/* Dropdown Container */}
-              <div className="absolute left-0 top-full w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
-                {destinationsList.map((dest, idx) => {
-                  const rawName = dest.name[locale as 'en'|'es'|'pt'] || dest.name.en;
-                  let formattedName = rawName;
-                  if (locale === "es") {
-                    if (["kerala", "goa", "maharashtra", "karnataka"].includes(dest.name.en.toLowerCase())) {
-                      formattedName = `Viaje a ${rawName}`;
-                    } else {
-                      formattedName = `Turismo en ${rawName}`;
-                    }
-                  } else if (locale === "pt") {
-                    if (["kerala", "goa", "maharashtra", "karnataka"].includes(dest.name.en.toLowerCase())) {
-                      formattedName = `Viajar para ${rawName}`;
-                    } else {
-                      formattedName = `Turismo em ${rawName}`;
-                    }
-                  } else {
-                    formattedName = `${rawName} Travel Guide`;
-                  }
-                  return (
-                    <Link
-                      key={idx}
-                      href={dest.path}
-                      className="block px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold hover:bg-gold/5 transition-colors"
-                    >
-                      {formattedName}
-                    </Link>
-                  );
-                })}
+              {/* Wide 2-Column Super Dropdown Container */}
+              <div className="absolute left-1/2 -translate-x-1/2 top-full w-[540px] xl:w-[580px] bg-white border border-gold/20 shadow-2xl py-4 px-6 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50 rounded-b-xl grid grid-cols-2 gap-6">
+                
+                {/* Column 1: India Destinations */}
+                <div className="flex flex-col border-r border-gold/10 pr-4">
+                  <Link
+                    href={getLocalizedDestinationsPath(locale)}
+                    className="flex items-center justify-between font-extrabold uppercase tracking-wider text-[11px] text-[#0A2A1E] pb-2 mb-2 border-b border-gold/15 hover:text-gold transition-colors"
+                  >
+                    <span className="flex items-center gap-1.5">
+                      <span>🇮🇳</span>
+                      <span>{labels.indiaDestinations}</span>
+                    </span>
+                    <ArrowRight className="w-3 h-3 text-gold" />
+                  </Link>
+                  <div className="flex flex-col space-y-1 max-h-[280px] overflow-y-auto pr-1">
+                    {destinationsList.map((dest, idx) => {
+                      const rawName = dest.name[locale as 'en'|'es'|'pt'] || dest.name.en;
+                      let formattedName = rawName;
+                      if (locale === "es") {
+                        if (["kerala", "goa", "maharashtra", "karnataka"].includes(dest.name.en.toLowerCase())) {
+                          formattedName = `Viaje a ${rawName}`;
+                        } else {
+                          formattedName = `Turismo en ${rawName}`;
+                        }
+                      } else if (locale === "pt") {
+                        if (["kerala", "goa", "maharashtra", "karnataka"].includes(dest.name.en.toLowerCase())) {
+                          formattedName = `Viajar para ${rawName}`;
+                        } else {
+                          formattedName = `Turismo em ${rawName}`;
+                        }
+                      }
+                      return (
+                        <Link
+                          key={idx}
+                          href={dest.path}
+                          className="text-[11px] font-medium tracking-wide text-royal/80 hover:text-gold hover:translate-x-1 transition-all py-1 px-2 rounded hover:bg-gold/5 flex items-center justify-between"
+                        >
+                          <span>{formattedName}</span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Column 2: International / Outbound Trips */}
+                <div className="flex flex-col">
+                  <Link
+                    href={`/${locale}/international-trips`}
+                    className="flex items-center justify-between font-extrabold uppercase tracking-wider text-[11px] text-[#0A2A1E] pb-2 mb-2 border-b border-gold/15 hover:text-gold transition-colors"
+                  >
+                    <span className="flex items-center gap-1.5">
+                      <span>✈️</span>
+                      <span>{labels.outboundTrips}</span>
+                    </span>
+                    <ArrowRight className="w-3 h-3 text-gold" />
+                  </Link>
+                  <div className="flex flex-col space-y-1 max-h-[280px] overflow-y-auto pr-1">
+                    {outboundList.map((out, idx) => (
+                      <Link
+                        key={idx}
+                        href={`/${locale}${out.path}`}
+                        className="text-[11px] font-medium tracking-wide text-royal/80 hover:text-gold hover:translate-x-1 transition-all py-1 px-2 rounded hover:bg-gold/5 flex items-center justify-between"
+                      >
+                        <span>{out.name[locale as 'en'|'es'|'pt'] || out.name.en}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
               </div>
             </div>
 
@@ -394,7 +450,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
               </Link>
               
               {/* Dropdown Container */}
-              <div className="absolute left-0 top-full w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
+              <div className="absolute left-0 top-full w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50 rounded-b-xl">
                 {infoList.map((info, idx) => (
                   <Link
                     key={idx}
@@ -407,17 +463,6 @@ export default function Header({ locale, contactDetails, states = [], packages =
               </div>
             </div>
 
-            {/* Contact */}
-            <Link
-              href={`/${locale}/contact`}
-              className={linkClass("/contact")}
-            >
-              <span>{labels.contact}</span>
-              {isActive("/contact") && (
-                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full" />
-              )}
-            </Link>
-
             {/* Blog */}
             <Link
               href={`/${locale}/blog`}
@@ -429,16 +474,27 @@ export default function Header({ locale, contactDetails, states = [], packages =
               )}
             </Link>
 
+            {/* Contact */}
+            <Link
+              href={`/${locale}/contact`}
+              className={linkClass("/contact")}
+            >
+              <span>{labels.contact}</span>
+              {isActive("/contact") && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full" />
+              )}
+            </Link>
+
           </nav>
 
           {/* Right Action Menu */}
-          <div className="hidden xl:flex items-center gap-1 xl:gap-1.5 2xl:gap-3 z-20 shrink-0">
+          <div className="hidden xl:flex items-center gap-1.5 xl:gap-2 2xl:gap-3 z-20 shrink-0">
             
             {/* Globe Language Toggle */}
             <div className="relative">
               <button 
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
-                className="flex items-center gap-1 text-[8px] xl:text-[8.5px] 2xl:text-[10px] font-bold uppercase tracking-wider text-royal border border-gold/25 hover:border-gold hover:text-gold px-2 py-1 xl:px-2.5 xl:py-1.5 2xl:px-4 2xl:py-2 rounded-full cursor-pointer transition-all duration-300"
+                className="flex items-center gap-1 text-[8.5px] 2xl:text-[10px] font-bold uppercase tracking-wider text-royal border border-gold/25 hover:border-gold hover:text-gold px-2.5 py-1.5 2xl:px-4 2xl:py-2 rounded-full cursor-pointer transition-all duration-300"
                 aria-label="Language Selector"
                 suppressHydrationWarning={true}
               >
@@ -449,7 +505,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
               {langMenuOpen && (
                 <>
                   <div className="fixed inset-0 z-30" onClick={() => setLangMenuOpen(false)} />
-                  <div className="absolute right-0 mt-3 w-40 bg-white border border-gold/15 shadow-2xl z-40 py-2.5 overflow-hidden animate-scale-up">
+                  <div className="absolute right-0 mt-3 w-40 bg-white border border-gold/15 shadow-2xl z-40 py-2.5 overflow-hidden animate-scale-up rounded-xl">
                     {languages.map((lang) => (
                       <Link
                         key={lang.code}
@@ -470,7 +526,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
             {/* Inquire CTA Button */}
             <Link 
               href={`/${locale}/contact`}
-              className="bg-[#0A2A1E] hover:bg-[#C5A862] hover:text-[#0A2A1E] text-white text-[8px] xl:text-[8.5px] 2xl:text-[10px] font-bold uppercase tracking-[0.03em] 2xl:tracking-[0.1em] px-2.5 py-1.5 xl:px-3.5 xl:py-2 2xl:px-5 2xl:py-3 rounded-full transition-all duration-300 hover:scale-105 inline-flex items-center gap-1 2xl:gap-1.5 shadow-md border border-royal/10 whitespace-nowrap"
+              className="bg-[#0A2A1E] hover:bg-[#C5A862] hover:text-[#0A2A1E] text-white text-[8.5px] 2xl:text-[10px] font-bold uppercase tracking-[0.03em] 2xl:tracking-[0.1em] px-3.5 py-2 2xl:px-5 2xl:py-3 rounded-full transition-all duration-300 hover:scale-105 inline-flex items-center gap-1 2xl:gap-1.5 shadow-md border border-royal/10 whitespace-nowrap"
             >
               <span>{labels.cta}</span>
               <ArrowRight className="w-3 h-3 2xl:w-3.5 2xl:h-3.5" />
@@ -479,15 +535,9 @@ export default function Header({ locale, contactDetails, states = [], packages =
 
           {/* Mobile Buttons */}
           <div className="flex xl:hidden items-center gap-2 z-20">
-            
-            {/* Lang Button */}
             <button
               onClick={() => setLangMenuOpen(!langMenuOpen)}
-              className={`p-2 border rounded-full transition-colors ${
-                mobileMenuOpen 
-                  ? "border-gold/25 text-royal hover:border-gold" 
-                  : "border-gold/15 text-royal hover:border-gold"
-              }`}
+              className="p-2 border border-gold/15 text-royal hover:border-gold rounded-full transition-colors"
               aria-label="Language Mobile Menu"
               suppressHydrationWarning={true}
             >
@@ -497,7 +547,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
             {langMenuOpen && (
               <>
                 <div className="fixed inset-0 z-30" onClick={() => setLangMenuOpen(false)} />
-                <div className="absolute right-16 mt-32 w-36 bg-white border border-gold/15 shadow-xl z-40 py-2 overflow-hidden animate-scale-up">
+                <div className="absolute right-16 mt-32 w-36 bg-white border border-gold/15 shadow-xl z-40 py-2 overflow-hidden animate-scale-up rounded-xl">
                   {languages.map((lang) => (
                     <Link
                       key={lang.code}
@@ -512,14 +562,9 @@ export default function Header({ locale, contactDetails, states = [], packages =
               </>
             )}
 
-            {/* Mobile Nav Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2 border rounded-full transition-colors ${
-                mobileMenuOpen 
-                  ? "border-gold/25 text-royal hover:border-gold" 
-                  : "border-gold/15 text-royal hover:border-gold"
-              }`}
+              className="p-2 border border-gold/15 text-royal hover:border-gold rounded-full transition-colors"
               aria-label="Toggle Mobile Menu"
               suppressHydrationWarning={true}
             >
@@ -581,7 +626,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
               )}
             </div>
 
-            {/* Destinations Collapsible Dropdown */}
+            {/* Destinations Collapsible Dropdown (India + Outbound) */}
             <div className="flex flex-col border-b border-gold/5">
               <button
                 onClick={() => setMobileDestinationsOpen(!mobileDestinationsOpen)}
@@ -596,43 +641,54 @@ export default function Header({ locale, contactDetails, states = [], packages =
               </button>
               
               {mobileDestinationsOpen && (
-                <div className="flex flex-col bg-gold/5 border-l-2 border-gold/25 pl-4 py-2 space-y-2.5 text-left animate-fade-in">
-                  <Link
-                    href={getLocalizedDestinationsPath(locale)}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-[11px] font-bold uppercase tracking-wider text-royal/60 hover:text-gold py-1 block"
-                  >
-                    All Destinations
-                  </Link>
-                  {destinationsList.map((dest, idx) => {
-                    const rawName = dest.name[locale as 'en'|'es'|'pt'] || dest.name.en;
-                    let formattedName = rawName;
-                    if (locale === "es") {
-                      if (["kerala", "goa", "maharashtra", "karnataka"].includes(dest.name.en.toLowerCase())) {
-                        formattedName = `Viaje a ${rawName}`;
-                      } else {
-                        formattedName = `Turismo en ${rawName}`;
-                      }
-                    } else if (locale === "pt") {
-                      if (["kerala", "goa", "maharashtra", "karnataka"].includes(dest.name.en.toLowerCase())) {
-                        formattedName = `Viajar para ${rawName}`;
-                      } else {
-                        formattedName = `Turismo em ${rawName}`;
-                      }
-                    } else {
-                      formattedName = `${rawName} Travel Guide`;
-                    }
-                    return (
+                <div className="flex flex-col bg-gold/5 border-l-2 border-gold/25 pl-4 py-2 space-y-3 text-left animate-fade-in">
+                  {/* India Destinations Section */}
+                  <div>
+                    <span className="text-[10px] font-black uppercase text-gold tracking-widest block mb-1">
+                      🇮🇳 {labels.indiaDestinations}
+                    </span>
+                    <Link
+                      href={getLocalizedDestinationsPath(locale)}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="text-[11px] font-bold uppercase text-royal/60 hover:text-gold py-0.5 block pl-2"
+                    >
+                      All India Destinations
+                    </Link>
+                    {destinationsList.map((dest, idx) => (
                       <Link
                         key={idx}
                         href={dest.path}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold py-1 block"
+                        className="text-[11px] font-medium tracking-wider text-royal hover:text-gold py-0.5 block pl-2"
                       >
-                        {formattedName}
+                        {dest.name[locale as 'en'|'es'|'pt'] || dest.name.en}
                       </Link>
-                    );
-                  })}
+                    ))}
+                  </div>
+
+                  {/* Outbound Trips Section */}
+                  <div className="pt-2 border-t border-gold/10">
+                    <span className="text-[10px] font-black uppercase text-gold tracking-widest block mb-1">
+                      ✈️ {labels.outboundTrips}
+                    </span>
+                    <Link
+                      href={`/${locale}/international-trips`}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="text-[11px] font-bold uppercase text-royal/60 hover:text-gold py-0.5 block pl-2"
+                    >
+                      All International Trips
+                    </Link>
+                    {outboundList.map((out, idx) => (
+                      <Link
+                        key={idx}
+                        href={`/${locale}${out.path}`}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="text-[11px] font-medium tracking-wider text-royal hover:text-gold py-0.5 block pl-2"
+                      >
+                        {out.name[locale as 'en'|'es'|'pt'] || out.name.en}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>

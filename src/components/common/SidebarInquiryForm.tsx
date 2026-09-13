@@ -6,10 +6,10 @@ import { createInquiryAction } from "@/app/actions/inquiry";
 
 interface SidebarInquiryFormProps {
   locale: string;
-  defaultDestination: string;
+  defaultDestination?: string;
 }
 
-export default function SidebarInquiryForm({ locale, defaultDestination }: SidebarInquiryFormProps) {
+export default function SidebarInquiryForm({ locale, defaultDestination = "" }: SidebarInquiryFormProps) {
   const [form, setForm] = useState({
     name: "",
     email: "",

@@ -31,7 +31,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
     if (paused) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 2200);
+    }, 3500);
     return () => clearInterval(timer);
   }, [paused, slides.length]);
 
@@ -64,6 +64,13 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
+      {/* Hidden preloader for smooth instant transitions */}
+      <div className="hidden">
+        {slides.map((slide, idx) => (
+          <img key={`preload-${idx}`} src={slide.image?.includes("unsplash.com") ? slide.image.replace(/w=\d+/, "w=1600").replace(/q=\d+/, "q=80") : slide.image} alt="preload" />
+        ))}
+      </div>
+
       {/* Slides */}
       {slides.map((slide, i) => {
         let imgSrc = slide.image
@@ -73,9 +80,9 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
           : "/images/destination_fallback.jpg";
 
         if (imgSrc.includes("unsplash.com")) {
-          imgSrc = imgSrc.replace(/w=\d+/, "w=2560").replace(/q=\d+/, "q=95");
-          if (!imgSrc.includes("w=2560")) {
-            imgSrc += (imgSrc.includes("?") ? "&" : "?") + "w=2560&q=95";
+          imgSrc = imgSrc.replace(/w=\d+/, "w=1600").replace(/q=\d+/, "q=80");
+          if (!imgSrc.includes("w=1600")) {
+            imgSrc += (imgSrc.includes("?") ? "&" : "?") + "w=1600&q=80";
           }
         }
 

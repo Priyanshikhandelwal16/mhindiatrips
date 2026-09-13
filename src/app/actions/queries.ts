@@ -102,6 +102,14 @@ export async function getPageByIdAction(id: string) {
   return await db.pages.findUnique(id);
 }
 
+export async function getOutboundDestinationsAction() {
+  return await db.outbound.findMany();
+}
+
+export async function getOutboundDestinationBySlugAction(slug: string) {
+  return await db.outbound.findUnique(slug);
+}
+
 export async function getCitiesAction() {
   return await db.cities.findMany();
 }

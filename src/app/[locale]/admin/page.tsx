@@ -55,7 +55,8 @@ import {
   getTestimonialsAction,
   getPagesAction,
   getParentDestinationsAction,
-  getStatesByParentDestinationAction
+  getStatesByParentDestinationAction,
+  getOutboundDestinationsAction
 } from "@/app/actions/queries";
 
 // Tab Subcomponents
@@ -63,6 +64,7 @@ import DashboardTab from "@/components/admin/DashboardTab";
 import InquiriesTab from "@/components/admin/InquiriesTab";
 import PagesTab from "@/components/admin/PagesTab";
 import DestinationsTab from "@/components/admin/DestinationsTab";
+import OutboundTab from "@/components/admin/OutboundTab";
 import PackagesTab from "@/components/admin/PackagesTab";
 import BlogsTab from "@/components/admin/BlogsTab";
 import CuisinesTab from "@/components/admin/CuisinesTab";
@@ -87,6 +89,7 @@ export default function AdminDashboard() {
   const [packages, setPackages] = useState<any[]>([]);
   const [foods, setFoods] = useState<any[]>([]);
   const [states, setStates] = useState<any[]>([]);
+  const [outboundList, setOutboundList] = useState<any[]>([]);
   const [testimonials, setTestimonials] = useState<any[]>([]);
   const [pages, setPages] = useState<any[]>([]);
   const [contactDetails, setContactDetails] = useState<any>({
@@ -182,7 +185,7 @@ export default function AdminDashboard() {
     if (showLoader) setLoading(true);
     try {
       // Load each collection independently so one failure doesn't kill all
-      const [inqs, blgs, pkgs, fds, sts, tsts, pgs, settingsRes, parentsRes] = await Promise.all([
+      const [inqs, blgs, pkgs, fds, sts, tsts, pgs, settingsRes, parentsRes, outboundsRes] = await Promise.all([
         getInquiriesAction().catch(() => []),
         getBlogsAction().catch(() => []),
         getTourPackagesAction().catch(() => []),
@@ -191,13 +194,15 @@ export default function AdminDashboard() {
         getTestimonialsAction().catch(() => []),
         getPagesAction().catch(() => []),
         getSettingsAction().catch(() => ({ success: false })),
-        getParentDestinationsAction().catch(() => [])
+        getParentDestinationsAction().catch(() => []),
+        getOutboundDestinationsAction().catch(() => [])
       ]);
       setInquiries(inqs || []);
       setBlogs(blgs || []);
       setPackages(pkgs || []);
       setFoods(fds || []);
       setStates(sts || []);
+      setOutboundList(outboundsRes || []);
       setTestimonials(tsts || []);
       setPages(pgs || []);
       setParentDestinations(parentsRes || []);
@@ -611,7 +616,8 @@ export default function AdminDashboard() {
     { id: "dashboard", label: "Dashboard", icon: BarChart },
     { id: "leads", label: "Travel Leads", icon: Users },
     { id: "pages", label: "Website Pages", icon: Layers },
-    { id: "destinations", label: "Destinations", icon: MapPin },
+    { id: "destinations", label: "Destinations in India", icon: MapPin },
+    { id: "outbound", label: "Outbound Trips", icon: Globe },
     { id: "packages", label: "Tour Packages", icon: Compass },
     { id: "blogs", label: "Manage Blogs", icon: FileText },
     { id: "cuisines", label: "Food Catalog", icon: Utensils },
@@ -849,6 +855,15 @@ export default function AdminDashboard() {
               <DestinationsTab
                 states={states}
                 allPackages={packages}
+                showStatus={showStatus}
+                loadCMSData={loadCMSData}
+              />
+            )}
+
+            {/* Render Outbound / International destinations manager component */}
+            {activeTab === "outbound" && (
+              <OutboundTab
+                outboundList={outboundList}
                 showStatus={showStatus}
                 loadCMSData={loadCMSData}
               />

@@ -16,10 +16,13 @@ import {
   Testimonial
 } from "@/data/mockData";
 import { additionalStates, additionalPackages, additionalFoods, additionalBlogs } from "@/data/additionalData";
+import { outboundDestinations } from "@/data/outboundData";
 import { getAdminFirestore } from "./firebase-admin";
 // Load pre-built states data directly from filesystem at module init
 import fs from "fs";
 import path from "path";
+
+let outboundCache: any[] = outboundDestinations;
 
 // Read states.json synchronously at module initialization
 let statesJsonArray: any[] = [];
@@ -1344,6 +1347,51 @@ export const db = {
         settingsCache = all;
         return newRecord;
       }
+    }
+  },
+
+  outbound: {
+    findMany: async () => {
+      outboundCache = loadLocalData("outbound", outboundCache);
+      const firestoreData = await fetchCollectionDocs("outbound");
+      if (firestoreData) {
+        const firestoreMap = new Map(firestoreData.map((o: any) => [o.slug || o.id, o]));
+        const merged = outboundCache
+          .map((o: any) => firestoreMap.has(o.slug || o.id) ? firestoreMap.get(o.slug || o.id) : o)
+          .filter((o: any) => o.isDeleted !== true);
+        const localSlugs = new Set(outboundCache.map((o: any) => o.slug || o.id));
+        const extraItems = firestoreData.filter((o: any) => !localSlugs.has(o.slug || o.id) && o.isDeleted !== true);
+        return cleanEmail([...merged, ...extraItems]);
+      }
+      return cleanEmail(outboundCache.filter((o: any) => o.isDeleted !== true));
+    },
+    findUnique: async (slug: string) => {
+      const all = await db.outbound.findMany();
+      return all.find((o: any) => (o.slug === slug || o.id === slug) && o.isDeleted !== true) || null;
+    },
+    create: async (data: any) => {
+      const slug = data.slug || data.title?.en?.toLowerCase().replace(/\s+/g, '-') || Math.random().toString(36).substring(2, 9);
+      const newItem = { slug, ...data };
+      await writeDoc("outbound", slug, newItem);
+      outboundCache.push(newItem);
+      saveLocalData("outbound", outboundCache);
+      return newItem;
+    },
+    update: async (slug: string, data: any) => {
+      await writeDoc("outbound", slug, data, true);
+      const idx = outboundCache.findIndex((o: any) => o.slug === slug || o.id === slug);
+      if (idx !== -1) {
+        outboundCache[idx] = { ...outboundCache[idx], ...data };
+        saveLocalData("outbound", outboundCache);
+        return outboundCache[idx];
+      }
+      return { slug, ...data };
+    },
+    delete: async (slug: string) => {
+      await writeDoc("outbound", slug, { isDeleted: true }, true);
+      outboundCache = outboundCache.filter((o: any) => o.slug !== slug && o.id !== slug);
+      saveLocalData("outbound", outboundCache);
+      return { slug };
     }
   }
 };

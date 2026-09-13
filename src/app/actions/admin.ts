@@ -427,6 +427,45 @@ export async function updateContactDetailsAction(data: any) {
   }
 }
 
+export async function createOutboundAction(data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
+  try {
+    const item = await db.outbound.create(data);
+    revalidatePath("/[locale]/international-trips", "layout");
+    return { success: true, item };
+  } catch (error: any) {
+    return { success: false, error: error.message || "Failed to create outbound destination" };
+  }
+}
+
+export async function updateOutboundAction(slug: string, data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
+  try {
+    const updated = await db.outbound.update(slug, data);
+    revalidatePath("/[locale]/international-trips", "layout");
+    return { success: true, updated };
+  } catch (error: any) {
+    return { success: false, error: error.message || "Failed to update outbound destination" };
+  }
+}
+
+export async function deleteOutboundAction(slug: string) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
+  try {
+    await db.outbound.delete(slug);
+    revalidatePath("/[locale]/international-trips", "layout");
+    return { success: true };
+  } catch (error: any) {
+    return { success: false, error: error.message || "Failed to delete outbound destination" };
+  }
+}
+
 export async function updateAdminPasswordAction(newPassword: string) {
   const authCheck = await requireAdminSession();
   if (!authCheck.success) return authCheck;

@@ -5,7 +5,7 @@ import { getBlogBySlugAction, getBlogsAction, getTourPackagesAction } from "@/ap
 import { formatRichText } from "@/lib/utils";
 import Reveal from "@/components/home/Reveal";
 import { 
-  Clock, ArrowLeft, User, Calendar, ChevronRight 
+  Clock, ArrowLeft, User, Calendar, ChevronRight, Sparkles 
 } from "lucide-react";
 import PageHeroSlider from "@/components/common/PageHeroSlider";
 
@@ -161,14 +161,45 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
           {/* Main Content */}
           <article className="lg:col-span-8 space-y-10">
             
-            {/* Excerpt / Lead */}
+            {/* Excerpt / Lead Quote */}
             <Reveal>
-              <blockquote className="text-lg md:text-xl font-medium text-[#0B0D0C]/80 leading-relaxed pl-6 border-l-4 border-[#C3AB85] italic">
-                {blogExcerpt}
-              </blockquote>
+              <div className="bg-white p-8 rounded-3xl border-l-4 border-[#C5A862] border-t border-r border-b border-[#C5A862]/20 shadow-lg space-y-3">
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C5A862] block">Article Summary</span>
+                <p className="text-base md:text-lg font-serif italic text-[#0A2A1E] leading-relaxed">
+                  &ldquo;{blogExcerpt}&rdquo;
+                </p>
+              </div>
             </Reveal>
 
-            {/* Content */}
+            {/* Key Itinerary & Travel Highlights Card */}
+            <Reveal delay={50}>
+              <div className="bg-[#0A2A1E] text-white p-8 rounded-3xl border-2 border-[#C5A862] shadow-xl space-y-4">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-[#C5A862]" />
+                  <h3 className="text-xl font-serif font-bold text-white">Key Takeaways & Travel Highlights</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs text-white/90">
+                  <div className="flex items-center gap-2 bg-white/10 p-3 rounded-xl border border-white/15">
+                    <span className="text-[#C5A862] font-bold">📍</span>
+                    <span><strong>Destination:</strong> {blog.category || "India Travel"}</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-white/10 p-3 rounded-xl border border-white/15">
+                    <span className="text-[#C5A862] font-bold">⏱️</span>
+                    <span><strong>Read Time:</strong> {blog.readingTime || 7} Minutes</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-white/10 p-3 rounded-xl border border-white/15">
+                    <span className="text-[#C5A862] font-bold">💎</span>
+                    <span><strong>Travel Style:</strong> Private Luxury & Heritage</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-white/10 p-3 rounded-xl border border-white/15">
+                    <span className="text-[#C5A862] font-bold">✨</span>
+                    <span><strong>Guide:</strong> Handcrafted Local Insights</span>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Main Rich Content */}
             <Reveal delay={100}>
               <div className="prose prose-lg max-w-none space-y-6">
                 <div 
@@ -178,17 +209,32 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
               </div>
             </Reveal>
 
-
+            {/* Visual Photo Gallery if available */}
+            {blog.gallery && blog.gallery.length > 0 && (
+              <Reveal delay={150}>
+                <div className="space-y-4 pt-6 border-t border-[#C5A862]/20">
+                  <h3 className="text-xl font-serif font-bold text-[#0A2A1E]">Photo Gallery & Locations</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {blog.gallery.map((gImg: string, gIdx: number) => (
+                      <div key={gIdx} className="h-52 rounded-2xl overflow-hidden border border-[#C5A862]/20 shadow-md">
+                        <img src={gImg} alt={`Gallery ${gIdx + 1}`} loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            )}
 
             {/* Author Bio Card */}
             <Reveal delay={250}>
-              <div className="bg-white border border-[#C3AB85]/15 p-8 flex items-start gap-5">
-                <div className="w-14 h-14 rounded-full bg-[#C3AB85]/10 flex items-center justify-center shrink-0">
-                  <User className="w-7 h-7 text-[#C3AB85]" />
+              <div className="bg-white border border-[#C5A862]/30 p-8 rounded-3xl shadow-md flex items-start gap-5">
+                <div className="w-14 h-14 rounded-full bg-[#0A2A1E] text-[#C5A862] flex items-center justify-center shrink-0 border-2 border-[#C5A862]">
+                  <User className="w-7 h-7" />
                 </div>
-                <div className="space-y-2">
-                  <h4 className="font-bold text-[#0B0D0C]">{blog.author}</h4>
-                  <p className="text-xs text-[#1B1B1B]/50 font-light leading-relaxed">
+                <div className="space-y-1">
+                  <h4 className="font-serif font-bold text-[#0A2A1E] text-lg">{blog.author}</h4>
+                  <span className="text-[10px] uppercase font-bold text-[#C5A862] tracking-wider block">Senior Travel Specialist & Storyteller</span>
+                  <p className="text-xs text-[#1B1B1B]/60 font-light leading-relaxed pt-1">
                     {text.authorBio}
                   </p>
                 </div>

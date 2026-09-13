@@ -980,11 +980,11 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 
-                <Link href={`/${locale}`} className="shrink-0 group">
+                <Link href={`/${locale}`} className="shrink-0 group bg-white/95 hover:bg-white backdrop-blur-md px-4 py-2 rounded-2xl border-2 border-[#C5A862] shadow-xl transition-all duration-300 flex items-center justify-center hover:scale-105">
                   <img 
                     src="/images/logo-transparent.png" 
                     alt={settings.companyName || "MH India Trips"} 
-                    className="h-10 md:h-14 w-auto object-contain filter drop-shadow-md group-hover:scale-105 transition-transform"
+                    className="h-9 md:h-12 w-auto object-contain filter drop-shadow-sm"
                   />
                 </Link>
               </div>

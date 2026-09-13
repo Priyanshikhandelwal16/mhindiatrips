@@ -1,0 +1,860 @@
+[
+  {
+    "slug": "dubai",
+    "title": {
+      "en": "Dubai & UAE",
+      "es": "Dubái y Emiratos",
+      "pt": "Dubai e Emirados"
+    },
+    "tagline": {
+      "en": "Burj Khalifa, Desert Safaris & Futuristic Luxury",
+      "es": "Burj Khalifa, Safaris por el Desierto y Lujo Futurista",
+      "pt": "Burj Khalifa, Safáris no Deserto e Luxo Futurista"
+    },
+    "region": "Middle East",
+    "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1600",
+    "gallery": [
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200",
+      "https://images.unsplash.com/photo-1546412414-8035e1786b9b?q=80&w=1200",
+      "https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=1200"
+    ],
+    "description": {
+      "en": "Experience the pinnacle of international luxury travel in Dubai—from iconic ultra-tall skyscrapers and private desert dunes safaris to opulent marina yacht cruises.",
+      "es": "Disfrute del máximo lujo internacional en Dubái, desde sus icónicos rascacielos hasta safaris privados en el desierto y cruceros en yate.",
+      "pt": "Viva o auge do luxo internacional em Dubai—dos icônicos arranha-céus a safáris privados no deserto e cruzeiros de iate."
+    },
+    "bestTime": {
+      "en": "November to March",
+      "es": "De noviembre a marzo",
+      "pt": "De novembro a março"
+    },
+    "attractions": [
+      {
+        "name": {
+          "en": "Burj Khalifa & At The Top",
+          "es": "Burj Khalifa y Mirador",
+          "pt": "Burj Khalifa e Mirante"
+        },
+        "image": "https://images.unsplash.com/photo-1546412414-8035e1786b9b?q=80&w=800",
+        "desc": {
+          "en": "The world's tallest building offering breathtaking panoramas over the Arabian Gulf.",
+          "es": "El edificio más alto del mundo con panorámicas espectaculares del Golfo Arábigo.",
+          "pt": "O edifício mais alto do mundo com vistas panorâmicas espetaculares."
+        }
+      },
+      {
+        "name": {
+          "en": "Luxury Desert Dune Safari",
+          "es": "Safari de Lujo por las Dunas",
+          "pt": "Safári de Luxo nas Dunas"
+        },
+        "image": "https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=800",
+        "desc": {
+          "en": "4x4 dune bashing, camel riding, and private gourmet barbecue under desert stars.",
+          "es": "Paseo en 4x4 por las dunas, paseo en camello y cena barbacoa gourmet privada.",
+          "pt": "Passeio 4x4 nas dunas, passeio de camelo e jantar privado sob as estrelas."
+        }
+      }
+    ],
+    "thingsToDo": [
+      {
+        "en": "Private Yacht Tour along Dubai Marina & Palm Jumeirah",
+        "es": "Paseo en yate privado por la Marina de Dubái y Palm Jumeirah",
+        "pt": "Passeio de iate privado pela Marina de Dubai"
+      },
+      {
+        "en": "Helicopter Flight over Dubai Skyline",
+        "es": "Vuelo en helicóptero sobre el skyline de Dubái",
+        "pt": "Voo de helicóptero sobre Dubai"
+      }
+    ],
+    "suggestedItinerary": {
+      "en": "Day 1: Arrival & Marina Dinner Cruise. Day 2: Old Dubai Gold Souk & Burj Khalifa Observatory. Day 3: Desert Safari Camp. Day 4: Abu Dhabi Sheikh Zayed Mosque Day Trip.",
+      "es": "Día 1: Llegada y crucero con cena. Día 2: Zoco del Oro y Burj Khalifa. Día 3: Safari en el desierto. Día 4: Excursión a la Mezquita Sheikh Zayed de Abu Dhabi.",
+      "pt": "Dia 1: Chegada e cruzeiro jantar. Dia 2: Zoco do Ouro e Burj Khalifa. Dia 3: Safári no deserto. Dia 4: Excursão à Mesquita Sheikh Zayed em Abu Dhabi."
+    },
+    "travelTips": [
+      {
+        "en": "Visa-on-arrival or easy e-visa available for most international passports.",
+        "es": "Visa a la llegada o e-visa rápida disponible para la mayoría de pasaportes.",
+        "pt": "Visto na chegada ou e-visa disponível para a maioria dos passaportes."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "Is Dubai family friendly?",
+          "es": "¿Es Dubái adecuado para familias?",
+          "pt": "Dubai é adequado para famílias?"
+        },
+        "a": {
+          "en": "Yes! Dubai is extremely safe, clean, and features top theme parks and family resorts.",
+          "es": "¡Sí! Dubái es extremadamente seguro, limpio y cuenta con parques temáticos de primer nivel.",
+          "pt": "Sim! Dubai é extremamente seguro, limpo e conta com parques temáticos de luxo."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "bali",
+    "title": {
+      "en": "Bali, Indonesia",
+      "es": "Bali, Indonesia",
+      "pt": "Bali, Indonésia"
+    },
+    "tagline": {
+      "en": "Tropical Paradise, Sacred Temples & Oceanfront Villas",
+      "es": "Paraíso Tropical, Templos Sagrados y Villas Frente al Mar",
+      "pt": "Paraíso Tropical, Templos Sagrados e Villas Beira-Mar"
+    },
+    "region": "Southeast Asia",
+    "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1600",
+    "gallery": [
+      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1200",
+      "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=1200"
+    ],
+    "description": {
+      "en": "Immerse yourself in Bali's emerald rice terraces, cliffside Uluwatu sunsets, luxury spa sanctuaries, and sacred Balinese Hindu culture.",
+      "es": "Sumérjase en las terrazas de arroz esmeralda de Bali, atardeceres en acantilados de Uluwatu, santuarios de spa de lujo y cultura balinesa.",
+      "pt": "Mergulhe nos terraços de arroz de Bali, pôr-do-sol nos penhascos de Uluwatu e santuários de spa de luxo."
+    },
+    "bestTime": {
+      "en": "April to October",
+      "es": "De abril a octubre",
+      "pt": "De abril a outubro"
+    },
+    "attractions": [
+      {
+        "name": {
+          "en": "Ubud Rice Terraces & Sacred Monkey Forest",
+          "es": "Terrazas de Arroz de Ubud y Bosque de Monos",
+          "pt": "Terraços de Arroz de Ubud e Floresta Sagrada"
+        },
+        "image": "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=800",
+        "desc": {
+          "en": "Lush green valley terraces and ancient rainforest sanctuaries.",
+          "es": "Valles de verde exuberante y santuarios boscosos milenarios.",
+          "pt": "Vales verdes exuberantes e santuários florestais milenares."
+        }
+      }
+    ],
+    "thingsToDo": [
+      {
+        "en": "Private Pool Villa stay in Seminyak or Canggu",
+        "es": "Estancia en Villa Privada con Piscina en Seminyak",
+        "pt": "Hospedagem em Villa Privada com Piscina"
+      }
+    ],
+    "suggestedItinerary": {
+      "en": "Day 1: Ubud arrival. Day 2: Tegallalang Rice Terraces & Waterfall. Day 3: Tanah Lot Sunset Temple. Day 4: Nusa Penida Island Speedboat Day Tour.",
+      "es": "Día 1: Llegada a Ubud. Día 2: Terrazas Tegallalang y cascadas. Día 3: Templo Tanah Lot. Día 4: Excursión en lancha a la Isla Nusa Penida.",
+      "pt": "Dia 1: Chegada em Ubud. Dia 2: Terraços Tegallalang e cachoeira. Dia 3: Templo Tanah Lot. Dia 4: Tour de lancha na Ilha Nusa Penida."
+    },
+    "travelTips": [
+      {
+        "en": "Visa-on-Arrival (30 days) available online or at Bali Ngurah Rai Airport.",
+        "es": "Visa a la llegada (30 días) disponible en línea o en el aeropuerto de Bali.",
+        "pt": "Visto na chegada (30 dias) disponível online ou no aeroporto."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "Is Bali good for honeymoons?",
+          "es": "¿Es Bali ideal para lunas de miel?",
+          "pt": "Bali é ideal para lua de mel?"
+        },
+        "a": {
+          "en": "Bali is world-renowned as one of the top romantic honeymoon destinations globally.",
+          "es": "Bali es reconocida mundialmente como uno de los mejores destinos románticos del mundo.",
+          "pt": "Bali é reconhecida mundialmente como um dos melhores destinos românticos."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "thailand",
+    "title": {
+      "en": "Thailand",
+      "es": "Tailandia",
+      "pt": "Tailândia"
+    },
+    "tagline": {
+      "en": "Golden Grand Palace, Floating Markets & Phuket Islands",
+      "es": "Gran Palacio Dorado, Mercados Flotantes e Islas de Phuket",
+      "pt": "Grande Palácio Dourado, Mercados Flutuantes e Ilhas de Phuket"
+    },
+    "region": "Southeast Asia",
+    "image": "https://images.unsplash.com/photo-1506665531195-3566fe274677?q=80&w=1600",
+    "gallery": [
+      "https://images.unsplash.com/photo-1506665531195-3566fe274677?q=80&w=1200",
+      "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1200"
+    ],
+    "description": {
+      "en": "From Bangkok's glittering temples and Michelin street food to the limestone karst islands of Phuket and Phi Phi, Thailand is the ultimate tropical escape.",
+      "es": "Desde los deslumbrantes templos de Bangkok hasta las islas de caliza de Phuket y Phi Phi, Tailandia es la escapada tropical definitiva.",
+      "pt": "Dos deslumbrantes templos de Bangkok às ilhas de calcário de Phuket e Phi Phi, a Tailândia é o refúgio tropical definitivo."
+    },
+    "bestTime": {
+      "en": "November to April",
+      "es": "De noviembre a abril",
+      "pt": "De novembro a abril"
+    },
+    "attractions": [
+      {
+        "name": {
+          "en": "Phuket & Phi Phi Island Catamaran Cruise",
+          "es": "Crucero en Catamarán por Phuket y Phi Phi",
+          "pt": "Cruzeiro de Catamarã em Phuket e Phi Phi"
+        },
+        "image": "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=800",
+        "desc": {
+          "en": "Crystal blue waters, Maya Bay snorkeling, and luxury speedboat island hops.",
+          "es": "Aguas cristalinas, snorkel en Maya Bay y paseos en lancha de lujo.",
+          "pt": "Águas cristalinas, mergulho em Maya Bay e passeios de lancha."
+        }
+      }
+    ],
+    "thingsToDo": [
+      {
+        "en": "Bangkok Canal Longtail Boat & Grand Palace Tour",
+        "es": "Paseo en barco tradicional por los canales de Bangkok y Gran Palacio",
+        "pt": "Passeio de barco nos canais de Bangkok e Grande Palácio"
+      }
+    ],
+    "suggestedItinerary": {
+      "en": "Day 1-2: Bangkok City & Floating Market. Day 3-5: Phuket Luxury Beach Resort & James Bond Island Cruise.",
+      "es": "Día 1-2: Ciudad de Bangkok y Mercado Flotante. Día 3-5: Resort de playa en Phuket y Crucero Isla James Bond.",
+      "pt": "Dia 1-2: Bangkok e Mercado Flutuante. Dia 3-5: Resort de praia em Phuket e Cruzeiro Ilha James Bond."
+    },
+    "travelTips": [
+      {
+        "en": "Visa-free entry available for citizens of many countries.",
+        "es": "Entrada sin visa disponible para ciudadanos de numerosos países.",
+        "pt": "Isenção de visto disponível para cidadãos de diversos países."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "What is the food like in Thailand?",
+          "es": "¿Cómo es la comida en Tailandia?",
+          "pt": "Como é a comida na Tailândia?"
+        },
+        "a": {
+          "en": "Incredible blend of sweet, sour, spicy flavors like Pad Thai, Tom Yum, and Mango Sticky Rice.",
+          "es": "Una mezcla increíble de sabores dulce, agrio y picante.",
+          "pt": "Mistura incrível de sabores doces, azedos e picantes."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "maldives",
+    "title": {
+      "en": "Maldives",
+      "es": "Maldivas",
+      "pt": "Maldivas"
+    },
+    "tagline": {
+      "en": "Private Overwater Bungalows & Unrivaled Turquoise Lagoons",
+      "es": "Bungalows Privados Sobre el Agua y Lagunas Turquesa",
+      "pt": "Bungalows Privados Sobre a Água e Lagoas Turquesa"
+    },
+    "region": "Indian Ocean",
+    "image": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1600",
+    "gallery": [
+      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1200"
+    ],
+    "description": {
+      "en": "Escape to private island luxury resorts featuring glass-bottom water villas, seaplane transfers, underwater dining, and swimming with gentle whale sharks.",
+      "es": "Escape a resorts privados en islas exclusivas con villas sobre el agua, traslados en hidroavión y cenas bajo el agua.",
+      "pt": "Escape para resorts privados em ilhas exclusivas com villas sobre a água, traslados de hidroavião e refeições subaquáticas."
+    },
+    "bestTime": {
+      "en": "December to April",
+      "es": "De diciembre a abril",
+      "pt": "De dezembro a abril"
+    },
+    "attractions": [
+      {
+        "name": {
+          "en": "Overwater Villa Experience",
+          "es": "Experiencia en Villa Sobre el Agua",
+          "pt": "Experiência em Villa Sobre a Água"
+        },
+        "image": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=800",
+        "desc": {
+          "en": "Step directly from your private bedroom deck into warm turquoise ocean waters.",
+          "es": "Acceda directamente desde su terraza a las cálidas aguas turquesas del océano.",
+          "pt": "Acesse diretamente do seu terraço às águas turquesas do oceano."
+        }
+      }
+    ],
+    "thingsToDo": [
+      {
+        "en": "Seaplane Scenic Flight & Sunset Dolphin Cruise",
+        "es": "Vuelo panorámico en hidroavión y crucero para ver delfines al atardecer",
+        "pt": "Voo panorâmico de hidroavião e cruzeiro com golfinhos"
+      }
+    ],
+    "suggestedItinerary": {
+      "en": "4-5 Days Private Island All-Inclusive Luxury Resort Stay with complimentary spa sessions and coral reef snorkeling.",
+      "es": "Estancia de 4-5 días en Resort de Lujo Todo Incluido con sesiones de spa y snorkel.",
+      "pt": "Estadia de 4-5 dias em Resort de Luxo Tudo Incluído com spa e mergulho em recifes de coral."
+    },
+    "travelTips": [
+      {
+        "en": "30-day tourist visa granted upon arrival at Male International Airport.",
+        "es": "Visa turística de 30 días otorgada a la llegada al aeropuerto de Malé.",
+        "pt": "Visto turístico de 30 dias concedido na chegada ao aeroporto de Malé."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "Are transfers included in Maldives trips?",
+          "es": "¿Están incluidos los traslados en Maldivas?",
+          "pt": "Os traslados estão incluídos em Maldivas?"
+        },
+        "a": {
+          "en": "Yes, all our luxury packages include roundtrip speedboats or seaplanes from Male Airport.",
+          "es": "Sí, todos nuestros paquetes incluyen traslados en lancha rápida o hidroavión.",
+          "pt": "Sim, todos os nossos pacotes incluem traslados em lancha rápida ou hidroavião."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "laos",
+    "title": {
+      "en": "Laos",
+      "es": "Laos",
+      "pt": "Laos"
+    },
+    "tagline": {
+      "en": "UNESCO Luang Prabang, Mekong River Cruises & Emerald Falls",
+      "es": "Luang Prabang UNESCO, Cruceros por el Mekong y Cascadas Esmeralda",
+      "pt": "Luang Prabang UNESCO, Cruzeiros pelo Mekong e Cachoeiras Esmeralda"
+    },
+    "region": "Southeast Asia",
+    "image": "https://images.unsplash.com/photo-1540611025311-01df3cef54b5?q=80&w=1600",
+    "gallery": [
+      "https://images.unsplash.com/photo-1540611025311-01df3cef54b5?q=80&w=1200"
+    ],
+    "description": {
+      "en": "Discover Southeast Asia's hidden jewel. Golden Buddhist temples, peaceful alms giving ceremony at dawn, and multi-tiered Kuang Si waterfall cascades.",
+      "es": "Descubra la joya oculta del sudeste asiático. Templos budistas dorados, ceremonias de limosna al amanecer y las espectaculares cascadas Kuang Si.",
+      "pt": "Descubra a joia oculta do sudeste asiático. Templos budistas dourados, cerimônias de esmolas ao amanhecer e as cachoeiras Kuang Si."
+    },
+    "bestTime": {
+      "en": "October to April",
+      "es": "De octubre a abril",
+      "pt": "De outubro a abril"
+    },
+    "attractions": [
+      {
+        "name": {
+          "en": "Kuang Si Waterfalls",
+          "es": "Cascadas Kuang Si",
+          "pt": "Cachoeiras Kuang Si"
+        },
+        "image": "https://images.unsplash.com/photo-1540611025311-01df3cef54b5?q=80&w=800",
+        "desc": {
+          "en": "Stunning turquoise multi-tiered cascades in lush tropical jungle.",
+          "es": "Cascadas turquesas de múltiples niveles rodeadas de exuberante selva.",
+          "pt": "Cachoeiras turquesas cercadas por floresta tropical exuberante."
+        }
+      }
+    ],
+    "thingsToDo": [
+      {
+        "en": "Private Sunset Mekong River Cruise & Luang Prabang Night Market",
+        "es": "Crucero privado por el río Mekong al atardecer y Mercado Nocturno",
+        "pt": "Cruzeiro privado no rio Mekong ao pôr-do-sol e Mercado Noturno"
+      }
+    ],
+    "suggestedItinerary": {
+      "en": "Day 1: Arrival Luang Prabang. Day 2: Morning Alms Giving & Kuang Si Falls. Day 3: Pak Ou Caves Mekong Cruise. Day 4: Vang Vieng Scenic Valley.",
+      "es": "Día 1: Llegada a Luang Prabang. Día 2: Ceremonia de limosnas y Cascadas Kuang Si. Día 3: Crucero Cueva Pak Ou. Día 4: Valle Vang Vieng.",
+      "pt": "Dia 1: Chegada em Luang Prabang. Dia 2: Cerimônia de esmolas e Cachoeiras Kuang Si. Dia 3: Cruzeiro Gruta Pak Ou. Dia 4: Vale Vang Vieng."
+    },
+    "travelTips": [
+      {
+        "en": "E-visa and Visa-on-Arrival readily available for tourist visits.",
+        "es": "E-visa y visa a la llegada disponibles fácilmente para turismo.",
+        "pt": "E-visa e visto na chegada disponíveis para turismo."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "Why visit Laos?",
+          "es": "¿Por qué visitar Laos?",
+          "pt": "Por que visitar Laos?"
+        },
+        "a": {
+          "en": "Laos is one of Asia's most authentic, tranquil, and untouched cultural destinations.",
+          "es": "Laos es uno de los destinos culturales más auténticos y serenos de Asia.",
+          "pt": "Laos é um dos destinos culturais mais autênticos e tranquilos da Ásia."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "nepal",
+    "title": {
+      "en": "Nepal",
+      "es": "Nepal",
+      "pt": "Nepal"
+    },
+    "tagline": {
+      "en": "Everest Mountain Flights, Sacred Temples & Pokhara Lake",
+      "es": "Vuelos a los Picos del Everest, Templos Sagrados y Lago Pokhara",
+      "pt": "Voos nos Picos do Everest, Templos Sagrados e Lago Pokhara"
+    },
+    "region": "Himalayas",
+    "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1600",
+    "gallery": [
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1200"
+    ],
+    "description": {
+      "en": "The Himalayan roof of the world. Explore ancient UNESCO Kathmandu Durbar Square, mountain flights over Mt. Everest, and serene lake reflection in Pokhara.",
+      "es": "El techo del mundo en el Himalaya. Explore la histórica Plaza Durbar de Katmandú, vuelos en helicóptero sobre el Everest y el lago Pokhara.",
+      "pt": "O teto do mundo no Himalaia. Explore a histórica Praça Durbar em Catmandu, voos de helicóptero sobre o Everest e o lago Pokhara."
+    },
+    "bestTime": {
+      "en": "September to November & March to May",
+      "es": "De septiembre a noviembre y marzo a mayo",
+      "pt": "De setembro a novembro e março a maio"
+    },
+    "attractions": [
+      {
+        "name": {
+          "en": "Everest Mountain Scenic Flight",
+          "es": "Vuelo Panorámico al Monte Everest",
+          "pt": "Voo Panorâmico no Monte Everest"
+        },
+        "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=800",
+        "desc": {
+          "en": "Fly up close to the highest peak on earth with guaranteed window seats.",
+          "es": "Vuele de cerca junto al pico más alto de la tierra con asiento de ventana garantizado.",
+          "pt": "Voe bem perto do pico mais alto da terra com assento de janela garantido."
+        }
+      }
+    ],
+    "thingsToDo": [
+      {
+        "en": "Kathmandu Durbar Square & Swayambhunath Monkey Temple",
+        "es": "Plaza Durbar de Katmandú y Templo de los Monos Swayambhunath",
+        "pt": "Praça Durbar de Catmandu e Templo dos Macacos Swayambhunath"
+      }
+    ],
+    "suggestedItinerary": {
+      "en": "Day 1-2: Kathmandu Heritage & Pashupatinath. Day 3: Everest Mountain Flight. Day 4-5: Pokhara Fewa Lake Boat Ride & Annapurna Sunrise.",
+      "es": "Día 1-2: Patrimonio de Katmandú. Día 3: Vuelo al Everest. Día 4-5: Paseo en barco por el lago Fewa en Pokhara y amanecer en Annapurna.",
+      "pt": "Dia 1-2: Catmandu Patrimônio. Dia 3: Voo no Everest. Dia 4-5: Passeio de barco no lago Fewa em Pokhara e nascer do sol em Annapurna."
+    },
+    "travelTips": [
+      {
+        "en": "Easy Visa-on-Arrival at Tribhuvan International Airport Kathmandu.",
+        "es": "Visa a la llegada muy sencilla en el Aeropuerto Internacional de Katmandú.",
+        "pt": "Visto na chegada muito simples no Aeroporto Internacional de Catmandu."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "Do I need to trek to see Everest?",
+          "es": "¿Necesito hacer senderismo para ver el Everest?",
+          "pt": "Preciso fazer trekking para ver o Everest?"
+        },
+        "a": {
+          "en": "No! Our mountain flights and luxury helicopter tours take you directly to Everest Base Camp comfortably.",
+          "es": "¡No! Nuestros vuelos de montaña y tours en helicóptero le llevan cómodamente.",
+          "pt": "Não! Nossos voos e tours de helicóptero levam você confortavelmente."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "singapore",
+    "title": {
+      "en": "Singapore",
+      "es": "Singapur",
+      "pt": "Singapura"
+    },
+    "tagline": {
+      "en": "Marina Bay Sands, Gardens by the Bay & World-Class Shopping",
+      "es": "Marina Bay Sands, Jardines de la Bahía y Compras de Clase Mundial",
+      "pt": "Marina Bay Sands, Jardins da Baía e Compras de Classe Mundial"
+    },
+    "region": "Southeast Asia",
+    "image": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=1600",
+    "gallery": [
+      "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=1200"
+    ],
+    "description": {
+      "en": "The Lion City blends futuristic architecture, Michelin street food hawkers, lush botanical gardens, and world-class luxury shopping.",
+      "es": "La Ciudad de los Leones combina arquitectura futurista, gastronomía galardonada, jardines botánicos exuberantes y compras de lujo.",
+      "pt": "A Cidade dos Leões combina arquitetura futurista, gastronomia premiada, jardins botânicos e compras de luxo."
+    },
+    "bestTime": {
+      "en": "Year-round",
+      "es": "Todo el año",
+      "pt": "Todo o ano"
+    },
+    "attractions": [
+      {
+        "name": {
+          "en": "Gardens by the Bay & Supertree Grove",
+          "es": "Jardines de la Bahía y Árboles Gigantes",
+          "pt": "Jardins da Baía e Árvores Gigantes"
+        },
+        "image": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=800",
+        "desc": {
+          "en": "Iconic illuminated avatar-like Supertrees and Cloud Forest greenhouse.",
+          "es": "Superárboles iluminados e invernaderos de selva tropical bajo cúpulas.",
+          "pt": "Superárvores iluminadas e estufas de floresta tropical sob cúpulas."
+        }
+      }
+    ],
+    "thingsToDo": [
+      {
+        "en": "Marina Bay Sands Skypark & Night Safari Zoo Tour",
+        "es": "Mirador Marina Bay Sands y Tour Nocturno por el Zoo Night Safari",
+        "pt": "Mirante Marina Bay Sands e Tour Noturno no Zoo Night Safari"
+      }
+    ],
+    "suggestedItinerary": {
+      "en": "Day 1: Changi Jewel & Marina Bay Light Show. Day 2: Gardens by the Bay & Flower Dome. Day 3: Sentosa Island & Universal Studios. Day 4: Orchard Road Shopping.",
+      "es": "Día 1: Joya de Changi y Espectáculo de Luces. Día 2: Jardines de la Bahía. Día 3: Isla Sentosa. Día 4: Compras en Orchard Road.",
+      "pt": "Dia 1: Joia de Changi e Espetáculo de Luzes. Dia 2: Jardins da Baía. Dia 3: Ilha Sentosa. Dia 4: Compras na Orchard Road."
+    },
+    "travelTips": [
+      {
+        "en": "Singapore SG Arrival Card must be submitted online within 3 days prior to arrival.",
+        "es": "La tarjeta de entrada SG Arrival Card se envía en línea 3 días antes.",
+        "pt": "O cartão SG Arrival Card deve ser enviado online 3 dias antes."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "Is Singapore clean and safe?",
+          "es": "¿Es Singapur limpio y seguro?",
+          "pt": "Singapura é limpa e segura?"
+        },
+        "a": {
+          "en": "Singapore is globally ranked as one of the cleanest, safest, and most efficient cities.",
+          "es": "Singapur es clasificada mundialmente como una de las ciudades más limpias y seguras del planeta.",
+          "pt": "Singapura é classificada mundialmente como uma das cidades mais limpas e seguras do planeta."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "malaysia",
+    "title": {
+      "en": "Malaysia",
+      "es": "Malasia",
+      "pt": "Malásia"
+    },
+    "tagline": {
+      "en": "Petronas Twin Towers, Batu Caves & Langkawi Archipelago",
+      "es": "Torres Gemelas Petronas, Cuevas Batu y Archipiélago de Langkawi",
+      "pt": "Torres Gêmeas Petronas, Cavernas Batu e Arquipélago de Langkawi"
+    },
+    "region": "Southeast Asia",
+    "image": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=1600",
+    "gallery": [
+      "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=1200"
+    ],
+    "description": {
+      "en": "Experience a multicultural melting pot—from Kuala Lumpur's landmark Petronas Towers to colorful Batu Caves and duty-free tropical island retreats in Langkawi.",
+      "es": "Descubra una mezcla cultural fascinante: desde las icónicas Torres Petronas hasta las Cuevas Batu y las playas de Langkawi.",
+      "pt": "Descubra uma mistura cultural fascinante: das icônicas Torres Petronas às Cavernas Batu e praias de Langkawi."
+    },
+    "bestTime": {
+      "en": "November to August",
+      "es": "De noviembre a agosto",
+      "pt": "De novembro a agosto"
+    },
+    "attractions": [
+      {
+        "name": {
+          "en": "Petronas Twin Towers & Skybridge",
+          "es": "Torres Gemelas Petronas y Puente Colgante",
+          "pt": "Torres Gêmeas Petronas e Ponte Suspensa"
+        },
+        "image": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=800",
+        "desc": {
+          "en": "Walk on the highest double-deck bridge connecting the twin architectural towers.",
+          "es": "Camine por el puente de dos pisos más alto del mundo que une ambas torres.",
+          "pt": "Caminhe pela ponte de dois andares mais alta do mundo que conecta as torres."
+        }
+      }
+    ],
+    "thingsToDo": [
+      {
+        "en": "Batu Caves Rainbow Steps & Langkawi Cable Car",
+        "es": "Escalonada Arcoíris de las Cuevas Batu y Teleférico de Langkawi",
+        "pt": "Escadaria Arco-íris das Cavernas Batu e Teleférico de Langkawi"
+      }
+    ],
+    "suggestedItinerary": {
+      "en": "Day 1-2: Kuala Lumpur Petronas & Batu Caves. Day 3-5: Langkawi Island Resort & SkyBridge Cable Car.",
+      "es": "Día 1-2: Torres Petronas y Cuevas Batu en Kuala Lumpur. Día 3-5: Resort de Playa en Langkawi y Teleférico SkyBridge.",
+      "pt": "Dia 1-2: Torres Petronas e Cavernas Batu em Kuala Lumpur. Día 3-5: Resort de Praia em Langkawi e Teleférico SkyBridge."
+    },
+    "travelTips": [
+      {
+        "en": "Malaysia Digital Arrival Card (MDAC) is required online for international visitors.",
+        "es": "Se requiere completar la tarjeta MDAC en línea antes de la llegada.",
+        "pt": "O cartão MDAC deve ser preenchido online antes da chegada."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "What languages are spoken in Malaysia?",
+          "es": "¿Qué idiomas se hablan en Malasia?",
+          "pt": "Quais idiomas são falados na Malásia?"
+        },
+        "a": {
+          "en": "Malay is national language and English is widely spoken across all tourist hubs.",
+          "es": "El malayo es el idioma oficial y el inglés se habla ampliamente en todos los sectores turísticos.",
+          "pt": "O malaio é o idioma oficial e o inglês é amplamente falado em todos os setores."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "vietnam",
+    "title": {
+      "en": "Vietnam",
+      "es": "Vietnam",
+      "pt": "Vietnã"
+    },
+    "tagline": {
+      "en": "Ha Long Bay Cruises, Ancient Hoi An & French Colonial Hanoi",
+      "es": "Cruceros por la Bahía de Ha Long, Hoi An Antiguo y Hanoi Colonial",
+      "pt": "Cruzeiros na Baía de Ha Long, Hoi An Antiga e Hanói Colonial"
+    },
+    "region": "Southeast Asia",
+    "image": "https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=1600",
+    "gallery": [
+      "https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=1200"
+    ],
+    "description": {
+      "en": "Cruise through thousands of emerald limestone islands in Ha Long Bay, wander lantern-lit ancient streets of Hoi An, and savor authentic Pho and egg coffee in Hanoi.",
+      "es": "Navegue entre miles de islotes de piedra caliza en la Bahía de Ha Long, pasee por las calles iluminadas con farolillos de Hoi An y saboree el auténtico Pho.",
+      "pt": "Navegue entre milhares de ilhotas de calcário na Baía de Ha Long, passeie pelas ruas iluminadas com lanternas de Hoi An e saboreie o autêntico Pho."
+    },
+    "bestTime": {
+      "en": "October to April",
+      "es": "De octubre a abril",
+      "pt": "De outubro a abril"
+    },
+    "attractions": [
+      {
+        "name": {
+          "en": "Ha Long Bay Luxury Overnight Cruise",
+          "es": "Crucero Nocturno de Lujo por la Bahía de Ha Long",
+          "pt": "Cruzeiro Noturno de Luxo na Baía de Ha Long"
+        },
+        "image": "https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=800",
+        "desc": {
+          "en": "Unwind on a luxury wooden junk ship cruising past karst pillars and hidden caves.",
+          "es": "Desconecte en un barco tradicional de madera entre pilares de roca y cuevas.",
+          "pt": "Relaxe em um barco tradicional de madeira entre pilares de pedra e cavernas."
+        }
+      }
+    ],
+    "thingsToDo": [
+      {
+        "en": "Hoi An Lantern Workshop & Da Nang Golden Giant Hands Bridge",
+        "es": "Taller de farolillos en Hoi An y Puente de las Manos Doradas en Da Nang",
+        "pt": "Oficina de lanternas em Hoi An e Ponte das Mãos Douradas em Da Nang"
+      }
+    ],
+    "suggestedItinerary": {
+      "en": "Day 1-2: Hanoi French Quarter. Day 3: Ha Long Bay Cruise. Day 4-5: Da Nang & Hoi An Ancient Town.",
+      "es": "Día 1-2: Barrio Francés de Hanoi. Día 3: Crucero por la Bahía de Ha Long. Día 4-5: Da Nang y Ciudad Antigua de Hoi An.",
+      "pt": "Dia 1-2: Bairro Francês de Hanói. Dia 3: Cruzeiro na Baía de Ha Long. Dia 4-5: Da Nang e Cidade Antiga de Hoi An."
+    },
+    "travelTips": [
+      {
+        "en": "Electronic visa (e-Visa) for 90 days available online for all nationalities.",
+        "es": "Visa electrónica (e-Visa) de 90 días disponible en línea para todas las nacionalidades.",
+        "pt": "Visto eletrônico (e-Visa) de 90 dias disponível online para todas as nacionalidades."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "Is Vietnam suitable for food lovers?",
+          "es": "¿Es Vietnam ideal para los amantes de la comida?",
+          "pt": "O Vietnã é ideal para amantes da culinária?"
+        },
+        "a": {
+          "en": "Vietnam features one of the most celebrated fresh street food cultures worldwide.",
+          "es": "Vietnam cuenta con una de las gastronomías callejeras frescas más aclamadas del mundo.",
+          "pt": "O Vietnã conta com uma das gastronomias de rua frescas mais aclamadas do mundo."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "bhutan",
+    "title": {
+      "en": "Bhutan",
+      "es": "Bután",
+      "pt": "Butão"
+    },
+    "tagline": {
+      "en": "The Land of Gross National Happiness & Tiger's Nest Monastery",
+      "es": "La Tierra de la Felicidad Interior Bruta y el Nido del Tigre",
+      "pt": "A Terra da Felicidade Interna Bruta e o Ninho do Tigre"
+    },
+    "region": "Himalayas",
+    "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?q=80&w=1600",
+    "gallery": [
+      "https://images.unsplash.com/photo-1578637387939-43c525550085?q=80&w=1200"
+    ],
+    "description": {
+      "en": "Step into the mythical Himalayan kingdom of Bhutan. Hike to the cliff-hanging Paro Taktsang (Tiger's Nest), marvel at majestic dzong fortresses, and experience pure mountain serenity.",
+      "es": "Entre al mítico reino del Himalaya en Bután. Camine hasta el Monasterio Nido del Tigre colgado en el acantilado y descubra fortalezas dzong.",
+      "pt": "Entre no mítico reino do Himalaia no Butão. Caminhe até o Mosteiro Ninho do Tigre suspenso no penhasco e descubra fortalezas dzong."
+    },
+    "bestTime": {
+      "en": "March to May & September to November",
+      "es": "De marzo a mayo y septiembre a noviembre",
+      "pt": "De março a maio e setembro a novembro"
+    },
+    "attractions": [
+      {
+        "name": {
+          "en": "Paro Taktsang (Tiger's Nest Monastery)",
+          "es": "Paro Taktsang (Monasterio Nido del Tigre)",
+          "pt": "Paro Taktsang (Mosteiro Ninho do Tigre)"
+        },
+        "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?q=80&w=800",
+        "desc": {
+          "en": "Sacred monastery perched dramatically 900 meters above Paro Valley cliff face.",
+          "es": "Monasterio sagrado encaramado dramáticamente a 900 metros sobre el acantilado.",
+          "pt": "Mosteiro sagrado encravado dramaticamente a 900 metros sobre o penhasco."
+        }
+      }
+    ],
+    "thingsToDo": [
+      {
+        "en": "Punakha Dzong Palace of Great Happiness & Thimphu Buddha Dordenma",
+        "es": "Palacio Punakha Dzong y Buda Gigante Dordenma en Timbu",
+        "pt": "Palácio Punakha Dzong e Buda Gigante Dordenma em Thimphu"
+      }
+    ],
+    "suggestedItinerary": {
+      "en": "Day 1: Paro arrival to Thimphu. Day 2: Thimphu Buddha Dordenma & Heritage. Day 3: Punakha Suspension Bridge. Day 4: Tiger's Nest Hike.",
+      "es": "Día 1: Llegada a Paro y traslado a Timbu. Día 2: Buda Dordenma y patrimonio. Día 3: Puente Colgante de Punakha. Día 4: Caminata al Nido del Tigre.",
+      "pt": "Dia 1: Chegada em Paro e traslado para Thimphu. Dia 2: Buda Dordenma e patrimônio. Dia 3: Ponte Suspensa de Punakha. Dia 4: Caminhada ao Ninho do Tigre."
+    },
+    "travelTips": [
+      {
+        "en": "Bhutan requires sustainable development fee (SDF) processed seamlessly by MH India Trips.",
+        "es": "Bután requiere la tasa SDF gestionada íntegramente por MH India Trips.",
+        "pt": "O Butão requer a taxa SDF gerenciada inteiramente pela MH India Trips."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "Is Bhutan difficult to enter?",
+          "es": "¿Es difícil entrar a Bután?",
+          "pt": "É difícil entrar no Butão?"
+        },
+        "a": {
+          "en": "No, MH India Trips handles your full official visa application and royal entry permits.",
+          "es": "No, MH India Trips gestiona la solicitud completa de visa oficial y permisos de entrada.",
+          "pt": "Não, a MH India Trips gerencia a solicitação completa de visto oficial e permissões."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "sri-lanka",
+    "title": {
+      "en": "Sri Lanka",
+      "es": "Sri Lanka",
+      "pt": "Sri Lanka"
+    },
+    "tagline": {
+      "en": "Sigiriya Lion Rock, Tea Country Trains & Golden Coast",
+      "es": "Roca del León de Sigiriya, Trenes por las Colinas de Té y Costa Dorada",
+      "pt": "Rocha do Leão de Sigiriya, Trens Pelas Colinas de Chá e Costa Dourada"
+    },
+    "region": "Indian Ocean",
+    "image": "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=1600",
+    "gallery": [
+      "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=1200"
+    ],
+    "description": {
+      "en": "Discover the Pearl of the Indian Ocean—climb ancient 5th-century Sigiriya Rock Fortress, ride the iconic blue train through Ella tea plantations, and spot wild leopards in Yala National Park.",
+      "es": "Descubra la Perla del Océano Índico: suba a la Fortaleza de Sigiriya, viaje en el icónico tren azul entre plantaciones de té en Ella y aviste leopardos.",
+      "pt": "Descubra a Pérola do Oceano Índico: suba à Fortaleza de Sigiriya, viaje no icônico trem azul entre plantações de chá em Ella e aviste leopardos."
+    },
+    "bestTime": {
+      "en": "December to April",
+      "es": "De diciembre a abril",
+      "pt": "De dezembro a abril"
+    },
+    "attractions": [
+      {
+        "name": {
+          "en": "Sigiriya Fortress & Nine Arch Bridge",
+          "es": "Fortaleza de Sigiriya y Puente de los Nueve Arcos",
+          "pt": "Fortaleza de Sigiriya e Ponte dos Nove Arcos"
+        },
+        "image": "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=800",
+        "desc": {
+          "en": "Ancient royal palace citadel perched on a massive 200m granite rock column.",
+          "es": "Antigua ciudadela palaciega encaramada en una roca de granito de 200 m.",
+          "pt": "Antiga cidadela palaciana no topo de uma rocha de granito de 200 m."
+        }
+      }
+    ],
+    "thingsToDo": [
+      {
+        "en": "Kandy Temple of the Sacred Tooth & Yala Tiger Safari",
+        "es": "Templo del Diente Sagrado en Kandy y Safari en Yala",
+        "pt": "Templo do Dente Sagrado em Kandy e Safári em Yala"
+      }
+    ],
+    "suggestedItinerary": {
+      "en": "Day 1: Colombo to Dambulla. Day 2: Sigiriya Lion Rock. Day 3: Kandy & Scenic Ella Blue Train. Day 4: Yala Safari. Day 5: Mirissa Beach.",
+      "es": "Día 1: Colombo a Dambulla. Día 2: Roca de Sigiriya. Día 3: Kandy y Tren Azul de Ella. Día 4: Safari Yala. Día 5: Playa Mirissa.",
+      "pt": "Dia 1: Colombo para Dambulla. Dia 2: Rocha de Sigiriya. Dia 3: Kandy e Trem Azul de Ella. Dia 4: Safári Yala. Dia 5: Praia Mirissa."
+    },
+    "travelTips": [
+      {
+        "en": "ETA electronic travel authorization available online instantly.",
+        "es": "Autorización electrónica ETA disponible en línea de forma instantánea.",
+        "pt": "Autorização eletrônica ETA disponível online instantaneamente."
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "Is Sri Lanka close to India?",
+          "es": "¿Está cerca Sri Lanka de la India?",
+          "pt": "Sri Lanka é perto da Índia?"
+        },
+        "a": {
+          "en": "Yes! Direct 1-hour flights operate daily between South India and Colombo.",
+          "es": "¡Sí! Hay vuelos directos diarios de 1 hora entre el sur de India y Colombo.",
+          "pt": "Sim! Há voos diretos diários de 1 hora entre o sul da Índia e Colombo."
+        }
+      }
+    ]
+  }
+]
