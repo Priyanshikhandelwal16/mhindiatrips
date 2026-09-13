@@ -1610,6 +1610,19 @@ details[open] summary {
   font-weight: bold;
 }
 
+/* Clear drop-cap inside card containers */
+.blog-intro-card p::first-letter,
+.blog-regional-card p::first-letter,
+.blog-tips-card p::first-letter {
+  font-size: inherit !important;
+  float: none !important;
+  line-height: inherit !important;
+  margin: 0 !important;
+  color: inherit !important;
+  font-weight: inherit !important;
+  font-family: inherit !important;
+}
+
 /* === LUXURY BLOG CARD SECTIONS === */
 
 /* Intro Card */
@@ -1693,12 +1706,14 @@ details[open] summary {
   background: #ffffff;
   border: 1px solid rgba(197, 168, 98, 0.35);
   border-radius: 1.25rem;
-  padding: 1.5rem;
+  padding: 1.65rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
   transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 0.85rem;
+  height: 100%;
 }
 
 .blog-regional-card:hover {
@@ -1711,7 +1726,7 @@ details[open] summary {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.25rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid rgba(197, 168, 98, 0.2);
 }
@@ -1742,7 +1757,7 @@ details[open] summary {
 
 .blog-regional-desc {
   font-size: 0.95rem;
-  line-height: 1.7;
+  line-height: 1.75;
   color: rgba(27, 27, 27, 0.82);
   font-weight: 300;
   margin: 0 !important;
@@ -1750,9 +1765,9 @@ details[open] summary {
 
 /* Travel Tips Card */
 .blog-tips-card {
-  background: #0A2A1E;
-  color: #ffffff;
-  border: 2px solid #C5A862;
+  background: #0A2A1E !important;
+  color: #ffffff !important;
+  border: 2px solid #C5A862 !important;
   border-radius: 1.75rem;
   padding: 2.25rem;
   margin-top: 3.5rem;
@@ -1762,6 +1777,10 @@ details[open] summary {
   overflow: hidden;
 }
 
+.blog-tips-card * {
+  color: #ffffff;
+}
+
 .blog-tips-card::before {
   content: '';
   position: absolute;
@@ -1769,7 +1788,7 @@ details[open] summary {
   right: -50px;
   width: 150px;
   height: 150px;
-  background: radial-gradient(circle, rgba(197, 168, 98, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(197, 168, 98, 0.25) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -1778,15 +1797,15 @@ details[open] summary {
 }
 
 .blog-tips-badge {
-  background: rgba(197, 168, 98, 0.2);
-  color: #C5A862;
+  background: rgba(197, 168, 98, 0.2) !important;
+  color: #C5A862 !important;
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 0.35rem 0.85rem;
   border-radius: 9999px;
-  border: 1px solid rgba(197, 168, 98, 0.3);
+  border: 1px solid rgba(197, 168, 98, 0.4) !important;
   display: inline-block;
   margin-bottom: 0.5rem;
 }
@@ -1795,7 +1814,7 @@ details[open] summary {
   font-family: var(--font-serif), Georgia, serif;
   font-size: 1.75rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #ffffff !important;
   margin: 0 !important;
 }
 
@@ -1812,23 +1831,30 @@ details[open] summary {
   display: flex;
   align-items: flex-start;
   gap: 0.85rem;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(197, 168, 98, 0.3) !important;
   border-radius: 1rem;
   padding: 1rem 1.25rem;
   font-size: 0.95rem;
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.95);
-  transition: background 0.3s ease;
+  color: #ffffff !important;
+  transition: all 0.3s ease;
+}
+
+.blog-tips-item span {
+  color: #ffffff !important;
+  font-weight: 400;
+  font-size: 0.95rem;
 }
 
 .blog-tips-item:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.14) !important;
+  border-color: #C5A862 !important;
 }
 
 .blog-tip-check {
-  background: #C5A862;
-  color: #0A2A1E;
+  background: #C5A862 !important;
+  color: #0A2A1E !important;
   width: 1.35rem;
   height: 1.35rem;
   border-radius: 50%;
@@ -1840,4 +1866,3 @@ details[open] summary {
   flex-shrink: 0;
   margin-top: 0.15rem;
 }
-

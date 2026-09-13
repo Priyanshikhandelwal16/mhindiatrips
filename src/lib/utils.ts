@@ -162,6 +162,10 @@ export const formatRichText = (content: string): string => {
 
   const getRegionIcon = (name: string): string => {
     const lower = name.toLowerCase();
+    if (lower.includes("budget") && !lower.includes("where")) return "💰";
+    if (lower.includes("mid-range") || lower.includes("mid range")) return "🏨";
+    if (lower.includes("luxury")) return "💎";
+    if (lower.includes("where") || lower.includes("matter")) return "💡";
     if (lower.includes("north")) return "🕌";
     if (lower.includes("rajasthan") || lower.includes("desert")) return "🐫";
     if (lower.includes("south")) return "🌴";
