@@ -354,75 +354,120 @@ export default function Header({ locale, contactDetails, states = [], packages =
               </Link>
               
               {/* Wide 2-Column Super Dropdown Container */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-full w-[540px] xl:w-[580px] bg-white border border-gold/20 shadow-2xl py-4 px-6 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50 rounded-b-xl grid grid-cols-2 gap-6">
+              <div className="absolute left-1/2 -translate-x-1/2 top-full w-[560px] xl:w-[640px] bg-white border-2 border-[#C5A862] shadow-2xl opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50 rounded-2xl overflow-hidden">
                 
-                {/* Column 1: India Destinations */}
-                <div className="flex flex-col border-r border-gold/10 pr-4">
-                  <Link
-                    href={getLocalizedDestinationsPath(locale)}
-                    className="flex items-center justify-between font-extrabold uppercase tracking-wider text-[11px] text-[#0A2A1E] pb-2 mb-2 border-b border-gold/15 hover:text-gold transition-colors"
-                  >
-                    <span className="flex items-center gap-1.5">
-                      <span>🇮🇳</span>
-                      <span>{labels.indiaDestinations}</span>
-                    </span>
-                    <ArrowRight className="w-3 h-3 text-gold" />
-                  </Link>
-                  <div className="flex flex-col space-y-1 max-h-[280px] overflow-y-auto pr-1">
-                    {destinationsList.map((dest, idx) => {
-                      const rawName = dest.name[locale as 'en'|'es'|'pt'] || dest.name.en;
-                      let formattedName = rawName;
-                      if (locale === "es") {
-                        if (["kerala", "goa", "maharashtra", "karnataka"].includes(dest.name.en.toLowerCase())) {
-                          formattedName = `Viaje a ${rawName}`;
-                        } else {
-                          formattedName = `Turismo en ${rawName}`;
-                        }
-                      } else if (locale === "pt") {
-                        if (["kerala", "goa", "maharashtra", "karnataka"].includes(dest.name.en.toLowerCase())) {
-                          formattedName = `Viajar para ${rawName}`;
-                        } else {
-                          formattedName = `Turismo em ${rawName}`;
-                        }
-                      }
-                      return (
-                        <Link
-                          key={idx}
-                          href={dest.path}
-                          className="text-[11px] font-medium tracking-wide text-royal/80 hover:text-gold hover:translate-x-1 transition-all py-1 px-2 rounded hover:bg-gold/5 flex items-center justify-between"
-                        >
-                          <span>{formattedName}</span>
-                        </Link>
-                      );
-                    })}
-                  </div>
+                {/* Header Banner */}
+                <div className="bg-[#0A2A1E] text-white p-3.5 px-6 font-serif flex items-center justify-between text-xs border-b border-[#C5A862]/30">
+                  <span className="flex items-center gap-2 font-bold text-[#C5A862]">
+                    <span>✨</span>
+                    <span>Explore Tailor-Made Luxury Destinations</span>
+                  </span>
+                  <span className="text-[10px] uppercase font-sans tracking-widest text-white/70">PAN India & Outbound</span>
                 </div>
 
-                {/* Column 2: International / Outbound Trips */}
-                <div className="flex flex-col">
-                  <Link
-                    href={`/${locale}/international-trips`}
-                    className="flex items-center justify-between font-extrabold uppercase tracking-wider text-[11px] text-[#0A2A1E] pb-2 mb-2 border-b border-gold/15 hover:text-gold transition-colors"
-                  >
-                    <span className="flex items-center gap-1.5">
-                      <span>✈️</span>
-                      <span>{labels.outboundTrips}</span>
-                    </span>
-                    <ArrowRight className="w-3 h-3 text-gold" />
-                  </Link>
-                  <div className="flex flex-col space-y-1 max-h-[280px] overflow-y-auto pr-1">
-                    {outboundList.map((out, idx) => (
-                      <Link
-                        key={idx}
-                        href={`/${locale}${out.path}`}
-                        className="text-[11px] font-medium tracking-wide text-royal/80 hover:text-gold hover:translate-x-1 transition-all py-1 px-2 rounded hover:bg-gold/5 flex items-center justify-between"
-                      >
-                        <span>{out.name[locale as 'en'|'es'|'pt'] || out.name.en}</span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
+                <div className="p-5 grid grid-cols-2 gap-6 bg-[#FAF8F5]">
+                  
+                  {/* Column 1: India Destinations */}
+                  <div className="flex flex-col border-r border-[#C5A862]/20 pr-4 space-y-2">
+                    <Link
+                      href={getLocalizedDestinationsPath(locale)}
+                      className="flex items-center justify-between font-serif font-extrabold text-sm text-[#0A2A1E] pb-2 border-b border-[#C5A862]/20 hover:text-[#C5A862] transition-colors"
+                    >
+                      <span className="flex items-center gap-2">
+                        <span className="text-base">🇮🇳</span>
+                        <span>{labels.indiaDestinations}</span>
+                      </span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#C5A862]" />
+                    </Link>
+                    <div className="flex flex-col space-y-1 max-h-[300px] overflow-y-auto pr-1">
+                      {destinationsList.map((dest, idx) => {
+                        const rawName = dest.name[locale as 'en'|'es'|'pt'] || dest.name.en;
+                        let formattedName = rawName;
+                        if (locale === "es") {
+                          if (["kerala", "goa", "maharashtra", "karnataka"].includes(dest.name.en.toLowerCase())) {
+                            formattedName = `Viaje a ${rawName}`;
+                          } else {
+                            formattedName = `Turismo en ${rawName}`;
+                          }
+                        } else if (locale === "pt") {
+                          if (["kerala", "goa", "maharashtra", "karnataka"].includes(dest.name.en.toLowerCase())) {
+                            formattedName = `Viajar para ${rawName}`;
+                          } else {
+                            formattedName = `Turismo em ${rawName}`;
+                          }
+                        }
 
+                        const lowerName = dest.name.en.toLowerCase();
+                        const stateIcon = lowerName.includes("rajasthan") ? "🐫" 
+                          : lowerName.includes("kerala") ? "🌴" 
+                          : lowerName.includes("madhya") ? "🐅" 
+                          : lowerName.includes("tamil") ? "🕌" 
+                          : lowerName.includes("uttar") ? "🏛️" 
+                          : lowerName.includes("maharashtra") ? "🏙️"
+                          : lowerName.includes("goa") ? "🏖️"
+                          : "📍";
+
+                        return (
+                          <Link
+                            key={idx}
+                            href={dest.path}
+                            className="text-[11px] font-semibold text-[#0A2A1E] hover:text-[#0A2A1E] hover:translate-x-1 transition-all py-1.5 px-3 rounded-xl hover:bg-white hover:border hover:border-[#C5A862]/40 shadow-none hover:shadow-md flex items-center justify-between group/item"
+                          >
+                            <span className="flex items-center gap-2">
+                              <span className="text-xs">{stateIcon}</span>
+                              <span>{formattedName}</span>
+                            </span>
+                            <ArrowRight className="w-3 h-3 text-[#C5A862] opacity-0 group-hover/item:opacity-100 transition-opacity" />
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Column 2: International / Outbound Trips */}
+                  <div className="flex flex-col space-y-2">
+                    <Link
+                      href={`/${locale}/international-trips`}
+                      className="flex items-center justify-between font-serif font-extrabold text-sm text-[#0A2A1E] pb-2 border-b border-[#C5A862]/20 hover:text-[#C5A862] transition-colors"
+                    >
+                      <span className="flex items-center gap-2">
+                        <span className="text-base">✈️</span>
+                        <span>{labels.outboundTrips}</span>
+                      </span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#C5A862]" />
+                    </Link>
+                    <div className="flex flex-col space-y-1 max-h-[300px] overflow-y-auto pr-1">
+                      {outboundList.map((out, idx) => {
+                        const lowerOut = out.name.en.toLowerCase();
+                        const outIcon = lowerOut.includes("dubai") ? "🇦🇪"
+                          : lowerOut.includes("bali") ? "🇮🇩"
+                          : lowerOut.includes("thailand") ? "🇹🇭"
+                          : lowerOut.includes("maldives") ? "🇲🇻"
+                          : lowerOut.includes("vietnam") ? "🇻🇳"
+                          : lowerOut.includes("singapore") ? "🇸🇬"
+                          : lowerOut.includes("nepal") ? "🇳🇵"
+                          : lowerOut.includes("sri lanka") ? "🇱🇰"
+                          : lowerOut.includes("laos") ? "🇱🇦"
+                          : "✈️";
+
+                        return (
+                          <Link
+                            key={idx}
+                            href={`/${locale}${out.path}`}
+                            className="text-[11px] font-semibold text-[#0A2A1E] hover:text-[#0A2A1E] hover:translate-x-1 transition-all py-1.5 px-3 rounded-xl hover:bg-white hover:border hover:border-[#C5A862]/40 shadow-none hover:shadow-md flex items-center justify-between group/item"
+                          >
+                            <span className="flex items-center gap-2">
+                              <span className="text-xs">{outIcon}</span>
+                              <span>{out.name[locale as 'en'|'es'|'pt'] || out.name.en}</span>
+                            </span>
+                            <ArrowRight className="w-3 h-3 text-[#C5A862] opacity-0 group-hover/item:opacity-100 transition-opacity" />
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                </div>
               </div>
             </div>
 

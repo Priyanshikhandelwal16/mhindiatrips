@@ -117,11 +117,11 @@ export default async function AboutPage({ params }: AboutPageProps) {
   const values = [
     { icon: Shield, title: locale === "es" ? "Seguridad y Confianza" : locale === "pt" ? "Segurança e Confiança" : "Safety & Trust", desc: locale === "es" ? "Conductores experimentados y guías certificados en todo momento." : locale === "pt" ? "Motoristas experientes e guias certificados em todos os momentos." : "Fully certified bilingual guides and highly vetted private tourist drivers." },
     { icon: Heart, title: locale === "es" ? "Pasión por el Detalle" : locale === "pt" ? "Paixão pelo Detalhe" : "Passion for Detail", desc: locale === "es" ? "Ajustamos cada reserva de hotel y traslado para su máxima comodidad." : locale === "pt" ? "Ajustamos cada reserva de hotel e transporte para seu máximo conforto." : "Fine-tuning every palace suite check-in and private monument access." },
-    { icon: Compass, title: locale === "es" ? "Conocimiento Local" : locale === "pt" ? "Conhecimento Local" : "Local Expertise", desc: locale === "es" ? "Más de 15 años de experiencia diseñando rutas en toda la India." : locale === "pt" ? "Mais de 15 anos de experiência planejando rotas na Índia." : "15+ years of deep boots-on-the-ground knowledge across all regions." },
+    { icon: Compass, title: locale === "es" ? "Conocimiento Local" : locale === "pt" ? "Conhecimento Local" : "Local Expertise", desc: locale === "es" ? "Más de 22 años de experiencia diseñando rutas en toda la India." : locale === "pt" ? "Mais de 22 anos de experiência planejando rotas na Índia." : "22+ years of deep boots-on-the-ground knowledge across all regions." },
   ];
 
   const stats = [
-    { number: "15+", label: "Years of Experience" },
+    { number: "22+", label: "Years of Experience" },
     { number: "5,000+", label: "Happy Travelers" },
     { number: "100+", label: "Destinations" },
     { number: "40+", label: "Countries Served" },
@@ -129,12 +129,23 @@ export default async function AboutPage({ params }: AboutPageProps) {
     { number: "98%", label: "Rebooking Rate" },
   ];
 
-  const team = dbContent.team || [
-    { name: "Rahul Sharma", role: "Founder & Lead Travel Designer", img: "/images/team_rahul.png" },
-    { name: "Priya Kapoor", role: "Senior Destination Expert", img: "/images/team_priya.png" },
-    { name: "Vikram Singh", role: "Heritage & Culture Specialist", img: "/images/team_vikram.png" },
-    { name: "Anita Desai", role: "Client Relations Manager", img: "/images/team_anita.png" },
+  // Exactly 2 Founder & Specialist cards with rich bio descriptions
+  const defaultTeam = [
+    { 
+      name: "Rahul Sharma", 
+      role: locale === "es" ? "Fundador y Diseñador Principal de Viajes" : locale === "pt" ? "Fundador e Designer Principal de Viagens" : "Founder & Lead Travel Designer", 
+      img: "/images/team_rahul.png",
+      desc: locale === "es" ? "Con más de 22 años diseñando viajes privados de alto nivel y experiencias en palacios reales por toda la India." : locale === "pt" ? "Com mais de 22 anos criando viagens privadas de alto nível e experiências em palácios reais por toda a Índia." : "Over 22 years of hands-on expertise curating ultra-luxury private safaris and royal palace stays across India."
+    },
+    { 
+      name: "Priya Patel", 
+      role: locale === "es" ? "Cofundadora y Especialista Sénior en Destinos" : locale === "pt" ? "Co-fundadora e Especialista em Destinos" : "Co-Founder & Senior Destination Specialist", 
+      img: "/images/team_priya.png",
+      desc: locale === "es" ? "Especialista en patrimonio de Rajastán, cruceros en Kerala y coordinación de destinos internacionales en Asia y Medio Oriente." : locale === "pt" ? "Especialista em patrimônio do Rajastão, cruzeiros em Kerala e coordenação de destinos internacionais na Ásia e Oriente Médio." : "Specializes in Rajasthan heritage hospitality, Kerala wellness retreats, and seamless international outbound itineraries."
+    }
   ];
+
+  const team = (dbContent.team && dbContent.team.length > 0) ? dbContent.team.slice(0, 2) : defaultTeam;
 
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
@@ -154,7 +165,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
         </div>
       </section>
 
-      {/* SECTION 2: Story columns (Increased Paragraph Font Sizes) */}
+      {/* SECTION 2: Story columns */}
       <section className="max-w-7xl mx-auto px-6 py-28 grid grid-cols-1 lg:grid-cols-2 gap-16 border-b border-gold/10">
         <Reveal direction="left" className="space-y-6">
           <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold flex items-center gap-1">
@@ -172,7 +183,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
           </p>
         </Reveal>
         
-        {/* Mission Card (Increased Text Sizes) */}
+        {/* Mission Card */}
         <Reveal direction="right" delay={200} className="bg-white border border-gold/25 p-10 space-y-8 shadow-xl shadow-royal/5 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-[4px] bg-gold" />
           <div className="space-y-3">
@@ -211,7 +222,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
         </div>
       </section>
 
-      {/* SECTION 3.5: WHY CHOOSE US (Dedicated High Impact Section) */}
+      {/* SECTION 3.5: WHY CHOOSE US */}
       <section className="bg-gradient-to-b from-[#0A2A1E]/5 via-[#FAF8F5] to-[#FAF8F5] py-24 border-b border-gold/10">
         <div className="max-w-7xl mx-auto px-6 space-y-16">
           
@@ -350,7 +361,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
         <div className="absolute inset-0 opacity-[0.015] bg-[radial-gradient(#B8964B_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <AboutStatsCounter stats={[
-            { number: "15+", label: "Years of Excellence" },
+            { number: "22+", label: "Years of Excellence" },
             { number: "12,000+", label: "Happy Travelers" },
             { number: "PAN India", label: "Regional Coverage" },
             { number: "10+", label: "Outbound Countries" },
@@ -360,7 +371,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
         </div>
       </section>
 
-      {/* SECTION 5: Leadership & Image Gallery Showcase (Images properly displayed with text below) */}
+      {/* SECTION 5: Founders & Destination Specialists (Exactly 2 Cards with Bios) */}
       <section className="max-w-7xl mx-auto px-6 py-28 border-b border-gold/10 space-y-16">
         <div className="text-center space-y-3 max-w-xl mx-auto">
           <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">OUR LEADERSHIP & TEAM</span>
@@ -368,49 +379,62 @@ export default async function AboutPage({ params }: AboutPageProps) {
             {locale === "es" ? "Fundadores y Especialistas de Destino" : locale === "pt" ? "Fundadores e Especialistas" : "Founders & Destination Specialists"}
           </h2>
           <p className="text-sm text-foreground/60 font-light leading-relaxed">
-            {locale === "es" ? "Con trayectoria guiando viajeros por la India en toda la región PAN India e itinerarios internacionales." : locale === "pt" ? "Com trajetória guiando viajantes pela Índia e itinerários internacionais." : "Backed by years of dedicated boots-on-the-ground expertise in crafting elite private journeys across PAN India & International Outbound destinations."}
+            {locale === "es" ? "Con trayectoria guiando viajeros por la India en toda la región PAN India e itinerarios internacionales." : locale === "pt" ? "Com trajetória guiando viajantes pela Índia e itinerários internacionais." : "Backed by 22+ years of dedicated boots-on-the-ground expertise in crafting elite private journeys across PAN India & International Outbound destinations."}
           </p>
           <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
           {team.map((member: any, i: number) => (
-            <Reveal key={i} delay={i * 100} className="bg-white border border-gold/20 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
-              <div className="h-64 sm:h-72 overflow-hidden relative bg-royal/5">
+            <Reveal key={i} delay={i * 100} className="bg-white border-2 border-[#C5A862]/30 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+              <div className="h-72 sm:h-80 overflow-hidden relative bg-[#0A2A1E]/5">
                 <img 
                   src={member.img || member.image || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"} 
                   alt={member.name} 
                   loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A2A1E]/60 via-transparent to-transparent opacity-80" />
+                <span className="absolute bottom-4 left-4 bg-[#C5A862] text-[#0A2A1E] text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow-md">
+                  Founding Director
+                </span>
               </div>
-              <div className="p-6 space-y-2 text-center bg-white flex-grow">
-                <h3 className="text-xl font-serif font-bold text-royal">{member.name}</h3>
-                <p className="text-xs uppercase tracking-widest text-gold font-extrabold">{member.role}</p>
-                {member.desc && (
-                  <p className="text-xs text-foreground/60 font-light leading-relaxed pt-2">
-                    {member.desc}
-                  </p>
-                )}
+              <div className="p-8 space-y-3 bg-white flex-grow">
+                <h3 className="text-2xl font-serif font-bold text-[#0A2A1E]">{member.name}</h3>
+                <p className="text-xs uppercase tracking-widest text-[#C5A862] font-extrabold">{member.role}</p>
+                <div className="h-px w-12 bg-[#C5A862]/30 my-2" />
+                <p className="text-sm text-[#1B1B1B]/75 font-light leading-relaxed pt-1">
+                  {member.desc || "Specializing in luxury private journeys, palace check-ins, and bespoke concierge travel planning."}
+                </p>
               </div>
             </Reveal>
           ))}
         </div>
       </section>
 
-      {/* SECTION 6: Call To Action */}
-      <section className="max-w-3xl mx-auto px-6 py-28 text-center space-y-6">
+      {/* SECTION 6: Call To Action (Luxury Card Format) */}
+      <section className="max-w-5xl mx-auto px-6 py-24">
         <Reveal>
-          <h2 className="text-3xl md:text-4xl font-bold text-royal">{text.ctaTitle}</h2>
-        </Reveal>
-        <Reveal delay={100}>
-          <p className="text-sm text-foreground/50 font-light leading-relaxed max-w-md mx-auto">{text.ctaDesc}</p>
-        </Reveal>
-        <Reveal delay={200} className="pt-4">
-          <Link href={`/${locale}/contact`} className="bg-gold hover:bg-gold-light text-royal text-sm font-bold uppercase tracking-widest px-8 py-4.5 rounded-full inline-flex items-center gap-1.5 shadow-md">
-            <span>{text.ctaBtn}</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div className="bg-[#0A2A1E] text-white p-10 md:p-16 rounded-[2.5rem] border-2 border-[#C5A862] shadow-2xl text-center space-y-6 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-br from-[#C5A862]/20 to-transparent rounded-full blur-3xl pointer-events-none" />
+            <div className="space-y-3">
+              <span className="bg-[#C5A862] text-[#0A2A1E] text-[10px] font-extrabold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block shadow-md">
+                MH India Trips Concierge
+              </span>
+              <h2 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight">
+                {text.ctaTitle}
+              </h2>
+            </div>
+            <p className="text-sm md:text-base text-white/80 font-light max-w-xl mx-auto leading-relaxed">
+              {text.ctaDesc}
+            </p>
+            <div className="pt-4">
+              <Link href={`/${locale}/contact`} className="bg-[#C5A862] hover:bg-[#D8BE83] text-[#0A2A1E] text-xs font-extrabold uppercase tracking-widest px-10 py-5 rounded-full inline-flex items-center gap-2 shadow-xl hover:scale-105 transition-all">
+                <span>{text.ctaBtn}</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
         </Reveal>
       </section>
 

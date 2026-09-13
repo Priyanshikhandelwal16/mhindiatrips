@@ -32,55 +32,41 @@ export default function PackagesFilterSection({
 
   return (
     <div className="space-y-12">
-      {/* Category Tabs */}
+      {/* Category Tabs: ONLY 3 main tabs requested */}
       <Reveal className="w-full">
-        <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-3 pt-1 px-2 scrollbar-none flex-nowrap md:flex-wrap md:justify-center max-w-full">
+        <div className="flex items-center gap-2 sm:gap-3 justify-center pb-3 pt-1 px-2">
           <button
             onClick={() => setSelectedCategory("All")}
-            className={`px-4 sm:px-5 py-2.5 rounded-full border text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer shrink-0 shadow-sm ${
+            className={`px-5 sm:px-6 py-3 rounded-full border text-xs sm:text-xs font-extrabold uppercase tracking-wider transition-all duration-300 cursor-pointer shrink-0 shadow-sm ${
               selectedCategory === "All"
                 ? "bg-gold border-gold text-[#0A2A1E] shadow-md scale-[1.03]"
-                : "bg-white border-[#C5A862]/15 text-royal hover:border-[#C5A862]/30 hover:bg-[#FAF8F5]/50"
+                : "bg-white border-[#C5A862]/20 text-royal hover:border-[#C5A862]/40 hover:bg-[#FAF8F5]"
             }`}
           >
-            {locale === "es" ? "Todos los Viajes" : locale === "pt" ? "Todos os Pacotes" : "All Tours"}
+            {locale === "es" ? "Todos los Viajes" : locale === "pt" ? "Todos os Pacotes" : "All Packages"}
           </button>
 
           <button
             onClick={() => setSelectedCategory("Domestic")}
-            className={`px-4 sm:px-5 py-2.5 rounded-full border text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer shrink-0 shadow-sm ${
+            className={`px-5 sm:px-6 py-3 rounded-full border text-xs sm:text-xs font-extrabold uppercase tracking-wider transition-all duration-300 cursor-pointer shrink-0 shadow-sm ${
               selectedCategory === "Domestic"
                 ? "bg-[#0A2A1E] border-[#0A2A1E] text-[#C5A862] shadow-md scale-[1.03]"
-                : "bg-white border-[#C5A862]/15 text-royal hover:border-[#C5A862]/30 hover:bg-[#FAF8F5]/50"
+                : "bg-white border-[#C5A862]/20 text-royal hover:border-[#C5A862]/40 hover:bg-[#FAF8F5]"
             }`}
           >
-            🇮🇳 {locale === "es" ? "India Doméstico" : locale === "pt" ? "Índia Doméstico" : "Domestic (India)"}
+            🇮🇳 {locale === "es" ? "India Doméstico" : locale === "pt" ? "Índia Doméstico" : "India (Domestic)"}
           </button>
 
           <button
             onClick={() => setSelectedCategory("Outbound")}
-            className={`px-4 sm:px-5 py-2.5 rounded-full border text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer shrink-0 shadow-sm ${
+            className={`px-5 sm:px-6 py-3 rounded-full border text-xs sm:text-xs font-extrabold uppercase tracking-wider transition-all duration-300 cursor-pointer shrink-0 shadow-sm ${
               selectedCategory === "Outbound"
                 ? "bg-[#C5A862] border-[#C5A862] text-[#0A2A1E] shadow-md scale-[1.03]"
-                : "bg-white border-[#C5A862]/15 text-royal hover:border-[#C5A862]/30 hover:bg-[#FAF8F5]/50"
+                : "bg-white border-[#C5A862]/20 text-royal hover:border-[#C5A862]/40 hover:bg-[#FAF8F5]"
             }`}
           >
-            ✈️ {locale === "es" ? "Paquetes Internacionales" : locale === "pt" ? "Pacotes Internacionais" : "Outbound / International"}
+            ✈️ {locale === "es" ? "Internacionales" : locale === "pt" ? "Internacionais" : "Outbound (International)"}
           </button>
-
-          {categories.filter(c => c !== "Outbound" && c !== "Domestic").map((cat: string) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-4 sm:px-5 py-2.5 rounded-full border text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer shrink-0 shadow-sm ${
-                selectedCategory === cat
-                  ? "bg-gold border-gold text-[#0A2A1E] shadow-md scale-[1.03]"
-                  : "bg-white border-[#C5A862]/15 text-royal hover:border-[#C5A862]/30 hover:bg-[#FAF8F5]/50"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
         </div>
       </Reveal>
 

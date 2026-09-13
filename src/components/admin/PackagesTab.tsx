@@ -1279,47 +1279,248 @@ export default function PackagesTab({
                 <span className="text-[10px] text-royal/50">Manage base prices, per-person rates, seasonal discount percentage (OFF), sale badges, and off-season price notices.</span>
               </div>
 
-              {/* Basic Price Inputs */}
-              <div className="bg-white p-6 rounded-2xl border border-gold/10 space-y-4">
-                <span className="font-bold uppercase tracking-wider text-[10px] text-gold block">1. Regular Price & Currency Setup</span>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                  <div className="space-y-1.5">
-                    <label className="font-bold uppercase block text-royal/70 text-[10px]">Starting / Base Price ($)</label>
-                    <input 
-                      type="number" placeholder="e.g. 1499"
-                      value={editPackage.pricing?.startingPrice ?? ""}
-                      onChange={e => handleUpdatePricing("startingPrice", parseFloat(e.target.value) || 0)}
-                      className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold font-bold"
-                    />
+              {/* 3-Language Regular Price & Currency Setup */}
+              <div className="bg-white p-6 rounded-2xl border border-gold/10 space-y-6">
+                <div className="flex items-center justify-between border-b border-gold/10 pb-3">
+                  <div>
+                    <span className="font-bold uppercase tracking-wider text-[11px] text-gold block">1. 3-Language Pricing & Currency Access (EN / ES / PT)</span>
+                    <span className="text-[9px] text-royal/50">Set unique currencies and prices for English ($ USD), Spanish (€ EUR), and Portuguese (€ EUR / R$ BRL) visitors.</span>
                   </div>
-                  <div className="space-y-1.5">
-                    <label className="font-bold uppercase block text-royal/70 text-[10px]">Price Per Person (Sharing)</label>
-                    <input 
-                      type="number" placeholder="e.g. 1199"
-                      value={editPackage.pricing?.pricePerPerson ?? ""}
-                      onChange={e => handleUpdatePricing("pricePerPerson", parseFloat(e.target.value) || 0)}
-                      className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold font-bold"
-                    />
+                  <span className="bg-gold/10 text-royal text-[9px] font-bold px-3 py-1 rounded-full uppercase border border-gold/20">Multi-Currency Enabled</span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* English Pricing */}
+                  <div className="bg-[#FAF8F5] p-4 rounded-xl border border-gold/20 space-y-3">
+                    <div className="flex items-center justify-between border-b border-gold/15 pb-2">
+                      <span className="font-bold text-xs uppercase text-[#0A2A1E] flex items-center gap-1.5">
+                        <span className="text-sm">🇬🇧</span> English (EN) Pricing
+                      </span>
+                      <span className="text-[9px] font-extrabold text-gold uppercase">Primary / Default</span>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="font-bold uppercase block text-royal/70 text-[9px]">Starting Price</label>
+                      <input 
+                        type="number" placeholder="e.g. 1499"
+                        value={editPackage.pricing?.en?.startingPrice ?? editPackage.pricing?.startingPrice ?? ""}
+                        onChange={e => {
+                          const val = parseFloat(e.target.value) || 0;
+                          setEditPackage({
+                            ...editPackage,
+                            pricing: {
+                              ...(editPackage.pricing || {}),
+                              startingPrice: val,
+                              en: { ...(editPackage.pricing?.en || {}), startingPrice: val }
+                            }
+                          });
+                        }}
+                        className="w-full bg-white border border-gold/15 px-3 py-2 outline-none rounded-lg font-bold text-xs"
+                      />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="font-bold uppercase block text-royal/70 text-[9px]">Price Per Person</label>
+                      <input 
+                        type="number" placeholder="e.g. 1199"
+                        value={editPackage.pricing?.en?.pricePerPerson ?? editPackage.pricing?.pricePerPerson ?? ""}
+                        onChange={e => {
+                          const val = parseFloat(e.target.value) || 0;
+                          setEditPackage({
+                            ...editPackage,
+                            pricing: {
+                              ...(editPackage.pricing || {}),
+                              pricePerPerson: val,
+                              en: { ...(editPackage.pricing?.en || {}), pricePerPerson: val }
+                            }
+                          });
+                        }}
+                        className="w-full bg-white border border-gold/15 px-3 py-2 outline-none rounded-lg font-bold text-xs"
+                      />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="font-bold uppercase block text-royal/70 text-[9px]">EN Currency</label>
+                      <select
+                        value={editPackage.pricing?.en?.currency || editPackage.pricing?.currency || "USD"}
+                        onChange={e => {
+                          const val = e.target.value;
+                          setEditPackage({
+                            ...editPackage,
+                            pricing: {
+                              ...(editPackage.pricing || {}),
+                              currency: val,
+                              en: { ...(editPackage.pricing?.en || {}), currency: val }
+                            }
+                          });
+                        }}
+                        className="w-full bg-white border border-gold/15 px-3 py-2 outline-none rounded-lg font-bold text-xs cursor-pointer"
+                      >
+                        {["USD", "EUR", "GBP", "INR", "AUD", "CAD"].map(c => (
+                          <option key={c} value={c}>{c}</option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
-                  <div className="space-y-1.5">
-                    <label className="font-bold uppercase block text-royal/70 text-[10px]">Currency</label>
-                    <select
-                      value={editPackage.pricing?.currency || "USD"}
-                      onChange={e => handleUpdatePricing("currency", e.target.value)}
-                      className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold cursor-pointer font-bold"
-                    >
-                      {["EUR", "USD", "GBP", "INR"].map(c => (
-                        <option key={c} value={c}>{c}</option>
-                      ))}
-                    </select>
+
+                  {/* Spanish Pricing */}
+                  <div className="bg-[#FAF8F5] p-4 rounded-xl border border-gold/20 space-y-3">
+                    <div className="flex items-center justify-between border-b border-gold/15 pb-2">
+                      <span className="font-bold text-xs uppercase text-[#0A2A1E] flex items-center gap-1.5">
+                        <span className="text-sm">🇪🇸</span> Spanish (ES) Pricing
+                      </span>
+                      <span className="text-[9px] font-extrabold text-emerald-700 uppercase">ES Audience</span>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="font-bold uppercase block text-royal/70 text-[9px]">Starting Price</label>
+                      <input 
+                        type="number" placeholder="e.g. 1399"
+                        value={editPackage.pricing?.es?.startingPrice ?? ""}
+                        onChange={e => {
+                          const val = parseFloat(e.target.value) || 0;
+                          setEditPackage({
+                            ...editPackage,
+                            pricing: {
+                              ...(editPackage.pricing || {}),
+                              es: { ...(editPackage.pricing?.es || {}), startingPrice: val }
+                            }
+                          });
+                        }}
+                        className="w-full bg-white border border-gold/15 px-3 py-2 outline-none rounded-lg font-bold text-xs"
+                      />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="font-bold uppercase block text-royal/70 text-[9px]">Price Per Person</label>
+                      <input 
+                        type="number" placeholder="e.g. 1099"
+                        value={editPackage.pricing?.es?.pricePerPerson ?? ""}
+                        onChange={e => {
+                          const val = parseFloat(e.target.value) || 0;
+                          setEditPackage({
+                            ...editPackage,
+                            pricing: {
+                              ...(editPackage.pricing || {}),
+                              es: { ...(editPackage.pricing?.es || {}), pricePerPerson: val }
+                            }
+                          });
+                        }}
+                        className="w-full bg-white border border-gold/15 px-3 py-2 outline-none rounded-lg font-bold text-xs"
+                      />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="font-bold uppercase block text-royal/70 text-[9px]">ES Currency</label>
+                      <select
+                        value={editPackage.pricing?.es?.currency || "EUR"}
+                        onChange={e => {
+                          const val = e.target.value;
+                          setEditPackage({
+                            ...editPackage,
+                            pricing: {
+                              ...(editPackage.pricing || {}),
+                              es: { ...(editPackage.pricing?.es || {}), currency: val }
+                            }
+                          });
+                        }}
+                        className="w-full bg-white border border-gold/15 px-3 py-2 outline-none rounded-lg font-bold text-xs cursor-pointer"
+                      >
+                        {["EUR", "USD", "GBP", "INR", "MXN", "ARS"].map(c => (
+                          <option key={c} value={c}>{c}</option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
-                  <div className="space-y-1.5">
-                    <label className="font-bold uppercase block text-royal/70 text-[10px]">Price Model</label>
+
+                  {/* Portuguese Pricing */}
+                  <div className="bg-[#FAF8F5] p-4 rounded-xl border border-gold/20 space-y-3">
+                    <div className="flex items-center justify-between border-b border-gold/15 pb-2">
+                      <span className="font-bold text-xs uppercase text-[#0A2A1E] flex items-center gap-1.5">
+                        <span className="text-sm">🇵🇹</span> Portuguese (PT) Pricing
+                      </span>
+                      <span className="text-[9px] font-extrabold text-amber-700 uppercase">PT Audience</span>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="font-bold uppercase block text-royal/70 text-[9px]">Starting Price</label>
+                      <input 
+                        type="number" placeholder="e.g. 1399"
+                        value={editPackage.pricing?.pt?.startingPrice ?? ""}
+                        onChange={e => {
+                          const val = parseFloat(e.target.value) || 0;
+                          setEditPackage({
+                            ...editPackage,
+                            pricing: {
+                              ...(editPackage.pricing || {}),
+                              pt: { ...(editPackage.pricing?.pt || {}), startingPrice: val }
+                            }
+                          });
+                        }}
+                        className="w-full bg-white border border-gold/15 px-3 py-2 outline-none rounded-lg font-bold text-xs"
+                      />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="font-bold uppercase block text-royal/70 text-[9px]">Price Per Person</label>
+                      <input 
+                        type="number" placeholder="e.g. 1099"
+                        value={editPackage.pricing?.pt?.pricePerPerson ?? ""}
+                        onChange={e => {
+                          const val = parseFloat(e.target.value) || 0;
+                          setEditPackage({
+                            ...editPackage,
+                            pricing: {
+                              ...(editPackage.pricing || {}),
+                              pt: { ...(editPackage.pricing?.pt || {}), pricePerPerson: val }
+                            }
+                          });
+                        }}
+                        className="w-full bg-white border border-gold/15 px-3 py-2 outline-none rounded-lg font-bold text-xs"
+                      />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="font-bold uppercase block text-royal/70 text-[9px]">PT Currency</label>
+                      <select
+                        value={editPackage.pricing?.pt?.currency || "EUR"}
+                        onChange={e => {
+                          const val = e.target.value;
+                          setEditPackage({
+                            ...editPackage,
+                            pricing: {
+                              ...(editPackage.pricing || {}),
+                              pt: { ...(editPackage.pricing?.pt || {}), currency: val }
+                            }
+                          });
+                        }}
+                        className="w-full bg-white border border-gold/15 px-3 py-2 outline-none rounded-lg font-bold text-xs cursor-pointer"
+                      >
+                        {["EUR", "USD", "BRL", "GBP", "INR"].map(c => (
+                          <option key={c} value={c}>{c}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-gold/10 pt-3">
+                  <div className="space-y-1">
+                    <label className="font-bold uppercase block text-royal/70 text-[9px]">Global Price Model (e.g. per_person)</label>
                     <input 
                       type="text" placeholder="per_person"
                       value={editPackage.pricing?.priceType || "per_person"}
                       onChange={e => handleUpdatePricing("priceType", e.target.value)}
-                      className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-xl focus:border-gold"
+                      className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2 outline-none rounded-lg font-bold text-xs"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <label className="font-bold uppercase block text-royal/70 text-[9px]">Global Price Unit (e.g. Per Person / Twin Sharing)</label>
+                    <input 
+                      type="text" placeholder="Per Person"
+                      value={editPackage.pricing?.unit || "Per Person"}
+                      onChange={e => handleUpdatePricing("unit", e.target.value)}
+                      className="w-full bg-[#FAF8F5] border border-gold/15 px-3 py-2 outline-none rounded-lg font-bold text-xs"
                     />
                   </div>
                 </div>

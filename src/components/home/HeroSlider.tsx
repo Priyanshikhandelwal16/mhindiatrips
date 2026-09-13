@@ -31,7 +31,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
     if (paused) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 3500);
+    }, 2200);
     return () => clearInterval(timer);
   }, [paused, slides.length]);
 
@@ -89,7 +89,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
         return (
           <div 
             key={i} 
-            className={`hero-slide absolute inset-0 transition-all duration-1000 ${i === current ? "z-10 opacity-100 visible" : "z-0 opacity-0 invisible pointer-events-none"}`}
+            className={`hero-slide absolute inset-0 transition-all duration-500 ${i === current ? "z-10 opacity-100 visible" : "z-0 opacity-0 invisible pointer-events-none"}`}
           >
             <Image
               src={imgSrc}
@@ -99,7 +99,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
               quality={100}
               unoptimized
               sizes="100vw"
-              className={`absolute inset-0 w-full h-full object-cover transform-gpu transition-transform duration-[4000ms] ease-out ${
+              className={`absolute inset-0 w-full h-full object-cover transform-gpu transition-transform duration-[2200ms] ease-out ${
                 i === current ? "scale-100" : "scale-[1.04]"
               }`}
               style={{ objectPosition: slide.objectPosition || "center center" }}
