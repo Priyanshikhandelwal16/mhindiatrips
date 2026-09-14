@@ -338,9 +338,9 @@ export default function AdminDashboard() {
   // TOUR PACKAGES ACTIONS
   const handleSavePackage = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editPackage.slug || !editPackage.title?.en) return showStatus("Slug and title are required.", "error");
+    if (!editPackage.slug || !(editPackage.title?.en || typeof editPackage.title === "string")) return showStatus("Slug and title are required.", "error");
 
-    const isNew = !packages.find(p => p.slug === editPackage.slug);
+    const isNew = !packages.find(p => p.slug === editPackage.slug || p.id === editPackage.slug);
     const res = isNew 
       ? await createTourPackageAction(editPackage)
       : await updateTourPackageAction(editPackage.slug, editPackage);
@@ -348,7 +348,7 @@ export default function AdminDashboard() {
     if (res.success) {
       showStatus("Tour package layout saved successfully!", "success");
       setEditPackage(null);
-      loadCMSData(false);
+      await loadCMSData(false);
     } else {
       showStatus(res.error || "Failed to save package.", "error");
     }
@@ -358,7 +358,7 @@ export default function AdminDashboard() {
     const res = await deleteTourPackageAction(slug);
     if (res.success) {
       showStatus("Package listing removed.", "success");
-      loadCMSData(false);
+      await loadCMSData(false);
     } else {
       showStatus(res.error || "Failed to delete package.", "error");
     }

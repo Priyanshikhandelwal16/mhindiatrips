@@ -128,7 +128,9 @@ export async function createTourPackageAction(data: any) {
 
   try {
     const pkg = await db.tourPackages.create(data);
-    revalidatePath("/[locale]/packages", "page");
+    revalidatePath("/[locale]/packages", "layout");
+    revalidatePath("/[locale]/international-trips", "layout");
+    revalidatePath("/[locale]", "layout");
     return { success: true, pkg };
   } catch (error: any) {
     return { success: false, error: error.message || "Failed to create package" };
@@ -141,7 +143,10 @@ export async function updateTourPackageAction(slug: string, data: any) {
 
   try {
     const pkg = await db.tourPackages.update(slug, data);
-    revalidatePath("/[locale]/packages", "page");
+    revalidatePath("/[locale]/packages", "layout");
+    revalidatePath(`/[locale]/packages/${slug}`, "page");
+    revalidatePath("/[locale]/international-trips", "layout");
+    revalidatePath("/[locale]", "layout");
     return { success: true, pkg };
   } catch (error: any) {
     return { success: false, error: error.message || "Failed to update package" };
@@ -154,7 +159,9 @@ export async function deleteTourPackageAction(slug: string) {
 
   try {
     await db.tourPackages.delete(slug);
-    revalidatePath("/[locale]/packages", "page");
+    revalidatePath("/[locale]/packages", "layout");
+    revalidatePath("/[locale]/international-trips", "layout");
+    revalidatePath("/[locale]", "layout");
     return { success: true };
   } catch (error: any) {
     return { success: false, error: error.message || "Failed to delete package" };
