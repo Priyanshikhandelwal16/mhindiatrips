@@ -606,14 +606,14 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                           {/* Day Card Body */}
                           <div className="p-4 sm:p-6 md:p-8 space-y-5 sm:space-y-6 bg-white">
 
-                            {/* Dedicated Day Photo Container (100% visible full photo without any cropping or text overlays) */}
+                            {/* Dedicated Day Photo - Full Width (w-full) & Natural Height (h-auto) - 100% Visible with ZERO cropping */}
                             {dayImg && (
-                              <div className="relative w-full rounded-xl sm:rounded-2xl overflow-hidden shadow-md border border-[#C5A862]/25 bg-[#FAF8F5] flex items-center justify-center p-1.5 sm:p-2.5 group/img">
+                              <div className="relative w-full rounded-xl sm:rounded-2xl overflow-hidden shadow-md border border-[#C5A862]/25 group/img my-2">
                                 <img 
                                   src={getHighResImageUrl(dayImg)} 
                                   alt={dayTitle} 
                                   loading="lazy"
-                                  className="w-full h-auto max-h-[480px] sm:max-h-[550px] object-contain rounded-lg sm:rounded-xl transition-transform duration-500 group-hover/img:scale-[1.01]" 
+                                  className="w-full h-auto block rounded-xl sm:rounded-2xl transition-transform duration-500 group-hover/img:scale-[1.01]" 
                                 />
                               </div>
                             )}
