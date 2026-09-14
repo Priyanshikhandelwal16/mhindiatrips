@@ -537,26 +537,33 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
           </Reveal>
 
           {/* --------------------------------------------------
-              3. DAY-BY-DAY ITINERARY TIMELINE (Modern Visual Accordion/Card Flow)
+              3. DAY-BY-DAY ITINERARY TIMELINE (Modern Visual Accordion/Card Flow with Heritage Watermark Background)
              -------------------------------------------------- */}
           {pkg.itinerary && pkg.itinerary.length > 0 && (
-            <div className="space-y-8">
+            <div className="relative space-y-8 p-4 sm:p-8 md:p-10 rounded-3xl bg-white/60 backdrop-blur-xs border border-[#C5A862]/20 shadow-sm overflow-hidden">
               
-              {/* Section Header */}
-              <div className="border-b border-[#C5A862]/30 pb-4 flex items-center justify-between gap-4">
-                <div className="space-y-1">
-                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C5A862] block">
-                    Step-by-Step Guidance
-                  </span>
-                  <h2 className="text-2xl md:text-4xl font-serif font-bold text-[#0A2A1E]">
-                    {text.itinerary}
-                  </h2>
-                </div>
+              {/* Subtle Architectural Heritage Watermark Photo (Screenshot 1 Reference) */}
+              <div 
+                className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none bg-cover bg-center filter grayscale contrast-150"
+                style={{ backgroundImage: `url('${pkg.coverImage || pkg.image || "/images/rajasthan_fort_sunset.png"}')` }}
+              />
 
-                <span className="hidden sm:inline-block text-xs font-bold text-[#0A2A1E] bg-[#C5A862]/20 border border-[#C5A862]/40 px-4 py-2 rounded-full">
-                  {pkg.itinerary.length} {text.daysLabel} Total
-                </span>
-              </div>
+              <div className="relative z-10 space-y-8">
+                {/* Section Header */}
+                <div className="border-b border-[#C5A862]/30 pb-4 flex items-center justify-between gap-4">
+                  <div className="space-y-1">
+                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C5A862] block">
+                      Step-by-Step Guidance
+                    </span>
+                    <h2 className="text-2xl md:text-4xl font-serif font-bold text-[#0A2A1E]">
+                      {text.itinerary}
+                    </h2>
+                  </div>
+
+                  <span className="hidden sm:inline-block text-xs font-bold text-[#0A2A1E] bg-[#C5A862]/20 border border-[#C5A862]/40 px-4 py-2 rounded-full">
+                    {pkg.itinerary.length} {text.daysLabel} Total
+                  </span>
+                </div>
 
               {/* Day Cards Stack with Left Visual Timeline Bar */}
               <div className="relative space-y-8 pl-5 sm:pl-8 md:pl-10 border-l-2 border-[#C5A862]/40 ml-3 sm:ml-4 md:ml-6">
@@ -713,7 +720,8 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
               </div>
 
             </div>
-          )}
+          </div>
+        )}
 
           {/* --------------------------------------------------
               4. INCLUSIONS & EXCLUSIONS - Grid Cards Layout
@@ -946,6 +954,30 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                   })()}
                 </div>
               </div>
+
+              {/* Additional Custom Policies (Dynamically Rendered for Visa, Payment, Flights, etc.) */}
+              {pkg.policies && Object.entries(pkg.policies).map(([key, val]: [string, any]) => {
+                if (['cancellation', 'termsAndConditions', 'bookingTerms', 'bookingPolicy', 'importantNotes'].includes(key) || !val) return null;
+                const policyTitle = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                const policyItems = parseBullets(val, lang);
+                if (policyItems.length === 0) return null;
+                return (
+                  <div key={key} className="bg-white p-7 sm:p-9 rounded-3xl border-2 border-[#C5A862]/30 shadow-lg space-y-4">
+                    <div className="flex items-center gap-3 border-b border-[#C5A862]/20 pb-3">
+                      <ShieldCheck className="w-5 h-5 text-[#C5A862]" />
+                      <h3 className="text-lg font-serif font-bold text-[#0A2A1E]">{policyTitle}</h3>
+                    </div>
+                    <ul className="space-y-2 text-sm text-[#1B1B1B]">
+                      {policyItems.map((item: string, i: number) => (
+                        <li key={i} className="flex items-start gap-2.5 bg-[#FAF8F5] p-3 rounded-xl border border-[#C5A862]/15">
+                          <span className="text-[#C5A862] font-bold">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
 
             </div>
           </Reveal>

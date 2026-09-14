@@ -34,9 +34,9 @@ export default function PackagesFilterSection({
 
   return (
     <div className="space-y-12">
-      {/* Category Tabs: ONLY 3 main tabs requested */}
+      {/* Category Tabs: Smooth Horizontal Scrollable on Mobile (Fixes Screenshot 2) */}
       <Reveal className="w-full">
-        <div className="flex items-center gap-2 sm:gap-3 justify-center pb-3 pt-1 px-2">
+        <div className="flex items-center gap-2 sm:gap-3 justify-start sm:justify-center overflow-x-auto no-scrollbar max-w-full px-3 py-2 scroll-smooth">
           <button
             onClick={() => setSelectedCategory("All")}
             className={`px-5 sm:px-6 py-3 rounded-full border text-xs sm:text-xs font-extrabold uppercase tracking-wider transition-all duration-300 cursor-pointer shrink-0 shadow-sm ${

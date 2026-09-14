@@ -884,13 +884,66 @@ export default function DestinationsTab({
                 />
               </div>
 
-              {/* Rich Text Editor for City Content */}
+              {/* Rich Text Editor for City Content with Non-Tech Friendly Helper Formatting Buttons */}
               <div className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <label className="font-bold uppercase text-[10px] tracking-wider text-royal/50 flex items-center gap-1">
-                    <Sparkles className="w-3.5 h-3.5 text-gold" />
-                    <span>City Description & Details ({activeLang.toUpperCase()})</span>
+                <div className="flex flex-wrap justify-between items-center gap-2 bg-[#0A2A1E]/5 p-2 rounded-xl border border-[#C5A862]/20">
+                  <label className="font-bold uppercase text-[10px] tracking-wider text-[#0A2A1E] flex items-center gap-1.5 shrink-0">
+                    <Sparkles className="w-3.5 h-3.5 text-[#C5A862]" />
+                    <span>City Long Description ({activeLang.toUpperCase()})</span>
                   </label>
+
+                  {/* Non-Tech HTML Tags Helper Toolbar */}
+                  <div className="flex flex-wrap items-center gap-1.5 text-[10px] font-bold">
+                    <span className="text-[#C5A862] text-[9px] uppercase tracking-wider hidden sm:inline-block">Click to Insert Format:</span>
+                    <button 
+                      type="button" 
+                      onClick={() => insertHTMLTag('<h2 class="text-2xl font-bold font-serif text-[#0A2A1E] mt-6 mb-3">', '</h2>')}
+                      className="bg-white border border-[#C5A862]/30 px-2 py-1 rounded-lg text-[#0A2A1E] hover:bg-[#C5A862] hover:text-[#0A2A1E] transition shadow-xs cursor-pointer"
+                      title="Insert H2 Heading"
+                    >
+                      + H2 Heading
+                    </button>
+                    <button 
+                      type="button" 
+                      onClick={() => insertHTMLTag('<h3 class="text-xl font-bold text-[#C5A862] mt-4 mb-2">', '</h3>')}
+                      className="bg-white border border-[#C5A862]/30 px-2 py-1 rounded-lg text-[#0A2A1E] hover:bg-[#C5A862] hover:text-[#0A2A1E] transition shadow-xs cursor-pointer"
+                      title="Insert H3 Subheading"
+                    >
+                      + H3 Subheading
+                    </button>
+                    <button 
+                      type="button" 
+                      onClick={() => insertHTMLTag('<p class="text-sm text-[#2C2C2C] leading-relaxed mb-4">', '</p>')}
+                      className="bg-white border border-[#C5A862]/30 px-2 py-1 rounded-lg text-[#0A2A1E] hover:bg-[#C5A862] hover:text-[#0A2A1E] transition shadow-xs cursor-pointer"
+                      title="Insert Paragraph"
+                    >
+                      + Paragraph (P)
+                    </button>
+                    <button 
+                      type="button" 
+                      onClick={() => insertHTMLTag('<ul class="list-disc pl-5 space-y-2 text-sm text-[#2C2C2C] my-3">\n  <li>', '</li>\n  <li>Point 2</li>\n</ul>')}
+                      className="bg-white border border-[#C5A862]/30 px-2 py-1 rounded-lg text-[#0A2A1E] hover:bg-[#C5A862] hover:text-[#0A2A1E] transition shadow-xs cursor-pointer"
+                      title="Insert Bullet List"
+                    >
+                      + Bullet List
+                    </button>
+                    <button 
+                      type="button" 
+                      onClick={() => insertHTMLTag('<div class="bg-[#FAF8F5] p-4 rounded-xl border-l-4 border-[#C5A862] my-4">\n  ', '\n</div>')}
+                      className="bg-white border border-[#C5A862]/30 px-2 py-1 rounded-lg text-[#0A2A1E] hover:bg-[#C5A862] hover:text-[#0A2A1E] transition shadow-xs cursor-pointer"
+                      title="Insert Highlight Box"
+                    >
+                      + Highlight Box
+                    </button>
+                    <button 
+                      type="button" 
+                      onClick={() => insertHTMLTag('<strong>', '</strong>')}
+                      className="bg-white border border-[#C5A862]/30 px-2.5 py-1 rounded-lg text-[#0A2A1E] hover:bg-[#C5A862] hover:text-[#0A2A1E] transition shadow-xs cursor-pointer"
+                      title="Bold Text"
+                    >
+                      Bold
+                    </button>
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

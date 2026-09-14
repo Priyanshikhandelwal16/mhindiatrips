@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { getStatesAction, getTourPackagesAction, getBlogsAction, getTestimonialsAction, getFoodsAction, getPageByIdAction } from "@/app/actions/queries";
+import { getStatesAction, getTourPackagesAction, getBlogsAction, getTestimonialsAction, getFoodsAction, getPageByIdAction, getOutboundDestinationsAction } from "@/app/actions/queries";
 import InquiryForm from "@/components/common/InquiryForm";
 import Reveal from "@/components/home/Reveal";
 import HeroSlider from "@/components/home/HeroSlider";
@@ -29,6 +29,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
   // Fetch content dynamically from query database mock layer
   const states = (await getStatesAction()).filter((s: any) => s.isPublished !== false && s.id !== "undefined");
+  const outboundDestinations = (await getOutboundDestinationsAction()).filter((d: any) => d.isPublished !== false);
   const allPackages = (await getTourPackagesAction()).filter((p: any) => p.isPublished !== false);
   const SELECTED_SLUGS = [
     "rajasthan-khajuraho-varanasi-luxury-journey",
@@ -606,6 +607,100 @@ export default async function HomePage({ params }: HomePageProps) {
           <Link href={getLocalizedDestinationsPath(locale)} className="inline-flex items-center gap-2 bg-royal hover:bg-royal/90 text-white text-base font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 shadow-xl">
             <span>View All Destinations</span>
             <ArrowRight className="w-5 h-5 text-gold" />
+          </Link>
+        </div>
+      </section>
+
+      {/* SECTION 3.5: International Destinations (3-Card Widescreen Section) */}
+      <section id="international-destinations" className="max-w-7xl mx-auto px-6 py-24 space-y-16 border-b border-gold/10">
+        <div className="text-center space-y-4 max-w-2xl mx-auto">
+          <span className="text-xs uppercase tracking-[0.25em] text-[#C5A862] font-bold block">
+            ✈️ {locale === "es" ? "Viajes Internacionales Exóticos" : locale === "pt" ? "Viagens Internacionais Exóticas" : "Exotic Outbound Destinations"}
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0A2A1E] tracking-tight font-serif">
+            {locale === "es" ? "Destinos Internacionales" : locale === "pt" ? "Destinos Internacionais" : "International Destinations"}
+          </h2>
+          <p className="text-base text-foreground/60 leading-relaxed font-light">
+            {locale === "es" 
+              ? "Descubra nuestros itinerarios privados de lujo a destinos exóticos internacionales como Bali, Maldivas y Tailandia."
+              : locale === "pt"
+              ? "Descubra nossos itinerários privados de luxo para destinos internacionais exóticos como Bali, Maldivas e Tailândia."
+              : "Discover our bespoke luxury private journeys to exotic international destinations including Bali, Maldives, and Thailand."}
+          </p>
+          <div className="h-px w-20 bg-[#C5A862]/30 mx-auto mt-2" />
+        </div>
+
+        {/* 3 Large Widescreen Cards for International Destinations */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {(outboundDestinations.length > 0 ? outboundDestinations : [
+            {
+              slug: "bali-indonesia",
+              name: { en: "Bali, Indonesia", es: "Bali, Indonesia", pt: "Bali, Indonésia" },
+              tagline: { en: "Tropical Palaces, Emerald Terraces & Island Luxury", es: "Palacios Tropicales y Lujo en la Isla", pt: "Palácios Tropicais e Luxo na Ilha" },
+              heroImage: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=800"
+            },
+            {
+              slug: "maldives",
+              name: { en: "Maldives Islands", es: "Islas Maldivas", pt: "Ilhas Maldivas" },
+              tagline: { en: "Overwater Villas, Turquoise Atolls & Private Beaches", es: "Villas Sobre Agua y Playas Privadas", pt: "Villas Sobre Água e Praias Privadas" },
+              heroImage: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=800"
+            },
+            {
+              slug: "thailand",
+              name: { en: "Thailand & Bangkok", es: "Tailandia y Bangkok", pt: "Tailândia e Bangcoc" },
+              tagline: { en: "Golden Temples, Floating Markets & Island Retreats", es: "Templos Dorados y Mercados Flotantes", pt: "Templos Dourados e Mercados Flutuantes" },
+              heroImage: "https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=800"
+            }
+          ]).slice(0, 3).map((item: any, idx: number) => {
+            const title = typeof item.name === 'string' ? item.name : (item.name?.[locale] || item.name?.en || item.title?.[locale] || item.title?.en || item.slug);
+            const tagline = typeof item.tagline === 'string' ? item.tagline : (item.tagline?.[locale] || item.tagline?.en || item.description?.[locale] || item.description?.en || "");
+            const itemSlug = item.slug || item.id;
+            const bgImage = item.heroImage || item.image || item.coverImage || "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=800";
+
+            return (
+              <Reveal key={itemSlug} delay={idx * 100}>
+                <Link href={`/${locale}/international-trips/${itemSlug}`} className="group block h-full">
+                  <div className="bg-white border-2 border-[#C5A862]/20 rounded-3xl overflow-hidden shadow-md flex flex-col h-full hover:border-[#C5A862] hover:shadow-xl transition-all duration-500">
+                    <div className="h-64 overflow-hidden relative shrink-0">
+                      <img 
+                        src={getHighResImageUrl(bgImage)} 
+                        alt={title} 
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80" />
+                      <span className="absolute top-4 left-4 bg-[#C5A862] text-[#0A2A1E] text-[9px] uppercase tracking-widest font-extrabold px-3 py-1.5 rounded-full shadow-md">
+                        ✈️ International Outbound
+                      </span>
+                    </div>
+                    <div className="p-6 space-y-3 bg-white flex flex-col flex-grow justify-between">
+                      <div className="space-y-2">
+                        <h3 className="text-xl font-bold font-serif text-[#0A2A1E] group-hover:text-[#C5A862] transition-colors line-clamp-1">
+                          {title}
+                        </h3>
+                        <p className="text-xs text-foreground/65 line-clamp-2 leading-relaxed font-light">
+                          {tagline}
+                        </p>
+                      </div>
+                      <div className="pt-3 border-t border-[#C5A862]/15 flex items-center justify-between text-xs font-bold text-[#C5A862] group-hover:translate-x-1 transition-transform">
+                        <span>View International Tour</span>
+                        <ArrowRight className="w-4 h-4 text-[#C5A862]" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </Reveal>
+            );
+          })}
+        </div>
+
+        {/* View All International Trips Button */}
+        <div className="text-center pt-4">
+          <Link 
+            href={`/${locale}/international-trips`} 
+            className="inline-flex items-center gap-2 bg-[#0A2A1E] hover:bg-[#C5A862] text-white hover:text-[#0A2A1E] text-xs font-extrabold uppercase tracking-widest px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:scale-105"
+          >
+            <span>Explore All International Trips</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
