@@ -170,14 +170,22 @@ export default function OutboundTab({
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editItem.title?.en) {
-      showStatus("English title is required", "error");
+    const titleStr = typeof editItem.title === "string" 
+      ? editItem.title 
+      : (editItem.title?.en || editItem.title?.es || editItem.title?.pt || editItem.slug || "");
+    
+    if (!titleStr && !editItem.slug) {
+      showStatus("Title is required", "error");
       return;
     }
 
     try {
-      const slug = editItem.slug || editItem.title.en.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-      const payload = { ...editItem, slug };
+      const slug = editItem.slug || titleStr.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+      const titleObj = typeof editItem.title === "string"
+        ? { en: editItem.title, es: editItem.title, pt: editItem.title }
+        : { en: editItem.title?.en || titleStr, es: editItem.title?.es || titleStr, pt: editItem.title?.pt || titleStr };
+
+      const payload = { ...editItem, title: titleObj, slug };
 
       await syncClientFirestore("outbound", slug, payload, false);
 

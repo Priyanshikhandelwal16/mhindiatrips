@@ -310,11 +310,13 @@ export default function AdminDashboard() {
   // BLOG ACTIONS
   const handleSaveBlog = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editBlog.slug || !editBlog.title?.en) return showStatus("Slug and title are required.", "error");
+    if (!editBlog) return;
+    const blogSlug = editBlog.slug || editBlog.id || Math.random().toString(36).substring(2, 9);
+    const payload = { ...editBlog, slug: blogSlug };
 
-    await syncClientFirestore("blogs", editBlog.slug, editBlog, false);
-    const isNew = !blogs.find(b => b.slug === editBlog.slug);
-    await (isNew ? createBlogAction(editBlog) : updateBlogAction(editBlog.slug, editBlog));
+    await syncClientFirestore("blogs", blogSlug, payload, false);
+    const isNew = !blogs.find(b => b.slug === blogSlug || b.id === blogSlug);
+    await (isNew ? createBlogAction(payload) : updateBlogAction(blogSlug, payload));
 
     showStatus("Blog article saved successfully!", "success");
     setEditBlog(null);
@@ -331,13 +333,14 @@ export default function AdminDashboard() {
   // TOUR PACKAGES ACTIONS
   const handleSavePackage = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editPackage.slug || !(editPackage.title?.en || typeof editPackage.title === "string")) return showStatus("Slug and title are required.", "error");
+    if (!editPackage) return;
+    const pkgSlug = editPackage.slug || editPackage.id || Math.random().toString(36).substring(2, 9);
+    const payload = { ...editPackage, slug: pkgSlug };
 
-    const pkgSlug = editPackage.slug || editPackage.id;
-    await syncClientFirestore("tour_packages", pkgSlug, editPackage, false);
+    await syncClientFirestore("tour_packages", pkgSlug, payload, false);
 
     const isNew = !packages.find(p => p.slug === pkgSlug || p.id === pkgSlug);
-    await (isNew ? createTourPackageAction(editPackage) : updateTourPackageAction(pkgSlug, editPackage));
+    await (isNew ? createTourPackageAction(payload) : updateTourPackageAction(pkgSlug, payload));
 
     showStatus("Tour package layout saved successfully!", "success");
     setEditPackage(null);
@@ -354,11 +357,13 @@ export default function AdminDashboard() {
   // FOOD CUISINE ACTIONS
   const handleSaveFood = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editFood.slug || !editFood.title?.en) return showStatus("Slug and title are required.", "error");
+    if (!editFood) return;
+    const foodSlug = editFood.slug || editFood.id || Math.random().toString(36).substring(2, 9);
+    const payload = { ...editFood, slug: foodSlug };
 
-    await syncClientFirestore("foods", editFood.slug, editFood, false);
-    const isNew = !foods.find(f => f.slug === editFood.slug);
-    await (isNew ? createFoodAction(editFood) : updateFoodAction(editFood.slug, editFood));
+    await syncClientFirestore("foods", foodSlug, payload, false);
+    const isNew = !foods.find(f => f.slug === foodSlug || f.id === foodSlug);
+    await (isNew ? createFoodAction(payload) : updateFoodAction(foodSlug, payload));
 
     showStatus("Food guide configured successfully!", "success");
     setEditFood(null);
@@ -375,12 +380,13 @@ export default function AdminDashboard() {
   // DESTINATION STATES ACTIONS
   const handleSaveState = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editState.slug || !editState.title?.en) return showStatus("Slug and title are required.", "error");
+    if (!editState) return;
+    const stateSlug = editState.slug || editState.id || Math.random().toString(36).substring(2, 9);
+    const payload = { ...editState, slug: stateSlug, id: stateSlug };
 
-    const stateSlug = editState.slug || editState.id;
-    await syncClientFirestore("states", stateSlug, editState, false);
-    const isNew = !states.find(s => s.slug === stateSlug);
-    await (isNew ? createStateAction(editState) : updateStateAction(stateSlug, editState));
+    await syncClientFirestore("states", stateSlug, payload, false);
+    const isNew = !states.find(s => s.slug === stateSlug || s.id === stateSlug);
+    await (isNew ? createStateAction(payload) : updateStateAction(stateSlug, payload));
 
     showStatus("Destination details saved!", "success");
     setEditState(null);
