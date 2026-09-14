@@ -189,12 +189,12 @@ export default function OutboundTab({
         res = await createOutboundAction(payload);
       }
 
-      if (res.success || res.item || res.updated) {
+      if (res.success || (res as any).item || (res as any).updated) {
         showStatus("Outbound destination saved successfully!", "success");
         setEditItem(null);
         await loadCMSData();
       } else {
-        showStatus(res.error || "Save completed with client sync", "success");
+        showStatus((res as any).error || "Save completed with client sync", "success");
         setEditItem(null);
         await loadCMSData();
       }
