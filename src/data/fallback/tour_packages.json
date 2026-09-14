@@ -2065,7 +2065,7 @@
       "indexRule": "index"
     },
     "endingLocation": "Bengaluru, Karnataka, India",
-    "image": "/images/kerala 3.jpg",
+    "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789383728/mhindiatrips/vldl4dpd4rfj6gepeaon.jpg",
     "gallery": [],
     "status": "published",
     "difficultyLevel": "Easy to Moderate",
@@ -2355,6 +2355,216 @@
         "es": "Cualquier servicio no mencionado.",
         "pt": "Qualquer serviço não indicado.",
         "en": "Any service not specifically mentioned under inclusions."
+      }
+    ],
+    "inclusions": [
+      {
+        "pt": "11 noites de hospedagem em hotéis premium, resorts ou propriedades históricas selecionadas.",
+        "en": "11 nights accommodation in carefully selected premium hotels, resorts or heritage properties.",
+        "es": "11 noches de alojamiento en hoteles premium, resorts o propiedades patrimoniales seleccionadas."
+      },
+      {
+        "es": "Desayuno diario.",
+        "pt": "Café da manhã diário.",
+        "en": "Daily breakfast."
+      },
+      {
+        "es": "Vehículo privado con aire acondicionado.",
+        "en": "Private air-conditioned vehicle.",
+        "pt": "Veículo privado com ar-condicionado."
+      },
+      {
+        "pt": "Motorista privado experiente.",
+        "en": "Experienced private driver.",
+        "es": "Conductor privado experimentado."
+      },
+      {
+        "es": "Traslados de aeropuerto / estación.",
+        "en": "Airport / railway station transfers.",
+        "pt": "Traslados de aeroporto / estação."
+      },
+      {
+        "es": "Visitas en Chennai.",
+        "pt": "Passeios em Chennai.",
+        "en": "Chennai sightseeing."
+      },
+      {
+        "en": "Mahabalipuram sightseeing.",
+        "pt": "Passeios em Mahabalipuram.",
+        "es": "Visitas en Mahabalipuram."
+      },
+      {
+        "es": "Visitas en Pondicherry.",
+        "en": "Pondicherry sightseeing.",
+        "pt": "Passeios em Pondicherry."
+      },
+      {
+        "es": "Visitas en Thanjavur.",
+        "en": "Thanjavur sightseeing.",
+        "pt": "Passeios em Thanjavur."
+      },
+      {
+        "pt": "Passeios em Madurai.",
+        "en": "Madurai sightseeing.",
+        "es": "Visitas en Madurai."
+      },
+      {
+        "pt": "Passeios em Munnar.",
+        "en": "Munnar sightseeing.",
+        "es": "Visitas en Munnar."
+      },
+      {
+        "pt": "Passeios em Thekkady.",
+        "en": "Thekkady sightseeing.",
+        "es": "Visitas en Thekkady."
+      },
+      {
+        "pt": "Experiência nos backwaters de Alleppey.",
+        "en": "Alleppey backwater experience.",
+        "es": "Experiencia en los backwaters de Alleppey."
+      },
+      {
+        "en": "Kochi sightseeing.",
+        "pt": "Passeios em Kochi.",
+        "es": "Visitas en Kochi."
+      },
+      {
+        "en": "Selected heritage site visits.",
+        "pt": "Visitas a locais históricos selecionados.",
+        "es": "Visitas a lugares históricos seleccionados."
+      },
+      {
+        "en": "Professional local guides for selected destinations.",
+        "pt": "Guias locais profissionais.",
+        "es": "Guías locales profesionales."
+      },
+      {
+        "es": "Experiencia en plantación de especias según el paquete.",
+        "en": "Spice plantation experience according to selected package.",
+        "pt": "Experiência em plantação de especiarias conforme o pacote."
+      },
+      {
+        "en": "Tea plantation experience according to selected package.",
+        "pt": "Experiência em plantação de chá conforme o pacote.",
+        "es": "Experiencia en plantación de té según el paquete."
+      },
+      {
+        "es": "Experiencias culturales seleccionadas.",
+        "pt": "Experiências culturais selecionadas.",
+        "en": "Traditional cultural experiences according to selected package."
+      },
+      {
+        "en": "Bottled drinking water during sightseeing and transfers.",
+        "pt": "Água mineral durante os traslados.",
+        "es": "Agua embotellada durante los traslados."
+      },
+      {
+        "es": "Asistencia local durante todo el viaje.",
+        "pt": "Assistência local durante toda a viagem.",
+        "en": "Local travel assistance throughout the journey."
+      },
+      {
+        "es": "Impuestos aplicables.",
+        "pt": "Impostos aplicáveis.",
+        "en": "Applicable accommodation and transportation taxes."
+      }
+    ],
+    "add_ons": [
+      {
+        "desc": {
+          "pt": "Faça um upgrade em Alleppey com um houseboat privado tradicional de Kerala e aproveite uma viagem tranquila pelos backwaters.",
+          "en": "Upgrade your Alleppey experience with a private traditional Kerala houseboat and enjoy a peaceful journey through the backwaters.",
+          "es": "Mejore su experiencia en Alleppey con un houseboat privado tradicional y disfrute de un viaje tranquilo por los backwaters."
+        },
+        "name": {
+          "es": "Houseboat Privado Tradicional",
+          "pt": "Houseboat Privado Tradicional",
+          "en": "Private Kerala Houseboat"
+        },
+        "currency": "EUR",
+        "isActive": true,
+        "price": "120",
+        "duration": "Overnight"
+      },
+      {
+        "isActive": true,
+        "price": "20",
+        "currency": "EUR",
+        "name": {
+          "es": "Experiencia en Plantación de Té",
+          "pt": "Experiência em Plantação de Chá",
+          "en": "Tea Plantation Experience"
+        },
+        "desc": {
+          "es": "Visite una plantación de té en Munnar y conozca el cultivo, procesamiento y degustación del té.",
+          "pt": "Visite uma praceta de chá em Munnar e conheça o cultivo, processamento e degustação do chá.",
+          "en": "Visit a tea plantation in Munnar and learn about tea cultivation, processing and tasting."
+        },
+        "duration": "3 Hours"
+      },
+      {
+        "duration": "2 Hours",
+        "price": "15",
+        "desc": {
+          "es": "Camine por una plantación aromática de especias y descubra el cultivo tradicional de cardamomo, pimienta, canela y otras especias.",
+          "en": "Walk through a fragrant spice plantation and discover Kerala's traditional cultivation of cardamom, pepper, cinnamon and other spices.",
+          "pt": "Caminhe por uma plantação aromática e conheça o cultivo tradicional de cardamomo, pimenta, canela e outras especiarias."
+        },
+        "currency": "EUR",
+        "isActive": true,
+        "name": {
+          "pt": "Passeio por Plantação de Especiarias",
+          "en": "Spice Plantation Walk",
+          "es": "Paseo por Plantación de Especias"
+        }
+      },
+      {
+        "price": "35",
+        "isActive": true,
+        "currency": "EUR",
+        "duration": "3 Hours",
+        "desc": {
+          "pt": "Aprenda a preparar pratos tradicionais do sul da Índia através de uma experiência prática de culinária local.",
+          "en": "Learn how traditional South Indian dishes are prepared through a hands-on local cooking experience.",
+          "es": "Aprenda a preparar platos tradicionales del sur de India mediante una experiencia práctica de cocina local."
+        },
+        "name": {
+          "es": "Clase de Cocina del Sur de India",
+          "pt": "Aula de Culinária do Sul da Índia",
+          "en": "South Indian Cooking Experience"
+        }
+      },
+      {
+        "currency": "EUR",
+        "name": {
+          "es": "Espectáculo de Danza Clásica",
+          "en": "Classical Dance Experience",
+          "pt": "Apresentação de Dança Clássica"
+        },
+        "isActive": true,
+        "desc": {
+          "pt": "Conheça a elegância da dança clássica do sul da Índia através de uma apresentação cultural especialmente organizada.",
+          "en": "Experience the elegance of South Indian classical dance through a specially arranged cultural performance.",
+          "es": "Descubra la elegancia de la danza clásica del sur de India mediante una actuación cultural especialmente organizada."
+        },
+        "duration": "2 Hours",
+        "price": "25"
+      },
+      {
+        "duration": "2 Hours",
+        "name": {
+          "pt": "Passeio de Canoa pelos Backwaters",
+          "en": "Backwater Canoe Experience",
+          "es": "Excursión en Canoa por Backwaters"
+        },
+        "isActive": true,
+        "currency": "EUR",
+        "desc": {
+          "pt": "Explore canais e vias tranquilas em uma canoa tradicional para conhecer mais de perto a vida dos backwaters.",
+          "en": "Explore quieter canals and waterways by traditional canoe for a more intimate view of Kerala's backwater life.",
+          "es": "Explore canales y vías fluviales más tranquilos en una canoa tradicional para conocer de cerca la vida de los backwaters."
+        },
+        "price": "20"
       }
     ]
   },

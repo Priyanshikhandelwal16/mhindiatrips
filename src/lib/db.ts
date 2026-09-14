@@ -667,7 +667,7 @@ let pagesCache = getFreshPagesCache();
 
 let isFirestoreHealthy = true;
 
-function withTimeout<T>(promise: Promise<T>, ms: number = 300): Promise<T> {
+function withTimeout<T>(promise: Promise<T>, ms: number = 5000): Promise<T> {
   return Promise.race([
     promise,
     new Promise<T>((_, reject) => setTimeout(() => reject(new Error("FIRESTORE_TIMEOUT")), ms))
@@ -675,29 +675,21 @@ function withTimeout<T>(promise: Promise<T>, ms: number = 300): Promise<T> {
 }
 
 async function fetchCollectionDocs(colName: string): Promise<any[] | null> {
-  if (!isFirestoreHealthy && !useFirestore) return null;
-
   const adminDb = getAdminFirestore();
-  if (adminDb && isFirestoreHealthy) {
+  if (adminDb) {
     try {
-      const snapshot: any = await withTimeout(adminDb.collection(colName).get(), 300);
+      const snapshot: any = await withTimeout(adminDb.collection(colName).get(), 5000);
       return snapshot.docs.map((d: any) => ({ id: d.id, ...d.data() }));
     } catch (e: any) {
       console.warn(`[db] Admin SDK collection(${colName}).get() fallback to local JSON:`, e.message || e);
-      if (e.message && (e.message.includes("TIMEOUT") || e.message.includes("FIRESTORE_TIMEOUT"))) {
-        isFirestoreHealthy = false;
-      }
     }
   }
   if (useFirestore && firestore) {
     try {
-      const snapshot: any = await withTimeout(getDocs(collection(firestore, colName)), 300);
+      const snapshot: any = await withTimeout(getDocs(collection(firestore, colName)), 5000);
       return snapshot.docs.map((d: any) => ({ id: d.id, ...d.data() }));
     } catch (e: any) {
       console.warn(`[db] Web SDK collection(${colName}).get() error or timeout, falling back:`, e.message || e);
-      if (e.message && (e.message.includes("PERMISSION_DENIED") || e.message.includes("TIMEOUT") || e.message.includes("disabled"))) {
-        useFirestore = false;
-      }
     }
   }
   return null;
@@ -878,7 +870,7 @@ export const db = {
         const firestoreMap = new Map(firestoreData.map((b: any) => [b.slug, b]));
         const localData = mergedBlogs;
         const merged = localData
-          .map((b: any) => firestoreMap.has(b.slug) ? { ...firestoreMap.get(b.slug), ...b } : b)
+          .map((b: any) => firestoreMap.has(b.slug) ? { ...b, ...firestoreMap.get(b.slug) } : b)
           .filter((b: any) => b.isDeleted !== true);
         const localSlugs = new Set(localData.map((b: any) => b.slug));
         const extraItems = firestoreData.filter((b: any) => !localSlugs.has(b.slug) && b.isDeleted !== true);
@@ -957,7 +949,7 @@ export const db = {
         const cleanFirestoreData = firestoreData.filter((s: any) => s && s.id && s.id !== "undefined");
         const firestoreMap = new Map(cleanFirestoreData.map((s: any) => [s.id, s]));
         const merged = localData
-          .map((s: any) => firestoreMap.has(s.id) ? { ...firestoreMap.get(s.id), ...s } : s)
+          .map((s: any) => firestoreMap.has(s.id) ? { ...s, ...firestoreMap.get(s.id) } : s)
           .filter((s: any) => s.isDeleted !== true);
         const localIds = new Set(localData.map((s: any) => s.id));
         const extraItems = cleanFirestoreData.filter((s: any) => !localIds.has(s.id) && s.isDeleted !== true);
@@ -1043,7 +1035,7 @@ export const db = {
         const cleanFirestoreData = firestoreData.filter((c: any) => c && c.id && c.id !== "undefined" && c.stateId && c.stateId !== "undefined");
         const firestoreMap = new Map(cleanFirestoreData.map((c: any) => [c.id, c]));
         const merged = localData
-          .map((c: any) => firestoreMap.has(c.id) ? { ...firestoreMap.get(c.id), ...c } : c)
+          .map((c: any) => firestoreMap.has(c.id) ? { ...c, ...firestoreMap.get(c.id) } : c)
           .filter((c: any) => c.isDeleted !== true);
         const localIds = new Set(localData.map((c: any) => c.id));
         const extraItems = cleanFirestoreData.filter((c: any) => !localIds.has(c.id) && c.isDeleted !== true);
@@ -1114,7 +1106,7 @@ export const db = {
       if (firestoreData) {
         const firestoreMap = new Map(firestoreData.map((f: any) => [f.slug, f]));
         const merged = localData
-          .map((f: any) => firestoreMap.has(f.slug) ? { ...firestoreMap.get(f.slug), ...f } : f)
+          .map((f: any) => firestoreMap.has(f.slug) ? { ...f, ...firestoreMap.get(f.slug) } : f)
           .filter((f: any) => f.isDeleted !== true);
         const localSlugs = new Set(localData.map((f: any) => f.slug));
         const extraItems = firestoreData.filter((f: any) => !localSlugs.has(f.slug) && f.isDeleted !== true);
@@ -1173,7 +1165,7 @@ export const db = {
       if (firestoreData) {
         const firestoreMap = new Map(firestoreData.map((t: any) => [t.id, t]));
         const merged = localData
-          .map((t: any) => firestoreMap.has(t.id) ? { ...firestoreMap.get(t.id), ...t } : t)
+          .map((t: any) => firestoreMap.has(t.id) ? { ...t, ...firestoreMap.get(t.id) } : t)
           .filter((t: any) => t.isDeleted !== true);
         const localIds = new Set(localData.map((t: any) => t.id));
         const extraItems = firestoreData.filter((t: any) => !localIds.has(t.id) && t.isDeleted !== true);
@@ -1243,8 +1235,8 @@ export const db = {
             if (firestoreMap.has(key)) {
               const fsDoc = firestoreMap.get(key);
               if (fsDoc.isDeleted === true) return null;
-              // Local JSON data (p) takes precedence over Firestore doc (fsDoc) so local edits & uploaded images are preserved
-              return { ...fsDoc, ...p };
+              // Firestore doc (fsDoc) takes precedence over static local fallbacks so deployed admin edits & uploaded images persist
+              return { ...p, ...fsDoc };
             }
             return p;
           })
@@ -1306,7 +1298,7 @@ export const db = {
       if (firestoreData) {
         const firestoreMap = new Map(firestoreData.map((p: any) => [p.id, p]));
         const merged = pagesCache
-          .map((p: any) => firestoreMap.has(p.id) ? { ...firestoreMap.get(p.id), ...p } : p)
+          .map((p: any) => firestoreMap.has(p.id) ? { ...p, ...firestoreMap.get(p.id) } : p)
           .filter((p: any) => p.isDeleted !== true);
         const localIds = new Set(pagesCache.map((p: any) => p.id));
         const extraItems = firestoreData.filter((p: any) => !localIds.has(p.id) && p.isDeleted !== true);
@@ -1369,7 +1361,7 @@ export const db = {
       const firestoreData = await fetchCollectionDocs("settings");
       if (firestoreData) {
         const firestoreMap = new Map(firestoreData.map((s: any) => [s.id, s]));
-        const merged = localData.map((s: any) => firestoreMap.has(s.id) ? { ...firestoreMap.get(s.id), ...s } : s);
+        const merged = localData.map((s: any) => firestoreMap.has(s.id) ? { ...s, ...firestoreMap.get(s.id) } : s);
         const localIds = new Set(localData.map((s: any) => s.id));
         const extraItems = firestoreData.filter((s: any) => !localIds.has(s.id));
         return cleanEmail([...merged, ...extraItems]);
@@ -1407,7 +1399,7 @@ export const db = {
       if (firestoreData) {
         const firestoreMap = new Map(firestoreData.map((o: any) => [o.slug || o.id, o]));
         const merged = outboundCache
-          .map((o: any) => firestoreMap.has(o.slug || o.id) ? { ...firestoreMap.get(o.slug || o.id), ...o } : o)
+          .map((o: any) => firestoreMap.has(o.slug || o.id) ? { ...o, ...firestoreMap.get(o.slug || o.id) } : o)
           .filter((o: any) => o.isDeleted !== true);
         const localSlugs = new Set(outboundCache.map((o: any) => o.slug || o.id));
         const extraItems = firestoreData.filter((o: any) => !localSlugs.has(o.slug || o.id) && o.isDeleted !== true);
