@@ -884,7 +884,7 @@ export const db = {
         const firestoreMap = new Map(firestoreData.map((b: any) => [b.slug, b]));
         const localData = mergedBlogs;
         const merged = localData
-          .map((b: any) => firestoreMap.has(b.slug) ? firestoreMap.get(b.slug) : b)
+          .map((b: any) => firestoreMap.has(b.slug) ? { ...firestoreMap.get(b.slug), ...b } : b)
           .filter((b: any) => b.isDeleted !== true);
         const localSlugs = new Set(localData.map((b: any) => b.slug));
         const extraItems = firestoreData.filter((b: any) => !localSlugs.has(b.slug) && b.isDeleted !== true);
@@ -958,7 +958,7 @@ export const db = {
         const cleanFirestoreData = firestoreData.filter((s: any) => s && s.id && s.id !== "undefined");
         const firestoreMap = new Map(cleanFirestoreData.map((s: any) => [s.id, s]));
         const merged = localData
-          .map((s: any) => firestoreMap.has(s.id) ? firestoreMap.get(s.id) : s)
+          .map((s: any) => firestoreMap.has(s.id) ? { ...firestoreMap.get(s.id), ...s } : s)
           .filter((s: any) => s.isDeleted !== true);
         const localIds = new Set(localData.map((s: any) => s.id));
         const extraItems = cleanFirestoreData.filter((s: any) => !localIds.has(s.id) && s.isDeleted !== true);
@@ -1039,7 +1039,7 @@ export const db = {
         const cleanFirestoreData = firestoreData.filter((c: any) => c && c.id && c.id !== "undefined" && c.stateId && c.stateId !== "undefined");
         const firestoreMap = new Map(cleanFirestoreData.map((c: any) => [c.id, c]));
         const merged = localData
-          .map((c: any) => firestoreMap.has(c.id) ? firestoreMap.get(c.id) : c)
+          .map((c: any) => firestoreMap.has(c.id) ? { ...firestoreMap.get(c.id), ...c } : c)
           .filter((c: any) => c.isDeleted !== true);
         const localIds = new Set(localData.map((c: any) => c.id));
         const extraItems = cleanFirestoreData.filter((c: any) => !localIds.has(c.id) && c.isDeleted !== true);
@@ -1105,7 +1105,7 @@ export const db = {
       if (firestoreData) {
         const firestoreMap = new Map(firestoreData.map((f: any) => [f.slug, f]));
         const merged = localData
-          .map((f: any) => firestoreMap.has(f.slug) ? firestoreMap.get(f.slug) : f)
+          .map((f: any) => firestoreMap.has(f.slug) ? { ...firestoreMap.get(f.slug), ...f } : f)
           .filter((f: any) => f.isDeleted !== true);
         const localSlugs = new Set(localData.map((f: any) => f.slug));
         const extraItems = firestoreData.filter((f: any) => !localSlugs.has(f.slug) && f.isDeleted !== true);
@@ -1159,7 +1159,7 @@ export const db = {
       if (firestoreData) {
         const firestoreMap = new Map(firestoreData.map((t: any) => [t.id, t]));
         const merged = localData
-          .map((t: any) => firestoreMap.has(t.id) ? firestoreMap.get(t.id) : t)
+          .map((t: any) => firestoreMap.has(t.id) ? { ...firestoreMap.get(t.id), ...t } : t)
           .filter((t: any) => t.isDeleted !== true);
         const localIds = new Set(localData.map((t: any) => t.id));
         const extraItems = firestoreData.filter((t: any) => !localIds.has(t.id) && t.isDeleted !== true);
@@ -1224,18 +1224,8 @@ export const db = {
             if (firestoreMap.has(key)) {
               const fsDoc = firestoreMap.get(key);
               if (fsDoc.isDeleted === true) return null;
-              // Safe merge: keep local rich fields if fsDoc fields are empty/undefined
-              const mergedPkg = { ...p };
-              for (const prop of Object.keys(fsDoc)) {
-                if (fsDoc[prop] !== undefined && fsDoc[prop] !== null) {
-                  // If array, only override if non-empty or explicitly managed
-                  if (Array.isArray(fsDoc[prop]) && fsDoc[prop].length === 0 && Array.isArray(p[prop]) && p[prop].length > 0) {
-                    continue; // keep local rich array
-                  }
-                  mergedPkg[prop] = fsDoc[prop];
-                }
-              }
-              return mergedPkg;
+              // Local JSON data (p) takes precedence over Firestore doc (fsDoc) so local edits & uploaded images are preserved
+              return { ...fsDoc, ...p };
             }
             return p;
           })
@@ -1296,7 +1286,7 @@ export const db = {
       if (firestoreData) {
         const firestoreMap = new Map(firestoreData.map((p: any) => [p.id, p]));
         const merged = pagesCache
-          .map((p: any) => firestoreMap.has(p.id) ? firestoreMap.get(p.id) : p)
+          .map((p: any) => firestoreMap.has(p.id) ? { ...firestoreMap.get(p.id), ...p } : p)
           .filter((p: any) => p.isDeleted !== true);
         const localIds = new Set(pagesCache.map((p: any) => p.id));
         const extraItems = firestoreData.filter((p: any) => !localIds.has(p.id) && p.isDeleted !== true);
@@ -1348,7 +1338,7 @@ export const db = {
       const firestoreData = await fetchCollectionDocs("settings");
       if (firestoreData) {
         const firestoreMap = new Map(firestoreData.map((s: any) => [s.id, s]));
-        const merged = localData.map((s: any) => firestoreMap.has(s.id) ? firestoreMap.get(s.id) : s);
+        const merged = localData.map((s: any) => firestoreMap.has(s.id) ? { ...firestoreMap.get(s.id), ...s } : s);
         const localIds = new Set(localData.map((s: any) => s.id));
         const extraItems = firestoreData.filter((s: any) => !localIds.has(s.id));
         return cleanEmail([...merged, ...extraItems]);
@@ -1386,7 +1376,7 @@ export const db = {
       if (firestoreData) {
         const firestoreMap = new Map(firestoreData.map((o: any) => [o.slug || o.id, o]));
         const merged = outboundCache
-          .map((o: any) => firestoreMap.has(o.slug || o.id) ? firestoreMap.get(o.slug || o.id) : o)
+          .map((o: any) => firestoreMap.has(o.slug || o.id) ? { ...firestoreMap.get(o.slug || o.id), ...o } : o)
           .filter((o: any) => o.isDeleted !== true);
         const localSlugs = new Set(outboundCache.map((o: any) => o.slug || o.id));
         const extraItems = firestoreData.filter((o: any) => !localSlugs.has(o.slug || o.id) && o.isDeleted !== true);
