@@ -116,11 +116,10 @@ export default function PackagesFilterSection({
                     <span className="text-[10px] uppercase tracking-wider font-extrabold text-gold block">{text.inclusionsTitle}</span>
                     <div className="space-y-2">
                       {pkg.highlights && pkg.highlights.slice(0, 4).map((hl: any, idx: number) => {
-                        // Support both old format (plain string object) and new format ({title, desc, icon})
-                        const label = hl.title
-                          ? (hl.title[locale as "en" | "es" | "pt"] || hl.title.en)
-                          : (hl[locale as "en" | "es" | "pt"] || hl.en);
-                        if (!label) return null;
+                        const label = typeof hl === "string" 
+                          ? hl 
+                          : (hl?.title?.[locale] || hl?.title?.en || hl?.[locale] || hl?.en || (typeof hl?.title === "string" ? hl.title : ""));
+                        if (!label || typeof label !== "string") return null;
                         return (
                           <div key={idx} className="flex items-start gap-2 text-xs text-foreground/65 font-light">
                             <CheckCircle className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />

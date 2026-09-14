@@ -221,12 +221,18 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
                 {text.featuredDesc}
               </p>
               <div className="space-y-3 pt-2">
-                {featured?.highlights?.slice(0, 3).map((hl: any, idx: number) => (
-                  <div key={idx} className="flex items-start gap-3 text-xs text-ivory-200/75 font-sans font-light">
-                    <Sparkles className="w-4 h-4 text-sand-400 shrink-0 mt-0.5" />
-                    <span>{hl[lang] || hl.en}</span>
-                  </div>
-                ))}
+                {featured?.highlights?.slice(0, 3).map((hl: any, idx: number) => {
+                  const label = typeof hl === "string" 
+                    ? hl 
+                    : (hl?.title?.[lang] || hl?.title?.en || hl?.[lang] || hl?.en || (typeof hl?.title === "string" ? hl.title : ""));
+                  if (!label || typeof label !== "string") return null;
+                  return (
+                    <div key={idx} className="flex items-start gap-3 text-xs text-ivory-200/75 font-sans font-light">
+                      <Sparkles className="w-4 h-4 text-sand-400 shrink-0 mt-0.5" />
+                      <span>{label}</span>
+                    </div>
+                  );
+                })}
               </div>
               <div className="pt-6">
                 <Link
