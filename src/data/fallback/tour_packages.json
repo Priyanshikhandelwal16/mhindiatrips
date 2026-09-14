@@ -38,7 +38,7 @@
           "pt": "Explore o magnífico Grande Palácio e Wat Pho em Bangkok."
         },
         "icon": "Landmark",
-        "image": "https://images.unsplash.com/photo-1563492065599-3520f775eeed?q=80&w=800",
+        "image": "https://images.unsplash.com/photo-1563492065599-3520f775eeed?q=80&w=1920&q=95",
         "displayOrder": 1,
         "isActive": true
       },
@@ -54,7 +54,7 @@
           "pt": "Descubra os antigos templos e o patrimônio cultural de Chiang Mai."
         },
         "icon": "Compass",
-        "image": "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?q=80&w=800",
+        "image": "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?q=80&w=1920&q=95",
         "displayOrder": 2,
         "isActive": true
       },
@@ -70,7 +70,7 @@
           "pt": "Visite um santuário ético de elefantes com práticas responsáveis sem montaria."
         },
         "icon": "Heart",
-        "image": "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?q=80&w=800",
+        "image": "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?q=80&w=1920&q=95",
         "displayOrder": 3,
         "isActive": true
       },
@@ -86,7 +86,7 @@
           "pt": "Relaxe em um resort de praia de luxo em Phuket."
         },
         "icon": "Sun",
-        "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800",
+        "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1920&q=95",
         "displayOrder": 4,
         "isActive": true
       },
@@ -102,7 +102,7 @@
           "pt": "Navegue pelas águas azul-turquesa das ilhas Phi Phi."
         },
         "icon": "Ship",
-        "image": "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=800",
+        "image": "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1920&q=95",
         "displayOrder": 5,
         "isActive": true
       }
@@ -509,56 +509,56 @@
     },
     "gallery": [
       {
-        "url": "https://images.unsplash.com/photo-1563492065599-3520f775eeed?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1563492065599-3520f775eeed?q=80&w=1920&q=95",
         "title": "Grand Palace, Bangkok",
         "alt": "Bangkok Grand Palace",
         "caption": "Grand Palace, Bangkok — Gran Palacio, Bangkok — Grande Palácio, Bangkok",
         "displayOrder": 1
       },
       {
-        "url": "https://images.unsplash.com/photo-1546412414-8035e1786b9b?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1546412414-8035e1786b9b?q=80&w=1920&q=95",
         "title": "Wat Pho Reclining Buddha",
         "alt": "Wat Pho Reclining Buddha",
         "caption": "Wat Pho Reclining Buddha, Bangkok",
         "displayOrder": 2
       },
       {
-        "url": "https://images.unsplash.com/photo-1506665531195-3566fe274677?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1506665531195-3566fe274677?q=80&w=1920&q=95",
         "title": "Bangkok Skyline & River",
         "alt": "Chao Phraya River Bangkok",
         "caption": "Chao Phraya River & Bangkok Skyline",
         "displayOrder": 3
       },
       {
-        "url": "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?q=80&w=1920&q=95",
         "title": "Chiang Mai Temple",
         "alt": "Chiang Mai Historic Temple",
         "caption": "Chiang Mai Temple — Templo de Chiang Mai — Templo de Chiang Mai",
         "displayOrder": 4
       },
       {
-        "url": "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?q=80&w=1920&q=95",
         "title": "Chiang Mai Elephant Sanctuary",
         "alt": "Ethical Elephant Sanctuary",
         "caption": "Ethical Elephant Sanctuary Chiang Mai",
         "displayOrder": 5
       },
       {
-        "url": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1920&q=95",
         "title": "Tropical Phuket Beach",
         "alt": "Phuket Luxury Beach Resort",
         "caption": "Tropical Phuket — Phuket Tropical — Phuket Tropical",
         "displayOrder": 6
       },
       {
-        "url": "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1920&q=95",
         "title": "Phi Phi Islands Aerial View",
         "alt": "Phi Phi Islands Aerial",
         "caption": "Phi Phi Islands — Islas Phi Phi — Ilhas Phi Phi",
         "displayOrder": 7
       },
       {
-        "url": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1920&q=95",
         "title": "Phi Phi Turquoise Lagoon Cruise",
         "alt": "Phi Phi Boat Cruise",
         "caption": "Turquoise waters of Phi Phi Islands",
@@ -3255,7 +3255,7 @@
       }
     ],
     "isDeleted": true,
-    "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=800",
+    "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=1920&q=95",
     "travelInfo": {
       "accommodation": "5-star & boutique palace hotels",
       "languages": "English, Spanish, Portuguese",
@@ -4320,7 +4320,8 @@
           "pt": "Chegada a Delhi - Boas-vindas à Capital Gastronômica da Índia",
           "en": "Arrival in Delhi - Welcome to India's Culinary Capital"
         },
-        "overnight": "Delhi"
+        "overnight": "Delhi",
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789384819/mhindiatrips/jyf4jkwus2dawpirjko7.jpg"
       },
       {
         "sightseeing": "Delhi Street Food, Chaat, Traditional Sweets, Mughlai Cuisine, Local Markets",
@@ -4342,7 +4343,8 @@
           "pt": "Exploração da comida de rua em Delhi, seus mercados históricos e jantar de culinária Mughlai.",
           "en": "Begin your culinary exploration of Delhi. Visit historic neighbourhoods and discover the city's famous food culture. Explore traditional markets and taste selected North Indian snacks, sweets and savoury dishes. In the evening, enjoy a Mughlai-inspired dining experience.",
           "es": "Exploración de la comida callejera en Delhi, sus mercados históricos y cena de cocina Mughlai."
-        }
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789384892/mhindiatrips/muvlhibnfwzfp9o3bxap.jpg"
       },
       {
         "location": "Agra",
@@ -4363,7 +4365,8 @@
           "Heritage Tour",
           "Food Experience"
         ],
-        "meals": "Breakfast"
+        "meals": "Breakfast",
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789384932/mhindiatrips/kjnqfic4kqba0dxc4s3v.jpg"
       },
       {
         "meals": "Breakfast",
@@ -4383,7 +4386,8 @@
         "activities": [
           "Scenic Drive",
           "Heritage Dining"
-        ]
+        ],
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789384954/mhindiatrips/tdzyekiwwktuefnycjax.jpg"
       },
       {
         "desc": {
@@ -4406,7 +4410,8 @@
           "Local Sweets",
           "Street Snacks",
           "Cooking Experience"
-        ]
+        ],
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385086/mhindiatrips/eue2plhaoeohtsftodn1.jpg"
       },
       {
         "overnight": "Jodhpur",
@@ -4427,7 +4432,8 @@
           "en": "Travel to Jodhpur. Explore the historic old city and colourful markets. Discover local specialities and traditional Rajasthani snacks. Enjoy an evening dinner overlooking the Blue City."
         },
         "day": 6,
-        "location": "Jodhpur"
+        "location": "Jodhpur",
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385099/mhindiatrips/lgcemuhaylvlmfoyqs8l.jpg"
       },
       {
         "day": 7,
@@ -4448,7 +4454,8 @@
           "en": "Jodhpur → Udaipur - Royal Rajasthan & Lakeside Dining",
           "pt": "Jodhpur → Udaipur - Rajastão Real e Jantar à Beira do Lago",
           "es": "Jodhpur → Udaipur - Rajasthan Real y Cena Junto al Lago"
-        }
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385152/mhindiatrips/xoiyyxpmalgwsadzaxd4.jpg"
       },
       {
         "meals": "Breakfast",
@@ -4469,7 +4476,8 @@
           "en": "Travel to Mumbai by selected domestic flight. Upon arrival, explore Mumbai's multicultural culinary scene. Discover local street food, historic cafés and the city's famous snack culture.",
           "es": "Vuelo a Mumbai y paseo de comida callejera (Vada Pav, Pav Bhaji, Bhel Puri)."
         },
-        "location": "Mumbai"
+        "location": "Mumbai",
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385178/mhindiatrips/zfud0vawaruki0yy9unh.jpg"
       },
       {
         "title": {
@@ -4489,7 +4497,8 @@
           "Scenic Transfer",
           "Coastal Dining"
         ],
-        "location": "Goa"
+        "location": "Goa",
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385187/mhindiatrips/edlukhijacmj8eqj3uzq.jpg"
       },
       {
         "desc": {
@@ -4511,7 +4520,8 @@
           "Cultural Exploration"
         ],
         "sightseeing": "Goan Seafood, Coconut Curries, Traditional Breads, Local Sweets, Indo-Portuguese Cuisine",
-        "location": "Goa"
+        "location": "Goa",
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385202/mhindiatrips/spfhaek27fephosjnkgs.jpg"
       },
       {
         "location": "Kochi",
@@ -4532,7 +4542,8 @@
         },
         "meals": "Breakfast",
         "overnight": "Kochi",
-        "day": 11
+        "day": 11,
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385224/mhindiatrips/cyhc1n6otgmfcr0ah9hp.jpg"
       },
       {
         "day": 12,
@@ -4552,7 +4563,8 @@
           "es": "Desayuno y traslado privado de salida al aeropuerto de Kochi.",
           "pt": "Café da manhã e traslado privado de partida ao aeroporto de Kochi.",
           "en": "Enjoy your final breakfast. Depending on your departure time, explore local markets or enjoy one final Kerala culinary experience. Transfer to Kochi Airport for your onward journey."
-        }
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385301/mhindiatrips/nryhfb2dhukmujz6avds.jpg"
       }
     ],
     "faqs": [
@@ -4969,7 +4981,191 @@
       "en": "Travel across India through its most unforgettable flavours, from Delhi street food and Mughlai cuisine to Rajasthani royal kitchens, Mumbai's vibrant food scene, Goan seafood and Kerala's aromatic spices.",
       "pt": "Viaje pela Índia através de seus sabores mais inesquecíveis, desde a comida de rua de Delhi e a culinária Mughlai até as cozinhas reais do Rajastão, a gastronomia de Mumbai, os frutos do mar de Goa e as especiarias de Kerala."
     },
-    "durationNights": 11
+    "durationNights": 11,
+    "inclusions": [
+      {
+        "es": "11 noches de alojamiento en hoteles premium y propiedades históricas seleccionadas.",
+        "en": "11 nights accommodation in carefully selected premium hotels and heritage properties.",
+        "pt": "11 noites de hospedagem em hotéis premium e propriedades históricas selecionadas."
+      },
+      {
+        "es": "Desayuno diario.",
+        "en": "Daily breakfast.",
+        "pt": "Café da manhã diário."
+      },
+      {
+        "es": "Vehículo privado con aire acondicionado.",
+        "pt": "Veículo privado com ar-condicionado.",
+        "en": "Private air-conditioned vehicle for road journeys."
+      },
+      {
+        "pt": "Motorista privado experiente.",
+        "en": "Experienced private driver.",
+        "es": "Conductor privado experimentado."
+      },
+      {
+        "es": "Traslados de aeropuerto / estación.",
+        "pt": "Traslados de aeroporto / estação.",
+        "en": "Airport / railway station transfers."
+      },
+      {
+        "en": "Delhi culinary and heritage experience.",
+        "pt": "Experiência gastronômica e cultural em Delhi.",
+        "es": "Experiencia gastronómica y cultural en Delhi."
+      },
+      {
+        "es": "Visitas en Agra.",
+        "pt": "Passeios em Agra.",
+        "en": "Agra sightseeing."
+      },
+      {
+        "pt": "Experiência culinária em Jaipur.",
+        "en": "Jaipur culinary experience.",
+        "es": "Experiencia culinaria en Jaipur."
+      },
+      {
+        "es": "Experiencia gastronómica y de mercados en Jodhpur.",
+        "en": "Jodhpur food and market experience.",
+        "pt": "Experiência gastronômica e de mercados em Jodhpur."
+      },
+      {
+        "en": "Udaipur heritage and dining experience.",
+        "pt": "Experiência cultural e gastronômica em Udaipur.",
+        "es": "Experiencia cultural y gastronómica en Udaipur."
+      },
+      {
+        "en": "Mumbai food exploration.",
+        "pt": "Exploração gastronômica em Mumbai.",
+        "es": "Exploración gastronómica en Mumbai."
+      },
+      {
+        "es": "Experiencia culinaria en Goa.",
+        "en": "Goa culinary experience.",
+        "pt": "Experiência culinária em Goa."
+      },
+      {
+        "es": "Experiencia culinaria en Kerala.",
+        "en": "Kerala culinary experience.",
+        "pt": "Experiência culinária em Kerala."
+      },
+      {
+        "es": "Recorridos gastronómicos seleccionados.",
+        "en": "Selected local food walks.",
+        "pt": "Passeios gastronômicos selecionados."
+      },
+      {
+        "pt": "Aulas de culinária selecionadas.",
+        "en": "Selected cooking classes.",
+        "es": "Clases de cocina seleccionadas."
+      },
+      {
+        "es": "Experiencias gastronómicas especiales.",
+        "en": "Selected heritage dining experiences.",
+        "pt": "Experiências gastronômicas especiais."
+      },
+      {
+        "pt": "Guias locais profissionais.",
+        "en": "Professional local guides for selected destinations.",
+        "es": "Guías locales profesionales."
+      },
+      {
+        "es": "Agua embotellada.",
+        "en": "Bottled drinking water during sightseeing and transfers.",
+        "pt": "Água mineral durante os traslados."
+      },
+      {
+        "es": "Asistencia local durante todo el viaje.",
+        "en": "Local travel assistance throughout the journey.",
+        "pt": "Assistência local durante toda a viagem."
+      },
+      {
+        "es": "Impuestos aplicables.",
+        "en": "Applicable accommodation and transportation taxes.",
+        "pt": "Impostos aplicáveis."
+      }
+    ],
+    "add_ons": [
+      {
+        "currency": "EUR",
+        "isActive": true,
+        "duration": "3 Hours",
+        "desc": {
+          "es": "Aprenda a preparar platos auténticos con un chef local o cocinero tradicional y descubra las especias y técnicas de la cocina india.",
+          "pt": "Aprenda a preparar pratos autênticos com um chef local ou cozinheiro tradicional e descubra as especiarias e técnicas da culinária indiana.",
+          "en": "Learn to prepare authentic Indian dishes with a local chef or home cook and discover the spices, techniques and traditions behind the cuisine."
+        },
+        "name": {
+          "pt": "Aula de Culinária Indiana Privada",
+          "en": "Private Indian Cooking Class",
+          "es": "Clase de Cocina India Privada"
+        },
+        "price": "35"
+      },
+      {
+        "currency": "EUR",
+        "isActive": true,
+        "name": {
+          "es": "Visita a un Mercado de Especias",
+          "pt": "Visita a um Mercado de Especiarias",
+          "en": "Spice Market Experience"
+        },
+        "desc": {
+          "pt": "Explore um mercado tradicional de especiarias com um guia local e descubra como elas influenciam as cozinhas regionais.",
+          "en": "Explore a traditional spice market with a local guide and learn how India's spices shape its regional cuisines.",
+          "es": "Explore un mercado tradicional de especias con un guía local y descubra cómo las especias definen las cocinas regionales."
+        },
+        "price": "15",
+        "duration": "2 Hours"
+      },
+      {
+        "price": "60",
+        "duration": "3 Hours",
+        "isActive": true,
+        "name": {
+          "en": "Premium Heritage Dinner",
+          "pt": "Jantar Histórico de Luxo",
+          "es": "Cena Histórica de Lujo"
+        },
+        "currency": "EUR",
+        "desc": {
+          "es": "Disfrute de una cena elegante inspirada en las tradiciones gastronómicas reales de India en un entorno histórico seleccionado.",
+          "pt": "Desfrute de um jantar elegante inspirado nas tradições gastronômicas reais da Índia em um cenário histórico selecionado.",
+          "en": "Enjoy an elegant dinner inspired by India's royal culinary traditions in a carefully selected heritage setting."
+        }
+      },
+      {
+        "currency": "EUR",
+        "isActive": true,
+        "price": "25",
+        "duration": "3 Hours",
+        "name": {
+          "en": "Indian Food Walk",
+          "pt": "Passeio de Comida de Rua",
+          "es": "Recorrido de Comida Callejerra"
+        },
+        "desc": {
+          "es": "Recorra barrios locales con un experto gastronómico y pruebe aperitivos, dulces y comida callejera auténtica.",
+          "en": "Walk through local neighbourhoods with a food expert and taste authentic regional snacks, sweets and street food.",
+          "pt": "Caminhe por bairros locais com um especialista em gastronomia e experimente petiscos, doces e comida de rua autêntica."
+        }
+      },
+      {
+        "desc": {
+          "en": "Discover India's tea culture through regional teas, traditional preparation methods and guided tasting.",
+          "pt": "Conheça a cultura do chá na Índia através de diferentes variedades, métodos tradicionais e degustação guiada.",
+          "es": "Descubra la cultura del té de India mediante diferentes variedades, métodos tradicionales y degustación guiada."
+        },
+        "name": {
+          "es": "Degustación y Ceremonia del Chá",
+          "en": "Indian Tea Experience",
+          "pt": "Degustação e Cerimônia do Chá"
+        },
+        "duration": "1.5 Hours",
+        "price": "15",
+        "currency": "EUR",
+        "isActive": true
+      }
+    ]
   },
   {
     "durationDays": 8,
@@ -6145,7 +6341,8 @@
           "Leisure"
         ],
         "location": "Delhi",
-        "overnight": "Delhi"
+        "overnight": "Delhi",
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385360/mhindiatrips/nzebliuw5u6w4h3xbwcg.jpg"
       },
       {
         "activities": [
@@ -6167,7 +6364,8 @@
           "pt": "Visita ao India Gate, Tumba de Humayun, Qutub Minar e mercados locais. Experiência gastronômica familiar.",
           "es": "Visita a India Gate, Humayun's Tomb, Qutub Minar y mercados locales. Experiencia gastronómica familiar."
         },
-        "location": "Delhi"
+        "location": "Delhi",
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385390/mhindiatrips/rvod1nhnt74frfxztrrs.jpg"
       },
       {
         "day": 3,
@@ -6189,7 +6387,8 @@
           "pt": "Viagem a Agra. Visita ao Taj Mahal, seus jardins e arquitetura. Forte de Agra e suas histórias reais.",
           "es": "Viaje a Agra. Visita al Taj Mahal, sus jardines y arquitectura. Fuerte de Agra y sus historias reales."
         },
-        "location": "Agra"
+        "location": "Agra",
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385405/mhindiatrips/g4xqtxdmnzxr5akecxa3.jpg"
       },
       {
         "day": 4,
@@ -6211,7 +6410,8 @@
           "Scenic Drive",
           "Fatehpur Sikri Visit",
           "Market Visit"
-        ]
+        ],
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385420/mhindiatrips/pk1h5qrck1qmmekrkgap.jpg"
       },
       {
         "sightseeing": "Amber Fort, City Palace, Hawa Mahal, Local Bazaar",
@@ -6234,7 +6434,8 @@
           "Bazaar Exploration"
         ],
         "location": "Jaipur",
-        "overnight": "Jaipur"
+        "overnight": "Jaipur",
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385444/mhindiatrips/ovvyx58aideocsebd3d5.jpg"
       },
       {
         "overnight": "Ranthambore",
@@ -6255,7 +6456,8 @@
           "es": "Viaje a Ranthambore. Check-in en el resort de vida silvestre y actividad de naturaleza por la tarde.",
           "en": "Travel towards Ranthambore. Check into your wildlife resort and enjoy the natural surroundings. Spend the afternoon relaxing at the resort or enjoying a nature-based activity.",
           "pt": "Viagem para Ranthambore. Check-in no resort de vida selvagem e atividade na natureza à tarde."
-        }
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385471/mhindiatrips/h3j86ngar1puxc0kl83x.jpg"
       },
       {
         "sightseeing": "Ranthambore National Park",
@@ -6278,7 +6480,8 @@
           "Birdwatching"
         ],
         "overnight": "Ranthambore",
-        "day": 7
+        "day": 7,
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385515/mhindiatrips/xkmgxhgosaprsrnelxpg.jpg"
       },
       {
         "desc": {
@@ -6299,7 +6502,8 @@
           "es": "Ranthambore → Udaipur – Ciudad de los Lagos"
         },
         "meals": "Breakfast",
-        "location": "Udaipur"
+        "location": "Udaipur",
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385521/mhindiatrips/nre0lvdomzf1qy8sbld8.jpg"
       },
       {
         "overnight": "Udaipur",
@@ -6322,7 +6526,8 @@
         },
         "sightseeing": "City Palace, Lake Pichola, Jagdish Temple, Old City, Local Market",
         "location": "Udaipur",
-        "day": 9
+        "day": 9,
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385549/mhindiatrips/u4enrv4rrdpbfhx7hpe1.jpg"
       },
       {
         "desc": {
@@ -6343,7 +6548,8 @@
           "es": "Udaipur → Goa – Playas y Sol",
           "pt": "Udaipur → Goa – Praias e Sol",
           "en": "Udaipur → Goa – Beaches & Sunshine"
-        }
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385574/mhindiatrips/kiuo2vjxe56vqbryxxpv.jpg"
       },
       {
         "overnight": "Goa",
@@ -6366,7 +6572,8 @@
           "es": "Día libre en Goa. Playa, actividades acuáticas, sightseeing local o experiencia cultural. Cena familiar final.",
           "en": "Enjoy a relaxed day in Goa. Families can choose from beach time, water activities, cycling, local sightseeing or a cultural experience. Enjoy a final family dinner by the coast.",
           "pt": "Dia livre em Goa. Praia, atividades aquáticas, passeios locais ou experiência cultural. Jantar familiar final."
-        }
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385610/mhindiatrips/xk3isdxydosdgwoy1ogs.jpg"
       },
       {
         "title": {
@@ -6386,7 +6593,8 @@
           "Airport Transfer"
         ],
         "location": "Departure",
-        "overnight": "Departure"
+        "overnight": "Departure",
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789385663/mhindiatrips/agmhffdxlu7hihzgkl41.jpg"
       }
     ],
     "description": {
@@ -6608,7 +6816,233 @@
     },
     "slug": "india-family-adventure-package",
     "tourType": "Private Family Adventure & Cultural Tour",
-    "groupSize": "2–12 Travellers"
+    "groupSize": "2–12 Travellers",
+    "inclusions": [
+      {
+        "en": "11 nights accommodation in family-friendly hotels and resorts.",
+        "pt": "11 noites em hotéis e resorts para famílias.",
+        "es": "11 noches en hoteles y resorts familiares."
+      },
+      {
+        "es": "Desayuno diario.",
+        "pt": "Café da manhã diário.",
+        "en": "Daily breakfast."
+      },
+      {
+        "es": "Vehículo privado con aire acondicionado.",
+        "pt": "Veículo privado com ar-condicionado.",
+        "en": "Private air-conditioned vehicle."
+      },
+      {
+        "en": "Experienced private chauffeur.",
+        "pt": "Motorista privado experiente.",
+        "es": "Conductor privado experimentado."
+      },
+      {
+        "en": "Airport / railway station transfers.",
+        "pt": "Traslados de aeroporto / estação.",
+        "es": "Traslados de aeropuerto / estación."
+      },
+      {
+        "pt": "Passeios privados.",
+        "en": "Private sightseeing.",
+        "es": "Visitas privadas."
+      },
+      {
+        "es": "Guías locales profesionales.",
+        "pt": "Guias locais profissionais.",
+        "en": "Professional local guides."
+      },
+      {
+        "pt": "Passeios em Delhi (India Gate, Túmulo de Humayun, Qutub Minar).",
+        "en": "Delhi sightseeing (India Gate, Humayun's Tomb, Qutub Minar).",
+        "es": "Visitas en Delhi (India Gate, Tumba de Humayun, Qutub Minar)."
+      },
+      {
+        "pt": "Visita ao Taj Mahal.",
+        "en": "Taj Mahal visit.",
+        "es": "Visita al Taj Mahal."
+      },
+      {
+        "pt": "Visita ao Forte de Agra.",
+        "en": "Agra Fort visit.",
+        "es": "Visita al Fuerte de Agra."
+      },
+      {
+        "pt": "Visita a Fatehpur Sikri.",
+        "en": "Fatehpur Sikri visit.",
+        "es": "Visita a Fatehpur Sikri."
+      },
+      {
+        "es": "Visitas en Jaipur.",
+        "pt": "Passeios em Jaipur.",
+        "en": "Jaipur sightseeing."
+      },
+      {
+        "es": "Visita al Fuerte Amber.",
+        "pt": "Visita ao Forte Amber.",
+        "en": "Amber Fort visit."
+      },
+      {
+        "es": "Visita al City Palace de Jaipur.",
+        "pt": "Visita ao City Palace de Jaipur.",
+        "en": "City Palace Jaipur visit."
+      },
+      {
+        "en": "Ranthambore wildlife safari.",
+        "pt": "Safári de vida selvagem em Ranthambore.",
+        "es": "Safari de vida silvestre en Ranthambore."
+      },
+      {
+        "es": "Visitas en Udaipur.",
+        "pt": "Passeios em Udaipur.",
+        "en": "Udaipur sightseeing."
+      },
+      {
+        "es": "Paseo en barco por el Lago Pichola.",
+        "pt": "Passeio de barco pelo Lago Pichola.",
+        "en": "Lake Pichola boat experience."
+      },
+      {
+        "en": "Goa family leisure experience.",
+        "pt": "Experiência familiar em Goa.",
+        "es": "Experiencia familiar en Goa."
+      },
+      {
+        "es": "Actividades culturales seleccionadas.",
+        "pt": "Atividades culturais selecionadas.",
+        "en": "Selected cultural activities."
+      },
+      {
+        "pt": "Água mineral.",
+        "en": "Bottled drinking water during transfers and sightseeing.",
+        "es": "Agua embotellada."
+      },
+      {
+        "pt": "Assistência local.",
+        "en": "Local travel assistance.",
+        "es": "Asistencia local."
+      },
+      {
+        "es": "Impuestos aplicables.",
+        "en": "Applicable transportation and accommodation taxes.",
+        "pt": "Impostos aplicáveis."
+      }
+    ],
+    "add_ons": [
+      {
+        "duration": "2 Hours",
+        "name": {
+          "en": "Elephant / Animal Interaction Experience",
+          "pt": "Experiência com Elefantes / Animais",
+          "es": "Experiencia con Elefantes / Animales"
+        },
+        "desc": {
+          "es": "Añada una experiencia ética con animales donde esté disponible y sea apropiado.",
+          "en": "Add a carefully selected ethical wildlife or animal experience where available and appropriate.",
+          "pt": "Adicione uma experiência ética com animais onde disponível e apropriado."
+        },
+        "price": "0",
+        "isActive": true,
+        "currency": "EUR"
+      },
+      {
+        "desc": {
+          "es": "Aprenda a preparar platos indios sencillos con un chef local en una experiencia divertida.",
+          "en": "Learn to prepare simple Indian dishes together with a local chef in a fun hands-on experience.",
+          "pt": "Aprenda a preparar pratos indianos simples com um chef local em uma experiência divertida."
+        },
+        "name": {
+          "es": "Clase de Cocina Familiar",
+          "pt": "Aula de Culinária Familiar",
+          "en": "Family Cooking Class"
+        },
+        "duration": "2 Hours",
+        "price": "30",
+        "currency": "EUR",
+        "isActive": true
+      },
+      {
+        "duration": "2 Hours",
+        "currency": "EUR",
+        "isActive": true,
+        "desc": {
+          "en": "Enjoy traditional music, dance, crafts and local storytelling.",
+          "pt": "Desfrute de música, dança, artesanato e narrativas tradicionais.",
+          "es": "Disfrute de música, danza, artesanía y cuentacuentos tradicionales."
+        },
+        "name": {
+          "es": "Experiencia Cultural de Rajasthan",
+          "pt": "Experiência Cultural do Rajastão",
+          "en": "Rajasthan Cultural Experience"
+        },
+        "price": "25"
+      },
+      {
+        "price": "40",
+        "duration": "1 Hour",
+        "name": {
+          "es": "Paseo Privado en Barco en Udaipur",
+          "en": "Private Udaipur Boat Ride",
+          "pt": "Passeio Privado de Barco em Udaipur"
+        },
+        "desc": {
+          "pt": "Desfrute de um passeio privado de barco no Lago Pichola.",
+          "en": "Enjoy a private family boat experience on Lake Pichola.",
+          "es": "Disfrute de un paseo familiar privado en el Lago Pichola."
+        },
+        "currency": "EUR",
+        "isActive": true
+      },
+      {
+        "duration": "Half Day",
+        "isActive": true,
+        "currency": "EUR",
+        "name": {
+          "pt": "Atividades Aquáticas em Goa",
+          "en": "Goa Water Activities",
+          "es": "Actividades Acuáticas en Goa"
+        },
+        "desc": {
+          "pt": "Dependendo da idade e das condições, famílias podem adicionar atividades aquáticas e experiências na praia.",
+          "en": "Depending on age and conditions, families can add selected water activities and beach experiences.",
+          "es": "Según la edad y las condiciones, se pueden añadir actividades acuáticas y experiencias en la playa."
+        },
+        "price": "0"
+      },
+      {
+        "isActive": true,
+        "currency": "EUR",
+        "name": {
+          "es": "Taller de Artesanía India",
+          "pt": "Oficina de Artesanato Indiano",
+          "en": "Indian Craft Workshop"
+        },
+        "desc": {
+          "es": "Niños y padres pueden participar en una actividad de artesanía tradicional.",
+          "en": "Children and parents can participate in a traditional craft activity and take home something they created.",
+          "pt": "Crianças e pais podem participar de uma atividade de artesanato tradicional."
+        },
+        "price": "20",
+        "duration": "2 Hours"
+      },
+      {
+        "price": "20",
+        "desc": {
+          "pt": "Explore petiscos e doces indianos com um guia enquanto aprende sobre a cultura gastronômica.",
+          "en": "Explore local Indian snacks and sweets with a guide while learning about India's food culture.",
+          "es": "Explore aperitivos y dulces indios con un guía mientras aprende sobre la cultura gastronómica."
+        },
+        "isActive": true,
+        "currency": "EUR",
+        "name": {
+          "pt": "Passeio Gastronômico Familiar",
+          "en": "Family Food Walk",
+          "es": "Paseo Gastronómico Familiar"
+        },
+        "duration": "2 Hours"
+      }
+    ]
   },
   {
     "durationDays": 14,
@@ -12630,7 +13064,7 @@
         "es": "Tour Cultural de Punjab | Templo Dorado y Experiencia en Amritsar"
       }
     },
-    "image": "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?q=80&w=800",
+    "image": "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?q=80&w=1920&q=95",
     "endingLocation": "Amritsar, India",
     "gallery": [],
     "difficultyLevel": "Easy",
@@ -15513,7 +15947,7 @@
       "en": "Couples, Families, Nature Lovers, Photographers, Adventure Seekers, Culture Enthusiasts & Mountain Lovers",
       "es": "Parejas, familias, amantes de la naturaleza, fotógrafos, aventureros, entusiastas de la cultura y amantes de las montañas"
     },
-    "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=800",
+    "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1920&q=95",
     "endingLocation": "Bagdogra, West Bengal, India",
     "tourType": "Private Himalayan Cultural & Scenic Tour",
     "durationDays": 8,
@@ -19561,7 +19995,7 @@
     "endingLocation": "Paro (Bhutan)",
     "tourType": "Private International Tour",
     "travelStyle": "Luxury Outbound",
-    "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?w=1200&q=80",
+    "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?w=1920&q=95&q=80",
     "gallery": [],
     "pricing": {
       "startingPrice": 1899,
@@ -19660,7 +20094,7 @@
     "endingLocation": "Vientiane (Laos)",
     "tourType": "Private International Tour",
     "travelStyle": "Luxury Outbound",
-    "image": "https://images.unsplash.com/photo-1540611025311-01df3cef54b5?w=1200&q=80",
+    "image": "https://images.unsplash.com/photo-1540611025311-01df3cef54b5?w=1920&q=95&q=80",
     "gallery": [],
     "pricing": {
       "startingPrice": 1250,
@@ -19789,7 +20223,7 @@
     "endingLocation": "Langkawi (Malaysia)",
     "tourType": "Private International Tour",
     "travelStyle": "Luxury Outbound",
-    "image": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1200&q=80",
+    "image": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1920&q=95&q=80",
     "gallery": [],
     "pricing": {
       "startingPrice": 1180,
@@ -19913,7 +20347,7 @@
     "endingLocation": "Singapore",
     "tourType": "Private International Tour",
     "travelStyle": "Luxury Outbound",
-    "image": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1200&q=80",
+    "image": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1920&q=95&q=80",
     "gallery": [],
     "pricing": {
       "startingPrice": 1590,
@@ -20386,7 +20820,7 @@
         },
         "meals": "None",
         "overnight": "Ubud",
-        "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1200",
+        "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1920&q=95",
         "activities": [
           {
             "en": "Airport VIP Meet & Greeting",
@@ -20420,7 +20854,7 @@
         },
         "meals": "Breakfast",
         "overnight": "Ubud",
-        "image": "https://images.unsplash.com/photo-1555400038-63f5ba517a47?q=80&w=1200",
+        "image": "https://images.unsplash.com/photo-1555400038-63f5ba517a47?q=80&w=1920&q=95",
         "activities": [
           {
             "en": "Tegalalang Rice Terraces Walk",
@@ -20454,7 +20888,7 @@
         },
         "meals": "Breakfast",
         "overnight": "Nusa Penida",
-        "image": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1200",
+        "image": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1920&q=95",
         "activities": [
           {
             "en": "Scenic Fast Boat Transfer to Nusa Penida",
@@ -20493,7 +20927,7 @@
         },
         "meals": "Breakfast",
         "overnight": "Seminyak / South Bali",
-        "image": "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=1200",
+        "image": "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=1920&q=95",
         "activities": [
           {
             "en": "Diamond Beach & Atuh Beach East Coast Sightseeing",
@@ -20527,7 +20961,7 @@
         },
         "meals": "Breakfast",
         "overnight": "Seminyak / South Bali",
-        "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200",
+        "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920&q=95",
         "activities": [
           {
             "en": "Resort Beach & Private Pool Relaxation",
@@ -20561,7 +20995,7 @@
         },
         "meals": "Breakfast + Dinner",
         "overnight": "South Bali",
-        "image": "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=1200",
+        "image": "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=1920&q=95",
         "activities": [
           {
             "en": "Cliff-top Uluwatu Temple Visit",
@@ -20595,7 +21029,7 @@
         },
         "meals": "Breakfast",
         "overnight": "—",
-        "image": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=1200",
+        "image": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=1920&q=95",
         "activities": [
           {
             "en": "Final Morning Resort Breakfast",
@@ -20682,7 +21116,7 @@
     },
     "gallery": [
       {
-        "url": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1920&q=95",
         "caption": {
           "en": "Luxury Bali Villa",
           "es": "Villa de lujo en Bali",
@@ -20690,7 +21124,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1555400038-63f5ba517a47?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1555400038-63f5ba517a47?q=80&w=1920&q=95",
         "caption": {
           "en": "Tegalalang Rice Terraces",
           "es": "Terrazas de arroz de Tegalalang",
@@ -20698,7 +21132,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1920&q=95",
         "caption": {
           "en": "Tirta Empul Temple",
           "es": "Templo de Tirta Empul",
@@ -20706,7 +21140,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1920&q=95",
         "caption": {
           "en": "Kelingking Beach",
           "es": "Playa de Kelingking",
@@ -20714,7 +21148,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=1920&q=95",
         "caption": {
           "en": "Broken Beach",
           "es": "Broken Beach",
@@ -20722,7 +21156,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?q=80&w=1920&q=95",
         "caption": {
           "en": "Angel's Billabong",
           "es": "Angel's Billabong",
@@ -20730,7 +21164,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920&q=95",
         "caption": {
           "en": "Diamond Beach",
           "es": "Diamond Beach",
@@ -20738,7 +21172,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=1920&q=95",
         "caption": {
           "en": "Uluwatu Temple",
           "es": "Templo de Uluwatu",
@@ -20746,7 +21180,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1920&q=95",
         "caption": {
           "en": "Kecak Sunset",
           "es": "Kecak al atardecer",
@@ -20754,7 +21188,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1920&q=95",
         "caption": {
           "en": "Jimbaran Beach Dinner",
           "es": "Cena en la playa de Jimbaran",
@@ -21347,7 +21781,7 @@
         },
         "meals": "None",
         "overnight": "Luxury Overwater Villa",
-        "image": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1200",
+        "image": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1920&q=95",
         "activities": [
           {
             "en": "Velana Airport VIP Greeting & Resort Transfer",
@@ -21381,7 +21815,7 @@
         },
         "meals": "Breakfast",
         "overnight": "Luxury Overwater Villa",
-        "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1200",
+        "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1920&q=95",
         "activities": [
           {
             "en": "Guided House-Reef Coral Snorkeling",
@@ -21415,7 +21849,7 @@
         },
         "meals": "Breakfast",
         "overnight": "Luxury Overwater Villa",
-        "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200",
+        "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920&q=95",
         "activities": [
           {
             "en": "Private Boat Excursion to Secluded Sandbank",
@@ -21449,7 +21883,7 @@
         },
         "meals": "Breakfast",
         "overnight": "Luxury Overwater Villa",
-        "image": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1200",
+        "image": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1920&q=95",
         "activities": [
           {
             "en": "Overwater Lagoon Breakfast",
@@ -21483,7 +21917,7 @@
         },
         "meals": "Breakfast",
         "overnight": "Luxury Overwater Villa",
-        "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200",
+        "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920&q=95",
         "activities": [
           {
             "en": "Guided Dolphin-Spotting Cruise",
@@ -21517,7 +21951,7 @@
         },
         "meals": "Breakfast + Dinner",
         "overnight": "Luxury Overwater Villa",
-        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1920&q=95",
         "activities": [
           {
             "en": "Final Lagoon Swim & Watersports",
@@ -21551,7 +21985,7 @@
         },
         "meals": "Breakfast",
         "overnight": "—",
-        "image": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=1200",
+        "image": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=1920&q=95",
         "activities": [
           {
             "en": "Final Overwater Villa Breakfast",
@@ -21641,7 +22075,7 @@
     },
     "gallery": [
       {
-        "url": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1920&q=95",
         "caption": {
           "en": "Luxury Overwater Villa",
           "es": "Villa de lujo sobre el agua",
@@ -21649,7 +22083,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920&q=95",
         "caption": {
           "en": "Turquoise Maldives Lagoon",
           "es": "Laguna turquesa de Maldivas",
@@ -21657,7 +22091,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1920&q=95",
         "caption": {
           "en": "Private Villa Deck",
           "es": "Terraza privada de la villa",
@@ -21665,7 +22099,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=1920&q=95",
         "caption": {
           "en": "White Sand Paradise",
           "es": "Paraíso de arena blanca",
@@ -21673,7 +22107,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1920&q=95",
         "caption": {
           "en": "Coral Reef Adventure",
           "es": "Aventura en los arrecifes de coral",
@@ -21681,7 +22115,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1920&q=95",
         "caption": {
           "en": "Tropical Marine Life",
           "es": "Vida marina tropical",
@@ -21689,7 +22123,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?q=80&w=1920&q=95",
         "caption": {
           "en": "Secluded Sandbank",
           "es": "Banco de arena aislado",
@@ -21697,7 +22131,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920&q=95",
         "caption": {
           "en": "Sunset Cruise",
           "es": "Crucero al atardecer",
@@ -21705,7 +22139,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1920&q=95",
         "caption": {
           "en": "Dolphin Experience",
           "es": "Experiencia con delfines",
@@ -21713,7 +22147,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1920&q=95",
         "caption": {
           "en": "Luxury Island Resort",
           "es": "Resort de lujo en la isla",
@@ -21721,7 +22155,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1920&q=95",
         "caption": {
           "en": "Infinity Pool Escape",
           "es": "Piscina infinita",
@@ -21729,7 +22163,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200",
+        "url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1920&q=95",
         "caption": {
           "en": "Romantic Beach Dinner",
           "es": "Cena romántica en la playa",
@@ -22418,7 +22852,7 @@
     },
     "gallery": [
       {
-        "url": "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Sigiriya Rock Fortress",
           "es": "Fortaleza de Roca de Sigiriya",
@@ -22426,7 +22860,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1586611292717-f828b167408c?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1586611292717-f828b167408c?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Dambulla Cave Temple",
           "es": "Templo de la Cueva de Dambulla",
@@ -22434,7 +22868,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1588598198321-9735fd52455b?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1588598198321-9735fd52455b?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Temple of the Sacred Tooth",
           "es": "Templo del Diente Sagrado",
@@ -22442,7 +22876,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Kandy Lake",
           "es": "Lago de Kandy",
@@ -22450,7 +22884,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1566296531481-79b063292493?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1566296531481-79b063292493?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Sri Lankan Countryside",
           "es": "Campo de Sri Lanka",
@@ -22458,7 +22892,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Yala Wildlife Safari",
           "es": "Safari de Vida Silvestre en Yala",
@@ -22466,7 +22900,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Sri Lankan Elephant",
           "es": "Elefante de Sri Lanka",
@@ -22474,7 +22908,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Leopard Safari Experience",
           "es": "Experiencia de Safari de Leopardos",
@@ -22482,7 +22916,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Luxury Wildlife Lodge",
           "es": "Lodge de Lujo",
@@ -22490,7 +22924,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Tropical Sri Lanka",
           "es": "Sri Lanka Tropical",
@@ -23183,7 +23617,7 @@
     },
     "gallery": [
       {
-        "url": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Mount Everest Panorama",
           "es": "Panorama del Monte Everest",
@@ -23191,7 +23625,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Himalayan Mountain Range",
           "es": "Cordillera del Himalaya",
@@ -23199,7 +23633,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Kathmandu Durbar Square",
           "es": "Plaza Durbar de Katmandú",
@@ -23207,7 +23641,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1583803808419-0158a183577d?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1583803808419-0158a183577d?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Swayambhunath Stupa",
           "es": "Estupa de Swayambhunath",
@@ -23215,7 +23649,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Boudhanath Stupa",
           "es": "Estupa de Boudhanath",
@@ -23223,7 +23657,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Pashupatinath Temple",
           "es": "Templo de Pashupatinath",
@@ -23231,7 +23665,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Phewa Lake, Pokhara",
           "es": "Lago Phewa, Pokhara",
@@ -23239,7 +23673,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Sarangkot Sunrise",
           "es": "Amanecer en Sarangkot",
@@ -23247,7 +23681,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Annapurna Panorama",
           "es": "Panorama del Annapurna",
@@ -23255,7 +23689,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Everest Mountain Flight",
           "es": "Vuelo Panorámico sobre el Everest",
@@ -23263,7 +23697,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Luxury Nepal Stay",
           "es": "Estancia de Lujo en Nepal",
@@ -23271,7 +23705,7 @@
         }
       },
       {
-        "url": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=1200&q=80",
+        "url": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=1920&q=95&q=80",
         "caption": {
           "en": "Kathmandu Evening",
           "es": "Tarde en Katmandú",
@@ -23461,7 +23895,7 @@
     "endingLocation": "Phuket",
     "tourType": "Private International Tour",
     "travelStyle": "Luxury Outbound",
-    "image": "https://images.unsplash.com/photo-1506665531195-3566fe2b4dfa?w=1200&q=80",
+    "image": "https://images.unsplash.com/photo-1506665531195-3566fe2b4dfa?w=1920&q=95&q=80",
     "gallery": [],
     "pricing": {
       "startingPrice": 1299,
@@ -23578,7 +24012,7 @@
     "endingLocation": "Denpasar (Bali)",
     "tourType": "Private International Tour",
     "travelStyle": "Luxury Outbound",
-    "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80",
+    "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&q=95&q=80",
     "gallery": [],
     "pricing": {
       "startingPrice": 1499,
@@ -23669,7 +24103,7 @@
     "endingLocation": "Male (Maldives)",
     "tourType": "Private International Tour",
     "travelStyle": "Luxury Outbound",
-    "image": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1200&q=80",
+    "image": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1920&q=95&q=80",
     "gallery": [],
     "pricing": {
       "startingPrice": 2499,
@@ -23757,7 +24191,7 @@
     "endingLocation": "Colombo",
     "tourType": "Private International Tour",
     "travelStyle": "Luxury Outbound",
-    "image": "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?w=1200&q=80",
+    "image": "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?w=1920&q=95&q=80",
     "gallery": [],
     "pricing": {
       "startingPrice": 1399,
@@ -23845,7 +24279,7 @@
     "endingLocation": "Kathmandu",
     "tourType": "Private International Tour",
     "travelStyle": "Luxury Outbound",
-    "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1200&q=80",
+    "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=95&q=80",
     "gallery": [],
     "pricing": {
       "startingPrice": 1199,
@@ -23944,7 +24378,7 @@
     "endingLocation": "Bali / Denpasar (Indonesia)",
     "tourType": "Private International Tour",
     "travelStyle": "Luxury Outbound",
-    "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80",
+    "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&q=95&q=80",
     "gallery": [],
     "pricing": {
       "startingPrice": 1450,
@@ -24068,7 +24502,7 @@
     "endingLocation": "Phuket (Thailand)",
     "tourType": "Private International Tour",
     "travelStyle": "Luxury Outbound",
-    "image": "https://images.unsplash.com/photo-1506665531195-3566fe294677?w=1200&q=80",
+    "image": "https://images.unsplash.com/photo-1506665531195-3566fe294677?w=1920&q=95&q=80",
     "gallery": [],
     "pricing": {
       "startingPrice": 1320,
@@ -24192,7 +24626,7 @@
     "endingLocation": "Malé / Maldives",
     "tourType": "Private International Tour",
     "travelStyle": "Luxury Outbound",
-    "image": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1200&q=80",
+    "image": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1920&q=95&q=80",
     "gallery": [],
     "pricing": {
       "startingPrice": 2200,

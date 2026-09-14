@@ -7,6 +7,8 @@ import {
   Calendar, CheckCircle, ArrowRight 
 } from "lucide-react";
 
+import { getHighResImageUrl } from "@/lib/image-utils";
+
 interface PackagesFilterSectionProps {
   packages: any[];
   locale: string;
@@ -87,8 +89,9 @@ export default function PackagesFilterSection({
                 
                 <div className="relative h-64 overflow-hidden shrink-0">
                   <img
-                    src={pkg.image || "/images/destination_fallback.jpg"}
-                    loading="lazy"
+                    src={getHighResImageUrl(pkg.image)}
+                    loading="eager"
+                    decoding="async"
                     alt={pkgTitle}
                     className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
                   />

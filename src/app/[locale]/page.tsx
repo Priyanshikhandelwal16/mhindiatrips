@@ -13,6 +13,7 @@ import {
   CheckCircle
 } from "lucide-react";
 import { getLocalizedDestinationsPath } from "@/lib/utils";
+import { getHighResImageUrl } from "@/lib/image-utils";
 
 // Lazy load heavy interactive components
 const TestimonialSlider = dynamic(() => import("@/components/home/TestimonialSlider"), { ssr: true });
@@ -637,10 +638,12 @@ export default async function HomePage({ params }: HomePageProps) {
               <div className="card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full transition-all duration-500 hover:border-[#C5A862]/30 group perspective-1000">
                 <div className="relative h-64 overflow-hidden shrink-0">
                   <Image 
-                    src={pkg.image} 
+                    src={getHighResImageUrl(pkg.image)} 
                     alt={pkg.title?.[locale] || pkg.title?.en} 
                     fill 
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    quality={95}
+                    unoptimized={true}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                     className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-65" />
