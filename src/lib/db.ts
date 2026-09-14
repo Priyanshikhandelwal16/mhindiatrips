@@ -1301,7 +1301,12 @@ export const db = {
     },
     delete: async (slug: string) => {
       await writeDoc("tour_packages", slug, { isDeleted: true }, true);
-      tourPackagesCache = tourPackagesCache.filter((p: any) => p.slug !== slug && p.id !== slug);
+      const idx = tourPackagesCache.findIndex((p: any) => p.slug === slug || p.id === slug);
+      if (idx !== -1) {
+        tourPackagesCache[idx] = { ...tourPackagesCache[idx], isDeleted: true };
+      } else {
+        tourPackagesCache.push({ id: slug, slug, isDeleted: true });
+      }
       saveLocalData("tour_packages", tourPackagesCache);
       return { slug };
     }
@@ -1409,19 +1414,15 @@ export const db = {
 
   outbound: {
     findMany: async () => {
-      outboundCache = loadLocalData("outbound", outboundDestinations);
+      outboundCache = loadLocalData("outbound", outboundCache || outboundDestinations);
       if (Array.isArray(outboundCache)) {
         const existingMap = new Map(outboundCache.map((o: any) => [o.slug || o.id, o]));
         for (const item of outboundDestinations) {
           if (item && item.slug && !existingMap.has(item.slug)) {
             outboundCache.push(item);
             existingMap.set(item.slug, item);
-          } else if (item && item.slug) {
-            const existing = existingMap.get(item.slug);
-            existingMap.set(item.slug, { ...item, ...existing });
           }
         }
-        outboundCache = Array.from(existingMap.values());
       }
       const firestoreData = await fetchCollectionDocs("outbound");
       if (firestoreData) {
@@ -1441,7 +1442,7 @@ export const db = {
     },
     create: async (data: any) => {
       const slug = data.slug || data.title?.en?.toLowerCase().replace(/\s+/g, '-') || Math.random().toString(36).substring(2, 9);
-      const newItem = { slug, ...data };
+      const newItem = { slug, ...data, isDeleted: false };
       await writeDoc("outbound", slug, newItem);
       outboundCache.push(newItem);
       saveLocalData("outbound", outboundCache);
@@ -1464,7 +1465,12 @@ export const db = {
     },
     delete: async (slug: string) => {
       await writeDoc("outbound", slug, { isDeleted: true }, true);
-      outboundCache = outboundCache.filter((o: any) => o.slug !== slug && o.id !== slug);
+      const idx = outboundCache.findIndex((o: any) => o.slug === slug || o.id === slug);
+      if (idx !== -1) {
+        outboundCache[idx] = { ...outboundCache[idx], isDeleted: true };
+      } else {
+        outboundCache.push({ slug, id: slug, isDeleted: true });
+      }
       saveLocalData("outbound", outboundCache);
       return { slug };
     }

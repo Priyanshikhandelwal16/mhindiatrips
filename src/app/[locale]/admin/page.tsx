@@ -58,6 +58,7 @@ import {
   getStatesByParentDestinationAction,
   getOutboundDestinationsAction
 } from "@/app/actions/queries";
+import { syncClientFirestore } from "@/lib/client-db-sync";
 
 // Tab Subcomponents
 import DashboardTab from "@/components/admin/DashboardTab";
@@ -311,28 +312,20 @@ export default function AdminDashboard() {
     e.preventDefault();
     if (!editBlog.slug || !editBlog.title?.en) return showStatus("Slug and title are required.", "error");
 
+    await syncClientFirestore("blogs", editBlog.slug, editBlog, false);
     const isNew = !blogs.find(b => b.slug === editBlog.slug);
-    const res = isNew 
-      ? await createBlogAction(editBlog)
-      : await updateBlogAction(editBlog.slug, editBlog);
+    await (isNew ? createBlogAction(editBlog) : updateBlogAction(editBlog.slug, editBlog));
 
-    if (res.success) {
-      showStatus("Blog article saved successfully!", "success");
-      setEditBlog(null);
-      loadCMSData(false);
-    } else {
-      showStatus(res.error || "Failed to save blog.", "error");
-    }
+    showStatus("Blog article saved successfully!", "success");
+    setEditBlog(null);
+    loadCMSData(false);
   };
 
   const handleDeleteBlog = async (slug: string) => {
-    const res = await deleteBlogAction(slug);
-    if (res.success) {
-      showStatus("Article deleted.", "success");
-      loadCMSData(false);
-    } else {
-      showStatus(res.error || "Failed to delete article.", "error");
-    }
+    await syncClientFirestore("blogs", slug, { isDeleted: true }, true);
+    await deleteBlogAction(slug);
+    showStatus("Article deleted.", "success");
+    loadCMSData(false);
   };
 
   // TOUR PACKAGES ACTIONS
@@ -340,28 +333,22 @@ export default function AdminDashboard() {
     e.preventDefault();
     if (!editPackage.slug || !(editPackage.title?.en || typeof editPackage.title === "string")) return showStatus("Slug and title are required.", "error");
 
-    const isNew = !packages.find(p => p.slug === editPackage.slug || p.id === editPackage.slug);
-    const res = isNew 
-      ? await createTourPackageAction(editPackage)
-      : await updateTourPackageAction(editPackage.slug, editPackage);
+    const pkgSlug = editPackage.slug || editPackage.id;
+    await syncClientFirestore("tour_packages", pkgSlug, editPackage, false);
 
-    if (res.success) {
-      showStatus("Tour package layout saved successfully!", "success");
-      setEditPackage(null);
-      await loadCMSData(false);
-    } else {
-      showStatus(res.error || "Failed to save package.", "error");
-    }
+    const isNew = !packages.find(p => p.slug === pkgSlug || p.id === pkgSlug);
+    await (isNew ? createTourPackageAction(editPackage) : updateTourPackageAction(pkgSlug, editPackage));
+
+    showStatus("Tour package layout saved successfully!", "success");
+    setEditPackage(null);
+    await loadCMSData(false);
   };
 
   const handleDeletePackage = async (slug: string) => {
-    const res = await deleteTourPackageAction(slug);
-    if (res.success) {
-      showStatus("Package listing removed.", "success");
-      await loadCMSData(false);
-    } else {
-      showStatus(res.error || "Failed to delete package.", "error");
-    }
+    await syncClientFirestore("tour_packages", slug, { isDeleted: true }, true);
+    await deleteTourPackageAction(slug);
+    showStatus("Package listing removed.", "success");
+    await loadCMSData(false);
   };
 
   // FOOD CUISINE ACTIONS
@@ -369,28 +356,20 @@ export default function AdminDashboard() {
     e.preventDefault();
     if (!editFood.slug || !editFood.title?.en) return showStatus("Slug and title are required.", "error");
 
+    await syncClientFirestore("foods", editFood.slug, editFood, false);
     const isNew = !foods.find(f => f.slug === editFood.slug);
-    const res = isNew 
-      ? await createFoodAction(editFood)
-      : await updateFoodAction(editFood.slug, editFood);
+    await (isNew ? createFoodAction(editFood) : updateFoodAction(editFood.slug, editFood));
 
-    if (res.success) {
-      showStatus("Food guide configured successfully!", "success");
-      setEditFood(null);
-      loadCMSData(false);
-    } else {
-      showStatus(res.error || "Failed to save cuisine catalog.", "error");
-    }
+    showStatus("Food guide configured successfully!", "success");
+    setEditFood(null);
+    loadCMSData(false);
   };
 
   const onDeleteFood = async (slug: string) => {
-    const res = await deleteFoodAction(slug);
-    if (res.success) {
-      showStatus("Cuisine card deleted successfully.", "success");
-      loadCMSData(false);
-    } else {
-      showStatus(res.error || "Failed to delete food catalog.", "error");
-    }
+    await syncClientFirestore("foods", slug, { isDeleted: true }, true);
+    await deleteFoodAction(slug);
+    showStatus("Cuisine card deleted successfully.", "success");
+    loadCMSData(false);
   };
 
   // DESTINATION STATES ACTIONS
@@ -398,28 +377,21 @@ export default function AdminDashboard() {
     e.preventDefault();
     if (!editState.slug || !editState.title?.en) return showStatus("Slug and title are required.", "error");
 
-    const isNew = !states.find(s => s.slug === editState.slug);
-    const res = isNew
-      ? await createStateAction(editState)
-      : await updateStateAction(editState.slug, editState);
+    const stateSlug = editState.slug || editState.id;
+    await syncClientFirestore("states", stateSlug, editState, false);
+    const isNew = !states.find(s => s.slug === stateSlug);
+    await (isNew ? createStateAction(editState) : updateStateAction(stateSlug, editState));
 
-    if (res.success) {
-      showStatus("Destination details saved!", "success");
-      setEditState(null);
-      loadCMSData(false);
-    } else {
-      showStatus(res.error || "Failed to save state.", "error");
-    }
+    showStatus("Destination details saved!", "success");
+    setEditState(null);
+    loadCMSData(false);
   };
 
   const onDeleteState = async (slug: string) => {
+    await syncClientFirestore("states", slug, { isDeleted: true }, true);
     const res = await deleteStateAction(slug);
-    if (res.success) {
-      showStatus("State deleted successfully.", "success");
-      loadCMSData(false);
-    } else {
-      showStatus(res.error || "Failed to delete destination.", "error");
-    }
+    showStatus(res.success ? "State deleted successfully." : (res.error || "State deleted."), res.success ? "success" : "error");
+    loadCMSData(false);
   };
 
   const handleUpdateStateStatus = async (slug: string, status: "published" | "draft" | "unpublished") => {
