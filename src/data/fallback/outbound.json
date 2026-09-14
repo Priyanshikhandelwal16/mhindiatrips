@@ -23,6 +23,43 @@
       "es": "Disfrute del máximo lujo internacional en Dubái, desde sus icónicos rascacielos hasta safaris privados en el desierto y cruceros en yate.",
       "pt": "Viva o auge do luxo internacional em Dubai—dos icônicos arranha-céus a safáris privados no deserto e cruzeiros de iate."
     },
+    "history": {
+      "en": "Once a quiet fishing and pearl-diving village along Dubai Creek, Dubai transformed over half a century into a global metropolis of innovation, royal architecture, and world-class luxury.",
+      "es": "Un antiguo pueblo pesquero y perlero a lo largo de Dubai Creek, Dubái se transformó en una metrópoli global de arquitectura real y lujo.",
+      "pt": "Antiga vila de pesca e mergulho de pérolas, Dubai transformou-se em uma metrópole global de arquitetura e luxo."
+    },
+    "culture": {
+      "en": "Emirati culture blends deep-rooted Bedouin hospitality with cutting-edge cosmopolitan elegance. Traditional coffee ceremonies, souks, and falconry exist side by side with Michelin culinary dining.",
+      "es": "La cultura emiratí combina la hospitalidad beduina con la elegancia cosmopolita moderna.",
+      "pt": "A cultura dos Emirados combina a hospitalidade beduína com a elegância cosmopolita."
+    },
+    "localFood": {
+      "en": "Indulge in authentic Arabian feasts featuring Machboos, Al Harees, fresh Persian Gulf seafood, camel milk artisanal gelatos, and Michelin-starred tasting menus overlooking the Dubai Fountain.",
+      "es": "Disfrute de festines árabes auténticos con Machboos, mariscos frescos y restaurantes con estrellas Michelin.",
+      "pt": "Delicie-se com banquetes árabes autênticos com Machboos, frutos do mar e gastronomia com estrela Michelin."
+    },
+    "hotels": [
+      {
+        "name": "Burj Al Arab Jumeirah",
+        "rating": "7 Star Icon",
+        "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=800",
+        "desc": {
+          "en": "The world's most luxurious hotel featuring sail-shaped architecture, duplex suites, private butler service, and helipad.",
+          "es": "El hotel más lujoso del mundo con suites dúplex y mayordomo privado.",
+          "pt": "O hotel mais luxuoso do mundo com suítes duplex e mordomo privado."
+        }
+      },
+      {
+        "name": "Atlantis The Royal",
+        "rating": "5 Star Ultra Luxury",
+        "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=800",
+        "desc": {
+          "en": "Dramatic luxury beachfront resort with rooftop sky pools, celebrity chef restaurants, and private cabanas.",
+          "es": "Resort de lujo frente a la playa con piscinas en la azotea y restaurantes de chefs estrella.",
+          "pt": "Resort beira-mar de luxo com piscinas no topo e restaurantes renomados."
+        }
+      }
+    ],
     "bestTime": {
       "en": "November to March",
       "es": "De noviembre a marzo",

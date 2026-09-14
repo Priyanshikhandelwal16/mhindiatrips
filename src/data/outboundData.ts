@@ -4,21 +4,33 @@ export interface OutboundDestination {
   tagline: { en: string; es: string; pt: string };
   region: string;
   image: string;
-  gallery: string[];
+  gallery?: string[];
   description: { en: string; es: string; pt: string };
+  overview?: { en: string; es: string; pt: string };
   history?: { en: string; es: string; pt: string };
   culture?: { en: string; es: string; pt: string };
   localFood?: { en: string; es: string; pt: string };
   bestTime: { en: string; es: string; pt: string };
-  attractions: Array<{
+  attractions?: Array<{
     name: { en: string; es: string; pt: string };
-    image: string;
+    image?: string;
     desc: { en: string; es: string; pt: string };
   }>;
-  thingsToDo: Array<{ en: string; es: string; pt: string }>;
-  suggestedItinerary: { en: string; es: string; pt: string };
-  travelTips: Array<{ en: string; es: string; pt: string }>;
-  faqs: Array<{
+  experiences?: Array<{
+    title: { en: string; es: string; pt: string };
+    desc?: { en: string; es: string; pt: string };
+    image?: string;
+  }>;
+  hotels?: Array<{
+    name: string;
+    rating?: string;
+    image?: string;
+    desc?: { en: string; es: string; pt: string };
+  }>;
+  thingsToDo?: Array<{ en: string; es: string; pt: string }>;
+  suggestedItinerary?: { en: string; es: string; pt: string };
+  travelTips?: Array<{ en: string; es: string; pt: string }>;
+  faqs?: Array<{
     q: { en: string; es: string; pt: string };
     a: { en: string; es: string; pt: string };
   }>;

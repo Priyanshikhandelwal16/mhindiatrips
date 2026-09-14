@@ -338,12 +338,24 @@ export default function PagesTab({
                                   <div key={field} className="space-y-1">
                                     <label className="text-[9px] font-bold uppercase tracking-wider text-royal/50">{field}</label>
                                     <div className="flex gap-2">
-                                      <input type={typeof fieldVal === "number" ? "number" : "text"} value={fieldVal ?? ""} onChange={(e) => {
-                                        const updatedContent = { ...editPage.content };
-                                        updatedContent[key] = [...val];
-                                        updatedContent[key][idx] = { ...item, [field]: typeof fieldVal === "number" ? Number(e.target.value) : e.target.value };
-                                        setEditPage({ ...editPage, content: updatedContent });
-                                      }} className="w-full bg-white border border-gold/10 px-3 py-2 outline-none text-[11px] rounded-lg" />
+                                      <input 
+                                        type={typeof fieldVal === "number" && field !== "value" ? "number" : "text"} 
+                                        value={fieldVal ?? ""} 
+                                        onChange={(e) => {
+                                          const rawVal = e.target.value;
+                                          let parsedVal: any = rawVal;
+                                          if (field === "value") {
+                                            parsedVal = (isNaN(Number(rawVal)) || rawVal.trim() === "") ? rawVal : Number(rawVal);
+                                          } else if (typeof fieldVal === "number") {
+                                            parsedVal = Number(rawVal);
+                                          }
+                                          const updatedContent = { ...editPage.content };
+                                          updatedContent[key] = [...val];
+                                          updatedContent[key][idx] = { ...item, [field]: parsedVal };
+                                          setEditPage({ ...editPage, content: updatedContent });
+                                        }} 
+                                        className="w-full bg-white border border-gold/10 px-3 py-2 outline-none text-[11px] rounded-lg" 
+                                      />
                                       {(field === "image" || field === "img" || field === "src") && (
                                         <CloudinaryUpload label="Upload" onUploadComplete={(url) => {
                                           const updatedContent = { ...editPage.content };

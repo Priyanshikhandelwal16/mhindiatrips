@@ -369,12 +369,7 @@ export default async function HomePage({ params }: HomePageProps) {
   ];
 
   // CMS stats
-  const cmsStats = (cms.stats && cms.stats.length > 0) ? cms.stats.map((st: any) => {
-    if (st.value === 12 || st.value === 15 || st.value === 22 || String(st.label?.en || "").toLowerCase().includes("experience") || String(st.label?.en || "").toLowerCase().includes("state")) {
-      return { ...st, value: "PAN India", suffix: "" };
-    }
-    return st;
-  }) : [];
+  const cmsStats = (cms.stats && cms.stats.length > 0) ? cms.stats : [];
   // CMS how-it-works
   const cmsHowItWorks = cms.howItWorks || [];
   // CMS inclusions
@@ -387,7 +382,7 @@ export default async function HomePage({ params }: HomePageProps) {
   const cmsCtaBanner = cms.ctaBanner || {};
   // CMS FAQs
   const defaultFaqs = [
-    { q: { en: "Is it safe to travel to India?", es: "¿Es seguro viajar a la India?", pt: "É seguro viajar para a Índia?" }, a: { en: "Yes, India is generally safe for tourists. Our expert guides ensure your comfort and security at all times.", es: "Sí, la India es generalmente segura para turistas.", pt: "Sim, a Índia é generalmente segura para turistas." } },
+    { q: { en: "Is it safe to travel to India?", es: "¿Es seguro viajar a la India?", pt: "É seguro viajar para a Índia?" }, a: { en: "Yes, India is generally safe for tourists. Our expert guides ensure your comfort and security at all times.", es: "Sí, la India es generalmente segura para turistas.", pt: "Sim, a Índia é geralmente segura para turistas." } },
     { q: { en: "What is the best time to visit India?", es: "¿Cuál es la mejor época para visitar la India?", pt: "Qual é a melhor época para visitar a Índia?" }, a: { en: "October to March is ideal for most regions. South India can be visited year-round.", es: "Octubre a marzo es ideal para la mayoría de regiones.", pt: "Outubro a março é ideal para a maioria das regiões." } },
     { q: { en: "Do I need a visa for India?", es: "¿Necesito visa para la India?", pt: "Preciso de visto para a Índia?" }, a: { en: "Yes, most nationalities require a visa. The e-Visa online is processed within 72 hours.", es: "Sí, la mayoría de nacionalidades necesitan visa.", pt: "Sim, a maioria das nacionalidades precisa de visto." } },
     { q: { en: "Can I fully customize my travel package?", es: "¿Puedo personalizar mi viaje?", pt: "Posso personalizar a minha viagem?" }, a: { en: "Absolutely. Every detail is tailormade — route, duration, hotels, and activities.", es: "Por supuesto. Cada detalle se diseña desde cero.", pt: "Certamente. Cada detalhe é planejado a partir do zero." } },
@@ -415,10 +410,10 @@ export default async function HomePage({ params }: HomePageProps) {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
             {(cmsStats.length > 0 ? cmsStats : [
-              { value: "PAN India", suffix: "", label: { en: "Coverage Across India", es: "Cobertura PAN India", pt: "Cobertura PAN Índia" } },
+              { value: 22, suffix: "", label: { en: "Years of experience", es: "Años de experiencia", pt: "Anos de experiência" } },
               { value: 97, suffix: "%", label: { en: "Retention rate", es: "Tasa de retención", pt: "Taxa de retenção" } },
-              { value: 12, suffix: "k", label: { en: "Tours completed", es: "Tour completado", pt: "Tour completado" } },
-              { value: 25, suffix: "k", label: { en: "Happy clients", es: "Cliente feliz", pt: "Cliente feliz" } }
+              { value: 2400, suffix: "+", label: { en: "Happy travelers served", es: "Viajeros satisfechos", pt: "Viajantes satisfeitos" } },
+              { value: "PAN India", suffix: "", label: { en: "Indian states covered", es: "Estados indios cubiertos", pt: "Estados indianos cobertos" } }
             ]).map((stat: any, i: number) => (
               <Reveal key={i} delay={50 + i * 70} className="text-center space-y-5">
                 <div className="relative w-44 h-44 rounded-full flex flex-col items-center justify-center bg-white border border-[#C5A862]/30 shadow-md mx-auto">

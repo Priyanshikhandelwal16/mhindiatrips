@@ -17,6 +17,105 @@ interface PackagesTabProps {
   showStatus: (text: string, type: "success" | "error") => void;
 }
 
+function normalizePackageData(pkg: any) {
+  if (!pkg) return null;
+
+  // 1. Normalize Highlights
+  let highlights: any[] = [];
+  if (Array.isArray(pkg.highlights)) {
+    highlights = pkg.highlights.map((hl: any, idx: number) => {
+      if (typeof hl === "object" && hl !== null && (hl.title || hl.en || hl.es || hl.pt)) return hl;
+      const strVal = typeof hl === "string" ? hl : String(hl || "");
+      return { title: { en: strVal, es: "", pt: "" }, desc: { en: "", es: "", pt: "" }, icon: "Check", displayOrder: idx + 1, isActive: true };
+    });
+  } else if (typeof pkg.highlights === "object" && pkg.highlights !== null) {
+    const enArr = Array.isArray(pkg.highlights.en) ? pkg.highlights.en : [];
+    const esArr = Array.isArray(pkg.highlights.es) ? pkg.highlights.es : [];
+    const ptArr = Array.isArray(pkg.highlights.pt) ? pkg.highlights.pt : [];
+    const maxLen = Math.max(enArr.length, esArr.length, ptArr.length);
+    for (let i = 0; i < maxLen; i++) {
+      const enItem = enArr[i];
+      const esItem = esArr[i];
+      const ptItem = ptArr[i];
+      highlights.push({
+        title: {
+          en: typeof enItem === 'string' ? enItem : (enItem?.title?.en || enItem?.en || enItem?.title || ""),
+          es: typeof esItem === 'string' ? esItem : (esItem?.title?.es || esItem?.es || esItem?.title || ""),
+          pt: typeof ptItem === 'string' ? ptItem : (ptItem?.title?.pt || ptItem?.pt || ptItem?.title || "")
+        },
+        desc: {
+          en: typeof enItem === 'object' ? (enItem?.desc?.en || "") : "",
+          es: typeof esItem === 'object' ? (esItem?.desc?.es || "") : "",
+          pt: typeof ptItem === 'object' ? (ptItem?.desc?.pt || "") : ""
+        },
+        icon: "Check",
+        displayOrder: i + 1,
+        isActive: true
+      });
+    }
+  }
+
+  // 2. Normalize Inclusions
+  let includedExperiences: any[] = [];
+  const rawInc = pkg.includedExperiences || pkg.inclusions;
+  if (Array.isArray(rawInc)) {
+    includedExperiences = rawInc.map((inc: any) => {
+      if (typeof inc === "object" && inc !== null && (inc.en || inc.es || inc.pt)) return inc;
+      const strVal = typeof inc === "string" ? inc : String(inc || "");
+      return { en: strVal, es: "", pt: "" };
+    });
+  } else if (typeof rawInc === "object" && rawInc !== null) {
+    const enArr = Array.isArray(rawInc.en) ? rawInc.en : [];
+    const esArr = Array.isArray(rawInc.es) ? rawInc.es : [];
+    const ptArr = Array.isArray(rawInc.pt) ? rawInc.pt : [];
+    const maxLen = Math.max(enArr.length, esArr.length, ptArr.length);
+    for (let i = 0; i < maxLen; i++) {
+      includedExperiences.push({
+        en: typeof enArr[i] === 'string' ? enArr[i] : (enArr[i]?.en || ""),
+        es: typeof esArr[i] === 'string' ? esArr[i] : (esArr[i]?.es || ""),
+        pt: typeof ptArr[i] === 'string' ? ptArr[i] : (ptArr[i]?.pt || "")
+      });
+    }
+  }
+
+  // 3. Normalize Exclusions
+  let exclusions: any[] = [];
+  if (Array.isArray(pkg.exclusions)) {
+    exclusions = pkg.exclusions.map((exc: any) => {
+      if (typeof exc === "object" && exc !== null && (exc.en || exc.es || exc.pt)) return exc;
+      const strVal = typeof exc === "string" ? exc : String(exc || "");
+      return { en: strVal, es: "", pt: "" };
+    });
+  } else if (typeof pkg.exclusions === "object" && pkg.exclusions !== null) {
+    const enArr = Array.isArray(pkg.exclusions.en) ? pkg.exclusions.en : [];
+    const esArr = Array.isArray(pkg.exclusions.es) ? pkg.exclusions.es : [];
+    const ptArr = Array.isArray(pkg.exclusions.pt) ? pkg.exclusions.pt : [];
+    const maxLen = Math.max(enArr.length, esArr.length, ptArr.length);
+    for (let i = 0; i < maxLen; i++) {
+      exclusions.push({
+        en: typeof enArr[i] === 'string' ? enArr[i] : (enArr[i]?.en || ""),
+        es: typeof esArr[i] === 'string' ? esArr[i] : (esArr[i]?.es || ""),
+        pt: typeof ptArr[i] === 'string' ? ptArr[i] : (ptArr[i]?.pt || "")
+      });
+    }
+  }
+
+  const addons = Array.isArray(pkg.addons) ? pkg.addons : (Array.isArray(pkg.add_ons) ? pkg.add_ons : []);
+
+  return {
+    ...pkg,
+    highlights,
+    includedExperiences,
+    inclusions: includedExperiences,
+    exclusions,
+    addons,
+    add_ons: addons,
+    itinerary: Array.isArray(pkg.itinerary) ? pkg.itinerary : [],
+    gallery: Array.isArray(pkg.gallery) ? pkg.gallery : [],
+    faqs: Array.isArray(pkg.faqs) ? pkg.faqs : []
+  };
+}
+
 export default function PackagesTab({
   packages,
   editPackage,
@@ -27,10 +126,106 @@ export default function PackagesTab({
 }: PackagesTabProps) {
 
   const [subTab, setSubTab] = useState<string>("general");
+  const [packagePortion, setPackagePortion] = useState<"india" | "outbound" | "all">("outbound");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+
+  const isOutboundPackage = (pkg: any) => {
+    if (!pkg) return false;
+    const cat = String(pkg.category || "").toLowerCase();
+    const reg = String(pkg.region || "").toLowerCase();
+    const tourType = String(pkg.tourType || "").toLowerCase();
+    const starting = String(pkg.startingLocation || "").toLowerCase();
+    const ending = String(pkg.endingLocation || "").toLowerCase();
+    const slug = String(pkg.slug || pkg.id || "").toLowerCase();
+    const route = String(pkg.route || "").toLowerCase();
+    return (
+      cat.includes("outbound") || 
+      cat.includes("international") || 
+      reg.includes("outbound") || 
+      reg.includes("international") || 
+      tourType.includes("international") || 
+      pkg.isOutbound === true ||
+      slug.includes("thailand") ||
+      slug.includes("bali") ||
+      slug.includes("dubai") ||
+      slug.includes("maldives") ||
+      slug.includes("singapore") ||
+      slug.includes("nepal") ||
+      slug.includes("bhutan") ||
+      slug.includes("sri-lanka") ||
+      starting.includes("bangkok") ||
+      starting.includes("denpasar") ||
+      starting.includes("phuket") ||
+      starting.includes("bali") ||
+      starting.includes("colombo") ||
+      starting.includes("dubai") ||
+      ending.includes("phuket") ||
+      ending.includes("bali") ||
+      route.includes("thailand") ||
+      route.includes("bali") ||
+      route.includes("phuket") ||
+      route.includes("dubai")
+    );
+  };
+
+  const indiaPackagesCount = (packages || []).filter(p => !isOutboundPackage(p)).length;
+  const outboundPackagesCount = (packages || []).filter(p => isOutboundPackage(p)).length;
+  const allPackagesCount = (packages || []).length;
+
+  const filteredPackagesList = (packages || []).filter((pkg) => {
+    const isOut = isOutboundPackage(pkg);
+    if (packagePortion === "india" && isOut) return false;
+    if (packagePortion === "outbound" && !isOut) return false;
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
+      const titleEn = String(pkg.title?.en || pkg.slug || "").toLowerCase();
+      const cat = String(pkg.category || "").toLowerCase();
+      const startLoc = String(pkg.startingLocation || "").toLowerCase();
+      return titleEn.includes(q) || cat.includes(q) || startLoc.includes(q);
+    }
+    return true;
+  });
+
+  const handleCreateNewPackage = (portion: "india" | "outbound" = packagePortion === "all" ? "india" : packagePortion) => {
+    const isOutboundNew = portion === "outbound";
+    setEditPackage({ 
+      title: { en: "", es: "", pt: "" }, 
+      tagline: { en: "", es: "", pt: "" }, 
+      slug: "", 
+      category: isOutboundNew ? "Outbound" : "Luxury Tours", 
+      isOutbound: isOutboundNew,
+      durationDays: 7, 
+      durationNights: 6,
+      startingLocation: isOutboundNew ? "Dubai / International Airport" : "Delhi",
+      endingLocation: isOutboundNew ? "Dubai / International Airport" : "Delhi",
+      tourType: isOutboundNew ? "Private International Tour" : "Private Tour",
+      travelStyle: "Luxury",
+      bestFor: "Couples, Families, First-Time Visitors",
+      groupSize: "2-12 Travellers",
+      difficultyLevel: "Easy",
+      image: "", 
+      gallery: [],
+      highlights: [],
+      includedExperiences: [],
+      exclusions: [],
+      addons: [],
+      itinerary: [],
+      pricing: { startingPrice: 1499, pricePerPerson: 1499, currency: "USD", priceType: "per_person", discountPrice: 0, groupPricing: "", priceIncludes: "", priceExcludes: "", enquireForPrice: false },
+      travelInfo: { startingPoint: isOutboundNew ? "Dubai" : "Delhi", endingPoint: isOutboundNew ? "Dubai" : "Delhi", duration: "7 Days / 6 Nights", transportation: isOutboundNew ? "Private Luxury Vehicle" : "Private SUV", accommodation: "Luxury Resort & Hotels", tourType: isOutboundNew ? "Private International Tour" : "Private Tour", bestTime: "October to March", groupSize: "2-12 Travellers", languages: "English, Spanish, Portuguese", suitableFor: "Luxury Travellers" },
+      faqs: [],
+      policies: { cancellation: { en: "", es: "", pt: "" }, refund: { en: "", es: "", pt: "" }, bookingTerms: { en: "", es: "", pt: "" }, importantNotes: { en: "", es: "", pt: "" }, visaInfo: { en: "", es: "", pt: "" }, insuranceInfo: { en: "", es: "", pt: "" }, terms: { en: "", es: "", pt: "" } },
+      seo: { title: { en: "", es: "", pt: "" }, description: { en: "", es: "", pt: "" }, keywords: { en: "", es: "", pt: "" }, ogTitle: "", ogDescription: "", ogImage: "", canonicalUrl: "", indexRule: "index", followRule: "follow" },
+      status: "published",
+      isFeatured: false
+    });
+  };
 
   useEffect(() => {
     if (editPackage) {
       setSubTab("general");
+      if ((editPackage.highlights && !Array.isArray(editPackage.highlights)) || (editPackage.includedExperiences && !Array.isArray(editPackage.includedExperiences))) {
+        setEditPackage(normalizePackageData(editPackage));
+      }
     }
   }, [editPackage?.slug]);
 
@@ -370,48 +565,105 @@ export default function PackagesTab({
 
   return (
     <div className="space-y-6 animate-fade-in text-xs text-royal">
-      {/* Tab Header */}
+      {/* Tab Header with 2 Portions: India Packages vs Outbound Packages */}
       {!editPackage && (
-        <div className="flex justify-between items-center">
-          <div>
-            <h2 className="text-lg font-bold text-royal font-serif">Manage Tour Packages</h2>
-            <p className="text-[10px] text-royal/40">Add, edit, or delete tour packages, prices, and itineraries.</p>
+        <div className="bg-white p-6 rounded-3xl border border-gold/20 shadow-md space-y-4">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+              <h2 className="text-xl font-bold text-royal font-serif flex items-center gap-2">
+                <Compass className="w-5 h-5 text-gold" />
+                <span>Manage Tour Packages</span>
+              </h2>
+              <p className="text-[11px] text-royal/50 font-light pt-0.5">
+                Organized into 2 dedicated portions: India Domestic Packages and Outbound International Packages.
+              </p>
+            </div>
+
+            {/* Quick Action Buttons */}
+            <div className="flex items-center gap-2.5 flex-wrap">
+              <button
+                type="button"
+                onClick={() => handleCreateNewPackage("india")}
+                className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 rounded-xl flex items-center gap-1.5 transition cursor-pointer shadow-sm"
+              >
+                <Plus className="w-4 h-4 text-gold" />
+                <span>+ Add India Package</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => handleCreateNewPackage("outbound")}
+                className="bg-[#0A2A1E] text-[#C5A862] border border-[#C5A862]/30 hover:bg-[#C5A862] hover:text-[#0A2A1E] font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 rounded-xl flex items-center gap-1.5 transition cursor-pointer shadow-sm"
+              >
+                <Globe className="w-4 h-4" />
+                <span>+ Add Outbound Package</span>
+              </button>
+            </div>
           </div>
-          <button
-            onClick={() => setEditPackage({ 
-              title: { en: "", es: "", pt: "" }, 
-              tagline: { en: "", es: "", pt: "" }, 
-              slug: "", 
-              category: "Luxury Tours", 
-              durationDays: 7, 
-              durationNights: 6,
-              startingLocation: "Delhi",
-              endingLocation: "Delhi",
-              tourType: "Private Tour",
-              travelStyle: "Luxury",
-              bestFor: "Couples, Families, First-Time Visitors",
-              groupSize: "2-12 Travellers",
-              difficultyLevel: "Easy",
-              image: "", 
-              gallery: [],
-              highlights: [],
-              includedExperiences: [],
-              exclusions: [],
-              addons: [],
-              itinerary: [],
-              pricing: { startingPrice: 1499, pricePerPerson: 1499, currency: "USD", priceType: "per_person", discountPrice: 0, groupPricing: "", priceIncludes: "", priceExcludes: "", enquireForPrice: false },
-              travelInfo: { startingPoint: "Delhi", endingPoint: "Delhi", duration: "7 Days / 6 Nights", transportation: "Private SUV", accommodation: "Luxury Heritage Hotels", tourType: "Private Tour", bestTime: "October to March", groupSize: "2-12 Travellers", languages: "English, Spanish, Portuguese", suitableFor: "Luxury Travellers" },
-              faqs: [],
-              policies: { cancellation: { en: "", es: "", pt: "" }, refund: { en: "", es: "", pt: "" }, bookingTerms: { en: "", es: "", pt: "" }, importantNotes: { en: "", es: "", pt: "" }, visaInfo: { en: "", es: "", pt: "" }, insuranceInfo: { en: "", es: "", pt: "" }, terms: { en: "", es: "", pt: "" } },
-              seo: { title: { en: "", es: "", pt: "" }, description: { en: "", es: "", pt: "" }, keywords: { en: "", es: "", pt: "" }, ogTitle: "", ogDescription: "", ogImage: "", canonicalUrl: "", indexRule: "index", followRule: "follow" },
-              status: "published",
-              isFeatured: false
-            })}
-            className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 flex items-center gap-1.5 transition cursor-pointer"
-          >
-            <Plus className="w-4 h-4" />
-            <span>Add New Package</span>
-          </button>
+
+          {/* Portion Selector Tabs */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-gold/10">
+            <div className="flex bg-[#FAF8F5] p-1 rounded-2xl border border-gold/15 gap-1.5 w-full sm:w-auto">
+              <button
+                type="button"
+                onClick={() => setPackagePortion("india")}
+                className={`px-5 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition-all cursor-pointer ${
+                  packagePortion === "india" 
+                    ? "bg-royal text-white shadow-md" 
+                    : "text-royal/60 hover:text-royal hover:bg-white"
+                }`}
+              >
+                <span>🇮🇳 India Packages</span>
+                <span className={`text-[10px] px-2 py-0.5 rounded-full font-extrabold ${
+                  packagePortion === "india" ? "bg-gold text-royal" : "bg-royal/10 text-royal"
+                }`}>
+                  {indiaPackagesCount}
+                </span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setPackagePortion("outbound")}
+                className={`px-5 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition-all cursor-pointer ${
+                  packagePortion === "outbound" 
+                    ? "bg-[#0A2A1E] text-[#C5A862] shadow-md border border-[#C5A862]/30" 
+                    : "text-royal/60 hover:text-royal hover:bg-white"
+                }`}
+              >
+                <span>✈️ Outbound Packages</span>
+                <span className={`text-[10px] px-2 py-0.5 rounded-full font-extrabold ${
+                  packagePortion === "outbound" ? "bg-[#C5A862] text-[#0A2A1E]" : "bg-royal/10 text-royal"
+                }`}>
+                  {outboundPackagesCount}
+                </span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setPackagePortion("all")}
+                className={`px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition-all cursor-pointer ${
+                  packagePortion === "all" 
+                    ? "bg-gold text-royal shadow-md" 
+                    : "text-royal/60 hover:text-royal hover:bg-white"
+                }`}
+              >
+                <span>🌐 All Packages</span>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-royal/10 text-royal font-extrabold">
+                  {allPackagesCount}
+                </span>
+              </button>
+            </div>
+
+            {/* Filter Search Input */}
+            <div className="relative w-full sm:w-64">
+              <input
+                type="text"
+                placeholder="Search packages by title or location..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full bg-[#FAF8F5] border border-gold/15 px-3.5 py-2 rounded-xl text-xs outline-none focus:border-gold"
+              />
+            </div>
+          </div>
         </div>
       )}
 
@@ -668,89 +920,95 @@ export default function PackagesTab({
                 </button>
               </div>
 
-              {(!editPackage.highlights || editPackage.highlights.length === 0) ? (
-                <div className="py-12 text-center text-royal/40 italic bg-[#FAF8F5] rounded-xl border border-dashed border-gold/20">
-                  No highlights configured. Add highlights to showcase specific features.
-                </div>
-              ) : (
-                <div className="space-y-4">
-                  {editPackage.highlights.map((hl: any, idx: number) => {
-                    const hlObj = typeof hl === "object" && hl !== null && hl.title ? hl : { title: { en: typeof hl === 'string' ? hl : (hl.en || ""), es: "", pt: "" }, desc: { en: "", es: "", pt: "" }, icon: "Check", displayOrder: idx + 1, isActive: true };
-                    return (
-                      <div key={idx} className="bg-[#FAF8F5] border border-gold/15 p-5 rounded-2xl space-y-4 relative shadow-sm">
-                        <div className="flex justify-between items-center pb-2 border-b border-gold/5">
-                          <span className="font-bold text-gold text-xs">Highlight Point #{idx + 1}</span>
-                          <button
-                            type="button" onClick={() => handleRemoveHighlight(idx)}
-                            className="text-red-500 hover:text-red-700 font-bold text-[10px] uppercase tracking-wider"
-                          >
-                            Remove Highlight
-                          </button>
-                        </div>
+              {(() => {
+                const hList = Array.isArray(editPackage.highlights) ? editPackage.highlights : [];
+                if (hList.length === 0) {
+                  return (
+                    <div className="py-12 text-center text-royal/40 italic bg-[#FAF8F5] rounded-xl border border-dashed border-gold/20">
+                      No highlights configured. Add highlights to showcase specific features.
+                    </div>
+                  );
+                }
+                return (
+                  <div className="space-y-4">
+                    {hList.map((hl: any, idx: number) => {
+                      const hlObj = typeof hl === "object" && hl !== null && hl.title ? hl : { title: { en: typeof hl === 'string' ? hl : (hl.en || ""), es: "", pt: "" }, desc: { en: "", es: "", pt: "" }, icon: "Check", displayOrder: idx + 1, isActive: true };
+                      return (
+                        <div key={idx} className="bg-[#FAF8F5] border border-gold/15 p-5 rounded-2xl space-y-4 relative shadow-sm">
+                          <div className="flex justify-between items-center pb-2 border-b border-gold/5">
+                            <span className="font-bold text-gold text-xs">Highlight Point #{idx + 1}</span>
+                            <button
+                              type="button" onClick={() => handleRemoveHighlight(idx)}
+                              className="text-red-500 hover:text-red-700 font-bold text-[10px] uppercase tracking-wider"
+                            >
+                              Remove Highlight
+                            </button>
+                          </div>
 
-                        {/* Text Fields */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div className="space-y-1">
-                            <label className="font-bold text-royal/70 uppercase text-[9px] tracking-wider">Highlight Title (EN/ES/PT)</label>
+                          {/* Text Fields */}
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="space-y-1">
-                              {["en", "es", "pt"].map(l => (
-                                <input
-                                  key={l} type="text" placeholder={l.toUpperCase() + " Title"}
-                                  value={hlObj.title?.[l] || ""}
-                                  onChange={e => handleUpdateHighlight(idx, "title", l, e.target.value)}
-                                  className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded-lg"
-                                />
-                              ))}
+                              <label className="font-bold text-royal/70 uppercase text-[9px] tracking-wider">Highlight Title (EN/ES/PT)</label>
+                              <div className="space-y-1">
+                                {["en", "es", "pt"].map(l => (
+                                  <input
+                                    key={l} type="text" placeholder={l.toUpperCase() + " Title"}
+                                    value={hlObj.title?.[l] || ""}
+                                    onChange={e => handleUpdateHighlight(idx, "title", l, e.target.value)}
+                                    className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded-lg"
+                                  />
+                                ))}
+                              </div>
+                            </div>
+                            <div className="space-y-1">
+                              <label className="font-bold text-royal/70 uppercase text-[9px] tracking-wider">Highlight Description (EN/ES/PT)</label>
+                              <div className="space-y-1">
+                                {["en", "es", "pt"].map(l => (
+                                  <input
+                                    key={l} type="text" placeholder={l.toUpperCase() + " Description"}
+                                    value={hlObj.desc?.[l] || ""}
+                                    onChange={e => handleUpdateHighlight(idx, "desc", l, e.target.value)}
+                                    className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded-lg"
+                                  />
+                                ))}
+                              </div>
                             </div>
                           </div>
-                          <div className="space-y-1">
-                            <label className="font-bold text-royal/70 uppercase text-[9px] tracking-wider">Highlight Description (EN/ES/PT)</label>
+
+                          {/* Extra controls (Icon, Display Order, Active) */}
+                          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 pt-2 border-t border-gold/5 items-center">
                             <div className="space-y-1">
-                              {["en", "es", "pt"].map(l => (
-                                <input
-                                  key={l} type="text" placeholder={l.toUpperCase() + " Description"}
-                                  value={hlObj.desc?.[l] || ""}
-                                  onChange={e => handleUpdateHighlight(idx, "desc", l, e.target.value)}
-                                  className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded-lg"
-                                />
-                              ))}
+                              <span className="font-bold text-royal/70 uppercase text-[9px] tracking-wider block">Icon (e.g. MapPin, Star, Shield)</span>
+                              <input
+                                type="text" value={hlObj.icon || ""}
+                                onChange={e => handleUpdateHighlight(idx, "icon", null, e.target.value)}
+                                className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded"
+                              />
+                            </div>
+                            <div className="space-y-1">
+                              <span className="font-bold text-royal/70 uppercase text-[9px] tracking-wider block">Display Order</span>
+                              <input
+                                type="number" value={hlObj.displayOrder || ""}
+                                onChange={e => handleUpdateHighlight(idx, "displayOrder", null, parseInt(e.target.value) || 1)}
+                                className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded"
+                              />
+                            </div>
+                            <div className="flex items-center gap-2 pt-4">
+                              <input
+                                type="checkbox" id={`hl-active-${idx}`}
+                                checked={hlObj.isActive !== false}
+                                onChange={e => handleUpdateHighlight(idx, "isActive", null, e.target.checked)}
+                                className="w-4 h-4 cursor-pointer accent-royal"
+                              />
+                              <label htmlFor={`hl-active-${idx}`} className="font-bold uppercase tracking-wider cursor-pointer">Active</label>
                             </div>
                           </div>
                         </div>
-
-                        {/* Extra controls (Icon, Display Order, Active) */}
-                        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 pt-2 border-t border-gold/5 items-center">
-                          <div className="space-y-1">
-                            <span className="font-bold text-royal/70 uppercase text-[9px] tracking-wider block">Icon (e.g. MapPin, Star, Shield)</span>
-                            <input
-                              type="text" value={hlObj.icon || ""}
-                              onChange={e => handleUpdateHighlight(idx, "icon", null, e.target.value)}
-                              className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded"
-                            />
-                          </div>
-                          <div className="space-y-1">
-                            <span className="font-bold text-royal/70 uppercase text-[9px] tracking-wider block">Display Order</span>
-                            <input
-                              type="number" value={hlObj.displayOrder || ""}
-                              onChange={e => handleUpdateHighlight(idx, "displayOrder", null, parseInt(e.target.value) || 1)}
-                              className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded"
-                            />
-                          </div>
-                          <div className="flex items-center gap-2 pt-4">
-                            <input
-                              type="checkbox" id={`hl-active-${idx}`}
-                              checked={hlObj.isActive !== false}
-                              onChange={e => handleUpdateHighlight(idx, "isActive", null, e.target.checked)}
-                              className="w-4 h-4 cursor-pointer accent-royal"
-                            />
-                            <label htmlFor={`hl-active-${idx}`} className="font-bold uppercase tracking-wider cursor-pointer">Active</label>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
+                      );
+                    })}
+                  </div>
+                );
+              })()}
             </div>
           )}
 
@@ -769,40 +1027,46 @@ export default function PackagesTab({
                   </button>
                 </div>
 
-                {(!editPackage.includedExperiences || editPackage.includedExperiences.length === 0) ? (
-                  <div className="py-6 text-center text-royal/40 italic bg-emerald-50/10 rounded-xl border border-dashed border-emerald-200">
-                    No inclusions configured.
-                  </div>
-                ) : (
-                  <div className="space-y-3">
-                    {editPackage.includedExperiences.map((inc: any, idx: number) => {
-                      const incObj = typeof inc === "object" && inc !== null ? inc : { en: inc || "", es: "", pt: "" };
-                      return (
-                        <div key={idx} className="bg-[#FAF8F5] border border-gold/15 p-4 rounded-xl space-y-2 relative">
-                          <div className="flex justify-between items-center pb-1 border-b border-gold/5">
-                            <span className="font-bold text-emerald-600 text-[10px]">Inclusion Bullet #{idx + 1}</span>
-                            <button
-                              type="button" onClick={() => handleRemoveInclusion(idx)}
-                              className="text-red-500 hover:text-red-700 font-bold text-[9px] uppercase tracking-wider"
-                            >
-                              Remove
-                            </button>
+                {(() => {
+                  const incList = Array.isArray(editPackage.includedExperiences) ? editPackage.includedExperiences : [];
+                  if (incList.length === 0) {
+                    return (
+                      <div className="py-6 text-center text-royal/40 italic bg-emerald-50/10 rounded-xl border border-dashed border-emerald-200">
+                        No inclusions configured.
+                      </div>
+                    );
+                  }
+                  return (
+                    <div className="space-y-3">
+                      {incList.map((inc: any, idx: number) => {
+                        const incObj = typeof inc === "object" && inc !== null ? inc : { en: inc || "", es: "", pt: "" };
+                        return (
+                          <div key={idx} className="bg-[#FAF8F5] border border-gold/15 p-4 rounded-xl space-y-2 relative">
+                            <div className="flex justify-between items-center pb-1 border-b border-gold/5">
+                              <span className="font-bold text-emerald-600 text-[10px]">Inclusion Bullet #{idx + 1}</span>
+                              <button
+                                type="button" onClick={() => handleRemoveInclusion(idx)}
+                                className="text-red-500 hover:text-red-700 font-bold text-[9px] uppercase tracking-wider"
+                              >
+                                Remove
+                              </button>
+                            </div>
+                            <div className="space-y-1">
+                              {["en", "es", "pt"].map(l => (
+                                <input
+                                  key={l} type="text" placeholder={l.toUpperCase() + " Inclusion Item"}
+                                  value={incObj[l] || ""}
+                                  onChange={e => handleUpdateInclusion(idx, l, e.target.value)}
+                                  className="w-full bg-white border border-gold/10 px-2.5 py-1.5 outline-none rounded text-xs"
+                                />
+                              ))}
+                            </div>
                           </div>
-                          <div className="space-y-1">
-                            {["en", "es", "pt"].map(l => (
-                              <input
-                                key={l} type="text" placeholder={l.toUpperCase() + " Inclusion Item"}
-                                value={incObj[l] || ""}
-                                onChange={e => handleUpdateInclusion(idx, l, e.target.value)}
-                                className="w-full bg-white border border-gold/10 px-2.5 py-1.5 outline-none rounded text-xs"
-                              />
-                            ))}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
+                        );
+                      })}
+                    </div>
+                  );
+                })()}
               </div>
 
               {/* Exclusions */}
@@ -817,40 +1081,46 @@ export default function PackagesTab({
                   </button>
                 </div>
 
-                {(!editPackage.exclusions || editPackage.exclusions.length === 0) ? (
-                  <div className="py-6 text-center text-royal/40 italic bg-red-50/10 rounded-xl border border-dashed border-red-200">
-                    No exclusions configured.
-                  </div>
-                ) : (
-                  <div className="space-y-3">
-                    {editPackage.exclusions.map((exc: any, idx: number) => {
-                      const excObj = typeof exc === "object" && exc !== null ? exc : { en: exc || "", es: "", pt: "" };
-                      return (
-                        <div key={idx} className="bg-[#FAF8F5] border border-gold/15 p-4 rounded-xl space-y-2 relative">
-                          <div className="flex justify-between items-center pb-1 border-b border-gold/5">
-                            <span className="font-bold text-red-600 text-[10px]">Exclusion Bullet #{idx + 1}</span>
-                            <button
-                              type="button" onClick={() => handleRemoveExclusion(idx)}
-                              className="text-red-500 hover:text-red-700 font-bold text-[9px] uppercase tracking-wider"
-                            >
-                              Remove
-                            </button>
+                {(() => {
+                  const excList = Array.isArray(editPackage.exclusions) ? editPackage.exclusions : [];
+                  if (excList.length === 0) {
+                    return (
+                      <div className="py-6 text-center text-royal/40 italic bg-red-50/10 rounded-xl border border-dashed border-red-200">
+                        No exclusions configured.
+                      </div>
+                    );
+                  }
+                  return (
+                    <div className="space-y-3">
+                      {excList.map((exc: any, idx: number) => {
+                        const excObj = typeof exc === "object" && exc !== null ? exc : { en: exc || "", es: "", pt: "" };
+                        return (
+                          <div key={idx} className="bg-[#FAF8F5] border border-gold/15 p-4 rounded-xl space-y-2 relative">
+                            <div className="flex justify-between items-center pb-1 border-b border-gold/5">
+                              <span className="font-bold text-red-600 text-[10px]">Exclusion Bullet #{idx + 1}</span>
+                              <button
+                                type="button" onClick={() => handleRemoveExclusion(idx)}
+                                className="text-red-500 hover:text-red-700 font-bold text-[9px] uppercase tracking-wider"
+                              >
+                                Remove
+                              </button>
+                            </div>
+                            <div className="space-y-1">
+                              {["en", "es", "pt"].map(l => (
+                                <input
+                                  key={l} type="text" placeholder={l.toUpperCase() + " Exclusion Item"}
+                                  value={excObj[l] || ""}
+                                  onChange={e => handleUpdateExclusion(idx, l, e.target.value)}
+                                  className="w-full bg-white border border-gold/10 px-2.5 py-1.5 outline-none rounded text-xs"
+                                />
+                              ))}
+                            </div>
                           </div>
-                          <div className="space-y-1">
-                            {["en", "es", "pt"].map(l => (
-                              <input
-                                key={l} type="text" placeholder={l.toUpperCase() + " Exclusion Item"}
-                                value={excObj[l] || ""}
-                                onChange={e => handleUpdateExclusion(idx, l, e.target.value)}
-                                className="w-full bg-white border border-gold/10 px-2.5 py-1.5 outline-none rounded text-xs"
-                              />
-                            ))}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
+                        );
+                      })}
+                    </div>
+                  );
+                })()}
               </div>
             </div>
           )}
@@ -868,112 +1138,118 @@ export default function PackagesTab({
                 </button>
               </div>
 
-              {(!editPackage.addons || editPackage.addons.length === 0) ? (
-                <div className="py-12 text-center text-royal/40 italic bg-[#FAF8F5] rounded-xl border border-dashed border-gold/20">
-                  No add-ons configured. Add optional sightseeing activities.
-                </div>
-              ) : (
-                <div className="space-y-6">
-                  {editPackage.addons.map((add: any, idx: number) => (
-                    <div key={idx} className="border border-gold/15 bg-[#FAF8F5] p-5 rounded-2xl space-y-4 relative shadow-sm">
-                      <div className="flex justify-between items-center pb-2 border-b border-gold/10">
-                        <span className="font-bold text-royal text-xs">Optional Experience #{idx + 1}</span>
-                        <button
-                          type="button" onClick={() => handleRemoveAddon(idx)}
-                          className="text-red-500 hover:text-red-700 font-bold uppercase tracking-wider text-[9px]"
-                        >
-                          Remove Add-on
-                        </button>
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="space-y-1">
-                          <label className="font-semibold uppercase text-[9px] text-royal/50">Experience Name (EN/ES/PT)</label>
-                          {["en", "es", "pt"].map(l => (
-                            <input
-                              key={l} type="text" placeholder={l.toUpperCase() + " Name"}
-                              value={add.name?.[l] || ""}
-                              onChange={e => handleUpdateAddon(idx, "name", l, e.target.value)}
-                              className="w-full bg-white border border-gold/10 px-2.5 py-1.5 outline-none rounded"
-                            />
-                          ))}
-                        </div>
-                        <div className="space-y-1">
-                          <label className="font-semibold uppercase text-[9px] text-royal/50">Short Description (EN/ES/PT)</label>
-                          {["en", "es", "pt"].map(l => (
-                            <input
-                              key={l} type="text" placeholder={l.toUpperCase() + " Description"}
-                              value={add.desc?.[l] || ""}
-                              onChange={e => handleUpdateAddon(idx, "desc", l, e.target.value)}
-                              className="w-full bg-white border border-gold/10 px-2.5 py-1.5 outline-none rounded"
-                            />
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
-                        <div className="space-y-1">
-                          <span className="font-bold text-royal/70 uppercase text-[9px] tracking-wider block">Price</span>
-                          <input
-                            type="text" value={add.price || ""}
-                            onChange={e => handleUpdateAddon(idx, "price", null, e.target.value)}
-                            className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded"
-                          />
-                        </div>
-                        <div className="space-y-1">
-                          <span className="font-bold text-royal/70 uppercase text-[9px] tracking-wider block">Currency</span>
-                          <select
-                            value={add.currency || "USD"}
-                            onChange={e => handleUpdateAddon(idx, "currency", null, e.target.value)}
-                            className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded"
-                          >
-                            {["EUR", "USD", "GBP", "INR"].map(c => (
-                              <option key={c} value={c}>{c}</option>
-                            ))}
-                          </select>
-                        </div>
-                        <div className="space-y-1">
-                          <span className="font-bold text-royal/70 uppercase text-[9px] tracking-wider block">Duration (e.g. 3 Hours)</span>
-                          <input
-                            type="text" value={add.duration || ""}
-                            onChange={e => handleUpdateAddon(idx, "duration", null, e.target.value)}
-                            className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded"
-                          />
-                        </div>
-                        <div className="flex items-center gap-2 pt-4">
-                          <input
-                            type="checkbox" id={`add-active-${idx}`}
-                            checked={add.isActive !== false}
-                            onChange={e => handleUpdateAddon(idx, "isActive", null, e.target.checked)}
-                            className="w-4 h-4 cursor-pointer accent-royal"
-                          />
-                          <label htmlFor={`add-active-${idx}`} className="font-bold uppercase tracking-wider cursor-pointer">Active / Visible</label>
-                        </div>
-                      </div>
-
-                      {/* Image Upload for addon */}
-                      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
-                        <div className="md:col-span-8 space-y-1.5">
-                          <label className="font-bold uppercase tracking-wider block text-royal/60">Photo URL</label>
-                          <input 
-                            type="text" value={add.image || ""}
-                            onChange={e => handleUpdateAddon(idx, "image", null, e.target.value)}
-                            className="w-full bg-white border border-gold/10 px-3 py-2 outline-none rounded"
-                          />
-                        </div>
-                        <div className="md:col-span-4 pb-0.5">
-                          <CloudinaryUpload 
-                            onUploadComplete={(url) => handleUpdateAddon(idx, "image", null, url)} 
-                            label="Upload Addon Image"
-                            showStatus={showStatus}
-                            defaultSearch={add.name?.en || editPackage.title?.en || ""}
-                          />
-                        </div>
-                      </div>
+              {(() => {
+                const addList = Array.isArray(editPackage.addons) ? editPackage.addons : [];
+                if (addList.length === 0) {
+                  return (
+                    <div className="py-12 text-center text-royal/40 italic bg-[#FAF8F5] rounded-xl border border-dashed border-gold/20">
+                      No add-ons configured. Add optional sightseeing activities.
                     </div>
-                  ))}
-                </div>
-              )}
+                  );
+                }
+                return (
+                  <div className="space-y-6">
+                    {addList.map((add: any, idx: number) => (
+                      <div key={idx} className="border border-gold/15 bg-[#FAF8F5] p-5 rounded-2xl space-y-4 relative shadow-sm">
+                        <div className="flex justify-between items-center pb-2 border-b border-gold/10">
+                          <span className="font-bold text-royal text-xs">Optional Experience #{idx + 1}</span>
+                          <button
+                            type="button" onClick={() => handleRemoveAddon(idx)}
+                            className="text-red-500 hover:text-red-700 font-bold uppercase tracking-wider text-[9px]"
+                          >
+                            Remove Add-on
+                          </button>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="space-y-1">
+                            <label className="font-semibold uppercase text-[9px] text-royal/50">Experience Name (EN/ES/PT)</label>
+                            {["en", "es", "pt"].map(l => (
+                              <input
+                                key={l} type="text" placeholder={l.toUpperCase() + " Name"}
+                                value={add.name?.[l] || ""}
+                                onChange={e => handleUpdateAddon(idx, "name", l, e.target.value)}
+                                className="w-full bg-white border border-gold/10 px-2.5 py-1.5 outline-none rounded"
+                              />
+                            ))}
+                          </div>
+                          <div className="space-y-1">
+                            <label className="font-semibold uppercase text-[9px] text-royal/50">Short Description (EN/ES/PT)</label>
+                            {["en", "es", "pt"].map(l => (
+                              <input
+                                key={l} type="text" placeholder={l.toUpperCase() + " Description"}
+                                value={add.desc?.[l] || ""}
+                                onChange={e => handleUpdateAddon(idx, "desc", l, e.target.value)}
+                                className="w-full bg-white border border-gold/10 px-2.5 py-1.5 outline-none rounded"
+                              />
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+                          <div className="space-y-1">
+                            <span className="font-bold text-royal/70 uppercase text-[9px] tracking-wider block">Price</span>
+                            <input
+                              type="text" value={add.price || ""}
+                              onChange={e => handleUpdateAddon(idx, "price", null, e.target.value)}
+                              className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded"
+                            />
+                          </div>
+                          <div className="space-y-1">
+                            <span className="font-bold text-royal/70 uppercase text-[9px] tracking-wider block">Currency</span>
+                            <select
+                              value={add.currency || "USD"}
+                              onChange={e => handleUpdateAddon(idx, "currency", null, e.target.value)}
+                              className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded"
+                            >
+                              {["EUR", "USD", "GBP", "INR"].map(c => (
+                                <option key={c} value={c}>{c}</option>
+                              ))}
+                            </select>
+                          </div>
+                          <div className="space-y-1">
+                            <span className="font-bold text-royal/70 uppercase text-[9px] tracking-wider block">Duration (e.g. 3 Hours)</span>
+                            <input
+                              type="text" value={add.duration || ""}
+                              onChange={e => handleUpdateAddon(idx, "duration", null, e.target.value)}
+                              className="w-full bg-white border border-gold/10 px-3 py-1.5 outline-none rounded"
+                            />
+                          </div>
+                          <div className="flex items-center gap-2 pt-4">
+                            <input
+                              type="checkbox" id={`add-active-${idx}`}
+                              checked={add.isActive !== false}
+                              onChange={e => handleUpdateAddon(idx, "isActive", null, e.target.checked)}
+                              className="w-4 h-4 cursor-pointer accent-royal"
+                            />
+                            <label htmlFor={`add-active-${idx}`} className="font-bold uppercase tracking-wider cursor-pointer">Active / Visible</label>
+                          </div>
+                        </div>
+
+                        {/* Image Upload for addon */}
+                        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+                          <div className="md:col-span-8 space-y-1.5">
+                            <label className="font-bold uppercase tracking-wider block text-royal/60">Photo URL</label>
+                            <input 
+                              type="text" value={add.image || ""}
+                              onChange={e => handleUpdateAddon(idx, "image", null, e.target.value)}
+                              className="w-full bg-white border border-gold/10 px-3 py-2 outline-none rounded"
+                            />
+                          </div>
+                          <div className="md:col-span-4 pb-0.5">
+                            <CloudinaryUpload 
+                              onUploadComplete={(url) => handleUpdateAddon(idx, "image", null, url)} 
+                              label="Upload Addon Image"
+                              showStatus={showStatus}
+                              defaultSearch={add.name?.en || editPackage.title?.en || ""}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                );
+              })()}
             </div>
           )}
 
@@ -2096,62 +2372,87 @@ export default function PackagesTab({
 
       {/* PACKAGES GRID */}
       {!editPackage && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {(packages || []).map((pkg) => (
-            <div key={pkg.slug} className="bg-white border border-beige/45 rounded-3xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-gold/30 transition">
-              <div className="h-40 w-full overflow-hidden bg-light-gray relative">
-                <img src={pkg.image || "/images/destination_fallback.jpg"} alt={pkg.title?.en} className="h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent"></div>
-              </div>
-              <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">
-                <div className="space-y-1.5">
-                  <div className="flex items-center justify-between gap-1 flex-wrap">
-                    <span className="text-[8px] bg-royal/10 text-royal px-2.5 py-0.5 rounded uppercase font-bold tracking-wider border border-gold/15">{pkg.category}</span>
-                    <div className="flex items-center gap-1">
-                      <span className={`text-[8px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
-                        pkg.isDraft ? "bg-amber-100 text-amber-800" : "bg-emerald-100 text-emerald-800"
+        <div className="space-y-4">
+          {filteredPackagesList.length === 0 ? (
+            <div className="bg-white border border-gold/20 p-12 text-center rounded-3xl space-y-3">
+              <Compass className="w-10 h-10 text-gold mx-auto opacity-50" />
+              <h3 className="text-base font-bold font-serif text-royal">No packages found in this portion</h3>
+              <p className="text-xs text-royal/50 max-w-md mx-auto font-light">
+                {packagePortion === "india"
+                  ? "There are no India domestic packages matching your search. Click '+ Add India Package' above to create one."
+                  : packagePortion === "outbound"
+                  ? "There are no Outbound international packages matching your search. Click '+ Add Outbound Package' above to create one."
+                  : "No tour packages found. Click one of the '+ Add Package' buttons to create your first itinerary."}
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredPackagesList.map((pkg) => {
+                const isOut = isOutboundPackage(pkg);
+
+                return (
+                  <div key={pkg.slug} className="bg-white border border-beige/45 rounded-3xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-gold/30 transition">
+                    <div className="h-40 w-full overflow-hidden bg-light-gray relative">
+                      <img src={pkg.image || "/images/destination_fallback.jpg"} alt={pkg.title?.en} className="h-full w-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent"></div>
+                      <span className={`absolute top-3 left-3 text-[8px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md ${
+                        isOut ? "bg-[#0A2A1E] text-[#C5A862] border border-[#C5A862]/30" : "bg-royal text-white border border-gold/20"
                       }`}>
-                        {pkg.isDraft ? "Draft" : "Published"}
+                        {isOut ? "✈️ Outbound" : "🇮🇳 Domestic"}
                       </span>
-                      {pkg.isFeatured && <span className="text-[8px] bg-gold text-royal px-2 py-0.5 rounded uppercase font-bold tracking-wider">⭐ Featured</span>}
-                      <span className="text-[10px] text-foreground/45 font-semibold">{pkg.durationDays} Days</span>
+                    </div>
+                    <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">
+                      <div className="space-y-1.5">
+                        <div className="flex items-center justify-between gap-1 flex-wrap">
+                          <span className="text-[8px] bg-royal/10 text-royal px-2.5 py-0.5 rounded uppercase font-bold tracking-wider border border-gold/15">{pkg.category}</span>
+                          <div className="flex items-center gap-1">
+                            <span className={`text-[8px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
+                              pkg.isDraft ? "bg-amber-100 text-amber-800" : "bg-emerald-100 text-emerald-800"
+                            }`}>
+                              {pkg.isDraft ? "Draft" : "Published"}
+                            </span>
+                            {pkg.isFeatured && <span className="text-[8px] bg-gold text-royal px-2 py-0.5 rounded uppercase font-bold tracking-wider">⭐ Featured</span>}
+                            <span className="text-[10px] text-foreground/45 font-semibold">{pkg.durationDays} Days</span>
+                          </div>
+                        </div>
+                        <h4 className="text-base font-bold text-royal font-serif line-clamp-1">{pkg.title?.en}</h4>
+                        <p className="text-xs text-foreground/50 line-clamp-2 leading-relaxed font-light">{pkg.tagline?.en}</p>
+                      </div>
+
+                      <div className="flex flex-wrap justify-between items-center pt-4 border-t border-beige/25 text-xs gap-2">
+                        <button
+                          onClick={() => setEditPackage(normalizePackageData(pkg))}
+                          className="text-royal hover:text-gold flex items-center gap-1 font-bold uppercase tracking-wider cursor-pointer"
+                        >
+                          <Edit2 className="w-3.5 h-3.5" />
+                          <span>Edit</span>
+                        </button>
+                        <a
+                          href={`/en/packages/${pkg.slug}?preview=true`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gold hover:text-royal flex items-center gap-1 font-bold uppercase tracking-wider"
+                        >
+                          <span>Preview 👁️</span>
+                        </a>
+                        <button
+                          onClick={() => {
+                            if (window.confirm(`Are you sure you want to delete "${pkg.title?.en}" package?`)) {
+                              handleDeletePackage(pkg.slug);
+                            }
+                          }}
+                          className="text-red-600 hover:text-red-700 flex items-center gap-1 font-bold uppercase tracking-wider cursor-pointer"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                          <span>Delete</span>
+                        </button>
+                      </div>
                     </div>
                   </div>
-                  <h4 className="text-base font-bold text-royal font-serif line-clamp-1">{pkg.title?.en}</h4>
-                  <p className="text-xs text-foreground/50 line-clamp-2 leading-relaxed font-light">{pkg.tagline?.en}</p>
-                </div>
-
-                <div className="flex flex-wrap justify-between items-center pt-4 border-t border-beige/25 text-xs gap-2">
-                  <button
-                    onClick={() => setEditPackage(pkg)}
-                    className="text-royal hover:text-gold flex items-center gap-1 font-bold uppercase tracking-wider cursor-pointer"
-                  >
-                    <Edit2 className="w-3.5 h-3.5" />
-                    <span>Edit</span>
-                  </button>
-                  <a
-                    href={`/en/packages/${pkg.slug}?preview=true`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gold hover:text-royal flex items-center gap-1 font-bold uppercase tracking-wider"
-                  >
-                    <span>Preview 👁️</span>
-                  </a>
-                  <button
-                    onClick={() => {
-                      if (window.confirm(`Are you sure you want to delete "${pkg.title?.en}" package?`)) {
-                        handleDeletePackage(pkg.slug);
-                      }
-                    }}
-                    className="text-red-600 hover:text-red-700 flex items-center gap-1 font-bold uppercase tracking-wider cursor-pointer"
-                  >
-                    <Trash2 className="w-3.5 h-3.5" />
-                    <span>Delete</span>
-                  </button>
-                </div>
-              </div>
+                );
+              })}
             </div>
-          ))}
+          )}
         </div>
       )}
     </div>

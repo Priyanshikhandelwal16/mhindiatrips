@@ -44,6 +44,34 @@ export async function generateMetadata({ params }: PackageDetailProps) {
   };
 }
 
+function parseBullets(input: any, currentLang: string = "en"): string[] {
+  if (!input) return [];
+  if (Array.isArray(input)) {
+    return input.map(item => {
+      if (typeof item === 'string') return item.replace(/^[\*\-\•\s]+/, '').trim();
+      if (typeof item === 'object' && item !== null) {
+        const val = item[currentLang] || item.en || item.es || item.pt || Object.values(item)[0] || '';
+        return String(val).replace(/^[\*\-\•\s]+/, '').trim();
+      }
+      return String(item).trim();
+    }).filter(Boolean);
+  }
+  if (typeof input === 'object' && input !== null) {
+    const localized = input[currentLang] || input.en || input.es || input.pt || Object.values(input)[0];
+    return parseBullets(localized, currentLang);
+  }
+  if (typeof input === 'string') {
+    let lines = input.split(/\n+/);
+    if (lines.length === 1 && (input.includes('. ') || input.includes('; '))) {
+      lines = input.split(/(?<=\.)\s+/);
+    }
+    return lines
+      .map(line => line.replace(/^[\*\-\•\s]+/, '').trim())
+      .filter(Boolean);
+  }
+  return [];
+}
+
 export default async function PackageDetailPage({ params, searchParams }: PackageDetailProps) {
   const { locale, slug } = await params;
   const sParams = await searchParams;
@@ -814,28 +842,37 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                     </div>
 
                     <div className="text-sm sm:text-base text-[#1A1A1A] space-y-3 leading-relaxed font-normal">
-                      {pkg.policies?.cancellation ? (
-                        <div className="whitespace-pre-line space-y-2">
-                          {typeof pkg.policies.cancellation === 'string' 
-                            ? pkg.policies.cancellation 
-                            : (pkg.policies.cancellation[lang] || pkg.policies.cancellation.en || pkg.policies.cancellation.es)}
-                        </div>
-                      ) : (
-                        <ul className="space-y-3 text-sm sm:text-base text-[#1B1B1B]">
-                          <li className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20">
-                            <span className="text-[#059669] font-bold text-lg leading-none">✓</span>
-                            <span><strong>30+ Days Before Departure:</strong> Free cancellation & 100% refund of deposit.</span>
-                          </li>
-                          <li className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20">
-                            <span className="text-[#CA8A04] font-bold text-lg leading-none">•</span>
-                            <span><strong>15 - 29 Days Before Departure:</strong> 50% refund on total tour package cost.</span>
-                          </li>
-                          <li className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20">
-                            <span className="text-[#DC2626] font-bold text-lg leading-none">✕</span>
-                            <span><strong>Under 14 Days Before Arrival:</strong> Non-refundable due to pre-paid hotel & chauffeur reservations.</span>
-                          </li>
-                        </ul>
-                      )}
+                      {(() => {
+                        const cancelItems = parseBullets(pkg.policies?.cancellation, lang);
+                        if (cancelItems.length > 0) {
+                          return (
+                            <ul className="space-y-3 text-sm sm:text-base text-[#1B1B1B]">
+                              {cancelItems.map((item, idx) => (
+                                <li key={idx} className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20 shadow-xs">
+                                  <span className="text-[#CA8A04] font-bold text-lg leading-none mt-0.5">•</span>
+                                  <span className="leading-relaxed text-[#1B1B1B]">{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          );
+                        }
+                        return (
+                          <ul className="space-y-3 text-sm sm:text-base text-[#1B1B1B]">
+                            <li className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20">
+                              <span className="text-[#059669] font-bold text-lg leading-none">✓</span>
+                              <span><strong>30+ Days Before Departure:</strong> Free cancellation & 100% refund of deposit.</span>
+                            </li>
+                            <li className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20">
+                              <span className="text-[#CA8A04] font-bold text-lg leading-none">•</span>
+                              <span><strong>15 - 29 Days Before Departure:</strong> 50% refund on total tour package cost.</span>
+                            </li>
+                            <li className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20">
+                              <span className="text-[#DC2626] font-bold text-lg leading-none">✕</span>
+                              <span><strong>Under 14 Days Before Arrival:</strong> Non-refundable due to pre-paid hotel & chauffeur reservations.</span>
+                            </li>
+                          </ul>
+                        );
+                      })()}
                     </div>
                   </div>
                   <div className="pt-3 border-t border-[#C5A862]/15">
@@ -863,28 +900,37 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                     </div>
 
                     <div className="text-sm sm:text-base text-[#1A1A1A] space-y-3 leading-relaxed font-normal">
-                      {pkg.policies?.termsAndConditions ? (
-                        <div className="whitespace-pre-line space-y-2">
-                          {typeof pkg.policies.termsAndConditions === 'string'
-                            ? pkg.policies.termsAndConditions
-                            : (pkg.policies.termsAndConditions[lang] || pkg.policies.termsAndConditions.en || pkg.policies.termsAndConditions.es)}
-                        </div>
-                      ) : (
-                        <ul className="space-y-3 text-sm sm:text-base text-[#1B1B1B]">
-                          <li className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20">
-                            <span className="text-[#C5A862] font-bold text-lg leading-none">•</span>
-                            <span><strong>Booking Deposit:</strong> 25% deposit required to confirm reservations; balance due 15 days prior to arrival.</span>
-                          </li>
-                          <li className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20">
-                            <span className="text-[#C5A862] font-bold text-lg leading-none">•</span>
-                            <span><strong>Private Chauffeur & SUV:</strong> Air-conditioned private vehicle included daily with experienced English-speaking driver.</span>
-                          </li>
-                          <li className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20">
-                            <span className="text-[#C5A862] font-bold text-lg leading-none">•</span>
-                            <span><strong>Hotel Timings:</strong> Standard check-in is 12:00 PM / 2:00 PM and check-out is 11:00 AM / 12:00 PM.</span>
-                          </li>
-                        </ul>
-                      )}
+                      {(() => {
+                        const termsItems = parseBullets(pkg.policies?.termsAndConditions || pkg.policies?.bookingTerms || pkg.policies?.bookingPolicy, lang);
+                        if (termsItems.length > 0) {
+                          return (
+                            <ul className="space-y-3 text-sm sm:text-base text-[#1B1B1B]">
+                              {termsItems.map((item, idx) => (
+                                <li key={idx} className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20 shadow-xs">
+                                  <span className="text-[#0A2A1E] font-bold text-lg leading-none mt-0.5">•</span>
+                                  <span className="leading-relaxed text-[#1B1B1B]">{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          );
+                        }
+                        return (
+                          <ul className="space-y-3 text-sm sm:text-base text-[#1B1B1B]">
+                            <li className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20">
+                              <span className="text-[#C5A862] font-bold text-lg leading-none">•</span>
+                              <span><strong>Booking Deposit:</strong> 25% deposit required to confirm reservations; balance due 15 days prior to arrival.</span>
+                            </li>
+                            <li className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20">
+                              <span className="text-[#C5A862] font-bold text-lg leading-none">•</span>
+                              <span><strong>Private Chauffeur & SUV:</strong> Air-conditioned private vehicle included daily with experienced English-speaking driver.</span>
+                            </li>
+                            <li className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#C5A862]/20">
+                              <span className="text-[#C5A862] font-bold text-lg leading-none">•</span>
+                              <span><strong>Hotel Timings:</strong> Standard check-in is 12:00 PM / 2:00 PM and check-out is 11:00 AM / 12:00 PM.</span>
+                            </li>
+                          </ul>
+                        );
+                      })()}
                     </div>
                   </div>
                   <div className="pt-3 border-t border-[#C5A862]/15">
@@ -913,18 +959,16 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm sm:text-base text-white/90 leading-relaxed">
-                  {pkg.policies?.importantNotes ? (
-                    <div className="col-span-2 whitespace-pre-line bg-white/10 p-4 rounded-2xl border border-white/15">
-                      {pkg.policies.importantNotes[lang] || pkg.policies.importantNotes[locale] || pkg.policies.importantNotes.en || pkg.policies.importantNotes.es || pkg.policies.importantNotes}
-                    </div>
-                  ) : (
-                    text.defaultNotes.map((noteStr: string, nIdx: number) => (
-                      <div key={nIdx} className="flex items-start gap-3 bg-white/10 p-3.5 rounded-2xl border border-white/15">
+                  {(() => {
+                    const notesItems = parseBullets(pkg.policies?.importantNotes || pkg.travelInfo?.importantNotes, lang);
+                    const finalNotes = notesItems.length > 0 ? notesItems : text.defaultNotes;
+                    return finalNotes.map((noteStr: string, nIdx: number) => (
+                      <div key={nIdx} className="flex items-start gap-3 bg-white/10 p-3.5 rounded-2xl border border-white/15 shadow-xs">
                         <span className="text-[#C5A862] font-bold text-base mt-0.5">•</span>
-                        <span>{noteStr}</span>
+                        <span className="leading-relaxed text-white/95">{noteStr}</span>
                       </div>
-                    ))
-                  )}
+                    ));
+                  })()}
                 </div>
               </div>
 

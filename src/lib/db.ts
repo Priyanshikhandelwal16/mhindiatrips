@@ -1198,63 +1198,94 @@ export const db = {
 
   tourPackages: {
     findMany: async () => {
-      tourPackagesCache = loadLocalData("tour_packages", mergedPackages);
-      if (Array.isArray(tourPackagesCache)) {
-        const existingSlugs = new Set(tourPackagesCache.map((p: any) => p.slug));
-        let hasNew = false;
-        for (const pkg of mergedPackages) {
-          if (pkg && pkg.slug && !existingSlugs.has(pkg.slug)) {
-            tourPackagesCache.push(pkg);
-            existingSlugs.add(pkg.slug);
-            hasNew = true;
+      try {
+        const freshPath = path.join(process.cwd(), "src", "data", "fallback", "tour_packages.json");
+        if (fs.existsSync(freshPath)) {
+          const freshRaw = fs.readFileSync(freshPath, "utf-8");
+          if (freshRaw && freshRaw.length > 50) {
+            const freshData = JSON.parse(freshRaw);
+            if (Array.isArray(freshData)) {
+              tourPackagesCache = freshData;
+            }
           }
         }
-        if (hasNew) {
-          saveLocalData("tour_packages", tourPackagesCache);
-        }
+      } catch (e: any) {
+        console.warn("[db] tourPackages.findMany file read error:", e.message);
       }
-      const localData = tourPackagesCache;
+
+      const localData = Array.isArray(tourPackagesCache) ? tourPackagesCache : [];
       const firestoreData = await fetchCollectionDocs("tour_packages");
-      if (firestoreData) {
-        const firestoreMap = new Map(firestoreData.map((p: any) => [p.slug, p]));
+      
+      if (firestoreData && firestoreData.length > 0) {
+        const firestoreMap = new Map(firestoreData.map((p: any) => [p.slug || p.id, p]));
         const merged = localData
-          .map((p: any) => firestoreMap.has(p.slug) ? firestoreMap.get(p.slug) : p)
-          .filter((p: any) => p.isDeleted !== true);
-        const localSlugs = new Set(localData.map((p: any) => p.slug));
-        const extraItems = firestoreData.filter((p: any) => !localSlugs.has(p.slug) && p.isDeleted !== true);
+          .map((p: any) => {
+            const key = p.slug || p.id;
+            if (firestoreMap.has(key)) {
+              const fsDoc = firestoreMap.get(key);
+              if (fsDoc.isDeleted === true) return null;
+              // Safe merge: keep local rich fields if fsDoc fields are empty/undefined
+              const mergedPkg = { ...p };
+              for (const prop of Object.keys(fsDoc)) {
+                if (fsDoc[prop] !== undefined && fsDoc[prop] !== null) {
+                  // If array, only override if non-empty or explicitly managed
+                  if (Array.isArray(fsDoc[prop]) && fsDoc[prop].length === 0 && Array.isArray(p[prop]) && p[prop].length > 0) {
+                    continue; // keep local rich array
+                  }
+                  mergedPkg[prop] = fsDoc[prop];
+                }
+              }
+              return mergedPkg;
+            }
+            return p;
+          })
+          .filter((p: any) => p && p.isDeleted !== true);
+
+        const localKeys = new Set(localData.map((p: any) => p.slug || p.id));
+        const extraItems = firestoreData.filter((p: any) => p && !localKeys.has(p.slug) && !localKeys.has(p.id) && p.isDeleted !== true);
         return [...merged, ...extraItems];
       }
-      return localData.filter((p: any) => p.isDeleted !== true);
+
+      return localData.filter((p: any) => p && p.isDeleted !== true);
     },
     findUnique: async (slug: string) => {
       const allPkgs = await db.tourPackages.findMany();
-      return allPkgs.find((p: any) => p.slug === slug && p.isDeleted !== true) || null;
+      return allPkgs.find((p: any) => (p.slug === slug || p.id === slug) && p.isDeleted !== true) || null;
     },
     create: async (data: any) => {
-      const slug = data.slug || Math.random().toString(36).substring(2, 11);
+      const slug = data.slug || data.id || Math.random().toString(36).substring(2, 11);
       const newPkg = {
+        id: slug,
         slug,
         highlights: [],
         ...data
       };
       await writeDoc("tour_packages", slug, newPkg);
-      tourPackagesCache.push(newPkg);
+      const existingIdx = tourPackagesCache.findIndex((p: any) => p.slug === slug || p.id === slug);
+      if (existingIdx >= 0) {
+        tourPackagesCache[existingIdx] = { ...tourPackagesCache[existingIdx], ...newPkg };
+      } else {
+        tourPackagesCache.push(newPkg);
+      }
       saveLocalData("tour_packages", tourPackagesCache);
       return newPkg;
     },
     update: async (slug: string, data: any) => {
       await writeDoc("tour_packages", slug, data, true);
-      const idx = tourPackagesCache.findIndex((p: any) => p.slug === slug);
+      const idx = tourPackagesCache.findIndex((p: any) => p.slug === slug || p.id === slug);
       if (idx !== -1) {
         tourPackagesCache[idx] = { ...tourPackagesCache[idx], ...data };
         saveLocalData("tour_packages", tourPackagesCache);
         return tourPackagesCache[idx];
       }
-      return { slug, ...data };
+      const newPkg = { id: slug, slug, ...data };
+      tourPackagesCache.push(newPkg);
+      saveLocalData("tour_packages", tourPackagesCache);
+      return newPkg;
     },
     delete: async (slug: string) => {
       await writeDoc("tour_packages", slug, { isDeleted: true }, true);
-      tourPackagesCache = tourPackagesCache.filter((p: any) => p.slug !== slug);
+      tourPackagesCache = tourPackagesCache.filter((p: any) => p.slug !== slug && p.id !== slug);
       saveLocalData("tour_packages", tourPackagesCache);
       return { slug };
     }

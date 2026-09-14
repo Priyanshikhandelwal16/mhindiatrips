@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { 
   Globe, ArrowRight, MapPin, Calendar, Clock, ShieldCheck, 
-  Sparkles, CheckCircle2, ChevronRight, HelpCircle, Phone, Mail 
+  Sparkles, CheckCircle2, ChevronRight, HelpCircle, Phone, Mail,
+  Hotel, Utensils, Compass, FileText, Star, Lightbulb, Landmark
 } from "lucide-react";
 import { getOutboundDestinationBySlugAction, getOutboundDestinationsAction } from "@/app/actions/queries";
 import PageHeroSlider from "@/components/common/PageHeroSlider";
@@ -31,7 +32,10 @@ export default async function OutboundDetailPage({ params }: OutboundDetailPageP
 
   const title = getLoc(dest.title);
   const tagline = getLoc(dest.tagline);
-  const description = getLoc(dest.description);
+  const description = getLoc(dest.description) || getLoc(dest.overview);
+  const history = getLoc(dest.history);
+  const culture = getLoc(dest.culture);
+  const localFood = getLoc(dest.localFood);
   const bestTime = getLoc(dest.bestTime);
   const itinerary = getLoc(dest.suggestedItinerary);
 
@@ -39,39 +43,51 @@ export default async function OutboundDetailPage({ params }: OutboundDetailPageP
     en: {
       back: "All International Destinations",
       overview: "About Destination",
+      historyTitle: "History & Royal Heritage",
+      cultureTitle: "Culture & Local Lifestyle",
+      foodTitle: "Local Food & Culinary Heritage",
       bestTimeLabel: "Best Season to Visit",
       attractionsTitle: "Key Highlights & Sightseeing",
-      thingsTitle: "Signature Experiences",
+      thingsTitle: "Signature Experiences & Things To Do",
+      hotelsTitle: "Where To Stay — Recommended Luxury Hotels",
       itineraryTitle: "Suggested Luxury Itinerary",
       tipsTitle: "Essential Travel Tips",
       faqsTitle: "Frequently Asked Questions",
-      relatedTitle: "Other International Safaris",
+      relatedTitle: "Other International Destinations",
       inquireBtn: "Inquire About This Trip",
       inquireDesc: "Customize your dates, hotels, and activities with our dedicated advisors."
     },
     es: {
       back: "Todos los Destinos Internacionales",
       overview: "Sobre el Destino",
+      historyTitle: "Historia y Patrimonio Real",
+      cultureTitle: "Cultura y Estilo de Vida Local",
+      foodTitle: "Gastronomía Local y Sabores",
       bestTimeLabel: "Mejor Época para Visitar",
-      attractionsTitle: "Puntos Destacados y Visitas",
-      thingsTitle: "Experiencias Exclusivas",
+      attractionsTitle: "Puntos Destacados y Atracciones",
+      thingsTitle: "Experiencias Exclusivas y Actividades",
+      hotelsTitle: "Dónde Alojarse — Hoteles de Lujo Recomendados",
       itineraryTitle: "Itinerario Sugerido de Lujo",
       tipsTitle: "Consejos Esenciales de Viaje",
       faqsTitle: "Preguntas Frecuentes",
-      relatedTitle: "Otros Safaris Internacionales",
+      relatedTitle: "Otros Destinos Internacionales",
       inquireBtn: "Consultar Sobre Este Viaje",
       inquireDesc: "Personalice sus fechas, hoteles y actividades con nuestros asesores."
     },
     pt: {
       back: "Todos os Destinos Internacionais",
       overview: "Sobre o Destino",
+      historyTitle: "História e Patrimônio Real",
+      cultureTitle: "Cultura e Estilo de Vida Local",
+      foodTitle: "Gastronomia Local e Sabores",
       bestTimeLabel: "Melhor Época para Visitar",
-      attractionsTitle: "Principais Destaques e Passeios",
-      thingsTitle: "Experiências Exclusivas",
+      attractionsTitle: "Principais Destaques e Atrações",
+      thingsTitle: "Experiências Exclusivas e Atividades",
+      hotelsTitle: "Onde Se Hospedar — Hotéis de Luxo Recomendados",
       itineraryTitle: "Roteiro Sugerido de Luxo",
       tipsTitle: "Dicas Essenciais de Viagem",
       faqsTitle: "Perguntas Frequentes",
-      relatedTitle: "Outras Viagens Internacionais",
+      relatedTitle: "Outros Destinos Internacionais",
       inquireBtn: "Solicitar Sobre Esta Viagem",
       inquireDesc: "Personalize suas datas, hotéis e atividades com nossos consultores."
     }
@@ -79,6 +95,7 @@ export default async function OutboundDetailPage({ params }: OutboundDetailPageP
 
   const text = t[locale] || t.en;
 
+  // Build Hero Slider images
   const sliderSlides = [
     {
       image: dest.image,
@@ -97,6 +114,13 @@ export default async function OutboundDetailPage({ params }: OutboundDetailPageP
       objectPosition: "center 25%"
     }))
   ];
+
+  const attractions = Array.isArray(dest.attractions) ? dest.attractions : [];
+  const experiences = Array.isArray(dest.experiences) ? dest.experiences : [];
+  const thingsToDo = Array.isArray(dest.thingsToDo) ? dest.thingsToDo : [];
+  const hotels = Array.isArray(dest.hotels) ? dest.hotels : [];
+  const travelTips = Array.isArray(dest.travelTips) ? dest.travelTips : [];
+  const faqs = Array.isArray(dest.faqs) ? dest.faqs : [];
 
   const otherDestinations = allDestinations.filter((d: any) => d.slug !== slug).slice(0, 3);
 
@@ -157,57 +181,185 @@ export default async function OutboundDetailPage({ params }: OutboundDetailPageP
             </Reveal>
 
             {/* Overview Section */}
-            <Reveal>
-              <div className="bg-white p-8 sm:p-10 rounded-3xl border border-[#C5A862]/25 shadow-lg space-y-4">
-                <span className="text-[10px] uppercase font-extrabold tracking-widest text-[#C5A862] flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-[#C5A862]" />
-                  <span>{text.overview}</span>
-                </span>
-                <p className="text-sm sm:text-base text-[#1B1B1B]/80 leading-relaxed font-normal">
-                  {description}
-                </p>
-              </div>
-            </Reveal>
+            {description && (
+              <Reveal>
+                <div className="bg-white p-8 sm:p-10 rounded-3xl border border-[#C5A862]/25 shadow-lg space-y-4">
+                  <span className="text-[10px] uppercase font-extrabold tracking-widest text-[#C5A862] flex items-center gap-1.5">
+                    <Sparkles className="w-4 h-4 text-[#C5A862]" />
+                    <span>{text.overview}</span>
+                  </span>
+                  <p className="text-sm sm:text-base text-[#1B1B1B]/80 leading-relaxed font-normal">
+                    {description}
+                  </p>
+                </div>
+              </Reveal>
+            )}
+
+            {/* History & Heritage Section */}
+            {history && (
+              <Reveal>
+                <div className="bg-white p-8 sm:p-10 rounded-3xl border border-[#C5A862]/25 shadow-md space-y-4">
+                  <span className="text-[10px] uppercase font-extrabold tracking-widest text-[#C5A862] flex items-center gap-1.5">
+                    <Landmark className="w-4 h-4 text-[#C5A862]" />
+                    <span>{text.historyTitle}</span>
+                  </span>
+                  <h2 className="text-xl font-serif font-bold text-[#0A2A1E]">Heritage & Historic Legacy</h2>
+                  <p className="text-sm text-[#1B1B1B]/80 leading-relaxed font-light">
+                    {history}
+                  </p>
+                </div>
+              </Reveal>
+            )}
+
+            {/* Culture & Lifestyle Section */}
+            {culture && (
+              <Reveal>
+                <div className="bg-white p-8 sm:p-10 rounded-3xl border border-[#C5A862]/25 shadow-md space-y-4">
+                  <span className="text-[10px] uppercase font-extrabold tracking-widest text-[#C5A862] flex items-center gap-1.5">
+                    <Compass className="w-4 h-4 text-[#C5A862]" />
+                    <span>{text.cultureTitle}</span>
+                  </span>
+                  <h2 className="text-xl font-serif font-bold text-[#0A2A1E]">Culture, Traditions & Etiquette</h2>
+                  <p className="text-sm text-[#1B1B1B]/80 leading-relaxed font-light">
+                    {culture}
+                  </p>
+                </div>
+              </Reveal>
+            )}
+
+            {/* Local Cuisine & Food Section */}
+            {localFood && (
+              <Reveal>
+                <div className="bg-white p-8 sm:p-10 rounded-3xl border border-[#C5A862]/25 shadow-md space-y-4">
+                  <span className="text-[10px] uppercase font-extrabold tracking-widest text-[#C5A862] flex items-center gap-1.5">
+                    <Utensils className="w-4 h-4 text-[#C5A862]" />
+                    <span>{text.foodTitle}</span>
+                  </span>
+                  <h2 className="text-xl font-serif font-bold text-[#0A2A1E]">Culinary Highlights & Fine Dining</h2>
+                  <p className="text-sm text-[#1B1B1B]/80 leading-relaxed font-light">
+                    {localFood}
+                  </p>
+                </div>
+              </Reveal>
+            )}
 
             {/* Key Sightseeing & Attractions */}
-            {dest.attractions && dest.attractions.length > 0 && (
+            {attractions.length > 0 && (
               <Reveal>
                 <div className="space-y-6">
-                  <h2 className="text-2xl font-serif font-bold text-[#0A2A1E] border-b border-[#C5A862]/30 pb-3">
-                    {text.attractionsTitle}
-                  </h2>
+                  <div className="flex items-center justify-between border-b border-[#C5A862]/30 pb-3">
+                    <h2 className="text-2xl font-serif font-bold text-[#0A2A1E]">
+                      {text.attractionsTitle}
+                    </h2>
+                    <span className="text-xs font-bold text-[#C5A862] uppercase tracking-wider">{attractions.length} Landmarks</span>
+                  </div>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    {dest.attractions.map((attr: any, i: number) => (
-                      <div key={i} className="bg-white border border-[#C5A862]/20 rounded-2xl overflow-hidden shadow-md space-y-3 p-4">
-                        {attr.image && (
-                          <div className="h-44 overflow-hidden rounded-xl">
-                            <img src={attr.image} alt={getLoc(attr.name)} loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                    {attractions.map((attr: any, i: number) => {
+                      const attrName = getLoc(attr.name);
+                      const attrDesc = getLoc(attr.desc);
+
+                      return (
+                        <div key={i} className="bg-white border border-[#C5A862]/20 rounded-2xl overflow-hidden shadow-md space-y-3 p-4 flex flex-col justify-between hover:shadow-xl transition-all duration-300">
+                          <div>
+                            {attr.image && (
+                              <div className="h-48 overflow-hidden rounded-xl relative mb-3">
+                                <img src={attr.image} alt={attrName} loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                              </div>
+                            )}
+                            <h3 className="font-serif font-bold text-[#0A2A1E] text-lg">{attrName}</h3>
+                            <p className="text-xs text-[#1B1B1B]/70 leading-relaxed font-light pt-1">{attrDesc}</p>
                           </div>
-                        )}
-                        <h3 className="font-serif font-bold text-[#0A2A1E] text-lg">{getLoc(attr.name)}</h3>
-                        <p className="text-xs text-[#1B1B1B]/70 leading-relaxed font-light">{getLoc(attr.desc)}</p>
-                      </div>
-                    ))}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </Reveal>
             )}
 
-            {/* Signature Experiences */}
-            {dest.thingsToDo && dest.thingsToDo.length > 0 && (
+            {/* Signature Experiences & Things to Do */}
+            {(experiences.length > 0 || thingsToDo.length > 0) && (
               <Reveal>
-                <div className="bg-white p-8 rounded-3xl border border-[#C5A862]/25 shadow-lg space-y-5">
-                  <h2 className="text-xl font-serif font-bold text-[#0A2A1E]">
+                <div className="bg-white p-8 rounded-3xl border border-[#C5A862]/25 shadow-lg space-y-6">
+                  <h2 className="text-2xl font-serif font-bold text-[#0A2A1E]">
                     {text.thingsTitle}
                   </h2>
-                  <div className="space-y-3">
-                    {dest.thingsToDo.map((thing: any, i: number) => (
-                      <div key={i} className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-xl border border-[#C5A862]/15">
-                        <CheckCircle2 className="w-4 h-4 text-[#C5A862] shrink-0 mt-0.5" />
-                        <span className="text-xs sm:text-sm text-[#1B1B1B]/80 font-medium">{getLoc(thing)}</span>
-                      </div>
-                    ))}
+
+                  {experiences.length > 0 && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {experiences.map((exp: any, i: number) => {
+                        const expTitle = getLoc(exp.title);
+                        const expDesc = getLoc(exp.desc);
+
+                        return (
+                          <div key={i} className="bg-[#FAF8F5] p-4 rounded-2xl border border-[#C5A862]/15 space-y-2">
+                            {exp.image && (
+                              <div className="h-32 rounded-xl overflow-hidden mb-2">
+                                <img src={exp.image} alt={expTitle} className="w-full h-full object-cover" />
+                              </div>
+                            )}
+                            <div className="flex items-start gap-2">
+                              <Sparkles className="w-4 h-4 text-[#C5A862] shrink-0 mt-1" />
+                              <div>
+                                <h3 className="text-sm font-bold text-[#0A2A1E]">{expTitle}</h3>
+                                {expDesc && <p className="text-xs text-[#1B1B1B]/70 font-light mt-1">{expDesc}</p>}
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+
+                  {thingsToDo.length > 0 && (
+                    <div className="space-y-3 pt-2">
+                      {thingsToDo.map((thing: any, i: number) => (
+                        <div key={i} className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-xl border border-[#C5A862]/15">
+                          <CheckCircle2 className="w-4 h-4 text-[#C5A862] shrink-0 mt-0.5" />
+                          <span className="text-xs sm:text-sm text-[#1B1B1B]/80 font-medium">{getLoc(thing)}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </Reveal>
+            )}
+
+            {/* Recommended Luxury Hotels */}
+            {hotels.length > 0 && (
+              <Reveal>
+                <div className="space-y-6">
+                  <div className="flex items-center justify-between border-b border-[#C5A862]/30 pb-3">
+                    <h2 className="text-2xl font-serif font-bold text-[#0A2A1E] flex items-center gap-2">
+                      <Hotel className="w-6 h-6 text-[#C5A862]" />
+                      <span>{text.hotelsTitle}</span>
+                    </h2>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    {hotels.map((ht: any, i: number) => {
+                      const hDesc = getLoc(ht.desc);
+
+                      return (
+                        <div key={i} className="bg-white border border-[#C5A862]/20 rounded-2xl overflow-hidden shadow-md space-y-3 p-4 flex flex-col justify-between hover:shadow-xl transition-all duration-300">
+                          <div>
+                            {ht.image && (
+                              <div className="h-44 overflow-hidden rounded-xl relative mb-3">
+                                <img src={ht.image} alt={ht.name} loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                              </div>
+                            )}
+                            <div className="flex items-center justify-between gap-2">
+                              <h3 className="font-serif font-bold text-[#0A2A1E] text-lg">{ht.name}</h3>
+                              <span className="bg-[#C5A862]/15 text-[#0A2A1E] text-[10px] font-bold px-2.5 py-1 rounded-full shrink-0 border border-[#C5A862]/30">
+                                {ht.rating || "5 Star Luxury"}
+                              </span>
+                            </div>
+                            {hDesc && <p className="text-xs text-[#1B1B1B]/70 leading-relaxed font-light pt-2">{hDesc}</p>}
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </Reveal>
@@ -229,12 +381,15 @@ export default async function OutboundDetailPage({ params }: OutboundDetailPageP
             )}
 
             {/* Travel Tips */}
-            {dest.travelTips && dest.travelTips.length > 0 && (
+            {travelTips.length > 0 && (
               <Reveal>
                 <div className="bg-white p-8 rounded-3xl border border-[#C5A862]/25 shadow-md space-y-4">
-                  <h3 className="text-lg font-serif font-bold text-[#0A2A1E]">{text.tipsTitle}</h3>
+                  <h3 className="text-lg font-serif font-bold text-[#0A2A1E] flex items-center gap-2">
+                    <Lightbulb className="w-5 h-5 text-[#C5A862]" />
+                    <span>{text.tipsTitle}</span>
+                  </h3>
                   <ul className="space-y-2.5">
-                    {dest.travelTips.map((tip: any, i: number) => (
+                    {travelTips.map((tip: any, i: number) => (
                       <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#1B1B1B]/75">
                         <span className="text-[#C5A862] font-bold">•</span>
                         <span>{getLoc(tip)}</span>
@@ -246,12 +401,15 @@ export default async function OutboundDetailPage({ params }: OutboundDetailPageP
             )}
 
             {/* FAQs */}
-            {dest.faqs && dest.faqs.length > 0 && (
+            {faqs.length > 0 && (
               <Reveal>
                 <div className="space-y-4">
-                  <h3 className="text-xl font-serif font-bold text-[#0A2A1E]">{text.faqsTitle}</h3>
+                  <h3 className="text-xl font-serif font-bold text-[#0A2A1E] flex items-center gap-2">
+                    <HelpCircle className="w-5 h-5 text-[#C5A862]" />
+                    <span>{text.faqsTitle}</span>
+                  </h3>
                   <div className="space-y-3">
-                    {dest.faqs.map((faq: any, i: number) => (
+                    {faqs.map((faq: any, i: number) => (
                       <div key={i} className="bg-white p-5 rounded-2xl border border-[#C5A862]/20 space-y-2 shadow-sm">
                         <h4 className="text-sm font-bold text-[#0A2A1E] flex items-center gap-2">
                           <HelpCircle className="w-4 h-4 text-[#C5A862] shrink-0" />

@@ -121,7 +121,9 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
       title: text.heroTitle,
       subtitle: text.heroSub,
       location: "India",
-      description: text.heroDesc
+      description: text.heroDesc,
+      ctaText: text.viewDetails || "Explore",
+      ctaLink: "/packages"
     });
   }
 
