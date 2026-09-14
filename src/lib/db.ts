@@ -656,20 +656,14 @@ const defaultSystemPages = [
   }
 ];
 
-// Merge system pages into pagesCache ensuring system pages always exist
-const rawPagesCache = loadLocalData("pages", []);
-const existingPageIds = new Set(rawPagesCache.map((p: any) => p.id));
-const missingSystemPages = defaultSystemPages.filter(p => !existingPageIds.has(p.id));
-let pagesCache = [...defaultSystemPages.map(sp => {
-  // If page exists in stored data, merge stored data over defaults (user edits take priority)
-  const existing = rawPagesCache.find((p: any) => p.id === sp.id);
-  return existing ? { ...sp, ...existing, isCustom: false } : sp;
-}), ...rawPagesCache.filter((p: any) => !defaultSystemPages.some(sp => sp.id === p.id))];
-
-// Save merged pages if there were missing system pages
-if (missingSystemPages.length > 0) {
-  saveLocalData("pages", pagesCache);
+function getFreshPagesCache(): any[] {
+  const rawPagesCache = loadLocalData("pages", []);
+  return [...defaultSystemPages.map(sp => {
+    const existing = rawPagesCache.find((p: any) => p.id === sp.id);
+    return existing ? { ...sp, ...existing, isCustom: false } : sp;
+  }), ...rawPagesCache.filter((p: any) => !defaultSystemPages.some(sp => sp.id === p.id))];
 }
+let pagesCache = getFreshPagesCache();
 
 let isFirestoreHealthy = true;
 
@@ -913,13 +907,18 @@ export const db = {
     },
     update: async (slug: string, data: any) => {
       await writeDoc("blogs", slug, data, true);
+      blogsCache = loadLocalData("blogs", blogsCache);
       const idx = blogsCache.findIndex((b: any) => b.slug === slug);
+      let updatedBlog;
       if (idx !== -1) {
         blogsCache[idx] = { ...blogsCache[idx], ...data };
-        saveLocalData("blogs", blogsCache);
-        return blogsCache[idx];
+        updatedBlog = blogsCache[idx];
+      } else {
+        updatedBlog = { slug, ...data };
+        blogsCache.push(updatedBlog);
       }
-      return { slug, ...data };
+      saveLocalData("blogs", blogsCache);
+      return updatedBlog;
     },
     delete: async (slug: string) => {
       await writeDoc("blogs", slug, { isDeleted: true }, true);
@@ -994,13 +993,18 @@ export const db = {
     },
     update: async (id: string, data: any) => {
       await writeDoc("states", id, { ...data, id }, true);
-      const localIdx = statesCache.findIndex((s: any) => s.id === id);
+      statesCache = loadLocalData("states", statesCache);
+      const localIdx = statesCache.findIndex((s: any) => s.id === id || s.slug === id || s.slug?.en === id);
+      let updatedState;
       if (localIdx !== -1) {
         statesCache[localIdx] = { ...statesCache[localIdx], ...data, id };
-        saveLocalData("states", statesCache);
-        return statesCache[localIdx];
+        updatedState = statesCache[localIdx];
+      } else {
+        updatedState = { id, ...data };
+        statesCache.push(updatedState);
       }
-      return { id, ...data };
+      saveLocalData("states", statesCache);
+      return updatedState;
     },
     delete: async (id: string) => {
       await writeDoc("states", id, { isDeleted: true }, true);
@@ -1081,13 +1085,18 @@ export const db = {
     },
     update: async (id: string, data: any) => {
       await writeDoc("cities", id, { ...data, id }, true);
-      const localIdx = citiesCache.findIndex((c: any) => c.id === id);
+      citiesCache = loadLocalData("cities", citiesCache);
+      const localIdx = citiesCache.findIndex((c: any) => c.id === id || c.slug === id || c.slug?.en === id);
+      let updatedCity;
       if (localIdx !== -1) {
         citiesCache[localIdx] = { ...citiesCache[localIdx], ...data, id };
-        saveLocalData("cities", citiesCache);
-        return citiesCache[localIdx];
+        updatedCity = citiesCache[localIdx];
+      } else {
+        updatedCity = { id, ...data };
+        citiesCache.push(updatedCity);
       }
-      return { id, ...data };
+      saveLocalData("cities", citiesCache);
+      return updatedCity;
     },
     delete: async (id: string) => {
       await writeDoc("cities", id, { isDeleted: true }, true);
@@ -1135,13 +1144,18 @@ export const db = {
     },
     update: async (slug: string, data: any) => {
       await writeDoc("foods", slug, data, true);
+      foodsCache = loadLocalData("foods", foodsCache);
       const idx = foodsCache.findIndex((f: any) => f.slug === slug);
+      let updatedFood;
       if (idx !== -1) {
         foodsCache[idx] = { ...foodsCache[idx], ...data };
-        saveLocalData("foods", foodsCache);
-        return foodsCache[idx];
+        updatedFood = foodsCache[idx];
+      } else {
+        updatedFood = { slug, ...data };
+        foodsCache.push(updatedFood);
       }
-      return { slug, ...data };
+      saveLocalData("foods", foodsCache);
+      return updatedFood;
     },
     delete: async (slug: string) => {
       await writeDoc("foods", slug, { isDeleted: true }, true);
@@ -1180,13 +1194,18 @@ export const db = {
     },
     update: async (id: string, data: any) => {
       await writeDoc("testimonials", id, data, true);
+      testimonialsCache = loadLocalData("testimonials", testimonialsCache);
       const idx = testimonialsCache.findIndex((t: any) => t.id === id);
+      let updatedItem;
       if (idx !== -1) {
         testimonialsCache[idx] = { ...testimonialsCache[idx], ...data };
-        saveLocalData("testimonials", testimonialsCache);
-        return testimonialsCache[idx];
+        updatedItem = testimonialsCache[idx];
+      } else {
+        updatedItem = { id, ...data };
+        testimonialsCache.push(updatedItem);
       }
-      return { id, ...data };
+      saveLocalData("testimonials", testimonialsCache);
+      return updatedItem;
     },
     delete: async (id: string) => {
       await writeDoc("testimonials", id, { isDeleted: true }, true);
@@ -1282,6 +1301,7 @@ export const db = {
   },
   pages: {
     findMany: async () => {
+      pagesCache = getFreshPagesCache();
       const firestoreData = await fetchCollectionDocs("pages");
       if (firestoreData) {
         const firestoreMap = new Map(firestoreData.map((p: any) => [p.id, p]));
@@ -1292,7 +1312,6 @@ export const db = {
         const extraItems = firestoreData.filter((p: any) => !localIds.has(p.id) && p.isDeleted !== true);
         return cleanEmail([...merged, ...extraItems]);
       }
-      pagesCache = loadLocalData("pages", pagesCache);
       return cleanEmail(pagesCache.filter((p: any) => p.isDeleted !== true));
     },
     findUnique: async (id: string) => {
@@ -1309,22 +1328,34 @@ export const db = {
         ...data
       };
       await writeDoc("pages", id, newPage);
-      pagesCache.push(newPage);
+      pagesCache = getFreshPagesCache();
+      const existingIdx = pagesCache.findIndex((p: any) => p.id === id);
+      if (existingIdx >= 0) {
+        pagesCache[existingIdx] = { ...pagesCache[existingIdx], ...newPage };
+      } else {
+        pagesCache.push(newPage);
+      }
       saveLocalData("pages", pagesCache);
       return newPage;
     },
     update: async (id: string, data: any) => {
       await writeDoc("pages", id, data, true);
+      pagesCache = getFreshPagesCache();
       const idx = pagesCache.findIndex((p: any) => p.id === id);
+      let updatedPage;
       if (idx !== -1) {
         pagesCache[idx] = { ...pagesCache[idx], ...data };
-        saveLocalData("pages", pagesCache);
-        return pagesCache[idx];
+        updatedPage = pagesCache[idx];
+      } else {
+        updatedPage = { id, isCustom: true, ...data };
+        pagesCache.push(updatedPage);
       }
-      return { id, ...data };
+      saveLocalData("pages", pagesCache);
+      return updatedPage;
     },
     delete: async (id: string) => {
       await writeDoc("pages", id, { isDeleted: true }, true);
+      pagesCache = getFreshPagesCache();
       pagesCache = pagesCache.filter((p: any) => p.id !== id);
       saveLocalData("pages", pagesCache);
       return { id };
@@ -1398,13 +1429,18 @@ export const db = {
     },
     update: async (slug: string, data: any) => {
       await writeDoc("outbound", slug, data, true);
+      outboundCache = loadLocalData("outbound", outboundCache);
       const idx = outboundCache.findIndex((o: any) => o.slug === slug || o.id === slug);
+      let updatedItem;
       if (idx !== -1) {
         outboundCache[idx] = { ...outboundCache[idx], ...data };
-        saveLocalData("outbound", outboundCache);
-        return outboundCache[idx];
+        updatedItem = outboundCache[idx];
+      } else {
+        updatedItem = { slug, ...data };
+        outboundCache.push(updatedItem);
       }
-      return { slug, ...data };
+      saveLocalData("outbound", outboundCache);
+      return updatedItem;
     },
     delete: async (slug: string) => {
       await writeDoc("outbound", slug, { isDeleted: true }, true);
