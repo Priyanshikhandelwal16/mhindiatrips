@@ -90,10 +90,10 @@ export default async function BlogIndexPage({ params, searchParams }: BlogIndexP
     const cleanDesc = rawDesc.length > 90 ? rawDesc.slice(0, 87) + "..." : rawDesc;
 
     return {
-      image: b.image || "/images/destination_fallback.jpg",
+      image: b.featuredImage || b.image || "/images/destination_fallback.jpg",
       title: getLocalizedValue(b.title, lang) || text.title,
       subtitle: b.category || text.sub,
-      location: b.readTime || "India",
+      location: b.readTime || b.readingTime ? `${b.readingTime || 5} Min Read` : "India",
       description: cleanDesc,
       objectPosition: "center 25%",
       ctaText: text.cta,
@@ -131,14 +131,14 @@ export default async function BlogIndexPage({ params, searchParams }: BlogIndexP
           <Reveal>
             <div className="bg-white border border-gold/10 overflow-hidden shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-0 relative">
               <div className="lg:col-span-6 h-[350px] lg:h-[500px] relative overflow-hidden">
-                <img src={featuredBlog.featuredImage} alt={getLocalizedValue(featuredBlog.title, 'en')} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={featuredBlog.featuredImage || featuredBlog.image || "/images/destination_fallback.jpg"} alt={getLocalizedValue(featuredBlog.title, 'en')} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <span className="absolute top-5 left-5 bg-royal text-gold text-[10px] uppercase font-bold tracking-wider px-4 py-2 rounded-full">
                   {featuredBlog.category}
                 </span>
               </div>
               <div className="lg:col-span-6 p-8 md:p-16 flex flex-col justify-center space-y-6">
                 <div className="flex items-center gap-3 text-xs text-foreground/45 uppercase tracking-wider">
-                  <span className="flex items-center gap-1"><Clock className="w-4 h-4 text-gold" />{featuredBlog.readingTime} Min Read</span>
+                  <span className="flex items-center gap-1"><Clock className="w-4 h-4 text-gold" />{featuredBlog.readingTime || 5} Min Read</span>
                   <span>&bull;</span>
                   <span>{featuredBlog.createdAt}</span>
                 </div>
@@ -208,7 +208,7 @@ export default async function BlogIndexPage({ params, searchParams }: BlogIndexP
               <Link href={`/${locale}/blog/${blog.slug}`} className="group block h-full">
                 <div className="bg-white border border-gold/10 overflow-hidden shadow-lg flex flex-col h-full transition-all duration-500 hover:-translate-y-3 hover:border-gold/25 hover:shadow-2xl">
                   <div className="h-60 overflow-hidden relative shrink-0">
-                    <img src={blog.featuredImage} alt={getLocalizedValue(blog.title, locale)} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <img src={blog.featuredImage || blog.image || "/images/destination_fallback.jpg"} alt={getLocalizedValue(blog.title, locale)} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     <span className="absolute top-5 left-5 bg-royal text-gold text-[9px] uppercase font-bold tracking-wider px-3.5 py-1.5 rounded-full">
                       {blog.category}
                     </span>

@@ -349,8 +349,8 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
           </Link>
         </div>
 
-        {/* Centered Hero Content Block */}
-        <div className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 pb-16 sm:pb-24 md:pb-28 text-center space-y-5 sm:space-y-6">
+        {/* Hero Content Block */}
+        <div className="relative z-20 w-full max-w-6xl mx-auto px-4 sm:px-6 pb-16 sm:pb-24 md:pb-28 text-center space-y-5 sm:space-y-6">
           
           {/* Category Pill & Duration Badge */}
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
@@ -444,7 +444,7 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
       {/* --------------------------------------------------
           2. INNER CONTENT WRAPPER
          -------------------------------------------------- */}
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 py-10 md:py-16 space-y-12 md:space-y-14">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-8 md:px-12 py-10 md:py-16 space-y-12 md:space-y-14">
 
         <div className="relative z-10 space-y-12 md:space-y-14">
 
@@ -540,22 +540,16 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
               3. DAY-BY-DAY ITINERARY TIMELINE (Modern Visual Accordion/Card Flow with Heritage Watermark Background)
              -------------------------------------------------- */}
           {pkg.itinerary && pkg.itinerary.length > 0 && (
-            <div className="relative space-y-8 p-4 sm:p-8 md:p-10 rounded-3xl bg-white/60 backdrop-blur-xs border border-[#C5A862]/20 shadow-sm overflow-hidden">
+            <div className="relative space-y-6 sm:space-y-8 p-4 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-white border border-[#C5A862]/20 shadow-md overflow-hidden">
               
-              {/* Subtle Architectural Heritage Watermark Photo (Screenshot 1 Reference) */}
-              <div 
-                className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none bg-cover bg-center filter grayscale contrast-150"
-                style={{ backgroundImage: `url('${pkg.coverImage || pkg.image || "/images/rajasthan_fort_sunset.png"}')` }}
-              />
-
-              <div className="relative z-10 space-y-8">
+              <div className="relative z-10 space-y-6 sm:space-y-8">
                 {/* Section Header */}
-                <div className="border-b border-[#C5A862]/30 pb-4 flex items-center justify-between gap-4">
+                <div className="border-b border-[#C5A862]/30 pb-3.5 sm:pb-4 flex items-center justify-between gap-4">
                   <div className="space-y-1">
                     <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C5A862] block">
                       Step-by-Step Guidance
                     </span>
-                    <h2 className="text-2xl md:text-4xl font-serif font-bold text-[#0A2A1E]">
+                    <h2 className="text-xl sm:text-3xl md:text-4xl font-serif font-bold text-[#0A2A1E]">
                       {text.itinerary}
                     </h2>
                   </div>
@@ -566,7 +560,7 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                 </div>
 
               {/* Day Cards Stack with Left Visual Timeline Bar */}
-              <div className="relative space-y-8 pl-5 sm:pl-8 md:pl-10 border-l-2 border-[#C5A862]/40 ml-3 sm:ml-4 md:ml-6">
+              <div className="relative space-y-6 sm:space-y-8 pl-3.5 sm:pl-8 md:pl-10 border-l-2 border-[#C5A862]/40 ml-2.5 sm:ml-4 md:ml-6">
                 
                 {pkg.itinerary.map((day: any, idx: number) => {
                   const dayTitle = day.title?.[lang] || day.title?.en || day.title?.es || (typeof day.title === 'string' ? day.title : "");
@@ -584,132 +578,138 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                       <div className="relative group">
                         
                         {/* Timeline Node Badge on Vertical Line */}
-                        <div className="absolute -left-[31px] sm:-left-[43px] md:-left-[51px] top-4 w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-[#0A2A1E] border-2 border-[#C5A862] text-[#C5A862] text-[10px] sm:text-xs font-extrabold flex items-center justify-center shadow-lg z-20 group-hover:scale-110 transition-transform">
+                        <div className="absolute -left-[25px] sm:-left-[43px] md:-left-[51px] top-3.5 sm:top-4 w-6 h-6 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-[#0A2A1E] border-2 border-[#C5A862] text-[#C5A862] text-[9px] sm:text-xs font-extrabold flex items-center justify-center shadow-lg z-20 group-hover:scale-110 transition-transform">
                           {dayNum}
                         </div>
 
-                        {/* Main Day Card: Clean Luxury Light Theme with Dedicated Un-obscured Photo */}
-                        <article className="relative rounded-2xl sm:rounded-3xl border border-[#C5A862]/30 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden bg-white text-[#0A2A1E] group/card">
+                        {/* Main Day Card: Clean Luxury Light Theme - Compact & Elegant */}
+                        <article className="relative rounded-xl sm:rounded-2xl border border-[#C5A862]/30 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden bg-white text-[#0A2A1E] group/card">
                           
                           {/* Day Header Bar */}
-                          <div className="p-4 sm:p-6 md:p-7 bg-[#FAF8F5] border-b border-[#C5A862]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                            <div className="space-y-1">
+                          <div className="px-4 py-3 sm:px-6 sm:py-4 bg-[#FAF8F5] border-b border-[#C5A862]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <div className="space-y-0.5 min-w-0">
                               <span className="text-[10px] uppercase font-extrabold tracking-widest text-[#C5A862] block">
                                 {text.dayLabel} {dayNum}
                               </span>
-                              <h3 className="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-[#0A2A1E]">
+                              <h3 className="text-base sm:text-xl font-serif font-bold text-[#0A2A1E] leading-snug break-words">
                                 {dayTitle}
                               </h3>
                             </div>
 
                             {day.location && (
-                              <span className="bg-[#0A2A1E] text-[#C5A862] text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm self-start sm:self-auto border border-[#C5A862]/30">
-                                <MapPin className="w-3.5 h-3.5 text-[#C5A862]" />
+                              <span className="bg-[#0A2A1E] text-[#C5A862] text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full flex items-center gap-1 shadow-xs self-start sm:self-auto border border-[#C5A862]/30 shrink-0">
+                                <MapPin className="w-3 h-3 text-[#C5A862]" />
                                 <span>{day.location}</span>
                               </span>
                             )}
                           </div>
 
                           {/* Day Card Body */}
-                          <div className="p-4 sm:p-6 md:p-8 space-y-5 sm:space-y-6 bg-white">
+                          <div className="p-4 sm:p-5 bg-white">
+                            <div className="flex flex-col md:flex-row gap-4 sm:gap-6 items-start">
 
-                            {/* Dedicated Day Photo - 100% Full Width (w-full) & 100% Un-cropped Height (h-auto) */}
-                            {dayImg && (
-                              <div className="relative w-full overflow-hidden rounded-xl sm:rounded-2xl shadow-md border border-[#C5A862]/25 group/img my-2">
-                                <img 
-                                  src={getHighResImageUrl(dayImg)} 
-                                  alt={dayTitle} 
-                                  loading="lazy"
-                                  className="w-full h-auto block rounded-xl sm:rounded-2xl transition-transform duration-500 group-hover/img:scale-[1.01]" 
-                                />
-                              </div>
-                            )}
-
-                            {/* Narrative Paragraph */}
-                            {dayDesc && (
-                              <p className="text-xs sm:text-sm md:text-base text-foreground/80 font-light leading-relaxed bg-[#FAF8F5] p-5 rounded-2xl border border-[#C5A862]/15">
-                                {dayDesc}
-                              </p>
-                            )}
-
-                            {/* Morning / Afternoon Highlights Cards */}
-                            {(morningText || afternoonText) && (
-                              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 pt-1">
-                                {morningText && (
-                                  <div className="bg-[#FAF8F5] p-4.5 rounded-xl sm:rounded-2xl border border-[#C5A862]/20 flex items-start gap-3 shadow-sm">
-                                    <span className="text-lg mt-0.5">🌅</span>
-                                    <div>
-                                      <strong className="text-[11px] sm:text-xs font-bold text-[#C5A862] uppercase tracking-wider block mb-1">
-                                        {text.morning}
-                                      </strong>
-                                      <p className="text-xs sm:text-sm text-foreground/75 font-light leading-relaxed">{morningText}</p>
-                                    </div>
-                                  </div>
-                                )}
-
-                                {afternoonText && (
-                                  <div className="bg-[#FAF8F5] p-4.5 rounded-xl sm:rounded-2xl border border-[#C5A862]/20 flex items-start gap-3 shadow-sm">
-                                    <span className="text-lg mt-0.5">☀️</span>
-                                    <div>
-                                      <strong className="text-[11px] sm:text-xs font-bold text-[#C5A862] uppercase tracking-wider block mb-1">
-                                        {text.afternoon}
-                                      </strong>
-                                      <p className="text-xs sm:text-sm text-foreground/75 font-light leading-relaxed">{afternoonText}</p>
-                                    </div>
-                                  </div>
-                                )}
-                              </div>
-                            )}
-
-                            {/* Activities Tag Cloud */}
-                            {day.activities && day.activities.length > 0 && (
-                              <div className="space-y-2 pt-2 border-t border-[#C5A862]/15">
-                                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C5A862] block">
-                                  {text.activities}
-                                </span>
-                                <div className="flex flex-wrap gap-2">
-                                  {day.activities.map((act: any, aIdx: number) => {
-                                    const actText = typeof act === 'string' ? act : (act[lang] || act.en || act.es || act.name);
-                                    if (!actText) return null;
-                                    return (
-                                      <span 
-                                        key={aIdx}
-                                        className="bg-[#FAF8F5] text-[#0A2A1E] text-[11px] sm:text-xs font-medium px-3.5 py-1.5 rounded-full border border-[#C5A862]/30 flex items-center gap-1.5 shadow-xs"
-                                      >
-                                        <Check className="w-3.5 h-3.5 text-[#C5A862]" />
-                                        <span>{actText}</span>
-                                      </span>
-                                    );
-                                  })}
+                              {/* Day Photo - Spacious Tall Cover Container */}
+                              {dayImg && (
+                                <div className="w-full md:w-80 lg:w-96 h-60 sm:h-72 lg:h-80 shrink-0 overflow-hidden rounded-xl border border-[#C5A862]/25 shadow-xs bg-[#FAF8F5] relative group/img">
+                                  <img 
+                                    src={getHighResImageUrl(dayImg)} 
+                                    alt={dayTitle} 
+                                    loading="lazy"
+                                    className="w-full h-full object-cover object-center rounded-xl transition-transform duration-500 group-hover/img:scale-105" 
+                                  />
                                 </div>
-                              </div>
-                            )}
+                              )}
 
-                            {/* Accommodation Card */}
-                            {(day.hotel || day.overnight || day.accommodation) && (
-                              <div className="bg-[#0A2A1E] text-white p-4.5 rounded-xl sm:rounded-2xl flex flex-wrap items-center justify-between gap-3 shadow-md border border-[#C5A862]/30">
-                                <div className="flex items-center gap-3">
-                                  <div className="w-9 h-9 rounded-full bg-[#C5A862] text-[#0A2A1E] flex items-center justify-center shrink-0 font-bold">
-                                    <Hotel className="w-4.5 h-4.5 text-[#0A2A1E]" />
+                              {/* Content Column */}
+                              <div className="flex-1 space-y-3.5 min-w-0 w-full">
+
+                                {/* Narrative Paragraph */}
+                                {dayDesc && (
+                                  <p className="text-xs sm:text-sm text-foreground/80 font-light leading-relaxed bg-[#FAF8F5] p-3 sm:p-4 rounded-xl border border-[#C5A862]/15">
+                                    {dayDesc}
+                                  </p>
+                                )}
+
+                                {/* Morning / Afternoon Highlights Cards */}
+                                {(morningText || afternoonText) && (
+                                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                                    {morningText && (
+                                      <div className="bg-[#FAF8F5] p-3 rounded-xl border border-[#C5A862]/20 flex items-start gap-2 shadow-2xs">
+                                        <span className="text-sm mt-0.5 shrink-0">🌅</span>
+                                        <div className="min-w-0">
+                                          <strong className="text-[10px] font-bold text-[#C5A862] uppercase tracking-wider block mb-0.5">
+                                            {text.morning}
+                                          </strong>
+                                          <p className="text-xs text-foreground/75 font-light leading-relaxed">{morningText}</p>
+                                        </div>
+                                      </div>
+                                    )}
+
+                                    {afternoonText && (
+                                      <div className="bg-[#FAF8F5] p-3 rounded-xl border border-[#C5A862]/20 flex items-start gap-2 shadow-2xs">
+                                        <span className="text-sm mt-0.5 shrink-0">☀️</span>
+                                        <div className="min-w-0">
+                                          <strong className="text-[10px] font-bold text-[#C5A862] uppercase tracking-wider block mb-0.5">
+                                            {text.afternoon}
+                                          </strong>
+                                          <p className="text-xs text-foreground/75 font-light leading-relaxed">{afternoonText}</p>
+                                        </div>
+                                      </div>
+                                    )}
                                   </div>
-                                  <div>
-                                    <span className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest text-[#C5A862] block">
-                                      {text.accommodation}
+                                )}
+
+                                {/* Activities Tag Cloud */}
+                                {day.activities && day.activities.length > 0 && (
+                                  <div className="space-y-1.5 pt-1">
+                                    <span className="text-[9px] font-extrabold uppercase tracking-widest text-[#C5A862] block">
+                                      {text.activities}
                                     </span>
-                                    <p className="text-xs font-bold text-white">
-                                      {day.hotel || day.overnight || day.accommodation}
-                                    </p>
+                                    <div className="flex flex-wrap gap-1.5">
+                                      {day.activities.map((act: any, aIdx: number) => {
+                                        const actText = typeof act === 'string' ? act : (act[lang] || act.en || act.es || act.name);
+                                        if (!actText) return null;
+                                        return (
+                                          <span 
+                                            key={aIdx}
+                                            className="bg-[#FAF8F5] text-[#0A2A1E] text-[10px] font-medium px-2.5 py-1 rounded-full border border-[#C5A862]/25 flex items-center gap-1 shadow-2xs"
+                                          >
+                                            <Check className="w-3 h-3 text-[#C5A862]" />
+                                            <span>{actText}</span>
+                                          </span>
+                                        );
+                                      })}
+                                    </div>
                                   </div>
-                                </div>
+                                )}
 
-                                <div className="flex items-center text-[#C5A862]">
-                                  {[...Array(5)].map((_, sIdx) => (
-                                    <Star key={sIdx} className="w-3.5 h-3.5 fill-[#C5A862] text-[#C5A862]" />
-                                  ))}
-                                </div>
+                                {/* Accommodation Card */}
+                                {(day.hotel || day.overnight || day.accommodation) && (
+                                  <div className="bg-[#0A2A1E] text-white p-3 rounded-xl flex flex-wrap items-center justify-between gap-2 shadow-xs border border-[#C5A862]/30">
+                                    <div className="flex items-center gap-2.5">
+                                      <div className="w-7 h-7 rounded-full bg-[#C5A862] text-[#0A2A1E] flex items-center justify-center shrink-0 font-bold">
+                                        <Hotel className="w-3.5 h-3.5 text-[#0A2A1E]" />
+                                      </div>
+                                      <div>
+                                        <span className="text-[9px] font-extrabold uppercase tracking-widest text-[#C5A862] block">
+                                          {text.accommodation}
+                                        </span>
+                                        <p className="text-xs font-bold text-white">
+                                          {day.hotel || day.overnight || day.accommodation}
+                                        </p>
+                                      </div>
+                                    </div>
+
+                                    <div className="flex items-center text-[#C5A862]">
+                                      {[...Array(5)].map((_, sIdx) => (
+                                        <Star key={sIdx} className="w-3 h-3 fill-[#C5A862] text-[#C5A862]" />
+                                      ))}
+                                    </div>
+                                  </div>
+                                )}
+
                               </div>
-                            )}
-
+                            </div>
                           </div>
                         </article>
                       </div>

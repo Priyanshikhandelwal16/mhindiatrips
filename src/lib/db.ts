@@ -865,10 +865,25 @@ export const db = {
 
   blogs: {
     findMany: async () => {
+      try {
+        const freshPath = path.join(process.cwd(), "src", "data", "fallback", "blogs.json");
+        if (fs.existsSync(freshPath)) {
+          const freshRaw = fs.readFileSync(freshPath, "utf-8");
+          if (freshRaw && freshRaw.length > 50) {
+            const freshData = JSON.parse(freshRaw);
+            if (Array.isArray(freshData)) {
+              blogsCache = freshData;
+            }
+          }
+        }
+      } catch (e: any) {
+        console.warn("[db] blogs.findMany file read error:", e.message);
+      }
+
       const firestoreData = await fetchCollectionDocs("blogs");
       if (firestoreData) {
         const firestoreMap = new Map(firestoreData.map((b: any) => [b.slug, b]));
-        const localData = mergedBlogs;
+        const localData = blogsCache && blogsCache.length > 0 ? blogsCache : mergedBlogs;
         const merged = localData
           .map((b: any) => firestoreMap.has(b.slug) ? { ...b, ...firestoreMap.get(b.slug) } : b)
           .filter((b: any) => b.isDeleted !== true);
@@ -876,12 +891,19 @@ export const db = {
         const extraItems = firestoreData.filter((b: any) => !localSlugs.has(b.slug) && b.isDeleted !== true);
         return [...merged, ...extraItems];
       }
-      blogsCache = loadLocalData("blogs", mergedBlogs);
+      blogsCache = loadLocalData("blogs", blogsCache && blogsCache.length > 0 ? blogsCache : mergedBlogs);
       return blogsCache.filter((b: any) => b.isDeleted !== true);
     },
     findUnique: async (slug: string) => {
       const allBlogs = await db.blogs.findMany();
-      return allBlogs.find((b: any) => b.slug === slug && b.isDeleted !== true) || null;
+      if (!slug) return null;
+      const targetSlug = decodeURIComponent(slug).toLowerCase().trim();
+      return allBlogs.find((b: any) => 
+        b.slug === slug || 
+        (b.slug && b.slug.toLowerCase().trim() === targetSlug)
+      ) && (!allBlogs.find((b: any) => (b.slug === slug || (b.slug && b.slug.toLowerCase().trim() === targetSlug)))?.isDeleted)
+        ? allBlogs.find((b: any) => b.slug === slug || (b.slug && b.slug.toLowerCase().trim() === targetSlug))
+        : null;
     },
     create: async (data: any) => {
       const slug = data.slug || Math.random().toString(36).substring(2, 11);
@@ -1394,7 +1416,20 @@ export const db = {
 
   outbound: {
     findMany: async () => {
-      outboundCache = loadLocalData("outbound", outboundCache);
+      outboundCache = loadLocalData("outbound", outboundDestinations);
+      if (Array.isArray(outboundCache)) {
+        const existingMap = new Map(outboundCache.map((o: any) => [o.slug || o.id, o]));
+        for (const item of outboundDestinations) {
+          if (item && item.slug && !existingMap.has(item.slug)) {
+            outboundCache.push(item);
+            existingMap.set(item.slug, item);
+          } else if (item && item.slug) {
+            const existing = existingMap.get(item.slug);
+            existingMap.set(item.slug, { ...item, ...existing });
+          }
+        }
+        outboundCache = Array.from(existingMap.values());
+      }
       const firestoreData = await fetchCollectionDocs("outbound");
       if (firestoreData) {
         const firestoreMap = new Map(firestoreData.map((o: any) => [o.slug || o.id, o]));

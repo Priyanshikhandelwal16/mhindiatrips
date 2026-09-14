@@ -344,8 +344,8 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                     <div className="card-3d bg-white border border-[#C3AB85]/10 overflow-hidden h-full flex flex-col">
                       <div className="h-48 overflow-hidden relative">
                         <img 
-                          src={post.featuredImage} 
-                          alt={post.title?.[lang] || post.title?.en} 
+                          src={post.featuredImage || post.image || "/images/destination_fallback.jpg"} 
+                          alt={post.title?.[lang] || post.title?.en || post.title} 
                           loading="lazy" 
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                         />

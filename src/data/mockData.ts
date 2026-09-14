@@ -379,6 +379,7 @@ export interface BlogData {
   excerpt: LocalizedString;
   content: LocalizedString;
   featuredImage: string;
+  image?: string;
   author: string;
   category: string;
   tags: string[];
