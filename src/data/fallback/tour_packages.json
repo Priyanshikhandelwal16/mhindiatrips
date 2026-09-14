@@ -1805,7 +1805,8 @@
           "es": "Llegada a Chennai, traslado privado y check-in en su hotel.",
           "pt": "Chegada a Chennai, traslado privado e check-in em seu hotel.",
           "en": "Arrive in Chennai and meet your private representative. Transfer to your hotel and settle in. Depending on your arrival time, enjoy a relaxed introduction to Chennai and explore the surrounding area."
-        }
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789384211/mhindiatrips/omb4rpwcfq1ncmozu4iv.jpg"
       },
       {
         "activities": [
@@ -1827,7 +1828,8 @@
           "es": "Visita al Shore Temple y monumentos en Mahabalipuram. Continuación a Pondicherry para recorrer el Barrio Francés.",
           "en": "Begin your journey towards Mahabalipuram. Explore the remarkable Pallava monuments, including the famous Shore Temple and rock-cut monuments. Continue towards Pondicherry and check into your hotel. In the evening, explore the charming French Quarter and enjoy a relaxed walk along the waterfront.",
           "pt": "Visita ao Shore Temple e monumentos em Mahabalipuram. Continuação até Pondicherry para passear pelo Bairro Francês."
-        }
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789384231/mhindiatrips/wd6bcy8znlnqb2se0c6k.jpg"
       },
       {
         "location": "Thanjavur",
@@ -1848,7 +1850,8 @@
         },
         "meals": "Breakfast",
         "day": 3,
-        "overnight": "Thanjavur"
+        "overnight": "Thanjavur",
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789384253/mhindiatrips/vafzyztizu0fjwlo1s8h.jpg"
       },
       {
         "sightseeing": "Meenakshi Amman Temple, Madurai Old Market, Historic Streets",
@@ -1870,7 +1873,8 @@
           "Market Walk"
         ],
         "location": "Madurai",
-        "day": 4
+        "day": 4,
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789384271/mhindiatrips/xggc98flbs998hv8r1gk.jpg"
       },
       {
         "day": 5,
@@ -1891,7 +1895,8 @@
           "en": "Madurai → Munnar - Into Kerala's Tea-Covered Hills",
           "pt": "Madurai → Munnar - Rumo às Colinas de Chá de Kerala"
         },
-        "meals": "Breakfast"
+        "meals": "Breakfast",
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789384288/mhindiatrips/fcrsl0hlogvfmez4y9cc.jpg"
       },
       {
         "meals": "Breakfast",
@@ -1913,7 +1918,8 @@
           "Tea Experience",
           "Nature Exploration",
           "Photography"
-        ]
+        ],
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789384307/mhindiatrips/w52aotsomkv1s8qtpldt.jpg"
       },
       {
         "overnight": "Thekkady",
@@ -1934,7 +1940,8 @@
           "es": "Viaje a Thekkady y visita guiada por una plantación de especias de Kerala.",
           "en": "Travel towards Thekkady through lush forests and mountain landscapes. Upon arrival, explore a traditional spice plantation. Learn about Kerala's famous cardamom, pepper, cinnamon and other spices. Optional nature activities can be added depending on the season and local availability.",
           "pt": "Viaje até Thekkady e faça uma visita guiada por uma plantação de especiarias."
-        }
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789384333/mhindiatrips/wynorcm67czfgayyfq2b.jpg"
       },
       {
         "location": "Alleppey",
@@ -1955,7 +1962,8 @@
           "Backwater Cruise",
           "Village Views",
           "Relaxation"
-        ]
+        ],
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789384353/mhindiatrips/jtdm7go0vaww9rmo58zm.jpg"
       },
       {
         "day": 9,
@@ -1977,7 +1985,8 @@
           "pt": "Viaje até Kochi, explore Fort Kochi, as redes de pesca chinesas, Mattancherry e Jew Town.",
           "en": "After breakfast, continue towards Kochi. Explore Fort Kochi and discover its fascinating multicultural history. Visit the famous Chinese fishing nets and walk through heritage streets filled with colonial buildings, cafés and galleries.",
           "es": "Viaje a Kochi, recorra Fort Kochi, las redes de pesca chinas, Mattancherry y Jew Town."
-        }
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789384381/mhindiatrips/lkrd7swsqjz59dkndtol.jpg"
       },
       {
         "desc": {
@@ -1998,7 +2007,8 @@
         ],
         "day": 10,
         "overnight": "Kochi",
-        "location": "Kochi"
+        "location": "Kochi",
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789384410/mhindiatrips/aafnmti3jrixgycc8s9n.jpg"
       },
       {
         "activities": [
@@ -2019,7 +2029,8 @@
           "pt": "Viagem ou voo doméstico para Bengaluru, explorando os jardins e pontos de interesse da capital.",
           "en": "Travel towards Bengaluru or take a domestic flight depending on the selected package. Upon arrival, explore selected areas of Bengaluru. Discover the city's combination of historic landmarks, gardens, contemporary culture and vibrant food scene."
         },
-        "day": 11
+        "day": 11,
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789384434/mhindiatrips/mwwikpeeya1yzndsyekm.jpg"
       },
       {
         "desc": {
@@ -2039,7 +2050,8 @@
         "activities": [
           "Breakfast",
           "Airport Transfer"
-        ]
+        ],
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789384455/mhindiatrips/bdscqhfhspn8h8lwwugs.jpg"
       }
     ],
     "seo": {
