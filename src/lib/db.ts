@@ -18,34 +18,28 @@ import {
 import { additionalStates, additionalPackages, additionalFoods, additionalBlogs } from "@/data/additionalData";
 import { outboundDestinations } from "@/data/outboundData";
 import { getAdminFirestore } from "./firebase-admin";
-// Load pre-built states data directly from filesystem at module init
 import fs from "fs";
 import path from "path";
 
-let outboundCache: any[] = outboundDestinations;
+// Static JSON imports for robust 100% serverless compatibility on Netlify
+import blogsFallback from "@/data/fallback/blogs.json";
+import citiesFallback from "@/data/fallback/cities.json";
+import foodsFallback from "@/data/fallback/foods.json";
+import inquiriesFallback from "@/data/fallback/inquiries.json";
+import outboundFallback from "@/data/fallback/outbound.json";
+import pagesFallback from "@/data/fallback/pages.json";
+import settingsFallback from "@/data/fallback/settings.json";
+import statesFallback from "@/data/fallback/states.json";
+import testimonialsFallback from "@/data/fallback/testimonials.json";
+import tourPackagesFallback from "@/data/fallback/tour_packages.json";
 
-// Read states.json synchronously at module initialization
-let statesJsonArray: any[] = [];
-let citiesJsonArray: any[] = [];
-try {
-  const statesFilePath = path.join(process.cwd(), "src", "data", "fallback", "states.json");
-  if (fs.existsSync(statesFilePath)) {
-    statesJsonArray = JSON.parse(fs.readFileSync(statesFilePath, "utf-8"));
-  }
-  const citiesFilePath = path.join(process.cwd(), "src", "data", "fallback", "cities.json");
-  if (fs.existsSync(citiesFilePath)) {
-    citiesJsonArray = JSON.parse(fs.readFileSync(citiesFilePath, "utf-8"));
-  }
-} catch (e) {
-  // Fallback silently
-}
+let outboundCache: any[] = (outboundFallback && outboundFallback.length > 0) ? outboundFallback : outboundDestinations;
 
-// Use fallback JSON if available, otherwise fall back to mockData merge
-const mergedStates: any[] = (statesJsonArray && statesJsonArray.length > 0) ? statesJsonArray : [...statesData, ...additionalStates];
-const mergedCities: any[] = (citiesJsonArray && citiesJsonArray.length > 0) ? citiesJsonArray : [];
-const mergedFoods = [...foodsData, ...additionalFoods];
-const mergedBlogs = [...blogsData, ...additionalBlogs];
-const mergedPackages = [...initialTourPackages, ...additionalPackages];
+const mergedStates: any[] = (statesFallback && statesFallback.length > 0) ? statesFallback : [...statesData, ...additionalStates];
+const mergedCities: any[] = (citiesFallback && citiesFallback.length > 0) ? citiesFallback : [];
+const mergedFoods = (foodsFallback && foodsFallback.length > 0) ? foodsFallback : [...foodsData, ...additionalFoods];
+const mergedBlogs = (blogsFallback && blogsFallback.length > 0) ? blogsFallback : [...blogsData, ...additionalBlogs];
+const mergedPackages = (tourPackagesFallback && tourPackagesFallback.length > 0) ? tourPackagesFallback : [...initialTourPackages, ...additionalPackages];
 
 function cleanEmail(obj: any): any {
   if (!obj) return obj;
@@ -92,41 +86,39 @@ if (process.env.NEXT_PUBLIC_FIREBASE_API_KEY) {
   useFirestore = false;
 }
 
+const isServerlessEnv = !!(process.env.NETLIFY || process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.NODE_ENV === "production");
+
 const FALLBACK_DIR = path.join(process.cwd(), "src", "data", "fallback");
-try {
-  if (!fs.existsSync(FALLBACK_DIR)) {
-    fs.mkdirSync(FALLBACK_DIR, { recursive: true });
-  }
-} catch (e) {
-  // fs might not be available on edge runtime (Netlify)
+if (!isServerlessEnv) {
+  try {
+    if (!fs.existsSync(FALLBACK_DIR)) {
+      fs.mkdirSync(FALLBACK_DIR, { recursive: true });
+    }
+  } catch (e) {}
 }
 
 const getFilePath = (name: string) => path.join(FALLBACK_DIR, `${name}.json`);
 
 const loadLocalData = (name: string, defaultData: any) => {
+  if (isServerlessEnv) return defaultData;
   try {
     const filePath = getFilePath(name);
     if (!fs.existsSync(filePath)) {
-      // File doesn't exist - write default and return
-      fs.writeFileSync(filePath, JSON.stringify(defaultData, null, 2), "utf-8");
       return defaultData;
     }
     const raw = fs.readFileSync(filePath, "utf-8");
-    const existing = JSON.parse(raw);
-    return existing;
+    return JSON.parse(raw);
   } catch (e) {
-    // fs operations might fail on serverless/edge — fall back to in-memory data
     return defaultData;
   }
 };
 
 const saveLocalData = (name: string, data: any) => {
+  if (isServerlessEnv) return;
   try {
     const filePath = getFilePath(name);
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf-8");
-  } catch (e) {
-    // Silently fail on serverless/edge where fs is not available
-  }
+  } catch (e) {}
 };
 
 // Initialize cache from local storage if available
@@ -667,10 +659,11 @@ let pagesCache = getFreshPagesCache();
 
 let isFirestoreHealthy = true;
 
-function withTimeout<T>(promise: Promise<T>, ms: number = 5000): Promise<T> {
+function withTimeout<T>(promise: Promise<T>, ms: number = 2000): Promise<T> {
+  const timeoutMs = isServerlessEnv ? 600 : ms;
   return Promise.race([
     promise,
-    new Promise<T>((_, reject) => setTimeout(() => reject(new Error("FIRESTORE_TIMEOUT")), ms))
+    new Promise<T>((_, reject) => setTimeout(() => reject(new Error("FIRESTORE_TIMEOUT")), timeoutMs))
   ]);
 }
 
