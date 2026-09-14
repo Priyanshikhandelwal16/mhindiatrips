@@ -196,8 +196,8 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
             
             <div className="relative overflow-hidden h-[420px] shadow-2xl border border-sand-300/10">
               <img
-                src={featured?.image}
-                alt={featured?.title?.en}
+                src={featured?.image || "/images/destination_fallback.jpg"}
+                alt={typeof featured?.title === "string" ? featured.title : (featured?.title?.[lang] || featured?.title?.en || "")}
                 loading="lazy"
                 className="w-full h-full object-cover filter brightness-[0.85]"
               />
@@ -207,7 +207,7 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
                   {locale === "es" ? "Más Popular" : locale === "pt" ? "Mais Popular" : "Most Popular"}
                 </span>
                 <span className="bg-charcoal-900/80 text-white text-[9px] font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full border border-sand-300/20">
-                  {featured?.durationDays} {text.days}
+                  {featured?.durationDays || featured?.duration_days || 7} {text.days}
                 </span>
               </div>
             </div>
@@ -215,24 +215,33 @@ export default async function PackagesPage({ params }: PackagesPageProps) {
             <div className="space-y-6 text-left">
               <span className="text-xs uppercase tracking-widest text-sand-400 font-bold block">{text.featuredSub}</span>
               <h2 className="text-3xl md:text-4xl font-serif font-normal leading-tight text-white">
-                {featured?.title?.[lang] || featured?.title?.en}
+                {typeof featured?.title === "string" ? featured.title : (featured?.title?.[lang] || featured?.title?.en || "")}
               </h2>
               <p className="text-xs md:text-sm text-ivory-200/60 leading-relaxed font-sans font-light">
                 {text.featuredDesc}
               </p>
               <div className="space-y-3 pt-2">
-                {featured?.highlights?.slice(0, 3).map((hl: any, idx: number) => {
-                  const label = typeof hl === "string" 
-                    ? hl 
-                    : (hl?.title?.[lang] || hl?.title?.en || hl?.[lang] || hl?.en || (typeof hl?.title === "string" ? hl.title : ""));
-                  if (!label || typeof label !== "string") return null;
-                  return (
-                    <div key={idx} className="flex items-start gap-3 text-xs text-ivory-200/75 font-sans font-light">
-                      <Sparkles className="w-4 h-4 text-sand-400 shrink-0 mt-0.5" />
-                      <span>{label}</span>
-                    </div>
-                  );
-                })}
+                {(() => {
+                  let rawList: any[] = [];
+                  if (Array.isArray(featured?.highlights)) {
+                    rawList = featured.highlights;
+                  } else if (typeof featured?.highlights === "object" && featured?.highlights !== null) {
+                    const langArr = featured.highlights[lang] || featured.highlights.en || featured.highlights.es || featured.highlights.pt;
+                    if (Array.isArray(langArr)) rawList = langArr;
+                  }
+                  return rawList.slice(0, 3).map((hl: any, idx: number) => {
+                    const label = typeof hl === "string" 
+                      ? hl 
+                      : (hl?.title?.[lang] || hl?.title?.en || hl?.[lang] || hl?.en || (typeof hl?.title === "string" ? hl.title : ""));
+                    if (!label || typeof label !== "string") return null;
+                    return (
+                      <div key={idx} className="flex items-start gap-3 text-xs text-ivory-200/75 font-sans font-light">
+                        <Sparkles className="w-4 h-4 text-sand-400 shrink-0 mt-0.5" />
+                        <span>{label}</span>
+                      </div>
+                    );
+                  });
+                })()}
               </div>
               <div className="pt-6">
                 <Link
