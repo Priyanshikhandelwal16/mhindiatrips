@@ -749,7 +749,7 @@ export default function AdminDashboard() {
       )}
 
       {/* MAIN CONTAINER WORKSPACE */}
-      <div className="flex-grow flex-1 min-w-0 h-full overflow-y-auto px-4 md:px-10 py-8 md:ml-64">
+      <div className="flex-grow flex-1 min-w-0 h-full overflow-y-auto px-3 sm:px-6 md:px-10 py-6 md:py-8 md:ml-64 max-w-full overflow-x-hidden">
         
         {/* UPPER HEADER CONTROLS */}
         <div className="flex justify-between items-center mb-8 border-b border-beige/40 pb-5">

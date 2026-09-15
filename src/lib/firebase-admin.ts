@@ -11,13 +11,8 @@ export function getAdminFirestore(): any {
     const privateKeyRaw = process.env.FIREBASE_PRIVATE_KEY;
     const projectId = process.env.FIREBASE_PROJECT_ID || process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
 
-    // In local dev mode without Firebase Admin credentials, skip loading admin SDK
-    if (!serviceAccountRaw && (!clientEmail || !privateKeyRaw) && !projectId) {
-      if (process.env.NETLIFY || process.env.NODE_ENV === "production") {
-        console.warn("[FIREBASE ADMIN WARNING] Running on Netlify without Firebase Admin credentials! Netlify serverless disk is read-only, so edits will not persist until Firebase env vars are added in Netlify Dashboard.");
-      } else {
-        console.log("[Firebase Admin] Running in offline local database fallback mode.");
-      }
+    // In local dev mode without Firebase Admin credentials, skip loading admin SDK to prevent 5s timeouts per collection
+    if (!serviceAccountRaw && (!clientEmail || !privateKeyRaw)) {
       return null;
     }
 

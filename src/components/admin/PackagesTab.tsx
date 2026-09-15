@@ -126,7 +126,7 @@ export default function PackagesTab({
 }: PackagesTabProps) {
 
   const [subTab, setSubTab] = useState<string>("general");
-  const [packagePortion, setPackagePortion] = useState<"india" | "outbound" | "all">("outbound");
+  const [packagePortion, setPackagePortion] = useState<"india" | "outbound" | "all">("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   const isOutboundPackage = (pkg: any) => {
@@ -580,11 +580,11 @@ export default function PackagesTab({
             </div>
 
             {/* Quick Action Buttons */}
-            <div className="flex items-center gap-2.5 flex-wrap">
+            <div className="flex items-center gap-2.5 flex-wrap w-full md:w-auto">
               <button
                 type="button"
                 onClick={() => handleCreateNewPackage("india")}
-                className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 rounded-xl flex items-center gap-1.5 transition cursor-pointer shadow-sm"
+                className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 rounded-xl flex items-center justify-center gap-1.5 transition cursor-pointer shadow-sm flex-1 sm:flex-none"
               >
                 <Plus className="w-4 h-4 text-gold" />
                 <span>+ Add India Package</span>
@@ -592,7 +592,7 @@ export default function PackagesTab({
               <button
                 type="button"
                 onClick={() => handleCreateNewPackage("outbound")}
-                className="bg-[#0A2A1E] text-[#C5A862] border border-[#C5A862]/30 hover:bg-[#C5A862] hover:text-[#0A2A1E] font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 rounded-xl flex items-center gap-1.5 transition cursor-pointer shadow-sm"
+                className="bg-[#0A2A1E] text-[#C5A862] border border-[#C5A862]/30 hover:bg-[#C5A862] hover:text-[#0A2A1E] font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 rounded-xl flex items-center justify-center gap-1.5 transition cursor-pointer shadow-sm flex-1 sm:flex-none"
               >
                 <Globe className="w-4 h-4" />
                 <span>+ Add Outbound Package</span>
@@ -601,12 +601,12 @@ export default function PackagesTab({
           </div>
 
           {/* Portion Selector Tabs */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-gold/10">
-            <div className="flex bg-[#FAF8F5] p-1 rounded-2xl border border-gold/15 gap-1.5 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-3 border-t border-gold/10">
+            <div className="flex flex-wrap sm:flex-nowrap items-center bg-[#FAF8F5] p-1 rounded-2xl border border-gold/15 gap-1.5 w-full sm:w-auto overflow-x-auto max-w-full">
               <button
                 type="button"
                 onClick={() => setPackagePortion("india")}
-                className={`px-5 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition-all cursor-pointer ${
+                className={`px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 sm:gap-2 transition-all cursor-pointer flex-1 sm:flex-none ${
                   packagePortion === "india" 
                     ? "bg-royal text-white shadow-md" 
                     : "text-royal/60 hover:text-royal hover:bg-white"
@@ -623,7 +623,7 @@ export default function PackagesTab({
               <button
                 type="button"
                 onClick={() => setPackagePortion("outbound")}
-                className={`px-5 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition-all cursor-pointer ${
+                className={`px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 sm:gap-2 transition-all cursor-pointer flex-1 sm:flex-none ${
                   packagePortion === "outbound" 
                     ? "bg-[#0A2A1E] text-[#C5A862] shadow-md border border-[#C5A862]/30" 
                     : "text-royal/60 hover:text-royal hover:bg-white"
@@ -640,7 +640,7 @@ export default function PackagesTab({
               <button
                 type="button"
                 onClick={() => setPackagePortion("all")}
-                className={`px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition-all cursor-pointer ${
+                className={`px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 sm:gap-2 transition-all cursor-pointer flex-1 sm:flex-none ${
                   packagePortion === "all" 
                     ? "bg-gold text-royal shadow-md" 
                     : "text-royal/60 hover:text-royal hover:bg-white"

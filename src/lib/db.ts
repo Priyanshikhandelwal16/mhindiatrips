@@ -73,7 +73,7 @@ let app: any = null;
 let firestore: any = null;
 let useFirestore = false;
 
-if (process.env.NEXT_PUBLIC_FIREBASE_API_KEY) {
+if (process.env.NEXT_PUBLIC_FIREBASE_API_KEY || process.env.FIREBASE_PRIVATE_KEY || process.env.FIREBASE_SERVICE_ACCOUNT_KEY) {
   try {
     app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
     firestore = getFirestore(app);
@@ -132,21 +132,6 @@ let foodsCache = loadLocalData("foods", mergedFoods);
 let testimonialsCache = loadLocalData("testimonials", initialTestimonials);
 let tourPackagesCache = loadLocalData("tour_packages", mergedPackages);
 
-// Ensure any missing packages (such as newly added Outbound packages) are merged into cache & fallback file
-if (Array.isArray(tourPackagesCache)) {
-  const existingSlugs = new Set(tourPackagesCache.map((p: any) => p.slug));
-  let hasNew = false;
-  for (const pkg of mergedPackages) {
-    if (pkg && pkg.slug && !existingSlugs.has(pkg.slug)) {
-      tourPackagesCache.push(pkg);
-      existingSlugs.add(pkg.slug);
-      hasNew = true;
-    }
-  }
-  if (hasNew) {
-    saveLocalData("tour_packages", tourPackagesCache);
-  }
-}
 
 // Initialize settings cache with default system contact and auth details
 let settingsCache = loadLocalData("settings", [
@@ -770,6 +755,7 @@ async function ensureSeeded(collectionName: string, initialData: any[]) {
     const existingIds = new Set(existing.map(d => d.id));
     
     for (const item of initialData) {
+      if (!item || item.isDeleted === true) continue;
       const docId = (item.id && typeof item.id === "string") ? item.id : (item.slug && typeof item.slug === "string" ? item.slug : "");
       if (docId && !existingIds.has(docId)) {
         console.log(`Document ${docId} is missing in ${collectionName}. Seeding it...`);
@@ -1415,15 +1401,6 @@ export const db = {
   outbound: {
     findMany: async () => {
       outboundCache = loadLocalData("outbound", outboundCache || outboundDestinations);
-      if (Array.isArray(outboundCache)) {
-        const existingMap = new Map(outboundCache.map((o: any) => [o.slug || o.id, o]));
-        for (const item of outboundDestinations) {
-          if (item && item.slug && !existingMap.has(item.slug)) {
-            outboundCache.push(item);
-            existingMap.set(item.slug, item);
-          }
-        }
-      }
       const firestoreData = await fetchCollectionDocs("outbound");
       if (firestoreData) {
         const firestoreMap = new Map(firestoreData.map((o: any) => [o.slug || o.id, o]));

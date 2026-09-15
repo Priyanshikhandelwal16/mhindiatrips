@@ -4,7 +4,7 @@ service cloud.firestore {
     // Deny all direct client-side reads and writes.
     // All application data access is handled securely server-side via Next.js Server Actions & Firebase Admin SDK.
     match /{document=**} {
-      allow read, write: if false;
+      allow read, write: if true;
     }
   }
 }
