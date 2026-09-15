@@ -4,6 +4,13 @@ import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 import { createAdminSession, clearAdminSession, requireAdminSession, verifyAdminSession } from "@/lib/admin-session";
 
+function revalidateAllPages() {
+  try {
+    revalidatePath("/", "layout");
+    revalidatePath("/[locale]", "layout");
+  } catch (e) {}
+}
+
 export async function updateInquiryStatusAction(id: string, status: string) {
   const authCheck = await requireAdminSession();
   if (!authCheck.success) return authCheck;
@@ -347,6 +354,7 @@ export async function createPageAction(data: any) {
 
   try {
     const page = await db.pages.create(data);
+    revalidateAllPages();
     revalidatePath("/[locale]/[slug]", "page");
     revalidatePath("/[locale]", "layout");
     return { success: true, page };
@@ -361,6 +369,7 @@ export async function updatePageAction(id: string, data: any) {
 
   try {
     const page = await db.pages.update(id, data);
+    revalidateAllPages();
     revalidatePath("/[locale]", "layout");
     revalidatePath(`/[locale]/${id}`, "page");
     revalidatePath(`/[locale]/about`, "page");
@@ -382,6 +391,7 @@ export async function deletePageAction(id: string) {
 
   try {
     await db.pages.delete(id);
+    revalidateAllPages();
     revalidatePath("/[locale]", "layout");
     revalidatePath(`/[locale]/${id}`, "page");
     return { success: true };
@@ -426,6 +436,7 @@ export async function updateContactDetailsAction(data: any) {
 
   try {
     const updated = await db.settings.update("contact_details", data);
+    revalidateAllPages();
     revalidatePath("/[locale]", "layout");
     revalidatePath("/[locale]/contact", "page");
     return { success: true, updated };
@@ -440,6 +451,7 @@ export async function createOutboundAction(data: any) {
 
   try {
     const item = await db.outbound.create(data);
+    revalidateAllPages();
     revalidatePath("/[locale]/international-trips", "layout");
     return { success: true, item };
   } catch (error: any) {
@@ -453,6 +465,7 @@ export async function updateOutboundAction(slug: string, data: any) {
 
   try {
     const updated = await db.outbound.update(slug, data);
+    revalidateAllPages();
     revalidatePath("/[locale]/international-trips", "layout");
     return { success: true, updated };
   } catch (error: any) {
@@ -466,6 +479,7 @@ export async function deleteOutboundAction(slug: string) {
 
   try {
     await db.outbound.delete(slug);
+    revalidateAllPages();
     revalidatePath("/[locale]/international-trips", "layout");
     return { success: true };
   } catch (error: any) {
@@ -517,8 +531,5 @@ export async function checkAdminSessionAction() {
   if (session.authenticated && session.user) {
     return { success: true, user: session.user };
   }
-  // Auto-issue server session cookie for configured admin
-  const adminEmail = (process.env.NEXT_PUBLIC_ADMIN_EMAIL || "admin@mhindiatrips.com").replace(/['"]/g, "").trim();
-  await createAdminSession(adminEmail);
-  return { success: true, user: { email: adminEmail } };
+  return { success: false, error: "Not authenticated" };
 }

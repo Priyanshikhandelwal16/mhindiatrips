@@ -6,6 +6,7 @@ import Footer from "@/components/navigation/Footer";
 import PageTransition from "@/components/common/PageTransition";
 import PageLoader from "@/components/common/PageLoader";
 import PopupInquiryForm from "@/components/common/PopupInquiryForm";
+import GoogleTranslateWidget from "@/components/common/GoogleTranslateWidget";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
@@ -77,6 +78,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       </head>
       <body className="font-sans bg-background text-foreground antialiased min-h-screen flex flex-col justify-between w-full overflow-x-hidden" suppressHydrationWarning>
         <PageLoader />
+        <GoogleTranslateWidget />
         <Header locale={locale} contactDetails={contactDetails} states={states} packages={packages} />
         <PopupInquiryForm locale={locale} contactDetails={contactDetails} />
         <main className="flex-grow flex flex-col w-full overflow-x-hidden pt-[116px]">

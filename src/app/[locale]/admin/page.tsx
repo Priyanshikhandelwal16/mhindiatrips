@@ -137,28 +137,9 @@ export default function AdminDashboard() {
         }
       } catch (e) {}
 
-      const savedUser = localStorage.getItem("admin_user");
-      if (savedUser) {
-        try {
-          setUser(JSON.parse(savedUser));
-          setAuthLoading(false);
-          return;
-        } catch (e) {}
-      }
-
-      if (!auth) {
-        setUser({ email: "offline-developer-mode@mhindiatrips.com" });
-        setAuthLoading(false);
-        return;
-      }
-
-      const unsubscribe = onAuthStateChanged(auth, (usr) => {
-        if (usr) {
-          setUser(usr);
-        }
-        setAuthLoading(false);
-      });
-      return () => unsubscribe();
+      localStorage.removeItem("admin_user");
+      setUser(null);
+      setAuthLoading(false);
     }
 
     verifySessionOnMount();

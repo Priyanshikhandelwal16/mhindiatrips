@@ -4,8 +4,13 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Globe, ArrowRight, ChevronDown, Phone, Mail, Plus, Minus } from "lucide-react";
+import { 
+  Menu, X, Globe, ArrowRight, ChevronDown, Phone, Mail, Plus, Minus,
+  Landmark, Crown, Trees, Palmtree, Building2, Building, Sun, Mountain,
+  Compass, MapPin, Plane, Sparkles, Waves
+} from "lucide-react";
 import { getLocalizedDestinationsPath } from "@/lib/utils";
+import GoogleTranslateWidget, { setGoogleTranslateCookie } from "@/components/common/GoogleTranslateWidget";
 
 interface HeaderProps {
   locale: string;
@@ -178,6 +183,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
   const handleSelectLanguage = (targetLocale: string) => {
     if (typeof document !== "undefined") {
       document.cookie = `NEXT_LOCALE=${targetLocale}; path=/; max-age=31536000; SameSite=Lax`;
+      setGoogleTranslateCookie(targetLocale);
     }
     setLangMenuOpen(false);
   };
@@ -221,13 +227,37 @@ export default function Header({ locale, contactDetails, states = [], packages =
     return `${base} ${isActive(path) ? activeColor : inactiveColor}`;
   };
 
+  const renderStateIcon = (name: string) => {
+    const lowerName = (name || "").toLowerCase();
+    if (lowerName.includes("rajasthan")) return <Crown className="w-3.5 h-3.5 text-[#C5A862] shrink-0" />;
+    if (lowerName.includes("kerala")) return <Palmtree className="w-3.5 h-3.5 text-[#C5A862] shrink-0" />;
+    if (lowerName.includes("madhya")) return <Trees className="w-3.5 h-3.5 text-[#C5A862] shrink-0" />;
+    if (lowerName.includes("tamil")) return <Landmark className="w-3.5 h-3.5 text-[#C5A862] shrink-0" />;
+    if (lowerName.includes("uttar")) return <Building2 className="w-3.5 h-3.5 text-[#C5A862] shrink-0" />;
+    if (lowerName.includes("maharashtra")) return <Building className="w-3.5 h-3.5 text-[#C5A862] shrink-0" />;
+    if (lowerName.includes("goa")) return <Sun className="w-3.5 h-3.5 text-[#C5A862] shrink-0" />;
+    if (lowerName.includes("karnataka")) return <Landmark className="w-3.5 h-3.5 text-[#C5A862] shrink-0" />;
+    if (lowerName.includes("delhi")) return <Building2 className="w-3.5 h-3.5 text-[#C5A862] shrink-0" />;
+    if (lowerName.includes("himachal") || lowerName.includes("ladakh") || lowerName.includes("kashmir")) return <Mountain className="w-3.5 h-3.5 text-[#C5A862] shrink-0" />;
+    return <MapPin className="w-3.5 h-3.5 text-[#C5A862] shrink-0" />;
+  };
+
+  const renderOutboundIcon = (name: string) => {
+    const lowerOut = (name || "").toLowerCase();
+    if (lowerOut.includes("dubai")) return <Building2 className="w-3.5 h-3.5 text-[#C5A862] shrink-0" />;
+    if (lowerOut.includes("bali") || lowerOut.includes("maldives")) return <Palmtree className="w-3.5 h-3.5 text-[#C5A862] shrink-0" />;
+    if (lowerOut.includes("thailand") || lowerOut.includes("vietnam") || lowerOut.includes("laos")) return <Compass className="w-3.5 h-3.5 text-[#C5A862] shrink-0" />;
+    if (lowerOut.includes("nepal") || lowerOut.includes("bhutan")) return <Mountain className="w-3.5 h-3.5 text-[#C5A862] shrink-0" />;
+    return <Plane className="w-3.5 h-3.5 text-[#C5A862] shrink-0" />;
+  };
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-[9999] w-full font-sans border-b border-gold/10 overflow-x-clip">
+    <header className="fixed top-0 left-0 right-0 z-[9999] w-full font-sans border-b border-gold/10 overflow-x-clip transition-all duration-300">
       
-      {/* Elegant Top Bar */}
+      {/* Elegant Top Bar (Hides cleanly on scroll) */}
       <div 
-        className={`bg-[#0A2A1E] text-white/90 text-[10px] md:text-xs py-2.5 px-4 xl:px-6 border-b border-gold/10 relative z-20 transition-all duration-300 ${
-          (scrolled || mobileMenuOpen) ? "h-0 py-0 border-0 opacity-0 overflow-hidden" : "h-auto opacity-100"
+        className={`bg-[#0A2A1E] text-white/90 text-[10px] md:text-xs border-b border-gold/10 relative z-20 transition-all duration-300 ease-in-out ${
+          (scrolled || mobileMenuOpen) ? "max-h-0 py-0 opacity-0 overflow-hidden border-0" : "max-h-12 py-2.5 px-4 xl:px-6 opacity-100"
         }`}
       >
         <div className="max-w-[1600px] w-full mx-auto px-4 xl:px-8 flex flex-col md:flex-row justify-between items-center gap-2">
@@ -260,7 +290,9 @@ export default function Header({ locale, contactDetails, states = [], packages =
 
       {/* Main Premium Sticky Header */}
       <div 
-        className="w-full border-b border-gold/10 relative z-50 bg-white py-3 2xl:py-4"
+        className={`w-full border-b border-gold/10 relative z-50 bg-white transition-all duration-300 ${
+          scrolled ? "py-2 shadow-md bg-white/95 backdrop-blur-md" : "py-3 2xl:py-4"
+        }`}
       >
         <div className="max-w-[1700px] w-full mx-auto px-4 xl:px-6 2xl:px-8 flex items-center justify-between gap-3 xl:gap-5 flex-nowrap">
           
@@ -327,7 +359,10 @@ export default function Header({ locale, contactDetails, states = [], packages =
                   href={`/${locale}/packages?category=Outbound`}
                   className="block px-5 py-2 text-[10px] font-bold uppercase tracking-wider text-gold bg-gold/5 border-b border-gold/10 hover:bg-gold/10 mb-1.5 pb-2 flex items-center justify-between"
                 >
-                  <span>✈️ Outbound International</span>
+                  <span className="flex items-center gap-1.5">
+                    <Plane className="w-3.5 h-3.5 text-gold" />
+                    <span>Outbound International</span>
+                  </span>
                   <span className="text-[8px] bg-gold text-royal px-1.5 py-0.5 rounded font-black">NEW</span>
                 </Link>
                 {packagesList.map((pkg, idx) => (
@@ -371,7 +406,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
                 {/* Header Banner */}
                 <div className="bg-[#0A2A1E] text-white p-3.5 px-6 font-serif flex items-center justify-between text-xs border-b border-[#C5A862]/30">
                   <span className="flex items-center gap-2 font-bold text-[#C5A862]">
-                    <span>✨</span>
+                    <Sparkles className="w-4 h-4 text-[#C5A862]" />
                     <span>Explore Tailor-Made Luxury Destinations</span>
                   </span>
                   <span className="text-[10px] uppercase font-sans tracking-widest text-white/70">PAN India & Outbound</span>
@@ -386,7 +421,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
                       className="flex items-center justify-between font-serif font-extrabold text-sm text-[#0A2A1E] pb-2 border-b border-[#C5A862]/20 hover:text-[#C5A862] transition-colors"
                     >
                       <span className="flex items-center gap-2">
-                        <span className="text-base">🇮🇳</span>
+                        <MapPin className="w-4 h-4 text-[#C5A862]" />
                         <span>{labels.indiaDestinations}</span>
                       </span>
                       <ArrowRight className="w-3.5 h-3.5 text-[#C5A862]" />
@@ -409,16 +444,6 @@ export default function Header({ locale, contactDetails, states = [], packages =
                           }
                         }
 
-                        const lowerName = dest.name.en.toLowerCase();
-                        const stateIcon = lowerName.includes("rajasthan") ? "🐫" 
-                          : lowerName.includes("kerala") ? "🌴" 
-                          : lowerName.includes("madhya") ? "🐅" 
-                          : lowerName.includes("tamil") ? "🕌" 
-                          : lowerName.includes("uttar") ? "🏛️" 
-                          : lowerName.includes("maharashtra") ? "🏙️"
-                          : lowerName.includes("goa") ? "🏖️"
-                          : "📍";
-
                         return (
                           <Link
                             key={idx}
@@ -426,7 +451,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
                             className="text-[11px] font-semibold text-[#0A2A1E] hover:text-[#0A2A1E] hover:translate-x-1 transition-all py-1.5 px-3 rounded-xl hover:bg-white hover:border hover:border-[#C5A862]/40 shadow-none hover:shadow-md flex items-center justify-between group/item"
                           >
                             <span className="flex items-center gap-2">
-                              <span className="text-xs">{stateIcon}</span>
+                              {renderStateIcon(dest.name.en)}
                               <span>{formattedName}</span>
                             </span>
                             <ArrowRight className="w-3 h-3 text-[#C5A862] opacity-0 group-hover/item:opacity-100 transition-opacity" />
@@ -443,7 +468,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
                       className="flex items-center justify-between font-serif font-extrabold text-sm text-[#0A2A1E] pb-2 border-b border-[#C5A862]/20 hover:text-[#C5A862] transition-colors"
                     >
                       <span className="flex items-center gap-2">
-                        <span className="text-base">✈️</span>
+                        <Plane className="w-4 h-4 text-[#C5A862]" />
                         <span>{labels.outboundTrips}</span>
                       </span>
                       <ArrowRight className="w-3.5 h-3.5 text-[#C5A862]" />
@@ -453,17 +478,6 @@ export default function Header({ locale, contactDetails, states = [], packages =
                         const outName = typeof out.name === 'string' ? out.name : (out.name?.[locale] || out.name?.en || out.name?.es || out.name?.pt || "");
                         const outPath = out.path || out.url || "";
                         const fullPath = outPath.startsWith("/") ? `/${locale}${outPath.replace(/^\/(en|es|pt)/, "")}` : outPath;
-                        const lowerOut = outName.toLowerCase();
-                        const outIcon = lowerOut.includes("dubai") ? "🇦🇪"
-                          : lowerOut.includes("bali") ? "🇮🇩"
-                          : lowerOut.includes("thailand") ? "🇹🇭"
-                          : lowerOut.includes("maldives") ? "🇲🇻"
-                          : lowerOut.includes("vietnam") ? "🇻🇳"
-                          : lowerOut.includes("singapore") ? "🇸🇬"
-                          : lowerOut.includes("nepal") ? "🇳🇵"
-                          : lowerOut.includes("sri lanka") ? "🇱🇰"
-                          : lowerOut.includes("laos") ? "🇱🇦"
-                          : "✈️";
 
                         return (
                           <Link
@@ -472,7 +486,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
                             className="text-[11px] font-semibold text-[#0A2A1E] hover:text-[#0A2A1E] hover:translate-x-1 transition-all py-1.5 px-3 rounded-xl hover:bg-white hover:border hover:border-[#C5A862]/40 shadow-none hover:shadow-md flex items-center justify-between group/item"
                           >
                             <span className="flex items-center gap-2">
-                              <span className="text-xs">{outIcon}</span>
+                              {renderOutboundIcon(outName)}
                               <span>{outName}</span>
                             </span>
                             <ArrowRight className="w-3 h-3 text-[#C5A862] opacity-0 group-hover/item:opacity-100 transition-opacity" />
@@ -568,9 +582,15 @@ export default function Header({ locale, contactDetails, states = [], packages =
           </nav>
 
           {/* Right Action Menu */}
-          <div className="hidden xl:flex items-center gap-1.5 xl:gap-2 2xl:gap-3 z-20 shrink-0">
+          <div className="hidden xl:flex items-center gap-2 2xl:gap-3 z-20 shrink-0">
             
-            {/* Globe Language Toggle */}
+            {/* Google Translate Dropdown Selector */}
+            <div className="flex items-center gap-1.5 bg-[#FAF8F5] border border-gold/25 hover:border-gold px-2.5 py-1 rounded-full transition-all">
+              <Globe className="w-3.5 h-3.5 text-gold shrink-0" />
+              <GoogleTranslateWidget />
+            </div>
+
+            {/* Globe Locale Route Switcher */}
             <div className="relative">
               <button 
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
@@ -578,8 +598,8 @@ export default function Header({ locale, contactDetails, states = [], packages =
                 aria-label="Language Selector"
                 suppressHydrationWarning={true}
               >
-                <Globe className="w-3 h-3 2xl:w-3.5 2xl:h-3.5 text-gold" />
                 <span>{locale}</span>
+                <ChevronDown className="w-2.5 h-2.5 text-gold" />
               </button>
               
               {langMenuOpen && (
@@ -615,6 +635,10 @@ export default function Header({ locale, contactDetails, states = [], packages =
 
           {/* Mobile Buttons */}
           <div className="flex xl:hidden items-center gap-2 z-20">
+            <div className="flex items-center gap-1 bg-[#FAF8F5] border border-gold/25 px-2 py-0.5 rounded-full scale-90 origin-right">
+              <Globe className="w-3 h-3 text-gold shrink-0" />
+              <GoogleTranslateWidget />
+            </div>
             <button
               onClick={() => setLangMenuOpen(!langMenuOpen)}
               className="p-2 border border-gold/15 text-royal hover:border-gold rounded-full transition-colors"
@@ -724,8 +748,9 @@ export default function Header({ locale, contactDetails, states = [], packages =
                 <div className="flex flex-col bg-gold/5 border-l-2 border-gold/25 pl-4 py-2 space-y-3 text-left animate-fade-in">
                   {/* India Destinations Section */}
                   <div>
-                    <span className="text-[10px] font-black uppercase text-gold tracking-widest block mb-1">
-                      🇮🇳 {labels.indiaDestinations}
+                    <span className="text-[10px] font-black uppercase text-gold tracking-widest flex items-center gap-1 mb-1">
+                      <MapPin className="w-3.5 h-3.5 text-gold" />
+                      <span>{labels.indiaDestinations}</span>
                     </span>
                     <Link
                       href={getLocalizedDestinationsPath(locale)}
@@ -739,17 +764,19 @@ export default function Header({ locale, contactDetails, states = [], packages =
                         key={idx}
                         href={dest.path}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="text-[11px] font-medium tracking-wider text-royal hover:text-gold py-0.5 block pl-2"
+                        className="text-[11px] font-medium tracking-wider text-royal hover:text-gold py-0.5 flex items-center gap-1.5 pl-2"
                       >
-                        {dest.name[locale as 'en'|'es'|'pt'] || dest.name.en}
+                        {renderStateIcon(dest.name.en)}
+                        <span>{dest.name[locale as 'en'|'es'|'pt'] || dest.name.en}</span>
                       </Link>
                     ))}
                   </div>
 
                   {/* Outbound Trips Section */}
                   <div className="pt-2 border-t border-gold/10">
-                    <span className="text-[10px] font-black uppercase text-gold tracking-widest block mb-1">
-                      ✈️ {labels.outboundTrips}
+                    <span className="text-[10px] font-black uppercase text-gold tracking-widest flex items-center gap-1 mb-1">
+                      <Plane className="w-3.5 h-3.5 text-gold" />
+                      <span>{labels.outboundTrips}</span>
                     </span>
                     <Link
                       href={`/${locale}/international-trips`}
@@ -767,9 +794,10 @@ export default function Header({ locale, contactDetails, states = [], packages =
                           key={idx}
                           href={fullPath}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="text-[11px] font-medium tracking-wider text-royal hover:text-gold py-0.5 block pl-2"
+                          className="text-[11px] font-medium tracking-wider text-royal hover:text-gold py-0.5 flex items-center gap-1.5 pl-2"
                         >
-                          {outName}
+                          {renderOutboundIcon(outName)}
+                          <span>{outName}</span>
                         </Link>
                       );
                     })}

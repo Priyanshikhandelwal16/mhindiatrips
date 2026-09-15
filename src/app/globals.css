@@ -58,6 +58,56 @@
   --gold-500: #B89643;
 }
 
+/* Google Translate Clean UI Overrides */
+.goog-te-banner-frame,
+iframe.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+  visibility: hidden !important;
+}
+body {
+  top: 0px !important;
+  position: static !important;
+}
+.goog-te-gadget-icon {
+  display: none !important;
+}
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+#google_translate_element {
+  display: inline-flex !important;
+  align-items: center !important;
+}
+.goog-te-gadget {
+  font-family: inherit !important;
+  font-size: 11px !important;
+  color: transparent !important;
+}
+.goog-te-gadget span {
+  display: none !important;
+}
+.goog-te-combo {
+  background-color: #FAF8F5 !important;
+  border: 1px solid rgba(197, 168, 98, 0.4) !important;
+  color: #0A2A1E !important;
+  border-radius: 9999px !important;
+  padding: 5px 12px !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  outline: none !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+.goog-te-combo:hover {
+  border-color: #C5A862 !important;
+  background-color: #FFFFFF !important;
+}
+
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

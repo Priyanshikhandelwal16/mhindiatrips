@@ -94,7 +94,5 @@ export async function requireAdminSession(): Promise<{ success: true; user: { em
   if (session.authenticated && session.user) {
     return { success: true, user: session.user };
   }
-  const adminEmail = (process.env.NEXT_PUBLIC_ADMIN_EMAIL || "admin@mhindiatrips.com").replace(/['"]/g, "").trim();
-  await createAdminSession(adminEmail);
-  return { success: true, user: { email: adminEmail } };
+  return { success: false, error: "Unauthorized access" };
 }

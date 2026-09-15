@@ -100,23 +100,25 @@ if (!isServerlessEnv) {
 const getFilePath = (name: string) => path.join(FALLBACK_DIR, `${name}.json`);
 
 const loadLocalData = (name: string, defaultData: any) => {
-  if (isServerlessEnv) return defaultData;
   try {
     const filePath = getFilePath(name);
-    if (!fs.existsSync(filePath)) {
-      return defaultData;
+    if (fs.existsSync(filePath)) {
+      const raw = fs.readFileSync(filePath, "utf-8");
+      if (raw && raw.trim().length > 2) {
+        return JSON.parse(raw);
+      }
     }
-    const raw = fs.readFileSync(filePath, "utf-8");
-    return JSON.parse(raw);
-  } catch (e) {
-    return defaultData;
-  }
+  } catch (e) {}
+  return defaultData;
 };
 
 const saveLocalData = (name: string, data: any) => {
-  if (isServerlessEnv) return;
   try {
     const filePath = getFilePath(name);
+    const dir = path.dirname(filePath);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
     const cleanData = Array.isArray(data) ? data.filter((item: any) => item && item.isDeleted !== true) : data;
     fs.writeFileSync(filePath, JSON.stringify(cleanData, null, 2), "utf-8");
   } catch (e) {}
