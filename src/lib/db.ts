@@ -745,52 +745,36 @@ async function deleteDocFromCollection(colName: string, docId: string): Promise<
   return false;
 }
 
-// Simple check to seed Firestore collection if it has fewer items than source
-async function ensureSeeded(collectionName: string, initialData: any[]) {
-  const adminDb = getAdminFirestore();
-  if (!adminDb) return;
-  try {
-    const existing = await fetchCollectionDocs(collectionName);
-    if (!existing) return;
-    const existingIds = new Set(existing.map(d => d.id));
-    
-    for (const item of initialData) {
-      if (!item || item.isDeleted === true) continue;
-      const docId = (item.id && typeof item.id === "string") ? item.id : (item.slug && typeof item.slug === "string" ? item.slug : "");
-      if (docId && !existingIds.has(docId)) {
-        console.log(`Document ${docId} is missing in ${collectionName}. Seeding it...`);
-        await writeDoc(collectionName, docId, item);
-      }
-    }
-  } catch (err: any) {
-    console.warn(`Firestore seeding error on ${collectionName}:`, err.message || err);
+// Merge collection data using timestamp comparison and isDeleted checks
+function mergeCollectionData(localList: any[], firestoreList: any[] | null, idKey: (item: any) => string): any[] {
+  const localData = Array.isArray(localList) ? localList : [];
+  if (!firestoreList || firestoreList.length === 0) {
+    return localData.filter((item: any) => item && item.isDeleted !== true);
   }
-}
 
-// Perform background seeding check
-let seedingPromise: Promise<any> | null = null;
-let isSeeded = false;
-function checkSeeding() {
-  const adminDb = getAdminFirestore();
-  if (!adminDb || isSeeded) return;
-  if (!seedingPromise) {
-    console.log("Starting Firestore database seeding check in background...");
-    seedingPromise = Promise.all([
-      ensureSeeded("blogs", blogsCache),
-      ensureSeeded("states", statesCache),
-      ensureSeeded("foods", foodsCache),
-      ensureSeeded("testimonials", testimonialsCache),
-      ensureSeeded("tour_packages", tourPackagesCache),
-      ensureSeeded("pages", pagesCache),
-      ensureSeeded("settings", settingsCache),
-    ]).then(() => {
-      isSeeded = true;
-      console.log("Firestore database seeding check completed successfully.");
-    }).catch(err => {
-      console.warn("Firestore database seeding check failed:", err.message || err);
-      seedingPromise = null;
-    });
-  }
+  const firestoreMap = new Map(firestoreList.map((item: any) => [idKey(item), item]));
+
+  const merged = localData
+    .map((localItem: any) => {
+      if (!localItem) return null;
+      if (localItem.isDeleted === true) return null;
+      const key = idKey(localItem);
+      if (firestoreMap.has(key)) {
+        const fsDoc = firestoreMap.get(key);
+        if (fsDoc.isDeleted === true) return null;
+        if (localItem.updatedAt && fsDoc.updatedAt && localItem.updatedAt > fsDoc.updatedAt) {
+          return { ...fsDoc, ...localItem };
+        }
+        return { ...localItem, ...fsDoc };
+      }
+      return localItem;
+    })
+    .filter((item: any) => item && item.isDeleted !== true);
+
+  const localKeys = new Set(localData.map((item: any) => idKey(item)));
+  const extraItems = firestoreList.filter((item: any) => item && !localKeys.has(idKey(item)) && item.isDeleted !== true);
+
+  return [...merged, ...extraItems];
 }
 
 export const db = {
@@ -807,6 +791,7 @@ export const db = {
       const payload = {
         status: "NEW",
         createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
         ...data
       };
       const createdId = await addDocToCollection("inquiries", payload);
@@ -822,13 +807,14 @@ export const db = {
       return newInquiry;
     },
     update: async (id: string, data: any) => {
-      const success = await writeDoc("inquiries", id, data, true);
+      const payload = { ...data, updatedAt: new Date().toISOString() };
+      const success = await writeDoc("inquiries", id, payload, true);
       if (success) {
-        return { id, ...data };
+        return { id, ...payload };
       }
       const idx = inquiriesCache.findIndex((i: any) => i.id === id);
       if (idx !== -1) {
-        inquiriesCache[idx] = { ...inquiriesCache[idx], ...data };
+        inquiriesCache[idx] = { ...inquiriesCache[idx], ...payload };
         saveLocalData("inquiries", inquiriesCache);
         return inquiriesCache[idx];
       }
@@ -859,19 +845,9 @@ export const db = {
         console.warn("[db] blogs.findMany file read error:", e.message);
       }
 
+      const localData = blogsCache && blogsCache.length > 0 ? blogsCache : mergedBlogs;
       const firestoreData = await fetchCollectionDocs("blogs");
-      if (firestoreData) {
-        const firestoreMap = new Map(firestoreData.map((b: any) => [b.slug, b]));
-        const localData = blogsCache && blogsCache.length > 0 ? blogsCache : mergedBlogs;
-        const merged = localData
-          .map((b: any) => firestoreMap.has(b.slug) ? { ...b, ...firestoreMap.get(b.slug) } : b)
-          .filter((b: any) => b.isDeleted !== true);
-        const localSlugs = new Set(localData.map((b: any) => b.slug));
-        const extraItems = firestoreData.filter((b: any) => !localSlugs.has(b.slug) && b.isDeleted !== true);
-        return [...merged, ...extraItems];
-      }
-      blogsCache = loadLocalData("blogs", blogsCache && blogsCache.length > 0 ? blogsCache : mergedBlogs);
-      return blogsCache.filter((b: any) => b.isDeleted !== true);
+      return mergeCollectionData(localData, firestoreData, (b: any) => b.slug || b.id);
     },
     findUnique: async (slug: string) => {
       const allBlogs = await db.blogs.findMany();
@@ -880,42 +856,54 @@ export const db = {
       return allBlogs.find((b: any) => 
         b.slug === slug || 
         (b.slug && b.slug.toLowerCase().trim() === targetSlug)
-      ) && (!allBlogs.find((b: any) => (b.slug === slug || (b.slug && b.slug.toLowerCase().trim() === targetSlug)))?.isDeleted)
-        ? allBlogs.find((b: any) => b.slug === slug || (b.slug && b.slug.toLowerCase().trim() === targetSlug))
-        : null;
+      ) || null;
     },
     create: async (data: any) => {
       const slug = data.slug || Math.random().toString(36).substring(2, 11);
       const newBlog = {
         slug,
         createdAt: new Date().toISOString().split("T")[0],
+        updatedAt: new Date().toISOString(),
         readingTime: 5,
         author: "MHIndiaTrips Editor",
+        isDeleted: false,
         ...data
       };
       await writeDoc("blogs", slug, newBlog);
-      blogsCache.push(newBlog);
+      const existingIdx = blogsCache.findIndex((b: any) => b.slug === slug || b.id === slug);
+      if (existingIdx >= 0) {
+        blogsCache[existingIdx] = { ...blogsCache[existingIdx], ...newBlog };
+      } else {
+        blogsCache.push(newBlog);
+      }
       saveLocalData("blogs", blogsCache);
       return newBlog;
     },
     update: async (slug: string, data: any) => {
-      await writeDoc("blogs", slug, data, true);
+      const payload = { ...data, updatedAt: new Date().toISOString(), isDeleted: false };
+      await writeDoc("blogs", slug, payload, true);
       blogsCache = loadLocalData("blogs", blogsCache);
-      const idx = blogsCache.findIndex((b: any) => b.slug === slug);
+      const idx = blogsCache.findIndex((b: any) => b.slug === slug || b.id === slug);
       let updatedBlog;
       if (idx !== -1) {
-        blogsCache[idx] = { ...blogsCache[idx], ...data };
+        blogsCache[idx] = { ...blogsCache[idx], ...payload };
         updatedBlog = blogsCache[idx];
       } else {
-        updatedBlog = { slug, ...data };
+        updatedBlog = { slug, ...payload };
         blogsCache.push(updatedBlog);
       }
       saveLocalData("blogs", blogsCache);
       return updatedBlog;
     },
     delete: async (slug: string) => {
-      await writeDoc("blogs", slug, { isDeleted: true }, true);
-      blogsCache = blogsCache.filter((b: any) => b.slug !== slug);
+      const payload = { isDeleted: true, updatedAt: new Date().toISOString() };
+      await writeDoc("blogs", slug, payload, true);
+      const idx = blogsCache.findIndex((b: any) => b.slug === slug || b.id === slug);
+      if (idx !== -1) {
+        blogsCache[idx] = { ...blogsCache[idx], ...payload };
+      } else {
+        blogsCache.push({ slug, id: slug, ...payload });
+      }
       saveLocalData("blogs", blogsCache);
       return { slug };
     }
@@ -938,7 +926,6 @@ export const db = {
         console.warn("[db] states.findMany file read error:", e.message);
       }
 
-      // Filter out any undefined state objects
       let localData = statesCache.filter((s: any) => s && s.id && s.id !== "undefined");
       if (localData.length !== statesCache.length) {
         statesCache = localData;
@@ -946,17 +933,9 @@ export const db = {
       }
 
       const firestoreData = await fetchCollectionDocs("states");
-      if (firestoreData) {
-        const cleanFirestoreData = firestoreData.filter((s: any) => s && s.id && s.id !== "undefined");
-        const firestoreMap = new Map(cleanFirestoreData.map((s: any) => [s.id, s]));
-        const merged = localData
-          .map((s: any) => firestoreMap.has(s.id) ? { ...s, ...firestoreMap.get(s.id) } : s)
-          .filter((s: any) => s.isDeleted !== true);
-        const localIds = new Set(localData.map((s: any) => s.id));
-        const extraItems = cleanFirestoreData.filter((s: any) => !localIds.has(s.id) && s.isDeleted !== true);
-        return [...merged, ...extraItems].sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
-      }
-      return localData.filter((s: any) => s.isDeleted !== true).sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
+      const cleanFirestoreData = firestoreData ? firestoreData.filter((s: any) => s && s.id && s.id !== "undefined") : null;
+      const res = mergeCollectionData(localData, cleanFirestoreData, (s: any) => s.id || s.slug);
+      return res.sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
     },
     findUnique: async (id: string) => {
       const allStates = await db.states.findMany();
@@ -977,31 +956,45 @@ export const db = {
         id,
         isPublished: true,
         displayOrder: 0,
+        updatedAt: new Date().toISOString(),
+        isDeleted: false,
         ...data
       };
       await writeDoc("states", id, newState);
-      statesCache.push(newState);
+      const existingIdx = statesCache.findIndex((s: any) => s.id === id || s.slug === id);
+      if (existingIdx >= 0) {
+        statesCache[existingIdx] = { ...statesCache[existingIdx], ...newState };
+      } else {
+        statesCache.push(newState);
+      }
       saveLocalData("states", statesCache);
       return newState;
     },
     update: async (id: string, data: any) => {
-      await writeDoc("states", id, { ...data, id }, true);
+      const payload = { ...data, id, updatedAt: new Date().toISOString(), isDeleted: false };
+      await writeDoc("states", id, payload, true);
       statesCache = loadLocalData("states", statesCache);
       const localIdx = statesCache.findIndex((s: any) => s.id === id || s.slug === id || s.slug?.en === id);
       let updatedState;
       if (localIdx !== -1) {
-        statesCache[localIdx] = { ...statesCache[localIdx], ...data, id };
+        statesCache[localIdx] = { ...statesCache[localIdx], ...payload };
         updatedState = statesCache[localIdx];
       } else {
-        updatedState = { id, ...data };
+        updatedState = { id, ...payload };
         statesCache.push(updatedState);
       }
       saveLocalData("states", statesCache);
       return updatedState;
     },
     delete: async (id: string) => {
-      await writeDoc("states", id, { isDeleted: true }, true);
-      statesCache = statesCache.filter((s: any) => s.id !== id);
+      const payload = { isDeleted: true, updatedAt: new Date().toISOString() };
+      await writeDoc("states", id, payload, true);
+      const idx = statesCache.findIndex((s: any) => s.id === id || s.slug === id);
+      if (idx !== -1) {
+        statesCache[idx] = { ...statesCache[idx], ...payload };
+      } else {
+        statesCache.push({ id, slug: id, ...payload });
+      }
       saveLocalData("states", statesCache);
       return { id };
     }
@@ -1024,7 +1017,6 @@ export const db = {
         console.warn("[db] cities.findMany file read error:", e.message);
       }
 
-      // Filter out any undefined city objects
       let localData = citiesCache.filter((c: any) => c && c.id && c.id !== "undefined" && c.stateId && c.stateId !== "undefined");
       if (localData.length !== citiesCache.length) {
         citiesCache = localData;
@@ -1032,17 +1024,9 @@ export const db = {
       }
 
       const firestoreData = await fetchCollectionDocs("cities");
-      if (firestoreData) {
-        const cleanFirestoreData = firestoreData.filter((c: any) => c && c.id && c.id !== "undefined" && c.stateId && c.stateId !== "undefined");
-        const firestoreMap = new Map(cleanFirestoreData.map((c: any) => [c.id, c]));
-        const merged = localData
-          .map((c: any) => firestoreMap.has(c.id) ? { ...c, ...firestoreMap.get(c.id) } : c)
-          .filter((c: any) => c.isDeleted !== true);
-        const localIds = new Set(localData.map((c: any) => c.id));
-        const extraItems = cleanFirestoreData.filter((c: any) => !localIds.has(c.id) && c.isDeleted !== true);
-        return [...merged, ...extraItems].sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
-      }
-      return localData.filter((c: any) => c.isDeleted !== true).sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
+      const cleanFirestoreData = firestoreData ? firestoreData.filter((c: any) => c && c.id && c.id !== "undefined" && c.stateId && c.stateId !== "undefined") : null;
+      const res = mergeCollectionData(localData, cleanFirestoreData, (c: any) => c.id || c.slug);
+      return res.sort((a: any, b: any) => (a.displayOrder || 0) - (b.displayOrder || 0));
     },
     findUnique: async (id: string) => {
       const allCities = await db.cities.findMany();
@@ -1069,31 +1053,45 @@ export const db = {
         displayOrder: 0,
         gallery: [],
         relatedPackages: [],
+        updatedAt: new Date().toISOString(),
+        isDeleted: false,
         ...data
       };
       await writeDoc("cities", id, newCity);
-      citiesCache.push(newCity);
+      const existingIdx = citiesCache.findIndex((c: any) => c.id === id || c.slug === id);
+      if (existingIdx >= 0) {
+        citiesCache[existingIdx] = { ...citiesCache[existingIdx], ...newCity };
+      } else {
+        citiesCache.push(newCity);
+      }
       saveLocalData("cities", citiesCache);
       return newCity;
     },
     update: async (id: string, data: any) => {
-      await writeDoc("cities", id, { ...data, id }, true);
+      const payload = { ...data, id, updatedAt: new Date().toISOString(), isDeleted: false };
+      await writeDoc("cities", id, payload, true);
       citiesCache = loadLocalData("cities", citiesCache);
       const localIdx = citiesCache.findIndex((c: any) => c.id === id || c.slug === id || c.slug?.en === id);
       let updatedCity;
       if (localIdx !== -1) {
-        citiesCache[localIdx] = { ...citiesCache[localIdx], ...data, id };
+        citiesCache[localIdx] = { ...citiesCache[localIdx], ...payload };
         updatedCity = citiesCache[localIdx];
       } else {
-        updatedCity = { id, ...data };
+        updatedCity = { id, ...payload };
         citiesCache.push(updatedCity);
       }
       saveLocalData("cities", citiesCache);
       return updatedCity;
     },
     delete: async (id: string) => {
-      await writeDoc("cities", id, { isDeleted: true }, true);
-      citiesCache = citiesCache.filter((c: any) => c.id !== id);
+      const payload = { isDeleted: true, updatedAt: new Date().toISOString() };
+      await writeDoc("cities", id, payload, true);
+      const idx = citiesCache.findIndex((c: any) => c.id === id || c.slug === id);
+      if (idx !== -1) {
+        citiesCache[idx] = { ...citiesCache[idx], ...payload };
+      } else {
+        citiesCache.push({ id, slug: id, ...payload });
+      }
       saveLocalData("cities", citiesCache);
       return { id };
     }
@@ -1104,20 +1102,11 @@ export const db = {
       foodsCache = loadLocalData("foods", mergedFoods);
       const localData = foodsCache;
       const firestoreData = await fetchCollectionDocs("foods");
-      if (firestoreData) {
-        const firestoreMap = new Map(firestoreData.map((f: any) => [f.slug, f]));
-        const merged = localData
-          .map((f: any) => firestoreMap.has(f.slug) ? { ...f, ...firestoreMap.get(f.slug) } : f)
-          .filter((f: any) => f.isDeleted !== true);
-        const localSlugs = new Set(localData.map((f: any) => f.slug));
-        const extraItems = firestoreData.filter((f: any) => !localSlugs.has(f.slug) && f.isDeleted !== true);
-        return [...merged, ...extraItems];
-      }
-      return localData.filter((f: any) => f.isDeleted !== true);
+      return mergeCollectionData(localData, firestoreData, (f: any) => f.slug || f.id);
     },
     findUnique: async (slug: string) => {
       const allFoods = await db.foods.findMany();
-      return allFoods.find((f: any) => f.slug === slug && f.isDeleted !== true) || null;
+      return allFoods.find((f: any) => f.slug === slug || f.id === slug) || null;
     },
     create: async (data: any) => {
       const slug = data.slug || Math.random().toString(36).substring(2, 11);
@@ -1128,31 +1117,45 @@ export const db = {
         travelTips: [],
         bestRestaurants: [],
         faqs: [],
+        updatedAt: new Date().toISOString(),
+        isDeleted: false,
         ...data
       };
       await writeDoc("foods", slug, newFood);
-      foodsCache.push(newFood);
+      const existingIdx = foodsCache.findIndex((f: any) => f.slug === slug || f.id === slug);
+      if (existingIdx >= 0) {
+        foodsCache[existingIdx] = { ...foodsCache[existingIdx], ...newFood };
+      } else {
+        foodsCache.push(newFood);
+      }
       saveLocalData("foods", foodsCache);
       return newFood;
     },
     update: async (slug: string, data: any) => {
-      await writeDoc("foods", slug, data, true);
+      const payload = { ...data, updatedAt: new Date().toISOString(), isDeleted: false };
+      await writeDoc("foods", slug, payload, true);
       foodsCache = loadLocalData("foods", foodsCache);
-      const idx = foodsCache.findIndex((f: any) => f.slug === slug);
+      const idx = foodsCache.findIndex((f: any) => f.slug === slug || f.id === slug);
       let updatedFood;
       if (idx !== -1) {
-        foodsCache[idx] = { ...foodsCache[idx], ...data };
+        foodsCache[idx] = { ...foodsCache[idx], ...payload };
         updatedFood = foodsCache[idx];
       } else {
-        updatedFood = { slug, ...data };
+        updatedFood = { slug, ...payload };
         foodsCache.push(updatedFood);
       }
       saveLocalData("foods", foodsCache);
       return updatedFood;
     },
     delete: async (slug: string) => {
-      await writeDoc("foods", slug, { isDeleted: true }, true);
-      foodsCache = foodsCache.filter((f: any) => f.slug !== slug);
+      const payload = { isDeleted: true, updatedAt: new Date().toISOString() };
+      await writeDoc("foods", slug, payload, true);
+      const idx = foodsCache.findIndex((f: any) => f.slug === slug || f.id === slug);
+      if (idx !== -1) {
+        foodsCache[idx] = { ...foodsCache[idx], ...payload };
+      } else {
+        foodsCache.push({ slug, id: slug, ...payload });
+      }
       saveLocalData("foods", foodsCache);
       return { slug };
     }
@@ -1163,46 +1166,51 @@ export const db = {
       testimonialsCache = loadLocalData("testimonials", initialTestimonials);
       const localData = testimonialsCache;
       const firestoreData = await fetchCollectionDocs("testimonials");
-      if (firestoreData) {
-        const firestoreMap = new Map(firestoreData.map((t: any) => [t.id, t]));
-        const merged = localData
-          .map((t: any) => firestoreMap.has(t.id) ? { ...t, ...firestoreMap.get(t.id) } : t)
-          .filter((t: any) => t.isDeleted !== true);
-        const localIds = new Set(localData.map((t: any) => t.id));
-        const extraItems = firestoreData.filter((t: any) => !localIds.has(t.id) && t.isDeleted !== true);
-        return [...merged, ...extraItems];
-      }
-      return localData.filter((t: any) => t.isDeleted !== true);
+      return mergeCollectionData(localData, firestoreData, (t: any) => t.id);
     },
     create: async (data: any) => {
       const id = data.id || Math.random().toString(36).substring(2, 11);
       const newTestimonial = {
         id,
+        updatedAt: new Date().toISOString(),
+        isDeleted: false,
         ...data
       };
       await writeDoc("testimonials", id, newTestimonial);
-      testimonialsCache.push(newTestimonial);
+      const existingIdx = testimonialsCache.findIndex((t: any) => t.id === id);
+      if (existingIdx >= 0) {
+        testimonialsCache[existingIdx] = { ...testimonialsCache[existingIdx], ...newTestimonial };
+      } else {
+        testimonialsCache.push(newTestimonial);
+      }
       saveLocalData("testimonials", testimonialsCache);
       return newTestimonial;
     },
     update: async (id: string, data: any) => {
-      await writeDoc("testimonials", id, data, true);
+      const payload = { ...data, updatedAt: new Date().toISOString(), isDeleted: false };
+      await writeDoc("testimonials", id, payload, true);
       testimonialsCache = loadLocalData("testimonials", testimonialsCache);
       const idx = testimonialsCache.findIndex((t: any) => t.id === id);
       let updatedItem;
       if (idx !== -1) {
-        testimonialsCache[idx] = { ...testimonialsCache[idx], ...data };
+        testimonialsCache[idx] = { ...testimonialsCache[idx], ...payload };
         updatedItem = testimonialsCache[idx];
       } else {
-        updatedItem = { id, ...data };
+        updatedItem = { id, ...payload };
         testimonialsCache.push(updatedItem);
       }
       saveLocalData("testimonials", testimonialsCache);
       return updatedItem;
     },
     delete: async (id: string) => {
-      await writeDoc("testimonials", id, { isDeleted: true }, true);
-      testimonialsCache = testimonialsCache.filter((t: any) => t.id !== id);
+      const payload = { isDeleted: true, updatedAt: new Date().toISOString() };
+      await writeDoc("testimonials", id, payload, true);
+      const idx = testimonialsCache.findIndex((t: any) => t.id === id);
+      if (idx !== -1) {
+        testimonialsCache[idx] = { ...testimonialsCache[idx], ...payload };
+      } else {
+        testimonialsCache.push({ id, ...payload });
+      }
       saveLocalData("testimonials", testimonialsCache);
       return { id };
     }
@@ -1227,32 +1235,11 @@ export const db = {
 
       const localData = Array.isArray(tourPackagesCache) ? tourPackagesCache : [];
       const firestoreData = await fetchCollectionDocs("tour_packages");
-      
-      if (firestoreData && firestoreData.length > 0) {
-        const firestoreMap = new Map(firestoreData.map((p: any) => [p.slug || p.id, p]));
-        const merged = localData
-          .map((p: any) => {
-            const key = p.slug || p.id;
-            if (firestoreMap.has(key)) {
-              const fsDoc = firestoreMap.get(key);
-              if (fsDoc.isDeleted === true) return null;
-              // Firestore doc (fsDoc) takes precedence over static local fallbacks so deployed admin edits & uploaded images persist
-              return { ...p, ...fsDoc };
-            }
-            return p;
-          })
-          .filter((p: any) => p && p.isDeleted !== true);
-
-        const localKeys = new Set(localData.map((p: any) => p.slug || p.id));
-        const extraItems = firestoreData.filter((p: any) => p && !localKeys.has(p.slug) && !localKeys.has(p.id) && p.isDeleted !== true);
-        return [...merged, ...extraItems];
-      }
-
-      return localData.filter((p: any) => p && p.isDeleted !== true);
+      return mergeCollectionData(localData, firestoreData, (p: any) => p.slug || p.id);
     },
     findUnique: async (slug: string) => {
       const allPkgs = await db.tourPackages.findMany();
-      return allPkgs.find((p: any) => (p.slug === slug || p.id === slug) && p.isDeleted !== true) || null;
+      return allPkgs.find((p: any) => p.slug === slug || p.id === slug) || null;
     },
     create: async (data: any) => {
       const slug = data.slug || data.id || Math.random().toString(36).substring(2, 11);
@@ -1260,6 +1247,8 @@ export const db = {
         id: slug,
         slug,
         highlights: [],
+        updatedAt: new Date().toISOString(),
+        isDeleted: false,
         ...data
       };
       await writeDoc("tour_packages", slug, newPkg);
@@ -1273,25 +1262,27 @@ export const db = {
       return newPkg;
     },
     update: async (slug: string, data: any) => {
-      await writeDoc("tour_packages", slug, data, true);
+      const payload = { ...data, updatedAt: new Date().toISOString(), isDeleted: false };
+      await writeDoc("tour_packages", slug, payload, true);
       const idx = tourPackagesCache.findIndex((p: any) => p.slug === slug || p.id === slug);
       if (idx !== -1) {
-        tourPackagesCache[idx] = { ...tourPackagesCache[idx], ...data };
+        tourPackagesCache[idx] = { ...tourPackagesCache[idx], ...payload };
         saveLocalData("tour_packages", tourPackagesCache);
         return tourPackagesCache[idx];
       }
-      const newPkg = { id: slug, slug, ...data };
+      const newPkg = { id: slug, slug, ...payload };
       tourPackagesCache.push(newPkg);
       saveLocalData("tour_packages", tourPackagesCache);
       return newPkg;
     },
     delete: async (slug: string) => {
-      await writeDoc("tour_packages", slug, { isDeleted: true }, true);
+      const payload = { isDeleted: true, updatedAt: new Date().toISOString() };
+      await writeDoc("tour_packages", slug, payload, true);
       const idx = tourPackagesCache.findIndex((p: any) => p.slug === slug || p.id === slug);
       if (idx !== -1) {
-        tourPackagesCache[idx] = { ...tourPackagesCache[idx], isDeleted: true };
+        tourPackagesCache[idx] = { ...tourPackagesCache[idx], ...payload };
       } else {
-        tourPackagesCache.push({ id: slug, slug, isDeleted: true });
+        tourPackagesCache.push({ id: slug, slug, ...payload });
       }
       saveLocalData("tour_packages", tourPackagesCache);
       return { slug };
@@ -1301,20 +1292,12 @@ export const db = {
     findMany: async () => {
       pagesCache = getFreshPagesCache();
       const firestoreData = await fetchCollectionDocs("pages");
-      if (firestoreData) {
-        const firestoreMap = new Map(firestoreData.map((p: any) => [p.id, p]));
-        const merged = pagesCache
-          .map((p: any) => firestoreMap.has(p.id) ? { ...p, ...firestoreMap.get(p.id) } : p)
-          .filter((p: any) => p.isDeleted !== true);
-        const localIds = new Set(pagesCache.map((p: any) => p.id));
-        const extraItems = firestoreData.filter((p: any) => !localIds.has(p.id) && p.isDeleted !== true);
-        return cleanEmail([...merged, ...extraItems]);
-      }
-      return cleanEmail(pagesCache.filter((p: any) => p.isDeleted !== true));
+      const res = mergeCollectionData(pagesCache, firestoreData, (p: any) => p.id);
+      return cleanEmail(res);
     },
     findUnique: async (id: string) => {
       const allPages = await db.pages.findMany();
-      return allPages.find((p: any) => p.id === id && p.isDeleted !== true) || null;
+      return allPages.find((p: any) => p.id === id) || null;
     },
     create: async (data: any) => {
       const id = data.id || Math.random().toString(36).substring(2, 11);
@@ -1323,6 +1306,8 @@ export const db = {
         isCustom: true,
         title: { en: "", es: "", pt: "" },
         content: {},
+        updatedAt: new Date().toISOString(),
+        isDeleted: false,
         ...data
       };
       await writeDoc("pages", id, newPage);
@@ -1337,24 +1322,31 @@ export const db = {
       return newPage;
     },
     update: async (id: string, data: any) => {
-      await writeDoc("pages", id, data, true);
+      const payload = { ...data, updatedAt: new Date().toISOString(), isDeleted: false };
+      await writeDoc("pages", id, payload, true);
       pagesCache = getFreshPagesCache();
       const idx = pagesCache.findIndex((p: any) => p.id === id);
       let updatedPage;
       if (idx !== -1) {
-        pagesCache[idx] = { ...pagesCache[idx], ...data };
+        pagesCache[idx] = { ...pagesCache[idx], ...payload };
         updatedPage = pagesCache[idx];
       } else {
-        updatedPage = { id, isCustom: true, ...data };
+        updatedPage = { id, isCustom: true, ...payload };
         pagesCache.push(updatedPage);
       }
       saveLocalData("pages", pagesCache);
       return updatedPage;
     },
     delete: async (id: string) => {
-      await writeDoc("pages", id, { isDeleted: true }, true);
+      const payload = { isDeleted: true, updatedAt: new Date().toISOString() };
+      await writeDoc("pages", id, payload, true);
       pagesCache = getFreshPagesCache();
-      pagesCache = pagesCache.filter((p: any) => p.id !== id);
+      const idx = pagesCache.findIndex((p: any) => p.id === id);
+      if (idx !== -1) {
+        pagesCache[idx] = { ...pagesCache[idx], ...payload };
+      } else {
+        pagesCache.push({ id, ...payload });
+      }
       saveLocalData("pages", pagesCache);
       return { id };
     }
@@ -1365,14 +1357,8 @@ export const db = {
       settingsCache = loadLocalData("settings", settingsCache);
       const localData = settingsCache;
       const firestoreData = await fetchCollectionDocs("settings");
-      if (firestoreData) {
-        const firestoreMap = new Map(firestoreData.map((s: any) => [s.id, s]));
-        const merged = localData.map((s: any) => firestoreMap.has(s.id) ? { ...s, ...firestoreMap.get(s.id) } : s);
-        const localIds = new Set(localData.map((s: any) => s.id));
-        const extraItems = firestoreData.filter((s: any) => !localIds.has(s.id));
-        return cleanEmail([...merged, ...extraItems]);
-      }
-      return cleanEmail(localData);
+      const res = mergeCollectionData(localData, firestoreData, (s: any) => s.id);
+      return cleanEmail(res);
     },
     findUnique: async (id: string) => {
       const allSettings = await db.settings.findMany();
@@ -1380,16 +1366,17 @@ export const db = {
       return cleanEmail(res);
     },
     update: async (id: string, data: any) => {
-      await writeDoc("settings", id, data, true);
+      const payload = { ...data, updatedAt: new Date().toISOString() };
+      await writeDoc("settings", id, payload, true);
       const all = await db.settings.findMany();
       const idx = all.findIndex((s: any) => s.id === id);
       if (idx !== -1) {
-        all[idx] = { ...all[idx], ...data };
+        all[idx] = { ...all[idx], ...payload };
         saveLocalData("settings", all);
         settingsCache = all;
         return all[idx];
       } else {
-        const newRecord = { id, ...data };
+        const newRecord = { id, ...payload };
         all.push(newRecord);
         saveLocalData("settings", all);
         settingsCache = all;
@@ -1402,54 +1389,54 @@ export const db = {
     findMany: async () => {
       outboundCache = loadLocalData("outbound", outboundCache || outboundDestinations);
       const firestoreData = await fetchCollectionDocs("outbound");
-      if (firestoreData) {
-        const firestoreMap = new Map(firestoreData.map((o: any) => [o.slug || o.id, o]));
-        const merged = outboundCache
-          .map((o: any) => firestoreMap.has(o.slug || o.id) ? { ...o, ...firestoreMap.get(o.slug || o.id) } : o)
-          .filter((o: any) => o.isDeleted !== true);
-        const localSlugs = new Set(outboundCache.map((o: any) => o.slug || o.id));
-        const extraItems = firestoreData.filter((o: any) => !localSlugs.has(o.slug || o.id) && o.isDeleted !== true);
-        return cleanEmail([...merged, ...extraItems]);
-      }
-      return cleanEmail(outboundCache.filter((o: any) => o.isDeleted !== true));
+      const res = mergeCollectionData(outboundCache, firestoreData, (o: any) => o.slug || o.id);
+      return cleanEmail(res);
     },
     findUnique: async (slug: string) => {
       const all = await db.outbound.findMany();
-      return all.find((o: any) => (o.slug === slug || o.id === slug) && o.isDeleted !== true) || null;
+      return all.find((o: any) => o.slug === slug || o.id === slug) || null;
     },
     create: async (data: any) => {
       const slug = data.slug || data.title?.en?.toLowerCase().replace(/\s+/g, '-') || Math.random().toString(36).substring(2, 9);
-      const newItem = { slug, ...data, isDeleted: false };
+      const newItem = { slug, updatedAt: new Date().toISOString(), isDeleted: false, ...data };
       await writeDoc("outbound", slug, newItem);
-      outboundCache.push(newItem);
+      const existingIdx = outboundCache.findIndex((o: any) => o.slug === slug || o.id === slug);
+      if (existingIdx >= 0) {
+        outboundCache[existingIdx] = { ...outboundCache[existingIdx], ...newItem };
+      } else {
+        outboundCache.push(newItem);
+      }
       saveLocalData("outbound", outboundCache);
       return newItem;
     },
     update: async (slug: string, data: any) => {
-      await writeDoc("outbound", slug, data, true);
+      const payload = { ...data, updatedAt: new Date().toISOString(), isDeleted: false };
+      await writeDoc("outbound", slug, payload, true);
       outboundCache = loadLocalData("outbound", outboundCache);
       const idx = outboundCache.findIndex((o: any) => o.slug === slug || o.id === slug);
       let updatedItem;
       if (idx !== -1) {
-        outboundCache[idx] = { ...outboundCache[idx], ...data };
+        outboundCache[idx] = { ...outboundCache[idx], ...payload };
         updatedItem = outboundCache[idx];
       } else {
-        updatedItem = { slug, ...data };
+        updatedItem = { slug, ...payload };
         outboundCache.push(updatedItem);
       }
       saveLocalData("outbound", outboundCache);
       return updatedItem;
     },
     delete: async (slug: string) => {
-      await writeDoc("outbound", slug, { isDeleted: true }, true);
+      const payload = { isDeleted: true, updatedAt: new Date().toISOString() };
+      await writeDoc("outbound", slug, payload, true);
       const idx = outboundCache.findIndex((o: any) => o.slug === slug || o.id === slug);
       if (idx !== -1) {
-        outboundCache[idx] = { ...outboundCache[idx], isDeleted: true };
+        outboundCache[idx] = { ...outboundCache[idx], ...payload };
       } else {
-        outboundCache.push({ slug, id: slug, isDeleted: true });
+        outboundCache.push({ slug, id: slug, ...payload });
       }
       saveLocalData("outbound", outboundCache);
       return { slug };
     }
   }
 };
+

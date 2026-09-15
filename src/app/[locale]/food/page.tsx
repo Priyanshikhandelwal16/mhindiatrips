@@ -69,7 +69,9 @@ export default async function FoodIndexPage({ params }: FoodIndexPageProps) {
       subtitle: text.sub,
       location: "India",
       description: text.desc,
-      objectPosition: "center 25%"
+      objectPosition: "center 25%",
+      ctaText: text.cta,
+      ctaLink: "/food"
     });
   }
 

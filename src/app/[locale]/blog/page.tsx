@@ -108,7 +108,9 @@ export default async function BlogIndexPage({ params, searchParams }: BlogIndexP
       subtitle: text.sub,
       location: "India",
       description: text.desc,
-      objectPosition: "center 25%"
+      objectPosition: "center 25%",
+      ctaText: text.cta,
+      ctaLink: "/blog"
     });
   }
 
