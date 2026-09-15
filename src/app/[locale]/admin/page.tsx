@@ -314,20 +314,30 @@ export default function AdminDashboard() {
     const blogSlug = editBlog.slug || editBlog.id || Math.random().toString(36).substring(2, 9);
     const payload = { ...editBlog, slug: blogSlug };
 
+    setBlogs(prev => {
+      const idx = prev.findIndex(b => b.slug === blogSlug || b.id === blogSlug);
+      if (idx !== -1) {
+        const copy = [...prev];
+        copy[idx] = { ...copy[idx], ...payload };
+        return copy;
+      }
+      return [payload, ...prev];
+    });
+
     await syncClientFirestore("blogs", blogSlug, payload, false);
     const isNew = !blogs.find(b => b.slug === blogSlug || b.id === blogSlug);
     await (isNew ? createBlogAction(payload) : updateBlogAction(blogSlug, payload));
 
     showStatus("Blog article saved successfully!", "success");
     setEditBlog(null);
-    loadCMSData(false);
   };
 
   const handleDeleteBlog = async (slug: string) => {
+    setBlogs(prev => prev.filter(b => b.slug !== slug && b.id !== slug));
+
     await syncClientFirestore("blogs", slug, { isDeleted: true }, true);
     await deleteBlogAction(slug);
     showStatus("Article deleted.", "success");
-    loadCMSData(false);
   };
 
   // TOUR PACKAGES ACTIONS
@@ -335,7 +345,17 @@ export default function AdminDashboard() {
     e.preventDefault();
     if (!editPackage) return;
     const pkgSlug = editPackage.slug || editPackage.id || Math.random().toString(36).substring(2, 9);
-    const payload = { ...editPackage, slug: pkgSlug };
+    const payload = { ...editPackage, slug: pkgSlug, id: pkgSlug };
+
+    setPackages(prev => {
+      const idx = prev.findIndex(p => p.slug === pkgSlug || p.id === pkgSlug);
+      if (idx !== -1) {
+        const copy = [...prev];
+        copy[idx] = { ...copy[idx], ...payload };
+        return copy;
+      }
+      return [payload, ...prev];
+    });
 
     await syncClientFirestore("tour_packages", pkgSlug, payload, false);
 
@@ -344,14 +364,14 @@ export default function AdminDashboard() {
 
     showStatus("Tour package layout saved successfully!", "success");
     setEditPackage(null);
-    await loadCMSData(false);
   };
 
   const handleDeletePackage = async (slug: string) => {
+    setPackages(prev => prev.filter(p => p.slug !== slug && p.id !== slug));
+
     await syncClientFirestore("tour_packages", slug, { isDeleted: true }, true);
     await deleteTourPackageAction(slug);
     showStatus("Package listing removed.", "success");
-    await loadCMSData(false);
   };
 
   // FOOD CUISINE ACTIONS
@@ -361,20 +381,30 @@ export default function AdminDashboard() {
     const foodSlug = editFood.slug || editFood.id || Math.random().toString(36).substring(2, 9);
     const payload = { ...editFood, slug: foodSlug };
 
+    setFoods(prev => {
+      const idx = prev.findIndex(f => f.slug === foodSlug || f.id === foodSlug);
+      if (idx !== -1) {
+        const copy = [...prev];
+        copy[idx] = { ...copy[idx], ...payload };
+        return copy;
+      }
+      return [payload, ...prev];
+    });
+
     await syncClientFirestore("foods", foodSlug, payload, false);
     const isNew = !foods.find(f => f.slug === foodSlug || f.id === foodSlug);
     await (isNew ? createFoodAction(payload) : updateFoodAction(foodSlug, payload));
 
     showStatus("Food guide configured successfully!", "success");
     setEditFood(null);
-    loadCMSData(false);
   };
 
   const onDeleteFood = async (slug: string) => {
+    setFoods(prev => prev.filter(f => f.slug !== slug && f.id !== slug));
+
     await syncClientFirestore("foods", slug, { isDeleted: true }, true);
     await deleteFoodAction(slug);
     showStatus("Cuisine card deleted successfully.", "success");
-    loadCMSData(false);
   };
 
   // DESTINATION STATES ACTIONS
@@ -384,20 +414,30 @@ export default function AdminDashboard() {
     const stateSlug = editState.slug || editState.id || Math.random().toString(36).substring(2, 9);
     const payload = { ...editState, slug: stateSlug, id: stateSlug };
 
+    setStates(prev => {
+      const idx = prev.findIndex(s => s.slug === stateSlug || s.id === stateSlug);
+      if (idx !== -1) {
+        const copy = [...prev];
+        copy[idx] = { ...copy[idx], ...payload };
+        return copy;
+      }
+      return [payload, ...prev];
+    });
+
     await syncClientFirestore("states", stateSlug, payload, false);
     const isNew = !states.find(s => s.slug === stateSlug || s.id === stateSlug);
     await (isNew ? createStateAction(payload) : updateStateAction(stateSlug, payload));
 
     showStatus("Destination details saved!", "success");
     setEditState(null);
-    loadCMSData(false);
   };
 
   const onDeleteState = async (slug: string) => {
+    setStates(prev => prev.filter(s => s.slug !== slug && s.id !== slug));
+
     await syncClientFirestore("states", slug, { isDeleted: true }, true);
     const res = await deleteStateAction(slug);
     showStatus(res.success ? "State deleted successfully." : (res.error || "State deleted."), res.success ? "success" : "error");
-    loadCMSData(false);
   };
 
   const handleUpdateStateStatus = async (slug: string, status: "published" | "draft" | "unpublished") => {
@@ -842,6 +882,7 @@ export default function AdminDashboard() {
             {activeTab === "outbound" && (
               <OutboundTab
                 outboundList={outboundList}
+                setOutboundList={setOutboundList}
                 showStatus={showStatus}
                 loadCMSData={loadCMSData}
               />

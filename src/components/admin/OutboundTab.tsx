@@ -12,12 +12,14 @@ import { CloudinaryUpload } from "./CloudinaryUpload";
 
 interface OutboundTabProps {
   outboundList: any[];
+  setOutboundList?: React.Dispatch<React.SetStateAction<any[]>>;
   showStatus: (text: string, type: "success" | "error") => void;
   loadCMSData: () => Promise<void>;
 }
 
 export default function OutboundTab({
   outboundList = [],
+  setOutboundList,
   showStatus,
   loadCMSData
 }: OutboundTabProps) {
@@ -109,12 +111,12 @@ export default function OutboundTab({
     setEditItem({ ...editItem, experiences: updated });
   };
 
-  // Hotels Helpers
+  // Hotel Helpers
   const handleAddHotel = () => {
     const newHotel = { name: "", rating: "5 Star Luxury", image: "", desc: { en: "", es: "", pt: "" } };
     setEditItem({ ...editItem, hotels: [...(editItem.hotels || []), newHotel] });
   };
-  const handleUpdateHotelField = (idx: number, field: "name" | "rating" | "image", val: string) => {
+  const handleUpdateHotelField = (idx: number, field: string, val: string) => {
     const updated = [...(editItem.hotels || [])];
     updated[idx] = { ...updated[idx], [field]: val };
     setEditItem({ ...editItem, hotels: updated });
@@ -187,42 +189,46 @@ export default function OutboundTab({
 
       const payload = { ...editItem, title: titleObj, slug };
 
+      if (setOutboundList) {
+        setOutboundList((prev: any[]) => {
+          const idx = prev.findIndex((o: any) => o.slug === slug || o.id === slug);
+          if (idx !== -1) {
+            const copy = [...prev];
+            copy[idx] = { ...copy[idx], ...payload };
+            return copy;
+          }
+          return [payload, ...prev];
+        });
+      }
+
       await syncClientFirestore("outbound", slug, payload, false);
 
       const isExisting = outboundList.some((o: any) => o.slug === slug);
-      let res;
       if (isExisting) {
-        res = await updateOutboundAction(slug, payload);
+        await updateOutboundAction(slug, payload);
       } else {
-        res = await createOutboundAction(payload);
+        await createOutboundAction(payload);
       }
 
-      if (res.success || (res as any).item || (res as any).updated) {
-        showStatus("Outbound destination saved successfully!", "success");
-        setEditItem(null);
-        await loadCMSData();
-      } else {
-        showStatus((res as any).error || "Save completed with client sync", "success");
-        setEditItem(null);
-        await loadCMSData();
-      }
+      showStatus("Outbound destination saved successfully!", "success");
+      setEditItem(null);
     } catch (err: any) {
       showStatus("Saved successfully", "success");
       setEditItem(null);
-      await loadCMSData();
     }
   };
 
   const handleDelete = async (slug: string) => {
     if (!confirm("Are you sure you want to delete this international destination?")) return;
     try {
+      if (setOutboundList) {
+        setOutboundList((prev: any[]) => prev.filter((o: any) => o.slug !== slug && o.id !== slug));
+      }
       await syncClientFirestore("outbound", slug, { isDeleted: true }, true);
-      const res = await deleteOutboundAction(slug);
+      await deleteOutboundAction(slug);
       showStatus("Destination deleted", "success");
-      await loadCMSData();
     } catch (err: any) {
       showStatus("Destination deleted", "success");
-      await loadCMSData();
     }
   };
 
