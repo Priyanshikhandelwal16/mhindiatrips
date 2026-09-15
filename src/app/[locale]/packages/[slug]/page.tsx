@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { getTourPackageBySlugAction, getTourPackagesAction, getSettingsDetailsAction } from "@/app/actions/queries";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import { db } from "@/lib/db";
 import { 
   Calendar, MapPin, Users, CheckCircle, XCircle, ArrowRight, 
   Star, Clock, ShieldCheck, Car, Hotel, Utensils, Heart,
@@ -10,6 +11,7 @@ import {
 import Reveal from "@/components/home/Reveal";
 import PrintBrochureButton from "@/components/packages/PrintBrochureButton";
 import { getHighResImageUrl } from "@/lib/image-utils";
+import { extractLocalizedString, extractStringList } from "@/lib/utils";
 
 interface PackageDetailProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -17,60 +19,40 @@ interface PackageDetailProps {
 }
 
 export async function generateMetadata({ params }: PackageDetailProps) {
-  const { locale, slug } = await params;
-  const pkg = await getTourPackageBySlugAction(slug);
-  if (!pkg) return {};
-  const lang = (locale === "es" || locale === "pt") ? locale : "en";
+  try {
+    const { locale, slug } = await params;
+    const pkg = await getTourPackageBySlugAction(slug);
+    if (!pkg) return {};
+    const lang = (locale === "es" || locale === "pt") ? locale : "en";
 
-  const title = pkg.seo?.title?.[lang] || pkg.seo?.title?.en || pkg.title?.[lang] || pkg.title?.en || "";
-  const description = pkg.seo?.description?.[lang] || pkg.seo?.description?.en || pkg.tagline?.[lang] || pkg.tagline?.en || "";
-  const keywords = pkg.seo?.keywords?.[lang] || pkg.seo?.keywords?.en || "";
+    const title = extractLocalizedString(pkg.seo?.title, lang) || extractLocalizedString(pkg.title, lang);
+    const description = extractLocalizedString(pkg.seo?.description, lang) || extractLocalizedString(pkg.tagline, lang);
+    const keywords = extractLocalizedString(pkg.seo?.keywords, lang);
 
-  return {
-    title,
-    description,
-    keywords,
-    openGraph: {
-      title: pkg.seo?.ogTitle || title,
-      description: pkg.seo?.ogDescription || description,
-      images: pkg.seo?.ogImage ? [{ url: pkg.seo?.ogImage }] : [{ url: pkg.image }],
-    },
-    alternates: {
-      canonical: pkg.seo?.canonicalUrl || `/${locale}/packages/${slug}`,
-    },
-    robots: {
-      index: pkg.isDraft ? false : (pkg.seo?.indexRule !== "noindex"),
-      follow: pkg.isDraft ? false : (pkg.seo?.followRule !== "nofollow"),
-    }
-  };
+    return {
+      title,
+      description,
+      keywords,
+      openGraph: {
+        title: pkg.seo?.ogTitle || title,
+        description: pkg.seo?.ogDescription || description,
+        images: pkg.seo?.ogImage ? [{ url: pkg.seo?.ogImage }] : [{ url: pkg.image }],
+      },
+      alternates: {
+        canonical: pkg.seo?.canonicalUrl || `/${locale}/packages/${slug}`,
+      },
+      robots: {
+        index: pkg.isDraft ? false : (pkg.seo?.indexRule !== "noindex"),
+        follow: pkg.isDraft ? false : (pkg.seo?.followRule !== "nofollow"),
+      }
+    };
+  } catch (e) {
+    return {};
+  }
 }
 
 function parseBullets(input: any, currentLang: string = "en"): string[] {
-  if (!input) return [];
-  if (Array.isArray(input)) {
-    return input.map(item => {
-      if (typeof item === 'string') return item.replace(/^[\*\-\•\s]+/, '').trim();
-      if (typeof item === 'object' && item !== null) {
-        const val = item[currentLang] || item.en || item.es || item.pt || Object.values(item)[0] || '';
-        return String(val).replace(/^[\*\-\•\s]+/, '').trim();
-      }
-      return String(item).trim();
-    }).filter(Boolean);
-  }
-  if (typeof input === 'object' && input !== null) {
-    const localized = input[currentLang] || input.en || input.es || input.pt || Object.values(input)[0];
-    return parseBullets(localized, currentLang);
-  }
-  if (typeof input === 'string') {
-    let lines = input.split(/\n+/);
-    if (lines.length === 1 && (input.includes('. ') || input.includes('; '))) {
-      lines = input.split(/(?<=\.)\s+/);
-    }
-    return lines
-      .map(line => line.replace(/^[\*\-\•\s]+/, '').trim())
-      .filter(Boolean);
-  }
-  return [];
+  return extractStringList(input, currentLang);
 }
 
 export default async function PackageDetailPage({ params, searchParams }: PackageDetailProps) {
@@ -83,11 +65,19 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
     getSettingsDetailsAction()
   ]);
 
-  if (!pkg) return notFound();
-
-  // If tour is draft and not in preview mode, hide from public
-  if (pkg.isDraft && !isPreview) {
-    return notFound();
+  if (!pkg || (pkg.isDraft && !isPreview)) {
+    // If slug corresponds to an outbound destination (e.g. maldives, bali, etc.), redirect there
+    try {
+      const isOutbound = slug.includes("maldives") || slug.includes("bali") || slug.includes("dubai") || slug.includes("thailand") || slug.includes("singapore") || slug.includes("malaysia") || slug.includes("nepal") || slug.includes("bhutan") || slug.includes("sri-lanka");
+      if (isOutbound) {
+        if (slug.includes("maldives")) redirect(`/${locale}/international-trips/maldives`);
+        if (slug.includes("bali")) redirect(`/${locale}/international-trips/bali`);
+        if (slug.includes("dubai")) redirect(`/${locale}/international-trips/dubai`);
+        if (slug.includes("thailand")) redirect(`/${locale}/international-trips/thailand`);
+        redirect(`/${locale}/international-trips`);
+      }
+    } catch (e) {}
+    redirect(`/${locale}/packages`);
   }
 
   const lang = (locale === "es" || locale === "pt") ? locale : "en";
@@ -253,9 +243,9 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
 
   const text = t[locale as keyof typeof t] || t.en;
 
-  const pkgTitle = pkg.title?.[lang] || pkg.title?.en || pkg.title?.es || "";
-  const pkgTagline = pkg.tagline?.[lang] || pkg.tagline?.en || pkg.tagline?.es || "";
-  const routeText = pkg.routeSubtitle?.[lang] || pkg.routeSubtitle?.en || pkg.routeSubtitle?.es || pkg.route || pkg.travelInfo?.destinationsText || "";
+  const pkgTitle = extractLocalizedString(pkg.title, lang);
+  const pkgTagline = extractLocalizedString(pkg.tagline, lang);
+  const routeText = extractLocalizedString(pkg.routeSubtitle, lang) || extractLocalizedString(pkg.route, lang) || extractLocalizedString(pkg.travelInfo?.destinationsText, lang);
 
   // Highlight notice note text (Yellow Box in reference image)
   const defaultSeasonalNotice = {
@@ -263,7 +253,7 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
     en: "These prices are not valid for the period from December 20th to January 5th, as it is peak season and prices vary.",
     pt: "Estes preços não são válidos para o período de 20 de Dezembro a 05 de Janeiro por ser alta temporada."
   };
-  const noticeText = pkg.seasonalDiscountNote?.[lang] || pkg.seasonalDiscountNote?.[locale] || pkg.seasonalDiscountNote?.en || pkg.pricing?.seasonalDiscountNote || defaultSeasonalNotice[lang as keyof typeof defaultSeasonalNotice] || defaultSeasonalNotice.en;
+  const noticeText = extractLocalizedString(pkg.seasonalDiscountNote, lang) || extractLocalizedString(pkg.pricing?.seasonalDiscountNote, lang) || defaultSeasonalNotice[lang as keyof typeof defaultSeasonalNotice] || defaultSeasonalNotice.en;
 
   // Fallback photo helper so EVERY single day has a high-res image
   const getFallbackDayImage = (titleStr: string, locationStr: string, dayNumber: number) => {
@@ -514,9 +504,9 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                 </h2>
               </div>
 
-              {(pkg.description?.[lang] || pkg.description?.en || pkg.description?.es) && (
+              {extractLocalizedString(pkg.description, lang) && (
                 <p className="text-sm md:text-base text-[#2C2C2C] font-normal leading-relaxed">
-                  {pkg.description?.[lang] || pkg.description?.en || pkg.description?.es}
+                  {extractLocalizedString(pkg.description, lang)}
                 </p>
               )}
 
@@ -563,12 +553,14 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
               <div className="relative space-y-6 sm:space-y-8 pl-3.5 sm:pl-8 md:pl-10 border-l-2 border-[#C5A862]/40 ml-2.5 sm:ml-4 md:ml-6">
                 
                 {pkg.itinerary.map((day: any, idx: number) => {
-                  const dayTitle = day.title?.[lang] || day.title?.en || day.title?.es || (typeof day.title === 'string' ? day.title : "");
-                  const dayDesc = day.desc?.[lang] || day.desc?.en || day.desc?.es || (typeof day.desc === 'string' ? day.desc : "");
+                  const dayTitle = extractLocalizedString(day.title, lang);
+                  const dayDesc = extractLocalizedString(day.desc, lang);
                   const dayNum = day.day || (idx + 1);
 
-                  const morningText = day.morning?.[lang] || day.morning?.en || day.morning?.es || (typeof day.morning === 'string' ? day.morning : "");
-                  const afternoonText = day.afternoon?.[lang] || day.afternoon?.en || day.afternoon?.es || (typeof day.afternoon === 'string' ? day.afternoon : "");
+                  const morningText = extractLocalizedString(day.morning, lang);
+                  const afternoonText = extractLocalizedString(day.afternoon, lang);
+                  const hotelText = extractLocalizedString(day.hotel || day.overnight || day.accommodation, lang);
+                  const locationText = extractLocalizedString(day.location, lang);
 
                   // Image selection: day.image OR fallback destination photo
                   const dayImg = day.image || getFallbackDayImage(dayTitle, day.location || "", dayNum);
@@ -596,10 +588,10 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                               </h3>
                             </div>
 
-                            {day.location && (
+                            {locationText && (
                               <span className="bg-[#0A2A1E] text-[#C5A862] text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full flex items-center gap-1 shadow-xs self-start sm:self-auto border border-[#C5A862]/30 shrink-0">
                                 <MapPin className="w-3 h-3 text-[#C5A862]" />
-                                <span>{day.location}</span>
+                                <span>{locationText}</span>
                               </span>
                             )}
                           </div>
@@ -667,7 +659,7 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                                     </span>
                                     <div className="flex flex-wrap gap-1.5">
                                       {day.activities.map((act: any, aIdx: number) => {
-                                        const actText = typeof act === 'string' ? act : (act[lang] || act.en || act.es || act.name);
+                                        const actText = extractLocalizedString(act, lang);
                                         if (!actText) return null;
                                         return (
                                           <span 
@@ -684,7 +676,7 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                                 )}
 
                                 {/* Accommodation Card */}
-                                {(day.hotel || day.overnight || day.accommodation) && (
+                                {(hotelText) && (
                                   <div className="bg-[#0A2A1E] text-white p-3 rounded-xl flex flex-wrap items-center justify-between gap-2 shadow-xs border border-[#C5A862]/30">
                                     <div className="flex items-center gap-2.5">
                                       <div className="w-7 h-7 rounded-full bg-[#C5A862] text-[#0A2A1E] flex items-center justify-center shrink-0 font-bold">
@@ -695,7 +687,7 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                                           {text.accommodation}
                                         </span>
                                         <p className="text-xs font-bold text-white">
-                                          {day.hotel || day.overnight || day.accommodation}
+                                          {hotelText}
                                         </p>
                                       </div>
                                     </div>
@@ -744,7 +736,8 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
 
                     <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm text-[#1B1B1B]/80 font-normal leading-relaxed">
                       {pkg.includedExperiences.map((exp: any, i: number) => {
-                        const val = typeof exp === 'string' ? exp : (exp[lang] || exp[locale] || exp.en || exp.es);
+                        const val = extractLocalizedString(exp, lang);
+                        if (!val) return null;
                         return (
                           <li key={i} className="flex items-start gap-2.5">
                             <CheckCircle className="w-4 h-4 text-[#059669] shrink-0 mt-0.5" />
@@ -770,7 +763,8 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
 
                     <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm text-[#1B1B1B]/80 font-normal leading-relaxed">
                       {pkg.exclusions.map((exc: any, i: number) => {
-                        const val = typeof exc === 'string' ? exc : (exc[lang] || exc[locale] || exc.en || exc.es);
+                        const val = extractLocalizedString(exc, lang);
+                        if (!val) return null;
                         return (
                           <li key={i} className="flex items-start gap-2.5">
                             <XCircle className="w-4 h-4 text-[#DC2626] shrink-0 mt-0.5" />

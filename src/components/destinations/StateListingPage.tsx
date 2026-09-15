@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { MapPin, ChevronRight } from "lucide-react";
 import Reveal from "@/components/home/Reveal";
-import { getLocalizedDestinationsPath } from "@/lib/utils";
+import { getLocalizedDestinationsPath, extractLocalizedString } from "@/lib/utils";
 
 interface StateListingPageProps {
   locale: string;
@@ -14,8 +14,8 @@ import PageHeroSlider from "@/components/common/PageHeroSlider";
 
 export default function StateListingPage({ locale, state, cities }: StateListingPageProps) {
   const lang = (locale === "es" || locale === "pt") ? locale : "en";
-  const stateTitle = state.name?.[lang] || state.name?.en || state.id;
-  const stateDesc = state.description?.[lang] || state.description?.en || "";
+  const stateTitle = extractLocalizedString(state.name, lang) || extractLocalizedString(state.title, lang) || state.id;
+  const stateDesc = extractLocalizedString(state.description, lang);
 
   const t: Record<string, any> = {
     en: {
@@ -61,11 +61,11 @@ export default function StateListingPage({ locale, state, cities }: StateListing
   }
 
   cities.slice(0, 5).forEach((city: any) => {
-    const cTitle = city.name?.[lang] || city.name?.en || city.id;
-    const rawCDesc = city.description?.[lang] || city.description?.en || "";
+    const cTitle = extractLocalizedString(city.name, lang) || city.id;
+    const rawCDesc = extractLocalizedString(city.description, lang);
     const cleanCDesc = rawCDesc.length > 90 ? rawCDesc.slice(0, 87) + "..." : rawCDesc;
-    const citySlug = city.slug?.[lang] || city.slug?.en || city.id;
-    const stateSlug = state.slug?.[lang] || state.slug?.en || state.id;
+    const citySlug = extractLocalizedString(city.slug, lang) || city.id;
+    const stateSlug = extractLocalizedString(state.slug, lang) || state.id;
     if (city.image) {
       sliderSlides.push({
         image: city.image,
@@ -148,10 +148,10 @@ export default function StateListingPage({ locale, state, cities }: StateListing
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
             {cities.map((city: any, i: number) => {
-              const cityTitle = city.name?.[lang] || city.name?.en || city.id;
-              const cityDesc = city.description?.[lang] || city.description?.en || "";
-              const citySlug = city.slug?.[lang] || city.slug?.en || city.id;
-              const stateSlug = state.slug?.[lang] || state.slug?.en || state.id;
+              const cityTitle = extractLocalizedString(city.name, lang) || city.id;
+              const cityDesc = extractLocalizedString(city.description, lang);
+              const citySlug = extractLocalizedString(city.slug, lang) || city.id;
+              const stateSlug = extractLocalizedString(state.slug, lang) || state.id;
               
               const cityPath = getLocalizedDestinationsPath(locale, stateSlug, citySlug);
 

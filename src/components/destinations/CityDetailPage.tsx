@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ChevronRight, Clock, HelpCircle, Phone, Mail, MapPin, Utensils, Hotel, Bus, Lightbulb, HelpCircle as FAQ } from "lucide-react";
 import SidebarInquiryForm from "@/components/common/SidebarInquiryForm";
 import PageHeroSlider from "@/components/common/PageHeroSlider";
-import { getLocalizedDestinationsPath } from "@/lib/utils";
+import { getLocalizedDestinationsPath, extractLocalizedString } from "@/lib/utils";
 
 interface CityDetailPageProps {
   locale: string;
@@ -14,11 +14,11 @@ interface CityDetailPageProps {
 
 export default function CityDetailPage({ locale, state, city, relatedPackages }: CityDetailPageProps) {
   const lang = (locale === "es" || locale === "pt") ? locale : "en";
-  const stateTitle = state.name?.[lang] || state.name?.en || state.title?.[lang] || state.title?.en || state.id;
-  const cityTitle = city.name?.[lang] || city.name?.en || city.title?.[lang] || city.title?.en || city.id;
-  const cityShortDesc = city.shortDescription?.[lang] || city.shortDescription?.en || city.description?.[lang] || city.description?.en || "";
-  const cityOverview = city.fullDescription?.[lang] || city.fullDescription?.en || city.overview?.[lang] || city.overview?.en || "";
-  const cityContent = city.content?.[lang] || city.content?.en || "";
+  const stateTitle = extractLocalizedString(state.name, lang) || extractLocalizedString(state.title, lang) || state.id;
+  const cityTitle = extractLocalizedString(city.name, lang) || extractLocalizedString(city.title, lang) || city.id;
+  const cityShortDesc = extractLocalizedString(city.shortDescription, lang) || extractLocalizedString(city.description, lang);
+  const cityOverview = extractLocalizedString(city.fullDescription, lang) || extractLocalizedString(city.overview, lang);
+  const cityContent = extractLocalizedString(city.content, lang);
   const cityImage = city.image || city.hero?.image || "/images/destination_fallback.jpg";
 
   const t: Record<string, any> = {
@@ -91,11 +91,7 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
   const stateSlug = state.slug?.[lang] || state.slug?.en || state.slug || state.id;
 
   // Helper to get localized text from various formats
-  const getLocText = (field: any): string => {
-    if (!field) return "";
-    if (typeof field === "string") return field;
-    return field[lang] || field.en || "";
-  };
+  const getLocText = (field: any): string => extractLocalizedString(field, lang);
 
   // Parse highlights
   const highlights = Array.isArray(city.highlights) ? city.highlights : [];
@@ -462,8 +458,8 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
                 </h4>
                 <div className="space-y-3">
                   {relatedPackages.map((pkg: any) => {
-                    const pkgTitle = pkg.title?.[lang] || pkg.title?.en || pkg.name?.[lang] || pkg.name?.en || pkg.id;
-                    const pkgDuration = pkg.duration?.[lang] || pkg.duration?.en || "";
+                    const pkgTitle = extractLocalizedString(pkg.title, lang) || extractLocalizedString(pkg.name, lang) || pkg.id;
+                    const pkgDuration = extractLocalizedString(pkg.duration, lang);
                     return (
                       <Link
                         key={pkg.slug || pkg.id}

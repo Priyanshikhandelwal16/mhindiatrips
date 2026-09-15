@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { getPageByIdAction } from "@/app/actions/queries";
 import Reveal from "@/components/home/Reveal";
-import { getLocalizedDestinationsPath } from "@/lib/utils";
+import { getLocalizedDestinationsPath, extractLocalizedString } from "@/lib/utils";
 
 interface DestinationsCatalogPageProps {
   locale: string;
@@ -47,18 +47,20 @@ export default async function DestinationsCatalogPage({ locale, states }: Destin
 
   // Map state images into slides
   const sliderSlides: any[] = states.slice(0, 5).map((st: any) => {
-    const rawDesc = st.description?.[lang] || st.description?.en || text.subtitle;
+    const stName = extractLocalizedString(st.name, lang) || st.id;
+    const rawDesc = extractLocalizedString(st.description, lang) || text.subtitle;
     const cleanDesc = rawDesc.length > 90 ? rawDesc.slice(0, 87) + "..." : rawDesc;
+    const stSlug = extractLocalizedString(st.slug, lang) || st.id;
 
     return {
       image: st.image || "/images/destination_fallback.jpg",
-      title: st.name?.[lang] || st.name?.en || st.id,
+      title: stName,
       subtitle: text.title,
-      location: st.name?.[lang] || st.name?.en || "India",
+      location: stName || "India",
       description: cleanDesc,
       objectPosition: "center 25%",
       ctaText: text.cardCta,
-      ctaLink: getLocalizedDestinationsPath(locale, st.slug?.[lang] || st.slug?.en || st.id)
+      ctaLink: getLocalizedDestinationsPath(locale, stSlug)
     };
   });
 
@@ -84,9 +86,9 @@ export default async function DestinationsCatalogPage({ locale, states }: Destin
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
           {states.map((state: any, i: number) => {
-            const stateTitle = state.name?.[lang] || state.name?.en || state.id;
-            const stateDesc = state.description?.[lang] || state.description?.en || "";
-            const stateSlug = state.slug?.[lang] || state.slug?.en || state.id;
+            const stateTitle = extractLocalizedString(state.name, lang) || state.id;
+            const stateDesc = extractLocalizedString(state.description, lang);
+            const stateSlug = extractLocalizedString(state.slug, lang) || state.id;
             
             const statePath = getLocalizedDestinationsPath(locale, stateSlug);
 

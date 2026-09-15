@@ -380,3 +380,76 @@ export const formatRichText = (content: string): string => {
   return output.join('\n');
 };
 
+/**
+ * Safely extracts a string from any input (plain string, number, boolean, or localized object like { en, es, pt }).
+ * Guarantees that an object is NEVER returned, preventing React runtime error:
+ * "Objects are not valid as a React child (found: object with keys {pt, es, en})".
+ */
+export function extractLocalizedString(val: any, lang: string = "en"): string {
+  if (val === null || val === undefined) return "";
+  if (typeof val === "string") return val;
+  if (typeof val === "number" || typeof val === "boolean") return String(val);
+
+  if (typeof val === "object") {
+    // 1. Check direct lang key, or fallback keys
+    const target = val[lang] ?? val[lang === "es" || lang === "pt" ? lang : "en"] ?? val.en ?? val.es ?? val.pt;
+    if (target !== undefined && target !== null) {
+      if (typeof target === "string") return target;
+      if (typeof target === "number" || typeof target === "boolean") return String(target);
+      if (typeof target === "object") {
+        const res = extractLocalizedString(target, lang);
+        if (res) return res;
+      }
+    }
+
+    // 2. Iterate keys if target couldn't be resolved as string
+    for (const key of Object.keys(val)) {
+      const item = val[key];
+      if (item !== undefined && item !== null) {
+        if (typeof item === "string") return item;
+        if (typeof item === "number" || typeof item === "boolean") return String(item);
+        if (typeof item === "object") {
+          const res = extractLocalizedString(item, lang);
+          if (res) return res;
+        }
+      }
+    }
+  }
+
+  return "";
+}
+
+/**
+ * Safely extracts an array of strings from any input (array of strings/objects, localized object containing arrays/strings, or multiline string).
+ */
+export function extractStringList(input: any, lang: string = "en"): string[] {
+  if (!input) return [];
+
+  if (Array.isArray(input)) {
+    return input
+      .map((item) => extractLocalizedString(item, lang).replace(/^[\*\-\•\s]+/, "").trim())
+      .filter(Boolean);
+  }
+
+  if (typeof input === "object") {
+    // Check if input is a localized object e.g. { en: [...], es: [...], pt: [...] } or { en: "string", ... }
+    const target = input[lang] ?? input.en ?? input.es ?? input.pt ?? Object.values(input)[0];
+    if (target) {
+      return extractStringList(target, lang);
+    }
+  }
+
+  if (typeof input === "string") {
+    let lines = input.split(/\n+/);
+    if (lines.length === 1 && (input.includes(". ") || input.includes("; "))) {
+      lines = input.split(/(?<=\.)\s+/);
+    }
+    return lines
+      .map((line) => line.replace(/^[\*\-\•\s]+/, "").trim())
+      .filter(Boolean);
+  }
+
+  return [];
+}
+
+

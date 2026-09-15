@@ -7,6 +7,7 @@ import {
 import { getPageByIdAction } from "@/app/actions/queries";
 import Reveal from "@/components/home/Reveal";
 import PageHeroSlider from "@/components/common/PageHeroSlider";
+import { extractLocalizedString, extractStringList } from "@/lib/utils";
 
 interface TravelInfoPageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -367,9 +368,9 @@ export default async function TravelInfoPage({ params }: TravelInfoPageProps) {
           {/* Left Column: Rich Sections */}
           <div className="lg:col-span-8 space-y-8">
             {sections.map((section: any, idx: number) => {
-              const secHeading = section.heading?.[lang] || section.heading?.en || "";
-              const secContent = section.content?.[lang] || section.content?.en || "";
-              const secBullets = section.bullets?.[lang] || section.bullets?.en || [];
+              const secHeading = extractLocalizedString(section.heading, lang);
+              const secContent = extractLocalizedString(section.content, lang);
+              const secBullets = extractStringList(section.bullets, lang);
 
               return (
                 <Reveal key={idx} delay={idx * 60}>
@@ -395,12 +396,16 @@ export default async function TravelInfoPage({ params }: TravelInfoPageProps) {
                     {/* Bullets as Feature Spec Cards */}
                     {secBullets.length > 0 && (
                       <div className="grid grid-cols-1 sm:grid-cols-1 gap-3 pt-2">
-                        {secBullets.map((item: string, i: number) => (
-                          <div key={i} className="flex items-start gap-3 bg-[#FAF8F5] border border-[#C5A862]/20 p-4 rounded-2xl hover:border-[#C5A862] transition-colors">
-                            <CheckCircle className="w-5 h-5 text-[#C5A862] shrink-0 mt-0.5" />
-                            <span className="text-xs sm:text-sm font-medium text-[#0A2A1E] leading-relaxed">{item}</span>
-                          </div>
-                        ))}
+                        {secBullets.map((item: any, i: number) => {
+                          const itemText = extractLocalizedString(item, lang);
+                          if (!itemText) return null;
+                          return (
+                            <div key={i} className="flex items-start gap-3 bg-[#FAF8F5] border border-[#C5A862]/20 p-4 rounded-2xl hover:border-[#C5A862] transition-colors">
+                              <CheckCircle className="w-5 h-5 text-[#C5A862] shrink-0 mt-0.5" />
+                              <span className="text-xs sm:text-sm font-medium text-[#0A2A1E] leading-relaxed">{itemText}</span>
+                            </div>
+                          );
+                        })}
                       </div>
                     )}
                   </div>

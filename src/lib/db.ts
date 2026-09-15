@@ -117,7 +117,8 @@ const saveLocalData = (name: string, data: any) => {
   if (isServerlessEnv) return;
   try {
     const filePath = getFilePath(name);
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf-8");
+    const cleanData = Array.isArray(data) ? data.filter((item: any) => item && item.isDeleted !== true) : data;
+    fs.writeFileSync(filePath, JSON.stringify(cleanData, null, 2), "utf-8");
   } catch (e) {}
 };
 

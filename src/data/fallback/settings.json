@@ -1,25 +1,27 @@
 [
   {
     "id": "admin_credentials",
+    "isDeleted": false,
     "customPassword": ""
   },
   {
-    "whatsapp": "919829989187",
-    "phone": "+91 9829989187",
     "id": "contact_details",
+    "isDeleted": false,
     "hours": "Mon - Sat: 9:00 AM - 7:00 PM IST",
-    "email": "mhindiatrips@gmail.com",
-    "address": "Jaipur & New Delhi, Rajasthan, India",
-    "companyName": "MH India Trips",
+    "defaultTermsConditions": {
+      "pt": "• É necessário um depósito de 25% para confirmar a reserva; o saldo deve ser pago 15 dias antes da chegada.\n• Todos os traslados privados e passeios guiados estão sujeitos ao tráfego local e condições climáticas.\n• O horário de check-in no hotel é às 12:00 / 14:00; sujeito à disponibilidade.\n• Entradas de monumentos estão sujeitas a alterações governamentais sem aviso prévio.",
+      "en": "• 25% deposit required to confirm booking; balance due 15 days prior to arrival.\n• All private transfers and guided tours are subject to local traffic and weather conditions.\n• Hotel check-in time is 12:00 PM / 2:00 PM; early check-in subject to availability.\n• Monument entry fees are subject to government revision without prior notice.",
+      "es": "• Se requiere un depósito del 25% para confirmar la reserva; el saldo vence 15 días antes de la llegada.\n• Todos los traslados privados y tours guiados están sujetos al tráfico local y condiciones climáticas.\n• El horario de check-in en el hotel es a las 12:00 PM / 2:00 PM; sujeto a disponibilidad.\n• Las entradas a monumentos están sujetas a modificaciones gubernamentales sin previo aviso."
+    },
+    "whatsapp": "919829989187",
     "defaultCancellationPolicy": {
       "en": "• Free cancellation up to 30 days before tour start date.\n• 50% refund for cancellations between 15 and 29 days before arrival.\n• Non-refundable for cancellations made less than 14 days before arrival.\n• Peak season bookings (Dec 20 - Jan 5) require 45 days prior cancellation notice.",
       "es": "• Cancelación gratuita hasta 30 días antes de la fecha de inicio del tour.\n• 50% de reembolso para cancelaciones entre 15 y 29 días antes de la llegada.\n• Sin reembolso para cancelaciones realizadas con menos de 14 días de antelación.\n• Reservas en temporada alta (20 Dic - 5 Ene) requieren 45 días de aviso previo.",
       "pt": "• Cancelamento gratuito até 30 dias antes da data de início do passeio.\n• Reembolso de 50% para cancelamentos entre 15 e 29 dias antes da chegada.\n• Não reembolsável para cancelamentos feitos com menos de 14 dias de antecedência.\n• Reservas em alta temporada (20 de Dez a 5 de Jan) requerem aviso prévio de 45 dias."
     },
-    "defaultTermsConditions": {
-      "en": "• 25% deposit required to confirm booking; balance due 15 days prior to arrival.\n• All private transfers and guided tours are subject to local traffic and weather conditions.\n• Hotel check-in time is 12:00 PM / 2:00 PM; early check-in subject to availability.\n• Monument entry fees are subject to government revision without prior notice.",
-      "es": "• Se requiere un depósito del 25% para confirmar la reserva; el saldo vence 15 días antes de la llegada.\n• Todos los traslados privados y tours guiados están sujetos al tráfico local y condiciones climáticas.\n• El horario de check-in en el hotel es a las 12:00 PM / 2:00 PM; sujeto a disponibilidad.\n• Las entradas a monumentos están sujetas a modificaciones gubernamentales sin previo aviso.",
-      "pt": "• É necessário um depósito de 25% para confirmar a reserva; o saldo deve ser pago 15 dias antes da chegada.\n• Todos os traslados privados e passeios guiados estão sujeitos ao tráfego local e condições climáticas.\n• O horário de check-in no hotel é às 12:00 / 14:00; sujeito à disponibilidade.\n• Entradas de monumentos estão sujeitas a alterações governamentais sem aviso prévio."
-    }
+    "address": "Jaipur & New Delhi, Rajasthan, India",
+    "companyName": "MH India Trips",
+    "email": "mhindiatrips@gmail.com",
+    "phone": "+91 9829989187"
   }
 ]
