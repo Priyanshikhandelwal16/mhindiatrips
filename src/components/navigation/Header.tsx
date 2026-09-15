@@ -136,7 +136,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
     path: getLocalizedDestinationsPath(locale, s.slug?.[locale as "en" | "es" | "pt"] || s.id)
   }));
 
-  const outboundList = [
+  const defaultOutboundList = [
     { name: { en: "Dubai & UAE", es: "Dubái y Emiratos", pt: "Dubai e Emirados" }, path: "/international-trips/dubai" },
     { name: { en: "Bali, Indonesia", es: "Bali, Indonesia", pt: "Bali, Indonésia" }, path: "/international-trips/bali" },
     { name: { en: "Thailand", es: "Tailandia", pt: "Tailândia" }, path: "/international-trips/thailand" },
@@ -148,14 +148,26 @@ export default function Header({ locale, contactDetails, states = [], packages =
     { name: { en: "Laos", es: "Laos", pt: "Laos" }, path: "/international-trips/laos" }
   ];
 
-  const infoList = [
+  const outboundList = (contactDetails as any)?.customOutboundNav && (contactDetails as any).customOutboundNav.length > 0
+    ? (contactDetails as any).customOutboundNav
+    : defaultOutboundList;
+
+  const defaultInfoList = [
     { name: { en: "Solo Female Traveler", es: "Mujer viajando sola por la India", pt: "Mulher viajando sozinha na Índia" }, path: "/travel-info/solo-female-travel" },
     { name: { en: "Visa & Entry Requirements", es: "Requisitos de Visa y Entrada", pt: "Visto e Requisitos de Entrada" }, path: "/travel-info/visa-entry-requirements" },
     { name: { en: "Best Time to Visit", es: "Cuando viajar a la India", pt: "Quando viajar para a Índia" }, path: "/travel-info/best-time-climate" },
     { name: { en: "Health & Vaccinations", es: "Salud y Vacunas", pt: "Saúde e Vacinas" }, path: "/travel-info/vaccinations-health" },
-    { name: { en: "Packing & Currency Guide", es: "Guía de Equipaje y Moneda", pt: "/travel-info/packing-currency" }, path: "/travel-info/packing-currency" },
+    { name: { en: "Packing & Currency Guide", es: "Guía de Equipaje y Moneda", pt: "Guia de Bagagem e Moeda" }, path: "/travel-info/packing-currency" },
     { name: { en: "Frequently Asked Questions", es: "Preguntas Frecuentes", pt: "Perguntas Frequentes" }, path: "/faq" }
   ];
+
+  const infoList = (contactDetails as any)?.customInfoNav && (contactDetails as any).customInfoNav.length > 0
+    ? (contactDetails as any).customInfoNav
+    : defaultInfoList;
+
+  const ctaText = (contactDetails as any)?.headerCta?.[locale] || (contactDetails as any)?.headerCta?.en || labels.cta;
+  const rawCtaUrl = (contactDetails as any)?.headerCtaUrl || "/contact";
+  const ctaUrl = rawCtaUrl.startsWith("/") ? `/${locale}${rawCtaUrl.replace(/^\/(en|es|pt)/, "")}` : rawCtaUrl;
 
   const languages = [
     { code: "en", name: "English" },
@@ -437,8 +449,11 @@ export default function Header({ locale, contactDetails, states = [], packages =
                       <ArrowRight className="w-3.5 h-3.5 text-[#C5A862]" />
                     </Link>
                     <div className="flex flex-col space-y-1 max-h-[300px] overflow-y-auto pr-1">
-                      {outboundList.map((out, idx) => {
-                        const lowerOut = out.name.en.toLowerCase();
+                      {outboundList.map((out: any, idx: number) => {
+                        const outName = typeof out.name === 'string' ? out.name : (out.name?.[locale] || out.name?.en || out.name?.es || out.name?.pt || "");
+                        const outPath = out.path || out.url || "";
+                        const fullPath = outPath.startsWith("/") ? `/${locale}${outPath.replace(/^\/(en|es|pt)/, "")}` : outPath;
+                        const lowerOut = outName.toLowerCase();
                         const outIcon = lowerOut.includes("dubai") ? "🇦🇪"
                           : lowerOut.includes("bali") ? "🇮🇩"
                           : lowerOut.includes("thailand") ? "🇹🇭"
@@ -453,12 +468,12 @@ export default function Header({ locale, contactDetails, states = [], packages =
                         return (
                           <Link
                             key={idx}
-                            href={`/${locale}${out.path}`}
+                            href={fullPath}
                             className="text-[11px] font-semibold text-[#0A2A1E] hover:text-[#0A2A1E] hover:translate-x-1 transition-all py-1.5 px-3 rounded-xl hover:bg-white hover:border hover:border-[#C5A862]/40 shadow-none hover:shadow-md flex items-center justify-between group/item"
                           >
                             <span className="flex items-center gap-2">
                               <span className="text-xs">{outIcon}</span>
-                              <span>{out.name[locale as 'en'|'es'|'pt'] || out.name.en}</span>
+                              <span>{outName}</span>
                             </span>
                             <ArrowRight className="w-3 h-3 text-[#C5A862] opacity-0 group-hover/item:opacity-100 transition-opacity" />
                           </Link>
@@ -511,15 +526,20 @@ export default function Header({ locale, contactDetails, states = [], packages =
               
               {/* Dropdown Container */}
               <div className="absolute left-0 top-full w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50 rounded-b-xl">
-                {infoList.map((info, idx) => (
-                  <Link
-                    key={idx}
-                    href={`/${locale}${info.path}`}
-                    className="block px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold hover:bg-gold/5 transition-colors"
-                  >
-                    {info.name[locale as 'en'|'es'|'pt'] || info.name.en}
-                  </Link>
-                ))}
+                {infoList.map((info: any, idx: number) => {
+                  const infoName = typeof info.name === 'string' ? info.name : (info.name?.[locale] || info.name?.en || info.name?.es || info.name?.pt || "");
+                  const infoPath = info.path || info.url || "";
+                  const fullPath = infoPath.startsWith("/") ? `/${locale}${infoPath.replace(/^\/(en|es|pt)/, "")}` : infoPath;
+                  return (
+                    <Link
+                      key={idx}
+                      href={fullPath}
+                      className="block px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold hover:bg-gold/5 transition-colors"
+                    >
+                      {infoName}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
 
@@ -585,11 +605,11 @@ export default function Header({ locale, contactDetails, states = [], packages =
 
             {/* Inquire CTA Button */}
             <Link 
-              href={`/${locale}/contact`}
-              className="bg-[#0A2A1E] hover:bg-[#C5A862] hover:text-[#0A2A1E] text-white text-[8.5px] 2xl:text-[10px] font-bold uppercase tracking-[0.03em] 2xl:tracking-[0.1em] px-3.5 py-2 2xl:px-5 2xl:py-3 rounded-full transition-all duration-300 hover:scale-105 inline-flex items-center gap-1 2xl:gap-1.5 shadow-md border border-royal/10 whitespace-nowrap"
+              href={ctaUrl}
+              className="group bg-[#0A2A1E] hover:bg-[#C5A862] hover:text-[#0A2A1E] text-white text-[8.5px] 2xl:text-[10px] font-bold uppercase tracking-[0.03em] 2xl:tracking-[0.1em] px-3.5 py-2 2xl:px-5 2xl:py-3 rounded-full transition-all duration-300 hover:scale-105 inline-flex items-center gap-1 2xl:gap-1.5 shadow-md border border-royal/10 whitespace-nowrap"
             >
-              <span>{labels.cta}</span>
-              <ArrowRight className="w-3 h-3 2xl:w-3.5 2xl:h-3.5" />
+              <span>{ctaText}</span>
+              <ArrowRight className="w-3 h-3 text-gold group-hover:text-[#0A2A1E]" />
             </Link>
           </div>
 
@@ -738,16 +758,21 @@ export default function Header({ locale, contactDetails, states = [], packages =
                     >
                       All International Trips
                     </Link>
-                    {outboundList.map((out, idx) => (
-                      <Link
-                        key={idx}
-                        href={`/${locale}${out.path}`}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="text-[11px] font-medium tracking-wider text-royal hover:text-gold py-0.5 block pl-2"
-                      >
-                        {out.name[locale as 'en'|'es'|'pt'] || out.name.en}
-                      </Link>
-                    ))}
+                    {outboundList.map((out: any, idx: number) => {
+                      const outName = typeof out.name === 'string' ? out.name : (out.name?.[locale] || out.name?.en || out.name?.es || out.name?.pt || "");
+                      const outPath = out.path || out.url || "";
+                      const fullPath = outPath.startsWith("/") ? `/${locale}${outPath.replace(/^\/(en|es|pt)/, "")}` : outPath;
+                      return (
+                        <Link
+                          key={idx}
+                          href={fullPath}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="text-[11px] font-medium tracking-wider text-royal hover:text-gold py-0.5 block pl-2"
+                        >
+                          {outName}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               )}
@@ -787,16 +812,21 @@ export default function Header({ locale, contactDetails, states = [], packages =
               
               {mobileInfoOpen && (
                 <div className="flex flex-col bg-gold/5 border-l-2 border-gold/25 pl-4 py-2 space-y-2.5 text-left animate-fade-in">
-                  {infoList.map((info, idx) => (
-                    <Link
-                      key={idx}
-                      href={info.path.startsWith("/") ? `/${locale}${info.path}` : info.path}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold py-1 block"
-                    >
-                      {info.name[locale as 'en'|'es'|'pt'] || info.name.en}
-                    </Link>
-                  ))}
+                  {infoList.map((info: any, idx: number) => {
+                    const infoName = typeof info.name === 'string' ? info.name : (info.name?.[locale] || info.name?.en || info.name?.es || info.name?.pt || "");
+                    const infoPath = info.path || info.url || "";
+                    const fullPath = infoPath.startsWith("/") ? `/${locale}${infoPath.replace(/^\/(en|es|pt)/, "")}` : infoPath;
+                    return (
+                      <Link
+                        key={idx}
+                        href={fullPath}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold py-1 block"
+                      >
+                        {infoName}
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
             </div>

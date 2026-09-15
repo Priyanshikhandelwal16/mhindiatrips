@@ -220,5 +220,43 @@
       "en": "Welcome to Uttar Pradesh, one of India's most culturally and historically significant states. From the timeless beauty of the Taj Mahal in Agra and the spiritual atmosphere of Varanasi to the sacred birthplace of Lord Krishna in Mathura and the historic streets of Lucknow, Uttar Pradesh offers a remarkable journey through India's heritage, spirituality, architecture, cuisine and living traditions.",
       "pt": "Bem-vindo a Uttar Pradesh, um dos estados cultural e historicamente mais importantes da Índia. Da beleza atemporal do Taj Mahal em Agra e da atmosfera espiritual de Varanasi à sagrada Mathura, associada ao nascimento de Krishna, e às ruas históricas de Lucknow, Uttar Pradesh oferece uma extraordinária viagem pelo patrimônio, espiritualidade, arquitetura, gastronomia e tradições vivas da Índia."
     }
+  },
+  {
+    "id": "g",
+    "isPublished": true,
+    "displayOrder": 7,
+    "updatedAt": "2026-09-15T05:23:29.306Z",
+    "isDeleted": false,
+    "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789449768/mhindiatrips/i3mqfqpkedke0qshk5av.jpg",
+    "name": {
+      "en": "Goa",
+      "es": "",
+      "pt": ""
+    },
+    "slug": {
+      "en": "goa",
+      "es": "",
+      "pt": ""
+    },
+    "description": {
+      "en": "",
+      "es": "",
+      "pt": ""
+    },
+    "seoTitle": {
+      "en": "",
+      "es": "",
+      "pt": ""
+    },
+    "seoDesc": {
+      "en": "",
+      "es": "",
+      "pt": ""
+    },
+    "seoKeywords": {
+      "en": "",
+      "es": "",
+      "pt": ""
+    }
   }
 ]

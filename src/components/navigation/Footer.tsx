@@ -74,7 +74,10 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
   const labels = footerTranslations[locale] || footerTranslations.en;
   const displayEmail = contactDetails?.email === "info@mhindiatrips.com" ? "mhindiatrips@gmail.com" : (contactDetails?.email || "mhindiatrips@gmail.com");
 
-  const quickLinks = [
+  const tagline = (contactDetails as any)?.footerTagline?.[locale] || (contactDetails as any)?.footerTagline?.en || labels.tagline;
+  const aboutText = (contactDetails as any)?.footerAboutText?.[locale] || (contactDetails as any)?.footerAboutText?.en || labels.aboutText;
+
+  const defaultQuickLinks = [
     { name: locale === "es" ? "Inicio" : locale === "pt" ? "Início" : "Home", url: "" },
     { name: locale === "es" ? "Paquetes" : locale === "pt" ? "Pacotes" : "Packages", url: "/packages" },
     { name: locale === "es" ? "Viajes Internacionales" : locale === "pt" ? "Viagens Internacionais" : "International Trips", url: "/international-trips" },
@@ -84,7 +87,14 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
     { name: locale === "es" ? "Contacto" : locale === "pt" ? "Contato" : "Contact Us", url: "/contact" }
   ];
 
-  const destinationsList = [
+  const quickLinks = (contactDetails as any)?.customFooterQuickLinks && (contactDetails as any).customFooterQuickLinks.length > 0
+    ? (contactDetails as any).customFooterQuickLinks.map((item: any) => ({
+        name: typeof item.name === 'string' ? item.name : (item.name?.[locale] || item.name?.en || item.name?.es || item.name?.pt || ""),
+        url: item.url || item.path || ""
+      }))
+    : defaultQuickLinks;
+
+  const defaultDestinationsList = [
     { name: "Rajasthan", url: getLocalizedDestinationsPath(locale, "rajasthan") },
     { name: "Kerala", url: getLocalizedDestinationsPath(locale, "kerala") },
     { name: "Varanasi", url: getLocalizedDestinationsPath(locale, "uttar-pradesh", "varanasi") },
@@ -92,6 +102,13 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
     { name: "Goa", url: getLocalizedDestinationsPath(locale, "goa") },
     { name: locale === "es" ? "Internacional (Dubái, Bali...)" : "International (Dubai, Bali...)", url: "/international-trips" }
   ];
+
+  const destinationsList = (contactDetails as any)?.customFooterDestinations && (contactDetails as any).customFooterDestinations.length > 0
+    ? (contactDetails as any).customFooterDestinations.map((item: any) => ({
+        name: typeof item.name === 'string' ? item.name : (item.name?.[locale] || item.name?.en || item.name?.es || item.name?.pt || ""),
+        url: item.url || item.path || ""
+      }))
+    : defaultDestinationsList;
 
 
 
@@ -125,11 +142,11 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
                 className="footer-logo-custom-height w-auto"
               />
               <p className="text-[10px] uppercase tracking-[0.3em] text-[#C5A862] font-bold">
-                {labels.tagline}
+                {tagline}
               </p>
             </div>
             <p className="text-sm leading-relaxed text-royal/65 max-w-sm font-light">
-              {labels.aboutText}
+              {aboutText}
             </p>
             
             {/* Social Grid */}
@@ -158,10 +175,10 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
               {labels.quickLinks}
             </h4>
             <ul className="space-y-3.5 text-sm">
-              {quickLinks.map((link, i) => (
+              {quickLinks.map((link: any, i: number) => (
                 <li key={i}>
                   <Link
-                    href={`/${locale}${link.url}`}
+                    href={`/${locale}${link.url.startsWith('/') ? link.url.replace(/^\/(en|es|pt)/, '') : '/' + link.url}`}
                     className="hover:text-gold text-royal/70 flex items-center gap-2 transition-colors duration-200"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-gold" />
@@ -177,7 +194,7 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
               {labels.destinations}
             </h4>
             <ul className="space-y-3.5 text-sm">
-              {destinationsList.map((st, i) => (
+              {destinationsList.map((st: any, i: number) => (
                 <li key={i}>
                   <Link
                     href={st.url}

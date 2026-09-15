@@ -9,19 +9,269 @@
     "isDeleted": false,
     "hours": "Mon - Sat: 9:00 AM - 7:00 PM IST",
     "defaultTermsConditions": {
-      "pt": "• É necessário um depósito de 25% para confirmar a reserva; o saldo deve ser pago 15 dias antes da chegada.\n• Todos os traslados privados e passeios guiados estão sujeitos ao tráfego local e condições climáticas.\n• O horário de check-in no hotel é às 12:00 / 14:00; sujeito à disponibilidade.\n• Entradas de monumentos estão sujeitas a alterações governamentais sem aviso prévio.",
+      "es": "• Se requiere un depósito del 25% para confirmar la reserva; el saldo vence 15 días antes de la llegada.\n• Todos los traslados privados y tours guiados están sujetos al tráfico local y condiciones climáticas.\n• El horario de check-in en el hotel es a las 12:00 PM / 2:00 PM; sujeto a disponibilidad.\n• Las entradas a monumentos están sujetas a modificaciones gubernamentales sin previo aviso.",
       "en": "• 25% deposit required to confirm booking; balance due 15 days prior to arrival.\n• All private transfers and guided tours are subject to local traffic and weather conditions.\n• Hotel check-in time is 12:00 PM / 2:00 PM; early check-in subject to availability.\n• Monument entry fees are subject to government revision without prior notice.",
-      "es": "• Se requiere un depósito del 25% para confirmar la reserva; el saldo vence 15 días antes de la llegada.\n• Todos los traslados privados y tours guiados están sujetos al tráfico local y condiciones climáticas.\n• El horario de check-in en el hotel es a las 12:00 PM / 2:00 PM; sujeto a disponibilidad.\n• Las entradas a monumentos están sujetas a modificaciones gubernamentales sin previo aviso."
+      "pt": "• É necessário um depósito de 25% para confirmar a reserva; o saldo deve ser pago 15 dias antes da chegada.\n• Todos os traslados privados e passeios guiados estão sujeitos ao tráfego local e condições climáticas.\n• O horário de check-in no hotel é às 12:00 / 14:00; sujeito à disponibilidade.\n• Entradas de monumentos estão sujeitas a alterações governamentais sem aviso prévio."
     },
     "whatsapp": "919829989187",
     "defaultCancellationPolicy": {
-      "en": "• Free cancellation up to 30 days before tour start date.\n• 50% refund for cancellations between 15 and 29 days before arrival.\n• Non-refundable for cancellations made less than 14 days before arrival.\n• Peak season bookings (Dec 20 - Jan 5) require 45 days prior cancellation notice.",
       "es": "• Cancelación gratuita hasta 30 días antes de la fecha de inicio del tour.\n• 50% de reembolso para cancelaciones entre 15 y 29 días antes de la llegada.\n• Sin reembolso para cancelaciones realizadas con menos de 14 días de antelación.\n• Reservas en temporada alta (20 Dic - 5 Ene) requieren 45 días de aviso previo.",
+      "en": "• Free cancellation up to 30 days before tour start date.\n• 50% refund for cancellations between 15 and 29 days before arrival.\n• Non-refundable for cancellations made less than 14 days before arrival.\n• Peak season bookings (Dec 20 - Jan 5) require 45 days prior cancellation notice.",
       "pt": "• Cancelamento gratuito até 30 dias antes da data de início do passeio.\n• Reembolso de 50% para cancelamentos entre 15 e 29 dias antes da chegada.\n• Não reembolsável para cancelamentos feitos com menos de 14 dias de antecedência.\n• Reservas em alta temporada (20 de Dez a 5 de Jan) requerem aviso prévio de 45 dias."
     },
     "address": "Jaipur & New Delhi, Rajasthan, India",
     "companyName": "MH India Trips",
     "email": "mhindiatrips@gmail.com",
-    "phone": "+91 9829989187"
+    "phone": "+91 9829989187",
+    "gstin": "08AABCM1234F1Z9",
+    "website": "https://mhindiatrips.com",
+    "facebook": "",
+    "twitter": "",
+    "instagram": "",
+    "logoHeightMobile": "48",
+    "logoHeightDesktop": "56",
+    "copyright": "2026 MH India Trips. Crafted for luxury.",
+    "designedBy": "JAINUP | Growth System",
+    "headerCta": {
+      "en": "Inquire Now",
+      "es": "Planificar",
+      "pt": "Planejar"
+    },
+    "headerCtaUrl": "/contact",
+    "customOutboundNav": [
+      {
+        "id": "dubai",
+        "name": {
+          "en": "Dubai & UAE",
+          "es": "Dubái y Emiratos",
+          "pt": "Dubai e Emirados"
+        },
+        "path": "/international-trips/dubai"
+      },
+      {
+        "id": "bali",
+        "name": {
+          "en": "Bali, Indonesia",
+          "es": "Bali, Indonesia",
+          "pt": "Bali, Indonésia"
+        },
+        "path": "/international-trips/bali"
+      },
+      {
+        "id": "thailand",
+        "name": {
+          "en": "Thailand",
+          "es": "Tailandia",
+          "pt": "Tailândia"
+        },
+        "path": "/international-trips/thailand"
+      },
+      {
+        "id": "maldives",
+        "name": {
+          "en": "Maldives",
+          "es": "Maldivas",
+          "pt": "Maldivas"
+        },
+        "path": "/international-trips/maldives"
+      },
+      {
+        "id": "sri-lanka",
+        "name": {
+          "en": "Sri Lanka",
+          "es": "Sri Lanka",
+          "pt": "Sri Lanka"
+        },
+        "path": "/international-trips/sri-lanka"
+      }
+    ],
+    "customInfoNav": [
+      {
+        "id": "solo-female",
+        "name": {
+          "en": "Solo Female Traveler",
+          "es": "Mujer viajando sola por la India",
+          "pt": "Mulher viajando sozinha na Índia"
+        },
+        "path": "/travel-info/solo-female-travel"
+      },
+      {
+        "id": "visa",
+        "name": {
+          "en": "Visa & Entry Requirements",
+          "es": "Requisitos de Visa y Entrada",
+          "pt": "Visto e Requisitos de Entrada"
+        },
+        "path": "/travel-info/visa-entry-requirements"
+      },
+      {
+        "id": "best-time",
+        "name": {
+          "en": "Best Time to Visit",
+          "es": "Cuando viajar a la India",
+          "pt": "Quando viajar para a Índia"
+        },
+        "path": "/travel-info/best-time-climate"
+      },
+      {
+        "id": "health",
+        "name": {
+          "en": "Health & Vaccinations",
+          "es": "Salud y Vacunas",
+          "pt": "Saúde e Vacinas"
+        },
+        "path": "/travel-info/vaccinations-health"
+      },
+      {
+        "id": "packing",
+        "name": {
+          "en": "Packing & Currency Guide",
+          "es": "Guía de Equipaje y Moneda",
+          "pt": "Guia de Bagagem e Moeda"
+        },
+        "path": "/travel-info/packing-currency"
+      },
+      {
+        "id": "faq",
+        "name": {
+          "en": "Frequently Asked Questions",
+          "es": "Preguntas Frecuentes",
+          "pt": "Perguntas Frequentes"
+        },
+        "path": "/faq"
+      }
+    ],
+    "footerTagline": {
+      "en": "CURATING LIFETIME TRAVEL ENCOUNTERS",
+      "es": "DISEÑANDO ENCUENTROS DE VIAJE DE POR VIDA",
+      "pt": "CRIANDO ENCONTROS DE VIAGEM DE UMA VIDA"
+    },
+    "footerAboutText": {
+      "en": "MH India Trips designs luxury private journeys and heritage monument tours across the Indian subcontinent. Founded in 2010 with a passion for quality.",
+      "es": "MH India Trips diseña viajes privados de lujo y tours de monumentos históricos en todo el subcontinente indio. Fundada en 2010 con pasión por la calidad.",
+      "pt": "A MH India Trips desenha viagens primeiras de luxo e passeios de monumentos históricos em todo o subcontinente indiano. Fundada em 2010 com paixão pela qualidade."
+    },
+    "customFooterQuickLinks": [
+      {
+        "id": "home",
+        "name": {
+          "en": "Home",
+          "es": "Inicio",
+          "pt": "Início"
+        },
+        "url": "/en"
+      },
+      {
+        "id": "packages",
+        "name": {
+          "en": "Packages",
+          "es": "Paquetes",
+          "pt": "Pacotes"
+        },
+        "url": "/en/packages"
+      },
+      {
+        "id": "outbound",
+        "name": {
+          "en": "International Trips",
+          "es": "Viajes Internacionales",
+          "pt": "Viagens Internacionais"
+        },
+        "url": "/en/international-trips"
+      },
+      {
+        "id": "food",
+        "name": {
+          "en": "Food Guide",
+          "es": "Gastronomía",
+          "pt": "Gastronomia"
+        },
+        "url": "/en/food"
+      },
+      {
+        "id": "blog",
+        "name": {
+          "en": "Blog",
+          "es": "Blog",
+          "pt": "Blog"
+        },
+        "url": "/en/blog"
+      },
+      {
+        "id": "about",
+        "name": {
+          "en": "About Us",
+          "es": "Nosotros",
+          "pt": "Sobre Nós"
+        },
+        "url": "/en/about"
+      },
+      {
+        "id": "contact",
+        "name": {
+          "en": "Contact Us",
+          "es": "Contacto",
+          "pt": "Contato"
+        },
+        "url": "/en/contact"
+      }
+    ],
+    "customFooterDestinations": [
+      {
+        "id": "rajasthan",
+        "name": {
+          "en": "Rajasthan",
+          "es": "Rajasthan",
+          "pt": "Rajastão"
+        },
+        "url": "/en/destinations-in-india/rajasthan"
+      },
+      {
+        "id": "kerala",
+        "name": {
+          "en": "Kerala",
+          "es": "Kerala",
+          "pt": "Kerala"
+        },
+        "url": "/en/destinations-in-india/kerala"
+      },
+      {
+        "id": "varanasi",
+        "name": {
+          "en": "Varanasi",
+          "es": "Varanasi",
+          "pt": "Varanasi"
+        },
+        "url": "/en/destinations-in-india/uttar-pradesh/varanasi"
+      },
+      {
+        "id": "delhi-agra",
+        "name": {
+          "en": "Delhi & Agra",
+          "es": "Delhi y Agra",
+          "pt": "Délhi e Agra"
+        },
+        "url": "/en/destinations-in-india/uttar-pradesh/agra"
+      },
+      {
+        "id": "goa",
+        "name": {
+          "en": "Goa",
+          "es": "Goa",
+          "pt": "Goa"
+        },
+        "url": "/en/destinations-in-india/goa"
+      },
+      {
+        "id": "outbound-all",
+        "name": {
+          "en": "International (Dubai, Bali...)",
+          "es": "Internacional (Dubái, Bali...)",
+          "pt": "Internacional (Dubai, Bali...)"
+        },
+        "url": "/en/international-trips"
+      }
+    ],
+    "updatedAt": "2026-09-15T05:46:08.600Z"
   }
 ]
