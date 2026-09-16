@@ -121,7 +121,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
   };
 
   const labels = menuTranslations[locale] || menuTranslations.en;
-  const displayEmail = contactDetails?.email === "info@mhindiatrips.com" ? "mhindiatrips@gmail.com" : (contactDetails?.email || "mhindiatrips@gmail.com");
+  const displayEmail = contactDetails?.email || "info@mhindiatrips.com";
 
   const packagesList = (packages || []).map((p: any) => ({
     name: {
@@ -515,17 +515,6 @@ export default function Header({ locale, contactDetails, states = [], packages =
               </div>
             </div>
 
-            {/* Food Guide */}
-            <Link
-              href={`/${locale}/food`}
-              className={linkClass("/food")}
-            >
-              <span>{labels.food}</span>
-              {isActive("/food") && (
-                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full" />
-              )}
-            </Link>
-
             {/* Traveler Info Dropdown */}
             <div className="relative group py-2.5">
               <Link
@@ -557,16 +546,32 @@ export default function Header({ locale, contactDetails, states = [], packages =
               </div>
             </div>
 
-            {/* Blog */}
-            <Link
-              href={`/${locale}/blog`}
-              className={linkClass("/blog")}
-            >
-              <span>{labels.blog}</span>
-              {isActive("/blog") && (
-                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full" />
-              )}
-            </Link>
+            {/* Blog & Food Guide Dropdown */}
+            <div className="relative group py-2.5">
+              <Link
+                href={`/${locale}/blog`}
+                className={linkClass("/blog")}
+              >
+                <span className="flex items-center gap-1">
+                  {labels.blog}
+                  <ChevronDown className="w-3 h-3 text-gold" />
+                </span>
+              </Link>
+              <div className="absolute left-0 top-full w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50 rounded-b-xl">
+                <Link
+                  href={`/${locale}/blog`}
+                  className="block px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold hover:bg-gold/5 transition-colors"
+                >
+                  {labels.blog}
+                </Link>
+                <Link
+                  href={`/${locale}/food`}
+                  className="block px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold hover:bg-gold/5 transition-colors border-t border-gold/10"
+                >
+                  {labels.food}
+                </Link>
+              </div>
+            </div>
 
             {/* Contact */}
             <Link
@@ -583,12 +588,6 @@ export default function Header({ locale, contactDetails, states = [], packages =
 
           {/* Right Action Menu */}
           <div className="hidden xl:flex items-center gap-2 2xl:gap-3 z-20 shrink-0">
-            
-            {/* Google Translate Dropdown Selector */}
-            <div className="flex items-center gap-1.5 bg-[#FAF8F5] border border-gold/25 hover:border-gold px-2.5 py-1 rounded-full transition-all">
-              <Globe className="w-3.5 h-3.5 text-gold shrink-0" />
-              <GoogleTranslateWidget />
-            </div>
 
             {/* Globe Locale Route Switcher */}
             <div className="relative">
@@ -635,10 +634,6 @@ export default function Header({ locale, contactDetails, states = [], packages =
 
           {/* Mobile Buttons */}
           <div className="flex xl:hidden items-center gap-2 z-20">
-            <div className="flex items-center gap-1 bg-[#FAF8F5] border border-gold/25 px-2 py-0.5 rounded-full scale-90 origin-right">
-              <Globe className="w-3 h-3 text-gold shrink-0" />
-              <GoogleTranslateWidget />
-            </div>
             <button
               onClick={() => setLangMenuOpen(!langMenuOpen)}
               className="p-2 border border-gold/15 text-royal hover:border-gold rounded-full transition-colors"
@@ -815,58 +810,25 @@ export default function Header({ locale, contactDetails, states = [], packages =
               {labels.about}
             </Link>
 
-            {/* Food Guide Link */}
-            <Link
-              href={`/${locale}/food`}
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-2.5 px-4 block border-b border-gold/5"
-            >
-              {labels.food}
-            </Link>
-
-            {/* Traveler Info Collapsible Dropdown */}
+            {/* Blog & Food Guide Menu Item */}
             <div className="flex flex-col border-b border-gold/5">
-              <button
-                onClick={() => setMobileInfoOpen(!mobileInfoOpen)}
-                className="flex items-center justify-between w-full text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold py-2.5 px-4 focus:outline-none"
+              <Link
+                href={`/${locale}/blog`}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-2.5 px-4 block"
               >
-                <span>{labels.info}</span>
-                {mobileInfoOpen ? (
-                  <Minus className="w-3.5 h-3.5 text-gold shrink-0" />
-                ) : (
-                  <Plus className="w-3.5 h-3.5 text-gold shrink-0" />
-                )}
-              </button>
-              
-              {mobileInfoOpen && (
-                <div className="flex flex-col bg-gold/5 border-l-2 border-gold/25 pl-4 py-2 space-y-2.5 text-left animate-fade-in">
-                  {infoList.map((info: any, idx: number) => {
-                    const infoName = typeof info.name === 'string' ? info.name : (info.name?.[locale] || info.name?.en || info.name?.es || info.name?.pt || "");
-                    const infoPath = info.path || info.url || "";
-                    const fullPath = infoPath.startsWith("/") ? `/${locale}${infoPath.replace(/^\/(en|es|pt)/, "")}` : infoPath;
-                    return (
-                      <Link
-                        key={idx}
-                        href={fullPath}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold py-1 block"
-                      >
-                        {infoName}
-                      </Link>
-                    );
-                  })}
-                </div>
-              )}
+                {labels.blog}
+              </Link>
+              <div className="flex flex-col bg-gold/5 border-l-2 border-gold/25 pl-4 py-1.5 space-y-1 text-left mb-1">
+                <Link
+                  href={`/${locale}/food`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold py-1 block"
+                >
+                  {labels.food}
+                </Link>
+              </div>
             </div>
-
-            {/* Blog Link */}
-            <Link
-              href={`/${locale}/blog`}
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-2.5 px-4 block border-b border-gold/5"
-            >
-              {labels.blog}
-            </Link>
 
             {/* Contact Link */}
             <Link

@@ -62,16 +62,30 @@
 .goog-te-banner-frame,
 iframe.goog-te-banner-frame,
 .goog-te-banner-frame.skiptranslate,
+iframe.skiptranslate,
 #goog-gt-tt,
-.goog-te-balloon-frame {
+.goog-te-balloon-frame,
+.goog-tooltip,
+.goog-tooltip:hover {
   display: none !important;
   visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+html {
+  top: 0px !important;
+  position: static !important;
 }
 body {
   top: 0px !important;
   position: static !important;
+  margin-top: 0px !important;
 }
-.goog-te-gadget-icon {
+.goog-te-gadget-icon,
+.goog-logo-link,
+.goog-te-gadget span {
   display: none !important;
 }
 .goog-text-highlight {
@@ -81,31 +95,39 @@ body {
 #google_translate_element {
   display: inline-flex !important;
   align-items: center !important;
+  line-height: 1 !important;
 }
 .goog-te-gadget {
   font-family: inherit !important;
-  font-size: 11px !important;
+  font-size: 0px !important;
   color: transparent !important;
-}
-.goog-te-gadget span {
-  display: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1 !important;
 }
 .goog-te-combo {
-  background-color: #FAF8F5 !important;
-  border: 1px solid rgba(197, 168, 98, 0.4) !important;
+  background: transparent !important;
+  border: none !important;
   color: #0A2A1E !important;
-  border-radius: 9999px !important;
-  padding: 5px 12px !important;
+  font-family: inherit !important;
   font-size: 10px !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
   text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
   outline: none !important;
   cursor: pointer !important;
-  transition: all 0.2s ease !important;
+  padding: 0px 2px !important;
+  margin: 0 !important;
+  height: auto !important;
+  box-shadow: none !important;
+  max-width: 110px !important;
 }
-.goog-te-combo:hover {
-  border-color: #C5A862 !important;
+.goog-te-combo option {
   background-color: #FFFFFF !important;
+  color: #0A2A1E !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  padding: 4px 8px !important;
 }
 
 @theme {

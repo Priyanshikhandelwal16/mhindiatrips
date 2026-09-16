@@ -7,6 +7,7 @@ import PageTransition from "@/components/common/PageTransition";
 import PageLoader from "@/components/common/PageLoader";
 import PopupInquiryForm from "@/components/common/PopupInquiryForm";
 import GoogleTranslateWidget from "@/components/common/GoogleTranslateWidget";
+import LanguageSelectorModal from "@/components/common/LanguageSelectorModal";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
@@ -39,7 +40,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   // Fetch dynamic settings from database (falling back to hardcoded system defaults)
   const defaultContactDetails = {
     phone: "+91 9314635830",
-    email: "mhindiatrips@gmail.com",
+    email: "info@mhindiatrips.com",
     whatsapp: "919314635830",
     address: "New Delhi, India",
     hours: "Mon - Sat: 9:00 AM - 7:00 PM IST",
@@ -79,6 +80,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <body className="font-sans bg-background text-foreground antialiased min-h-screen flex flex-col justify-between w-full overflow-x-hidden" suppressHydrationWarning>
         <PageLoader />
         <GoogleTranslateWidget />
+        <LanguageSelectorModal currentLocale={locale} />
         <Header locale={locale} contactDetails={contactDetails} states={states} packages={packages} />
         <PopupInquiryForm locale={locale} contactDetails={contactDetails} />
         <main className="flex-grow flex flex-col w-full overflow-x-hidden pt-[116px]">

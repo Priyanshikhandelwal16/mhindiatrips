@@ -72,7 +72,7 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
   };
 
   const labels = footerTranslations[locale] || footerTranslations.en;
-  const displayEmail = contactDetails?.email === "info@mhindiatrips.com" ? "mhindiatrips@gmail.com" : (contactDetails?.email || "mhindiatrips@gmail.com");
+  const displayEmail = contactDetails?.email || "info@mhindiatrips.com";
 
   const tagline = (contactDetails as any)?.footerTagline?.[locale] || (contactDetails as any)?.footerTagline?.en || labels.tagline;
   const aboutText = (contactDetails as any)?.footerAboutText?.[locale] || (contactDetails as any)?.footerAboutText?.en || labels.aboutText;

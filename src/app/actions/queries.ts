@@ -120,7 +120,7 @@ export async function getSettingsDetailsAction() {
     companyName: "MH India Trips",
     gstin: "08AABCM1234F1Z9",
     phone: "+91 9314635830",
-    email: "mhindiatrips@gmail.com",
+    email: "info@mhindiatrips.com",
     whatsapp: "919314635830",
     website: "https://mhindiatrips.com",
     address: "Jaipur & New Delhi, India",

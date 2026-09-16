@@ -75,7 +75,7 @@ export default async function HomePage({ params }: HomePageProps) {
       cta: "Explore Our Regions",
       inquireCTA: "Plan Your Journey",
       whySub: "Our Philosophy",
-      whyTitle: "Why Travelers Choose MH India Trips",
+      whyTitle: "Why Choose MH India Trips",
       regionsSub: "Custom Destinations",
       regionsTitle: "Destinations in India",
       regionsDesc: "From the grand palaces of Rajasthan to the serene canals of Kerala, discover a tailored world.",
@@ -325,7 +325,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
   // Build slides from CMS data
   const cmsSlides = cms.slides || [];
-  const slides = cmsSlides.length >= 20 ? cmsSlides.map((s: any) => {
+  const slides = (cmsSlides && cmsSlides.length > 0) ? cmsSlides.map((s: any) => {
     const resolveField = (fieldVal: any, fallbackVal: string) => {
       if (!fieldVal) return fallbackVal;
       if (typeof fieldVal === "string") return fieldVal;

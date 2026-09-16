@@ -18,7 +18,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
   
   const contactDetails = (await db.settings.findUnique("contact_details")) || {
     phone: "+91 9314635830",
-    email: "mhindiatrips@gmail.com",
+    email: "info@mhindiatrips.com",
     address: "",
     hours: "Mon - Sat: 9:00 AM - 7:00 PM IST",
     whatsapp: "919314635830"
@@ -31,7 +31,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
       heroDesc: "Connect with our expert travel designers to begin crafting your private customized India itinerary.",
       infoTitle: "Concierge Desk",
       phone: contactDetails.phone || "+91 9314635830",
-      email: contactDetails.email || "mhindiatrips@gmail.com",
+      email: contactDetails.email || "info@mhindiatrips.com",
       hours: contactDetails.hours || "Mon - Sat: 9:00 AM - 7:00 PM IST",
       whatsappBtn: "Chat on WhatsApp",
     },
@@ -41,7 +41,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
       heroDesc: "Conéctese con nuestros diseñadores de viajes para comenzar a crear su itinerario personalizado.",
       infoTitle: "Mesa de Conserjería",
       phone: contactDetails.phone || "+91 9314635830",
-      email: contactDetails.email || "mhindiatrips@gmail.com",
+      email: contactDetails.email || "info@mhindiatrips.com",
       hours: contactDetails.hours || "Lun - Sáb: 9:00 AM - 7:00 PM IST",
       whatsappBtn: "Chat en WhatsApp",
     },
@@ -51,7 +51,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
       heroDesc: "Entre em contato com nossos designers de viagens para começar a planejar seu itinerário personalizado.",
       infoTitle: "Mesa de Concierge",
       phone: contactDetails.phone || "+91 9314635830",
-      email: contactDetails.email || "mhindiatrips@gmail.com",
+      email: contactDetails.email || "info@mhindiatrips.com",
       hours: contactDetails.hours || "Seg - Sáb: 9:00 AM - 7:00 PM IST",
       whatsappBtn: "Conversar no WhatsApp",
     }

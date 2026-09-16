@@ -44,7 +44,7 @@ const mergedPackages = (tourPackagesFallback && tourPackagesFallback.length > 0)
 function cleanEmail(obj: any): any {
   if (!obj) return obj;
   if (typeof obj === "string") {
-    return obj === "info@mhindiatrips.com" ? "mhindiatrips@gmail.com" : obj;
+    return obj === "mhindiatrips@gmail.com" ? "info@mhindiatrips.com" : obj;
   }
   if (Array.isArray(obj)) {
     return obj.map(item => cleanEmail(item));
@@ -143,7 +143,7 @@ let settingsCache = loadLocalData("settings", [
     companyName: "MH India Trips",
     gstin: "08AABCM1234F1Z9",
     phone: "+91 9314635830",
-    email: "mhindiatrips@gmail.com",
+    email: "info@mhindiatrips.com",
     whatsapp: "919314635830",
     website: "https://mhindiatrips.com",
     address: "Jaipur & New Delhi, Rajasthan, India",
@@ -284,7 +284,7 @@ const defaultSystemPages = [
       ],
       philosophy: {
         image: "/images/rajasthan_fort_sunset.png",
-        title: { en: "Why Travelers Choose MH India Trips", es: "Por Qué Elegir MH India Trips", pt: "Por Que Escolher a MH India Trips" },
+        title: { en: "Why Choose MH India Trips", es: "Por Qué Elegir MH India Trips", pt: "Por Que Escolher a MH India Trips" },
         subtitle: { en: "Our Philosophy", es: "Nuestra Filosofía", pt: "Nossa Filosofia" }
       },
       howItWorks: [
@@ -365,7 +365,7 @@ const defaultSystemPages = [
       heroTitle: { en: "Get In Touch", es: "Ponte en Contacto", pt: "Entre em Contato" },
       heroSubtitle: { en: "Plan your dream India journey", es: "Planifica tu viaje soñado a India", pt: "Planeje sua viagem dos sonhos à Índia" },
       addressLine: { en: "New Delhi, India", es: "Nueva Delhi, India", pt: "Nova Delhi, Índia" },
-      email: { en: "mhindiatrips@gmail.com", es: "mhindiatrips@gmail.com", pt: "mhindiatrips@gmail.com" },
+      email: { en: "info@mhindiatrips.com", es: "info@mhindiatrips.com", pt: "info@mhindiatrips.com" },
       phone: { en: "+91 9314635830", es: "+91 9314635830", pt: "+91 9314635830" },
     }
   },

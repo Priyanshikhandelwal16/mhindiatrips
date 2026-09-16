@@ -13,8 +13,22 @@ declare global {
 export function setGoogleTranslateCookie(targetLang: string) {
   if (typeof document === "undefined") return;
   const domain = window.location.hostname;
-  const cookieValue = `/en/${targetLang}`;
 
+  if (targetLang === "en") {
+    // Clear googtrans cookies completely to restore original English text
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain};`;
+    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${domain};`;
+
+    const combo = document.querySelector(".goog-te-combo") as HTMLSelectElement;
+    if (combo && combo.value !== "en" && combo.value !== "") {
+      combo.value = "en";
+      combo.dispatchEvent(new Event("change"));
+    }
+    return;
+  }
+
+  const cookieValue = `/en/${targetLang}`;
   document.cookie = `googtrans=${cookieValue}; path=/;`;
   document.cookie = `googtrans=${cookieValue}; path=/; domain=${domain};`;
   document.cookie = `googtrans=${cookieValue}; path=/; domain=.${domain};`;
@@ -37,10 +51,8 @@ export default function GoogleTranslateWidget() {
     const firstSeg = segments[0] || "en";
     const targetLang = ["es", "pt", "fr", "de", "it"].includes(firstSeg) ? firstSeg : "en";
 
-    // Set Google Translate cookie automatically on page load
-    if (targetLang !== "en") {
-      setGoogleTranslateCookie(targetLang);
-    }
+    // Set or clear Google Translate cookie automatically on page load
+    setGoogleTranslateCookie(targetLang);
 
     window.googleTranslateElementInit = () => {
       if (window.google && window.google.translate) {
@@ -48,7 +60,7 @@ export default function GoogleTranslateWidget() {
           {
             pageLanguage: "en",
             includedLanguages: "en,es,pt,fr,de,it,ru,ja,zh-CN,hi,ar",
-            autoDisplay: true,
+            autoDisplay: false,
             multilanguagePage: true,
             layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
           },
@@ -62,8 +74,8 @@ export default function GoogleTranslateWidget() {
           if (targetLang !== "en") {
             setGoogleTranslateCookie(targetLang);
           }
-          if (count > 15) clearInterval(interval);
-        }, 400);
+          if (count > 25) clearInterval(interval);
+        }, 300);
       }
     };
 

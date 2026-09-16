@@ -212,8 +212,7 @@ export default function AdminDashboard() {
     try {
       const verifyRes = await verifyAdminCredentialsAction(email, password);
       if (verifyRes.success) {
-        const adminEmail = (process.env.NEXT_PUBLIC_ADMIN_EMAIL || "admin@mhindiatrips.com").replace(/['"]/g, "").trim();
-        const customUser = { email: adminEmail, customAuth: true };
+        const customUser = { email: verifyRes.email || email.trim(), customAuth: true };
         setUser(customUser);
         localStorage.setItem("admin_user", JSON.stringify(customUser));
         setAuthLoading(false);

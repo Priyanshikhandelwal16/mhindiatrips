@@ -242,6 +242,36 @@ export default async function BlogIndexPage({ params, searchParams }: BlogIndexP
         </div>
       </section>
 
+      {/* Food & Culinary Guide Feature Banner */}
+      <section className="max-w-7xl mx-auto px-6 pb-16">
+        <Reveal>
+          <div className="bg-[#0A2A1E] text-white p-8 md:p-12 rounded-3xl border-2 border-gold/30 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="space-y-4 max-w-xl z-10">
+              <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-gold" />
+                <span>Culinary Heritage</span>
+              </span>
+              <h3 className="text-2xl md:text-3xl font-serif font-bold text-white">
+                {locale === "es" ? "Guía Gastronómica de la India" : locale === "pt" ? "Guia Gastronômico da Índia" : "Explore India's Authentic Food Guide"}
+              </h3>
+              <p className="text-white/80 text-sm font-light leading-relaxed">
+                {locale === "es" ? "Descubra los sabores de las cocinas reales mogoles, especias locales y delicias culinarias tradicionales de toda la India." : locale === "pt" ? "Descubra os sabores das cozinhas reais mogóis, especiarias locais e delícias culinárias tradicionais de toda a Índia." : "Discover royal Mughal dishes, aromatic regional spices, street food culture, and fine dining across India."}
+              </p>
+              <Link
+                href={`/${locale}/food`}
+                className="inline-flex items-center gap-2 bg-gold hover:bg-white text-royal font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:scale-105"
+              >
+                <span>{locale === "es" ? "Explorar Guía de Comida" : locale === "pt" ? "Explorar Guia Gastronômico" : "Explore Food Guide"}</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            <div className="w-full md:w-80 h-48 md:h-60 relative rounded-2xl overflow-hidden shadow-lg border border-gold/20 shrink-0">
+              <img src="/images/culinary_heritage.png" alt="India Food Guide" className="w-full h-full object-cover" />
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
       {/* SECTION 5: Popular Posts List */}
       <section className="bg-white border-t border-gold/15 py-24">
         <div className="max-w-6xl mx-auto px-6 space-y-8">

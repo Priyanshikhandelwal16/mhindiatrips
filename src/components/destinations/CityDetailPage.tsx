@@ -39,7 +39,7 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
       ctaTitle: "Need Help? We Are Here To Help You",
       ctaDesc: "We Can Tailor-Make a Special Itinerary For You. Contact our specialists directly.",
       phone: "+91 9314635830",
-      email: "mhindiatrips@gmail.com",
+      email: "info@mhindiatrips.com",
       readMore: "Read More",
       recommended: "Recommended"
     },
@@ -60,7 +60,7 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
       ctaTitle: "¿Necesitas Ayuda? Estamos Aquí Para Ti",
       ctaDesc: "Podemos crear un itinerario especial para ti. Contacta con nuestros especialistas.",
       phone: "+91 9314635830",
-      email: "mhindiatrips@gmail.com",
+      email: "info@mhindiatrips.com",
       readMore: "Leer Más",
       recommended: "Recomendado"
     },
@@ -81,7 +81,7 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
       ctaTitle: "Precisa de Ajuda? Estamos Aqui Para Você",
       ctaDesc: "Podemos criar um roteiro especial para você. Fale com nossos especialistas.",
       phone: "+91 9314635830",
-      email: "mhindiatrips@gmail.com",
+      email: "info@mhindiatrips.com",
       readMore: "Leia Mais",
       recommended: "Recomendado"
     }

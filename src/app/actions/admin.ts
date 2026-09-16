@@ -411,7 +411,7 @@ export async function getSettingsAction() {
         companyName: "MH India Trips",
         gstin: "08AABCM1234F1Z9",
         phone: "+91 9314635830",
-        email: "mhindiatrips@gmail.com",
+        email: "info@mhindiatrips.com",
         whatsapp: "919314635830",
         website: "https://mhindiatrips.com",
         address: "Jaipur & New Delhi, India",
@@ -501,19 +501,19 @@ export async function updateAdminPasswordAction(newPassword: string) {
 
 export async function verifyAdminCredentialsAction(emailInput: string, passwordInput: string) {
   try {
-    const adminEmail = (process.env.NEXT_PUBLIC_ADMIN_EMAIL || "admin@mhindiatrips.com").replace(/['"]/g, "").trim();
-    if (emailInput.trim() !== adminEmail) {
+    const adminEmail = (process.env.ADMIN_EMAIL || process.env.NEXT_PUBLIC_ADMIN_EMAIL || "admin@mhindiatrips.com").replace(/['"]/g, "").trim();
+    if (emailInput.trim().toLowerCase() !== adminEmail.toLowerCase()) {
       return { success: false, error: "Invalid credentials" };
     }
 
     // Check custom password from database
     const creds = await db.settings.findUnique("admin_credentials");
-    const allowedPassword = creds?.customPassword || (process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "admin").replace(/['"]/g, "").trim();
+    const allowedPassword = creds?.customPassword || (process.env.ADMIN_PASSWORD || process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "admin").replace(/['"]/g, "").trim();
 
     if (passwordInput.trim() === allowedPassword) {
       // Issue secure HttpOnly session cookie on the server
       await createAdminSession(adminEmail);
-      return { success: true };
+      return { success: true, email: emailInput.trim() };
     }
     return { success: false, error: "Invalid credentials" };
   } catch (error: any) {
