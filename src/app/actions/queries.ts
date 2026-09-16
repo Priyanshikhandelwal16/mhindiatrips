@@ -119,9 +119,9 @@ export async function getSettingsDetailsAction() {
   return contact || {
     companyName: "MH India Trips",
     gstin: "08AABCM1234F1Z9",
-    phone: "+91 9829989187",
+    phone: "+91 9314635830",
     email: "mhindiatrips@gmail.com",
-    whatsapp: "919829989187",
+    whatsapp: "919314635830",
     website: "https://mhindiatrips.com",
     address: "Jaipur & New Delhi, India",
     hours: "Mon - Sat: 9:00 AM - 7:00 PM IST"

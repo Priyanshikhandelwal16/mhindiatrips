@@ -473,12 +473,12 @@ export default async function TravelInfoPage({ params }: TravelInfoPageProps) {
                 </p>
               </div>
               <a
-                href="https://wa.me/919829989187"
+                href="https://wa.me/919314635830"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-center bg-[#C5A862] hover:bg-[#D8BE83] text-[#0A2A1E] text-xs font-bold uppercase tracking-wider py-3 rounded-full transition-all shadow-md hover:scale-105"
               >
-                Chat on WhatsApp (+91 9829989187)
+                Chat on WhatsApp (+91 9314635830)
               </a>
             </div>
 

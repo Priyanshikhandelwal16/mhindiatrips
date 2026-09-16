@@ -144,7 +144,7 @@ export async function sendInquiryConfirmation(data: InquiryData) {
                 </ol>
               </div>
               <p style="color:#555;font-size:15px;line-height:1.7;margin:0 0 20px;">
-                If you have any urgent questions, feel free to reply to this email or call us at <strong>+91 9829989187</strong>.
+                If you have any urgent questions, feel free to reply to this email or call us at <strong>+91 9314635830</strong>.
               </p>
               <p style="color:#555;font-size:15px;line-height:1.7;margin:24px 0 0;">
                 Warm regards,<br>
@@ -159,7 +159,7 @@ export async function sendInquiryConfirmation(data: InquiryData) {
               <p style="margin:0 0 16px;font-size:13px;">
                 <a href="https://www.instagram.com/" style="color:#B8964B;text-decoration:none;margin:0 8px;">Instagram</a>
                 <a href="https://www.facebook.com/" style="color:#B8964B;text-decoration:none;margin:0 8px;">Facebook</a>
-                <a href="https://wa.me/919829989187" style="color:#B8964B;text-decoration:none;margin:0 8px;">WhatsApp</a>
+                <a href="https://wa.me/919314635830" style="color:#B8964B;text-decoration:none;margin:0 8px;">WhatsApp</a>
               </p>
               <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.35);">&copy; ${new Date().getFullYear()} MH India Trips | mhindiatrips.com</p>
             </td>

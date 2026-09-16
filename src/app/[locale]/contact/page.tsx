@@ -17,11 +17,11 @@ export default async function ContactPage({ params }: ContactPageProps) {
   const pageData = await getPageByIdAction("contact");
   
   const contactDetails = (await db.settings.findUnique("contact_details")) || {
-    phone: "+91 9829989187",
+    phone: "+91 9314635830",
     email: "mhindiatrips@gmail.com",
     address: "",
     hours: "Mon - Sat: 9:00 AM - 7:00 PM IST",
-    whatsapp: "919829989187"
+    whatsapp: "919314635830"
   };
 
   const t: Record<string, any> = {
@@ -30,7 +30,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
       heroSub: "Concierge Contact",
       heroDesc: "Connect with our expert travel designers to begin crafting your private customized India itinerary.",
       infoTitle: "Concierge Desk",
-      phone: contactDetails.phone || "+91 9829989187",
+      phone: contactDetails.phone || "+91 9314635830",
       email: contactDetails.email || "mhindiatrips@gmail.com",
       hours: contactDetails.hours || "Mon - Sat: 9:00 AM - 7:00 PM IST",
       whatsappBtn: "Chat on WhatsApp",
@@ -40,7 +40,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
       heroSub: "Contacto de Conserjería",
       heroDesc: "Conéctese con nuestros diseñadores de viajes para comenzar a crear su itinerario personalizado.",
       infoTitle: "Mesa de Conserjería",
-      phone: contactDetails.phone || "+91 9829989187",
+      phone: contactDetails.phone || "+91 9314635830",
       email: contactDetails.email || "mhindiatrips@gmail.com",
       hours: contactDetails.hours || "Lun - Sáb: 9:00 AM - 7:00 PM IST",
       whatsappBtn: "Chat en WhatsApp",
@@ -50,7 +50,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
       heroSub: "Contacto de Concierge",
       heroDesc: "Entre em contato com nossos designers de viagens para começar a planejar seu itinerário personalizado.",
       infoTitle: "Mesa de Concierge",
-      phone: contactDetails.phone || "+91 9829989187",
+      phone: contactDetails.phone || "+91 9314635830",
       email: contactDetails.email || "mhindiatrips@gmail.com",
       hours: contactDetails.hours || "Seg - Sáb: 9:00 AM - 7:00 PM IST",
       whatsappBtn: "Conversar no WhatsApp",
@@ -145,7 +145,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
             {/* Instant Support */}
             <div className="pt-6 border-t border-gold/15">
               <a 
-                href={`https://wa.me/${contactDetails.whatsapp || "919829989187"}`} 
+                href={`https://wa.me/${contactDetails.whatsapp || "919314635830"}`} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white text-[10px] font-bold uppercase tracking-widest py-4 px-6 rounded-full transition-transform hover:scale-[1.02] shadow-md"

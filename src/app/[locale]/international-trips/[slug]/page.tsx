@@ -483,13 +483,13 @@ export default async function OutboundDetailPage({ params }: OutboundDetailPageP
                   <span>{text.inquireBtn}</span>
                 </a>
                 <a
-                  href="https://wa.me/919829989187"
+                  href="https://wa.me/919314635830"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-xs uppercase tracking-widest px-6 py-3.5 rounded-full transition-all inline-flex items-center gap-2"
                 >
                   <Phone className="w-4 h-4 text-[#C5A862]" />
-                  <span>+91 9829989187</span>
+                  <span>+91 9314635830</span>
                 </a>
               </div>
             </div>

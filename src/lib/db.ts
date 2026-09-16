@@ -142,9 +142,9 @@ let settingsCache = loadLocalData("settings", [
     id: "contact_details",
     companyName: "MH India Trips",
     gstin: "08AABCM1234F1Z9",
-    phone: "+91 9829989187",
+    phone: "+91 9314635830",
     email: "mhindiatrips@gmail.com",
-    whatsapp: "919829989187",
+    whatsapp: "919314635830",
     website: "https://mhindiatrips.com",
     address: "Jaipur & New Delhi, Rajasthan, India",
     hours: "Mon - Sat: 9:00 AM - 7:00 PM IST"
@@ -366,7 +366,7 @@ const defaultSystemPages = [
       heroSubtitle: { en: "Plan your dream India journey", es: "Planifica tu viaje soñado a India", pt: "Planeje sua viagem dos sonhos à Índia" },
       addressLine: { en: "New Delhi, India", es: "Nueva Delhi, India", pt: "Nova Delhi, Índia" },
       email: { en: "mhindiatrips@gmail.com", es: "mhindiatrips@gmail.com", pt: "mhindiatrips@gmail.com" },
-      phone: { en: "+91 9829989187", es: "+91 9829989187", pt: "+91 9829989187" },
+      phone: { en: "+91 9314635830", es: "+91 9314635830", pt: "+91 9314635830" },
     }
   },
   {

@@ -1008,13 +1008,13 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                 </a>
 
                 <a 
-                  href={`tel:${settings.phone || "+91 9829989187"}`} 
+                  href={`tel:${settings.phone || "+91 9314635830"}`} 
                   className="bg-white/10 hover:bg-white/20 p-5 rounded-2xl border border-white/15 transition-all flex items-center gap-3.5"
                 >
                   <Phone className="w-5 h-5 text-[#C5A862] shrink-0" />
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-white/60 block">{text.phoneLabel}</span>
-                    <span className="text-xs font-semibold text-white">{settings.phone || "+91 9829989187"}</span>
+                    <span className="text-xs font-semibold text-white">{settings.phone || "+91 9314635830"}</span>
                   </div>
                 </a>
 

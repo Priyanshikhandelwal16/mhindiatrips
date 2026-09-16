@@ -12,7 +12,7 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
   const pageData = await getPageByIdAction("privacy");
   
   const contactDetails = (await db.settings.findUnique("contact_details")) || {
-    phone: "+91 9829989187",
+    phone: "+91 9314635830",
     email: "mhindiatrips@gmail.com"
   };
 
@@ -79,7 +79,7 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
                 <p className="text-[15px]">You have the right to access, correct, or delete your personal information at any time. Contact us at {contactDetails.email || "mhindiatrips@gmail.com"} for any data-related requests.</p>
 
                 <h2 className="text-xl font-serif font-bold text-royal !mt-10">7. Contact</h2>
-                <p className="text-[15px]">For questions about this privacy policy, contact us at {contactDetails.email || "mhindiatrips@gmail.com"} or {contactDetails.phone || "+91 9829989187"}.</p>
+                <p className="text-[15px]">For questions about this privacy policy, contact us at {contactDetails.email || "mhindiatrips@gmail.com"} or {contactDetails.phone || "+91 9314635830"}.</p>
               </>
             )}
           </Reveal>
