@@ -141,7 +141,7 @@ let settingsCache = loadLocalData("settings", [
   {
     id: "contact_details",
     companyName: "MH India Trips",
-    gstin: "08AABCM1234F1Z9",
+    gstin: "08ACIFM3516H1Z7",
     phone: "+91 9314635830",
     email: "info@mhindiatrips.com",
     whatsapp: "919314635830",
@@ -346,10 +346,45 @@ const defaultSystemPages = [
     title: { en: "About Us", es: "Sobre Nosotros", pt: "Sobre Nós" },
     heroImage: "/images/kerala_backwaters_houseboat.png",
     content: {
-      heroTitle: { en: "About MH India Trips", es: "Sobre MH India Trips", pt: "Sobre MH India Trips" },
-      heroSubtitle: { en: "Your Trusted India Travel Partner", es: "Tu socio de viajes de confianza en India", pt: "Seu parceiro de viagem confiável na Índia" },
-      missionTitle: { en: "Our Mission", es: "Nuestra Misión", pt: "Nossa Missão" },
-      missionText: { en: "To create transformative travel experiences that connect discerning travelers with the authentic soul of India.", es: "Crear experiencias de viaje transformadoras.", pt: "Criar experiências de viagem transformadoras." },
+      heroSubtitle: { en: "OUR HERITAGE & LEGACY", es: "NUESTRO LEGADO Y PATRIMONIO", pt: "NOSSO PATRIMÔNIO E LEGADO" },
+      heroTitle: { en: "Pioneers of Bespoke Luxury Travel in India", es: "Pioneros en Viajes Privados de Lujo en la India", pt: "Pioneiros em Viagens Privadas de Luxo na Índia" },
+      heroDesc: { en: "Headquartered in Jaipur, Rajasthan, MH India Trips is an officially registered partnership firm (GSTIN: 08ACIFM3516H1Z7) crafting private, tailormade journeys with professional chauffeurs and hand-picked royal stays across PAN India.", es: "Con sede en Jaipur, Rajasthan, MH India Trips es una empresa de viajes registrada (GSTIN: 08ACIFM3516H1Z7) que diseña viajes privados a medida con choferes profesionales y hoteles palacio.", pt: "Sediada em Jaipur, Rajastão, a MH India Trips é uma empresa registrada (GSTIN: 08ACIFM3516H1Z7) que cria viagens sob medida com motoristas profissionais e hotéis palácio." },
+      storyTitle: { en: "Founded in Jaipur — Born From a Passion for Authentic Hospitality", es: "Fundada en Jaipur — Pasión por la Hospitalidad Auténtica", pt: "Fundada em Jaipur — Paixão pela Hospitalidade Autêntica" },
+      storyP1: { en: "Founded in Jaipur over two decades ago, MH India Trips was created to provide international and domestic travelers with an authentic, uncompromised way to explore India. Based in Khatipura Road, Hasanpura, Jaipur, our on-ground management team combines deep regional heritage knowledge with high-end luxury hospitality.", es: "Fundada en Jaipur hace más de dos décadas, MH India Trips nació para ofrecer a los viajeros una forma auténtica de explorar la India sin comprometer la comodidad. Con sede en Jaipur, nuestro equipo combina conocimientos culturales profundos con hospitalidad de lujo.", pt: "Fundada em Jaipur há mais de duas décadas, a MH India Trips nasceu para oferecer aos viajantes uma forma autêntica de explorar a Índia com máximo conforto. Nossa equipe combina conhecimento cultural profundo com hospitalidade de luxo." },
+      storyP2: { en: "From private dinners inside 400-year-old desert forts in Jodhpur to seamless luxury SUV transfers with English-speaking chauffeurs and pre-reserved monument tickets, we handle every detail with surgical precision. We don't use rigid group itineraries; every trip is 100% tailor-made to your pace.", es: "Desde cenas privadas en fortalezas del desierto en Jodhpur hasta traslados en SUVs de lujo con choferes de habla inglesa y entradas reservadas, gestionamos cada detalle con precisión. No usamos tours rígidos en grupo; cada viaje es 100% a su medida.", pt: "De jantares privados em fortalezas no deserto em Jodhpur a traslados em SUVs de luxo com motoristas de fala inglesa e ingressos reservados, cuidamos de cada detalhe com precisão. Cada viagem é 100% sob medida." },
+      missionTitle: { en: "Our Operational Mission", es: "Nuestra Misión Operativa", pt: "Nossa Missão Operacional" },
+      missionText: { en: "To deliver 100% safe, transparent, and legally compliant private travel with zero hidden fees, verified ASI licensed guides, and 24/7 dedicated concierge desk access.", es: "Ofrecer viajes privados 100% seguros, transparentes y conformes a la ley con guías certificados y asistencia 24/7.", pt: "Oferecer viagens privadas 100% seguras, transparentes e conformes à lei com guias certificados e suporte 24/7." },
+      visionTitle: { en: "Our Vision", es: "Nuestra Visión", pt: "Nossa Visão" },
+      visionText: { en: "To remain the premier private travel designer for luxury travelers globally, recognized for royal heritage access, exceptional chauffeur standards, and authentic cultural encounters.", es: "Ser el diseñador de viajes privados líder en la India, reconocido por nuestro acceso a palacios reales y excelencia en servicio.", pt: "Ser o designer de viagens privadas líder na Índia, reconhecido pelo acesso a palácios reais e excelência em serviço." },
+      whyChooseUsSub: { en: "THE MH INDIA TRIPS ADVANTAGE", es: "LA VENTAJA MH INDIA TRIPS", pt: "A VANTAGEM MH INDIA TRIPS" },
+      whyChooseUsTitle: { en: "Why Choose MH India Trips", es: "¿Por Qué Elegir MH India Trips?", pt: "Por Que Escolher a MH India Trips?" },
+      whyChooseUsDesc: { en: "Authentic, government-verified travel operations crafted without rigid groups or hidden surcharges.", es: "Operaciones de viaje auténticas y verificadas por el gobierno, sin grupos rígidos ni cargos ocultos.", pt: "Operações de viagem autênticas e verificadas pelo governo, sem grupos rígidos nem taxas ocultas." },
+      whyPillars: [
+        {
+          title: { en: "100% Government Certified & GST Compliant", es: "100% Certificado por el Gobierno y GST", pt: "100% Certificado pelo Governo e GST" },
+          desc: { en: "Officially registered partnership firm under Form GST REG-06 with active GSTIN 08ACIFM3516H1Z7. Official GST tax invoices issued for every booking.", es: "Empresa legalmente registrada con GSTIN 08ACIFM3516H1Z7. Emitimos facturas oficiales para todas las reservas.", pt: "Empresa legalmente registrada com GSTIN 08ACIFM3516H1Z7. Emitimos faturas oficiais para todas as reservas." }
+        },
+        {
+          title: { en: "100% Private Fleet & Professional Chauffeurs", es: "Flota 100% Privada y Choferes Profesionales", pt: "Frota 100% Privada e Motoristas Profissionais" },
+          desc: { en: "Dedicated English-speaking professional drivers with air-conditioned luxury SUVs (Innova Crysta, Fortuner) assigned exclusively to your group.", es: "Choferes profesionales de habla inglesa con vehículos SUV de lujo (Innova Crysta, Fortuner) asignados exclusivamente.", pt: "Motoristas profissionais de fala inglesa com veículos SUV de luxo atribuídos exclusivamente ao seu grupo." }
+        },
+        {
+          title: { en: "Official ASI Licensed Local Heritage Guides", es: "Guías Oficiales Certificados por el Gobierno", pt: "Guias Oficiais Certificados pelo Governo" },
+          desc: { en: "Government-certified local guides at Taj Mahal, Amber Fort, and heritage circuits to ensure authentic history without commercial shopping traps.", es: "Guías locales oficiales certificados en monumentos históricos para garantizar historia auténtica sin paradas comerciales obligatorias.", pt: "Guias locais oficiais certificados em monumentos históricos para garantir história autêntica sem paradas comerciais." }
+        },
+        {
+          title: { en: "Hand-Curated Royal Palace & Heritage Stays", es: "Estancias Seleccionadas en Palacios Reales", pt: "Estadias Selecionadas em Palácios Reais" },
+          desc: { en: "Pre-vetted bookings inside restored royal fortresses, authentic heritage Havelis, luxury wellness resorts, and private backwater houseboats.", es: "Reservas verificadas en palacios reales restaurados, havelis históricas, resorts de bienestar y casas flotantes privadas.", pt: "Reservas verificadas em palácios reais restaurados, havelis históricas, resorts de bem-estar e barcos privados." }
+        },
+        {
+          title: { en: "24/7 Boots-on-Ground Operations Desk", es: "Mesa de Operaciones y Concierge 24/7", pt: "Central de Operações e Concierge 24/7" },
+          desc: { en: "Direct WhatsApp connection line with your dedicated trip manager from your airport landing until your departure flight.", es: "Contacto directo por WhatsApp con su gestor de viaje dedicado desde su llegada al aeropuerto hasta su vuelo de regreso.", pt: "Contato direto por WhatsApp com seu gerente de viagem dedicado do desembarque ao voo de volta." }
+        },
+        {
+          title: { en: "Transparent Pricing & Guaranteed Entry Permits", es: "Precios Transparentes y Permisos Garantizados", pt: "Preços Transparentes e Entradas Garantidas" },
+          desc: { en: "All monument entry passes, toll taxes, fuel, driver allowances, and taxes included upfront with zero surprise surcharges.", es: "Entradas a monumentos, peajes, combustible y tasas incluidas por adelantado sin cargos sorpresa.", pt: "Ingressos de monumentos, pedágios, combustível e taxas incluídos antecipadamente sem custos surpresa." }
+        }
+      ],
       team: [
         { name: "Rahul Sharma", role: "Founder & Lead Travel Designer", img: "/images/team_rahul.png", desc: "Over 22 years of hands-on expertise curating ultra-luxury private safaris and royal palace stays across India." },
         { name: "Priya Patel", role: "Co-Founder & Senior Destination Specialist", img: "/images/team_priya.png", desc: "Specializes in Rajasthan heritage hospitality, Kerala wellness retreats, and seamless international outbound itineraries." }
@@ -434,6 +469,19 @@ const defaultSystemPages = [
     heroImage: "",
     content: {
       body: { en: "<p>These terms govern your use of MH India Trips services.</p>", es: "<p>Estos términos rigen el uso de los servicios de MH India Trips.</p>", pt: "<p>Estes termos regem a utilização dos serviços da MH India Trips.</p>" },
+    }
+  },
+  {
+    id: "disclaimer",
+    isCustom: false,
+    title: { en: "Legal Disclaimer", es: "Aviso Legal", pt: "Aviso Legal" },
+    heroImage: "",
+    content: {
+      body: { 
+        en: "<p>The information provided on MH India Trips is for general travel information and planning purposes. All tour packages, monument timings, tariffs, and itineraries are subject to seasonal revisions, availability, and local government regulations.</p>", 
+        es: "<p>La información proporcionada en MH India Trips tiene fines generales de información y planificación de viajes. Todos los paquetes, horarios de monumentos y tarifas están sujetos a disponibilidad y regulaciones locales.</p>", 
+        pt: "<p>As informações fornecidas na MH India Trips destinam-se a fins de informação e planejamento de viagens. Todos os pacotes e horários estão sujeitos a disponibilidade e regulamentações locais.</p>" 
+      },
     }
   },
   {

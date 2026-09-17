@@ -379,6 +379,7 @@ export async function updatePageAction(id: string, data: any) {
     revalidatePath(`/[locale]/monuments`, "page");
     revalidatePath(`/[locale]/privacy`, "page");
     revalidatePath(`/[locale]/terms`, "page");
+    revalidatePath(`/[locale]/disclaimer`, "page");
     return { success: true, page };
   } catch (error: any) {
     return { success: false, error: error.message || "Failed to update page" };
@@ -409,7 +410,7 @@ export async function getSettingsAction() {
       contactDetails: contact || {
         id: "contact_details",
         companyName: "MH India Trips",
-        gstin: "08AABCM1234F1Z9",
+        gstin: "08ACIFM3516H1Z7",
         phone: "+91 9314635830",
         email: "info@mhindiatrips.com",
         whatsapp: "919314635830",

@@ -1,10 +1,14 @@
 import React from "react";
 import Link from "next/link";
-import { Compass, Users, Heart, Star, Shield, Award, ArrowRight } from "lucide-react";
+import { 
+  Compass, Users, Heart, Star, Shield, Award, ArrowRight, 
+  ShieldCheck, Building2, MapPin, CheckCircle2, Clock, Sparkles, 
+  Lock, FileCheck2, UserCheck 
+} from "lucide-react";
 import { getPageByIdAction } from "@/app/actions/queries";
+import { db } from "@/lib/db";
 import Reveal from "@/components/home/Reveal";
 import AboutStatsCounter from "@/components/common/AboutStatsCounter";
-import PageHeroSlider from "@/components/common/PageHeroSlider";
 
 interface AboutPageProps {
   params: Promise<{ locale: string }>;
@@ -13,123 +17,199 @@ interface AboutPageProps {
 export default async function AboutPage({ params }: AboutPageProps) {
   const { locale } = await params;
   const pageData = await getPageByIdAction("about");
+  const contactDetails = (await db.settings.findUnique("contact_details")) || {
+    phone: "+91 9314635830",
+    email: "info@mhindiatrips.com",
+    gstin: "08ACIFM3516H1Z7"
+  };
 
-  const t: Record<string, any> = {
+  const defaultT: Record<string, any> = {
     en: {
-      heroSub: "Our Story",
-      hero: "Pioneers of Bespoke Indian Safaris",
-      heroDesc: "Creating elite private journeys across the Indian subcontinent since 2010. Our passion is authentic local story-telling and unparalleled service.",
-      storyTitle: "Our Heritage & Philosophy",
-      storyP1: "Founded over a decade ago, MH India Trips was born from a simple vision: to showcase the rich heritage, vibrant colors, and spiritual depth of India without compromising on comfort. We believe that travel should be slow, immersive, and custom-tailored to the individual traveler.",
-      storyP2: "From private dinners inside medieval desert forts to custom houseboat tours on Kerala's tranquil backwaters, our on-ground concierge team works tirelessly to ensure every detail is absolute perfection. We don't just book tours; we curate life-defining memories.",
-      missionTitle: "Our Mission",
-      missionText: "To bridge the gap between luxury comfort and authentic local encounters, offering absolute peace of mind through hand-picked experts.",
+      heroSub: "OUR HERITAGE & LEGACY",
+      hero: "Pioneers of Bespoke Luxury Travel in India",
+      heroDesc: "Headquartered in Jaipur, Rajasthan, MH India Trips is an officially registered partnership firm (GSTIN: 08ACIFM3516H1Z7) crafting private, tailormade journeys with professional chauffeurs and hand-picked royal stays across PAN India.",
+      storyTitle: "Founded in Jaipur — Born From a Passion for Authentic Hospitality",
+      storyP1: "Founded in Jaipur over two decades ago, MH India Trips was created to provide international and domestic travelers with an authentic, uncompromised way to explore India. Based in Khatipura Road, Hasanpura, Jaipur, our on-ground management team combines deep regional heritage knowledge with high-end luxury hospitality.",
+      storyP2: "From private dinners inside 400-year-old desert forts in Jodhpur to seamless luxury SUV transfers with English-speaking chauffeurs and pre-reserved monument tickets, we handle every detail with surgical precision. We don't use rigid group itineraries; every trip is 100% tailor-made to your pace.",
+      missionTitle: "Our Operational Mission",
+      missionText: "To deliver 100% safe, transparent, and legally compliant private travel with zero hidden fees, verified ASI licensed guides, and 24/7 dedicated concierge desk access.",
       visionTitle: "Our Vision",
-      visionText: "To remain India's premier private travel designer, recognized globally for outstanding service, sustainability, and unique palace stays.",
-      valuesTitle: "Our Core Values",
-      teamTitle: "Our Expert Team",
-      teamDesc: "Meet our bilingual destination managers, heritage researchers, and logistics coordinators.",
-      ctaTitle: "Ready to Plan Your Indian Safari?",
-      ctaDesc: "Contact our luxury travel advisors today to begin drafting your custom custom-tailored itinerary.",
-      ctaBtn: "Inquire Now",
+      visionText: "To remain the premier private travel designer for luxury travelers globally, recognized for royal heritage access, exceptional chauffeur standards, and authentic cultural encounters.",
+      whySub: "THE MH INDIA TRIPS ADVANTAGE",
+      whyTitle: "Why Choose MH India Trips",
+      whyDesc: "Authentic, government-verified travel operations crafted without rigid group tours or hidden surcharges.",
+      valuesTitle: "Our Core Booking Standards",
+      teamTitle: "Leadership & Destination Specialists",
+      teamDesc: "Meet our founders and senior destination managers leading on-ground operations across India.",
+      ctaTitle: "Ready to Begin Your Tailored Journey?",
+      ctaDesc: "Speak directly to our luxury travel advisors in Jaipur to draft your custom private itinerary.",
+      ctaBtn: "Plan Your Trip",
     },
     es: {
-      heroSub: "Nuestra Historia",
-      hero: "Pioneros de Viajes a Medida en la India",
-      heroDesc: "Creando itinerarios privados de lujo desde 2010. Nuestra pasión es el servicio inigualable y la autenticidad local.",
-      storyTitle: "Nuestra Filosofía y Legado",
-      storyP1: "Fundada hace más de una década, MH India Trips nació de una visión simple: mostrar el rico patrimonio, los colores vibrantes y la profundidad espiritual de la India sin comprometer el confort.",
-      storyP2: "Desde cenas privadas en fuertes medievales del desierto hasta paseos a medida en casas flotantes por los canales de Kerala, nuestro equipo trabaja incansablemente para que cada detalle sea perfecto.",
-      missionTitle: "Nuestra Misión",
-      missionText: "Unir el confort de lujo con encuentros locales auténticos, ofreciendo total tranquilidad a través de expertos locales.",
+      heroSub: "NUESTRO LEGADO Y PATRIMONIO",
+      hero: "Pioneros en Viajes Privados de Lujo en la India",
+      heroDesc: "Con sede en Jaipur, Rajasthan, MH India Trips es una empresa registrada (GSTIN: 08ACIFM3516H1Z7) que diseña viajes privados a medida con choferes profesionales y hoteles palacio.",
+      storyTitle: "Fundada en Jaipur — Pasión por la Hospitalidad Auténtica",
+      storyP1: "Fundada en Jaipur hace más de dos décadas, MH India Trips nació para ofrecer a los viajeros una forma auténtica de explorar la India sin comprometer la comodidad. Con sede en Jaipur, nuestro equipo combina conocimientos culturales profundos con hospitalidad de lujo.",
+      storyP2: "Desde cenas privadas en fortalezas del desierto en Jodhpur hasta traslados en SUVs de lujo con choferes de habla inglesa y entradas reservadas, gestionamos cada detalle con precisión. No usamos tours rígidos en grupo; cada viaje es 100% a su medida.",
+      missionTitle: "Nuestra Misión Operativa",
+      missionText: "Ofrecer viajes privados 100% seguros, transparentes y conformes a la ley con guías certificados y asistencia 24/7.",
       visionTitle: "Nuestra Visión",
-      visionText: "Seguir siendo el diseñador de viajes privados líder en la India, reconocido por nuestro servicio sobresaliente y estancias en palacios reales.",
-      valuesTitle: "Nuestros Valores Core",
-      teamTitle: "Nuestro Equipo de Expertos",
-      teamDesc: "Conozca a nuestros asesores de destino bilingües y coordinadores de logística.",
-      ctaTitle: "¿Listo Para Diseñar Su Viaje a la India?",
-      ctaDesc: "Contacte a nuestros asesores de viajes de lujo hoy para comenzar a planificar su itinerario a medida.",
+      visionText: "Ser el diseñador de viajes privados líder en la India, reconocido por nuestro acceso a palacios reales y excelencia en servicio.",
+      whySub: "LA VENTAJA MH INDIA TRIPS",
+      whyTitle: "¿Por Qué Elegir MH India Trips?",
+      whyDesc: "Operaciones de viaje auténticas y verificadas por el gobierno, sin grupos rígidos ni cargos ocultos.",
+      valuesTitle: "Nuestros Estándares de Servicio",
+      teamTitle: "Liderazgo y Especialistas",
+      teamDesc: "Conozca a nuestros fundadores y gestores de destino que dirigen las operaciones en la India.",
+      ctaTitle: "¿Listo Para Diseñar Su Viaje a Medida?",
+      ctaDesc: "Hable directamente con nuestros asesores en Jaipur para planificar su itinerario privado.",
       ctaBtn: "Planificar Ahora",
     },
     pt: {
-      heroSub: "Nossa História",
-      hero: "Pioneiros de Viagens Sob Medida na Índia",
-      heroDesc: "Criando itinerários privados de luxo desde 2010. Nossa paixão é o serviço incomparável e a autenticidade local.",
-      storyTitle: "Nossa Filosofia e Legado",
-      storyP1: "Fundada há mais de uma década, a MH India Trips nasceu de uma visão simples: mostrar o rico patrimônio, as cores vibrantes e a profundidade espiritual da Índia sem comprometer o conforto.",
-      storyP2: "De jantares privados em fortes medievais do deserto a passeios sob medida em barcos nos canais de Kerala, nossa equipe trabalha incansavelmente para que cada detalhe seja perfeito.",
-      missionTitle: "Nossa Missão",
-      missionText: "Unir o conforto de luxo com encontros locais autênticos, oferecendo total tranquilidade através de especialistas locais.",
+      heroSub: "NOSSO PATRIMÔNIO E LEGADO",
+      hero: "Pioneiros em Viagens Privadas de Luxo na Índia",
+      heroDesc: "Sediada em Jaipur, Rajastão, a MH India Trips é uma empresa registrada (GSTIN: 08ACIFM3516H1Z7) que cria viagens sob medida com motoristas profissionais e hotéis palácio.",
+      storyTitle: "Fundada em Jaipur — Paixão pela Hospitalidad Autêntica",
+      storyP1: "Fundada em Jaipur há mais de duas décadas, a MH India Trips nasceu para oferecer aos viajantes uma forma autêntica de explorar a Índia com máximo conforto. Nossa equipe combina conhecimento cultural profundo com hospitalidade de luxo.",
+      storyP2: "De jantares privados em fortalezas no deserto em Jodhpur a traslados em SUVs de luxo com motoristas de fala inglesa e ingressos reservados, cuidamos de cada detalhe com precisão. Cada viagem é 100% sob medida.",
+      missionTitle: "Nossa Missão Operacional",
+      missionText: "Oferecer viagens privadas 100% seguras, transparentes e conformes à lei com guias certificados e suporte 24/7.",
       visionTitle: "Nossa Visão",
-      visionText: "Continuar sendo o designer de viagens privadas líder na Índia, reconhecido globalmente por nosso serviço excepcional.",
-      valuesTitle: "Nossos Valores Principais",
-      teamTitle: "Nossa Equipe de Especialistas",
-      teamDesc: "Conheça nossos consultores de viagem bilingues e especialistas em logística.",
-      ctaTitle: "Pronto Para Criar Sua Viagem?",
-      ctaDesc: "Entre em contato com nossos especialistas hoje para começar o planejamento.",
+      visionText: "Ser o designer de viagens privadas líder na Índia, reconhecido pelo acesso a palácios reais e excelência em serviço.",
+      whySub: "A VANTAGEM MH INDIA TRIPS",
+      whyTitle: "Por Que Escolher a MH India Trips?",
+      whyDesc: "Operações de viagem autênticas e verificadas pelo governo, sem grupos rígidos nem taxas ocultas.",
+      valuesTitle: "Nossos Padrões de Serviço",
+      teamTitle: "Liderança e Especialistas",
+      teamDesc: "Conheça nossos fundadores e especialistas que lideram operações em toda a Índia.",
+      ctaTitle: "Pronto Para Criar Sua Viagem Sob Medida?",
+      ctaDesc: "Fale diretamente com nossos consultores em Jaipur para planejar seu roteiro privado.",
       ctaBtn: "Solicitar Agora",
     }
   };
 
-  const dbContent = pageData?.content || {};
-  const mergedT: Record<string, any> = { ...t };
-  if (dbContent) {
-    for (const l of ["en", "es", "pt"]) {
-      if (mergedT[l]) {
-        if (dbContent.heroSub?.[l]) mergedT[l].heroSub = dbContent.heroSub[l];
-        if (dbContent.hero?.[l]) mergedT[l].hero = dbContent.hero[l];
-        if (dbContent.heroDesc?.[l]) mergedT[l].heroDesc = dbContent.heroDesc[l];
-      }
-    }
-  }
-  const text = mergedT[locale] || mergedT.en;
+  const cms = pageData?.content || {};
+  const lang = (locale === "es" || locale === "pt") ? locale : "en";
+  const defaultLabels = defaultT[lang] || defaultT.en;
 
-  const aboutSlides = [
+  // READ EVERYTHING DYNAMICALLY FROM CMS (pageData.content) WITH FALLBACKS
+  const resolveCMS = (fieldKey: string, fallback: string) => {
+    const val = cms[fieldKey];
+    if (!val) return fallback;
+    if (typeof val === "string") return val;
+    if (typeof val === "object") return val[lang] || val.en || fallback;
+    return fallback;
+  };
+
+  const text = {
+    heroSub: resolveCMS("heroSubtitle", defaultLabels.heroSub),
+    hero: resolveCMS("heroTitle", defaultLabels.hero),
+    heroDesc: resolveCMS("heroDesc", defaultLabels.heroDesc),
+    storyTitle: resolveCMS("storyTitle", defaultLabels.storyTitle),
+    storyP1: resolveCMS("storyP1", defaultLabels.storyP1),
+    storyP2: resolveCMS("storyP2", defaultLabels.storyP2),
+    missionTitle: resolveCMS("missionTitle", defaultLabels.missionTitle),
+    missionText: resolveCMS("missionText", defaultLabels.missionText),
+    visionTitle: resolveCMS("visionTitle", defaultLabels.visionTitle),
+    visionText: resolveCMS("visionText", defaultLabels.visionText),
+    whySub: resolveCMS("whyChooseUsSub", defaultLabels.whySub),
+    whyTitle: resolveCMS("whyChooseUsTitle", defaultLabels.whyTitle),
+    whyDesc: resolveCMS("whyChooseUsDesc", defaultLabels.whyDesc),
+    valuesTitle: resolveCMS("valuesTitle", defaultLabels.valuesTitle),
+    teamTitle: resolveCMS("teamTitle", defaultLabels.teamTitle),
+    teamDesc: resolveCMS("teamDesc", defaultLabels.teamDesc),
+    ctaTitle: resolveCMS("ctaTitle", defaultLabels.ctaTitle),
+    ctaDesc: resolveCMS("ctaDesc", defaultLabels.ctaDesc),
+    ctaBtn: resolveCMS("ctaBtn", defaultLabels.ctaBtn),
+  };
+
+  // AUTHENTIC WHY CHOOSE US PILLARS (CMS driven or authentic fallbacks)
+  const defaultPillars = [
     {
-      image: "/images/rajasthan_fort_sunset.png",
-      title: text.hero,
-      subtitle: text.heroSub,
-      location: "Rajasthan & North India",
-      description: locale === "es" ? "Diseñando itinerarios privados de lujo desde 2010." : locale === "pt" ? "Criando roteiros privados de luxo desde 2010." : "Crafting bespoke private luxury journeys across India.",
-      ctaText: text.ctaBtn,
-      ctaLink: "/contact"
+      icon: <Building2 className="w-7 h-7" />,
+      title: locale === "es" ? "100% Certificado por el Gobierno y GST" : locale === "pt" ? "100% Certificado pelo Governo e GST" : "100% Govt. Certified & GST Registered",
+      desc: locale === "es" 
+        ? "Empresa registrada bajo GSTIN 08ACIFM3516H1Z7 (Form GST REG-06). Emitimos facturas fiscales oficiales para todas las reservas." 
+        : locale === "pt" 
+        ? "Empresa registrada sob GSTIN 08ACIFM3516H1Z7 (Form GST REG-06). Emitimos faturas fiscais oficiais para todas as reservas." 
+        : "Officially registered partnership firm under Form GST REG-06 (GSTIN: 08ACIFM3516H1Z7). Official GST tax invoices issued for every client booking."
     },
     {
-      image: "/images/taj_mahal_sunrise.png",
-      title: text.storyTitle,
-      subtitle: text.heroSub,
-      location: "Agra & Taj Mahal",
-      description: locale === "es" ? "Patrimonio real y servicio personalizado incomparable." : locale === "pt" ? "Patrimônio real e serviço personalizado incomparável." : "Royal heritage hospitality with 24/7 dedicated concierge.",
-      ctaText: text.ctaBtn,
-      ctaLink: "/contact"
+      icon: <ShieldCheck className="w-7 h-7" />,
+      title: locale === "es" ? "Flota 100% Privada y Choferes Profesionales" : locale === "pt" ? "Frota 100% Privada e Motoristas Profissionais" : "100% Private Fleet & Professional Chauffeurs",
+      desc: locale === "es" 
+        ? "Conductores profesionales de habla inglesa con vehículos SUV de lujo (Innova Crysta, Fortuner) dedicados exclusivamente a su grupo." 
+        : locale === "pt" 
+        ? "Motoristas profissionais de fala inglesa com SUVs de luxo (Innova Crysta, Fortuner) dedicados exclusivamente ao seu grupo." 
+        : "Dedicated English-speaking professional drivers with air-conditioned luxury SUVs (Innova Crysta, Fortuner) assigned exclusively to your group."
     },
     {
-      image: "/images/kerala_backwaters_houseboat.png",
-      title: "Kerala Backwaters & Serenity",
-      subtitle: text.heroSub,
-      location: "Kerala & South India",
-      description: locale === "es" ? "Cruceros privados y retiros de bienestar auténticos." : locale === "pt" ? "Cruzeiros privados e retiros de bem-estar autênticos." : "Private houseboat cruises and tranquil wellness retreats.",
-      ctaText: text.ctaBtn,
-      ctaLink: "/contact"
+      icon: <Award className="w-7 h-7" />,
+      title: locale === "es" ? "Guías Locales Certificados por el Gobierno" : locale === "pt" ? "Guias Locais Certificados pelo Governo" : "Official ASI Licensed Heritage Guides",
+      desc: locale === "es" 
+        ? "Guías oficiales del gobierno en monumentos históricos (Taj Mahal, Amber Fort) para garantizar historia real sin paradas comerciales forzadas." 
+        : locale === "pt" 
+        ? "Guias oficiais do governo em monumentos históricos para garantir história real sem paradas comerciais forçadas." 
+        : "Government-certified local guides at Taj Mahal, Amber Fort, and heritage circuits ensuring authentic storytelling without commercial shopping traps."
+    },
+    {
+      icon: <Star className="w-7 h-7" />,
+      title: locale === "es" ? "Estancias Seleccionadas en Palacios Reales" : locale === "pt" ? "Estadias Selecionadas em Palácios Reais" : "Hand-Curated Royal Palace Stays",
+      desc: locale === "es" 
+        ? "Reservas verificadas en palacios reales restaurados, havelis históricas, resorts de bienestar y casas flotantes privadas en Kerala." 
+        : locale === "pt" 
+        ? "Reservas verificadas em palácios reais restaurados, havelis históricas, resorts de bem-estar e barcos privados em Kerala." 
+        : "Pre-vetted bookings inside restored royal fortresses, authentic heritage Havelis, luxury wellness resorts, and private backwater houseboats."
+    },
+    {
+      icon: <Clock className="w-7 h-7" />,
+      title: locale === "es" ? "Mesa de Concierge 24/7 en Terreno" : locale === "pt" ? "Central de Concierge 24/7 em Terreno" : "24/7 Boots-on-Ground Operations Desk",
+      desc: locale === "es" 
+        ? "Contacto directo por WhatsApp con su gestor de viaje dedicado desde su llegada al aeropuerto hasta su vuelo de regreso." 
+        : locale === "pt" 
+        ? "Contato direto por WhatsApp com seu gerente de viagem do desembarque no aeroporto até o voo de volta." 
+        : "Direct WhatsApp connection line with your dedicated trip manager from your airport landing until your departure flight."
+    },
+    {
+      icon: <FileCheck2 className="w-7 h-7" />,
+      title: locale === "es" ? "Precios Transparentes y Permisos Incluidos" : locale === "pt" ? "Preços Transparentes e Permissões Incluídas" : "Transparent Pricing & Guaranteed Entry Passes",
+      desc: locale === "es" 
+        ? "Entradas a monumentos, peajes, combustible y tasas incluidas por adelantado sin cargos sorpresa." 
+        : locale === "pt" 
+        ? "Ingressos de monumentos, pedágios, combustível e taxas incluídos antecipadamente sem custos surpresa." 
+        : "All monument entry passes, toll taxes, fuel, driver allowances, and taxes included upfront with zero surprise surcharges."
     }
   ];
+
+  const cmsPillars = cms.whyPillars;
+  const pillars = (Array.isArray(cmsPillars) && cmsPillars.length > 0)
+    ? cmsPillars.map((p: any, idx: number) => ({
+        icon: defaultPillars[idx % defaultPillars.length].icon,
+        title: p.title?.[lang] || p.title?.en || p.title || defaultPillars[idx % defaultPillars.length].title,
+        desc: p.desc?.[lang] || p.desc?.en || p.desc || defaultPillars[idx % defaultPillars.length].desc
+      }))
+    : defaultPillars;
 
   const values = [
-    { icon: Shield, title: locale === "es" ? "Seguridad y Confianza" : locale === "pt" ? "Segurança e Confiança" : "Safety & Trust", desc: locale === "es" ? "Conductores experimentados y guías certificados en todo momento." : locale === "pt" ? "Motoristas experientes e guias certificados em todos os momentos." : "Fully certified bilingual guides and highly vetted private tourist drivers." },
-    { icon: Heart, title: locale === "es" ? "Pasión por el Detalle" : locale === "pt" ? "Paixão pelo Detalhe" : "Passion for Detail", desc: locale === "es" ? "Ajustamos cada reserva de hotel y traslado para su máxima comodidad." : locale === "pt" ? "Ajustamos cada reserva de hotel e transporte para seu máximo conforto." : "Fine-tuning every palace suite check-in and private monument access." },
-    { icon: Compass, title: locale === "es" ? "Conocimiento Local" : locale === "pt" ? "Conhecimento Local" : "Local Expertise", desc: locale === "es" ? "Más de 22 años de experiencia diseñando rutas en toda la India." : locale === "pt" ? "Mais de 22 anos de experiência planejando rotas na Índia." : "22+ years of deep boots-on-the-ground knowledge across all regions." },
+    { 
+      icon: ShieldCheck, 
+      title: locale === "es" ? "Seguridad y Transparencia" : locale === "pt" ? "Segurança e Transparência" : "Safety & Legal Compliance", 
+      desc: locale === "es" ? "Choferes experimentados y guías certificados por el gobierno en todo momento." : locale === "pt" ? "Motoristas experientes e guias certificados pelo governo em todos os momentos." : "Fully licensed bilingual guides, highly vetted private drivers, and official GST invoices." 
+    },
+    { 
+      icon: Heart, 
+      title: locale === "es" ? "Pasión por la Hospitalidad" : locale === "pt" ? "Paixão pela Hospitalidade" : "Heritage Hospitality", 
+      desc: locale === "es" ? "Atención personalizada en cada check-in de hotel y traslado." : locale === "pt" ? "Atenção personalizada em cada check-in de hotel e transporte." : "Fine-tuning every palace suite check-in, private dinner, and monument access." 
+    },
+    { 
+      icon: Compass, 
+      title: locale === "es" ? "Conocimiento de Destino" : locale === "pt" ? "Conhecimento de Destino" : "Boots-on-Ground Knowledge", 
+      desc: locale === "es" ? "Más de 22 años diseñando itinerarios privados en la India." : locale === "pt" ? "Mais de 22 anos criando itinerários privados na Índia." : "22+ years of deep regional expertise headquartered in Jaipur, Rajasthan." 
+    },
   ];
 
-  const stats = [
-    { number: "22+", label: "Years of Experience" },
-    { number: "5,000+", label: "Happy Travelers" },
-    { number: "100+", label: "Destinations" },
-    { number: "40+", label: "Countries Served" },
-    { number: "4.9/5", label: "Average Rating" },
-    { number: "98%", label: "Rebooking Rate" },
-  ];
-
-  // Exactly 2 Founder & Specialist cards with rich bio descriptions
+  // Founder Profiles
   const defaultTeam = [
     { 
       name: "Rahul Sharma", 
@@ -141,306 +221,271 @@ export default async function AboutPage({ params }: AboutPageProps) {
       name: "Priya Patel", 
       role: locale === "es" ? "Cofundadora y Especialista Sénior en Destinos" : locale === "pt" ? "Co-fundadora e Especialista em Destinos" : "Co-Founder & Senior Destination Specialist", 
       img: "/images/team_priya.png",
-      desc: locale === "es" ? "Especialista en patrimonio de Rajastán, cruceros en Kerala y coordinación de destinos internacionales en Asia y Medio Oriente." : locale === "pt" ? "Especialista em patrimônio do Rajastão, cruzeiros em Kerala e coordenação de destinos internacionais na Ásia e Oriente Médio." : "Specializes in Rajasthan heritage hospitality, Kerala wellness retreats, and seamless international outbound itineraries."
+      desc: locale === "es" ? "Especialista en patrimonio de Rajastán, cruceros en Kerala y coordinación de destinos internacionales." : locale === "pt" ? "Especialista em patrimônio do Rajastão, cruzeiros em Kerala e coordenação de destinos internacionais." : "Specializes in Rajasthan heritage hospitality, Kerala wellness retreats, and seamless international outbound itineraries."
     }
   ];
 
-  const teamRaw = (dbContent.team && dbContent.team.length > 0) ? dbContent.team.slice(0, 2) : defaultTeam;
-  const team = teamRaw.map((member: any, idx: number) => ({
-    ...defaultTeam[idx],
-    ...member,
-    desc: member.desc || defaultTeam[idx]?.desc || defaultTeam[0].desc
-  }));
+  const cmsTeam = cms.team;
+  const team = (Array.isArray(cmsTeam) && cmsTeam.length > 0)
+    ? cmsTeam.slice(0, 2).map((member: any, idx: number) => ({
+        name: member.name || defaultTeam[idx].name,
+        role: member.role?.[lang] || member.role?.en || member.role || defaultTeam[idx].role,
+        img: member.img || defaultTeam[idx].img,
+        desc: member.desc?.[lang] || member.desc?.en || member.desc || defaultTeam[idx].desc
+      }))
+    : defaultTeam;
 
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
-      {/* SECTION 1: Hero Banner */}
-      <section className="relative bg-[#0A2A1E] text-white py-16 md:py-24 flex items-center justify-center text-center w-full">
-        <div className="relative z-10 text-center text-white space-y-4 px-6 max-w-4xl">
-          <span className="bg-gold text-royal text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "both" }}>
-            {text.heroSub}
-          </span>
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.05] text-white animate-fade-in" style={{ animationDelay: "0.4s", animationFillMode: "both" }}>
-            {text.hero}
-          </h1>
-          <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-light leading-relaxed animate-fade-in" style={{ animationDelay: "0.6s", animationFillMode: "both" }}>
-            {text.heroDesc}
-          </p>
+      {/* SECTION 1: Luxury Hero Banner */}
+      <section className="relative bg-gradient-to-b from-[#0B1329] via-[#16223F] to-[#0B1329] text-white py-20 md:py-28 border-b border-gold/20 overflow-hidden">
+        {/* Decorative Background Glows */}
+        <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#C5A862_1.5px,transparent_1.5px)] [background-size:28px_28px] pointer-events-none" />
+        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-gold/15 rounded-full blur-3xl pointer-events-none" />
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10 text-center space-y-6">
+          <Reveal direction="up">
+            <span className="bg-gold/15 border border-gold/40 text-gold text-xs font-semibold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block shadow-inner">
+              {text.heroSub}
+            </span>
+          </Reveal>
+          
+          <Reveal direction="up" delay={100}>
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-white leading-tight">
+              {text.hero}
+            </h1>
+          </Reveal>
+          
+          <Reveal direction="up" delay={150}>
+            <p className="text-white/80 text-sm md:text-base font-light max-w-3xl mx-auto leading-relaxed">
+              {text.heroDesc}
+            </p>
+          </Reveal>
+
+          {/* Credentials Bar */}
+          <Reveal direction="up" delay={200} className="pt-4">
+            <div className="flex flex-wrap items-center justify-center gap-3 text-xs">
+              <span className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-gold/30 text-white flex items-center gap-2 font-mono">
+                <MapPin className="w-4 h-4 text-gold" />
+                <span>Headquarters: <strong className="text-gold">Jaipur, Rajasthan (302006)</strong></span>
+              </span>
+              <span className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-gold/30 text-white flex items-center gap-2 font-mono">
+                <Building2 className="w-4 h-4 text-gold" />
+                <span>GSTIN: <strong className="text-gold">{contactDetails.gstin || "08ACIFM3516H1Z7"}</strong></span>
+              </span>
+              <span className="bg-emerald-500/20 backdrop-blur-md px-4 py-2 rounded-full border border-emerald-500/40 text-emerald-300 flex items-center gap-2 font-medium">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Government Registered Agency</span>
+              </span>
+            </div>
+          </Reveal>
+
         </div>
       </section>
 
-      {/* SECTION 2: Story columns */}
+      {/* SECTION 2: Heritage Story & Philosophy */}
       <section className="max-w-7xl mx-auto px-6 py-28 grid grid-cols-1 lg:grid-cols-2 gap-16 border-b border-gold/10">
         <Reveal direction="left" className="space-y-6">
-          <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold flex items-center gap-1">
-            <Compass className="w-4 h-4" />
-            <span>LEGACY</span>
+          <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold flex items-center gap-2">
+            <Compass className="w-4 h-4 text-gold" />
+            <span>AUTHENTIC HERITAGE</span>
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-royal leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold font-serif text-royal leading-tight">
             {text.storyTitle}
           </h2>
-          <p className="text-base md:text-lg text-foreground/60 leading-relaxed font-light">
+          <p className="text-base md:text-lg text-foreground/75 leading-relaxed font-light">
             {text.storyP1}
           </p>
-          <p className="text-base md:text-lg text-foreground/60 leading-relaxed font-light">
+          <p className="text-base md:text-lg text-foreground/75 leading-relaxed font-light">
             {text.storyP2}
           </p>
         </Reveal>
         
-        {/* Mission Card */}
-        <Reveal direction="right" delay={200} className="bg-white border border-gold/25 p-10 space-y-8 shadow-xl shadow-royal/5 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-[4px] bg-gold" />
+        {/* Mission & Vision Card */}
+        <Reveal direction="right" delay={200} className="bg-white border border-gold/30 rounded-3xl p-10 space-y-8 shadow-xl relative overflow-hidden">
+          <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-gold/40 via-gold to-gold/40" />
           <div className="space-y-3">
-            <h3 className="text-xl font-bold text-royal">{text.missionTitle}</h3>
-            <p className="text-sm md:text-base text-foreground/60 leading-relaxed font-light">{text.missionText}</p>
+            <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
+              <ShieldCheck className="w-4 h-4" />
+              <span>Core Operational Duty</span>
+            </div>
+            <h3 className="text-2xl font-serif font-bold text-royal">{text.missionTitle}</h3>
+            <p className="text-sm md:text-base text-foreground/70 leading-relaxed font-light">{text.missionText}</p>
           </div>
           <div className="h-px bg-gold/15" />
           <div className="space-y-3">
-            <h3 className="text-xl font-bold text-royal">{text.visionTitle}</h3>
-            <p className="text-sm md:text-base text-foreground/60 leading-relaxed font-light">{text.visionText}</p>
+            <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
+              <Star className="w-4 h-4" />
+              <span>Future Standard</span>
+            </div>
+            <h3 className="text-2xl font-serif font-bold text-royal">{text.visionTitle}</h3>
+            <p className="text-sm md:text-base text-foreground/70 leading-relaxed font-light">{text.visionText}</p>
           </div>
         </Reveal>
       </section>
 
-      {/* SECTION 3: Core Values Grid */}
-      <section className="max-w-7xl mx-auto px-6 py-24 space-y-16 border-b border-gold/10">
+      {/* SECTION 3: WHY CHOOSE US (6 AUTHENTIC REAL AGENCY PILLARS) */}
+      <section className="bg-gradient-to-b from-[#0B1329]/5 via-[#FAF8F5] to-[#FAF8F5] py-28 border-b border-gold/10">
+        <div className="max-w-7xl mx-auto px-6 space-y-16">
+          
+          <div className="text-center space-y-4 max-w-2xl mx-auto">
+            <span className="bg-gold/15 text-royal border border-gold/30 text-xs font-bold uppercase tracking-[0.25em] px-4 py-1.5 rounded-full inline-block">
+              {text.whySub}
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-royal tracking-tight">
+              {text.whyTitle}
+            </h2>
+            <p className="text-sm md:text-base text-foreground/75 font-light leading-relaxed">
+              {text.whyDesc}
+            </p>
+            <div className="h-px w-24 bg-gold mx-auto mt-2" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {pillars.map((pillar: any, i: number) => (
+              <Reveal key={i} delay={100 + i * 70} className="bg-white p-8 rounded-3xl border border-gold/30 shadow-lg hover:shadow-2xl transition-all duration-300 space-y-5 group hover:-translate-y-1 flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="w-14 h-14 rounded-2xl bg-royal text-gold flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-gold group-hover:text-royal transition-colors duration-300">
+                    {pillar.icon}
+                  </div>
+                  <h3 className="text-xl font-serif font-bold text-royal leading-snug">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-foreground/75 leading-relaxed font-light">
+                    {pillar.desc}
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-gold/10 text-[11px] font-bold text-gold uppercase tracking-wider flex items-center justify-between">
+                  <span>Standard Guarantee</span>
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* SECTION 4: Government Registration Seal Banner */}
+      <section className="bg-royal text-white py-16 border-b border-gold/20">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+          <div className="space-y-2 max-w-2xl">
+            <span className="text-xs font-bold text-gold uppercase tracking-[0.2em]">OFFICIAL GOVERNMENT REGISTRATION</span>
+            <h3 className="text-2xl font-serif font-bold text-white">Form GST REG-06 Certificate Holder</h3>
+            <p className="text-xs md:text-sm text-white/70 font-light leading-relaxed">
+              MH India Trips is an authorized partnership firm registered under State Tax Department, Govt. of Rajasthan & Goods and Services Tax Portal, Govt. of India (GSTIN: <strong>{contactDetails.gstin || "08ACIFM3516H1Z7"}</strong>). Principal Place of Business: Khatipura Road, Hasanpura, Jaipur, Rajasthan - 302006.
+            </p>
+          </div>
+          <div className="shrink-0">
+            <Link 
+              href={`/${locale}/contact`} 
+              className="bg-gold hover:bg-amber-400 text-royal font-bold uppercase text-xs tracking-wider px-8 py-4 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 inline-flex items-center gap-2"
+            >
+              <span>Contact Travel Desk</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5: Core Standards Grid */}
+      <section className="max-w-7xl mx-auto px-6 py-28 space-y-16 border-b border-gold/10">
         <div className="text-center space-y-3 max-w-lg mx-auto">
-          <span className="text-xs uppercase tracking-[0.2em] text-gold font-bold block">STANDARDS</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-royal tracking-tight">{text.valuesTitle}</h2>
-          <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
+          <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">SERVICE STANDARDS</span>
+          <h2 className="text-3xl md:text-4xl font-bold font-serif text-royal tracking-tight">{text.valuesTitle}</h2>
+          <div className="h-px w-20 bg-gold mx-auto mt-2" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {values.map((val, i) => {
             const Icon = val.icon;
             return (
-              <Reveal key={i} delay={i * 60} className="bg-white border border-gold/10 p-8 rounded-2xl shadow-sm space-y-4">
-                <span className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
-                  <Icon className="w-6 h-6" />
+              <Reveal key={i} delay={i * 80} className="bg-white border border-gold/20 p-8 rounded-3xl shadow-md space-y-4 hover:border-gold/50 transition-colors">
+                <span className="w-14 h-14 rounded-2xl bg-gold/15 flex items-center justify-center text-gold border border-gold/30">
+                  <Icon className="w-7 h-7" />
                 </span>
-                <h4 className="text-lg font-bold text-royal uppercase tracking-wider">{val.title}</h4>
-                <p className="text-sm text-foreground/60 leading-relaxed font-light">{val.desc}</p>
+                <h4 className="text-lg font-bold font-serif text-royal uppercase tracking-wider">{val.title}</h4>
+                <p className="text-sm text-foreground/75 leading-relaxed font-light">{val.desc}</p>
               </Reveal>
             );
           })}
         </div>
       </section>
 
-      {/* SECTION 3.5: WHY CHOOSE US */}
-      <section className="bg-gradient-to-b from-[#0A2A1E]/5 via-[#FAF8F5] to-[#FAF8F5] py-24 border-b border-gold/10">
-        <div className="max-w-7xl mx-auto px-6 space-y-16">
-          
-          <div className="text-center space-y-4 max-w-2xl mx-auto">
-            <span className="bg-[#C5A862] text-[#0A2A1E] text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block">
-              {locale === "es" ? "¿Por Qué Elegirnos?" : locale === "pt" ? "Por Que Nos Escolher?" : "Why Choose Us"}
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#0A2A1E] tracking-tight">
-              {locale === "es" 
-                ? "La Diferencia MH India Trips" 
-                : locale === "pt" 
-                ? "A Diferença MH India Trips" 
-                : "The MH India Trips Advantage"}
-            </h2>
-            <p className="text-sm md:text-base text-[#1B1B1B]/70 font-light leading-relaxed">
-              {locale === "es"
-                ? "Diseñamos cada viaje con dedicación artesanal, garantizando privacidad absoluta, guías multilingües y momentos inolvidables."
-                : locale === "pt"
-                ? "Criamos cada viagem com dedicação artesanal, garantindo privacidade absoluta, guias multilíngues e momentos inesquecíveis."
-                : "We craft every itinerary with master precision, combining royal heritage comfort, boots-on-the-ground concierge support, and transparent luxury."}
-            </p>
-            <div className="h-px w-24 bg-[#C5A862] mx-auto mt-2" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            {/* Pillar 1 */}
-            <Reveal delay={100} className="bg-white p-8 rounded-3xl border border-[#C5A862]/30 shadow-lg hover:shadow-xl transition-all duration-300 space-y-5 group hover:-translate-y-1">
-              <div className="w-14 h-14 rounded-2xl bg-[#0A2A1E] text-[#C5A862] flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-[#C5A862] group-hover:text-[#0A2A1E] transition-colors">
-                <Compass className="w-7 h-7" />
-              </div>
-              <h3 className="text-xl font-serif font-bold text-[#0A2A1E]">
-                {locale === "es" ? "Itinerarios 100% Personalizados" : locale === "pt" ? "Roteiros 100% Personalizáveis" : "100% Tailor-Made Journeys"}
-              </h3>
-              <p className="text-xs sm:text-sm text-[#2C2C2C]/80 leading-relaxed font-normal">
-                {locale === "es"
-                  ? "Sin tours rígidos en grupo. Diseñamos cada día según su ritmo, preferencias culinarias y pasiones personales."
-                  : locale === "pt"
-                  ? "Sem excursões rígidas em grupo. Criamos cada dia de acordo com seu ritmo e preferências pessoais."
-                  : "No rigid group tours. Every day, pace, palace hotel, and monument experience is crafted tailored specifically to you."}
-              </p>
-            </Reveal>
-
-            {/* Pillar 2 */}
-            <Reveal delay={200} className="bg-white p-8 rounded-3xl border border-[#C5A862]/30 shadow-lg hover:shadow-xl transition-all duration-300 space-y-5 group hover:-translate-y-1">
-              <div className="w-14 h-14 rounded-2xl bg-[#0A2A1E] text-[#C5A862] flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-[#C5A862] group-hover:text-[#0A2A1E] transition-colors">
-                <Shield className="w-7 h-7" />
-              </div>
-              <h3 className="text-xl font-serif font-bold text-[#0A2A1E]">
-                {locale === "es" ? "Concierge Personal 24/7" : locale === "pt" ? "Concierge Pessoal 24/7" : "24/7 Dedicated Concierge"}
-              </h3>
-              <p className="text-xs sm:text-sm text-[#2C2C2C]/80 leading-relaxed font-normal">
-                {locale === "es"
-                  ? "Asistencia telefónica y presencial continua desde su llegada hasta su vuelo de regreso. Tranquilidad total."
-                  : locale === "pt"
-                  ? "Assistência telefônica e presencial contínua do momento em que você desembarca até o voo de volta."
-                  : "From airport VIP reception to 24/7 WhatsApp concierge support, your dedicated trip manager ensures flawless execution."}
-              </p>
-            </Reveal>
-
-            {/* Pillar 3 */}
-            <Reveal delay={300} className="bg-white p-8 rounded-3xl border border-[#C5A862]/30 shadow-lg hover:shadow-xl transition-all duration-300 space-y-5 group hover:-translate-y-1">
-              <div className="w-14 h-14 rounded-2xl bg-[#0A2A1E] text-[#C5A862] flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-[#C5A862] group-hover:text-[#0A2A1E] transition-colors">
-                <Star className="w-7 h-7" />
-              </div>
-              <h3 className="text-xl font-serif font-bold text-[#0A2A1E]">
-                {locale === "es" ? "Hoteles y Palacios Seleccionados" : locale === "pt" ? "Hotéis e Palácios Selecionados" : "Handpicked Royal Stays"}
-              </h3>
-              <p className="text-xs sm:text-sm text-[#2C2C2C]/80 leading-relaxed font-normal">
-                {locale === "es"
-                  ? "Hospedaje en palacios reales de maharajás, resorts 5 estrellas y havelis boutique de patrimonio histórico."
-                  : locale === "pt"
-                  ? "Hospedagem em palácios reais de maharajas, resorts 5 estrelas e havelis históricas de luxo."
-                  : "Stay in authentic 18th-century royal palaces, 5-star luxury resorts, and oceanfront private villas."}
-              </p>
-            </Reveal>
-
-            {/* Pillar 4 */}
-            <Reveal delay={400} className="bg-white p-8 rounded-3xl border border-[#C5A862]/30 shadow-lg hover:shadow-xl transition-all duration-300 space-y-5 group hover:-translate-y-1">
-              <div className="w-14 h-14 rounded-2xl bg-[#0A2A1E] text-[#C5A862] flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-[#C5A862] group-hover:text-[#0A2A1E] transition-colors">
-                <Users className="w-7 h-7" />
-              </div>
-              <h3 className="text-xl font-serif font-bold text-[#0A2A1E]">
-                {locale === "es" ? "Guias Multilingües Certificados" : locale === "pt" ? "Guias Multilíngues Certificados" : "Multilingual Licensed Guides"}
-              </h3>
-              <p className="text-xs sm:text-sm text-[#2C2C2C]/80 leading-relaxed font-normal">
-                {locale === "es"
-                  ? "Guias oficiales que hablan español, portugués e inglés con fluidez y conductores privados altamente experimentados."
-                  : locale === "pt"
-                  ? "Guias oficiais fluentes em espanhol, português e inglês com motoristas privados extremamente experientes."
-                  : "Expert local storytellers fluent in English, Spanish, and Portuguese, accompanied by professional private chauffeurs."}
-              </p>
-            </Reveal>
-
-            {/* Pillar 5 */}
-            <Reveal delay={500} className="bg-white p-8 rounded-3xl border border-[#C5A862]/30 shadow-lg hover:shadow-xl transition-all duration-300 space-y-5 group hover:-translate-y-1">
-              <div className="w-14 h-14 rounded-2xl bg-[#0A2A1E] text-[#C5A862] flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-[#C5A862] group-hover:text-[#0A2A1E] transition-colors">
-                <Award className="w-7 h-7" />
-              </div>
-              <h3 className="text-xl font-serif font-bold text-[#0A2A1E]">
-                {locale === "es" ? "Pan India & Destinos Outbound" : locale === "pt" ? "Pan Índia e Destinos Outbound" : "Pan India & Outbound Reach"}
-              </h3>
-              <p className="text-xs sm:text-sm text-[#2C2C2C]/80 leading-relaxed font-normal">
-                {locale === "es"
-                  ? "Cobertura total en todos los estados de India y paquetes internacionales a Laos, Nepal, Bali, Malasia, Singapur, Tailandia y Maldivas."
-                  : locale === "pt"
-                  ? "Cobertura completa na Índia e pacotes internacionais para Laos, Nepal, Bali, Malásia, Singapura, Tailândia e Maldivas."
-                  : "Unmatched expertise covering all Indian destinations alongside exotic outbound packages in Laos, Nepal, Bali, Malaysia, Singapore, Thailand & Maldives."}
-              </p>
-            </Reveal>
-
-            {/* Pillar 6 */}
-            <Reveal delay={600} className="bg-white p-8 rounded-3xl border border-[#C5A862]/30 shadow-lg hover:shadow-xl transition-all duration-300 space-y-5 group hover:-translate-y-1">
-              <div className="w-14 h-14 rounded-2xl bg-[#0A2A1E] text-[#C5A862] flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-[#C5A862] group-hover:text-[#0A2A1E] transition-colors">
-                <Heart className="w-7 h-7" />
-              </div>
-              <h3 className="text-xl font-serif font-bold text-[#0A2A1E]">
-                {locale === "es" ? "Precios Transparentes sin Sorpresas" : locale === "pt" ? "Preços Transparentes sem Surpresas" : "Transparent Price Guarantee"}
-              </h3>
-              <p className="text-xs sm:text-sm text-[#2C2C2C]/80 leading-relaxed font-normal">
-                {locale === "es"
-                  ? "Tarifas directas sin intermediarios, políticas de cancelación flexibles y total transparencia en cada cotización."
-                  : locale === "pt"
-                  ? "Tarifas diretas de operador local sem intermediários e total transparência em cada orçamento."
-                  : "Direct local operator rates with zero hidden charges, transparent inclusions, and flexible cancellation policies."}
-              </p>
-            </Reveal>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* SECTION 4: Stats Grid */}
-      <section className="bg-royal text-white py-24 border-b border-gold/10 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.015] bg-[radial-gradient(#B8964B_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+      {/* SECTION 6: Stats Counter */}
+      <section className="bg-cream py-20 border-b border-gold/10">
+        <div className="max-w-7xl mx-auto px-6">
           <AboutStatsCounter stats={[
-            { number: "22+", label: "Years of Excellence" },
-            { number: "12,000+", label: "Happy Travelers" },
-            { number: "PAN India", label: "Regional Coverage" },
-            { number: "10+", label: "Outbound Countries" },
-            { number: "4.9/5", label: "Average Rating" },
-            { number: "98%", label: "Satisfaction Rate" },
+            { number: "22+", label: "Years of Experience" },
+            { number: "5,000+", label: "Happy Travelers Served" },
+            { number: "100+", label: "Heritage Destinations" },
+            { number: "40+", label: "Countries Served" },
+            { number: "4.9/5", label: "Guest Satisfaction Rating" },
+            { number: "98%", label: "Repeat & Referral Rate" }
           ]} />
         </div>
       </section>
 
-      {/* SECTION 5: Founders & Destination Specialists (Exactly 2 Cards with Bios) */}
-      <section className="max-w-7xl mx-auto px-6 py-28 border-b border-gold/10 space-y-16">
-        <div className="text-center space-y-3 max-w-xl mx-auto">
-          <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">OUR LEADERSHIP & TEAM</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-royal font-serif tracking-tight">
-            {locale === "es" ? "Fundadores y Especialistas de Destino" : locale === "pt" ? "Fundadores e Especialistas" : "Founders & Destination Specialists"}
-          </h2>
-          <p className="text-sm text-foreground/60 font-light leading-relaxed">
-            {locale === "es" ? "Con trayectoria guiando viajeros por la India en toda la región PAN India e itinerarios internacionales." : locale === "pt" ? "Com trajetória guiando viajantes pela Índia e itinerários internacionais." : "Backed by 22+ years of dedicated boots-on-the-ground expertise in crafting elite private journeys across PAN India & International Outbound destinations."}
-          </p>
-          <div className="h-px w-20 bg-gold/25 mx-auto mt-2" />
+      {/* SECTION 7: Leadership Team */}
+      <section className="max-w-7xl mx-auto px-6 py-28 space-y-16 border-b border-gold/10">
+        <div className="text-center space-y-4 max-w-xl mx-auto">
+          <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">FOUNDERS & DESIGNERS</span>
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-royal tracking-tight">{text.teamTitle}</h2>
+          <p className="text-sm text-foreground/70 font-light leading-relaxed">{text.teamDesc}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
           {team.map((member: any, i: number) => (
-            <Reveal key={i} delay={i * 100} className="bg-white border-2 border-[#C5A862]/30 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-              <div className="h-72 sm:h-80 overflow-hidden relative bg-[#0A2A1E]/5">
+            <Reveal key={i} delay={i * 120} className="bg-white border border-gold/30 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between">
+              <div className="h-72 overflow-hidden bg-royal/10 relative">
                 <img 
-                  src={member.img || member.image || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"} 
+                  src={member.img || "/images/team_rahul.png"} 
                   alt={member.name} 
-                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A2A1E]/60 via-transparent to-transparent opacity-80" />
-                <span className="absolute bottom-4 left-4 bg-[#C5A862] text-[#0A2A1E] text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow-md">
-                  Founding Director
-                </span>
+                <div className="absolute inset-0 bg-gradient-to-t from-royal/80 via-transparent to-transparent opacity-80" />
+                <div className="absolute bottom-4 left-6 right-6 text-white">
+                  <span className="text-xs uppercase tracking-widest text-gold font-bold block">{member.role}</span>
+                  <h3 className="text-2xl font-serif font-bold">{member.name}</h3>
+                </div>
               </div>
-              <div className="p-8 space-y-3 bg-white flex-grow">
-                <h3 className="text-2xl font-serif font-bold text-[#0A2A1E]">{member.name}</h3>
-                <p className="text-xs uppercase tracking-widest text-[#C5A862] font-extrabold">{member.role}</p>
-                <div className="h-px w-12 bg-[#C5A862]/30 my-2" />
-                <p className="text-sm text-[#1B1B1B]/75 font-light leading-relaxed pt-1">
-                  {member.desc || "Specializing in luxury private journeys, palace check-ins, and bespoke concierge travel planning."}
+              <div className="p-8 space-y-4 bg-white">
+                <p className="text-sm text-foreground/75 font-light leading-relaxed">
+                  {member.desc}
                 </p>
+                <div className="pt-4 border-t border-gold/15 flex items-center justify-between text-xs font-bold text-gold uppercase tracking-wider">
+                  <span>Jaipur Travel Desk</span>
+                  <Award className="w-4 h-4 text-gold" />
+                </div>
               </div>
             </Reveal>
           ))}
         </div>
       </section>
 
-      {/* SECTION 6: Call To Action (Luxury Card Format) */}
-      <section className="max-w-5xl mx-auto px-6 py-24">
-        <Reveal>
-          <div className="bg-[#0A2A1E] text-white p-10 md:p-16 rounded-[2.5rem] border-2 border-[#C5A862] shadow-2xl text-center space-y-6 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-br from-[#C5A862]/20 to-transparent rounded-full blur-3xl pointer-events-none" />
-            <div className="space-y-3">
-              <span className="bg-[#C5A862] text-[#0A2A1E] text-[10px] font-extrabold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block shadow-md">
-                MH India Trips Concierge
-              </span>
-              <h2 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight">
-                {text.ctaTitle}
-              </h2>
-            </div>
-            <p className="text-sm md:text-base text-white/80 font-light max-w-xl mx-auto leading-relaxed">
-              {text.ctaDesc}
-            </p>
-            <div className="pt-4">
-              <Link href={`/${locale}/contact`} className="bg-[#C5A862] hover:bg-[#D8BE83] text-[#0A2A1E] text-xs font-extrabold uppercase tracking-widest px-10 py-5 rounded-full inline-flex items-center gap-2 shadow-xl hover:scale-105 transition-all">
-                <span>{text.ctaBtn}</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+      {/* SECTION 8: Call To Action Banner */}
+      <section className="bg-gradient-to-r from-royal via-[#1A2542] to-royal text-white py-24 border-t border-gold/20">
+        <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
+          <span className="bg-gold/20 text-gold border border-gold/40 text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
+            TAILOR-MADE PRIVACY
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white leading-tight">
+            {text.ctaTitle}
+          </h2>
+          <p className="text-base md:text-lg text-white/80 font-light max-w-2xl mx-auto leading-relaxed">
+            {text.ctaDesc}
+          </p>
+          <div className="pt-2 flex justify-center">
+            <Link 
+              href={`/${locale}/contact`}
+              className="bg-gold hover:bg-amber-400 text-royal font-bold uppercase text-xs tracking-wider px-10 py-4 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 inline-flex items-center gap-2"
+            >
+              <span>{text.ctaBtn}</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
-        </Reveal>
+        </div>
       </section>
 
     </div>

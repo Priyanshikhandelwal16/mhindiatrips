@@ -10,7 +10,7 @@ import StatCounter from "@/components/home/StatCounter";
 import { 
   MapPin, Clock, ArrowRight, Star, Heart, Compass, Sparkles, 
   Award, Shield, Calendar, BookOpen, Coffee, Landmark, ArrowUpRight,
-  CheckCircle
+  CheckCircle, ShieldCheck, FileCheck, CheckCircle2, BadgeCheck
 } from "lucide-react";
 import { getLocalizedDestinationsPath } from "@/lib/utils";
 import { getHighResImageUrl } from "@/lib/image-utils";
@@ -133,7 +133,26 @@ export default async function HomePage({ params }: HomePageProps) {
       inquire: "Request Details",
       privateTour: "Private Tour",
       inclusionsTitleText: "What's included:",
-      days: "Days"
+      days: "Days",
+      certSub: "GOVERNMENT CERTIFIED & VERIFIED",
+      certTitle: "Official Registration & Legal Credentials",
+      certDesc: "Book with complete confidence. MH India Trips is a 100% government-registered and tax-compliant travel enterprise recognized under GST Department, Govt. of India.",
+      certGstLabel: "GST Identification No. (GSTIN)",
+      certGstVal: "08ACIFM3516H1Z7",
+      certGstBadge: "ACTIVE & VERIFIED",
+      certGstDesc: "Issued by Goods & Services Tax Department, Govt. of India & Rajasthan State Tax Office.",
+      certNameLabel: "Legal Business Name",
+      certNameVal: "MH INDIA TRIPS",
+      certNameBadge: "Registered Partnership",
+      certNameDesc: "Recognized tour operator operating compliant private luxury tours & concierge across PAN India.",
+      certAddressLabel: "Principal Place of Business",
+      certAddressVal: "Jaipur, Rajasthan (302006)",
+      certAddressBadge: "State Tax Jurisdiction",
+      certAddressDesc: "Khatipura Road, Hasanpura, Jaipur, Rajasthan - 302006, India.",
+      certGuaranteeLabel: "Government Compliant Billing",
+      certGuaranteeVal: "100% Tax Compliant & Safe",
+      certGuaranteeBadge: "Official Invoices",
+      certGuaranteeDesc: "Official GST invoices provided for all bookings with full legal transparency & traveler security."
     },
     es: {
       heroSub: "TOURS PRIVADOS A MEDIDA",
@@ -201,7 +220,26 @@ export default async function HomePage({ params }: HomePageProps) {
       inquire: "Solicitar Detalles",
       privateTour: "Tour Privado",
       inclusionsTitleText: "Qué está incluido:",
-      days: "Días"
+      days: "Días",
+      certSub: "CERTIFICADO Y VERIFICADO POR EL GOBIERNO",
+      certTitle: "Registro Oficial y Credenciales Fiscales",
+      certDesc: "Reserve con total confianza. MH India Trips es una empresa de viajes 100% registrada ante el gobierno y en pleno cumplimiento fiscal bajo el Departamento de GST del Gobierno de la India.",
+      certGstLabel: "Número de Identificación GST (GSTIN)",
+      certGstVal: "08ACIFM3516H1Z7",
+      certGstBadge: "ACTIVO Y VERIFICADO",
+      certGstDesc: "Emitido por el Departamento de Impuestos sobre Bienes y Servicios, Gobierno de la India y Estado de Rajasthan.",
+      certNameLabel: "Nombre Legal de la Empresa",
+      certNameVal: "MH INDIA TRIPS",
+      certNameBadge: "Sociedad Registrada",
+      certNameDesc: "Operador turístico reconocido que realiza tours privados de lujo en toda la India.",
+      certAddressLabel: "Sede Principal Registrada",
+      certAddressVal: "Jaipur, Rajasthan (302006)",
+      certAddressBadge: "Jurisdicción Fiscal Estatal",
+      certAddressDesc: "Khatipura Road, Hasanpura, Jaipur, Rajasthan - 302006, India.",
+      certGuaranteeLabel: "Facturación Conforme a la Ley",
+      certGuaranteeVal: "100% Legal y Seguro",
+      certGuaranteeBadge: "Facturas Oficiales",
+      certGuaranteeDesc: "Facturas GST oficiales emitidas para todas las reservas con total transparencia legal."
     },
     pt: {
       heroSub: "TOURS PRIVADOS SOB MEDIDA",
@@ -268,7 +306,26 @@ export default async function HomePage({ params }: HomePageProps) {
       inquire: "Solicitar Detalhes",
       privateTour: "Tour Privado",
       inclusionsTitleText: "O que está incluído:",
-      days: "Dias"
+      days: "Dias",
+      certSub: "CERTIFICADO E VERIFICADO PELO GOVERNO",
+      certTitle: "Registro Oficial e Credenciais Fiscais",
+      certDesc: "Reserve com total confiança. MH India Trips é uma empresa de viagens 100% registrada pelo governo e em conformidade fiscal perante o Departamento de GST do Governo da Índia.",
+      certGstLabel: "Número de Identificação GST (GSTIN)",
+      certGstVal: "08ACIFM3516H1Z7",
+      certGstBadge: "ATIVO E VERIFICADO",
+      certGstDesc: "Emitido pelo Departamento de Impostos sobre Bens e Serviços, Governo da Índia e Estado do Rajastão.",
+      certNameLabel: "Nome Legal da Empresa",
+      certNameVal: "MH INDIA TRIPS",
+      certNameBadge: "Sociedade Registrada",
+      certNameDesc: "Operador turístico reconhecido realizando tours privados de luxo em toda a Índia.",
+      certAddressLabel: "Sede Principal Registrada",
+      certAddressVal: "Jaipur, Rajastão (302006)",
+      certAddressBadge: "Jurisdição Fiscal Estadual",
+      certAddressDesc: "Khatipura Road, Hasanpura, Jaipur, Rajastão - 302006, Índia.",
+      certGuaranteeLabel: "Faturamento Conforme a Lei",
+      certGuaranteeVal: "100% Legal e Seguro",
+      certGuaranteeBadge: "Faturas Oficiais",
+      certGuaranteeDesc: "Faturas GST oficiais fornecidas para todas as reservas com total transparência legal."
     }
   };
 
@@ -431,6 +488,163 @@ export default async function HomePage({ params }: HomePageProps) {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* SECTION 1.6: Government Certification & Verified Tax Status Banner (GSTIN & Legal Credentials) */}
+      <section className="bg-gradient-to-b from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white py-20 border-b border-gold/20 relative overflow-hidden">
+        {/* Subtle decorative background glow */}
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#C5A862_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          
+          {/* Header section */}
+          <Reveal direction="up" className="text-center space-y-4 max-w-3xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/15 border border-gold/40 text-gold text-xs uppercase tracking-[0.25em] font-semibold">
+              <ShieldCheck className="w-4 h-4 text-gold" />
+              <span>{text.certSub}</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold font-serif text-white leading-tight">
+              {text.certTitle}
+            </h2>
+            <p className="text-white/70 text-sm md:text-base font-light leading-relaxed">
+              {text.certDesc}
+            </p>
+          </Reveal>
+
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            {/* Card 1: GSTIN Number */}
+            <Reveal delay={100} className="bg-white/5 backdrop-blur-md border border-gold/30 hover:border-gold/60 p-6 rounded-xl transition-all duration-300 hover:-translate-y-1 shadow-xl flex flex-col justify-between group">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-lg bg-gold/15 border border-gold/40 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-royal transition-colors duration-300">
+                    <ShieldCheck className="w-6 h-6" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    {text.certGstBadge}
+                  </span>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-white/50 font-medium">{text.certGstLabel}</p>
+                  <h3 className="text-xl font-bold font-mono text-gold tracking-wide mt-1 group-hover:text-amber-300 transition-colors">
+                    {text.certGstVal}
+                  </h3>
+                </div>
+                <p className="text-xs text-white/60 leading-relaxed font-light">
+                  {text.certGstDesc}
+                </p>
+              </div>
+              <div className="pt-4 border-t border-white/10 mt-4 text-[11px] text-white/40 flex items-center justify-between">
+                <span>Govt. of India GST Portal</span>
+                <CheckCircle2 className="w-3.5 h-3.5 text-gold" />
+              </div>
+            </Reveal>
+
+            {/* Card 2: Legal Entity Name */}
+            <Reveal delay={180} className="bg-white/5 backdrop-blur-md border border-gold/30 hover:border-gold/60 p-6 rounded-xl transition-all duration-300 hover:-translate-y-1 shadow-xl flex flex-col justify-between group">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-lg bg-gold/15 border border-gold/40 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-royal transition-colors duration-300">
+                    <Award className="w-6 h-6" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider bg-gold/20 text-gold border border-gold/30 px-2.5 py-1 rounded-full">
+                    {text.certNameBadge}
+                  </span>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-white/50 font-medium">{text.certNameLabel}</p>
+                  <h3 className="text-xl font-bold font-serif text-white tracking-wide mt-1 group-hover:text-gold transition-colors">
+                    {text.certNameVal}
+                  </h3>
+                </div>
+                <p className="text-xs text-white/60 leading-relaxed font-light">
+                  {text.certNameDesc}
+                </p>
+              </div>
+              <div className="pt-4 border-t border-white/10 mt-4 text-[11px] text-white/40 flex items-center justify-between">
+                <span>Certified Business Name</span>
+                <CheckCircle2 className="w-3.5 h-3.5 text-gold" />
+              </div>
+            </Reveal>
+
+            {/* Card 3: Headquarter & Place of Business */}
+            <Reveal delay={260} className="bg-white/5 backdrop-blur-md border border-gold/30 hover:border-gold/60 p-6 rounded-xl transition-all duration-300 hover:-translate-y-1 shadow-xl flex flex-col justify-between group">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-lg bg-gold/15 border border-gold/40 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-royal transition-colors duration-300">
+                    <MapPin className="w-6 h-6" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider bg-sky-500/20 text-sky-300 border border-sky-500/30 px-2.5 py-1 rounded-full">
+                    {text.certAddressBadge}
+                  </span>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-white/50 font-medium">{text.certAddressLabel}</p>
+                  <h3 className="text-lg font-bold font-serif text-white mt-1 group-hover:text-gold transition-colors">
+                    {text.certAddressVal}
+                  </h3>
+                </div>
+                <p className="text-xs text-white/60 leading-relaxed font-light">
+                  {text.certAddressDesc}
+                </p>
+              </div>
+              <div className="pt-4 border-t border-white/10 mt-4 text-[11px] text-white/40 flex items-center justify-between">
+                <span>State Tax Officer, Rajasthan</span>
+                <CheckCircle2 className="w-3.5 h-3.5 text-gold" />
+              </div>
+            </Reveal>
+
+            {/* Card 4: Official Compliant Billing & Guarantee */}
+            <Reveal delay={340} className="bg-white/5 backdrop-blur-md border border-gold/30 hover:border-gold/60 p-6 rounded-xl transition-all duration-300 hover:-translate-y-1 shadow-xl flex flex-col justify-between group">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-lg bg-gold/15 border border-gold/40 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-royal transition-colors duration-300">
+                    <Landmark className="w-6 h-6" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider bg-purple-500/20 text-purple-300 border border-purple-500/30 px-2.5 py-1 rounded-full">
+                    {text.certGuaranteeBadge}
+                  </span>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-white/50 font-medium">{text.certGuaranteeLabel}</p>
+                  <h3 className="text-lg font-bold font-serif text-white mt-1 group-hover:text-gold transition-colors">
+                    {text.certGuaranteeVal}
+                  </h3>
+                </div>
+                <p className="text-xs text-white/60 leading-relaxed font-light">
+                  {text.certGuaranteeDesc}
+                </p>
+              </div>
+              <div className="pt-4 border-t border-white/10 mt-4 text-[11px] text-white/40 flex items-center justify-between">
+                <span>100% Tax Invoice Protection</span>
+                <CheckCircle2 className="w-3.5 h-3.5 text-gold" />
+              </div>
+            </Reveal>
+
+          </div>
+
+          {/* Bottom Trust Badge Bar */}
+          <Reveal delay={400} className="mt-12 p-4 rounded-xl bg-gold/10 border border-gold/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-gold/20 border border-gold flex items-center justify-center text-gold shrink-0">
+                <Sparkles className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-gold uppercase tracking-wider">Government Registration Certificate Form GST REG-06</p>
+                <p className="text-xs text-white/70">Verified Legal Partners: Manoj Kumar Saini & Hemraj Saini | Jurisdiction: State Tax Department, Govt. of Rajasthan</p>
+              </div>
+            </div>
+            <div className="shrink-0 flex items-center gap-2 text-xs font-mono font-bold text-gold bg-black/40 px-4 py-2 rounded-lg border border-gold/30">
+              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              <span>GSTIN: 08ACIFM3516H1Z7</span>
+            </div>
+          </Reveal>
+
         </div>
       </section>
 

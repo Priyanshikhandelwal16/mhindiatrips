@@ -43,6 +43,7 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
       designedBy: "Designed & Developed by",
       terms: "Terms of Service",
       privacy: "Privacy Policy",
+      disclaimer: "Disclaimer",
       faq: "FAQs"
     },
     es: {
@@ -55,6 +56,7 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
       designedBy: "Diseñado y Desarrollado por",
       terms: "Términos de Servicio",
       privacy: "Política de Privacidad",
+      disclaimer: "Aviso Legal",
       faq: "Preguntas Frecuentes"
     },
     pt: {
@@ -67,6 +69,7 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
       designedBy: "Design e Desenvolvimento por",
       terms: "Termos de Serviço",
       privacy: "Política de Privacidade",
+      disclaimer: "Aviso Legal",
       faq: "FAQs"
     }
   };
@@ -237,16 +240,17 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-center md:text-left space-y-1">
               <span>&copy; {contactDetails?.copyright || labels.copyright}</span>
-              {(contactDetails?.gstin || "08AABCM1234F1Z9") && (
+              {(contactDetails?.gstin || "08ACIFM3516H1Z7") && (
                 <div className="text-[11px] font-mono text-royal/50 uppercase font-semibold">
                   <span>GSTIN: </span>
-                  <span className="text-gold font-bold">{contactDetails?.gstin || "08AABCM1234F1Z9"}</span>
+                  <span className="text-gold font-bold">{contactDetails?.gstin || "08ACIFM3516H1Z7"}</span>
                 </div>
               )}
             </div>
             <div className="flex flex-wrap justify-center gap-6">
               <Link href={`/${locale}/terms`} className="hover:text-gold transition-colors">{labels.terms}</Link>
               <Link href={`/${locale}/privacy`} className="hover:text-gold transition-colors">{labels.privacy}</Link>
+              <Link href={`/${locale}/disclaimer`} className="hover:text-gold transition-colors">{labels.disclaimer}</Link>
               <Link href={`/${locale}/faq`} className="hover:text-gold transition-colors">{labels.faq}</Link>
             </div>
           </div>

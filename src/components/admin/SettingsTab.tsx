@@ -73,7 +73,7 @@ export default function SettingsTab({
 
   // 1. Contact fields
   const [companyName, setCompanyName] = useState(contactDetails?.companyName || "MH India Trips");
-  const [gstin, setGstin] = useState(contactDetails?.gstin || "08AABCM1234F1Z9");
+  const [gstin, setGstin] = useState(contactDetails?.gstin || "08ACIFM3516H1Z7");
   const [phone, setPhone] = useState(contactDetails?.phone || "");
   const [email, setEmail] = useState(contactDetails?.email || "");
   const [whatsapp, setWhatsapp] = useState(contactDetails?.whatsapp || "");
@@ -140,7 +140,7 @@ export default function SettingsTab({
   useEffect(() => {
     if (contactDetails) {
       setCompanyName(contactDetails.companyName || "MH India Trips");
-      setGstin(contactDetails.gstin || "08AABCM1234F1Z9");
+      setGstin(contactDetails.gstin || "08ACIFM3516H1Z7");
       setPhone(contactDetails.phone || "");
       setEmail(contactDetails.email || "");
       setWhatsapp(contactDetails.whatsapp || "");

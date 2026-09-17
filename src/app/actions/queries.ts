@@ -118,7 +118,7 @@ export async function getSettingsDetailsAction() {
   const contact = await db.settings.findUnique("contact_details");
   return contact || {
     companyName: "MH India Trips",
-    gstin: "08AABCM1234F1Z9",
+    gstin: "08ACIFM3516H1Z7",
     phone: "+91 9314635830",
     email: "info@mhindiatrips.com",
     whatsapp: "919314635830",

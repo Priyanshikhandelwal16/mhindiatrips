@@ -1268,6 +1268,39 @@
     "heroImage": ""
   },
   {
+    "id": "disclaimer",
+    "heroImage": "",
+    "isCustom": false,
+    "isDeleted": false,
+    "title": {
+      "en": "Legal Disclaimer",
+      "es": "Aviso Legal",
+      "pt": "Aviso Legal"
+    },
+    "content": {
+      "body": {
+        "en": "<p>The information provided on MH India Trips is for general travel information and planning purposes. All tour packages, monument timings, tariffs, and itineraries are subject to seasonal revisions, availability, and local government regulations.</p>",
+        "es": "<p>La información proporcionada en MH India Trips tiene fines generales de información y planificación de viajes. Todos los paquetes, horarios de monumentos y tarifas están sujetos a disponibilidad y regulaciones locales.</p>",
+        "pt": "<p>As informações fornecidas na MH India Trips destinam-se a fins de informação e planejamento de viagens. Todos os pacotes e horários estão sujeitos a disponibilidade e regulamentações locais.</p>"
+      },
+      "GENERAL TRAVEL DISCLAIMER": {
+        "en": "<h2>General Travel Disclaimer</h2><p>MH India Trips provides luxury custom tours, private transfers, and guided itineraries across India and international destinations. While we make every effort to maintain accurate pricing, hotel availability, monument opening hours, and transport schedules, all details are subject to change without prior notice based on government regulations, weather conditions, local events, or unforeseen circumstances.</p>",
+        "es": "<h2>Aviso General de Viaje</h2><p>MH India Trips ofrece tours privados de lujo, traslados y guías en la India y destinos internacionales. Aunque nos esforzamos por mantener información precisa sobre precios, disponibilidad de hoteles y horarios, todos los detalles están sujetos a cambios por regulaciones gubernamentales o fuerza mayor.</p>",
+        "pt": "<h2>Aviso Geral de Viagem</h2><p>A MH India Trips oferece passeios de luxo sob medida, transporte privativo e guias na Índia e destinos internacionais. Embora façamos todos os esforços para manter informações precisas, todos os detalhes estão sujeitos a alterações por regulamentações governamentais ou força mayor.</p>"
+      },
+      "THIRD-PARTY SERVICES & SUPPLIERS": {
+        "en": "<h2>Third-Party Services & Independent Suppliers</h2><p>MH India Trips acts as an authorized travel design company collaborating with vetted third-party vendors including luxury hotels, heritage palace resorts, airlines, rail authorities, local transport providers, and certified guides. We are not liable for any delays, cancellations, injuries, baggage loss, or damages caused by independent third-party operators or events beyond our direct operational control.</p>",
+        "es": "<h2>Servicios de Terceros y Proveedores Independientes</h2><p>MH India Trips actúa como una empresa diseñadora de viajes autorizada que colabora con proveedores independientes como hoteles de lujo, aerolíneas y guías certificados. No nos hacemos responsables por retrasos, cancelaciones o pérdidas causadas por operadores independientes o eventos fuera de nuestro control.</p>",
+        "pt": "<h2>Serviços de Terceiros e Fornecedores Independentes</h2><p>A MH India Trips atua como uma empresa de viagens autorizada colaborando com fornecedores independentes. Não nos responsabilizamos por atrasos, cancelamentos ou perdas causadas por operadores independentes ou eventos fora de nosso controle.</p>"
+      },
+      "ACCURACY & COPYRIGHT": {
+        "en": "<h2>Accuracy & Copyright Notice</h2><p>All content, photographs, logo marks, itinerary structures, and written material on this website are protected under applicable copyright laws. Unauthorized reproduction or commercial distribution without written consent from MH India Trips is strictly prohibited. Registered GSTIN: 08ACIFM3516H1Z7.</p>",
+        "es": "<h2>Precisión y Derechos de Autor</h2><p>Todo el contenido, fotografías y marcas registradas en este sitio web están protegidos por leyes de derechos de autor. Queda estrictamente prohibida la reproducción no autorizada. GSTIN Registrado: 08ACIFM3516H1Z7.</p>",
+        "pt": "<h2>Precisão e Direitos Autorais</h2><p>Todo o conteúdo, fotografias e marcas registradas neste site estão protegidos por leis de direitos autorais. É estritamente proibida a reprodução não autorizada. GSTIN Registrado: 08ACIFM3516H1Z7.</p>"
+      }
+    }
+  },
+  {
     "id": "travel-info-best-time-climate",
     "content": {
       "sections": [
