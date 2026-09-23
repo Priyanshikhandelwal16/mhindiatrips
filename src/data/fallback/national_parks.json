@@ -1,0 +1,91 @@
+[
+  {
+    "id": "ranthambore",
+    "slug": "ranthambore",
+    "name": "Ranthambore National Park",
+    "state": "Rajasthan",
+    "image": "/images/ranthambore_tiger_safari.png",
+    "tagline": "Home of Royal Bengal Tigers & Historic Desert Forts",
+    "desc": "Famous for daytime tiger sightings amidst 10th-century fort ruins and ancient banyan trees. Jeep & Canter safaris available twice daily.",
+    "highlights": ["Royal Bengal Tiger Safaris", "Ranthambore Fort", "Padam Talao Lake"],
+    "bestMonths": "October to June"
+  },
+  {
+    "id": "corbett",
+    "slug": "corbett",
+    "name": "Jim Corbett National Park",
+    "state": "Uttarakhand",
+    "image": "https://images.unsplash.com/photo-1547970810-dc0eac378882?w=1200&q=80",
+    "tagline": "India's First National Park in Himalayan Foothills",
+    "desc": "Nestled along the Ramganga River, Corbett offers wild elephant herds, tigers, gharials, and over 600 bird species.",
+    "highlights": ["Dhikala Zone Stay", "Elephant & Jeep Safaris", "Ramganga River Valley"],
+    "bestMonths": "November to June"
+  },
+  {
+    "id": "kaziranga",
+    "slug": "kaziranga",
+    "name": "Kaziranga National Park",
+    "state": "Assam (North-East India)",
+    "isNorthEast": true,
+    "image": "https://images.unsplash.com/photo-1575550959106-5a7defe28b56?w=1200&q=80",
+    "tagline": "UNESCO World Heritage Sanctuary for One-Horned Rhinos",
+    "desc": "A jewel of North-East India holding two-thirds of the world's great one-horned rhinoceros population alongside wild water buffaloes.",
+    "highlights": ["One-Horned Rhinoceros", "Brahmaputra Floodplains", "Elephant Back Safaris"],
+    "bestMonths": "November to April"
+  },
+  {
+    "id": "kanha",
+    "slug": "kanha",
+    "name": "Kanha National Park",
+    "state": "Madhya Pradesh",
+    "image": "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?w=1200&q=80",
+    "tagline": "Lush Sal Forests & The Rare Hard-Ground Barasingha",
+    "desc": "Inspiration for Rudyard Kipling's Jungle Book, featuring open meadows, dense bamboo forests, and flourishing predator density.",
+    "highlights": ["Hard-Ground Barasingha", "Open Sal Meadows", "Mukki & Kanha Zones"],
+    "bestMonths": "October to June"
+  },
+  {
+    "id": "bandhavgarh",
+    "slug": "bandhavgarh",
+    "name": "Bandhavgarh National Park",
+    "state": "Madhya Pradesh",
+    "image": "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?w=1200&q=80",
+    "tagline": "Highest Density of Royal Bengal Tigers in India",
+    "desc": "Surrounded by 32 dramatic hills and ancient caves, Bandhavgarh boasts the highest concentration of wild tigers in Asia.",
+    "highlights": ["Tala Safari Zone", "Bandhavgarh Hill Fort", "Leopards & Sloth Bears"],
+    "bestMonths": "October to June"
+  },
+  {
+    "id": "sundarbans",
+    "slug": "sundarbans",
+    "name": "Sundarbans National Park",
+    "state": "West Bengal",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80",
+    "tagline": "Largest Mangrove Forest & Swimming Tiger Sanctuary",
+    "desc": "A UNESCO World Heritage tidal delta where Royal Bengal Tigers adapted to salt water and mangrove jungle canals.",
+    "highlights": ["Boat Safaris in Mangrove Creeks", "Estuarine Crocodiles", "Dobanki Watchtower"],
+    "bestMonths": "September to March"
+  },
+  {
+    "id": "gir",
+    "slug": "gir",
+    "name": "Gir National Park",
+    "state": "Gujarat",
+    "image": "https://images.unsplash.com/photo-1614027164847-1b28cfe1df60?w=1200&q=80",
+    "tagline": "The Sole Haven of Asiatic Lions on Planet Earth",
+    "desc": "The only natural habitat outside Africa where Asiatic lions roam freely amidst teak forests and rocky hillocks.",
+    "highlights": ["Asiatic Lions", "Devalia Safari Zone", "Maldhari Heritage Villages"],
+    "bestMonths": "December to April"
+  },
+  {
+    "id": "periyar",
+    "slug": "periyar",
+    "name": "Periyar National Park",
+    "state": "Kerala",
+    "image": "/images/kerala_backwaters_houseboat.png",
+    "tagline": "Western Ghats Sanctuary & Scenic Lake Safaris",
+    "desc": "Set in the misty Cardamom Hills of Kerala, famed for wild elephant herds grazing along the banks of Lake Periyar.",
+    "highlights": ["Lake Boat Safaris", "Spice Plantation Walks", "Elephant Herds"],
+    "bestMonths": "September to April"
+  }
+]

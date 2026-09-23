@@ -1173,28 +1173,10 @@ export default function DestinationsTab({
                       </button>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      <div className="space-y-1">
-                        <label className="text-[10px] uppercase font-bold text-royal/60 block">Place Name ({activeLang.toUpperCase()})</label>
-                        <input
-                          type="text"
-                          value={typeof place.name === "object" ? place.name?.[activeLang] || "" : place.name || ""}
-                          onChange={e => {
-                            const updated = [...editCity.touristPlaces];
-                            const currentNameObj = typeof place.name === "object" ? place.name : { en: place.name || "" };
-                            updated[pIdx] = {
-                              ...updated[pIdx],
-                              name: { ...currentNameObj, [activeLang]: e.target.value }
-                            };
-                            setEditCity({ ...editCity, touristPlaces: updated });
-                          }}
-                          className="w-full bg-white border border-gold/15 px-3 py-1.5 outline-none rounded-lg text-xs"
-                          placeholder="e.g. Amber Fort"
-                        />
-                      </div>
-
-                      <div className="space-y-1">
-                        <label className="text-[10px] uppercase font-bold text-royal/60 block">Image URL</label>
+                    {/* Image URL & Cloudinary Upload */}
+                    <div className="space-y-1">
+                      <label className="text-[10px] uppercase font-bold text-royal/60 block">Image URL & Upload</label>
+                      <div className="flex gap-2 items-center">
                         <input
                           type="text"
                           value={place.image || ""}
@@ -1203,29 +1185,133 @@ export default function DestinationsTab({
                             updated[pIdx] = { ...updated[pIdx], image: e.target.value };
                             setEditCity({ ...editCity, touristPlaces: updated });
                           }}
-                          className="w-full bg-white border border-gold/15 px-3 py-1.5 outline-none rounded-lg text-xs"
-                          placeholder="Image URL"
+                          className="flex-1 bg-white border border-gold/15 px-3 py-2 outline-none rounded-lg text-xs"
+                          placeholder="https://images.unsplash.com/... or Cloudinary URL"
                         />
+                        <CloudinaryUpload
+                          label="Upload"
+                          onUploadComplete={(url) => {
+                            const updated = [...editCity.touristPlaces];
+                            updated[pIdx] = { ...updated[pIdx], image: url };
+                            setEditCity({ ...editCity, touristPlaces: updated });
+                          }}
+                        />
+                        {place.image && (
+                          <div className="w-9 h-9 rounded-lg overflow-hidden border border-gold/20 shrink-0">
+                            <img src={place.image} alt="Preview" className="w-full h-full object-cover" />
+                          </div>
+                        )}
                       </div>
                     </div>
 
+                    {/* Place Name (3 Languages: EN, ES, PT) */}
                     <div className="space-y-1">
-                      <label className="text-[10px] uppercase font-bold text-royal/60 block">Description ({activeLang.toUpperCase()})</label>
-                      <textarea
-                        rows={2}
-                        value={typeof place.description === "object" ? place.description?.[activeLang] || "" : place.description || place.desc || ""}
-                        onChange={e => {
-                          const updated = [...editCity.touristPlaces];
-                          const currentDescObj = typeof place.description === "object" ? place.description : { en: place.description || "" };
-                          updated[pIdx] = {
-                            ...updated[pIdx],
-                            description: { ...currentDescObj, [activeLang]: e.target.value }
-                          };
-                          setEditCity({ ...editCity, touristPlaces: updated });
-                        }}
-                        className="w-full bg-white border border-gold/15 p-2 outline-none rounded-lg text-xs"
-                        placeholder="Brief overview of this tourist attraction..."
-                      />
+                      <label className="text-[10px] uppercase font-bold text-royal/60 block">Place Name (EN / ES / PT)</label>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <div>
+                          <span className="text-[9px] font-extrabold text-royal/50 block mb-0.5">ENGLISH (EN)</span>
+                          <input
+                            type="text"
+                            value={typeof place.name === "object" ? place.name?.en || "" : place.name || ""}
+                            onChange={e => {
+                              const updated = [...editCity.touristPlaces];
+                              const nameObj = typeof place.name === "object" ? { ...place.name } : { en: place.name || "", es: "", pt: "" };
+                              nameObj.en = e.target.value;
+                              updated[pIdx] = { ...updated[pIdx], name: nameObj };
+                              setEditCity({ ...editCity, touristPlaces: updated });
+                            }}
+                            className="w-full bg-white border border-gold/15 px-3 py-1.5 outline-none rounded-lg text-xs"
+                            placeholder="e.g. Fort / Temple Name"
+                          />
+                        </div>
+                        <div>
+                          <span className="text-[9px] font-extrabold text-amber-700/70 block mb-0.5">SPANISH (ES)</span>
+                          <input
+                            type="text"
+                            value={typeof place.name === "object" ? place.name?.es || "" : ""}
+                            onChange={e => {
+                              const updated = [...editCity.touristPlaces];
+                              const nameObj = typeof place.name === "object" ? { ...place.name } : { en: place.name || "", es: "", pt: "" };
+                              nameObj.es = e.target.value;
+                              updated[pIdx] = { ...updated[pIdx], name: nameObj };
+                              setEditCity({ ...editCity, touristPlaces: updated });
+                            }}
+                            className="w-full bg-white border border-gold/15 px-3 py-1.5 outline-none rounded-lg text-xs"
+                            placeholder="e.g. Nombre del Lugar"
+                          />
+                        </div>
+                        <div>
+                          <span className="text-[9px] font-extrabold text-teal-700/70 block mb-0.5">PORTUGUESE (PT)</span>
+                          <input
+                            type="text"
+                            value={typeof place.name === "object" ? place.name?.pt || "" : ""}
+                            onChange={e => {
+                              const updated = [...editCity.touristPlaces];
+                              const nameObj = typeof place.name === "object" ? { ...place.name } : { en: place.name || "", es: "", pt: "" };
+                              nameObj.pt = e.target.value;
+                              updated[pIdx] = { ...updated[pIdx], name: nameObj };
+                              setEditCity({ ...editCity, touristPlaces: updated });
+                            }}
+                            className="w-full bg-white border border-gold/15 px-3 py-1.5 outline-none rounded-lg text-xs"
+                            placeholder="e.g. Nome do Local"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Place Description (3 Languages: EN, ES, PT) */}
+                    <div className="space-y-1">
+                      <label className="text-[10px] uppercase font-bold text-royal/60 block">Description (EN / ES / PT)</label>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <div>
+                          <span className="text-[9px] font-extrabold text-royal/50 block mb-0.5">ENGLISH (EN)</span>
+                          <textarea
+                            rows={2}
+                            value={typeof place.description === "object" ? place.description?.en || "" : place.description || place.desc || ""}
+                            onChange={e => {
+                              const updated = [...editCity.touristPlaces];
+                              const descObj = typeof place.description === "object" ? { ...place.description } : { en: place.description || "", es: "", pt: "" };
+                              descObj.en = e.target.value;
+                              updated[pIdx] = { ...updated[pIdx], description: descObj };
+                              setEditCity({ ...editCity, touristPlaces: updated });
+                            }}
+                            className="w-full bg-white border border-gold/15 p-2 outline-none rounded-lg text-xs"
+                            placeholder="Description in English..."
+                          />
+                        </div>
+                        <div>
+                          <span className="text-[9px] font-extrabold text-amber-700/70 block mb-0.5">SPANISH (ES)</span>
+                          <textarea
+                            rows={2}
+                            value={typeof place.description === "object" ? place.description?.es || "" : ""}
+                            onChange={e => {
+                              const updated = [...editCity.touristPlaces];
+                              const descObj = typeof place.description === "object" ? { ...place.description } : { en: place.description || "", es: "", pt: "" };
+                              descObj.es = e.target.value;
+                              updated[pIdx] = { ...updated[pIdx], description: descObj };
+                              setEditCity({ ...editCity, touristPlaces: updated });
+                            }}
+                            className="w-full bg-white border border-gold/15 p-2 outline-none rounded-lg text-xs"
+                            placeholder="Descripción en español..."
+                          />
+                        </div>
+                        <div>
+                          <span className="text-[9px] font-extrabold text-teal-700/70 block mb-0.5">PORTUGUESE (PT)</span>
+                          <textarea
+                            rows={2}
+                            value={typeof place.description === "object" ? place.description?.pt || "" : ""}
+                            onChange={e => {
+                              const updated = [...editCity.touristPlaces];
+                              const descObj = typeof place.description === "object" ? { ...place.description } : { en: place.description || "", es: "", pt: "" };
+                              descObj.pt = e.target.value;
+                              updated[pIdx] = { ...updated[pIdx], description: descObj };
+                              setEditCity({ ...editCity, touristPlaces: updated });
+                            }}
+                            className="w-full bg-white border border-gold/15 p-2 outline-none rounded-lg text-xs"
+                            placeholder="Descrição em português..."
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}

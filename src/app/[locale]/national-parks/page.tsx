@@ -4,6 +4,8 @@ import { Trees, MapPin, ArrowRight, ShieldCheck, Calendar, Sparkles } from "luci
 import Reveal from "@/components/home/Reveal";
 import PageHeroSlider from "@/components/common/PageHeroSlider";
 
+import { getNationalParksAction } from "@/app/actions/queries";
+
 interface NationalParksPageProps {
   params: Promise<{ locale: string }>;
 }
@@ -45,89 +47,7 @@ export default async function NationalParksPage({ params }: NationalParksPagePro
 
   const text = t[locale] || t.en;
 
-  const nationalParks = [
-    {
-      id: "ranthambore",
-      name: "Ranthambore National Park",
-      state: "Rajasthan",
-      image: "/images/ranthambore_tiger_safari.png",
-      tagline: "Home of Royal Bengal Tigers & Historic Desert Forts",
-      desc: "Famous for daytime tiger sightings amidst 10th-century fort ruins and ancient banyan trees. Jeep & Canter safaris available twice daily.",
-      highlights: ["Royal Bengal Tiger Safaris", "Ranthambore Fort", "Padam Talao Lake"],
-      bestMonths: "October to June"
-    },
-    {
-      id: "corbett",
-      name: "Jim Corbett National Park",
-      state: "Uttarakhand",
-      image: "https://images.unsplash.com/photo-1547970810-dc0eac378882?w=1200&q=80",
-      tagline: "India's First National Park in Himalayan Foothills",
-      desc: "Nestled along the Ramganga River, Corbett offers wild elephant herds, tigers, gharials, and over 600 bird species.",
-      highlights: ["Dhikala Zone Stay", "Elephant & Jeep Safaris", "Ramganga River Valley"],
-      bestMonths: "November to June"
-    },
-    {
-      id: "kaziranga",
-      name: "Kaziranga National Park",
-      state: "Assam (North-East India)",
-      isNorthEast: true,
-      image: "https://images.unsplash.com/photo-1575550959106-5a7defe28b56?w=1200&q=80",
-      tagline: "UNESCO World Heritage Sanctuary for One-Horned Rhinos",
-      desc: "A jewel of North-East India holding two-thirds of the world's great one-horned rhinoceros population alongside wild water buffaloes.",
-      highlights: ["One-Horned Rhinoceros", "Brahmaputra Floodplains", "Elephant Back Safaris"],
-      bestMonths: "November to April"
-    },
-    {
-      id: "kanha",
-      name: "Kanha National Park",
-      state: "Madhya Pradesh",
-      image: "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?w=1200&q=80",
-      tagline: "Lush Sal Forests & The Rare Hard-Ground Barasingha",
-      desc: "Inspiration for Rudyard Kipling's Jungle Book, featuring open meadows, dense bamboo forests, and flourishing predator density.",
-      highlights: ["Hard-Ground Barasingha", "Open Sal Meadows", "Mukki & Kanha Zones"],
-      bestMonths: "October to June"
-    },
-    {
-      id: "bandhavgarh",
-      name: "Bandhavgarh National Park",
-      state: "Madhya Pradesh",
-      image: "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?w=1200&q=80",
-      tagline: "Highest Density of Royal Bengal Tigers in India",
-      desc: "Surrounded by 32 dramatic hills and ancient caves, Bandhavgarh boasts the highest concentration of wild tigers in Asia.",
-      highlights: ["Tala Safari Zone", "Bandhavgarh Hill Fort", "Leopards & Sloth Bears"],
-      bestMonths: "October to June"
-    },
-    {
-      id: "sundarbans",
-      name: "Sundarbans National Park",
-      state: "West Bengal",
-      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80",
-      tagline: "Largest Mangrove Forest & Swimming Tiger Sanctuary",
-      desc: "A UNESCO World Heritage tidal delta where Royal Bengal Tigers adapted to salt water and mangrove jungle canals.",
-      highlights: ["Boat Safaris in Mangrove Creeks", "Estuarine Crocodiles", "Dobanki Watchtower"],
-      bestMonths: "September to March"
-    },
-    {
-      id: "gir",
-      name: "Gir National Park",
-      state: "Gujarat",
-      image: "https://images.unsplash.com/photo-1614027164847-1b28cfe1df60?w=1200&q=80",
-      tagline: "The Sole Haven of Asiatic Lions on Planet Earth",
-      desc: "The only natural habitat outside Africa where Asiatic lions roam freely amidst teak forests and rocky hillocks.",
-      highlights: ["Asiatic Lions", "Devalia Safari Zone", "Maldhari Heritage Villages"],
-      bestMonths: "December to April"
-    },
-    {
-      id: "periyar",
-      name: "Periyar National Park",
-      state: "Kerala",
-      image: "/images/kerala_backwaters_houseboat.png",
-      tagline: "Western Ghats Sanctuary & Scenic Lake Safaris",
-      desc: "Set in the misty Cardamom Hills of Kerala, famed for wild elephant herds grazing along the banks of Lake Periyar.",
-      highlights: ["Lake Boat Safaris", "Spice Plantation Walks", "Elephant Herds"],
-      bestMonths: "September to April"
-    }
-  ];
+  const nationalParks = await getNationalParksAction();
 
   const heroSlides = [
     {
@@ -164,7 +84,7 @@ export default async function NationalParksPage({ params }: NationalParksPagePro
 
         {/* National Parks Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {nationalParks.map((park, i) => (
+          {nationalParks.map((park: any, i: number) => (
             <Reveal key={park.id} delay={i * 80}>
               <Link href={`/${locale}/contact?subject=National+Park+Safari+${park.name}`} className="group block h-full">
                 <div className="bg-white border border-gold/20 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col justify-between group-hover:-translate-y-1">
@@ -209,7 +129,7 @@ export default async function NationalParksPage({ params }: NationalParksPagePro
                     {/* Highlights Tags */}
                     <div className="pt-4 border-t border-gold/15 space-y-3">
                       <div className="flex flex-wrap gap-2">
-                        {park.highlights.map((h, hIdx) => (
+                        {(park.highlights || []).map((h: string, hIdx: number) => (
                           <span key={hIdx} className="bg-[#FAF8F5] border border-gold/20 text-royal text-[10px] font-semibold px-2.5 py-1 rounded-full">
                             • {h}
                           </span>

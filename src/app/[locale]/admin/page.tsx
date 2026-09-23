@@ -8,7 +8,7 @@ import { auth } from "@/lib/firebase";
 import { 
   BarChart, Users, FileText, Compass, CheckCircle2, AlertCircle, 
   Layers, Utensils, Star, Calendar, LogOut, Menu, X, Globe, Link2, MapPin,
-  Settings
+  Settings, Trees
 } from "lucide-react";
 
 // Server Actions
@@ -45,7 +45,10 @@ import {
   deleteCityAction,
   previewDestinationAction,
   logoutAdminAction,
-  checkAdminSessionAction
+  checkAdminSessionAction,
+  createNationalParkAction,
+  updateNationalParkAction,
+  deleteNationalParkAction
 } from "@/app/actions/admin";
 import { 
   getBlogsAction,
@@ -56,7 +59,8 @@ import {
   getPagesAction,
   getParentDestinationsAction,
   getStatesByParentDestinationAction,
-  getOutboundDestinationsAction
+  getOutboundDestinationsAction,
+  getNationalParksAction
 } from "@/app/actions/queries";
 import { syncClientFirestore } from "@/lib/client-db-sync";
 
@@ -68,7 +72,7 @@ import DestinationsTab from "@/components/admin/DestinationsTab";
 import OutboundTab from "@/components/admin/OutboundTab";
 import PackagesTab from "@/components/admin/PackagesTab";
 import BlogsTab from "@/components/admin/BlogsTab";
-import CuisinesTab from "@/components/admin/CuisinesTab";
+import NationalParksTab from "@/components/admin/NationalParksTab";
 import TestimonialsTab from "@/components/admin/TestimonialsTab";
 import SettingsTab from "@/components/admin/SettingsTab";
 
@@ -91,6 +95,7 @@ export default function AdminDashboard() {
   const [foods, setFoods] = useState<any[]>([]);
   const [states, setStates] = useState<any[]>([]);
   const [outboundList, setOutboundList] = useState<any[]>([]);
+  const [nationalParks, setNationalParks] = useState<any[]>([]);
   const [testimonials, setTestimonials] = useState<any[]>([]);
   const [pages, setPages] = useState<any[]>([]);
   const [contactDetails, setContactDetails] = useState<any>({
@@ -167,7 +172,7 @@ export default function AdminDashboard() {
     if (showLoader) setLoading(true);
     try {
       // Load each collection independently so one failure doesn't kill all
-      const [inqs, blgs, pkgs, fds, sts, tsts, pgs, settingsRes, parentsRes, outboundsRes] = await Promise.all([
+      const [inqs, blgs, pkgs, fds, sts, tsts, pgs, settingsRes, parentsRes, outboundsRes, parksRes] = await Promise.all([
         getInquiriesAction().catch(() => []),
         getBlogsAction().catch(() => []),
         getTourPackagesAction().catch(() => []),
@@ -177,7 +182,8 @@ export default function AdminDashboard() {
         getPagesAction().catch(() => []),
         getSettingsAction().catch(() => ({ success: false })),
         getParentDestinationsAction().catch(() => []),
-        getOutboundDestinationsAction().catch(() => [])
+        getOutboundDestinationsAction().catch(() => []),
+        getNationalParksAction().catch(() => [])
       ]);
       setInquiries(inqs || []);
       setBlogs(blgs || []);
@@ -185,6 +191,7 @@ export default function AdminDashboard() {
       setFoods(fds || []);
       setStates(sts || []);
       setOutboundList(outboundsRes || []);
+      setNationalParks(parksRes || []);
       setTestimonials(tsts || []);
       setPages(pgs || []);
       setParentDestinations(parentsRes || []);
@@ -618,7 +625,7 @@ export default function AdminDashboard() {
     { id: "outbound", label: "Outbound Trips", icon: Globe },
     { id: "packages", label: "Tour Packages", icon: Compass },
     { id: "blogs", label: "Manage Blogs", icon: FileText },
-    { id: "cuisines", label: "Food Catalog", icon: Utensils },
+    { id: "national-parks", label: "National Parks", icon: Trees },
     { id: "testimonials", label: "Testimonials", icon: Star },
     { id: "settings", label: "System Settings", icon: Settings }
   ];
@@ -892,15 +899,13 @@ export default function AdminDashboard() {
               />
             )}
 
-            {/* Render Regional food cuisines catalog component */}
-            {activeTab === "cuisines" && (
-              <CuisinesTab
-                foods={foods}
-                editFood={editFood}
-                setEditFood={setEditFood}
-                handleSaveFood={handleSaveFood}
-                onDeleteFood={onDeleteFood}
+            {/* Render National Parks manager component */}
+            {activeTab === "national-parks" && (
+              <NationalParksTab
+                parks={nationalParks}
+                setParks={setNationalParks}
                 showStatus={showStatus}
+                loadCMSData={loadCMSData}
               />
             )}
 

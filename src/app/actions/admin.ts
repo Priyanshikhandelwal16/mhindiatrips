@@ -534,3 +534,46 @@ export async function checkAdminSessionAction() {
   }
   return { success: false, error: "Not authenticated" };
 }
+
+export async function createNationalParkAction(data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
+  try {
+    const park = await db.nationalParks.create(data);
+    revalidateAllPages();
+    revalidatePath("/[locale]/national-parks", "layout");
+    return { success: true, park };
+  } catch (error: any) {
+    return { success: false, error: error.message || "Failed to create national park" };
+  }
+}
+
+export async function updateNationalParkAction(id: string, data: any) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
+  try {
+    const updated = await db.nationalParks.update(id, data);
+    revalidateAllPages();
+    revalidatePath("/[locale]/national-parks", "layout");
+    return { success: true, updated };
+  } catch (error: any) {
+    return { success: false, error: error.message || "Failed to update national park" };
+  }
+}
+
+export async function deleteNationalParkAction(id: string) {
+  const authCheck = await requireAdminSession();
+  if (!authCheck.success) return authCheck;
+
+  try {
+    await db.nationalParks.delete(id);
+    revalidateAllPages();
+    revalidatePath("/[locale]/national-parks", "layout");
+    return { success: true };
+  } catch (error: any) {
+    return { success: false, error: error.message || "Failed to delete national park" };
+  }
+}
+

@@ -32,8 +32,10 @@ import settingsFallback from "@/data/fallback/settings.json";
 import statesFallback from "@/data/fallback/states.json";
 import testimonialsFallback from "@/data/fallback/testimonials.json";
 import tourPackagesFallback from "@/data/fallback/tour_packages.json";
+import nationalParksFallback from "@/data/fallback/national_parks.json";
 
 let outboundCache: any[] = (outboundFallback && outboundFallback.length > 0) ? outboundFallback : outboundDestinations;
+let nationalParksCache: any[] = (nationalParksFallback && nationalParksFallback.length > 0) ? nationalParksFallback : [];
 
 const mergedStates: any[] = (statesFallback && statesFallback.length > 0) ? statesFallback : [...statesData, ...additionalStates];
 const mergedCities: any[] = (citiesFallback && citiesFallback.length > 0) ? citiesFallback : [];
@@ -1488,6 +1490,60 @@ export const db = {
       saveLocalData("outbound", outboundCache);
       return { slug };
     }
+  },
+  nationalParks: {
+    findMany: async () => {
+      nationalParksCache = loadLocalData("national_parks", nationalParksCache || []);
+      const firestoreData = await fetchCollectionDocs("national_parks");
+      const res = mergeCollectionData(nationalParksCache, firestoreData, (p: any) => p.id || p.slug);
+      return cleanEmail(res);
+    },
+    findUnique: async (id: string) => {
+      const all = await db.nationalParks.findMany();
+      return all.find((p: any) => p.id === id || p.slug === id) || null;
+    },
+    create: async (data: any) => {
+      const id = data.id || data.slug || Math.random().toString(36).substring(2, 9);
+      const newItem = { id, slug: id, updatedAt: new Date().toISOString(), isDeleted: false, ...data };
+      await writeDoc("national_parks", id, newItem);
+      const existingIdx = nationalParksCache.findIndex((p: any) => p.id === id || p.slug === id);
+      if (existingIdx >= 0) {
+        nationalParksCache[existingIdx] = { ...nationalParksCache[existingIdx], ...newItem };
+      } else {
+        nationalParksCache.push(newItem);
+      }
+      saveLocalData("national_parks", nationalParksCache);
+      return newItem;
+    },
+    update: async (id: string, data: any) => {
+      const payload = { ...data, updatedAt: new Date().toISOString(), isDeleted: false };
+      await writeDoc("national_parks", id, payload, true);
+      nationalParksCache = loadLocalData("national_parks", nationalParksCache);
+      const idx = nationalParksCache.findIndex((p: any) => p.id === id || p.slug === id);
+      let updatedItem;
+      if (idx !== -1) {
+        nationalParksCache[idx] = { ...nationalParksCache[idx], ...payload };
+        updatedItem = nationalParksCache[idx];
+      } else {
+        updatedItem = { id, slug: id, ...payload };
+        nationalParksCache.push(updatedItem);
+      }
+      saveLocalData("national_parks", nationalParksCache);
+      return updatedItem;
+    },
+    delete: async (id: string) => {
+      const payload = { isDeleted: true, updatedAt: new Date().toISOString() };
+      await writeDoc("national_parks", id, payload, true);
+      const idx = nationalParksCache.findIndex((p: any) => p.id === id || p.slug === id);
+      if (idx !== -1) {
+        nationalParksCache[idx] = { ...nationalParksCache[idx], ...payload };
+      } else {
+        nationalParksCache.push({ id, slug: id, ...payload });
+      }
+      saveLocalData("national_parks", nationalParksCache);
+      return { id };
+    }
   }
 };
+
 

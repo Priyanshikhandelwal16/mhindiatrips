@@ -127,3 +127,12 @@ export async function getSettingsDetailsAction() {
     hours: "Mon - Sat: 9:00 AM - 7:00 PM IST"
   };
 }
+
+export async function getNationalParksAction() {
+  return await db.nationalParks.findMany();
+}
+
+export async function getNationalParkByIdAction(id: string) {
+  return await db.nationalParks.findUnique(id);
+}
+
