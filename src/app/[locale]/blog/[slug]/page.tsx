@@ -52,7 +52,8 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
       packagesBtn: "View Itinerary",
       tableOfContents: "In This Article",
       shareText: "Share Story",
-      guarantee: "100% Customized & Government Verified Tours"
+      guarantee: "100% Customized & Government Verified Tours",
+      galleryTitle: "Destination Photo Gallery"
     },
     es: {
       back: "Volver a Diarios",
@@ -69,7 +70,8 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
       packagesBtn: "Ver Itinerario",
       tableOfContents: "En Este Artículo",
       shareText: "Compartir",
-      guarantee: "Tours 100% Personalizados y Verificados"
+      guarantee: "Tours 100% Personalizados y Verificados",
+      galleryTitle: "Galería de Fotos del Destino"
     },
     pt: {
       back: "Voltar aos Diários",
@@ -86,7 +88,8 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
       packagesBtn: "Ver Roteiro",
       tableOfContents: "Neste Artigo",
       shareText: "Compartilhar",
-      guarantee: "Roteiros 100% Personalizados e Certificados"
+      guarantee: "Roteiros 100% Personalizados e Certificados",
+      galleryTitle: "Galeria de Fotos do Destino"
     }
   };
 
@@ -244,16 +247,48 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                   </a>
                 </div>
 
-                {/* Visual Photo Gallery */}
+                {/* Visual Photo Gallery with Optional Captions */}
                 {blog.gallery && blog.gallery.length > 0 && (
                   <div className="space-y-4 pt-8 border-t border-[#C5A862]/20">
-                    <h3 className="text-xl font-serif font-bold text-[#0A2A1E]">Destination Photo Gallery</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {blog.gallery.map((gImg: string, gIdx: number) => (
-                        <div key={gIdx} className="h-56 rounded-2xl overflow-hidden border border-[#C5A862]/30 shadow-md group">
-                          <img src={gImg} alt={`Gallery ${gIdx + 1}`} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                        </div>
-                      ))}
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-serif font-bold text-[#0A2A1E]">{text.galleryTitle}</h3>
+                      <span className="text-xs text-[#C5A862] font-semibold">
+                        {blog.gallery.length} {blog.gallery.length === 1 ? "Photo" : "Photos"}
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      {blog.gallery.map((gItem: any, gIdx: number) => {
+                        const gUrl = typeof gItem === "string" ? gItem : (gItem?.url || gItem?.src || "");
+                        if (!gUrl) return null;
+
+                        const gCaptionObj = typeof gItem === "object" ? gItem?.caption : null;
+                        let gCaption = "";
+                        if (typeof gCaptionObj === "string") {
+                          gCaption = gCaptionObj;
+                        } else if (typeof gCaptionObj === "object" && gCaptionObj !== null) {
+                          gCaption = gCaptionObj[lang] || gCaptionObj.en || gCaptionObj.es || gCaptionObj.pt || "";
+                        }
+
+                        return (
+                          <div key={gIdx} className="bg-[#FAF8F5] border border-[#C5A862]/30 rounded-2xl overflow-hidden shadow-md group flex flex-col justify-between hover:border-[#C5A862] transition-colors">
+                            <div className="h-60 w-full overflow-hidden relative bg-[#0A2A1E]">
+                              <img 
+                                src={gUrl} 
+                                alt={gCaption || `Gallery ${gIdx + 1}`} 
+                                loading="lazy" 
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                              />
+                            </div>
+                            {gCaption && (
+                              <div className="p-3.5 bg-white border-t border-[#C5A862]/20">
+                                <p className="text-xs font-medium text-[#0A2A1E]/80 italic text-center">
+                                  "{gCaption}"
+                                </p>
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 )}
