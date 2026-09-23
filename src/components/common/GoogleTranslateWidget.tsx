@@ -46,10 +46,23 @@ export default function GoogleTranslateWidget() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Extract active locale segment (en / es / pt)
+    // Extract active locale segment or googtrans cookie target
     const segments = (pathname || "").split("/").filter(Boolean);
-    const firstSeg = segments[0] || "en";
-    const targetLang = ["es", "pt", "fr", "de", "it"].includes(firstSeg) ? firstSeg : "en";
+    const firstSeg = (segments[0] || "").toLowerCase();
+    const supportedLangs = ["es", "pt", "fr", "de", "it", "ru", "ja", "zh-CN", "hi", "ar"];
+    
+    // Read active googtrans cookie if set
+    let cookieLang = "";
+    if (typeof document !== "undefined") {
+      const match = document.cookie.match(/googtrans=\/en\/([a-zA-Z-]+)/);
+      if (match && match[1]) cookieLang = match[1];
+    }
+
+    const targetLang = supportedLangs.includes(firstSeg) 
+      ? firstSeg 
+      : supportedLangs.includes(cookieLang) 
+      ? cookieLang 
+      : "en";
 
     // Set or clear Google Translate cookie automatically on page load
     setGoogleTranslateCookie(targetLang);

@@ -321,6 +321,7 @@ export default function DestinationsTab({
                   displayOrder: cities.length + 1,
                   isPublished: false,
                   relatedPackages: [],
+                  touristPlaces: [],
                   name: { en: "", es: "", pt: "" },
                   slug: { en: "", es: "", pt: "" },
                   description: { en: "", es: "", pt: "" },
@@ -514,7 +515,7 @@ export default function DestinationsTab({
                           </td>
                           <td className="p-4 text-right pr-6 space-x-2">
                             <button
-                              onClick={() => setEditCity(city)}
+                              onClick={() => setEditCity({ ...city, touristPlaces: city.touristPlaces || [] })}
                               className="bg-royal/5 text-royal hover:bg-gold hover:text-royal p-2 rounded-xl transition cursor-pointer"
                               title="Edit City"
                             >
@@ -1121,8 +1122,119 @@ export default function DestinationsTab({
               })}
             </div>
           </div>
+
+          {/* Tourist Places Management Section (Requirement #4) */}
+          <div className="border border-gold/15 p-5 rounded-2xl bg-white space-y-4 shadow-sm mt-4">
+            <div className="flex justify-between items-center border-b border-gold/10 pb-3">
+              <div>
+                <span className="font-serif font-bold text-base text-royal block">Tourist Places in {editCity.name?.[activeLang] || editCity.id}</span>
+                <span className="text-[10px] text-royal/50">Add tourist places with images and descriptions to show on the city detail page.</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setEditCity({
+                  ...editCity,
+                  touristPlaces: [
+                    ...(editCity.touristPlaces || []),
+                    {
+                      name: { en: "", es: "", pt: "" },
+                      image: "",
+                      description: { en: "", es: "", pt: "" }
+                    }
+                  ]
+                })}
+                className="bg-gold hover:bg-amber-400 text-royal font-bold text-xs uppercase px-4 py-2 rounded-xl transition cursor-pointer flex items-center gap-1.5"
+              >
+                <Plus className="w-3.5 h-3.5" />
+                <span>Add Tourist Place</span>
+              </button>
+            </div>
+
+            {(!editCity.touristPlaces || editCity.touristPlaces.length === 0) ? (
+              <div className="text-center py-6 text-royal/40 italic bg-[#FAF8F5] rounded-xl border border-dashed border-gold/15 text-xs">
+                No tourist places added yet for this city. Click "+ Add Tourist Place" to add one.
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {editCity.touristPlaces.map((place: any, pIdx: number) => (
+                  <div key={pIdx} className="bg-[#FAF8F5] border border-gold/20 p-4 rounded-xl space-y-3 relative group">
+                    <div className="flex justify-between items-center border-b border-gold/10 pb-2">
+                      <span className="font-mono text-xs font-bold text-gold">Place #{pIdx + 1}</span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const updated = editCity.touristPlaces.filter((_: any, i: number) => i !== pIdx);
+                          setEditCity({ ...editCity, touristPlaces: updated });
+                        }}
+                        className="text-red-600 hover:text-red-800 text-xs font-bold flex items-center gap-1 cursor-pointer"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                        <span>Remove</span>
+                      </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <div className="space-y-1">
+                        <label className="text-[10px] uppercase font-bold text-royal/60 block">Place Name ({activeLang.toUpperCase()})</label>
+                        <input
+                          type="text"
+                          value={typeof place.name === "object" ? place.name?.[activeLang] || "" : place.name || ""}
+                          onChange={e => {
+                            const updated = [...editCity.touristPlaces];
+                            const currentNameObj = typeof place.name === "object" ? place.name : { en: place.name || "" };
+                            updated[pIdx] = {
+                              ...updated[pIdx],
+                              name: { ...currentNameObj, [activeLang]: e.target.value }
+                            };
+                            setEditCity({ ...editCity, touristPlaces: updated });
+                          }}
+                          className="w-full bg-white border border-gold/15 px-3 py-1.5 outline-none rounded-lg text-xs"
+                          placeholder="e.g. Amber Fort"
+                        />
+                      </div>
+
+                      <div className="space-y-1">
+                        <label className="text-[10px] uppercase font-bold text-royal/60 block">Image URL</label>
+                        <input
+                          type="text"
+                          value={place.image || ""}
+                          onChange={e => {
+                            const updated = [...editCity.touristPlaces];
+                            updated[pIdx] = { ...updated[pIdx], image: e.target.value };
+                            setEditCity({ ...editCity, touristPlaces: updated });
+                          }}
+                          className="w-full bg-white border border-gold/15 px-3 py-1.5 outline-none rounded-lg text-xs"
+                          placeholder="Image URL"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-1">
+                      <label className="text-[10px] uppercase font-bold text-royal/60 block">Description ({activeLang.toUpperCase()})</label>
+                      <textarea
+                        rows={2}
+                        value={typeof place.description === "object" ? place.description?.[activeLang] || "" : place.description || place.desc || ""}
+                        onChange={e => {
+                          const updated = [...editCity.touristPlaces];
+                          const currentDescObj = typeof place.description === "object" ? place.description : { en: place.description || "" };
+                          updated[pIdx] = {
+                            ...updated[pIdx],
+                            description: { ...currentDescObj, [activeLang]: e.target.value }
+                          };
+                          setEditCity({ ...editCity, touristPlaces: updated });
+                        }}
+                        className="w-full bg-white border border-gold/15 p-2 outline-none rounded-lg text-xs"
+                        placeholder="Brief overview of this tourist attraction..."
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </form>
       )}
+
 
     </div>
   );

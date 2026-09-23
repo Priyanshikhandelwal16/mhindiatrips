@@ -186,6 +186,38 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
               </div>
             )}
 
+            {/* Tourist Places Section (Added requirement #4) */}
+            {(Array.isArray(city.touristPlaces) && city.touristPlaces.length > 0) && (
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <MapPin className="w-6 h-6 text-[#C3AB85]" />
+                  <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#1a5c5a]">
+                    {locale === "es" ? "Lugares Turísticos Destacados" : locale === "pt" ? "Locais Turísticos em Destaque" : `Top Tourist Places in ${cityTitle}`}
+                  </h2>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {city.touristPlaces.map((place: any, pIdx: number) => {
+                    const pName = getLocText(place.name) || place.title || `Place ${pIdx + 1}`;
+                    const pDesc = getLocText(place.description) || getLocText(place.desc);
+                    const pImg = place.image || place.img || cityImage;
+                    return (
+                      <div key={pIdx} className="bg-white border border-[#C3AB85]/20 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all group">
+                        {pImg && (
+                          <div className="h-48 overflow-hidden relative">
+                            <img src={pImg} alt={pName} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                          </div>
+                        )}
+                        <div className="p-5 space-y-2">
+                          <h3 className="font-serif font-bold text-[#0B0D0C] text-lg group-hover:text-[#1a5c5a] transition-colors">{pName}</h3>
+                          {pDesc && <p className="text-xs sm:text-sm text-[#1B1B1B]/70 leading-relaxed font-light">{pDesc}</p>}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
             {/* Highlights */}
             {highlights.length > 0 && (
               <div className="space-y-5">
@@ -206,6 +238,7 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
                 </div>
               </div>
             )}
+
 
             {/* Things To Do */}
             {thingsToDo.length > 0 && (

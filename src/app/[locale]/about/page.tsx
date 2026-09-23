@@ -25,19 +25,19 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
   const defaultT: Record<string, any> = {
     en: {
-      heroSub: "OUR HERITAGE & LEGACY",
+      heroSub: "LOCAL TRAVEL AGENCY IN INDIA",
       hero: "Pioneers of Bespoke Luxury Travel in India",
       heroDesc: "Headquartered in Jaipur, Rajasthan, MH India Trips is an officially registered partnership firm (GSTIN: 08ACIFM3516H1Z7) crafting private, tailormade journeys with professional chauffeurs and hand-picked royal stays across PAN India.",
-      storyTitle: "Founded in Jaipur — Born From a Passion for Authentic Hospitality",
-      storyP1: "Founded in Jaipur over two decades ago, MH India Trips was created to provide international and domestic travelers with an authentic, uncompromised way to explore India. Based in Khatipura Road, Hasanpura, Jaipur, our on-ground management team combines deep regional heritage knowledge with high-end luxury hospitality.",
+      storyTitle: "Founded in Jaipur - Born From a Passion for Local Travel Excellence",
+      storyP1: "Founded in Jaipur over two decades ago, MH India Trips was created to provide international and domestic travelers with an uncompromised, immersive way to explore India. Based in Khatipura Road, Hasanpura, Jaipur, our on-ground management team combines deep regional heritage knowledge with high-end luxury hospitality.",
       storyP2: "From private dinners inside 400-year-old desert forts in Jodhpur to seamless luxury SUV transfers with English-speaking chauffeurs and pre-reserved monument tickets, we handle every detail with surgical precision. We don't use rigid group itineraries; every trip is 100% tailor-made to your pace.",
       missionTitle: "Our Operational Mission",
-      missionText: "To deliver 100% safe, transparent, and legally compliant private travel with zero hidden fees, verified ASI licensed guides, and 24/7 dedicated concierge desk access.",
+      missionText: "To deliver 100% safe, transparent, and legally compliant private travel with zero hidden fees, verified ASI licensed guides, and 24/7 dedicated support access.",
       visionTitle: "Our Vision",
-      visionText: "To remain the premier private travel designer for luxury travelers globally, recognized for royal heritage access, exceptional chauffeur standards, and authentic cultural encounters.",
+      visionText: "To remain the premier private travel designer for luxury travelers globally, recognized for royal heritage access, exceptional chauffeur standards, and rich cultural encounters.",
       whySub: "THE MH INDIA TRIPS ADVANTAGE",
       whyTitle: "Why Choose MH India Trips",
-      whyDesc: "Authentic, government-verified travel operations crafted without rigid group tours or hidden surcharges.",
+      whyDesc: "Government-verified travel operations crafted without rigid group tours or hidden surcharges.",
       valuesTitle: "Our Core Booking Standards",
       teamTitle: "Leadership & Destination Specialists",
       teamDesc: "Meet our founders and senior destination managers leading on-ground operations across India.",
@@ -46,11 +46,11 @@ export default async function AboutPage({ params }: AboutPageProps) {
       ctaBtn: "Plan Your Trip",
     },
     es: {
-      heroSub: "NUESTRO LEGADO Y PATRIMONIO",
+      heroSub: "AGENCIA DE VIAJES LOCAL EN LA INDIA",
       hero: "Pioneros en Viajes Privados de Lujo en la India",
       heroDesc: "Con sede en Jaipur, Rajasthan, MH India Trips es una empresa registrada (GSTIN: 08ACIFM3516H1Z7) que diseña viajes privados a medida con choferes profesionales y hoteles palacio.",
-      storyTitle: "Fundada en Jaipur — Pasión por la Hospitalidad Auténtica",
-      storyP1: "Fundada en Jaipur hace más de dos décadas, MH India Trips nació para ofrecer a los viajeros una forma auténtica de explorar la India sin comprometer la comodidad. Con sede en Jaipur, nuestro equipo combina conocimientos culturales profundos con hospitalidad de lujo.",
+      storyTitle: "Fundada en Jaipur - Pasión por la Excelencia en Viajes",
+      storyP1: "Fundada en Jaipur hace más de dos décadas, MH India Trips nació para ofrecer a los viajeros una forma excepcional de explorar la India sin comprometer la comodidad. Con sede en Jaipur, nuestro equipo combina conocimientos culturales profundos con hospitalidad de lujo.",
       storyP2: "Desde cenas privadas en fortalezas del desierto en Jodhpur hasta traslados en SUVs de lujo con choferes de habla inglesa y entradas reservadas, gestionamos cada detalle con precisión. No usamos tours rígidos en grupo; cada viaje es 100% a su medida.",
       missionTitle: "Nuestra Misión Operativa",
       missionText: "Ofrecer viajes privados 100% seguros, transparentes y conformes a la ley con guías certificados y asistencia 24/7.",
@@ -58,7 +58,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
       visionText: "Ser el diseñador de viajes privados líder en la India, reconocido por nuestro acceso a palacios reales y excelencia en servicio.",
       whySub: "LA VENTAJA MH INDIA TRIPS",
       whyTitle: "¿Por Qué Elegir MH India Trips?",
-      whyDesc: "Operaciones de viaje auténticas y verificadas por el gobierno, sin grupos rígidos ni cargos ocultos.",
+      whyDesc: "Operaciones de viaje verificadas por el gobierno, sin grupos rígidos ni cargos ocultos.",
       valuesTitle: "Nuestros Estándares de Servicio",
       teamTitle: "Liderazgo y Especialistas",
       teamDesc: "Conozca a nuestros fundadores y gestores de destino que dirigen las operaciones en la India.",
@@ -67,11 +67,11 @@ export default async function AboutPage({ params }: AboutPageProps) {
       ctaBtn: "Planificar Ahora",
     },
     pt: {
-      heroSub: "NOSSO PATRIMÔNIO E LEGADO",
+      heroSub: "AGÊNCIA DE VIAGENS LOCAL NA ÍNDIA",
       hero: "Pioneiros em Viagens Privadas de Luxo na Índia",
       heroDesc: "Sediada em Jaipur, Rajastão, a MH India Trips é uma empresa registrada (GSTIN: 08ACIFM3516H1Z7) que cria viagens sob medida com motoristas profissionais e hotéis palácio.",
-      storyTitle: "Fundada em Jaipur — Paixão pela Hospitalidad Autêntica",
-      storyP1: "Fundada em Jaipur há mais de duas décadas, a MH India Trips nasceu para oferecer aos viajantes uma forma autêntica de explorar a Índia com máximo conforto. Nossa equipe combina conhecimento cultural profundo com hospitalidade de luxo.",
+      storyTitle: "Fundada em Jaipur - Paixão pela Excelência em Viagens",
+      storyP1: "Fundada em Jaipur há mais de duas décadas, a MH India Trips nasceu para oferecer aos viajantes uma forma excepcional de explorar a Índia com máximo conforto. Nossa equipe combina conhecimento cultural profundo com hospitalidade de luxo.",
       storyP2: "De jantares privados em fortalezas no deserto em Jodhpur a traslados em SUVs de luxo com motoristas de fala inglesa e ingressos reservados, cuidamos de cada detalhe com precisão. Cada viagem é 100% sob medida.",
       missionTitle: "Nossa Missão Operacional",
       missionText: "Oferecer viagens privadas 100% seguras, transparentes e conformes à lei com guias certificados e suporte 24/7.",
@@ -79,7 +79,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
       visionText: "Ser o designer de viagens privadas líder na Índia, reconhecido pelo acesso a palácios reais e excelência em serviço.",
       whySub: "A VANTAGEM MH INDIA TRIPS",
       whyTitle: "Por Que Escolher a MH India Trips?",
-      whyDesc: "Operações de viagem autênticas e verificadas pelo governo, sem grupos rígidos nem taxas ocultas.",
+      whyDesc: "Operações de viagem verificadas pelo governo, sem grupos rígidos nem taxas ocultas.",
       valuesTitle: "Nossos Padrões de Serviço",
       teamTitle: "Liderança e Especialistas",
       teamDesc: "Conheça nossos fundadores e especialistas que lideram operações em toda a Índia.",
@@ -150,8 +150,8 @@ export default async function AboutPage({ params }: AboutPageProps) {
       desc: locale === "es" 
         ? "Guías oficiales del gobierno en monumentos históricos (Taj Mahal, Amber Fort) para garantizar historia real sin paradas comerciales forzadas." 
         : locale === "pt" 
-        ? "Guias oficiais do governo em monumentos históricos para garantir história real sem paradas comerciais forçadas." 
-        : "Government-certified local guides at Taj Mahal, Amber Fort, and heritage circuits ensuring authentic storytelling without commercial shopping traps."
+        ? "Guias oficiais do governo em monumentos históricos para garantir historia real sem paradas comerciais forçadas." 
+        : "Government-certified local guides at Taj Mahal, Amber Fort, and heritage circuits ensuring rich storytelling without commercial shopping traps."
     },
     {
       icon: <Star className="w-7 h-7" />,
@@ -160,11 +160,11 @@ export default async function AboutPage({ params }: AboutPageProps) {
         ? "Reservas verificadas en palacios reales restaurados, havelis históricas, resorts de bienestar y casas flotantes privadas en Kerala." 
         : locale === "pt" 
         ? "Reservas verificadas em palácios reais restaurados, havelis históricas, resorts de bem-estar e barcos privados em Kerala." 
-        : "Pre-vetted bookings inside restored royal fortresses, authentic heritage Havelis, luxury wellness resorts, and private backwater houseboats."
+        : "Pre-vetted bookings inside restored royal fortresses, historic Havelis, luxury wellness resorts, and private backwater houseboats."
     },
     {
       icon: <Clock className="w-7 h-7" />,
-      title: locale === "es" ? "Mesa de Concierge 24/7 en Terreno" : locale === "pt" ? "Central de Concierge 24/7 em Terreno" : "24/7 Boots-on-Ground Operations Desk",
+      title: locale === "es" ? "Mesa de Soporte 24/7 en Terreno" : locale === "pt" ? "Central de Suporte 24/7 em Terreno" : "24/7 Boots-on-Ground Operations Desk",
       desc: locale === "es" 
         ? "Contacto directo por WhatsApp con su gestor de viaje dedicado desde su llegada al aeropuerto hasta su vuelo de regreso." 
         : locale === "pt" 
@@ -199,7 +199,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
     },
     { 
       icon: Heart, 
-      title: locale === "es" ? "Pasión por la Hospitalidad" : locale === "pt" ? "Paixão pela Hospitalidade" : "Heritage Hospitality", 
+      title: locale === "es" ? "Pasión por la Hospitalidad" : locale === "pt" ? "Paixão pela Hospitalidade" : "Royal Hospitality", 
       desc: locale === "es" ? "Atención personalizada en cada check-in de hotel y traslado." : locale === "pt" ? "Atenção personalizada em cada check-in de hotel e transporte." : "Fine-tuning every palace suite check-in, private dinner, and monument access." 
     },
     { 
@@ -215,7 +215,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
       name: "Rahul Sharma", 
       role: locale === "es" ? "Fundador y Diseñador Principal de Viajes" : locale === "pt" ? "Fundador e Designer Principal de Viagens" : "Founder & Lead Travel Designer", 
       img: "/images/team_rahul.png",
-      desc: locale === "es" ? "Con más de 22 años diseñando viajes privados de alto nivel y experiencias en palacios reales por toda la India." : locale === "pt" ? "Com mais de 22 anos criando viagens privadas de alto nível e experiências em palácios reais por toda a Índia." : "Over 22 years of hands-on expertise curating ultra-luxury private safaris and royal palace stays across India."
+      desc: locale === "es" ? "Con más de 22 años diseñando viajes privados de alto nivel y experiencias en palacios reales por toda la India." : locale === "pt" ? "Com mais de 22 anos criando viagens privadas de alto nível e experiências em palácios reais por toda a Índia." : "Over 22 years of hands-on expertise curating luxury private safaris and royal palace stays across India."
     },
     { 
       name: "Priya Patel", 
@@ -238,8 +238,8 @@ export default async function AboutPage({ params }: AboutPageProps) {
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       
-      {/* SECTION 1: Luxury Hero Banner */}
-      <section className="relative bg-gradient-to-b from-[#0B1329] via-[#16223F] to-[#0B1329] text-white py-20 md:py-28 border-b border-gold/20 overflow-hidden">
+      {/* SECTION 1: Luxury Hero Banner (Brand Green Theme) */}
+      <section className="relative bg-gradient-to-b from-[#062D27] via-[#0B4D44] to-[#062D27] text-white py-20 md:py-28 border-b border-gold/20 overflow-hidden">
         {/* Decorative Background Glows */}
         <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#C5A862_1.5px,transparent_1.5px)] [background-size:28px_28px] pointer-events-none" />
         <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-gold/15 rounded-full blur-3xl pointer-events-none" />
@@ -276,7 +276,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
               </span>
               <span className="bg-emerald-500/20 backdrop-blur-md px-4 py-2 rounded-full border border-emerald-500/40 text-emerald-300 flex items-center gap-2 font-medium">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Government Registered Agency</span>
+                <span>Local Travel Agency in India</span>
               </span>
             </div>
           </Reveal>
@@ -289,7 +289,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
         <Reveal direction="left" className="space-y-6">
           <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold flex items-center gap-2">
             <Compass className="w-4 h-4 text-gold" />
-            <span>AUTHENTIC HERITAGE</span>
+            <span>INDIAN HERITAGE & EXPERIENCE</span>
           </span>
           <h2 className="text-3xl md:text-4xl font-bold font-serif text-royal leading-tight">
             {text.storyTitle}
@@ -303,7 +303,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
         </Reveal>
         
         {/* Mission & Vision Card */}
-        <Reveal direction="right" delay={200} className="bg-white border border-gold/30 rounded-3xl p-10 space-y-8 shadow-xl relative overflow-hidden">
+        <Reveal direction="right" delay={150} className="bg-white border border-gold/30 rounded-3xl p-8 md:p-10 space-y-8 shadow-xl relative overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-gold/40 via-gold to-gold/40" />
           <div className="space-y-3">
             <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
@@ -325,8 +325,8 @@ export default async function AboutPage({ params }: AboutPageProps) {
         </Reveal>
       </section>
 
-      {/* SECTION 3: WHY CHOOSE US (6 AUTHENTIC REAL AGENCY PILLARS) */}
-      <section className="bg-gradient-to-b from-[#0B1329]/5 via-[#FAF8F5] to-[#FAF8F5] py-28 border-b border-gold/10">
+      {/* SECTION 3: WHY CHOOSE US */}
+      <section className="bg-gradient-to-b from-[#062D27]/5 via-[#FAF8F5] to-[#FAF8F5] py-28 border-b border-gold/10">
         <div className="max-w-7xl mx-auto px-6 space-y-16">
           
           <div className="text-center space-y-4 max-w-2xl mx-auto">
@@ -368,7 +368,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
       </section>
 
       {/* SECTION 4: Government Registration Seal Banner */}
-      <section className="bg-royal text-white py-16 border-b border-gold/20">
+      <section className="bg-[#062D27] text-white py-16 border-b border-gold/20">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
           <div className="space-y-2 max-w-2xl">
             <span className="text-xs font-bold text-gold uppercase tracking-[0.2em]">OFFICIAL GOVERNMENT REGISTRATION</span>
@@ -427,7 +427,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
         </div>
       </section>
 
-      {/* SECTION 7: Leadership Team */}
+      {/* SECTION 7: Leadership Team (No text overlay on photo, role inside body) */}
       <section className="max-w-7xl mx-auto px-6 py-28 space-y-16 border-b border-gold/10">
         <div className="text-center space-y-4 max-w-xl mx-auto">
           <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold block">FOUNDERS & DESIGNERS</span>
@@ -438,24 +438,23 @@ export default async function AboutPage({ params }: AboutPageProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
           {team.map((member: any, i: number) => (
             <Reveal key={i} delay={i * 120} className="bg-white border border-gold/30 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between">
-              <div className="h-72 overflow-hidden bg-royal/10 relative">
+              <div className="h-72 overflow-hidden bg-[#062D27]/10 relative">
                 <img 
                   src={member.img || "/images/team_rahul.png"} 
                   alt={member.name} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-royal/80 via-transparent to-transparent opacity-80" />
-                <div className="absolute bottom-4 left-6 right-6 text-white">
-                  <span className="text-xs uppercase tracking-widest text-gold font-bold block">{member.role}</span>
-                  <h3 className="text-2xl font-serif font-bold">{member.name}</h3>
-                </div>
               </div>
               <div className="p-8 space-y-4 bg-white">
+                <div>
+                  <h3 className="text-2xl font-serif font-bold text-royal">{member.name}</h3>
+                  <span className="text-xs uppercase tracking-widest text-gold font-bold block mt-1">{member.role}</span>
+                </div>
                 <p className="text-sm text-foreground/75 font-light leading-relaxed">
                   {member.desc}
                 </p>
                 <div className="pt-4 border-t border-gold/15 flex items-center justify-between text-xs font-bold text-gold uppercase tracking-wider">
-                  <span>Jaipur Travel Desk</span>
+                  <span>{member.role}</span>
                   <Award className="w-4 h-4 text-gold" />
                 </div>
               </div>
@@ -465,7 +464,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
       </section>
 
       {/* SECTION 8: Call To Action Banner */}
-      <section className="bg-gradient-to-r from-royal via-[#1A2542] to-royal text-white py-24 border-t border-gold/20">
+      <section className="bg-gradient-to-r from-[#062D27] via-[#0B4D44] to-[#062D27] text-white py-24 border-t border-gold/20">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
           <span className="bg-gold/20 text-gold border border-gold/40 text-xs font-bold uppercase tracking-[0.25em] px-5 py-2 rounded-full inline-block">
             TAILOR-MADE PRIVACY

@@ -629,7 +629,7 @@ export default function PackagesTab({
                     : "text-royal/60 hover:text-royal hover:bg-white"
                 }`}
               >
-                <span>✈️ Outbound Packages</span>
+                <span>Outbound Packages</span>
                 <span className={`text-[10px] px-2 py-0.5 rounded-full font-extrabold ${
                   packagePortion === "outbound" ? "bg-[#C5A862] text-[#0A2A1E]" : "bg-royal/10 text-royal"
                 }`}>
@@ -743,11 +743,11 @@ export default function PackagesTab({
                     })}
                     className="w-full bg-[#FAF8F5] border border-gold/15 px-4 py-3 outline-none rounded-lg focus:border-gold/50 font-bold"
                   >
-                    <option value="Outbound">✈️ Outbound / International</option>
-                    <option value="Luxury Private Journey">🇮🇳 Domestic - Luxury Private Journey</option>
-                    <option value="Golden Triangle">🇮🇳 Domestic - Golden Triangle</option>
-                    <option value="Heritage & Culture">🇮🇳 Domestic - Heritage & Culture</option>
-                    <option value="Wildlife Safari">🇮🇳 Domestic - Wildlife Safari</option>
+                    <option value="Outbound">Outbound / International</option>
+                    <option value="Luxury Private Journey">Domestic - Luxury Private Journey</option>
+                    <option value="Golden Triangle">Domestic - Golden Triangle</option>
+                    <option value="Heritage & Culture">Domestic - Heritage & Culture</option>
+                    <option value="Wildlife Safari">Domestic - Wildlife Safari</option>
                     <option value="Spiritual & Pilgrimage">🇮🇳 Domestic - Spiritual & Pilgrimage</option>
                     <option value="Beach & Backwaters">🇮🇳 Domestic - Beach & Backwaters</option>
                     <option value="Himalayan Adventure">🇮🇳 Domestic - Himalayan Adventure</option>
@@ -2398,7 +2398,7 @@ export default function PackagesTab({
                       <span className={`absolute top-3 left-3 text-[8px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md ${
                         isOut ? "bg-[#0A2A1E] text-[#C5A862] border border-[#C5A862]/30" : "bg-royal text-white border border-gold/20"
                       }`}>
-                        {isOut ? "✈️ Outbound" : "🇮🇳 Domestic"}
+                        {isOut ? "Outbound" : "Domestic"}
                       </span>
                     </div>
                     <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">

@@ -44,7 +44,48 @@
       "pt": "Descubra Agra: como chegar, atrações principais e hotéis recomendados.",
       "en": "Essential travel guide, packages and information for Agra.",
       "es": "Descubre Agra: cómo llegar, atracciones principales y hoteles recomendados."
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Taj Mahal",
+          "es": "Taj Mahal",
+          "pt": "Taj Mahal"
+        },
+        "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=900&q=80",
+        "description": {
+          "en": "The world-famous ivory-white marble mausoleum on the Yamuna river, a UNESCO World Heritage site and symbol of eternal love.",
+          "es": "El famoso mausoleo de mármol blanco marfil a orillas del río Yamuna, Patrimonio de la Humanidad y símbolo de amor.",
+          "pt": "O famoso mausoléu de mármore branco marfim às margens do rio Yamuna, Patrimônio Mundial e símbolo de amor."
+        }
+      },
+      {
+        "name": {
+          "en": "Agra Fort",
+          "es": "Fuerte de Agra",
+          "pt": "Forte de Agra"
+        },
+        "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=900&q=80",
+        "description": {
+          "en": "A massive red sandstone Mughal fortress that served as the main seat of Mughal emperors with royal palaces.",
+          "es": "Una enorme fortaleza mogol de arenisca roja que sirvió como residencia principal de los emperadores mogoles.",
+          "pt": "Uma enorme fortaleza mogol de arenito vermelho que serviu como residência principal dos imperadores mogóis."
+        }
+      },
+      {
+        "name": {
+          "en": "Fatehpur Sikri",
+          "es": "Fatehpur Sikri",
+          "pt": "Fatehpur Sikri"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "The historic deserted red sandstone capital built by Emperor Akbar, featuring Buland Darwaza and Salim Chisti Tomb.",
+          "es": "La histórica capital desierta de arenisca roja construida por el emperador Akbar con la imponente Buland Darwaza.",
+          "pt": "A histórica capital deserta de arenito vermelho construída pelo imperador Akbar com a imponente Buland Darwaza."
+        }
+      }
+    ]
   },
   {
     "id": "aligarh",
@@ -91,7 +132,35 @@
       "en": "Explore the historical wonders, local food, and cultural highlights of Aligarh."
     },
     "isPublished": true,
-    "gallery": []
+    "gallery": [],
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Aligarh Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Aligarh",
+          "pt": "Fortaleza e Monumentos de Aligarh"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787306805/mhindiatrips/p2vuygyhqqt6ihum2hvu.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Aligarh.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Aligarh.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Aligarh."
+        }
+      },
+      {
+        "name": {
+          "en": "Aligarh Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Aligarh",
+          "pt": "Cultura Local e Mercados de Aligarh"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Aligarh.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Aligarh.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Aligarh."
+        }
+      }
+    ]
   },
   {
     "id": "allahabad",
@@ -138,7 +207,35 @@
       "en": "allahabad",
       "pt": "allahabad"
     },
-    "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787306547/mhindiatrips/x0jbefgc4dd0yztjsdwt.jpg"
+    "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787306547/mhindiatrips/x0jbefgc4dd0yztjsdwt.jpg",
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Allahabad Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Allahabad",
+          "pt": "Fortaleza e Monumentos de Allahabad"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787306547/mhindiatrips/x0jbefgc4dd0yztjsdwt.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Allahabad.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Allahabad.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Allahabad."
+        }
+      },
+      {
+        "name": {
+          "en": "Allahabad Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Allahabad",
+          "pt": "Cultura Local e Mercados de Allahabad"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Allahabad.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Allahabad.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Allahabad."
+        }
+      }
+    ]
   },
   {
     "id": "amravati",
@@ -185,7 +282,35 @@
       "pt": "Explore as maravilhas históricas, a gastronomia local e os aspectos culturais de Amravati.",
       "en": "Explore the historical wonders, local food, and cultural highlights of Amravati.",
       "es": "Explore las maravillas históricas, la comida local y los aspectos culturales de Amravati."
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Amravati Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Amravati",
+          "pt": "Fortaleza e Monumentos de Amravati"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787307507/mhindiatrips/odyk2qc3xymqycvg4r6f.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Amravati.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Amravati.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Amravati."
+        }
+      },
+      {
+        "name": {
+          "en": "Amravati Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Amravati",
+          "pt": "Cultura Local e Mercados de Amravati"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Amravati.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Amravati.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Amravati."
+        }
+      }
+    ]
   },
   {
     "id": "aurangabad",
@@ -232,7 +357,35 @@
       "pt": "Chhatrapati Sambhajinagar é uma cidade histórica de Maharashtra, famosa pelos Patrimônios Mundiais da UNESCO de Ajanta e Ellora, arquitetura histórica, cavernas, fortes e rico patrimônio cultural.",
       "en": "Chhatrapati Sambhajinagar is a historic city in Maharashtra, famous for the UNESCO World Heritage Sites of Ajanta and Ellora, Mughal-era architecture, caves, forts and rich cultural heritage.",
       "es": "Chhatrapati Sambhajinagar es una ciudad histórica de Maharashtra, famosa por los sitios Patrimonio Mundial de la UNESCO de Ajanta y Ellora, su arquitectura histórica, cuevas, fortalezas y rico patrimonio cultural."
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Chhatrapati Sambhajinagar (Aurangabad) Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Chhatrapati Sambhajinagar (Aurangabad)",
+          "pt": "Fortaleza e Monumentos de Chhatrapati Sambhajinagar (Aurangabad)"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787308490/mhindiatrips/iyo8xybzod4hosc5pheh.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Chhatrapati Sambhajinagar (Aurangabad).",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Chhatrapati Sambhajinagar (Aurangabad).",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Chhatrapati Sambhajinagar (Aurangabad)."
+        }
+      },
+      {
+        "name": {
+          "en": "Chhatrapati Sambhajinagar (Aurangabad) Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Chhatrapati Sambhajinagar (Aurangabad)",
+          "pt": "Cultura Local e Mercados de Chhatrapati Sambhajinagar (Aurangabad)"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Chhatrapati Sambhajinagar (Aurangabad).",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Chhatrapati Sambhajinagar (Aurangabad).",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Chhatrapati Sambhajinagar (Aurangabad)."
+        }
+      }
+    ]
   },
   {
     "id": "bhopal",
@@ -279,7 +432,35 @@
       "es": "Bhopal, la capital de Madhya Pradesh, es una hermosa ciudad de lagos conocida por su rica historia, museos, grandes mezquitas, paisajes verdes y patrimonio cultural.",
       "pt": "Bhopal, capital de Madhya Pradesh, é uma bela cidade de lagos conhecida por sua rica história, museus, grandiosas mesquitas, paisagens verdes e patrimônio cultural."
     },
-    "gallery": []
+    "gallery": [],
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Bhopal Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Bhopal",
+          "pt": "Fortaleza e Monumentos de Bhopal"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787305308/mhindiatrips/yefnljixaz6jt0lwrewi.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Bhopal.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Bhopal.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Bhopal."
+        }
+      },
+      {
+        "name": {
+          "en": "Bhopal Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Bhopal",
+          "pt": "Cultura Local e Mercados de Bhopal"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Bhopal.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Bhopal.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Bhopal."
+        }
+      }
+    ]
   },
   {
     "id": "chennai",
@@ -326,7 +507,35 @@
       "en": "Chennai",
       "es": "Chennai"
     },
-    "stateId": "madhya-pradesh"
+    "stateId": "madhya-pradesh",
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Chennai Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Chennai",
+          "pt": "Fortaleza e Monumentos de Chennai"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787304439/mhindiatrips/ywuhsx2amkg9ycaw1qrb.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Chennai.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Chennai.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Chennai."
+        }
+      },
+      {
+        "name": {
+          "en": "Chennai Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Chennai",
+          "pt": "Cultura Local e Mercados de Chennai"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Chennai.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Chennai.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Chennai."
+        }
+      }
+    ]
   },
   {
     "id": "dhar",
@@ -373,6 +582,34 @@
     "relatedPackages": [
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
+    ],
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Dhar Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Dhar",
+          "pt": "Fortaleza e Monumentos de Dhar"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787304120/mhindiatrips/u7pwk3axz5etjbgzrre4.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Dhar.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Dhar.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Dhar."
+        }
+      },
+      {
+        "name": {
+          "en": "Dhar Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Dhar",
+          "pt": "Cultura Local e Mercados de Dhar"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Dhar.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Dhar.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Dhar."
+        }
+      }
     ]
   },
   {
@@ -420,7 +657,35 @@
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
     ],
-    "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787305725/mhindiatrips/ospb6owvakcddxudbmeb.jpg"
+    "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787305725/mhindiatrips/ospb6owvakcddxudbmeb.jpg",
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Gwalior Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Gwalior",
+          "pt": "Fortaleza e Monumentos de Gwalior"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787305725/mhindiatrips/ospb6owvakcddxudbmeb.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Gwalior.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Gwalior.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Gwalior."
+        }
+      },
+      {
+        "name": {
+          "en": "Gwalior Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Gwalior",
+          "pt": "Cultura Local e Mercados de Gwalior"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Gwalior.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Gwalior.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Gwalior."
+        }
+      }
+    ]
   },
   {
     "id": "indore",
@@ -467,7 +732,35 @@
       "en": "Indore tourism, Indore travel guide",
       "es": "viaje a Indore, turismo en Indore",
       "pt": "viagem para Indore, turismo em Indore"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Indore Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Indore",
+          "pt": "Fortaleza e Monumentos de Indore"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787304542/mhindiatrips/oulk9ttfw9xs9qessqpt.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Indore.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Indore.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Indore."
+        }
+      },
+      {
+        "name": {
+          "en": "Indore Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Indore",
+          "pt": "Cultura Local e Mercados de Indore"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Indore.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Indore.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Indore."
+        }
+      }
+    ]
   },
   {
     "id": "jabalpur",
@@ -514,7 +807,35 @@
       "pt": "jabalpur",
       "es": "jabalpur",
       "en": "jabalpur"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Jabalpur Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Jabalpur",
+          "pt": "Fortaleza e Monumentos de Jabalpur"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787304720/mhindiatrips/jpjsldu1ia4aeogxpxns.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Jabalpur.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Jabalpur.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Jabalpur."
+        }
+      },
+      {
+        "name": {
+          "en": "Jabalpur Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Jabalpur",
+          "pt": "Cultura Local e Mercados de Jabalpur"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Jabalpur.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Jabalpur.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Jabalpur."
+        }
+      }
+    ]
   },
   {
     "id": "jaipur",
@@ -565,7 +886,87 @@
       "es": "Jaipur",
       "en": "Jaipur",
       "pt": "Jaipur"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Amber Fort & Palace",
+          "es": "Fuerte y Palacio de Amber",
+          "pt": "Forte e Palácio de Amber"
+        },
+        "image": "https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?w=900&q=80",
+        "description": {
+          "en": "A UNESCO World Heritage hilltop fortress of red sandstone and marble, featuring the breathtaking Sheesh Mahal (Mirror Palace).",
+          "es": "Una fortaleza Patrimonio de la Humanidad en lo alto de una colina de arenisca roja y mármol, con el impresionante Sheesh Mahal.",
+          "pt": "Uma fortaleza Patrimônio Mundial no topo de uma colina de arenito vermelho e mármore, com o deslumbrante Sheesh Mahal."
+        }
+      },
+      {
+        "name": {
+          "en": "Hawa Mahal (Palace of Winds)",
+          "es": "Hawa Mahal (Palacio de los Vientos)",
+          "pt": "Hawa Mahal (Palácio dos Ventos)"
+        },
+        "image": "https://images.unsplash.com/photo-1477587458883-47145ed94245?w=900&q=80",
+        "description": {
+          "en": "A five-story honeycomb pink sandstone structure with 953 latticed windows built for royal women to observe street festivals.",
+          "es": "Una estructura de arenisca rosa de cinco pisos con 953 ventanas celosía construida para las damas reales.",
+          "pt": "Uma estrutura de arenito rosa de cinco andares com 953 janelas rendilhadas construída para as damas reais."
+        }
+      },
+      {
+        "name": {
+          "en": "City Palace Jaipur",
+          "es": "Palacio de la Ciudad de Jaipur",
+          "pt": "Palácio da Cidade de Jaipur"
+        },
+        "image": "https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?w=900&q=80",
+        "description": {
+          "en": "A grand royal residence in the heart of the Pink City, housing royal museums, courtyards, and the vibrant Peacock Gate.",
+          "es": "Una gran residencia real en el corazón de la Ciudad Rosa, que alberga museos reales y la colorida Puerta del Pavo Real.",
+          "pt": "Uma grande residência real no coração da Cidade Rosa, abrigando museus reais e o colorido Portão do Pavão."
+        }
+      },
+      {
+        "name": {
+          "en": "Jantar Mantar",
+          "es": "Jantar Mantar",
+          "pt": "Jantar Mantar"
+        },
+        "image": "https://images.unsplash.com/photo-1609825488888-3a766db05542?w=900&q=80",
+        "description": {
+          "en": "A UNESCO World Heritage astronomical observatory containing 19 stone instruments, including the world's largest sundial.",
+          "es": "Un observatorio astronómico Patrimonio de la Humanidad con 19 instrumentos de piedra, incluido el reloj de sol más grande del mundo.",
+          "pt": "Um observatório astronômico Patrimônio Mundial com 19 instrumentos de pedra, incluindo o maior relógio de sol do mundo."
+        }
+      },
+      {
+        "name": {
+          "en": "Nahargarh Fort",
+          "es": "Fuerte Nahargarh",
+          "pt": "Forte Nahargarh"
+        },
+        "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=900&q=80",
+        "description": {
+          "en": "A rugged fort standing on the edge of the Aravalli hills, offering sweeping rooftop views of Jaipur city.",
+          "es": "Un fuerte situado al borde de las colinas Aravalli que ofrece amplias vistas panorámicas de la ciudad de Jaipur.",
+          "pt": "Um forte situado na borda das colinas Aravalli que oferece amplas vistas panorâmicas da cidade de Jaipur."
+        }
+      },
+      {
+        "name": {
+          "en": "Jal Mahal",
+          "es": "Jal Mahal (Palacio del Agua)",
+          "pt": "Jal Mahal (Palácio da Água)"
+        },
+        "image": "https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?w=900&q=80",
+        "description": {
+          "en": "A magnificent floating water palace in the center of Man Sagar Lake, beautifully illuminated at dusk.",
+          "es": "Un magnífico palacio flotante en el centro del lago Man Sagar, iluminado maravillosamente al anochecer.",
+          "pt": "Um magnífico palácio flutuante no centro do Lago Man Sagar, iluminado maravilhosamente ao anoitecer."
+        }
+      }
+    ]
   },
   {
     "id": "jaisalmer",
@@ -615,7 +1016,48 @@
       "es": "Jaisalmer",
       "en": "Jaisalmer",
       "pt": "Jaisalmer"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Jaisalmer Fort (Sonar Qila)",
+          "es": "Fuerte de Jaisalmer (Sonar Qila)",
+          "pt": "Forte de Jaisalmer (Sonar Qila)"
+        },
+        "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=900&q=80",
+        "description": {
+          "en": "A living golden sandstone fort emerging from the Thar Desert, housing homes, temples, and shops inside its walls.",
+          "es": "Un fuerte vivo de arenisca dorada que surge del desierto de Thar y alberga casas, templos y tiendas.",
+          "pt": "Um forte vivo de arenito dourado que surge do deserto de Thar e abriga casas, templos e lojas."
+        }
+      },
+      {
+        "name": {
+          "en": "Patwon Ki Haveli",
+          "es": "Patwon Ki Haveli",
+          "pt": "Patwon Ki Haveli"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "A cluster of five carved yellow sandstone mansions known for intricate balconies, jharokhas, and murals.",
+          "es": "Un grupo de cinco mansiones de arenisca amarilla esculpida famosas por sus elaborados balcones y celosías.",
+          "pt": "Um grupo de cinco mansões de arenito amarelo esculpido famosas por suas elaboradas varandas e treliças."
+        }
+      },
+      {
+        "name": {
+          "en": "Sam Sand Dunes",
+          "es": "Dunas de Arena de Sam",
+          "pt": "Dunas de Areia de Sam"
+        },
+        "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=900&q=80",
+        "description": {
+          "en": "Rolling golden desert dunes in the Thar Desert, ideal for camel safaris, jeep dune bashing, and cultural folk nights.",
+          "es": "Dunas de arena dorada en el desierto de Thar, ideales para safaris en camello y noches culturales.",
+          "pt": "Dunas de areia dourada no deserto de Thar, ideais para safáris de camelo e noites culturais."
+        }
+      }
+    ]
   },
   {
     "id": "jamnagar",
@@ -662,7 +1104,35 @@
       "pt": "Jamnagar",
       "es": "Jamnagar",
       "en": "Jamnagar"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Jamnagar Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Jamnagar",
+          "pt": "Fortaleza e Monumentos de Jamnagar"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787307758/mhindiatrips/qkp5ybnvksh5jjfg1sjx.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Jamnagar.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Jamnagar.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Jamnagar."
+        }
+      },
+      {
+        "name": {
+          "en": "Jamnagar Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Jamnagar",
+          "pt": "Cultura Local e Mercados de Jamnagar"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Jamnagar.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Jamnagar.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Jamnagar."
+        }
+      }
+    ]
   },
   {
     "id": "jhansi",
@@ -709,7 +1179,35 @@
       "pt": "Explore as maravilhas históricas, a gastronomia local e os aspectos culturais de Jhansi.",
       "es": "Explore las maravillas históricas, la comida local y los aspectos culturales de Jhansi.",
       "en": "Explore the historical wonders, local food, and cultural highlights of Jhansi."
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Jhansi Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Jhansi",
+          "pt": "Fortaleza e Monumentos de Jhansi"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787306371/mhindiatrips/ikbbgtmapenrkwlhnwdm.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Jhansi.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Jhansi.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Jhansi."
+        }
+      },
+      {
+        "name": {
+          "en": "Jhansi Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Jhansi",
+          "pt": "Cultura Local e Mercados de Jhansi"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Jhansi.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Jhansi.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Jhansi."
+        }
+      }
+    ]
   },
   {
     "id": "jodhpur",
@@ -759,7 +1257,48 @@
       "en": "\n<h2>Travel to Jodhpur: History, Culture and What to See in India's Blue City</h2>\n\n<p>If you are planning a trip to Jodhpur, get ready to discover one of Rajasthan's most fascinating gems. Known as the <em>Blue City</em>, Jodhpur combines history, culture and architecture in a unique setting on the edge of the Thar Desert. <a href=\"https://www.viajeaindia.com/contacto-agencia-de-viajes-local-en-india/\"><strong>Contact us</strong></a> for your tailor-made trip.</p>\n\n<h3>History of Jodhpur: The City Founded by Rao Jodha</h3>\n\n<p>The history of Jodhpur dates back to 1459, when it was founded by Rao Jodha, leader of the Rathore clan. The city was named after him. It was previously known as Marwar and gradually became one of the most important cities in Rajasthan.</p>\n\n<p>The Rathores, originally from Kannauj, were driven out by Afghan invasions and settled near Mandore, 9 km from present-day Jodhpur. Mandore was their first capital, but Rao Jodha decided to establish a new fortified city: Jodhpur. Thus, this legendary city was born, with its imposing <strong>Mehrangarh Fort</strong> dominating the landscape from the top of a hill.</p>\n\n<p>For centuries, the Rathores maintained relations with the Mughal emperors, except Aurangzeb. Maharaja Jaswant Singh even supported Shah Jahan in his struggle for the throne. Later, Maharaja Ajit Singh succeeded in expelling the Mughals from Ajmer and expanded his territory. During the British period, Jodhpur prospered through trade, and after independence in 1947, it became part of modern India as the second most important city in Rajasthan.</p>\n\n<h3>Culture of Jodhpur: Colours, Traditions and Hospitality</h3>\n\n<p>The culture of Jodhpur is a vibrant blend of Rajput and Marwari traditions. The people are known for their hospitality, colourful turbans, traditional jewellery worn by women and festive lifestyle. Women wear wide skirts and decorated blouses, while men wear riding trousers, a garment that originated in this city.</p>\n\n<p>One of the most representative events is the <strong>Marwar Festival</strong>, where local folklore is celebrated through music, dances and colourful traditional costumes. In its markets, you can find handicrafts, fabrics dyed using the <em>bandhani</em> technique, traditional footwear (<em>mojari</em>), silver jewellery, hand-painted miniatures and antiques.</p>\n\n<h3>What to See in Jodhpur: Main Attractions</h3>\n\n<p><strong>Mehrangarh Fort</strong></p>\n\n<p><strong>Mehrangarh Fort</strong> is the most impressive monument in Jodhpur. Built by Rao Jodha, it stands on a hill 150 metres high and offers panoramic views of the entire Blue City. To reach the top, visitors pass through seven historic gates, some of which bear marks from battles. The fort houses a museum displaying royal thrones, weapons, palanquins and traditional costumes. Do not miss Jayapol Gate (Victory Gate) and Fatehpol Gate, built to commemorate military victories.</p>\n\n<p><strong>Blue City and Old Town</strong></p>\n\n<p>The old town of Jodhpur is famous for its blue-painted houses, originally built by the Brahmin community. Walking through its narrow lanes is a charming experience filled with history, hidden temples and traditional shops.</p>\n\n<p><strong>Umaid Bhawan Palace</strong></p>\n\n<p>One of the world's largest private residences, <strong>Umaid Bhawan Palace</strong> combines Indian and Art Deco architecture. Part of the palace is still occupied by the royal family, another section operates as a luxury hotel (Taj), and the remaining area functions as a museum.</p>\n\n<h3>How to Reach Jodhpur</h3>\n\n<p><strong>By Air:</strong> Jodhpur Airport is only 5 km from the city centre. Regular flights operate from Delhi, Mumbai, Jaipur and Udaipur.</p>\n\n<p><strong>By Train:</strong> Jodhpur is well connected by rail to major cities such as Delhi, Mumbai, Chennai and Kolkata. The famous tourist train <strong>Palace on Wheels</strong> also stops in Jodhpur.</p>\n\n<p><strong>By Road:</strong> The city is connected by road with Agra, Jaipur, Udaipur, Jaisalmer, Ahmedabad and Delhi. You can travel by bus, taxi or private car with a driver, one of the best ways to explore Rajasthan.</p>\n\n<p><strong>Local Transport:</strong> Within Jodhpur, you can travel by tuk-tuk (auto-rickshaw), taxis or bicycles. For visiting the main attractions, hiring a car with a driver is the most convenient option.</p>\n\n<h3>Recommended Hotels in Jodhpur</h3>\n\n<ul>\n<li>Umaid Bhawan Palace – luxury and royal experience</li>\n<li>Ajit Bhawan – palace converted into a boutique hotel</li>\n<li>Ratan Vilas – heritage charm and modern comfort</li>\n<li>Pal Haveli – fort views and traditional décor</li>\n<li>Ranbanka Palace – royal heritage and excellent location</li>\n</ul>\n\n<h3>Why Take a Trip to Jodhpur?</h3>\n\n<p>A <strong>trip to Jodhpur</strong> takes you to the heart of authentic Rajasthan: forts, living history, colourful markets and welcoming people. It is ideal for travellers looking for culture, architecture, history and local charm in a single destination.</p>\n\n",
       "es": "\n<h2>Viaje a Jodhpur: Historia, cultura y qué ver en la Ciudad Azul de la India</h2>\n\n<p>Si estás planeando un viaje a Jodhpur, prepárate para descubrir una de las joyas más fascinantes del Rajastán. Conocida como la <em>Ciudad Azul</em>, Jodhpur combina historia, cultura y arquitectura en un entorno único al borde del desierto del Thar. <a href=\"https://www.viajeaindia.com/contacto-agencia-de-viajes-local-en-india/\"><strong>Contáctanos</strong></a> para tu viaje a medida.</p>\n\n<h3>Historia de Jodhpur: la ciudad fundada por Rao Jodha</h3>\n\n<p>La historia de Jodhpur se remonta al año 1459, cuando fue fundada por Rao Jodha, líder del clan Rathore. Esta ciudad recibió su nombre en honor a él. Antes se conocía como Marwar, y con el tiempo se convirtió en una de las ciudades más importantes del Rajastán.</p>\n\n<p>Los Rathores, originalmente de Kannauj, fueron expulsados por invasiones afganas y se establecieron cerca de Mandore, a 9 km de la actual Jodhpur. Mandore fue su primera capital, pero Rao Jodha decidió fundar una nueva ciudad fortificada: Jodhpur. Así nació esta legendaria ciudad con su imponente <strong>fortaleza de Mehrangarh</strong>, que domina el paisaje desde lo alto de una colina.</p>\n\n<p>Durante siglos, los Rathores mantuvieron relaciones con los emperadores mogoles, excepto con Aurangzeb. Incluso, Maharajá Jaswant Singh apoyó a Shah Jahan en su lucha por el trono. Posteriormente, Maharajá Ajit Singh logró expulsar a los mogoles de Ajmer y expandió su territorio. En la época británica, Jodhpur prosperó gracias a su comercio, y tras la independencia en 1947, pasó a formar parte de la India moderna como la segunda ciudad más importante del Rajastán.</p>\n\n<h3>Cultura de Jodhpur: colores, tradiciones y hospitalidad</h3>\n\n<p>La cultura de Jodhpur es una mezcla vibrante de tradiciones rajput y marwari. Los habitantes son conocidos por su hospitalidad, sus coloridos turbantes, las joyas tradicionales que usan las mujeres y su estilo de vida festivo. Las mujeres lucen faldas amplias y blusas adornadas, y los hombres visten con pantalones de montar, una prenda originaria de esta ciudad.</p>\n\n<p>Uno de los eventos más representativos es el <strong>Festival Marwar</strong>, donde se celebra el folclore local con música, danzas y coloridos trajes típicos. En sus mercados podrás encontrar artesanías, telas teñidas con la técnica <em>bandhani</em>, calzado típico (<em>mojari</em>), joyería de plata, miniaturas pintadas a mano y objetos antiguos.</p>\n\n<h3>Qué ver en Jodhpur: principales atracciones</h3>\n\n<p><strong>Fortaleza de Mehrangarh</strong></p>\n\n<p>La <strong>fortaleza de Mehrangarh</strong> es el monumento más impresionante de Jodhpur. Construida por Rao Jodha, se alza sobre una colina a 150 metros de altura y ofrece vistas panorámicas de toda la ciudad azul. Para llegar a la cima hay que atravesar siete puertas históricas, algunas marcadas por impactos de batallas. La fortaleza alberga un museo que exhibe tronos reales, armas, palanquines y trajes tradicionales. No te pierdas la Puerta Jayapol (Puerta de la Victoria) y la Puerta Fatehpol, construidas para conmemorar victorias militares.</p>\n\n<p><strong>Ciudad Azul y casco antiguo</strong></p>\n\n<p>El casco antiguo de Jodhpur es famoso por sus casas pintadas de azul, construidas originalmente por la comunidad brahmán. Pasear por sus estrechas callejuelas es una experiencia encantadora, repleta de historia, templos escondidos y tiendas tradicionales.</p>\n\n<p><strong>Palacio Umaid Bhawan</strong></p>\n\n<p>Una de las residencias privadas más grandes del mundo, el <strong>Palacio Umaid Bhawan</strong> combina arquitectura india y art déco. Una parte del palacio aún está habitada por la familia real, otra funciona como hotel de lujo (Taj) y el resto como museo.</p>\n\n<h3>Cómo llegar a Jodhpur</h3>\n\n<p><strong>Por avión:</strong> El aeropuerto de Jodhpur está a solo 5 km del centro. Hay vuelos regulares desde Delhi, Mumbai, Jaipur y Udaipur.</p>\n\n<p><strong>Por tren:</strong> Jodhpur está bien conectada por tren con grandes ciudades como Delhi, Mumbai, Chennai y Calcuta. El famoso tren turístico <strong>Palace on Wheels</strong> también hace parada en Jodhpur.</p>\n\n<p><strong>Por carretera:</strong> La ciudad está conectada por carretera con Agra, Jaipur, Udaipur, Jaisalmer, Ahmedabad y Delhi. Puedes viajar en autobús, taxi o coche con conductor privado, una de las mejores opciones para explorar Rajasthan.</p>\n\n<p><strong>Transporte local:</strong> Dentro de Jodhpur, puedes moverte en tuk-tuk (auto-rickshaw), taxis o bicicletas. Para visitar los puntos turísticos principales, lo más cómodo es contratar un coche con conductor.</p>\n\n<h3>Hoteles recomendados en Jodhpur</h3>\n\n<ul>\n<li>Umaid Bhawan Palace – lujo y experiencia real</li>\n<li>Ajit Bhawan – palacio convertido en hotel boutique</li>\n<li>Ratan Vilas – encanto patrimonial y comodidad moderna</li>\n<li>Pal Haveli – con vistas al fuerte y decoración tradicional</li>\n<li>Ranbanka Palace – herencia real y excelente ubicación</li>\n</ul>\n\n<h3>¿Por qué hacer un viaje a Jodhpur?</h3>\n\n<p>Un <strong>viaje a Jodhpur</strong> te transporta al corazón del Rajastán auténtico: fortalezas, historia viva, mercados coloridos y gente que te recibe con los brazos abiertos. Ideal para quienes buscan cultura, arquitectura, historia y encanto local en un solo destino.</p>\n\n",
       "pt": "\n<h2>Viagem a Jodhpur: História, Cultura e o que Ver na Cidade Azul da Índia</h2>\n\n<p>Se está planejando uma viagem a Jodhpur, prepare-se para descobrir uma das joias mais fascinantes do Rajastão. Conhecida como a <em>Cidade Azul</em>, Jodhpur combina história, cultura e arquitetura num cenário único às margens do Deserto de Thar. <a href=\"https://www.viajeaindia.com/contacto-agencia-de-viajes-local-en-india/\"><strong>Entre em contato conosco</strong></a> para a sua viagem personalizada.</p>\n\n<h3>História de Jodhpur: a cidade fundada por Rao Jodha</h3>\n\n<p>A história de Jodhpur remonta a 1459, quando foi fundada por Rao Jodha, líder do clã Rathore. A cidade recebeu o seu nome em sua homenagem. Anteriormente conhecida como Marwar, ao longo do tempo tornou-se uma das cidades mais importantes do Rajastão.</p>\n\n<p>Os Rathores, originalmente de Kannauj, foram expulsos por invasões afegãs e estabeleceram-se perto de Mandore, a 9 km da atual Jodhpur. Mandore foi a sua primeira capital, mas Rao Jodha decidiu fundar uma nova cidade fortificada: Jodhpur. Assim nasceu esta lendária cidade, com o imponente <strong>Forte de Mehrangarh</strong>, que domina a paisagem do alto de uma colina.</p>\n\n<p>Durante séculos, os Rathores mantiveram relações com os imperadores Mughal, com exceção de Aurangzeb. O Maharaja Jaswant Singh chegou a apoiar Shah Jahan na sua luta pelo trono. Mais tarde, o Maharaja Ajit Singh conseguiu expulsar os Mughals de Ajmer e expandiu o seu território. Durante o período britânico, Jodhpur prosperou graças ao comércio e, após a independência em 1947, passou a fazer parte da Índia moderna como a segunda cidade mais importante do Rajastão.</p>\n\n<h3>Cultura de Jodhpur: cores, tradições e hospitalidade</h3>\n\n<p>A cultura de Jodhpur é uma mistura vibrante de tradições Rajput e Marwari. Os habitantes são conhecidos pela sua hospitalidade, pelos turbantes coloridos, pelas joias tradicionais usadas pelas mulheres e pelo seu estilo de vida festivo. As mulheres usam saias largas e blusas ornamentadas, enquanto os homens usam calças de montaria, uma peça de vestuário originária desta cidade.</p>\n\n<p>Um dos eventos mais representativos é o <strong>Festival Marwar</strong>, onde o folclore local é celebrado com música, danças e trajes tradicionais coloridos. Nos seus mercados é possível encontrar artesanato, tecidos tingidos com a técnica <em>bandhani</em>, calçado tradicional (<em>mojari</em>), joias de prata, miniaturas pintadas à mão e objetos antigos.</p>\n\n<h3>O que Ver em Jodhpur: principais atrações</h3>\n\n<p><strong>Forte de Mehrangarh</strong></p>\n\n<p>O <strong>Forte de Mehrangarh</strong> é o monumento mais impressionante de Jodhpur. Construído por Rao Jodha, ergue-se sobre uma colina com 150 metros de altura e oferece vistas panorâmicas de toda a Cidade Azul. Para chegar ao topo, é necessário atravessar sete portões históricos, alguns marcados pelos impactos das batalhas. O forte abriga um museu que exibe tronos reais, armas, palanquins e trajes tradicionais. Não deixe de visitar o Portão Jayapol (Portão da Vitória) e o Portão Fatehpol, construídos para comemorar vitórias militares.</p>\n\n<p><strong>Cidade Azul e centro histórico</strong></p>\n\n<p>O centro histórico de Jodhpur é famoso pelas suas casas pintadas de azul, originalmente construídas pela comunidade brâmane. Caminhar pelas suas ruas estreitas é uma experiência encantadora, repleta de história, templos escondidos e lojas tradicionais.</p>\n\n<p><strong>Palácio Umaid Bhawan</strong></p>\n\n<p>Uma das maiores residências privadas do mundo, o <strong>Palácio Umaid Bhawan</strong> combina arquitetura indiana e Art Déco. Uma parte do palácio ainda é habitada pela família real, outra funciona como hotel de luxo (Taj) e o restante funciona como museu.</p>\n\n<h3>Como chegar a Jodhpur</h3>\n\n<p><strong>De avião:</strong> O Aeroporto de Jodhpur fica a apenas 5 km do centro da cidade. Existem voos regulares a partir de Delhi, Mumbai, Jaipur e Udaipur.</p>\n\n<p><strong>De comboio:</strong> Jodhpur possui boas ligações ferroviárias com grandes cidades como Delhi, Mumbai, Chennai e Calcutá. O famoso comboio turístico <strong>Palace on Wheels</strong> também faz uma paragem em Jodhpur.</p>\n\n<p><strong>Por estrada:</strong> A cidade está ligada por estrada a Agra, Jaipur, Udaipur, Jaisalmer, Ahmedabad e Delhi. É possível viajar de autocarro, táxi ou carro privado com motorista, uma das melhores opções para explorar o Rajastão.</p>\n\n<p><strong>Transporte local:</strong> Dentro de Jodhpur, pode deslocar-se de tuk-tuk (auto-riquexó), táxi ou bicicleta. Para visitar as principais atrações turísticas, contratar um carro com motorista é a opção mais confortável.</p>\n\n<h3>Hotéis recomendados em Jodhpur</h3>\n\n<ul>\n<li>Umaid Bhawan Palace – luxo e experiência real</li>\n<li>Ajit Bhawan – palácio convertido em hotel boutique</li>\n<li>Ratan Vilas – charme histórico e conforto moderno</li>\n<li>Pal Haveli – vistas para o forte e decoração tradicional</li>\n<li>Ranbanka Palace – herança real e excelente localização</li>\n</ul>\n\n<h3>Por que fazer uma viagem a Jodhpur?</h3>\n\n<p>Uma <strong>viagem a Jodhpur</strong> leva você ao coração do Rajastão autêntico: fortalezas, história viva, mercados coloridos e pessoas que recebem os visitantes de braços abertos. É um destino ideal para quem procura cultura, arquitetura, história e encanto local num único lugar.</p>\n\n"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Mehrangarh Fort",
+          "es": "Fuerte Mehrangarh",
+          "pt": "Forte Mehrangarh"
+        },
+        "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=900&q=80",
+        "description": {
+          "en": "One of India's largest and most formidable hill forts, towering 125 meters above the Blue City with royal museums.",
+          "es": "Uno de los fuertes más grandes de la India, elevado a 125 metros sobre la Ciudad Azul con museos reales.",
+          "pt": "Um dos maiores fortes da Índia, elevado a 125 metros sobre a Cidade Azul com museus reais."
+        }
+      },
+      {
+        "name": {
+          "en": "Jaswant Thada",
+          "es": "Jaswant Thada",
+          "pt": "Jaswant Thada"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "A graceful white marble cenotaph built in memory of Maharaja Jaswant Singh II, surrounded by carved gazebos.",
+          "es": "Un elegante cenotafio de mármol blanco construido en memoria del Maharaja Jaswant Singh II.",
+          "pt": "Um elegante cenotáfio de mármore branco construído em memória do Maharaja Jaswant Singh II."
+        }
+      },
+      {
+        "name": {
+          "en": "Umaid Bhawan Palace",
+          "es": "Palacio Umaid Bhawan",
+          "pt": "Palácio Umaid Bhawan"
+        },
+        "image": "https://images.unsplash.com/photo-1615836245337-f5b9b2303f1c?w=900&q=80",
+        "description": {
+          "en": "One of the world's largest private royal residences, built with golden yellow sandstone in Art Deco architecture.",
+          "es": "Una de las residencias reales privadas más grandes del mundo, construida con arenisca dorada en estilo Art Déco.",
+          "pt": "Uma das maiores residências reais privadas do mundo, construída com arenito dourado em estilo Art Déco."
+        }
+      }
+    ]
   },
   {
     "id": "kanha",
@@ -806,7 +1345,35 @@
       "pt": "viagem para Kanha, turismo em Kanha",
       "en": "Kanha tourism, Kanha travel guide",
       "es": "viaje a Kanha, turismo en Kanha"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Kanha Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Kanha",
+          "pt": "Fortaleza e Monumentos de Kanha"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787305400/mhindiatrips/xepei32yyyeayz10xvbj.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Kanha.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Kanha.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Kanha."
+        }
+      },
+      {
+        "name": {
+          "en": "Kanha Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Kanha",
+          "pt": "Cultura Local e Mercados de Kanha"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Kanha.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Kanha.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Kanha."
+        }
+      }
+    ]
   },
   {
     "id": "kanpur",
@@ -853,7 +1420,35 @@
       "en": "Kanpur tourism, Kanpur travel guide",
       "es": "viaje a Kanpur, turismo en Kanpur",
       "pt": "viagem para Kanpur, turismo em Kanpur"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Kanpur Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Kanpur",
+          "pt": "Fortaleza e Monumentos de Kanpur"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787306206/mhindiatrips/quetmbrkmuobjcq6p9id.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Kanpur.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Kanpur.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Kanpur."
+        }
+      },
+      {
+        "name": {
+          "en": "Kanpur Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Kanpur",
+          "pt": "Cultura Local e Mercados de Kanpur"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Kanpur.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Kanpur.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Kanpur."
+        }
+      }
+    ]
   },
   {
     "id": "kanyakumari",
@@ -900,7 +1495,35 @@
       "pt": "Explore as maravilhas históricas, a gastronomia local e os aspectos culturais de Kanyakumari.",
       "en": "Explore the historical wonders, local food, and cultural highlights of Kanyakumari.",
       "es": "Explore las maravillas históricas, la comida local y los aspectos culturales de Kanyakumari."
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Kanyakumari Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Kanyakumari",
+          "pt": "Fortaleza e Monumentos de Kanyakumari"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787309948/mhindiatrips/agfbyuwifnvyhuzmkixk.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Kanyakumari.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Kanyakumari.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Kanyakumari."
+        }
+      },
+      {
+        "name": {
+          "en": "Kanyakumari Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Kanyakumari",
+          "pt": "Cultura Local e Mercados de Kanyakumari"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Kanyakumari.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Kanyakumari.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Kanyakumari."
+        }
+      }
+    ]
   },
   {
     "id": "kasargod",
@@ -947,7 +1570,35 @@
       "en": "Kasargod",
       "es": "Kasargod"
     },
-    "gallery": []
+    "gallery": [],
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Kasargod Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Kasargod",
+          "pt": "Fortaleza e Monumentos de Kasargod"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787301412/mhindiatrips/sz2ayxfz7updrnx8wrnx.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Kasargod.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Kasargod.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Kasargod."
+        }
+      },
+      {
+        "name": {
+          "en": "Kasargod Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Kasargod",
+          "pt": "Cultura Local e Mercados de Kasargod"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Kasargod.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Kasargod.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Kasargod."
+        }
+      }
+    ]
   },
   {
     "id": "kochi",
@@ -994,7 +1645,35 @@
       "pt": "kochi",
       "es": "kochi",
       "en": "kochi"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Chinese Fishing Nets",
+          "es": "Redes de Pesca Chinas",
+          "pt": "Redes de Pesca Chinesas"
+        },
+        "image": "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=900&q=80",
+        "description": {
+          "en": "Iconic cantilevered fishing nets along the Fort Kochi waterfront, introduced by Chinese traders in the 14th century.",
+          "es": "Icónicas redes de pesca voladizas a lo largo del paseo marítimo de Fort Kochi, introducidas en el siglo XIV.",
+          "pt": "Icônicas redes de pesca flutuantes ao longo da orla de Fort Kochi, introduzidas no século XIV."
+        }
+      },
+      {
+        "name": {
+          "en": "Mattancherry Palace (Dutch Palace)",
+          "es": "Palacio Mattancherry (Palacio Holandés)",
+          "pt": "Palácio Mattancherry (Palácio Holandês)"
+        },
+        "image": "https://images.unsplash.com/photo-1615836245337-f5b9b2303f1c?w=900&q=80",
+        "description": {
+          "en": "A Portuguese-built palace featuring detailed Hindu temple murals and royal Kerala portraits.",
+          "es": "Un palacio construido por los portugueses que cuenta con detallados murales de templos hindúes.",
+          "pt": "Um palácio construído pelos portugueses que apresenta detalhados murais de templos hindus."
+        }
+      }
+    ]
   },
   {
     "id": "kolhapur",
@@ -1041,7 +1720,35 @@
       "pt": "viagem para Kolhapur, turismo em Kolhapur",
       "en": "Kolhapur tourism, Kolhapur travel guide",
       "es": "viaje a Kolhapur, turismo en Kolhapur"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Kolhapur Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Kolhapur",
+          "pt": "Fortaleza e Monumentos de Kolhapur"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787307379/mhindiatrips/oufdeexvr0dq3xdhhq1l.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Kolhapur.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Kolhapur.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Kolhapur."
+        }
+      },
+      {
+        "name": {
+          "en": "Kolhapur Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Kolhapur",
+          "pt": "Cultura Local e Mercados de Kolhapur"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Kolhapur.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Kolhapur.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Kolhapur."
+        }
+      }
+    ]
   },
   {
     "id": "kollam",
@@ -1088,6 +1795,34 @@
     "relatedPackages": [
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
+    ],
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Kollam Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Kollam",
+          "pt": "Fortaleza e Monumentos de Kollam"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787303075/mhindiatrips/cjdqxswfb6v9syupevt9.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Kollam.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Kollam.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Kollam."
+        }
+      },
+      {
+        "name": {
+          "en": "Kollam Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Kollam",
+          "pt": "Cultura Local e Mercados de Kollam"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Kollam.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Kollam.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Kollam."
+        }
+      }
     ]
   },
   {
@@ -1135,7 +1870,35 @@
       "es": "Descubre Kottayam: cómo llegar, atracciones principales y hoteles recomendados.",
       "pt": "Descubra Kottayam: como chegar, atrações principais e hotéis recomendados."
     },
-    "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787302925/mhindiatrips/wgm1ekr3yng1exoequjk.jpg"
+    "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787302925/mhindiatrips/wgm1ekr3yng1exoequjk.jpg",
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Kottayam Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Kottayam",
+          "pt": "Fortaleza e Monumentos de Kottayam"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787302925/mhindiatrips/wgm1ekr3yng1exoequjk.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Kottayam.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Kottayam.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Kottayam."
+        }
+      },
+      {
+        "name": {
+          "en": "Kottayam Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Kottayam",
+          "pt": "Cultura Local e Mercados de Kottayam"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Kottayam.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Kottayam.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Kottayam."
+        }
+      }
+    ]
   },
   {
     "id": "lucknow",
@@ -1182,7 +1945,35 @@
       "en": "Nawabi Elegance, Architectural Heritage & Legendary Cuisine",
       "es": "Elegancia Nawabi, Patrimonio Arquitectónico y Gastronomía Legendaria",
       "pt": "Elegância Nawabi, Patrimônio Arquitetônico e Gastronomia Lendária"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Lucknow Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Lucknow",
+          "pt": "Fortaleza e Monumentos de Lucknow"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787306075/mhindiatrips/diuhncgljmnvek0t6ju1.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Lucknow.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Lucknow.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Lucknow."
+        }
+      },
+      {
+        "name": {
+          "en": "Lucknow Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Lucknow",
+          "pt": "Cultura Local e Mercados de Lucknow"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Lucknow.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Lucknow.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Lucknow."
+        }
+      }
+    ]
   },
   {
     "id": "m",
@@ -1226,7 +2017,35 @@
       "pt": "Mandawa é uma charmosa cidade histórica da região de Shekhawati, no Rajastão, famosa por seus belos havelis, fachadas cobertas de afrescos, grandes portais e rico patrimônio mercantil. Conhecida como uma galeria de arte a céu aberto, Mandawa oferece uma visão autêntica da arquitetura, arte e cultura tradicional do Rajastão.",
       "en": "Mandawa is a charming heritage town in Rajasthan's Shekhawati region, renowned for its beautifully painted havelis, fresco-covered facades, grand gateways and rich merchant heritage. Often described as an open-air gallery, Mandawa offers an authentic glimpse into Rajasthan's artistic traditions, royal-era architecture and desert culture.",
       "es": "Mandawa es una encantadora ciudad histórica de la región de Shekhawati, en Rajastán, famosa por sus hermosos havelis, fachadas decoradas con frescos, grandes portales y rico patrimonio mercantil. Conocida como una galería de arte al aire libre, Mandawa ofrece una visión auténtica de la arquitectura, el arte y la cultura tradicional de Rajastán."
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Mandawa Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Mandawa",
+          "pt": "Fortaleza e Monumentos de Mandawa"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789406567/mhindiatrips/ysbyz64enmntuowqixtk.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Mandawa.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Mandawa.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Mandawa."
+        }
+      },
+      {
+        "name": {
+          "en": "Mandawa Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Mandawa",
+          "pt": "Cultura Local e Mercados de Mandawa"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Mandawa.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Mandawa.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Mandawa."
+        }
+      }
+    ]
   },
   {
     "id": "madurai",
@@ -1273,7 +2092,35 @@
       "es": "<h2>Historia de Madurai</h2>\n\n<p>Madurai es una de las ciudades más antiguas de la India, con una historia que se remonta a la época Sangam de la era precristiana. La ciudad pasó posteriormente bajo el dominio del reino Vijayanagar después de haber sido saqueada por los ejércitos de Delhi. Durante los siglos XVI y XVIII, Madurai fue gobernada por los emperadores Nayak, entre los que destacó Tirumalai Nayak.</p>\n\n<p>La Edad Sangam, considerada la época dorada de la literatura tamil, produjo grandes obras literarias desde la época precristiana. Madurai fue la sede del Tamil Sangam o Academia de Aprendizaje. La ciudad se desarrolló alrededor del Templo Meenakshi Sundareswarar, con calles rectangulares concéntricas que rodean el templo.</p>\n\n<p>Ya en el siglo III a. C., el viajero griego Megasthenes visitó Madurai. Más tarde, numerosos visitantes procedentes de Roma y Grecia llegaron a la ciudad y establecieron relaciones comerciales con los reyes Pandya. Madurai prosperó hasta el siglo X d. C., cuando fue conquistada por los Cholas.</p>\n\n<p>Los Cholas gobernaron Madurai desde aproximadamente el año 920 d. C. hasta principios del siglo XIII. En 1223 d. C., los Pandyas recuperaron el reino y Madurai volvió a prosperar. Durante este período se desarrollaron importantes obras de la literatura tamil, incluida la gran epopeya <i>Silappathikaram</i>.</p>\n\n<p>En abril de 1311, Malik Kafur, general de Alauddin Khilji, llegó a Madurai y saqueó la ciudad, llevándose piedras preciosas, joyas y otros tesoros. En 1323, el reino Pandya, incluido Madurai, pasó a formar parte del Sultanato de Delhi bajo los Tughlaq.</p>\n\n<p>En 1371, la dinastía Vijayanagar de Hampi capturó Madurai y la ciudad pasó a formar parte del Imperio Vijayanagar. Los gobernantes de esta dinastía designaban gobernadores conocidos como Nayaks para administrar los territorios conquistados.</p>\n\n<p>Después de la muerte de Krishna Deva Raya en 1530, los Nayaks se independizaron y comenzaron a gobernar los territorios bajo su control. Entre ellos, Thirumalai Nayak, que gobernó entre 1623 y 1659, fue especialmente reconocido por sus contribuciones arquitectónicas.</p>\n\n<p>Durante el período de Thirumalai Nayak se construyeron importantes monumentos como el Raja Gopuram del Templo Meenakshi Amman, el Pudu Mandapam y el Palacio Thirumalai Nayakar.</p>\n\n<p>Posteriormente, Madurai pasó gradualmente bajo el control de la Compañía Británica de las Indias Orientales. En 1781, los británicos nombraron representantes para administrar Madurai. George Procter fue el primer recaudador de Madurai.</p>\n\n<p>Después de la independencia de la India, Madurai se convirtió en uno de los principales distritos del estado de Tamil Nadu. Más tarde, el distrito de Madurai fue dividido en los distritos de Madurai y Dindigul.</p>\n\n<p>La historia de Madurai también está vinculada a Rani Mangammal, una gobernante conocida por su habilidad y liderazgo. Se convirtió en una de las pocas mujeres gobernantes destacadas de la historia de Tamil Nadu.</p>\n\n<h2>Templos de Madurai</h2>\n\n<p>Madurai es famosa por sus templos. El templo Aappudaiyaar Koyil Tevara Stalam y el Koodal Azhagar Divya Desam son importantes lugares religiosos. Cerca de Madurai también se encuentra Tirupparamkunram, uno de los seis santuarios de Murugan.</p>\n\n<p>Alagar Koyil, situado cerca de Madurai, es otro importante templo de la tradición Sri Vaishnavita y está dedicado al Señor Alagar, una manifestación de Vishnu.</p>\n\n<h2>Cómo llegar a Madurai</h2>\n\n<h3>En avión</h3>\n\n<p>Hay vuelos diarios a Madurai desde Chennai, Bangalore, Tiruchi y Coimbatore. El aeropuerto de Madurai se encuentra aproximadamente a 10 km de la ciudad.</p>\n\n<h3>En tren</h3>\n\n<p>Madurai es un importante nudo ferroviario del Ferrocarril del Sur y está conectado directamente con ciudades como Chennai y Tirunelveli.</p>\n\n<p>La ciudad se encuentra en la línea ferroviaria Madurai-Tiruchirappalli-Dindigul-Quilon. El Vaigai Express conecta Chennai Egmore con Madurai y cubre aproximadamente 495 km.</p>\n\n<h3>Por carretera</h3>\n\n<p>Madurai cuenta con excelentes carreteras que la conectan con diferentes partes del sur de la India. La ciudad dispone de cinco importantes terminales de autobuses.</p>\n\n<h2>Comida en Madurai</h2>\n\n<p>Madurai ofrece una amplia variedad de cocina india, incluyendo platos del norte y del sur de la India. La gastronomía local destaca por sus especias y sabores tradicionales.</p>\n\n<h2>Compras en Madurai</h2>\n\n<p>Madurai es conocida por sus textiles y por sus productos de algodón de buena calidad. Puthu Mandapam es uno de los lugares importantes para comprar tejidos de algodón estampados.</p>\n\n<p>Las principales tiendas de artesanía se encuentran cerca del templo. Los mercados locales también ofrecen diferentes productos tradicionales y recuerdos.</p>\n\n<h2>Ferias y festivales de Madurai</h2>\n\n<h3>Festival Theppam</h3>\n\n<p>El Festival Theppam es uno de los festivales populares de Madurai. Theppam significa literalmente “flotador” y normalmente se celebra durante los meses de enero y febrero según el calendario local.</p>\n\n<p>Durante el festival, las imágenes decoradas de las deidades son llevadas sobre el agua del estanque. Las principales deidades veneradas son Meenakshi y Sundareswarar, una manifestación del Señor Shiva.</p>\n\n<h3>Festival Chithirai</h3>\n\n<p>El Festival Chithirai es otro de los grandes festivales de Madurai. Celebra el matrimonio celestial de Meenakshi y Shiva y atrae a grandes multitudes de devotos.</p>\n\n<p>Las celebraciones incluyen procesiones de las deidades en grandes carros tirados por personas. El festival se celebra generalmente durante abril y mayo y tiene una duración aproximada de 14 días.</p>\n\n<h3>Avani Moolam</h3>\n\n<p>Avani Moolam se celebra para conmemorar la coronación del Señor Shiva y tiene lugar alrededor del mes de septiembre.</p>\n\n<h3>Navaratri</h3>\n\n<p>El festival de Navaratri dura nueve días y está dedicado a la adoración de la diosa Durga. Se celebra generalmente durante septiembre y octubre.</p>\n\n<h2>Cultura de Madurai</h2>\n\n<h3>Ubicación</h3>\n\n<p>Madurai es una ciudad histórica situada en el estado de Tamil Nadu, en el sur de la India. La ciudad se encuentra a orillas del río Vaigai y está aproximadamente a 150 km de Tiruchirappalli.</p>\n\n<h3>Clima</h3>\n\n<p>Madurai disfruta de un clima tropical moderado. La temperatura media se encuentra aproximadamente entre 34 °C y 38 °C y el ambiente puede ser húmedo en algunas ocasiones.</p>\n\n<h3>Pasado y tradición</h3>\n\n<p>Según antiguas referencias de la literatura tamil, Madurai tiene un origen legendario. Se cree que la diosa Meenakshi, considerada una encarnación de Parvati, nació como hija de un rey Pandya.</p>\n\n<p>Según la tradición, Meenakshi se convirtió en protectora de Madurai. Después de derrotar a sus rivales, conoció al Señor Shiva, quien apareció ante ella y posteriormente se casó con ella.</p>\n\n<p>Madurai también aparece en la epopeya tamil <i>Silappathikaram</i>, escrita por el poeta Ilango Adigal. La ciudad ha tenido una gran importancia cultural y comercial desde tiempos antiguos.</p>\n\n<p>La ciudad tradicionalmente se describe con una estructura semejante a una flor de loto. Madurai es también conocida por su importancia en el desarrollo de la lengua y literatura tamil.</p>\n\n<h2>Lugares para visitar en Madurai</h2>\n\n<h3>Templo Meenakshi Amman</h3>\n\n<p>El Templo Meenakshi Amman es el principal monumento de Madurai y un destacado ejemplo de arquitectura dravidiana. El complejo del templo cuenta con numerosas esculturas, torres y estructuras religiosas.</p>\n\n<p>El templo posee doce torres, conocidas como gopurams, decoradas con numerosas esculturas multicolores de dioses, diosas y otras figuras religiosas.</p>\n\n<p>La sala de los mil pilares contiene numerosas figuras de piedra talladas con gran detalle. El complejo también cuenta con un museo de arte del templo.</p>\n\n<h3>Palacio Tirumalai Nayak</h3>\n\n<p>Situado aproximadamente a 1 km del Templo Meenakshi, el Palacio Tirumalai Nayak es un monumento protegido por el Servicio Arqueológico de la India.</p>\n\n<p>El palacio es un destacado ejemplo de arquitectura indo-sarracena y cuenta con una puerta de entrada, un salón principal, un salón de baile y un patio conocido como Swargavilasa.</p>\n\n<h3>Tanque Teppakkulam</h3>\n\n<p>El tanque Teppakkulam fue construido por el gobernante Tirumalai Nayak. Es una gran estructura situada cerca de la ciudad y está conectada con el río Vaigai mediante canales subterráneos.</p>\n\n<h3>Mercado de flores de Madurai</h3>\n\n<p>El famoso mercado de flores de Madurai se encuentra cerca del templo. Sus grandes cantidades de flores ofrecen una experiencia visual y aromática característica de la ciudad.</p>\n\n<h3>Museo Gandhi</h3>\n\n<p>El antiguo palacio de Maharani Mangammal fue convertido en el Museo Gandhi. El museo ofrece información sobre la historia de la India y, especialmente, sobre la lucha por la independencia.</p>\n\n<h2>Sitios cercanos a Madurai</h2>\n\n<h3>Templo Thiruparankundram</h3>\n\n<p>El Templo Thiruparankundram se encuentra aproximadamente a 8 km al sur de Madurai. Es un importante templo excavado en la roca dedicado al Señor Muruga y es considerado uno de los seis principales santuarios de Muruga.</p>\n\n<h3>Templo Alagar Koyil</h3>\n\n<p>El Templo Alagar Koyil está situado aproximadamente a 21 km al norte de Madurai. Está dedicado al Señor Alagar, una manifestación de Vishnu, y es un destacado ejemplo de arquitectura dravidiana.</p>\n\n<h2>Monumentos de Madurai</h2>\n\n<h3>Kalthoon Maiyya Mandapam</h3>\n\n<p>El Kalthoon Maiyya Mandapam, también conocido como el pasillo de pilares, se encuentra en el lecho del río Vaigai. La estructura fue renovada y restaurada para recuperar su importancia histórica y arquitectónica.</p>\n\n<p>El mandapam tiene aproximadamente 500 años de antigüedad. Históricamente, importantes acontecimientos, incluidas las celebraciones relacionadas con Lord Kallazhagar entrando en el río, eran observados desde este lugar.</p>\n\n<p>Cada uno de sus pilares presenta características arquitectónicas destacadas y el lugar es considerado tradicionalmente apropiado para celebrar ceremonias matrimoniales.</p>\n\n<h2>Hoteles en Madurai</h2>\n\n<ul>\n<li>Best Western Germanus Hotel Madurai</li>\n<li>Sangam Hotel Madurai</li>\n<li>Taj Garden Retreat Hotel Madurai</li>\n<li>Hotel Madurai Ashok Madurai</li>\n<li>Park Madurai Inn Hotel Madurai</li>\n<li>Royal Court Madurai</li>\n<li>Hotel Pandiyan Madurai</li>\n<li>Hotel Supreme Madurai</li>\n<li>Chentoor Hotel Madurai</li>\n</ul>",
       "en": "<h2>History of Madurai</h2>\n\n<p>Madurai is one of the oldest cities in India, with a history dating back to the Sangam period of the pre-Christian era. The city later came under the Vijayanagar Kingdom and, during the 16th and 18th centuries, was ruled by the Nayak rulers, particularly Tirumalai Nayak.</p>\n\n<p>The Sangam Age, considered the golden age of Tamil literature, produced many great literary works. Madurai was the seat of the Tamil Sangam or Academy of Learning. The city developed around the Meenakshi Sundareswarar Temple, surrounded by concentric rectangular streets.</p>\n\n<p>Megasthenes visited Madurai as early as the 3rd century BC. Later, visitors and traders from Rome and Greece established trade relations with the Pandya kings. Madurai flourished until the 10th century, when it was captured by the Cholas.</p>\n\n<p>In 1223 AD, the Pandyas regained their kingdom and Madurai once again became prosperous. During this period, important works of Tamil literature developed, including the great epic <i>Silappathikaram</i>.</p>\n\n<p>In 1311, Malik Kafur, the general of Alauddin Khilji, attacked and plundered Madurai. In 1323, the Pandya kingdom became part of the Delhi Sultanate under the Tughlaqs.</p>\n\n<p>In 1371, the Vijayanagar dynasty captured Madurai. Later, the Nayaks became independent and ruled the region. Thirumalai Nayak, who ruled from 1623 to 1659, was particularly known for his architectural contributions.</p>\n\n<p>During his reign, important monuments such as the Raja Gopuram of Meenakshi Amman Temple, Pudu Mandapam and Thirumalai Nayakar Palace were developed.</p>\n\n<p>Later, Madurai came under the control of the British East India Company. In 1781, the British appointed representatives to administer Madurai. George Procter was the first Collector of Madurai.</p>\n\n<h2>How to Reach Madurai</h2>\n\n<h3>By Air</h3>\n<p>There are flights to Madurai from major cities such as Chennai, Bangalore, Tiruchi and Coimbatore. Madurai Airport is approximately 10 km from the city.</p>\n\n<h3>By Train</h3>\n<p>Madurai is an important railway junction of the Southern Railway and is directly connected with major cities across India.</p>\n\n<h3>By Road</h3>\n<p>Madurai has excellent road connections with different parts of South India.</p>\n\n<h2>Shopping in Madurai</h2>\n\n<p>Madurai is well known for its textiles and quality cotton products. Puthu Mandapam is an important place for purchasing printed cotton fabrics.</p>\n\n<p>The main handicraft shops are located near the temple and offer a variety of traditional products and souvenirs.</p>\n\n<h2>Fairs and Festivals of Madurai</h2>\n\n<h3>Theppam Festival</h3>\n<p>Theppam Festival is one of the popular festivals of Madurai. It is generally celebrated during January and February. Decorated images of deities are taken across the temple tank.</p>\n\n<h3>Chithirai Festival</h3>\n<p>The Chithirai Festival celebrates the celestial wedding of Meenakshi and Shiva. It is generally celebrated during April and May and attracts large crowds.</p>\n\n<h3>Avani Moolam</h3>\n<p>Avani Moolam is celebrated to commemorate the coronation of Lord Shiva and takes place around September.</p>\n\n<h3>Navaratri</h3>\n<p>Navaratri is a nine-day festival dedicated to the worship of Goddess Durga and is generally celebrated during September and October.</p>\n\n<h2>Culture of Madurai</h2>\n\n<h3>Location</h3>\n<p>Madurai is located in Tamil Nadu in southern India, on the banks of the Vaigai River and approximately 150 km from Tiruchirappalli.</p>\n\n<h3>Climate</h3>\n<p>Madurai enjoys a moderate tropical climate. The average temperature is approximately between 34°C and 38°C.</p>\n\n<h2>Places to Visit in Madurai</h2>\n\n<h3>Meenakshi Amman Temple</h3>\n<p>Meenakshi Amman Temple is the principal monument of Madurai and an outstanding example of Dravidian architecture. It has twelve gopurams decorated with numerous sculptures.</p>\n\n<h3>Thirumalai Nayak Palace</h3>\n<p>Located approximately 1 km from Meenakshi Temple, Thirumalai Nayak Palace is an impressive example of Indo-Saracenic architecture.</p>\n\n<h3>Teppakkulam Tank</h3>\n<p>Teppakkulam Tank was constructed by Tirumalai Nayak and is connected to the Vaigai River through underground channels.</p>\n\n<h3>Gandhi Museum</h3>\n<p>The former palace of Maharani Mangammal was converted into the Gandhi Museum, where visitors can learn about Indian history and the freedom struggle.</p>\n\n<h2>Places Near Madurai</h2>\n\n<h3>Thiruparankundram Temple</h3>\n<p>Located approximately 8 km south of Madurai, this important rock-cut temple is dedicated to Lord Muruga.</p>\n\n<h3>Alagar Koyil Temple</h3>\n<p>Located approximately 21 km north of Madurai, this magnificent temple is dedicated to Lord Alagar, an aspect of Vishnu.</p>\n\n<h2>Hotels in Madurai</h2>\n\n<ul>\n<li>Best Western Germanus Hotel Madurai</li>\n<li>Sangam Hotel Madurai</li>\n<li>Taj Garden Retreat Hotel Madurai</li>\n<li>Hotel Madurai Ashok Madurai</li>\n<li>Park Madurai Inn Hotel Madurai</li>\n<li>Royal Court Madurai</li>\n<li>Hotel Pandiyan Madurai</li>\n<li>Hotel Supreme Madurai</li>\n<li>Chentoor Hotel Madurai</li>\n</ul>",
       "pt": "<h2>História de Madurai</h2>\n\n<p>Madurai é uma das cidades mais antigas da Índia, com uma história que remonta ao período Sangam da era pré-cristã. A cidade posteriormente passou para o Reino de Vijayanagar e, durante os séculos XVI e XVIII, foi governada pelos governantes Nayak, especialmente Tirumalai Nayak.</p>\n\n<p>A Era Sangam, considerada a época de ouro da literatura tâmil, produziu grandes obras literárias. Madurai foi a sede do Tamil Sangam ou Academia de Aprendizagem. A cidade desenvolveu-se ao redor do Templo Meenakshi Sundareswarar, cercado por ruas retangulares concêntricas.</p>\n\n<p>Megasthenes visitou Madurai já no século III a.C. Mais tarde, comerciantes e visitantes de Roma e da Grécia estabeleceram relações comerciais com os reis Pandya. Madurai prosperou até o século X, quando foi conquistada pelos Cholas.</p>\n\n<p>Em 1223 d.C., os Pandyas recuperaram o seu reino e Madurai voltou a prosperar. Durante este período, importantes obras da literatura tâmil foram desenvolvidas, incluindo o grande épico <i>Silappathikaram</i>.</p>\n\n<p>Em 1311, Malik Kafur, general de Alauddin Khilji, atacou e saqueou Madurai. Em 1323, o reino Pandya tornou-se parte do Sultanato de Delhi sob os Tughlaq.</p>\n\n<p>Em 1371, a dinastia Vijayanagar conquistou Madurai. Mais tarde, os Nayaks tornaram-se independentes e governaram a região. Thirumalai Nayak, que governou entre 1623 e 1659, ficou especialmente conhecido pelas suas contribuições arquitetónicas.</p>\n\n<p>Durante o seu reinado foram desenvolvidos importantes monumentos, como o Raja Gopuram do Templo Meenakshi Amman, o Pudu Mandapam e o Palácio Thirumalai Nayakar.</p>\n\n<p>Mais tarde, Madurai passou para o controlo da Companhia Britânica das Índias Orientais. Em 1781, os britânicos nomearam representantes para administrar Madurai. George Procter foi o primeiro Collector de Madurai.</p>\n\n<h2>Como Chegar a Madurai</h2>\n\n<h3>De avião</h3>\n<p>Existem voos para Madurai a partir de cidades importantes como Chennai, Bangalore, Tiruchi e Coimbatore. O Aeroporto de Madurai fica aproximadamente a 10 km da cidade.</p>\n\n<h3>De comboio</h3>\n<p>Madurai é um importante entroncamento ferroviário da Southern Railway e está diretamente ligado às principais cidades da Índia.</p>\n\n<h3>Por estrada</h3>\n<p>Madurai possui excelentes ligações rodoviárias com diferentes partes do sul da Índia.</p>\n\n<h2>Compras em Madurai</h2>\n\n<p>Madurai é conhecida pelos seus tecidos e produtos de algodão de boa qualidade. Puthu Mandapam é um dos principais locais para comprar tecidos de algodão estampados.</p>\n\n<p>As principais lojas de artesanato estão localizadas perto do templo e oferecem vários produtos tradicionais e lembranças.</p>\n\n<h2>Feiras e Festivais de Madurai</h2>\n\n<h3>Festival Theppam</h3>\n<p>O Festival Theppam é um dos festivais populares de Madurai. Geralmente é celebrado durante janeiro e fevereiro. Imagens decoradas das divindades são levadas sobre as águas do tanque do templo.</p>\n\n<h3>Festival Chithirai</h3>\n<p>O Festival Chithirai celebra o casamento celestial de Meenakshi e Shiva. É geralmente celebrado durante abril e maio e atrai grandes multidões.</p>\n\n<h3>Avani Moolam</h3>\n<p>Avani Moolam é celebrado para comemorar a coroação do Senhor Shiva e acontece por volta do mês de setembro.</p>\n\n<h3>Navaratri</h3>\n<p>Navaratri é um festival de nove dias dedicado à adoração da Deusa Durga e geralmente é celebrado durante setembro e outubro.</p>\n\n<h2>Cultura de Madurai</h2>\n\n<h3>Localização</h3>\n<p>Madurai está localizada em Tamil Nadu, no sul da Índia, às margens do rio Vaigai e aproximadamente 150 km de Tiruchirappalli.</p>\n\n<h3>Clima</h3>\n<p>Madurai possui um clima tropical moderado. A temperatura média fica aproximadamente entre 34°C e 38°C.</p>\n\n<h2>Lugares para visitar em Madurai</h2>\n\n<h3>Templo Meenakshi Amman</h3>\n<p>O Templo Meenakshi Amman é o principal monumento de Madurai e um excelente exemplo da arquitetura dravidiana. Possui doze gopurams decorados com numerosas esculturas.</p>\n\n<h3>Palácio Thirumalai Nayak</h3>\n<p>Localizado aproximadamente 1 km do Templo Meenakshi, o Palácio Thirumalai Nayak é um impressionante exemplo da arquitetura indo-sarracena.</p>\n\n<h3>Tanque Teppakkulam</h3>\n<p>O Tanque Teppakkulam foi construído por Tirumalai Nayak e está ligado ao rio Vaigai através de canais subterrâneos.</p>\n\n<h3>Museu Gandhi</h3>\n<p>O antigo palácio de Maharani Mangammal foi convertido no Museu Gandhi, onde os visitantes podem conhecer a história da Índia e a luta pela independência.</p>\n\n<h2>Lugares próximos de Madurai</h2>\n\n<h3>Templo Thiruparankundram</h3>\n<p>Localizado aproximadamente 8 km ao sul de Madurai, este importante templo escavado na rocha é dedicado ao Senhor Muruga.</p>\n\n<h3>Templo Alagar Koyil</h3>\n<p>Localizado aproximadamente 21 km ao norte de Madurai, este magnífico templo é dedicado ao Senhor Alagar, uma manifestação de Vishnu.</p>\n\n<h2>Hotéis em Madurai</h2>\n\n<ul>\n<li>Best Western Germanus Hotel Madurai</li>\n<li>Sangam Hotel Madurai</li>\n<li>Taj Garden Retreat Hotel Madurai</li>\n<li>Hotel Madurai Ashok Madurai</li>\n<li>Park Madurai Inn Hotel Madurai</li>\n<li>Royal Court Madurai</li>\n<li>Hotel Pandiyan Madurai</li>\n<li>Hotel Supreme Madurai</li>\n<li>Chentoor Hotel Madurai</li>\n</ul>"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Madurai Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Madurai",
+          "pt": "Fortaleza e Monumentos de Madurai"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787309996/mhindiatrips/uqs3n1yhr4ald4cwwu4x.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Madurai.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Madurai.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Madurai."
+        }
+      },
+      {
+        "name": {
+          "en": "Madurai Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Madurai",
+          "pt": "Cultura Local e Mercados de Madurai"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Madurai.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Madurai.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Madurai."
+        }
+      }
+    ]
   },
   {
     "id": "mathura",
@@ -1320,6 +2167,34 @@
     "relatedPackages": [
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
+    ],
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Mathura Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Mathura",
+          "pt": "Fortaleza e Monumentos de Mathura"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787305889/mhindiatrips/e9xljnxbjvo1oqnvy8z5.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Mathura.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Mathura.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Mathura."
+        }
+      },
+      {
+        "name": {
+          "en": "Mathura Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Mathura",
+          "pt": "Cultura Local e Mercados de Mathura"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Mathura.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Mathura.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Mathura."
+        }
+      }
     ]
   },
   {
@@ -1367,7 +2242,35 @@
       "pt": "viagem para Mount Abu, turismo em Mount Abu",
       "es": "viaje a Mount Abu, turismo en Mount Abu",
       "en": "Mount Abu tourism, Mount Abu travel guide"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Mount Abu Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Mount Abu",
+          "pt": "Fortaleza e Monumentos de Mount Abu"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787299657/mhindiatrips/wzqmlp8gcgvf8fzc8uom.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Mount Abu.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Mount Abu.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Mount Abu."
+        }
+      },
+      {
+        "name": {
+          "en": "Mount Abu Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Mount Abu",
+          "pt": "Cultura Local e Mercados de Mount Abu"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Mount Abu.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Mount Abu.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Mount Abu."
+        }
+      }
+    ]
   },
   {
     "id": "mumbai",
@@ -1414,7 +2317,35 @@
       "es": "Mumbai",
       "en": "Mumbai",
       "pt": "Mumbai"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Gateway of India",
+          "es": "Puerta de la India",
+          "pt": "Porta da Índia"
+        },
+        "image": "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=900&q=80",
+        "description": {
+          "en": "The grand waterfront basalt arch monument built in 1911 overlooking the Arabian Sea harbor.",
+          "es": "El gran monumento en forma de arco frente al mar construido en 1911 con vista al mar Arábigo.",
+          "pt": "O grande monumento em forma de arco à beira-mar construído em 1911 com vista para o Mar Arábico."
+        }
+      },
+      {
+        "name": {
+          "en": "Marine Drive",
+          "es": "Marine Drive",
+          "pt": "Marine Drive"
+        },
+        "image": "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=900&q=80",
+        "description": {
+          "en": "A 3.6-km C-shaped boulevard along the coast, offering stunning sunset views and twinkling night lights.",
+          "es": "Un bulevar costero de 3.6 km que ofrece espectaculares vistas del atardecer y luces nocturnas.",
+          "pt": "Um bulevar litorâneo de 3.6 km que oferece espetaculares vistas do pôr do sol e luzes noturnas."
+        }
+      }
+    ]
   },
   {
     "id": "munnar",
@@ -1465,7 +2396,35 @@
       "es": "Munnar",
       "en": "Munnar",
       "pt": "Munnar"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Tea Gardens & Kannan Devan Tea Museum",
+          "es": "Plantaciones de Té y Museo Kannan Devan",
+          "pt": "Plantações de Chá e Museu Kannan Devan"
+        },
+        "image": "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?w=900&q=80",
+        "description": {
+          "en": "Rolling emerald tea plantations and a historic museum demonstrating traditional tea processing.",
+          "es": "Ondulantes plantaciones de té color esmeralda y un museo histórico que muestra el procesamiento tradicional.",
+          "pt": "Ondulantes plantações de chá verde-esmeralda e um museu histórico que mostra o processamento tradicional."
+        }
+      },
+      {
+        "name": {
+          "en": "Eravikulam National Park",
+          "es": "Parque Nacional Eravikulam",
+          "pt": "Parque Nacional Eravikulam"
+        },
+        "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=900&q=80",
+        "description": {
+          "en": "Home to the endangered Nilgiri Tahr mountain goat and the famous Neelakurinji flowers.",
+          "es": "Hogar de la cabra montés Tahr de Nilgiri en peligro de extinción y de las famosas flores Neelakurinji.",
+          "pt": "Lar da cabra montanhesa Tahr de Nilgiri em perigo de extinção e das famosas flores Neelakurinji."
+        }
+      }
+    ]
   },
   {
     "id": "n",
@@ -1509,7 +2468,35 @@
       "pt": "Nawalgarh",
       "en": "Nawalgarh",
       "es": "Nawalgarh"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Nawalgarh Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Nawalgarh",
+          "pt": "Fortaleza e Monumentos de Nawalgarh"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789406910/mhindiatrips/adwxaa2mpf9sibdkahaa.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Nawalgarh.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Nawalgarh.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Nawalgarh."
+        }
+      },
+      {
+        "name": {
+          "en": "Nawalgarh Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Nawalgarh",
+          "pt": "Cultura Local e Mercados de Nawalgarh"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Nawalgarh.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Nawalgarh.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Nawalgarh."
+        }
+      }
+    ]
   },
   {
     "id": "nagpur",
@@ -1556,7 +2543,35 @@
       "pt": "Viagem para Nagpur | Guia de Viagem",
       "es": "Viaje a Nagpur | Guía de Turismo",
       "en": "Travel to Nagpur | MH India Trips"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Nagpur Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Nagpur",
+          "pt": "Fortaleza e Monumentos de Nagpur"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787308270/mhindiatrips/ycghvqcokzixdw2yhbyq.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Nagpur.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Nagpur.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Nagpur."
+        }
+      },
+      {
+        "name": {
+          "en": "Nagpur Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Nagpur",
+          "pt": "Cultura Local e Mercados de Nagpur"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Nagpur.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Nagpur.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Nagpur."
+        }
+      }
+    ]
   },
   {
     "id": "nashik",
@@ -1603,7 +2618,35 @@
       "en": "Nashik",
       "es": "Nashik",
       "pt": "Nashik"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Nashik Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Nashik",
+          "pt": "Fortaleza e Monumentos de Nashik"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787307225/mhindiatrips/ac4e6k8ml5jjmf2vusl6.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Nashik.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Nashik.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Nashik."
+        }
+      },
+      {
+        "name": {
+          "en": "Nashik Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Nashik",
+          "pt": "Cultura Local e Mercados de Nashik"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Nashik.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Nashik.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Nashik."
+        }
+      }
+    ]
   },
   {
     "id": "pachmarhi",
@@ -1650,7 +2693,35 @@
       "es": "pachmarhi",
       "pt": "pachmarhi"
     },
-    "gallery": []
+    "gallery": [],
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Pachmarhi Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Pachmarhi",
+          "pt": "Fortaleza e Monumentos de Pachmarhi"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787304017/mhindiatrips/axxtoodeohbzjajx01i0.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Pachmarhi.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Pachmarhi.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Pachmarhi."
+        }
+      },
+      {
+        "name": {
+          "en": "Pachmarhi Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Pachmarhi",
+          "pt": "Cultura Local e Mercados de Pachmarhi"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Pachmarhi.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Pachmarhi.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Pachmarhi."
+        }
+      }
+    ]
   },
   {
     "id": "pench",
@@ -1697,7 +2768,35 @@
       "pt": "Explore as maravilhas históricas, a gastronomia local e os aspectos culturais de Pench.",
       "es": "Explore las maravillas históricas, la comida local y los aspectos culturales de Pench.",
       "en": "Explore the historical wonders, local food, and cultural highlights of Pench."
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Pench Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Pench",
+          "pt": "Fortaleza e Monumentos de Pench"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787304917/mhindiatrips/ychbodvm1om3o6m0k5my.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Pench.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Pench.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Pench."
+        }
+      },
+      {
+        "name": {
+          "en": "Pench Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Pench",
+          "pt": "Cultura Local e Mercados de Pench"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Pench.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Pench.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Pench."
+        }
+      }
+    ]
   },
   {
     "id": "pondicherry-karaikal",
@@ -1744,7 +2843,35 @@
       "pt": "viagem para Pondicherry Karaikal, turismo em Pondicherry Karaikal",
       "en": "Pondicherry Karaikal tourism, Pondicherry Karaikal travel guide",
       "es": "viaje a Pondicherry Karaikal, turismo en Pondicherry Karaikal"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Pondicherry Karaikal Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Pondicherry Karaikal",
+          "pt": "Fortaleza e Monumentos de Pondicherry Karaikal"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787310200/mhindiatrips/q2pwm385vxwdpkwj7cff.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Pondicherry Karaikal.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Pondicherry Karaikal.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Pondicherry Karaikal."
+        }
+      },
+      {
+        "name": {
+          "en": "Pondicherry Karaikal Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Pondicherry Karaikal",
+          "pt": "Cultura Local e Mercados de Pondicherry Karaikal"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Pondicherry Karaikal.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Pondicherry Karaikal.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Pondicherry Karaikal."
+        }
+      }
+    ]
   },
   {
     "id": "pondicherry-mahe",
@@ -1791,7 +2918,35 @@
       "pt": "Pondicherry Mahe",
       "en": "Pondicherry Mahe",
       "es": "Pondicherry Mahe"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Pondicherry Mahe Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Pondicherry Mahe",
+          "pt": "Fortaleza e Monumentos de Pondicherry Mahe"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787309268/mhindiatrips/ytidwoit5ho7mk2f1z9c.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Pondicherry Mahe.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Pondicherry Mahe.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Pondicherry Mahe."
+        }
+      },
+      {
+        "name": {
+          "en": "Pondicherry Mahe Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Pondicherry Mahe",
+          "pt": "Cultura Local e Mercados de Pondicherry Mahe"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Pondicherry Mahe.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Pondicherry Mahe.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Pondicherry Mahe."
+        }
+      }
+    ]
   },
   {
     "id": "pune",
@@ -1838,7 +2993,35 @@
       "es": "viaje a Pune, turismo en Pune",
       "en": "Pune tourism, Pune travel guide",
       "pt": "viagem para Pune, turismo em Pune"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Pune Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Pune",
+          "pt": "Fortaleza e Monumentos de Pune"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787308065/mhindiatrips/zyt05k0dkb5mscd8gs85.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Pune.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Pune.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Pune."
+        }
+      },
+      {
+        "name": {
+          "en": "Pune Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Pune",
+          "pt": "Cultura Local e Mercados de Pune"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Pune.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Pune.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Pune."
+        }
+      }
+    ]
   },
   {
     "id": "pushkar",
@@ -1885,7 +3068,35 @@
       "en": "Pushkar tourism, Pushkar travel guide",
       "pt": "viagem para Pushkar, turismo em Pushkar"
     },
-    "gallery": []
+    "gallery": [],
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Pushkar Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Pushkar",
+          "pt": "Fortaleza e Monumentos de Pushkar"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787300246/mhindiatrips/zgfjypgpbu8hjp4uqkys.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Pushkar.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Pushkar.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Pushkar."
+        }
+      },
+      {
+        "name": {
+          "en": "Pushkar Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Pushkar",
+          "pt": "Cultura Local e Mercados de Pushkar"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Pushkar.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Pushkar.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Pushkar."
+        }
+      }
+    ]
   },
   {
     "id": "rameshwaram",
@@ -1932,7 +3143,35 @@
       "pt": "<h2>Viagem a Rameshwaram</h2>\n\n<h2>História de Rameshwaram</h2>\n\n<p>Rameshwaram é um importante centro de peregrinação localizado em uma ilha no Golfo de Mannar. O Templo Sri Ramanathaswamy está situado próximo ao mar, no lado leste da ilha. A ilha está conectada ao continente, em Mandapam, por uma impressionante ponte ferroviária e uma ponte rodoviária.</p>\n\n<p>Nos tempos antigos, o santuário era apenas uma pequena cabana com telhado de palha. Ao longo dos séculos, o pequeno santuário desenvolveu-se gradualmente até se tornar a enorme e magnífica estrutura que existe atualmente.</p>\n\n<h2>Governantes e Desenvolvimento do Templo</h2>\n\n<p>A região de Ramanathapuram foi governada por diferentes dinastias ao longo da história. Os reis Pandya governaram até o século XV. Mais tarde, a região ficou sob o domínio dos Nayaks do Império Vijayanagar, que governaram até aproximadamente o século XVII.</p>\n\n<p>Posteriormente, os Sethupathis, antigos chefes da região, chegaram ao poder. Eles contribuíram generosamente para o desenvolvimento da arte e da arquitetura do santuário de Rameswaram.</p>\n\n<ul>\n<li>Udayan Sethupathy</li>\n<li>Thirumalai Sethupathy</li>\n<li>Raghunatha Sethupathy</li>\n<li>Muthuramalinga Sethupathy</li>\n</ul>\n\n<p>Estátuas desses governantes podem ser encontradas dentro do templo.</p>\n\n<h2>Mitologia de Rameshwaram</h2>\n\n<p>Segundo a tradição hindu, o Templo Sri Ramanathaswamy está associado ao período do Ramayana. Rameshwaram está relacionado a vários acontecimentos da epopeia, especialmente ao Sundara Kaandam.</p>\n\n<p>Rama, o príncipe de Ayodhya, passou quatorze anos no exílio junto com Sita e Lakshmana. Durante o exílio, Sita foi sequestrada por Ravana, o rei de Lanka. Rama e Lakshmana então iniciaram a busca por Sita.</p>\n\n<h2>Hanuman e a Busca por Sita</h2>\n\n<p>Durante a busca, Rama conheceu Sugriva e Hanuman. Depois de recuperar seu reino, Sugriva enviou grupos de busca em diferentes direções. Hanuman, Angada, Nala e outros viajaram para o sul e chegaram a Gandhamadana Parvatham, na região da atual Rameshwaram.</p>\n\n<p>A partir dali, Hanuman realizou seu famoso salto sobre o oceano para chegar a Lanka e localizar Sita, que estava presa em Ashoka Vana.</p>\n\n<p>Hanuman entregou a Sita o anel de Rama como prova de que era seu mensageiro. Mais tarde, Sita entregou a ele seu Choodamani como lembrança para Rama.</p>\n\n<h2>Rama e o Templo de Shiva</h2>\n\n<p>Após a batalha contra Ravana, Rama retornou à costa da atual Rameshwaram com Sita, Lakshmana e seu exército. Segundo a tradição, Rama decidiu consagrar um santuário dedicado a Shiva para se purificar do pecado de ter matado Ravana.</p>\n\n<p>Rama enviou Hanuman ao Monte Kailash para trazer um Linga. Como Hanuman ainda não havia retornado quando chegou o momento auspicioso da cerimônia, Sita fez um Linga de areia e a puja foi realizada. Esse Linga ficou conhecido como Ramalinga.</p>\n\n<p>Quando Hanuman retornou, Rama também instalou o Linga trazido do Kailash. Ele ficou conhecido como Vishwalinga e, segundo a tradição, as pujas são realizadas primeiro para esse Linga.</p>\n\n<h2>Theerthas Sagrados</h2>\n\n<p>Rameshwaram é especialmente conhecida por seus numerosos Theerthas ou corpos de água sagrados. Muitos deles estão localizados dentro e ao redor do templo principal e possuem grande importância para os peregrinos.</p>\n\n<p>Segundo a tradição, essas águas sagradas estão associadas a Rama e são consideradas muito importantes para os rituais religiosos.</p>\n\n<h2>Templo Sri Ramanathaswamy</h2>\n\n<p>O Templo Sri Ramanathaswamy é um dos principais locais sagrados de Rameshwaram. É famoso por seus magníficos corredores e enormes pilares esculpidos.</p>\n\n<p>O templo, em sua forma atual, foi construído por diferentes governantes em diferentes períodos. Também possui grandes torres ou gopurams e abriga o culto ao Spadikalingam.</p>\n\n<h2>Como Chegar a Rameshwaram</h2>\n\n<h3>De avião</h3>\n\n<p>O aeroporto mais próximo é o de Madurai, localizado a aproximadamente 163 km de Rameshwaram. Do aeroporto, é possível continuar a viagem usando transporte público ou privado.</p>\n\n<h3>De trem</h3>\n\n<p>Rameshwaram está conectada por ferrovia a Chennai, Madurai, Coimbatore, Trichy, Thanjavur e outras cidades importantes.</p>\n\n<p>A Ponte Indira Gandhi conecta a Ilha de Rameshwaram ao continente em Mandapam.</p>\n\n<h3>Por estrada</h3>\n\n<p>Rameshwaram está bem conectada por estrada a Madurai, Kanyakumari, Chennai e Trichy. Também possui conexão com Pondicherry e Thanjavur através de Madurai.</p>\n\n<h2>Ponte Pamban</h2>\n\n<p>A Ponte Rodoviária Annai Indira Gandhi, também conhecida como Ponte Pamban, conecta a Ilha de Rameshwaram ao continente. A ponte oferece vistas panorâmicas do mar, das ilhas próximas e da ponte ferroviária paralela.</p>\n\n<h2>Principais Pontos de Interesse</h2>\n\n<ul>\n<li>Templo Sri Ramanathaswamy</li>\n<li>Agni Theertham</li>\n<li>Gandhamadana Parvatham</li>\n<li>Templo Kodandaramar</li>\n<li>Templo Nambu Nayagi Amman</li>\n<li>Templo de Hanuman de Cinco Faces</li>\n<li>Jadayu Theertham</li>\n<li>Templo Satchi Hanuman</li>\n<li>Templo / Theertham Sukreevar</li>\n</ul>\n\n<h2>Praias e Natureza</h2>\n\n<p>A Ilha de Rameshwaram também oferece vários lugares ideais para passeios e atividades junto ao mar. Entre as praias destacadas estão Olaikuda, Dhanushkodi e Pamban.</p>\n\n<p>A Praia de Olaikuda é cercada por recifes de coral e oferece um ambiente agradável para aproveitar o mar. Durante o inverno, diferentes espécies de aves migratórias também visitam a ilha.</p>\n\n<h2>Agni Theertham</h2>\n\n<p>Agni Theertham está localizado em frente ao Templo Sri Ramanathaswamy. A praia fica aproximadamente 100 metros da entrada principal do templo e é considerada sagrada.</p>\n\n<p>Os peregrinos realizam banhos rituais e oferecem orações pelos seus antepassados nessa praia sagrada.</p>\n\n<h2>Templo Kodandaramar</h2>\n\n<p>O Templo Kodandaramar está localizado na estrada para Dhanushkodi. Segundo a tradição, esse é o local onde Rama coroou Vibhishana depois que ele buscou refúgio junto a Rama.</p>\n\n<h2>Templo de Hanuman de Cinco Faces</h2>\n\n<p>O templo está localizado a aproximadamente 2 km do templo principal. Segundo a tradição local, imagens relacionadas a Rama, Sita e Hanuman foram trazidas de Dhanushkodi após o ciclone de 1964.</p>\n\n<h2>Gandhamadana Parvatham</h2>\n\n<p>Gandhamadana Parvatham é o ponto mais alto da ilha. O local está associado às pegadas de Rama e oferece vistas panorâmicas da região ao redor.</p>",
       "es": "<h2>Viaje a Rameshwaram</h2>\n\n<h2>Historia de Rameshwaram</h2>\n\n<p>Rameshwaram es una importante ciudad de peregrinación situada en una isla del golfo de Mannar. El templo Sri Ramanathaswamy se encuentra cerca del mar, en el lado oriental de la isla. La isla está conectada con el continente en Mandapam mediante un impresionante puente ferroviario y un puente de carretera.</p>\n\n<p>En la antigüedad, el santuario era una pequeña choza con techo de paja. Con el paso de los siglos, el pequeño santuario se desarrolló gradualmente hasta convertirse en la enorme y magnífica estructura que se puede contemplar actualmente.</p>\n\n<h2>Gobernantes y desarrollo del templo</h2>\n\n<p>La región de Ramanathapuram estuvo gobernada por diferentes dinastías a lo largo de la historia. Los reyes Pandya gobernaron hasta el siglo XV. Posteriormente, la región quedó bajo el dominio de los Nayaks del Imperio Vijayanagar, que gobernaron hasta aproximadamente el siglo XVII.</p>\n\n<p>Después llegaron al poder los Sethupathi, antiguos caciques de la región. Estos gobernantes contribuyeron generosamente al desarrollo del arte y la arquitectura del santuario de Rameswaram.</p>\n\n<ul>\n<li>Udayan Sethupathy</li>\n<li>Thirumalai Sethupathy</li>\n<li>Raghunatha Sethupathy</li>\n<li>Muthuramalinga Sethupathy</li>\n</ul>\n\n<p>Las estatuas de estos gobernantes se encuentran en el templo.</p>\n\n<h2>Mitología de Rameshwaram</h2>\n\n<p>Según la tradición hindú, el templo del Señor Ramanathaswamy está relacionado con el período del Ramayana. Rameshwaram está asociado con diferentes acontecimientos de la epopeya, especialmente con el Sundara Kaandam.</p>\n\n<p>Rama, príncipe de Ayodhya, sufrió un exilio de catorce años junto con Sita y Lakshmana. Durante su exilio, Sita fue secuestrada por Ravana, rey de Lanka. Rama y Lakshmana emprendieron entonces la búsqueda de Sita.</p>\n\n<h2>Hanuman y la búsqueda de Sita</h2>\n\n<p>Durante la búsqueda, Rama conoció a Sugriva y Hanuman. Después de recuperar su reino, Sugriva envió grupos de búsqueda en diferentes direcciones. Hanuman, Angada, Nala y otros viajaron hacia el sur y llegaron a Gandhamadhana Parvatha, en la zona de la actual Rameshwaram.</p>\n\n<p>Desde allí, Hanuman realizó su famoso salto sobre el océano para llegar a Lanka y localizar a Sita, que estaba cautiva en Ashoka Vana.</p>\n\n<p>Hanuman entregó a Sita el anillo de Rama como prueba de que era su mensajero. Posteriormente, Sita le entregó su Choodamani como señal para Rama.</p>\n\n<h2>Rama y el templo de Shiva</h2>\n\n<p>Después de la batalla contra Ravana, Rama regresó a la costa de la actual Rameshwaram junto con Sita, Lakshmana y su ejército. Según la tradición, Rama decidió consagrar un santuario dedicado a Shiva para purificarse del pecado de haber matado a Ravana.</p>\n\n<p>Rama envió a Hanuman al monte Kailash para traer un Linga. Como Hanuman todavía no había regresado cuando llegó el momento propicio para la ceremonia, Sita preparó un Linga de arena y se realizó la puja. Este Linga recibió el nombre de Ramalinga.</p>\n\n<p>Cuando Hanuman regresó, Rama instaló también el Linga que había traído de Kailash. Este recibió el nombre de Vishwalinga y, según la tradición, las pujas deben realizarse primero ante este Linga.</p>\n\n<h2>Los Theerthas sagrados</h2>\n\n<p>Rameshwaram es especialmente conocido por sus numerosos Theerthas o aguas sagradas. Muchos de ellos se encuentran dentro y alrededor del templo principal y poseen una importancia especial para los peregrinos.</p>\n\n<p>Según la tradición, estas aguas sagradas están relacionadas con los pies de Rama y tienen una gran importancia religiosa.</p>\n\n<h2>Templo Sri Ramanathaswamy</h2>\n\n<p>El templo Sri Ramanathaswamy es uno de los principales lugares sagrados de Rameshwaram. Es conocido por sus enormes corredores y sus columnas profusamente talladas.</p>\n\n<p>El templo, en su forma actual, fue construido por diferentes gobernantes durante distintos períodos. También cuenta con grandes torres o gopurams y alberga el culto al Spadikalingam.</p>\n\n<h2>Cómo llegar a Rameshwaram</h2>\n\n<h3>Por avión</h3>\n\n<p>El aeropuerto más cercano es el de Madurai, situado aproximadamente a 163 km de Rameshwaram. Desde allí se puede continuar el viaje mediante transporte público o privado.</p>\n\n<h3>En tren</h3>\n\n<p>Rameshwaram está conectada por ferrocarril con Chennai, Madurai, Coimbatore, Trichy, Thanjavur y otras ciudades importantes.</p>\n\n<p>El puente de Indira Gandhi conecta la isla de Rameshwaram con el continente en Mandapam.</p>\n\n<h3>Por carretera</h3>\n\n<p>Rameshwaram está bien conectada por carretera con Madurai, Kanyakumari, Chennai y Trichy. También existen conexiones con Pondicherry y Thanjavur a través de Madurai.</p>\n\n<h2>Puente Pamban</h2>\n\n<p>El puente de carretera Annai Indira Gandhi, también conocido como Puente Pamban, conecta la isla de Rameshwaram con el continente. El puente ofrece vistas panorámicas del mar, las islas cercanas y el puente ferroviario paralelo.</p>\n\n<h2>Principales lugares de interés</h2>\n\n<ul>\n<li>Templo Sri Ramanathaswamy</li>\n<li>Agni Theertham</li>\n<li>Gandhamadana Parvatham</li>\n<li>Templo Kodandaramar</li>\n<li>Templo Nambu Nayagi Amman</li>\n<li>Templo Hanuman de Cinco Rostros</li>\n<li>Jadayu Theertham</li>\n<li>Satchi Hanuman Temple</li>\n<li>Sukreevar Temple / Theertham</li>\n</ul>\n\n<h2>Playas y naturaleza</h2>\n\n<p>La isla de Rameshwaram también ofrece lugares ideales para excursiones y actividades junto al mar. Entre las playas destacadas se encuentran Olaikuda, Dhanushkodi y Pamban.</p>\n\n<p>La playa de Olaikuda está rodeada de arrecifes de coral y ofrece un entorno adecuado para disfrutar del mar. Durante el invierno también llegan diferentes especies de aves migratorias a la isla.</p>\n\n<h2>Agni Theertham</h2>\n\n<p>Agni Theertham se encuentra frente al templo Sri Ramanathaswamy. La orilla del mar está aproximadamente a 100 metros de la entrada principal del templo y es considerada sagrada.</p>\n\n<p>Los peregrinos realizan baños rituales y ofrecen oraciones por sus antepasados en este lugar.</p>\n\n<h2>Templo Kodandaramar</h2>\n\n<p>El Templo Kodandaramar se encuentra en el camino hacia Dhanushkodi. Según la tradición, es el lugar donde Rama realizó la coronación de Vibhishana después de que este buscara refugio junto a Rama.</p>\n\n<h2>Templo Hanuman de Cinco Rostros</h2>\n\n<p>El templo se encuentra aproximadamente a 2 km del templo principal. Según la tradición local, aquí se conservan imágenes relacionadas con Rama, Sita y Hanuman que fueron trasladadas desde Dhanushkodi después del ciclón de 1964.</p>\n\n<h2>Gandhamadana Parvatham</h2>\n\n<p>Gandhamadana Parvatham es el punto más alto de la isla. El lugar está asociado con las huellas de Rama y ofrece una vista panorámica de los alrededores.</p>",
       "en": "<h2>Travel to Rameshwaram</h2>\n\n<h2>History of Rameshwaram</h2>\n\n<p>Rameshwaram is an important pilgrimage town situated on an island in the Gulf of Mannar. The Sri Ramanathaswamy Temple is located close to the sea on the eastern side of the island. The island is connected to the mainland at Mandapam by an impressive railway bridge and road bridge.</p>\n\n<p>In ancient times, the shrine was a small thatched hut. Over the centuries, the small shrine gradually developed into the huge and magnificent structure that can be seen today.</p>\n\n<h2>Rulers and Development of the Temple</h2>\n\n<p>The Ramanathapuram region was ruled by different dynasties throughout history. The Pandya kings ruled the region until the 15th century. Later, the region came under the rule of the Nayaks of the Vijayanagar Empire, who governed it until around the 17th century.</p>\n\n<p>The Sethupathis, who were former chieftains of the region, then came to power. These rulers made generous contributions to the development of art and architecture at the Rameshwaram shrine.</p>\n\n<ul>\n<li>Udayan Sethupathy</li>\n<li>Thirumalai Sethupathy</li>\n<li>Raghunatha Sethupathy</li>\n<li>Muthuramalinga Sethupathy</li>\n</ul>\n\n<p>Statues of these rulers can be found inside the temple.</p>\n\n<h2>Mythology of Rameshwaram</h2>\n\n<p>According to Hindu tradition, the Sri Ramanathaswamy Temple is associated with the period of the Ramayana. Rameshwaram is connected with several events from the epic, particularly those described in the Sundara Kaandam.</p>\n\n<p>Rama, the prince of Ayodhya, underwent fourteen years of exile along with Sita and Lakshmana. During their exile, Sita was abducted by Ravana, the king of Lanka. Rama and Lakshmana then began their search for Sita.</p>\n\n<h2>Hanuman and the Search for Sita</h2>\n\n<p>During the search, Rama met Sugriva and Hanuman. After regaining his kingdom, Sugriva sent search parties in different directions. Hanuman, Angada, Nala and others travelled south and reached Gandhamadhana Parvatham, in the area of present-day Rameshwaram.</p>\n\n<p>From there, Hanuman made his famous leap across the ocean to reach Lanka and locate Sita, who was held captive in Ashoka Vana.</p>\n\n<p>Hanuman gave Sita Rama's ring as proof that he was his messenger. Later, Sita gave Hanuman her Choodamani as a token to be presented to Rama.</p>\n\n<h2>Rama and the Temple of Shiva</h2>\n\n<p>After the battle with Ravana, Rama returned to the coast of present-day Rameshwaram along with Sita, Lakshmana and his army. According to tradition, Rama decided to consecrate a shrine dedicated to Shiva to purify himself from the sin of having killed Ravana.</p>\n\n<p>Rama sent Hanuman to Mount Kailash to bring a Linga. As Hanuman had not returned when the auspicious time for the ceremony arrived, Sita prepared a Linga out of sand and the puja was performed. This Linga came to be known as Ramalinga.</p>\n\n<p>When Hanuman returned, Rama also installed the Linga that Hanuman had brought from Kailash. This Linga was named Vishwalinga and, according to tradition, prayers and pujas should be offered to this Linga first.</p>\n\n<h2>The Sacred Theerthas</h2>\n\n<p>Rameshwaram is especially famous for its numerous Theerthas, or sacred water bodies. Many of them are located inside and around the main temple and hold special significance for pilgrims.</p>\n\n<p>According to tradition, these sacred waters are associated with the feet of Rama and hold great religious importance.</p>\n\n<h2>Sri Ramanathaswamy Temple</h2>\n\n<p>The Sri Ramanathaswamy Temple is one of the most important sacred sites in Rameshwaram. It is renowned for its enormous corridors and intricately carved pillars.</p>\n\n<p>The temple, in its present form, was built by different rulers during different periods. It also features large towers, or gopurams, and houses the worship of the Spadikalingam.</p>\n\n<h2>How to Reach Rameshwaram</h2>\n\n<h3>By Air</h3>\n\n<p>The nearest airport is Madurai Airport, located approximately 163 km from Rameshwaram. From there, travellers can continue their journey by public or private transport.</p>\n\n<h3>By Train</h3>\n\n<p>Rameshwaram is connected by rail with Chennai, Madurai, Coimbatore, Trichy, Thanjavur and other major cities.</p>\n\n<p>The Indira Gandhi Bridge connects Rameshwaram Island with the mainland at Mandapam.</p>\n\n<h3>By Road</h3>\n\n<p>Rameshwaram is well connected by road with Madurai, Kanyakumari, Chennai and Trichy. There are also road connections to Pondicherry and Thanjavur via Madurai.</p>\n\n<h2>Pamban Bridge</h2>\n\n<p>The Annai Indira Gandhi Road Bridge, also known as Pamban Bridge, connects Rameshwaram Island with the mainland. The bridge offers panoramic views of the sea, nearby islands and the parallel railway bridge.</p>\n\n<h2>Major Attractions</h2>\n\n<ul>\n<li>Sri Ramanathaswamy Temple</li>\n<li>Agni Theertham</li>\n<li>Gandhamadana Parvatham</li>\n<li>Kodandaramar Temple</li>\n<li>Nambu Nayagi Amman Temple</li>\n<li>Five-Faced Hanuman Temple</li>\n<li>Jadayu Theertham</li>\n<li>Satchi Hanuman Temple</li>\n<li>Sukreevar Temple / Theertham</li>\n</ul>\n\n<h2>Beaches and Nature</h2>\n\n<p>Rameshwaram Island also offers several places ideal for excursions and seaside activities. Some of the notable beaches include Olaikuda, Dhanushkodi and Pamban.</p>\n\n<p>Olaikuda Beach is surrounded by coral reefs and provides a beautiful setting to enjoy the sea. During winter, different species of migratory birds also visit the island.</p>\n\n<h2>Agni Theertham</h2>\n\n<p>Agni Theertham is located opposite the Sri Ramanathaswamy Temple. The seashore is approximately 100 metres from the main entrance of the temple and is considered sacred.</p>\n\n<p>Pilgrims take ritual baths here and offer prayers for their ancestors.</p>\n\n<h2>Kodandaramar Temple</h2>\n\n<p>Kodandaramar Temple is located on the way to Dhanushkodi. According to tradition, this is the place where Rama crowned Vibhishana after he sought refuge with Rama.</p>\n\n<h2>Five-Faced Hanuman Temple</h2>\n\n<p>The temple is located approximately 2 km from the main temple. According to local tradition, it houses images associated with Rama, Sita and Hanuman that were brought from Dhanushkodi after the cyclone of 1964.</p>\n\n<h2>Gandhamadana Parvatham</h2>\n\n<p>Gandhamadana Parvatham is the highest point on the island. The site is associated with the footprints of Rama and offers a panoramic view of the surrounding area.</p>\n"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Rameshwaram Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Rameshwaram",
+          "pt": "Fortaleza e Monumentos de Rameshwaram"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787309394/mhindiatrips/ko4lxas7uihihtswcfhz.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Rameshwaram.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Rameshwaram.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Rameshwaram."
+        }
+      },
+      {
+        "name": {
+          "en": "Rameshwaram Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Rameshwaram",
+          "pt": "Cultura Local e Mercados de Rameshwaram"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Rameshwaram.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Rameshwaram.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Rameshwaram."
+        }
+      }
+    ]
   },
   {
     "id": "ranthambore",
@@ -1979,7 +3218,35 @@
       "es": "Viaje a Ranthambore | Guía de Turismo",
       "en": "Travel to Ranthambore | MH India Trips",
       "pt": "Viagem para Ranthambore | Guia de Viagem"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Ranthambhore Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Ranthambhore",
+          "pt": "Fortaleza e Monumentos de Ranthambhore"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787299785/mhindiatrips/omrdof27k8xcjo0hzxkn.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Ranthambhore.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Ranthambhore.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Ranthambhore."
+        }
+      },
+      {
+        "name": {
+          "en": "Ranthambhore Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Ranthambhore",
+          "pt": "Cultura Local e Mercados de Ranthambhore"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Ranthambhore.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Ranthambhore.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Ranthambhore."
+        }
+      }
+    ]
   },
   {
     "id": "salem",
@@ -2026,7 +3293,35 @@
       "pt": "Descubra Salem: como chegar, atrações principais e hotéis recomendados.",
       "en": "Essential travel guide, packages and information for Salem.",
       "es": "Descubre Salem: cómo llegar, atracciones principales y hoteles recomendados."
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Salem Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Salem",
+          "pt": "Fortaleza e Monumentos de Salem"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787308836/mhindiatrips/d6nz2vxcbjczkirvgkb6.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Salem.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Salem.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Salem."
+        }
+      },
+      {
+        "name": {
+          "en": "Salem Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Salem",
+          "pt": "Cultura Local e Mercados de Salem"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Salem.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Salem.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Salem."
+        }
+      }
+    ]
   },
   {
     "id": "sariska",
@@ -2073,6 +3368,34 @@
     "relatedPackages": [
       "viaje-a-india-2",
       "viaje-sur-de-la-india"
+    ],
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Sariska Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Sariska",
+          "pt": "Fortaleza e Monumentos de Sariska"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787300103/mhindiatrips/jvkzgr8evtycyhyokrjk.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Sariska.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Sariska.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Sariska."
+        }
+      },
+      {
+        "name": {
+          "en": "Sariska Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Sariska",
+          "pt": "Cultura Local e Mercados de Sariska"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Sariska.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Sariska.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Sariska."
+        }
+      }
     ]
   },
   {
@@ -2120,7 +3443,35 @@
       "pt": "Descubra Solapur: como chegar, atrações principais e hotéis recomendados.",
       "es": "Descubre Solapur: cómo llegar, atracciones principales y hoteles recomendados.",
       "en": "Essential travel guide, packages and information for Solapur."
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Solapur Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Solapur",
+          "pt": "Fortaleza e Monumentos de Solapur"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787307617/mhindiatrips/bfgxvwrz2ukodbbxgw5d.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Solapur.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Solapur.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Solapur."
+        }
+      },
+      {
+        "name": {
+          "en": "Solapur Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Solapur",
+          "pt": "Cultura Local e Mercados de Solapur"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Solapur.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Solapur.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Solapur."
+        }
+      }
+    ]
   },
   {
     "id": "thane",
@@ -2167,7 +3518,35 @@
       "pt": "<h2>História de Thane</h2>\n\n<p>Ao longo de sua história, Thane foi conhecida por vários nomes diferentes. Acredita-se que seu nome atual tenha origem em Sthan ou Sthanaka, a capital dos governantes Shilahara de Konkan.</p>\n\n<p>As primeiras referências a Thane aparecem nos escritos do geógrafo grego Ptolomeu, que entre 135 e 150 d.C. mencionou um lugar chamado Quersoneso. Pesquisas indicam que essa área correspondia à região ao redor do riacho de Thane.</p>\n\n<p>Thane também aparece em registros medievais por meio de placas de cobre e inscrições encontradas na cidade. Uma dessas placas, descoberta perto das fundações do Forte de Thane em 1787 e datada de 1078 d.C., registra uma concessão de terras feita por Arikesara Devaraja e menciona uma cidade chamada Sri Sthanaka.</p>\n\n<h3>Thane como porto medieval</h3>\n\n<p>O viajante veneziano Marco Polo visitou Thane por volta de 1290 d.C. e descreveu a cidade como um reino próspero com um porto desenvolvido. Ele mencionou o intenso tráfego de navios e o comércio de produtos como tecidos, couro e algodão, além da importação de cavalos.</p>\n\n<p>O frade Giordano visitou Thane entre 1321 e 1324 e descreveu a cidade como estando sob administração muçulmana. Ele também registrou informações sobre a presença cristã inicial em Thane.</p>\n\n<p>Viajantes como Ibn Battuta e Abul Feda também mencionaram Thane pelo nome Kukin Tana e destacaram sua importância como porto. A cidade estava associada à produção de um tipo de tecido conhecido como “Tanasi”.</p>\n\n<h3>Domínio português e marata</h3>\n\n<p>Os portugueses chegaram a Thane em 1530 e governaram a região por mais de 200 anos, até 1739. Durante esse período, Thane era conhecida como Cacabe de Tana. A construção do Forte de Thane começou em 1730.</p>\n\n<p>Os maratas conquistaram Bassein e Thane em 1737 e 1739. Seu domínio continuou até 1784, quando os britânicos capturaram o forte e estabeleceram Thane como um importante centro administrativo.</p>\n\n<h3>Período britânico e administração municipal</h3>\n\n<p>Sob o domínio britânico, Thane tornou-se a sede da administração distrital, com um District Collector estabelecido na cidade. O Conselho Municipal de Thane foi criado em 1863, quando a cidade tinha uma população de aproximadamente 9.000 habitantes.</p>\n\n<h3>Thane após a independência</h3>\n\n<p>Após a independência da Índia, Thane desenvolveu-se gradualmente e tornou-se uma importante cidade industrial durante as décadas de 1960 e 1970. As atividades comerciais, o transporte e a construção também cresceram significativamente.</p>\n\n<p>Durante as décadas de 1980 e 1990, Thane passou por um rápido desenvolvimento na construção civil e na habitação. A população aumentou consideravelmente e Thane consolidou-se como um importante subúrbio de Mumbai.</p>\n\n<h2>Como chegar a Thane</h2>\n\n<h3>De avião</h3>\n\n<p>Thane está localizada aproximadamente 25 km do aeroporto internacional situado em Mumbai.</p>\n\n<h3>De trem</h3>\n\n<p>Thane está conectada por linhas ferroviárias de bitola larga a Mumbai e Pune.</p>\n\n<h3>Por estrada</h3>\n\n<p>Rodovias nacionais e estaduais conectam a sede do distrito de Thane aos seus diferentes tehsils e vilarejos. A Rodovia Nacional 8 atravessa o distrito, enquanto Thane também está conectada às NH-4 e NH-17.</p>\n\n<h2>Hotéis em Thane</h2>\n\n<ul>\n<li>Hotel Royal Inn</li>\n<li>Hotel Prasad International</li>\n<li>The Pride</li>\n</ul>"
     },
     "stateId": "maharashtra",
-    "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787307903/mhindiatrips/fs8raj3qyanhsdosvqzf.jpg"
+    "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787307903/mhindiatrips/fs8raj3qyanhsdosvqzf.jpg",
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Thane Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Thane",
+          "pt": "Fortaleza e Monumentos de Thane"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787307903/mhindiatrips/fs8raj3qyanhsdosvqzf.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Thane.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Thane.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Thane."
+        }
+      },
+      {
+        "name": {
+          "en": "Thane Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Thane",
+          "pt": "Cultura Local e Mercados de Thane"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Thane.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Thane.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Thane."
+        }
+      }
+    ]
   },
   {
     "id": "thekkady",
@@ -2214,7 +3593,35 @@
       "pt": "Viagem para Thekkady | Guia de Viagem",
       "en": "Travel to Thekkady | MH India Trips",
       "es": "Viaje a Thekkady | Guía de Turismo"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Thekkady Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Thekkady",
+          "pt": "Fortaleza e Monumentos de Thekkady"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787303547/mhindiatrips/soon4chhyupl9grs7e3r.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Thekkady.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Thekkady.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Thekkady."
+        }
+      },
+      {
+        "name": {
+          "en": "Thekkady Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Thekkady",
+          "pt": "Cultura Local e Mercados de Thekkady"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Thekkady.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Thekkady.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Thekkady."
+        }
+      }
+    ]
   },
   {
     "id": "thrissur",
@@ -2261,7 +3668,35 @@
       "en": "Thrissur tourism, Thrissur travel guide",
       "pt": "viagem para Thrissur, turismo em Thrissur"
     },
-    "gallery": []
+    "gallery": [],
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Thrissur Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Thrissur",
+          "pt": "Fortaleza e Monumentos de Thrissur"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787303410/mhindiatrips/fa8ds2elpwophmog2rl0.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Thrissur.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Thrissur.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Thrissur."
+        }
+      },
+      {
+        "name": {
+          "en": "Thrissur Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Thrissur",
+          "pt": "Cultura Local e Mercados de Thrissur"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Thrissur.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Thrissur.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Thrissur."
+        }
+      }
+    ]
   },
   {
     "id": "tuticorin",
@@ -2308,7 +3743,35 @@
       "pt": "Explore as maravilhas históricas, a gastronomia local e os aspectos culturais de Tuticorin.",
       "en": "Explore the historical wonders, local food, and cultural highlights of Tuticorin.",
       "es": "Explore las maravillas históricas, la comida local y los aspectos culturales de Tuticorin."
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Tuticorin Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Tuticorin",
+          "pt": "Fortaleza e Monumentos de Tuticorin"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787309628/mhindiatrips/zwzv3p9tuoqrltim2liy.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Tuticorin.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Tuticorin.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Tuticorin."
+        }
+      },
+      {
+        "name": {
+          "en": "Tuticorin Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Tuticorin",
+          "pt": "Cultura Local e Mercados de Tuticorin"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Tuticorin.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Tuticorin.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Tuticorin."
+        }
+      }
+    ]
   },
   {
     "id": "udaipur",
@@ -2359,7 +3822,87 @@
       "en": "Discover Udaipur, Rajasthan's City of Lakes, with City Palace, Lake Pichola, royal heritage, romantic boat rides, luxury stays and Mewar culture.",
       "es": "Descubra Udaipur, la Ciudad de los Lagos de Rajasthan, con el City Palace, el Lago Pichola, patrimonio real y la cultura de Mewar.",
       "pt": "Descubra Udaipur, a Cidade dos Lagos do Rajastão, com o City Palace, Lago Pichola, patrimônio real, passeios românticos de barco e cultura de Mewar."
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "City Palace Udaipur",
+          "es": "Palacio de la Ciudad de Udaipur",
+          "pt": "Palácio da Cidade de Udaipur"
+        },
+        "image": "https://images.unsplash.com/photo-1615836245337-f5b9b2303f1c?w=900&q=80",
+        "description": {
+          "en": "A majestic palace complex on the banks of Lake Pichola, showcasing Rajasthani and Mughal architecture, peacock mosaics, and marble balconies.",
+          "es": "Un majestuoso complejo palaciego a orillas del lago Pichola, que exhibe arquitectura de Rajastán y mogol con balcones de mármol.",
+          "pt": "Um majestoso complexo de palácios às margens do Lago Pichola, exibindo arquitetura do Rajastão e mogol com varandas de mármore."
+        }
+      },
+      {
+        "name": {
+          "en": "Lake Pichola & Jagmandir",
+          "es": "Lago Pichola y Jagmandir",
+          "pt": "Lago Pichola e Jagmandir"
+        },
+        "image": "https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?w=900&q=80",
+        "description": {
+          "en": "An iconic artificial freshwater lake featuring sunset boat cruises, floating marble island palaces, and views of the Aravalli hills.",
+          "es": "Un icónico lago de agua dulce con cruceros al atardecer, palacios flotantes de mármol y vistas a las colinas Aravalli.",
+          "pt": "Um icônico lago de água doce com passeios de barco ao pôr do sol, palácios flutuantes de mármore e vistas das colinas Aravalli."
+        }
+      },
+      {
+        "name": {
+          "en": "Saheliyon Ki Bari",
+          "es": "Saheliyon Ki Bari",
+          "pt": "Saheliyon Ki Bari"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "The historic 'Garden of the Maidens' featuring marble fountains, lotus pools, and manicured lawns built for royal ladies.",
+          "es": "El histórico 'Jardín de las Damas' que cuenta con fuentes de mármol, estanques de loto y hermosos jardines.",
+          "pt": "O histórico 'Jardim das Damas' com fontes de mármore, piscinas de lótus e belos jardins."
+        }
+      },
+      {
+        "name": {
+          "en": "Jagdish Temple",
+          "es": "Templo Jagdish",
+          "pt": "Templo Jagdish"
+        },
+        "image": "https://images.unsplash.com/photo-1609825488888-3a766db05542?w=900&q=80",
+        "description": {
+          "en": "An ancient Indo-Aryan temple built in 1651 dedicated to Lord Vishnu, famous for its carved stone pillars and pagoda spire.",
+          "es": "Un antiguo templo indo-ario construido en 1651 dedicado al Señor Vishnu, famoso por sus pilares de piedra tallada.",
+          "pt": "Um antigo templo indo-ariano construído em 1651 dedicado ao Senhor Vishnu, famoso por seus pilares de pedra esculpida."
+        }
+      },
+      {
+        "name": {
+          "en": "Fateh Sagar Lake",
+          "es": "Lago Fateh Sagar",
+          "pt": "Lago Fateh Sagar"
+        },
+        "image": "https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?w=900&q=80",
+        "description": {
+          "en": "A picturesque lake surrounded by green hills, housing Nehru Park island accessible by speedboat.",
+          "es": "Un pintoresco lago rodeado de colinas verdes que alberga la isla Nehru Park accesible en lancha rápida.",
+          "pt": "Um pitoresco lago cercado por colinas verdes que abriga a ilha Nehru Park acessível por lancha."
+        }
+      },
+      {
+        "name": {
+          "en": "Monsoon Palace (Sajjangarh)",
+          "es": "Palacio del Monzón (Sajjangarh)",
+          "pt": "Palácio das Monções (Sajjangarh)"
+        },
+        "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=900&q=80",
+        "description": {
+          "en": "A hilltop fortress palace offering spectacular panoramic sunset views over Udaipur city and surrounding lakes.",
+          "es": "Una fortaleza en la cima de una colina que ofrece espectaculares vistas panorámicas del atardecer sobre Udaipur.",
+          "pt": "Uma fortaleza no topo de uma colina que oferece vistas panorâmicas espetaculares do pôr do sol sobre Udaipur."
+        }
+      }
+    ]
   },
   {
     "id": "ujjain",
@@ -2406,7 +3949,35 @@
       "pt": "<h2>Travel to Ujjain: History, Culture and Places of Interest</h2>\n\n<h3>Historical Perspective of Ujjain</h3>\n\n<p>The history of the ancient city of <strong>Ujjain</strong> is closely intertwined with legend. According to one legend, <strong>Shiva</strong>, the destroyer of the universe, descended to Mrityulok, the land of mortals, to defeat the demon king Tripura.</p>\n\n<p>Another tradition states that Lord Krishna came to Ujjain to study under the great sage <strong>Sandipani Muni</strong>, who taught his disciples at the Sandipani Muni Ashram.</p>\n\n<p>Apart from these myths, archaeological excavations at a site approximately 6 km north of the city have revealed pottery and iron objects dating back to the <strong>8th century BC</strong>.</p>\n\n<h3>The Great Kingdoms</h3>\n\n<p>The period between the 6th and 3rd centuries BC witnessed the emergence of several ambitious kingdoms. Four major kingdoms, known as the <strong>Mahajanapadas</strong>, emerged in northern India: Avanti, Vatsa, Kausala and Magadha.</p>\n\n<p>King <strong>Chandra Pradyota Mahasena</strong> ruled the kingdom of Avanti, with Ujjain as its capital. During the 4th century BC, the Mauryan ruler <strong>Chandragupta I</strong> ruled over Avanti.</p>\n\n<h3>The Great Ruler Ashoka and Buddhism</h3>\n\n<p>In the middle of the 3rd century BC, <strong>Ashoka</strong> became the governor of Avanti (Ujjain) and Taxila, in present-day Pakistan, at the age of 18 during the reign of his father, Bindusara.</p>\n\n<p>Initially, Ashoka ruled harshly and used ruthless methods to annex neighbouring territories. However, in 257 BC he became a devoted follower of Buddhism.</p>\n\n<p>He laid the foundations of numerous <strong>stupas</strong>, domed structures built to house Buddhist relics, particularly at Sanchi. He also built stupas in Ujjain, one of the first territories under his rule.</p>\n\n<p>Stone and metal images of the Buddha have also been discovered in the district, confirming the influence of Buddhism in and around Ujjain.</p>\n\n<h3>The Golden Age</h3>\n\n<p>After Ashoka's death in 232 BC, his vast empire began to decline, making way for Indo-Greek and Scythian rulers.</p>\n\n<p>During the 2nd century BC, several waves of the <strong>Sakas</strong> entered Madhya Pradesh and established the Kshatrapa line of rulers in Ujjain.</p>\n\n<p>The Kshatrapas of Ujjain traced their lineage to <strong>Chastana</strong>. Indo-Greek influence extended towards Mathura and Ujjain until the establishment of the <strong>Gupta dynasty</strong> around AD 320.</p>\n\n<p><strong>Chandragupta Vikramaditya</strong>, also known as Chandragupta II, ruled approximately from AD 380 to 415. He defeated Rudradaman, the grandson of Chastana and the last ruler of that line.</p>\n\n<p>Vikramaditya is associated with the beginning of the <strong>Vikram Samvat</strong> era, which begins 57 years before the Christian era. His famous court at Ujjain was renowned for poets and scholars, including the celebrated poet <strong>Kalidasa</strong>, author of the immortal play <em>Abhigyan Shakuntalam</em>.</p>\n\n<h3>Visitors from Distant Lands</h3>\n\n<p>During the 5th and 6th centuries AD, Ujjain was an important part of the Gupta Empire. The prosperous plains of northern India attracted the Huns, feared invaders from Central Asia.</p>\n\n<p>Led by <strong>Toramana</strong>, they entered India around AD 465 and established a small empire.</p>\n\n<p>In AD 533, <strong>Yashodharman of Mandsaur</strong> defeated them and forced them to retreat, allowing Indian rule to be restored.</p>\n\n<p>In AD 606, <strong>Harshavardhana</strong> ascended the throne of Kannauj. His reign lasted approximately 41 years and he is regarded as one of the last great Hindu rulers to control a substantial part of the Indian subcontinent.</p>\n\n<p>During his reign, the Chinese pilgrim <strong>Hiuen Tsang</strong> visited India to study Buddhism. He travelled extensively through Harsha's territories and left descriptions of Bundelkhand, Maheshwar and Ujjain, describing Ujjain as a city of splendour.</p>\n\n<p>Harshavardhana died in AD 647.</p>\n\n<h3>The Rajputs and the Rulers of Malwa</h3>\n\n<p>After the Guptas, rival groups ruled the Gangetic plains. From the 7th century onwards, the <strong>Rajputs</strong> became politically active in the Malwa plateau.</p>\n\n<p>The <strong>Paramaras</strong> rose to prominence during the 11th century until the Sultans of Mandu captured their last ruler, Siladitya.</p>\n\n<p>Ujjain was invaded and plundered at different times by neighbouring rulers, including the Chalukyas of Gujarat, the Chandelas of Bundelkhand and various Rajput rulers, before facing further invasions from the west.</p>\n\n<h3>The Sultans Invade Ujjain</h3>\n\n<p>The Malwa plateau faced Muslim invasions from the late 12th century onwards. <strong>Iltutmish</strong>, the second ruler of the Slave dynasty, captured Malwa in AD 1234 and plundered Ujjain.</p>\n\n<p>In AD 1305, <strong>Alauddin Khalji</strong>, the powerful ruler of the Khalji dynasty of the Delhi Sultanate, captured Ujjain.</p>\n\n<p><strong>Muhammad-bin-Tughlaq</strong> also attacked central India and brought the region under the Delhi Sultanate in AD 1327.</p>\n\n<p>In AD 1351, <strong>Firoz Shah Tughlaq</strong> ascended the throne of Delhi and appointed Dilawar Khan Ghuri as the governor of Malwa.</p>\n\n<h3>Malwa Ruled by the Khalji Sultans</h3>\n\n<p>With the rise of <strong>Mahmud Khan</strong>, a powerful minister of Malwa, an independent dynasty of the Malwa Khalji Sultans was established in AD 1436.</p>\n\n<p>From then until the emergence of the powerful Mughal Empire, Malwa remained an area of conflict between local Rajput rulers, the Malwa Sultans and the rulers of the Delhi Sultanate.</p>\n\n<p>For a short period, Ujjain was ruled by the Afghan Sur dynasty under <strong>Shujat Khan</strong> and his son <strong>Baz Bahadur</strong>, who was eventually defeated by <strong>Akbar</strong> in AD 1562.</p>\n\n<p>Akbar successfully subdued most of the regional rulers and took control of the region. Later, his grandson <strong>Aurangzeb</strong> contributed financially towards preserving the glory of some of Ujjain's ancient temples.</p>\n\n<h3>The Maratha Era</h3>\n\n<p>Ujjain experienced another wave of invasions in the 17th century, this time by the powerful <strong>Marathas</strong>.</p>\n\n<p>With the establishment of Maratha dominance, numerous temples were constructed, including the Sidhhi Hara Temple and Gopal Temple.</p>\n\n<p>In AD 1750, Ujjain came under the control of the <strong>Scindias</strong>, who later shifted their capital to Gwalior.</p>\n\n<p>Following the reorganisation of states on linguistic grounds, Madhya Bharat, the Central Provinces of India and other territories were merged to form the new state of <strong>Madhya Pradesh on 1 November 1956</strong>.</p>\n\n<h3>How to Reach Ujjain</h3>\n\n<p>Ujjain is an ancient city in central India, located in the Malwa region of Madhya Pradesh. It lies on the eastern bank of the <strong>Kshipra River</strong> and serves as the administrative centre of Ujjain district and division.</p>\n\n<p>In ancient times, the city was known as <strong>Ujjayini</strong> and, according to the Mahabharata, Ujjayani was the capital of the kingdom of Avanti.</p>\n\n<h3>Places of Interest in Ujjain</h3>\n\n<p>Ujjain offers numerous religious, historical and cultural attractions. Every year, thousands of visitors from India and around the world come to explore this ancient city.</p>\n\n<ul>\n<li><strong>Mahakal Temple</strong></li>\n<li><strong>Kaal Bhairav</strong></li>\n<li><strong>Sandipani Ashram</strong></li>\n<li><strong>Triveni (Nav Graha / Shani)</strong></li>\n<li><strong>ISKCON Temple</strong></li>\n<li><strong>Mangalnath</strong></li>\n<li><strong>Harsiddhi (Durga Temple)</strong></li>\n<li><strong>Chintaman Ganesh</strong></li>\n<li><strong>Gad Kalika</strong></li>\n</ul>\n\n<h3>How to Reach Ujjain by Air</h3>\n\n<p>The nearest airport to Ujjain is <strong>Indore Airport</strong>. Regular flights operate from Indore to Mumbai, Kolkata, Delhi, Bhopal and Ahmedabad.</p>\n\n<h3>How to Reach Ujjain by Rail</h3>\n\n<p>Ujjain has several railway stations, including <strong>Ujjain City Junction, Vikram Nagar and Chintaman</strong>. Regular trains connect Ujjain with several major cities across India.</p>\n\n<h3>How to Reach Ujjain by Road</h3>\n\n<p>The major bus stations in Ujjain include <strong>Devas Gate and Nana Kheda</strong>. Major roads connecting Ujjain with other cities include Agar Road, Indore Road, Dewas Road, Maksi Road and Barnagar Road.</p>\n\n<p>A large number of private buses operate on these routes.</p>\n\n<h3>Hotels in Ujjain</h3>\n\n<ul>\n<li><strong>Fort Amla, Ujjain</strong></li>\n<li><strong>Heritage Welcome, Ujjain</strong></li>\n<li><strong>Shipra Residency, Ujjain</strong></li>\n</ul>",
       "es": "<h2>Viaje a Ujjain: Historia, Cultura y Lugares de Interés</h2>\n\n<h3>Perspectiva Histórica de Ujjain</h3>\n\n<p>La historia de la antigua ciudad de <strong>Ujjain</strong> se entrelaza con numerosas leyendas. Según una de ellas, <strong>Shiva</strong>, el destructor del universo, descendió a Mrityulok, la tierra de los mortales, para derrotar al rey demonio Tripura.</p>\n\n<p>Otra tradición cuenta que el dios Krishna llegó a Ujjain para estudiar con el gran sabio <strong>Sandipani Muni</strong>, quien enseñó a sus discípulos en el Sandipani Muni Ashram.</p>\n\n<p>Más allá de los mitos, las excavaciones arqueológicas realizadas en un lugar situado aproximadamente a 6 km al norte de la ciudad han revelado objetos de cerámica y hierro que datan del <strong>siglo VIII a.C.</strong></p>\n\n<h3>Los Grandes Reinos</h3>\n\n<p>El período comprendido entre los siglos VI y III a.C. fue testigo del surgimiento de varios reinos poderosos. Cuatro grandes reinos, conocidos como <strong>Mahajanapadas</strong>, se establecieron en el norte de la India: Avanti, Vatsa, Kausala y Magadha.</p>\n\n<p>El rey <strong>Chandra Pradyota Mahasena</strong> gobernó el reino de Avanti, cuya capital era Ujjain. En el siglo IV a.C., el primer gobernante del Imperio Maurya, <strong>Chandragupta I</strong>, gobernó sobre Avanti.</p>\n\n<h3>El Gran Gobernante Ashoka y el Budismo</h3>\n\n<p>A mediados del siglo III a.C., <strong>Ashoka</strong> se convirtió en gobernador de Avanti (Ujjain) y Taxila, en el actual Pakistán, a la edad de 18 años, durante el reinado de su padre, Bindusara.</p>\n\n<p>Al principio, Ashoka gobernó con dureza y utilizó métodos despiadados para anexar territorios vecinos. Sin embargo, en el año 257 a.C. se convirtió en un ferviente seguidor del budismo.</p>\n\n<p>Sentó las bases de numerosos <strong>stupas</strong>, estructuras abovedadas destinadas a albergar reliquias budistas, especialmente en Sanchi. También construyó stupas en Ujjain, uno de los primeros territorios que gobernó.</p>\n\n<p>Se cree que Ashoka construyó un gran número de stupas en diferentes partes de su imperio. También se han descubierto estatuas de Buda de piedra y metal en el distrito, lo que confirma la influencia del budismo en Ujjain y sus alrededores.</p>\n\n<h3>La Edad de Oro</h3>\n\n<p>Tras la muerte de Ashoka en el año 232 a.C., su enorme imperio comenzó a desintegrarse, dando paso a diferentes gobernantes indo-griegos y escitas.</p>\n\n<p>Durante el siglo II a.C., varias oleadas de los <strong>Sakas</strong> llegaron a Madhya Pradesh y establecieron la línea de los príncipes Kshatrapa en Ujjain.</p>\n\n<p>Los Kshatrapas de Ujjain remontaban su linaje a <strong>Chastana</strong>, relacionado con el mundo greco-romano. La influencia indo-griega se extendió hasta Mathura y Ujjain hasta el establecimiento de la <strong>dinastía Gupta</strong>, alrededor del año 320 d.C.</p>\n\n<p><strong>Chandragupta Vikramaditya</strong>, también conocido como Chandragupta II, gobernó aproximadamente entre los años 380 y 415 d.C. Derrotó a Rudradaman, descendiente de Chastana y último gobernante de aquella línea.</p>\n\n<p>Vikramaditya es recordado por su relación con la era <strong>Vikram Samvat</strong>, que comienza 57 años antes de la era cristiana. Su famosa corte de Ujjain destacó por sus poetas y eruditos, entre ellos el célebre poeta <strong>Kalidasa</strong>, autor de la obra inmortal <em>Abhigyan Shakuntalam</em>.</p>\n\n<p>Kalidasa quedó profundamente impresionado por la belleza de Ujjain, una ciudad que durante esta época se convirtió en un importante centro cultural y literario.</p>\n\n<h3>Los Visitantes de Tierras Lejanas</h3>\n\n<p>Durante los siglos V y VI d.C., Ujjain fue una parte importante del Imperio Gupta. Las prósperas llanuras del norte de la India atrajeron a los hunos, invasores procedentes de Asia Central.</p>\n\n<p>Liderados por <strong>Toramana</strong>, los hunos entraron en la India alrededor del año 465 d.C. y establecieron un pequeño imperio.</p>\n\n<p>En el año 533 d.C., <strong>Yashodharman de Mandsaur</strong> los derrotó y los obligó a retirarse, permitiendo la restauración del dominio indio.</p>\n\n<p>En el año 606 d.C., <strong>Harshavardhana</strong> ascendió al trono de Kannauj. Su reinado duró aproximadamente 41 años y es considerado uno de los últimos grandes gobernantes hindúes que controlaron una parte importante del subcontinente.</p>\n\n<p>Durante su reinado, el peregrino chino <strong>Hiuen Tsang</strong> visitó la India para estudiar el budismo. Pasó varios años recorriendo el territorio bajo el dominio de Harsha y dejó descripciones de lugares como Bundelkhand, Maheshwar y Ujjain, describiendo Ujjain como una ciudad de gran esplendor.</p>\n\n<p>Harshavardhana murió en el año 647 d.C.</p>\n\n<h3>Los Rajputs y los Gobernantes de Malwa</h3>\n\n<p>Después de los Gupta, diferentes grupos rivales gobernaron las llanuras del Ganges. A partir del siglo VII, los <strong>Rajputs</strong> comenzaron a adquirir importancia política en la meseta de Malwa.</p>\n\n<p>Los <strong>Paramaras</strong> alcanzaron gran prominencia durante el siglo XI, hasta que los sultanes de Mandu capturaron a su último gobernante, Siladitya.</p>\n\n<p>Ujjain fue invadida y saqueada en diferentes momentos por gobernantes vecinos, incluidos los Chalukyas de Gujarat, los Chandelas de Bundelkhand y varios gobernantes Rajput, antes de sufrir nuevas invasiones procedentes del oeste.</p>\n\n<h3>Los Sultanes Invaden Ujjain</h3>\n\n<p>La meseta de Malwa fue objeto de invasiones musulmanas desde finales del siglo XII. <strong>Altamash</strong>, segundo gobernante de la dinastía de los Esclavos, capturó Malwa en 1234 d.C. y saqueó Ujjain.</p>\n\n<p>En 1305, <strong>Alauddin Khalji</strong>, poderoso gobernante de la dinastía Khalji del Sultanato de Delhi, capturó Ujjain.</p>\n\n<p><strong>Muhammad-bin-Tughlaq</strong> también atacó la India central y puso la región bajo el control del Sultanato de Delhi en 1327.</p>\n\n<p>En 1351, <strong>Firoz Shah Tughlaq</strong> ascendió al trono de Delhi y nombró a Dilawar Khan Ghuri gobernador de Malwa.</p>\n\n<h3>Malwa Gobernado por los Sultanes Khalji</h3>\n\n<p>Con la llegada al poder de <strong>Mahmud Khan</strong>, un poderoso ministro de Malwa, se estableció en 1436 una dinastía independiente de los sultanes Khalji de Malwa.</p>\n\n<p>Desde entonces, y hasta la aparición del poderoso Imperio mogol, Malwa fue escenario de continuas disputas entre los gobernantes Rajput locales, los sultanes de Malwa y los gobernantes del Sultanato de Delhi.</p>\n\n<p>Durante un breve período, Ujjain fue gobernada por la dinastía afgana Sur bajo <strong>Shujat Khan</strong> y su hijo <strong>Baz Bahadur</strong>, quien finalmente fue derrotado por <strong>Akbar</strong> en 1562.</p>\n\n<p>Akbar consiguió someter a la mayoría de los gobernantes regionales y tomó el control de la región. Posteriormente, su nieto <strong>Aurangzeb</strong> contribuyó económicamente a preservar la gloria de algunos de los antiguos templos de Ujjain.</p>\n\n<h3>La Era Maratha</h3>\n\n<p>Ujjain experimentó nuevas invasiones durante el siglo XVII, esta vez por parte de los <strong>Marathas</strong>.</p>\n\n<p>Con el establecimiento de la hegemonía Maratha se construyeron numerosos templos, entre ellos el Templo Sidhhi Hara y el Templo Gopal.</p>\n\n<p>En 1750, Ujjain pasó a manos de los <strong>Scindias</strong>, quienes posteriormente trasladaron su capital a Gwalior.</p>\n\n<p>Como consecuencia de la reorganización de los estados por razones lingüísticas, Madhya Bharat, las antiguas Provincias Centrales de la India y otros territorios se fusionaron para formar el nuevo estado de <strong>Madhya Pradesh el 1 de noviembre de 1956</strong>.</p>\n\n<h3>Cómo Llegar a Ujjain</h3>\n\n<p>Ujjain es una antigua ciudad del centro de la India, situada en la región de Malwa de Madhya Pradesh. Se encuentra a orillas del río <strong>Kshipra</strong> y es el centro administrativo del distrito y la división de Ujjain.</p>\n\n<p>En la antigüedad, la ciudad era conocida como <strong>Ujjayini</strong> y, según el Mahabharata, Ujjayani fue la capital del reino de Avanti.</p>\n\n<h3>Lugares de Interés en Ujjain</h3>\n\n<p>Ujjain ofrece numerosos lugares de interés religioso, histórico y cultural. Cada año miles de visitantes de la India y de diferentes partes del mundo llegan a esta antigua ciudad.</p>\n\n<p>Entre los principales lugares de interés se encuentran:</p>\n\n<ul>\n<li><strong>Templo Mahakal</strong></li>\n<li><strong>Kaal Bhairav</strong></li>\n<li><strong>Sandipani Ashram</strong></li>\n<li><strong>Triveni (Nav Graha / Shani)</strong></li>\n<li><strong>Templo ISKCON</strong></li>\n<li><strong>Mangalnath</strong></li>\n<li><strong>Harsiddhi (Templo Durga)</strong></li>\n<li><strong>Chintaman Ganesh</strong></li>\n<li><strong>Gad Kalika</strong></li>\n</ul>\n\n<h3>Cómo llegar a Ujjain por avión</h3>\n\n<p>El aeropuerto más cercano a Ujjain es el <strong>Aeropuerto de Indore</strong>. Hay vuelos regulares desde Indore hacia Mumbai, Calcuta, Delhi, Bhopal y Ahmedabad.</p>\n\n<h3>Cómo llegar a Ujjain por ferrocarril</h3>\n\n<p>Ujjain cuenta con varias estaciones ferroviarias, entre ellas <strong>Ujjain City Junction, Vikram Nagar y Chintaman</strong>. Existen trenes regulares que conectan Ujjain con numerosas ciudades importantes de la India.</p>\n\n<h3>Cómo llegar a Ujjain por carretera</h3>\n\n<p>Las principales estaciones de autobuses de Ujjain incluyen <strong>Devas Gate y Nana Kheda</strong>. Las principales carreteras que conectan Ujjain con otras ciudades son Agar Road, Indore Road, Dewas Road, Maksi Road y Barnagar Road.</p>\n\n<p>Numerosos autobuses privados circulan regularmente por estas rutas.</p>\n\n<h3>Hoteles en Ujjain</h3>\n\n<ul>\n<li><strong>Fort Amla, Ujjain</strong></li>\n<li><strong>Heritage Welcome, Ujjain</strong></li>\n<li><strong>Shipra Residency, Ujjain</strong></li>\n</ul>",
       "en": "<h2>Travel to Ujjain: History, Culture and Places of Interest</h2>\n\n<h3>Historical Perspective of Ujjain</h3>\n\n<p>The history of the ancient city of <strong>Ujjain</strong> is closely intertwined with legend. According to one legend, <strong>Shiva</strong>, the destroyer of the universe, descended to Mrityulok, the land of mortals, to defeat the demon king Tripura.</p>\n\n<p>Another tradition states that Lord Krishna came to Ujjain to study under the great sage <strong>Sandipani Muni</strong>, who taught his disciples at the Sandipani Muni Ashram.</p>\n\n<p>Apart from these myths, archaeological excavations at a site approximately 6 km north of the city have revealed pottery and iron objects dating back to the <strong>8th century BC</strong>.</p>\n\n<h3>The Great Kingdoms</h3>\n\n<p>The period between the 6th and 3rd centuries BC witnessed the emergence of several ambitious kingdoms. Four major kingdoms, known as the <strong>Mahajanapadas</strong>, emerged in northern India: Avanti, Vatsa, Kausala and Magadha.</p>\n\n<p>King <strong>Chandra Pradyota Mahasena</strong> ruled the kingdom of Avanti, with Ujjain as its capital. During the 4th century BC, the Mauryan ruler <strong>Chandragupta I</strong> ruled over Avanti.</p>\n\n<h3>The Great Ruler Ashoka and Buddhism</h3>\n\n<p>In the middle of the 3rd century BC, <strong>Ashoka</strong> became the governor of Avanti (Ujjain) and Taxila, in present-day Pakistan, at the age of 18 during the reign of his father, Bindusara.</p>\n\n<p>Initially, Ashoka ruled harshly and used ruthless methods to annex neighbouring territories. However, in 257 BC he became a devoted follower of Buddhism.</p>\n\n<p>He laid the foundations of numerous <strong>stupas</strong>, domed structures built to house Buddhist relics, particularly at Sanchi. He also built stupas in Ujjain, one of the first territories under his rule.</p>\n\n<p>Stone and metal images of the Buddha have also been discovered in the district, confirming the influence of Buddhism in and around Ujjain.</p>\n\n<h3>The Golden Age</h3>\n\n<p>After Ashoka's death in 232 BC, his vast empire began to decline, making way for Indo-Greek and Scythian rulers.</p>\n\n<p>During the 2nd century BC, several waves of the <strong>Sakas</strong> entered Madhya Pradesh and established the Kshatrapa line of rulers in Ujjain.</p>\n\n<p>The Kshatrapas of Ujjain traced their lineage to <strong>Chastana</strong>. Indo-Greek influence extended towards Mathura and Ujjain until the establishment of the <strong>Gupta dynasty</strong> around AD 320.</p>\n\n<p><strong>Chandragupta Vikramaditya</strong>, also known as Chandragupta II, ruled approximately from AD 380 to 415. He defeated Rudradaman, the grandson of Chastana and the last ruler of that line.</p>\n\n<p>Vikramaditya is associated with the beginning of the <strong>Vikram Samvat</strong> era, which begins 57 years before the Christian era. His famous court at Ujjain was renowned for poets and scholars, including the celebrated poet <strong>Kalidasa</strong>, author of the immortal play <em>Abhigyan Shakuntalam</em>.</p>\n\n<h3>Visitors from Distant Lands</h3>\n\n<p>During the 5th and 6th centuries AD, Ujjain was an important part of the Gupta Empire. The prosperous plains of northern India attracted the Huns, feared invaders from Central Asia.</p>\n\n<p>Led by <strong>Toramana</strong>, they entered India around AD 465 and established a small empire.</p>\n\n<p>In AD 533, <strong>Yashodharman of Mandsaur</strong> defeated them and forced them to retreat, allowing Indian rule to be restored.</p>\n\n<p>In AD 606, <strong>Harshavardhana</strong> ascended the throne of Kannauj. His reign lasted approximately 41 years and he is regarded as one of the last great Hindu rulers to control a substantial part of the Indian subcontinent.</p>\n\n<p>During his reign, the Chinese pilgrim <strong>Hiuen Tsang</strong> visited India to study Buddhism. He travelled extensively through Harsha's territories and left descriptions of Bundelkhand, Maheshwar and Ujjain, describing Ujjain as a city of splendour.</p>\n\n<p>Harshavardhana died in AD 647.</p>\n\n<h3>The Rajputs and the Rulers of Malwa</h3>\n\n<p>After the Guptas, rival groups ruled the Gangetic plains. From the 7th century onwards, the <strong>Rajputs</strong> became politically active in the Malwa plateau.</p>\n\n<p>The <strong>Paramaras</strong> rose to prominence during the 11th century until the Sultans of Mandu captured their last ruler, Siladitya.</p>\n\n<p>Ujjain was invaded and plundered at different times by neighbouring rulers, including the Chalukyas of Gujarat, the Chandelas of Bundelkhand and various Rajput rulers, before facing further invasions from the west.</p>\n\n<h3>The Sultans Invade Ujjain</h3>\n\n<p>The Malwa plateau faced Muslim invasions from the late 12th century onwards. <strong>Iltutmish</strong>, the second ruler of the Slave dynasty, captured Malwa in AD 1234 and plundered Ujjain.</p>\n\n<p>In AD 1305, <strong>Alauddin Khalji</strong>, the powerful ruler of the Khalji dynasty of the Delhi Sultanate, captured Ujjain.</p>\n\n<p><strong>Muhammad-bin-Tughlaq</strong> also attacked central India and brought the region under the Delhi Sultanate in AD 1327.</p>\n\n<p>In AD 1351, <strong>Firoz Shah Tughlaq</strong> ascended the throne of Delhi and appointed Dilawar Khan Ghuri as the governor of Malwa.</p>\n\n<h3>Malwa Ruled by the Khalji Sultans</h3>\n\n<p>With the rise of <strong>Mahmud Khan</strong>, a powerful minister of Malwa, an independent dynasty of the Malwa Khalji Sultans was established in AD 1436.</p>\n\n<p>From then until the emergence of the powerful Mughal Empire, Malwa remained an area of conflict between local Rajput rulers, the Malwa Sultans and the rulers of the Delhi Sultanate.</p>\n\n<p>For a short period, Ujjain was ruled by the Afghan Sur dynasty under <strong>Shujat Khan</strong> and his son <strong>Baz Bahadur</strong>, who was eventually defeated by <strong>Akbar</strong> in AD 1562.</p>\n\n<p>Akbar successfully subdued most of the regional rulers and took control of the region. Later, his grandson <strong>Aurangzeb</strong> contributed financially towards preserving the glory of some of Ujjain's ancient temples.</p>\n\n<h3>The Maratha Era</h3>\n\n<p>Ujjain experienced another wave of invasions in the 17th century, this time by the powerful <strong>Marathas</strong>.</p>\n\n<p>With the establishment of Maratha dominance, numerous temples were constructed, including the Sidhhi Hara Temple and Gopal Temple.</p>\n\n<p>In AD 1750, Ujjain came under the control of the <strong>Scindias</strong>, who later shifted their capital to Gwalior.</p>\n\n<p>Following the reorganisation of states on linguistic grounds, Madhya Bharat, the Central Provinces of India and other territories were merged to form the new state of <strong>Madhya Pradesh on 1 November 1956</strong>.</p>\n\n<h3>How to Reach Ujjain</h3>\n\n<p>Ujjain is an ancient city in central India, located in the Malwa region of Madhya Pradesh. It lies on the eastern bank of the <strong>Kshipra River</strong> and serves as the administrative centre of Ujjain district and division.</p>\n\n<p>In ancient times, the city was known as <strong>Ujjayini</strong> and, according to the Mahabharata, Ujjayani was the capital of the kingdom of Avanti.</p>\n\n<h3>Places of Interest in Ujjain</h3>\n\n<p>Ujjain offers numerous religious, historical and cultural attractions. Every year, thousands of visitors from India and around the world come to explore this ancient city.</p>\n\n<ul>\n<li><strong>Mahakal Temple</strong></li>\n<li><strong>Kaal Bhairav</strong></li>\n<li><strong>Sandipani Ashram</strong></li>\n<li><strong>Triveni (Nav Graha / Shani)</strong></li>\n<li><strong>ISKCON Temple</strong></li>\n<li><strong>Mangalnath</strong></li>\n<li><strong>Harsiddhi (Durga Temple)</strong></li>\n<li><strong>Chintaman Ganesh</strong></li>\n<li><strong>Gad Kalika</strong></li>\n</ul>\n\n<h3>How to Reach Ujjain by Air</h3>\n\n<p>The nearest airport to Ujjain is <strong>Indore Airport</strong>. Regular flights operate from Indore to Mumbai, Kolkata, Delhi, Bhopal and Ahmedabad.</p>\n\n<h3>How to Reach Ujjain by Rail</h3>\n\n<p>Ujjain has several railway stations, including <strong>Ujjain City Junction, Vikram Nagar and Chintaman</strong>. Regular trains connect Ujjain with several major cities across India.</p>\n\n<h3>How to Reach Ujjain by Road</h3>\n\n<p>The major bus stations in Ujjain include <strong>Devas Gate and Nana Kheda</strong>. Major roads connecting Ujjain with other cities include Agar Road, Indore Road, Dewas Road, Maksi Road and Barnagar Road.</p>\n\n<p>A large number of private buses operate on these routes.</p>\n\n<h3>Hotels in Ujjain</h3>\n\n<ul>\n<li><strong>Fort Amla, Ujjain</strong></li>\n<li><strong>Heritage Welcome, Ujjain</strong></li>\n<li><strong>Shipra Residency, Ujjain</strong></li>\n</ul>"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Ujjain Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Ujjain",
+          "pt": "Fortaleza e Monumentos de Ujjain"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787305029/mhindiatrips/lvz1zdyxhmxrmjlugd8w.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Ujjain.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Ujjain.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Ujjain."
+        }
+      },
+      {
+        "name": {
+          "en": "Ujjain Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Ujjain",
+          "pt": "Cultura Local e Mercados de Ujjain"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Ujjain.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Ujjain.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Ujjain."
+        }
+      }
+    ]
   },
   {
     "id": "varanasi",
@@ -2453,7 +4024,48 @@
       "es": "viaje a Varanasi, turismo en Varanasi"
     },
     "gallery": [],
-    "displayOrder": 7
+    "displayOrder": 7,
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Dashashwamedh Ghat & Evening Aarti",
+          "es": "Dashashwamedh Ghat y Ganga Aarti",
+          "pt": "Dashashwamedh Ghat e Ganga Aarti"
+        },
+        "image": "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=900&q=80",
+        "description": {
+          "en": "The central sacred ghat on the Ganges river, world-renowned for its grand daily evening Ganga Aarti ceremony.",
+          "es": "El ghat sagrado central en el río Ganges, famoso por su grandiosa ceremonia diaria de Ganga Aarti al anochecer.",
+          "pt": "O ghat sagrado central no rio Ganges, famoso por sua grandiosa cerimônia diária de Ganga Aarti ao anoitecer."
+        }
+      },
+      {
+        "name": {
+          "en": "Kashi Vishwanath Temple",
+          "es": "Templo Kashi Vishwanath",
+          "pt": "Templo Kashi Vishwanath"
+        },
+        "image": "https://images.unsplash.com/photo-1609825488888-3a766db05542?w=900&q=80",
+        "description": {
+          "en": "One of the twelve sacred Jyotirlingas dedicated to Lord Shiva, with a golden spire and rich spiritual heritage.",
+          "es": "Uno de los doce sagrados Jyotirlingas dedicados al Señor Shiva, con una aguja de oro y rico patrimonio espiritual.",
+          "pt": "Um dos doze sagrados Jyotirlingas dedicados ao Senhor Shiva, com uma torre de ouro e rico patrimônio espiritual."
+        }
+      },
+      {
+        "name": {
+          "en": "Sarnath",
+          "es": "Sarnath",
+          "pt": "Sarnath"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "The historic Buddhist pilgrimage site where Lord Buddha gave his first sermon after attaining enlightenment.",
+          "es": "El histórico sitio de peregrinación budista donde Buda dio su primer sermón tras alcanzar la iluminación.",
+          "pt": "O histórico local de peregrinação budista onde Buda deu seu primeiro sermão após alcançar a iluminação."
+        }
+      }
+    ]
   },
   {
     "id": "vellore",
@@ -2500,7 +4112,35 @@
       "en": "Vellore",
       "es": "Vellore",
       "pt": "Vellore"
-    }
+    },
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Vellore Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Vellore",
+          "pt": "Fortaleza e Monumentos de Vellore"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787309795/mhindiatrips/lkzwnojz0blyd9lg3qj8.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Vellore.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Vellore.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Vellore."
+        }
+      },
+      {
+        "name": {
+          "en": "Vellore Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Vellore",
+          "pt": "Cultura Local e Mercados de Vellore"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Vellore.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Vellore.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Vellore."
+        }
+      }
+    ]
   },
   {
     "id": "yanam",
@@ -2547,6 +4187,34 @@
       "en": "Explore the historical wonders, local food, and cultural highlights of Yanam.",
       "pt": "Explore as maravilhas históricas, a gastronomia local e os aspectos culturais de Yanam."
     },
-    "isPublished": true
+    "isPublished": true,
+    "touristPlaces": [
+      {
+        "name": {
+          "en": "Yanam Heritage Fortress & Monuments",
+          "es": "Fortaleza y Monumentos de Yanam",
+          "pt": "Fortaleza e Monumentos de Yanam"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787309049/mhindiatrips/kbw72rvpcythzjltu985.jpg",
+        "description": {
+          "en": "Explore iconic historic architecture, royal heritage sites, and cultural landmarks of Yanam.",
+          "es": "Explore la icónica arquitectura histórica y los lugares de interés cultural de Yanam.",
+          "pt": "Explore a icônica arquitetura histórica e os pontos de interesse cultural de Yanam."
+        }
+      },
+      {
+        "name": {
+          "en": "Yanam Local Culture & Markets",
+          "es": "Cultura Local y Mercados de Yanam",
+          "pt": "Cultura Local e Mercados de Yanam"
+        },
+        "image": "https://images.unsplash.com/photo-1588083949474-77b4ee541ced?w=900&q=80",
+        "description": {
+          "en": "Experience traditional markets, local handicrafts, authentic street cuisine, and regional hospitality in Yanam.",
+          "es": "Experimente los mercados tradicionales, la artesanía local y la gastronomía de Yanam.",
+          "pt": "Experimente os mercados tradicionais, o artesanato local e a gastronomia de Yanam."
+        }
+      }
+    ]
   }
 ]

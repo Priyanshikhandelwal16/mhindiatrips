@@ -27,9 +27,9 @@ export default async function ContactPage({ params }: ContactPageProps) {
   const t: Record<string, any> = {
     en: {
       hero: "Speak with Our Specialists",
-      heroSub: "Concierge Contact",
+      heroSub: "Contact Us",
       heroDesc: "Connect with our expert travel designers to begin crafting your private customized India itinerary.",
-      infoTitle: "Concierge Desk",
+      infoTitle: "Travel Support Desk",
       phone: contactDetails.phone || "+91 9314635830",
       email: contactDetails.email || "info@mhindiatrips.com",
       hours: contactDetails.hours || "Mon - Sat: 9:00 AM - 7:00 PM IST",
@@ -37,9 +37,9 @@ export default async function ContactPage({ params }: ContactPageProps) {
     },
     es: {
       hero: "Hable con Nuestros Especialistas",
-      heroSub: "Contacto de Conserjería",
+      heroSub: "Contacto de Viaje",
       heroDesc: "Conéctese con nuestros diseñadores de viajes para comenzar a crear su itinerario personalizado.",
-      infoTitle: "Mesa de Conserjería",
+      infoTitle: "Mesa de Atención al Viajero",
       phone: contactDetails.phone || "+91 9314635830",
       email: contactDetails.email || "info@mhindiatrips.com",
       hours: contactDetails.hours || "Lun - Sáb: 9:00 AM - 7:00 PM IST",
@@ -47,9 +47,9 @@ export default async function ContactPage({ params }: ContactPageProps) {
     },
     pt: {
       hero: "Fale com Nossos Especialistas",
-      heroSub: "Contacto de Concierge",
+      heroSub: "Contato de Viagem",
       heroDesc: "Entre em contato com nossos designers de viagens para começar a planejar seu itinerário personalizado.",
-      infoTitle: "Mesa de Concierge",
+      infoTitle: "Balcão de Atendimento",
       phone: contactDetails.phone || "+91 9314635830",
       email: contactDetails.email || "info@mhindiatrips.com",
       hours: contactDetails.hours || "Seg - Sáb: 9:00 AM - 7:00 PM IST",
@@ -74,19 +74,20 @@ export default async function ContactPage({ params }: ContactPageProps) {
       image: "/images/taj_mahal_sunrise.png",
       title: text.hero,
       subtitle: text.heroSub,
-      location: "India Concierge",
+      location: "India Travel Desk",
       description: text.heroDesc,
       objectPosition: "center 25%"
     },
     {
       image: "/images/rajasthan_fort_sunset.png",
-      title: "24/7 Concierge Support",
+      title: "24/7 Travel Desk Support",
       subtitle: text.heroSub,
       location: "MH India Trips Desk",
       description: "Our luxury travel advisors are available 24/7 to design your custom journey.",
       objectPosition: "center 25%"
     }
   ];
+
 
   return (
     <div className="font-sans bg-[#FAF8F5] min-h-screen text-[#1B1B1B]">

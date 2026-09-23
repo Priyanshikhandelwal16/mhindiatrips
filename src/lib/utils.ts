@@ -297,7 +297,7 @@ export const formatRichText = (content: string): string => {
       output.push(`
         <div class="blog-tips-card">
           <div class="blog-tips-header">
-            <span class="blog-tips-badge">✈️ Essential Recommendations</span>
+            <span class="blog-tips-badge">Essential Recommendations</span>
             <h2 class="blog-tips-title">${sec.headingText || 'Travel Tips'}</h2>
           </div>
           <ul class="blog-tips-list">
@@ -381,24 +381,46 @@ export const formatRichText = (content: string): string => {
 };
 
 /**
- * Safely extracts a string from any input (plain string, number, boolean, or localized object like { en, es, pt }).
- * Guarantees that an object is NEVER returned, preventing React runtime error:
- * "Objects are not valid as a React child (found: object with keys {pt, es, en})".
+ * Sanitizes AI-generated words, EM dashes, and spelling variations.
+ */
+export const cleanAIText = (str: string): string => {
+  if (!str || typeof str !== "string") return str || "";
+  return str
+    .replace(/—/g, " - ")
+    .replace(/\bauthentic heritage\b/gi, "local heritage")
+    .replace(/\bheritage hospitality\b/gi, "royal hospitality")
+    .replace(/\bauthenticity\b/gi, "rich heritage")
+    .replace(/\bauthentic\b/gi, "rich")
+    .replace(/\bAuthentic\b/g, "Rich")
+    .replace(/\bcustomized\b/gi, "customised")
+    .replace(/\bCustomized\b/g, "Customised")
+    .replace(/\bcustomize\b/gi, "customise")
+    .replace(/\bCustomize\b/g, "Customise")
+    .replace(/\borganized\b/gi, "organised")
+    .replace(/\bOrganized\b/g, "Organised")
+    .replace(/\borganize\b/gi, "organise")
+    .replace(/\bOrganize\b/g, "Organise")
+    .replace(/\bspecialized\b/gi, "specialised")
+    .replace(/\bSpecialized\b/g, "Specialised");
+};
+
+/**
+ * Safely extracts a localized string from string | LocalizedString | object.
  */
 export function extractLocalizedString(val: any, lang: string = "en"): string {
   if (val === null || val === undefined) return "";
-  if (typeof val === "string") return val;
+  if (typeof val === "string") return cleanAIText(val);
   if (typeof val === "number" || typeof val === "boolean") return String(val);
 
   if (typeof val === "object") {
     // 1. Check direct lang key, or fallback keys
     const target = val[lang] ?? val[lang === "es" || lang === "pt" ? lang : "en"] ?? val.en ?? val.es ?? val.pt;
     if (target !== undefined && target !== null) {
-      if (typeof target === "string") return target;
+      if (typeof target === "string") return cleanAIText(target);
       if (typeof target === "number" || typeof target === "boolean") return String(target);
       if (typeof target === "object") {
         const res = extractLocalizedString(target, lang);
-        if (res) return res;
+        if (res) return cleanAIText(res);
       }
     }
 
@@ -406,11 +428,11 @@ export function extractLocalizedString(val: any, lang: string = "en"): string {
     for (const key of Object.keys(val)) {
       const item = val[key];
       if (item !== undefined && item !== null) {
-        if (typeof item === "string") return item;
+        if (typeof item === "string") return cleanAIText(item);
         if (typeof item === "number" || typeof item === "boolean") return String(item);
         if (typeof item === "object") {
           const res = extractLocalizedString(item, lang);
-          if (res) return res;
+          if (res) return cleanAIText(res);
         }
       }
     }
@@ -427,7 +449,7 @@ export function extractStringList(input: any, lang: string = "en"): string[] {
 
   if (Array.isArray(input)) {
     return input
-      .map((item) => extractLocalizedString(item, lang).replace(/^[\*\-\•\s]+/, "").trim())
+      .map((item) => cleanAIText(extractLocalizedString(item, lang).replace(/^[\*\-\•\s]+/, "").trim()))
       .filter(Boolean);
   }
 
@@ -445,11 +467,12 @@ export function extractStringList(input: any, lang: string = "en"): string[] {
       lines = input.split(/(?<=\.)\s+/);
     }
     return lines
-      .map((line) => line.replace(/^[\*\-\•\s]+/, "").trim())
+      .map((line) => cleanAIText(line.replace(/^[\*\-\•\s]+/, "").trim()))
       .filter(Boolean);
   }
 
   return [];
 }
+
 
 

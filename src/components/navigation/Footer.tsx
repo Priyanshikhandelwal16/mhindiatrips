@@ -34,8 +34,8 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
 
   const footerTranslations: Record<string, any> = {
     en: {
-      tagline: "CURATING LIFETIME TRAVEL ENCOUNTERS",
-      aboutText: "MH India Trips designs luxury private journeys and heritage monument tours across the Indian subcontinent. Founded in 2010 with a passion for quality and authentic local story-telling.",
+      tagline: "",
+      aboutText: "Crafting extraordinary private odysseys and bespoke heritage journeys across India and beyond. Architecting unforgettable, high-end travel memories with personal concierges and unparalleled local mastery.",
       quickLinks: "Discover More",
       destinations: "Regions",
       contactDetails: "The Travel Desk",
@@ -47,8 +47,8 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
       faq: "FAQs"
     },
     es: {
-      tagline: "DISEÑANDO ENCUENTROS DE VIAJE DE POR VIDA",
-      aboutText: "MH India Trips diseña viajes privados de lujo y tours de monumentos históricos en todo el subcontinente indio. Fundada en 2010 con pasión por la calidad.",
+      tagline: "",
+      aboutText: "Diseñando odiseas privadas extraordinarias y viajes patrimoniales a medida en toda la India. Creando recuerdos de viaje inolvidables con servicio de concierge personalizado y una maestría local sin igual.",
       quickLinks: "Descubrir Más",
       destinations: "Regiones",
       contactDetails: "Mesa de Viaje",
@@ -60,8 +60,8 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
       faq: "Preguntas Frecuentes"
     },
     pt: {
-      tagline: "CRIANDO ENCONTROS DE VIAGEM DE UMA VIDA",
-      aboutText: "A MH India Trips desenha viagens primeiras de luxo e passeios de monumentos históricos em todo o subcontinente indiano. Fundada em 2010 com paixão pela qualidade.",
+      tagline: "",
+      aboutText: "Criando odisseias privadas extraordinárias e viagens de patrimônio sob medida na Índia. Arquitetando memórias de viagem inesquecíveis com serviço de concierge personalizado e maestria local incomparável.",
       quickLinks: "Descubra Mais",
       destinations: "Regiões",
       contactDetails: "Balcão de Viagens",
@@ -83,8 +83,8 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
   const defaultQuickLinks = [
     { name: locale === "es" ? "Inicio" : locale === "pt" ? "Início" : "Home", url: "" },
     { name: locale === "es" ? "Paquetes" : locale === "pt" ? "Pacotes" : "Packages", url: "/packages" },
+    { name: locale === "es" ? "Parques Nacionales" : locale === "pt" ? "Parques Nacionais" : "National Parks", url: "/national-parks" },
     { name: locale === "es" ? "Viajes Internacionales" : locale === "pt" ? "Viagens Internacionais" : "International Trips", url: "/international-trips" },
-    { name: locale === "es" ? "Gastronomía" : locale === "pt" ? "Gastronomia" : "Food Guide", url: "/food" },
     { name: locale === "es" ? "Blog" : locale === "pt" ? "Blog" : "Blog", url: "/blog" },
     { name: locale === "es" ? "Nosotros" : locale === "pt" ? "Sobre Nós" : "About Us", url: "/about" },
     { name: locale === "es" ? "Contacto" : locale === "pt" ? "Contato" : "Contact Us", url: "/contact" }
@@ -144,9 +144,11 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
                 alt="MH India Trips"
                 className="footer-logo-custom-height w-auto"
               />
-              <p className="text-[10px] uppercase tracking-[0.3em] text-[#C5A862] font-bold">
-                {tagline}
-              </p>
+              {tagline && (
+                <p className="text-[10px] uppercase tracking-[0.3em] text-[#C5A862] font-bold">
+                  {tagline}
+                </p>
+              )}
             </div>
             <p className="text-sm leading-relaxed text-royal/65 max-w-sm font-light">
               {aboutText}

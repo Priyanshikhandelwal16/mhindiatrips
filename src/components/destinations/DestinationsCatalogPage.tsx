@@ -80,7 +80,12 @@ export default async function DestinationsCatalogPage({ locale, states }: Destin
   return (
     <div className="bg-[#FAF8F5] min-h-screen font-sans text-[#1B1B1B]">
       {/* Hero Header */}
-      <PageHeroSlider locale={locale} slides={sliderSlides} showBreadcrumb={text.destinations} />
+      <PageHeroSlider 
+        locale={locale} 
+        overrideTitle={text.title} 
+        overrideSubtitle={locale === "es" ? "DESTINOS EN LA INDIA" : locale === "pt" ? "DESTINOS NA ÍNDIA" : "DESTINATIONS IN INDIA"} 
+        overrideDesc={text.subtitle} 
+      />
 
       {/* States Catalog Grid */}
       <section className="max-w-7xl mx-auto px-6 py-20">

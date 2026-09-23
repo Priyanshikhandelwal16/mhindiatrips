@@ -10,12 +10,13 @@ import StatCounter from "@/components/home/StatCounter";
 import { 
   MapPin, Clock, ArrowRight, Star, Heart, Compass, Sparkles, 
   Award, Shield, Calendar, BookOpen, Coffee, Landmark, ArrowUpRight,
-  CheckCircle, ShieldCheck, FileCheck, CheckCircle2, BadgeCheck
+  CheckCircle, ShieldCheck, FileCheck, CheckCircle2, BadgeCheck, Building2
 } from "lucide-react";
 import { getLocalizedDestinationsPath } from "@/lib/utils";
 import { getHighResImageUrl } from "@/lib/image-utils";
 
 // Lazy load heavy interactive components
+const ServicesSection = dynamic(() => import("@/components/home/ServicesSection"), { ssr: true });
 const TestimonialSlider = dynamic(() => import("@/components/home/TestimonialSlider"), { ssr: true });
 const MonumentsAccordion = dynamic(() => import("@/components/home/MonumentsAccordion"), { ssr: true });
 const TravelerInfoCarousel = dynamic(() => import("@/components/home/TravelerInfoCarousel"), { ssr: true });
@@ -464,6 +465,9 @@ export default async function HomePage({ params }: HomePageProps) {
         inquireCTA={text.inquireCTA} 
       />
 
+      {/* SECTION 1.2: Signature Travel Services */}
+      <ServicesSection locale={locale} />
+
       {/* SECTION 1.5: Infographic Circular Stats (Screenshot 1 Theme) */}
       <section className="bg-cream py-24 border-b border-gold/10 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
@@ -492,7 +496,8 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* SECTION 1.6: Government Certification & Verified Tax Status Banner (GSTIN & Legal Credentials) */}
-      <section className="bg-gradient-to-b from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white py-20 border-b border-gold/20 relative overflow-hidden">
+      <section className="bg-gradient-to-b from-[#062D27] via-[#0B4D44] to-[#062D27] text-white py-20 border-b border-gold/20 relative overflow-hidden">
+
         {/* Subtle decorative background glow */}
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#C5A862_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none" />
@@ -648,43 +653,139 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
-      {/* SECTION 2: The Philosophy Section (Split screen layout) */}
-      <section className="max-w-7xl mx-auto px-6 py-32 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center border-b border-gold/10">
-        <Reveal direction="left" className="space-y-8">
-          <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold flex items-center gap-1.5">
-            <Compass className="w-5 h-5" />
-            <span>{text.whySub}</span>
-          </span>
-          {/* Section Heading: 40px–48px */}
-          <h2 className="text-4xl md:text-5xl font-bold text-royal leading-tight font-serif">
-            {text.whyTitle}
-          </h2>
-          <p className="text-base md:text-lg text-foreground/60 leading-relaxed font-light">
-            We believe travel is not about ticking off boxes; it is a fine art. Our on-ground concierge desks unlock private access to monuments, design authentic cultural encounters, and host global travelers across PAN India as well as exotic outbound destinations.
-          </p>
-          <div className="grid grid-cols-2 gap-8 pt-6">
-            <div className="space-y-2">
-              <span className="text-4xl font-black text-gold">24/7</span>
-              <p className="text-xs uppercase tracking-wider text-foreground/50 font-bold">On-Ground Support</p>
-            </div>
-            <div className="space-y-2">
-              <span className="text-4xl font-black text-gold">100%</span>
-              <p className="text-xs uppercase tracking-wider text-foreground/50 font-bold">Private & Guided</p>
-            </div>
+      {/* SECTION 2: WHY CHOOSE US (Requirement #13 - 6 Pillars matching About Us) */}
+      <section className="bg-gradient-to-b from-[#062D27]/5 via-[#FAF8F5] to-[#FAF8F5] py-24 border-b border-gold/10">
+        <div className="max-w-7xl mx-auto px-6 space-y-16">
+          
+          <div className="text-center space-y-4 max-w-2xl mx-auto">
+            <span className="bg-gold/15 text-royal border border-gold/30 text-xs font-bold uppercase tracking-[0.25em] px-4 py-1.5 rounded-full inline-block">
+              {locale === "es" ? "LA VENTAJA MH INDIA TRIPS" : locale === "pt" ? "A VANTAGEM MH INDIA TRIPS" : "THE MH INDIA TRIPS ADVANTAGE"}
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-royal tracking-tight">
+              {locale === "es" ? "¿Por Qué Elegir MH India Trips?" : locale === "pt" ? "Por Que Escolher a MH India Trips?" : "Why Choose MH India Trips"}
+            </h2>
+            <p className="text-sm md:text-base text-foreground/75 font-light leading-relaxed">
+              Government-verified travel operations crafted without rigid group tours or hidden surcharges.
+            </p>
+            <div className="h-px w-24 bg-gold mx-auto mt-2" />
           </div>
-        </Reveal>
-        
-        {/* Postcard frame */}
-        <Reveal direction="right" delay={200} className="relative p-4 bg-white border border-gold/15 shadow-2xl shadow-royal/5 w-full">
-          <div className="overflow-hidden h-[260px] sm:h-[360px] md:h-[480px] w-full">
-            <img src={cmsPhilosophy.image || "/images/rajasthan_fort_sunset.png"} alt="Philosophy" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <Building2 className="w-7 h-7" />,
+                title: locale === "es" ? "100% Certificado por el Gobierno y GST" : locale === "pt" ? "100% Certificado pelo Governo e GST" : "100% Govt. Certified & GST Registered",
+                desc: locale === "es" ? "Empresa registrada bajo GSTIN 08ACIFM3516H1Z7. Facturas fiscales oficiales." : locale === "pt" ? "Empresa registrada sob GSTIN 08ACIFM3516H1Z7. Faturas fiscais oficiais." : "Officially registered partnership firm under Form GST REG-06 (GSTIN: 08ACIFM3516H1Z7). Official GST tax invoices issued."
+              },
+              {
+                icon: <ShieldCheck className="w-7 h-7" />,
+                title: locale === "es" ? "Flota 100% Privada y Choferes Profesionales" : locale === "pt" ? "Frota 100% Privada e Motoristas Profissionais" : "100% Private Fleet & Professional Chauffeurs",
+                desc: locale === "es" ? "Choferes profesionales de habla inglesa con vehículos SUV de lujo dedicados a su grupo." : locale === "pt" ? "Motoristas profissionais com SUVs de luxo dedicados exclusivamente ao seu grupo." : "Dedicated English-speaking professional drivers with air-conditioned luxury SUVs assigned exclusively to your group."
+              },
+              {
+                icon: <Award className="w-7 h-7" />,
+                title: locale === "es" ? "Guías Locales Certificados por el Gobierno" : locale === "pt" ? "Guias Locais Certificados pelo Governo" : "Official ASI Licensed Heritage Guides",
+                desc: locale === "es" ? "Guías oficiales del gobierno en monumentos históricos para historia sin compras forzadas." : locale === "pt" ? "Guias oficiais do governo em monumentos para história real sem compras forçadas." : "Government-certified local guides at Taj Mahal, Amber Fort, and heritage circuits ensuring rich storytelling."
+              },
+              {
+                icon: <Star className="w-7 h-7" />,
+                title: locale === "es" ? "Estancias Seleccionadas en Palacios Reales" : locale === "pt" ? "Estadias Selecionadas em Palácios Reais" : "Hand-Curated Royal Palace Stays",
+                desc: locale === "es" ? "Reservas verificadas en palacios reales restaurados, havelis históricas y casas flotantes." : locale === "pt" ? "Reservas verificadas em palácios reais restaurados, havelis históricas e barcos em Kerala." : "Pre-vetted bookings inside restored royal fortresses, historic Havelis, and private backwater houseboats."
+              },
+              {
+                icon: <Clock className="w-7 h-7" />,
+                title: locale === "es" ? "Mesa de Soporte 24/7 en Terreno" : locale === "pt" ? "Central de Suporte 24/7 em Terreno" : "24/7 Boots-on-Ground Operations Desk",
+                desc: locale === "es" ? "Contacto directo por WhatsApp con su gestor de viaje dedicado durante todo el tour." : locale === "pt" ? "Contato direto por WhatsApp com seu gerente de viagem durante todo o roteiro." : "Direct WhatsApp connection line with your dedicated trip manager from landing until departure flight."
+              },
+              {
+                icon: <FileCheck className="w-7 h-7" />,
+                title: locale === "es" ? "Precios Transparentes y Permisos Incluidos" : locale === "pt" ? "Preços Transparentes e Permissões Incluídas" : "Transparent Pricing & Guaranteed Entry Passes",
+                desc: locale === "es" ? "Entradas a monumentos, peajes, combustible y tasas incluidas por adelantado." : locale === "pt" ? "Ingressos de monumentos, pedágios, combustível e taxas incluídos antecipadamente." : "All monument entry passes, toll taxes, fuel, driver allowances, and taxes included upfront with zero surprise surcharges."
+              }
+            ].map((pillar: any, i: number) => (
+              <Reveal key={i} delay={100 + i * 70} className="bg-white p-8 rounded-3xl border border-gold/30 shadow-lg hover:shadow-2xl transition-all duration-300 space-y-5 group hover:-translate-y-1 flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="w-14 h-14 rounded-2xl bg-[#062D27] text-gold flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-gold group-hover:text-royal transition-colors duration-300">
+                    {pillar.icon}
+                  </div>
+                  <h3 className="text-xl font-serif font-bold text-royal leading-snug">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-foreground/75 leading-relaxed font-light">
+                    {pillar.desc}
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-gold/10 text-[11px] font-bold text-gold uppercase tracking-wider flex items-center justify-between">
+                  <span>Standard Guarantee</span>
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                </div>
+              </Reveal>
+            ))}
           </div>
-          <div className="absolute -bottom-6 -right-6 bg-royal text-white p-8 max-w-sm space-y-3 shadow-2xl hidden md:block border border-gold/15">
-            <h4 className="font-bold text-gold text-base">Palace Heritage</h4>
-            <p className="text-xs text-white/70 leading-relaxed font-light">We organize private dinners inside authentic lake palaces and medieval desert forts.</p>
-          </div>
-        </Reveal>
+
+        </div>
       </section>
+
+      {/* SECTION 2.2: FEATURED REGION HIGHLIGHT - NORTH-EAST INDIA (Requirement #6) */}
+      <section className="bg-gradient-to-r from-[#052E16] via-[#064E3B] to-[#022C22] text-white py-24 border-b border-gold/20 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#C5A862_1.5px,transparent_1.5px)] [background-size:28px_28px] pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <Reveal direction="left" className="lg:col-span-6 space-y-6">
+            <span className="bg-gold/20 text-gold border border-gold/40 text-xs font-bold uppercase tracking-[0.25em] px-4 py-1.5 rounded-full inline-flex items-center gap-1.5">
+              <Sparkles className="w-4 h-4 text-gold" />
+              <span>FEATURED HIGHLIGHT REGION</span>
+            </span>
+            
+            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white leading-tight">
+              Explore North-East India - Unexplored Paradise
+            </h2>
+            
+            <p className="text-white/80 text-sm sm:text-base font-light leading-relaxed">
+              Discover Assam's tea gardens and one-horned rhinos in Kaziranga, Meghalaya's living root bridges and cascading waterfalls, Sikkim's high Himalayan monasteries, and Arunachal Pradesh's pristine valleys.
+            </p>
+
+            <div className="grid grid-cols-2 gap-4 pt-2">
+              <div className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-gold/30 space-y-1">
+                <span className="text-gold font-bold text-xs uppercase block">Kaziranga Wildlife</span>
+                <span className="text-white text-xs font-light">UNESCO Rhino Sanctuary</span>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-gold/30 space-y-1">
+                <span className="text-gold font-bold text-xs uppercase block">Meghalaya & Sikkim</span>
+                <span className="text-white text-xs font-light">Living Bridges & Valleys</span>
+              </div>
+            </div>
+
+            <div className="pt-4 flex flex-wrap gap-4">
+              <Link 
+                href={`/${locale}/national-parks`} 
+                className="bg-gold hover:bg-amber-400 text-royal font-bold uppercase text-xs tracking-wider px-8 py-4 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 inline-flex items-center gap-2"
+              >
+                <span>Explore North-East Safaris</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </Reveal>
+
+          <Reveal direction="right" delay={150} className="lg:col-span-6 relative">
+            <div className="relative rounded-3xl overflow-hidden border-2 border-gold/40 shadow-2xl h-[380px] sm:h-[440px]">
+              <img 
+                src="https://images.unsplash.com/photo-1575550959106-5a7defe28b56?w=1200&q=80" 
+                alt="North-East India Rhino Safari" 
+                className="w-full h-full object-cover" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
+                <span className="text-xs uppercase tracking-widest text-gold font-bold block">Assam & Meghalaya Circuit</span>
+                <h3 className="text-2xl font-serif font-bold">Kaziranga & Shillong Highlands</h3>
+              </div>
+            </div>
+          </Reveal>
+
+        </div>
+      </section>
+
 
       {/* SECTION 2.5: How It Works / Custom Tour Planning - Timeline Design */}
       <section className="bg-[#FAF8F5] border-t border-b border-gold/10 py-28 relative overflow-hidden">
@@ -829,7 +930,7 @@ export default async function HomePage({ params }: HomePageProps) {
       <section id="international-destinations" className="max-w-7xl mx-auto px-6 py-24 space-y-16 border-b border-gold/10">
         <div className="text-center space-y-4 max-w-2xl mx-auto">
           <span className="text-xs uppercase tracking-[0.25em] text-[#C5A862] font-bold block">
-            ✈️ {locale === "es" ? "Viajes Internacionales Exóticos" : locale === "pt" ? "Viagens Internacionais Exóticas" : "Exotic Outbound Destinations"}
+            {locale === "es" ? "Viajes Internacionales Exóticos" : locale === "pt" ? "Viagens Internacionais Exóticas" : "Exotic Outbound Destinations"}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-[#0A2A1E] tracking-tight font-serif">
             {locale === "es" ? "Destinos Internacionales" : locale === "pt" ? "Destinos Internacionais" : "International Destinations"}
@@ -883,7 +984,7 @@ export default async function HomePage({ params }: HomePageProps) {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80" />
                       <span className="absolute top-4 left-4 bg-[#C5A862] text-[#0A2A1E] text-[9px] uppercase tracking-widest font-extrabold px-3 py-1.5 rounded-full shadow-md">
-                        ✈️ International Outbound
+                        International Outbound
                       </span>
                     </div>
                     <div className="p-6 space-y-3 bg-white flex flex-col flex-grow justify-between">

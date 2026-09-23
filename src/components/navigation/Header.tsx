@@ -177,7 +177,15 @@ export default function Header({ locale, contactDetails, states = [], packages =
   const languages = [
     { code: "en", name: "English" },
     { code: "es", name: "Español" },
-    { code: "pt", name: "Português" }
+    { code: "pt", name: "Português" },
+    { code: "fr", name: "Français" },
+    { code: "de", name: "Deutsch" },
+    { code: "it", name: "Italiano" },
+    { code: "hi", name: "हिन्दी" },
+    { code: "ru", name: "Русский" },
+    { code: "ja", name: "日本語" },
+    { code: "zh-CN", name: "中文" },
+    { code: "ar", name: "العربية" }
   ];
 
   const handleSelectLanguage = (targetLocale: string) => {
@@ -186,6 +194,19 @@ export default function Header({ locale, contactDetails, states = [], packages =
       setGoogleTranslateCookie(targetLocale);
     }
     setLangMenuOpen(false);
+
+    // If target is a core route locale (en, es, pt), navigate to its URL path
+    if (targetLocale === "en" || targetLocale === "es" || targetLocale === "pt") {
+      const nextPath = switchLocalePath(targetLocale);
+      if (typeof window !== "undefined" && window.location.pathname !== nextPath) {
+        window.location.href = nextPath;
+      }
+    } else {
+      // Force instant Google Translate DOM refresh for external languages
+      setTimeout(() => {
+        setGoogleTranslateCookie(targetLocale);
+      }, 100);
+    }
   };
 
   const switchLocalePath = (targetLocale: string) => {
@@ -257,31 +278,31 @@ export default function Header({ locale, contactDetails, states = [], packages =
       {/* Elegant Top Bar (Hides cleanly on scroll) */}
       <div 
         className={`bg-[#0A2A1E] text-white/90 text-[10px] md:text-xs border-b border-gold/10 relative z-20 transition-all duration-300 ease-in-out ${
-          (scrolled || mobileMenuOpen) ? "max-h-0 py-0 opacity-0 overflow-hidden border-0" : "max-h-12 py-2.5 px-4 xl:px-6 opacity-100"
+          (scrolled || mobileMenuOpen) ? "max-h-0 py-0 opacity-0 overflow-hidden border-0" : "max-h-20 md:max-h-12 py-2 px-3 md:py-2.5 md:px-6 opacity-100"
         }`}
       >
-        <div className="max-w-[1600px] w-full mx-auto px-4 xl:px-8 flex flex-col md:flex-row justify-between items-center gap-2">
-          <div className="flex items-center gap-6">
-            <a href={`tel:${contactDetails?.phone || "+91 9314635830"}`} className="flex items-center gap-1.5 hover:text-gold transition-colors">
-              <Phone className="w-3.5 h-3.5 text-gold" />
-              <span>{contactDetails?.phone || "+91 9314635830"}</span>
+        <div className="max-w-[1600px] w-full mx-auto px-2 sm:px-4 xl:px-8 flex flex-row flex-wrap sm:flex-nowrap justify-between items-center gap-2 text-[9px] sm:text-[10px] md:text-xs">
+          <div className="flex items-center gap-3 sm:gap-6 shrink-0">
+            <a href={`tel:${contactDetails?.phone || "+91 9314635830"}`} className="flex items-center gap-1 hover:text-gold transition-colors shrink-0">
+              <Phone className="w-3 h-3 text-gold shrink-0" />
+              <span className="whitespace-nowrap">{contactDetails?.phone || "+91 9314635830"}</span>
             </a>
-            <a href={`mailto:${displayEmail}`} className="flex items-center gap-1.5 hover:text-gold transition-colors">
-              <Mail className="w-3.5 h-3.5 text-gold" />
-              <span>{displayEmail}</span>
+            <a href={`mailto:${displayEmail}`} className="flex items-center gap-1 hover:text-gold transition-colors shrink-0">
+              <Mail className="w-3 h-3 text-gold shrink-0" />
+              <span className="whitespace-nowrap">{displayEmail}</span>
             </a>
           </div>
-          <div className="flex items-center gap-4 text-white/70">
-            <a href={contactDetails?.facebook || "https://www.facebook.com/viajeaindiaconindiasinvitation/"} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors" aria-label="Facebook">
+          <div className="flex items-center gap-3 text-white/80 shrink-0">
+            <a href={contactDetails?.facebook || "https://www.facebook.com/viajeaindiaconindiasinvitation/"} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors p-1" aria-label="Facebook">
               <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
-            <a href={contactDetails?.twitter || "https://x.com/abhilash01"} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors" aria-label="Twitter">
+            <a href={contactDetails?.twitter || "https://x.com/abhilash01"} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors p-1" aria-label="Twitter">
               <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a href={contactDetails?.instagram || "https://www.instagram.com/mhindiatrips/"} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors" aria-label="Instagram">
+            <a href={contactDetails?.instagram || "https://www.instagram.com/mhindiatrips/"} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors p-1" aria-label="Instagram">
               <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             </a>
-            <a href="https://www.youtube.com/channel/UCiV4lAtakOtzaf3akF6r0eQ" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors" aria-label="YouTube">
+            <a href="https://www.youtube.com/channel/UCiV4lAtakOtzaf3akF6r0eQ" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors p-1" aria-label="YouTube">
               <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
           </div>
@@ -546,32 +567,27 @@ export default function Header({ locale, contactDetails, states = [], packages =
               </div>
             </div>
 
-            {/* Blog & Food Guide Dropdown */}
-            <div className="relative group py-2.5">
-              <Link
-                href={`/${locale}/blog`}
-                className={linkClass("/blog")}
-              >
-                <span className="flex items-center gap-1">
-                  {labels.blog}
-                  <ChevronDown className="w-3 h-3 text-gold" />
-                </span>
-              </Link>
-              <div className="absolute left-0 top-full w-64 bg-white border border-gold/15 shadow-2xl py-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50 rounded-b-xl">
-                <Link
-                  href={`/${locale}/blog`}
-                  className="block px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold hover:bg-gold/5 transition-colors"
-                >
-                  {labels.blog}
-                </Link>
-                <Link
-                  href={`/${locale}/food`}
-                  className="block px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold hover:bg-gold/5 transition-colors border-t border-gold/10"
-                >
-                  {labels.food}
-                </Link>
-              </div>
-            </div>
+            {/* National Parks (Requirement #5) */}
+            <Link
+              href={`/${locale}/national-parks`}
+              className={linkClass("/national-parks")}
+            >
+              <span>{locale === "es" ? "Parques Nacionales" : locale === "pt" ? "Parques Nacionais" : "National Parks"}</span>
+              {isActive("/national-parks") && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full" />
+              )}
+            </Link>
+
+            {/* Blog */}
+            <Link
+              href={`/${locale}/blog`}
+              className={linkClass("/blog")}
+            >
+              <span>{labels.blog}</span>
+              {isActive("/blog") && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full" />
+              )}
+            </Link>
 
             {/* Contact */}
             <Link
@@ -583,6 +599,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
                 <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold rounded-full" />
               )}
             </Link>
+
 
           </nav>
 
@@ -651,8 +668,10 @@ export default function Header({ locale, contactDetails, states = [], packages =
                     <Link
                       key={lang.code}
                       href={switchLocalePath(lang.code)}
-                      onClick={() => setLangMenuOpen(false)}
-                      className="block px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-royal hover:text-gold hover:bg-gold/5"
+                      onClick={() => handleSelectLanguage(lang.code)}
+                      className={`block px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-royal hover:text-gold hover:bg-gold/5 ${
+                        locale === lang.code ? "text-gold font-extrabold bg-gold/5" : ""
+                      }`}
                     >
                       {lang.name}
                     </Link>
@@ -810,25 +829,24 @@ export default function Header({ locale, contactDetails, states = [], packages =
               {labels.about}
             </Link>
 
-            {/* Blog & Food Guide Menu Item */}
-            <div className="flex flex-col border-b border-gold/5">
-              <Link
-                href={`/${locale}/blog`}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-2.5 px-4 block"
-              >
-                {labels.blog}
-              </Link>
-              <div className="flex flex-col bg-gold/5 border-l-2 border-gold/25 pl-4 py-1.5 space-y-1 text-left mb-1">
-                <Link
-                  href={`/${locale}/food`}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-[11px] font-bold uppercase tracking-wider text-royal hover:text-gold py-1 block"
-                >
-                  {labels.food}
-                </Link>
-              </div>
-            </div>
+            {/* National Parks Link */}
+            <Link
+              href={`/${locale}/national-parks`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-2.5 px-4 block border-b border-gold/5"
+            >
+              {locale === "es" ? "Parques Nacionales" : locale === "pt" ? "Parques Nacionais" : "National Parks"}
+            </Link>
+
+            {/* Blog Link */}
+            <Link
+              href={`/${locale}/blog`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-[12px] font-extrabold uppercase tracking-widest text-royal hover:text-gold transition-colors py-2.5 px-4 block border-b border-gold/5"
+            >
+              {labels.blog}
+            </Link>
+
 
             {/* Contact Link */}
             <Link
@@ -840,7 +858,7 @@ export default function Header({ locale, contactDetails, states = [], packages =
             </Link>
 
           </nav>
-          <div className="text-center pt-6 border-t border-gold/15">
+          <div className="text-center pt-6 border-t border-gold/15 space-y-4">
             <Link
               href={`/${locale}/contact`}
               onClick={() => setMobileMenuOpen(false)}
@@ -849,6 +867,22 @@ export default function Header({ locale, contactDetails, states = [], packages =
               <span>{labels.cta}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
+
+            {/* Mobile Drawer Social Icons */}
+            <div className="flex items-center justify-center gap-5 pt-2 text-royal/60">
+              <a href={contactDetails?.facebook || "https://www.facebook.com/viajeaindiaconindiasinvitation/"} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors p-2" aria-label="Facebook">
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a href={contactDetails?.twitter || "https://x.com/abhilash01"} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors p-2" aria-label="Twitter">
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href={contactDetails?.instagram || "https://www.instagram.com/mhindiatrips/"} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors p-2" aria-label="Instagram">
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </a>
+              <a href="https://www.youtube.com/channel/UCiV4lAtakOtzaf3akF6r0eQ" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors p-2" aria-label="YouTube">
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </a>
+            </div>
           </div>
         </div>
       )}

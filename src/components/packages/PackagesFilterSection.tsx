@@ -56,7 +56,7 @@ export default function PackagesFilterSection({
                 : "bg-white border-[#C5A862]/20 text-royal hover:border-[#C5A862]/40 hover:bg-[#FAF8F5]"
             }`}
           >
-            🇮🇳 {locale === "es" ? "India Doméstico" : locale === "pt" ? "Índia Doméstico" : "India (Domestic)"}
+            {locale === "es" ? "India Doméstico" : locale === "pt" ? "Índia Doméstico" : "India (Domestic)"}
           </button>
 
           <button
@@ -67,8 +67,9 @@ export default function PackagesFilterSection({
                 : "bg-white border-[#C5A862]/20 text-royal hover:border-[#C5A862]/40 hover:bg-[#FAF8F5]"
             }`}
           >
-            ✈️ {locale === "es" ? "Internacionales" : locale === "pt" ? "Internacionais" : "Outbound (International)"}
+            {locale === "es" ? "Internacionales" : locale === "pt" ? "Internacionais" : "Outbound (International)"}
           </button>
+
         </div>
       </Reveal>
 

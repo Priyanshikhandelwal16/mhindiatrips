@@ -286,13 +286,26 @@ export default function PopupInquiryForm({ locale, contactDetails }: PopupInquir
                     onChange={e => setForm({ ...form, destinations: e.target.value })}
                     className="w-full bg-white border border-gold/15 rounded-xl px-4 py-3 outline-none focus:border-gold transition-colors font-light text-royal cursor-pointer h-[44px]"
                   >
-                    <option value="Rajasthan">Rajasthan</option>
-                    <option value="Kerala">Kerala</option>
-                    <option value="Goa">Goa</option>
-                    <option value="Uttar Pradesh (Taj Mahal)">Uttar Pradesh (Taj Mahal)</option>
-                    <option value="South India Heritage">South India Heritage</option>
-                    <option value="North India Classic">North India Classic</option>
-                    <option value="Himalayas & Mountains">Himalayas & Mountains</option>
+                    <optgroup label="Popular India Regions">
+                      <option value="Rajasthan">Rajasthan</option>
+                      <option value="Kerala">Kerala</option>
+                      <option value="Goa">Goa</option>
+                      <option value="Uttar Pradesh (Taj Mahal)">Uttar Pradesh (Taj Mahal)</option>
+                      <option value="South India Heritage">South India Heritage</option>
+                      <option value="North India Classic">North India Classic</option>
+                      <option value="Himalayas & Mountains">Himalayas & Mountains</option>
+                    </optgroup>
+                    <optgroup label="International Trips">
+                      <option value="International - Dubai">International: Dubai & UAE</option>
+                      <option value="International - Bali">International: Bali, Indonesia</option>
+                      <option value="International - Thailand">International: Thailand & Bangkok</option>
+                      <option value="International - Maldives">International: Maldives Water Villas</option>
+                      <option value="International - Vietnam">International: Vietnam</option>
+                      <option value="International - Singapore">International: Singapore & Malaysia</option>
+                      <option value="International - Nepal & Bhutan">International: Nepal & Bhutan</option>
+                      <option value="International - Sri Lanka">International: Sri Lanka</option>
+                    </optgroup>
+                    <option value="Others">Others / Custom Journey</option>
                   </select>
                 </div>
  

@@ -1,39 +1,27 @@
 "use client";
 
-import React, { ReactNode, useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
-interface PageTransitionProps {
-  children: ReactNode;
-}
-
-export default function PageTransition({ children }: PageTransitionProps) {
+export default function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [displayChildren, setDisplayChildren] = useState(children);
-  const [transitionStage, setTransitionStage] = useState<"fade-in" | "fade-out">("fade-in");
-  const prevPathname = useRef(pathname);
+  const [animating, setAnimating] = useState(false);
 
   useEffect(() => {
-    if (pathname !== prevPathname.current) {
-      setTransitionStage("fade-out");
-
-      const timeout = setTimeout(() => {
-        setDisplayChildren(children);
-        setTransitionStage("fade-in");
-        prevPathname.current = pathname;
-        window.scrollTo({ top: 0, behavior: "instant" });
-      }, 300);
-
-      return () => clearTimeout(timeout);
-    } else {
-      setDisplayChildren(children);
-    }
+    setAnimating(true);
+    setDisplayChildren(children);
+    const timer = setTimeout(() => {
+      setAnimating(false);
+    }, 400);
+    return () => clearTimeout(timer);
   }, [pathname, children]);
 
   return (
     <div
-      className={`page-transition w-full flex-grow flex flex-col justify-between ${
-        transitionStage === "fade-in" ? "page-enter-active" : "page-exit-active"
+      key={pathname}
+      className={`transition-all duration-500 ease-out ${
+        animating ? "opacity-0 translate-y-2" : "opacity-100 translate-y-0"
       }`}
     >
       {displayChildren}

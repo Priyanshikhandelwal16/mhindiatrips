@@ -24,21 +24,30 @@ export default function CountUp({
   const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Direct viewport check on mount
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setHasStarted(true);
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) {
+        if (entry.isIntersecting) {
           setHasStarted(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.15 }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    observer.observe(el);
 
-    return () => observer.disconnect();
-  }, [hasStarted]);
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
     if (!hasStarted) return;
@@ -68,9 +77,10 @@ export default function CountUp({
     return () => cancelAnimationFrame(animationFrame);
   }, [hasStarted, end, duration]);
 
+  const activeValue = hasStarted ? count : 0;
   const displayValue = decimals > 0
-    ? count.toFixed(decimals)
-    : Math.floor(count).toLocaleString();
+    ? activeValue.toFixed(decimals)
+    : Math.floor(activeValue).toLocaleString();
 
   return (
     <span ref={ref} className={className}>
@@ -78,3 +88,4 @@ export default function CountUp({
     </span>
   );
 }
+

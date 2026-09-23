@@ -71,7 +71,8 @@ export default function LegalPageLayout({
     <div className="bg-[#FAF8F5] min-h-screen text-[#1B1B1B] font-sans pb-28">
       
       {/* 1. LUXURY HERO HEADER BANNER */}
-      <section className="relative bg-gradient-to-b from-[#0B1329] via-[#16223F] to-[#0B1329] text-white py-16 md:py-24 border-b border-gold/20 overflow-hidden">
+      <section className="relative bg-gradient-to-b from-[#062D27] via-[#0B4D44] to-[#062D27] text-white py-16 md:py-24 border-b border-gold/20 overflow-hidden">
+
         {/* Subtle Background Glows */}
         <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#C5A862_1.5px,transparent_1.5px)] [background-size:28px_28px] pointer-events-none" />
         <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-gold/15 rounded-full blur-3xl pointer-events-none" />
@@ -300,7 +301,8 @@ export default function LegalPageLayout({
 
         {/* BOTTOM GUARANTEE & CONCIERGE CTA BANNER */}
         <Reveal delay={300}>
-          <div className="bg-gradient-to-r from-royal via-[#1A2542] to-royal text-white border border-gold/40 rounded-3xl p-8 md:p-10 text-center space-y-5 shadow-2xl relative overflow-hidden">
+          <div className="bg-gradient-to-r from-[#062D27] via-[#0B4D44] to-[#062D27] text-white border border-gold/40 rounded-3xl p-8 md:p-10 text-center space-y-5 shadow-2xl relative overflow-hidden">
+
             <div className="w-14 h-14 rounded-full bg-gold/20 border border-gold flex items-center justify-center text-gold mx-auto shadow-inner">
               <ShieldCheck className="w-7 h-7 text-gold" />
             </div>

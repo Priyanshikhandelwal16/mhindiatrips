@@ -1938,3 +1938,139 @@ details[open] summary {
   flex-shrink: 0;
   margin-top: 0.15rem;
 }
+
+
+/* === LUXURY BLOG TYPOGRAPHY & UNCROPPED IMAGE STYLING === */
+.blog-content-rich {
+  text-align: left !important;
+  color: #1C1F1D !important;
+  font-family: var(--font-sans), sans-serif !important;
+}
+
+.blog-content-rich img,
+.blog-content-rich figure img,
+article img {
+  border-radius: 1.5rem !important;
+  margin: 2.5rem 0 !important;
+  box-shadow: 0 20px 45px rgba(10, 42, 30, 0.15) !important;
+  max-width: 100% !important;
+  max-height: 580px !important;
+  object-fit: contain !important;
+  border: 2px solid rgba(197, 168, 98, 0.35) !important;
+  display: block !important;
+  background-color: #0A2A1E !important;
+}
+
+.blog-content-rich h2,
+.blog-main-heading {
+  font-family: var(--font-serif), Georgia, serif !important;
+  font-size: 2rem !important;
+  font-weight: 800 !important;
+  color: #0A2A1E !important;
+  border-left: 4px solid #C5A862 !important;
+  padding-left: 1.25rem !important;
+  margin-top: 3.5rem !important;
+  margin-bottom: 1.5rem !important;
+  line-height: 1.3 !important;
+  text-align: left !important;
+}
+
+.blog-content-rich h3,
+.blog-sub-heading {
+  font-family: var(--font-serif), Georgia, serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 750 !important;
+  color: #0A2A1E !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1.15rem !important;
+  line-height: 1.35 !important;
+  text-align: left !important;
+}
+
+.blog-content-rich p {
+  font-size: 1.125rem !important;
+  line-height: 1.95 !important;
+  color: rgba(27, 27, 27, 0.88) !important;
+  font-weight: 300 !important;
+  margin-bottom: 1.75rem !important;
+  text-align: left !important;
+}
+
+.blog-content-rich strong,
+.blog-content-rich b {
+  color: #0A2A1E !important;
+  font-weight: 700 !important;
+}
+
+.blog-content-rich blockquote {
+  border-left: 4px solid #C5A862 !important;
+  background: #ffffff !important;
+  padding: 1.5rem 2rem !important;
+  margin: 2.5rem 0 !important;
+  border-radius: 0 1.25rem 1.25rem 0 !important;
+  font-family: var(--font-serif), Georgia, serif !important;
+  font-style: italic !important;
+  font-size: 1.2rem !important;
+  line-height: 1.8 !important;
+  color: #0A2A1E !important;
+  box-shadow: 0 10px 30px rgba(10, 42, 30, 0.04) !important;
+  border-top: 1px solid rgba(197, 168, 98, 0.2) !important;
+  border-right: 1px solid rgba(197, 168, 98, 0.2) !important;
+  border-bottom: 1px solid rgba(197, 168, 98, 0.2) !important;
+}
+
+.blog-content-rich ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin: 1.75rem 0 !important;
+}
+
+.blog-content-rich ul li {
+  position: relative !important;
+  padding-left: 1.75rem !important;
+  margin-bottom: 0.85rem !important;
+  font-size: 1.05rem !important;
+  line-height: 1.8 !important;
+  color: rgba(27, 27, 27, 0.85) !important;
+  text-align: left !important;
+}
+
+.blog-content-rich ul li::before {
+  content: '◆' !important;
+  position: absolute !important;
+  left: 0 !important;
+  color: #C5A862 !important;
+  font-size: 0.75rem !important;
+  top: 0.3rem !important;
+}
+
+.blog-content-rich ol {
+  padding-left: 1.5rem !important;
+  margin: 1.75rem 0 !important;
+}
+
+.blog-content-rich ol li {
+  margin-bottom: 0.85rem !important;
+  font-size: 1.05rem !important;
+  line-height: 1.8 !important;
+  color: rgba(27, 27, 27, 0.85) !important;
+  text-align: left !important;
+}
+
+.blog-content-rich ol li::marker {
+  color: #C5A862 !important;
+  font-weight: bold !important;
+}
+
+.blog-content-rich a {
+  color: #C5A862 !important;
+  font-weight: 600 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+  transition: color 0.2s ease !important;
+}
+
+.blog-content-rich a:hover {
+  color: #0A2A1E !important;
+}
+

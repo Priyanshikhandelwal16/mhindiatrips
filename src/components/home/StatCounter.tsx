@@ -21,18 +21,27 @@ export default function StatCounter({ target, suffix = "", duration = 1500 }: St
     const el = ref.current;
     if (!el) return;
 
+    // Direct viewport check on mount
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setHasStarted(true);
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) {
+        if (entry.isIntersecting) {
           setHasStarted(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.15 }
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
-  }, [hasStarted, isString]);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [isString]);
 
   useEffect(() => {
     if (!hasStarted || isString) return;
@@ -59,5 +68,6 @@ export default function StatCounter({ target, suffix = "", duration = 1500 }: St
     return <span ref={ref}>{target}{suffix}</span>;
   }
 
-  return <span ref={ref}>{count}{suffix}</span>;
+  return <span ref={ref}>{hasStarted ? count : 0}{suffix}</span>;
 }
+

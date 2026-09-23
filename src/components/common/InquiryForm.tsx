@@ -258,7 +258,7 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
             </div>
           </div>
 
-          {/* New Required Destination select dropdown */}
+          {/* Destination Select Dropdown */}
           <div className="space-y-1.5 md:col-span-2">
             <label className="text-[10px] font-bold uppercase tracking-[0.16em] text-royal/65">{text.destination} *</label>
             <div className="relative">
@@ -269,12 +269,26 @@ export default function InquiryForm({ locale }: InquiryFormProps) {
                 required
                 suppressHydrationWarning={true}
               >
-                <option value="Rajasthan">Rajasthan</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Varanasi">Varanasi</option>
-                <option value="Delhi & Agra">Delhi & Agra</option>
-                <option value="Goa">Goa</option>
-                <option value="Others">Others</option>
+                <optgroup label="Popular India Regions">
+                  <option value="Rajasthan">Rajasthan (Jaipur, Udaipur, Jodhpur, Jaisalmer)</option>
+                  <option value="Kerala">Kerala (Backwaters, Houseboat, Munnar, Kochi)</option>
+                  <option value="Varanasi">Varanasi & Ganges Ghats</option>
+                  <option value="Delhi & Agra">Delhi & Taj Mahal Agra</option>
+                  <option value="Goa">Goa Beaches & Heritage</option>
+                  <option value="Kashmir & Ladakh">Kashmir & Ladakh</option>
+                  <option value="South India">South India Temples & Canals</option>
+                </optgroup>
+                <optgroup label="International Trips">
+                  <option value="International - Dubai">International: Dubai & UAE</option>
+                  <option value="International - Bali">International: Bali, Indonesia</option>
+                  <option value="International - Thailand">International: Thailand & Bangkok</option>
+                  <option value="International - Maldives">International: Maldives Water Villas</option>
+                  <option value="International - Vietnam">International: Vietnam</option>
+                  <option value="International - Singapore">International: Singapore & Malaysia</option>
+                  <option value="International - Nepal & Bhutan">International: Nepal & Bhutan</option>
+                  <option value="International - Sri Lanka">International: Sri Lanka</option>
+                </optgroup>
+                <option value="Others">Other / Customized Multi-Country Route</option>
               </select>
             </div>
           </div>
