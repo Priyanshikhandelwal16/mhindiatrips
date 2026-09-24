@@ -2,90 +2,385 @@
   {
     "id": "ranthambore",
     "slug": "ranthambore",
-    "name": "Ranthambore National Park",
-    "state": "Rajasthan",
+    "name": {
+      "en": "Ranthambore National Park",
+      "es": "Parque Nacional Ranthambore",
+      "pt": "Parque Nacional Ranthambore"
+    },
+    "state": {
+      "en": "Rajasthan",
+      "es": "Rajasthan",
+      "pt": "Rajasthan"
+    },
     "image": "/images/ranthambore_tiger_safari.png",
-    "tagline": "Home of Royal Bengal Tigers & Historic Desert Forts",
-    "desc": "Famous for daytime tiger sightings amidst 10th-century fort ruins and ancient banyan trees. Jeep & Canter safaris available twice daily.",
-    "highlights": ["Royal Bengal Tiger Safaris", "Ranthambore Fort", "Padam Talao Lake"],
-    "bestMonths": "October to June"
+    "tagline": {
+      "en": "Home of Royal Bengal Tigers & Historic Desert Forts",
+      "es": "Hogar de Tigres de Bengala y Fuertes Históricos del Desierto",
+      "pt": "Lar dos Tigres de Bengala e Fortes Históricos do Deserto"
+    },
+    "desc": {
+      "en": "Famous for daytime tiger sightings amidst 10th-century fort ruins and ancient banyan trees. Jeep & Canter safaris available twice daily.",
+      "es": "Famoso por los avistamientos de tigres durante el día entre ruinas de fuertes del siglo X y árboles banyan antiguos. Safaris en jeep y canter disponibles dos veces al día.",
+      "pt": "Famoso pelos avistamentos de tigres durante o dia entre ruínas de fortes do século X e figueiras centenárias. Safáris em jeep e canter disponíveis duas vezes ao dia."
+    },
+    "highlights": [
+      {
+        "en": "Royal Bengal Tiger Safaris",
+        "es": "Safaris de Tigre de Bengala",
+        "pt": "Safáris de Tigre de Bengala"
+      },
+      {
+        "en": "Ranthambore Fort",
+        "es": "Fuerte de Ranthambore",
+        "pt": "Forte de Ranthambore"
+      },
+      {
+        "en": "Padam Talao Lake",
+        "es": "Lago Padam Talao",
+        "pt": "Lago Padam Talao"
+      }
+    ],
+    "bestMonths": {
+      "en": "October to June",
+      "es": "Octubre a Junio",
+      "pt": "Outubro a Junho"
+    },
+    "isNorthEast": false
   },
   {
     "id": "corbett",
     "slug": "corbett",
-    "name": "Jim Corbett National Park",
-    "state": "Uttarakhand",
+    "name": {
+      "en": "Jim Corbett National Park",
+      "es": "Parque Nacional Jim Corbett",
+      "pt": "Parque Nacional Jim Corbett"
+    },
+    "state": {
+      "en": "Uttarakhand",
+      "es": "Uttarakhand",
+      "pt": "Uttarakhand"
+    },
     "image": "https://images.unsplash.com/photo-1547970810-dc0eac378882?w=1200&q=80",
-    "tagline": "India's First National Park in Himalayan Foothills",
-    "desc": "Nestled along the Ramganga River, Corbett offers wild elephant herds, tigers, gharials, and over 600 bird species.",
-    "highlights": ["Dhikala Zone Stay", "Elephant & Jeep Safaris", "Ramganga River Valley"],
-    "bestMonths": "November to June"
+    "tagline": {
+      "en": "India's First National Park in Himalayan Foothills",
+      "es": "El Primer Parque Nacional de la India en las Laderas del Himalaya",
+      "pt": "O Primeiro Parque Nacional da Índia nas Encostas do Himalaia"
+    },
+    "desc": {
+      "en": "Nestled along the Ramganga River, Corbett offers wild elephant herds, tigers, gharials, and over 600 bird species.",
+      "es": "Ubicado a lo largo del río Ramganga, Corbett ofrece manadas de elefantes salvajes, tigres, gaviales y más de 600 especies de aves.",
+      "pt": "Localizado ao longo do rio Ramganga, Corbett oferece manadas de elefantes selvagens, tigres, gaviais e mais de 600 espécies de aves."
+    },
+    "highlights": [
+      {
+        "en": "Dhikala Zone Stay",
+        "es": "Estancia en Zona Dhikala",
+        "pt": "Hospedagem na Zona Dhikala"
+      },
+      {
+        "en": "Elephant & Jeep Safaris",
+        "es": "Safaris en Elefante y Jeep",
+        "pt": "Safáris em Elefante e Jeep"
+      },
+      {
+        "en": "Ramganga River Valley",
+        "es": "Valle del Río Ramganga",
+        "pt": "Vale do Rio Ramganga"
+      }
+    ],
+    "bestMonths": {
+      "en": "November to June",
+      "es": "Noviembre a Junio",
+      "pt": "Novembro a Junho"
+    },
+    "isNorthEast": false
   },
   {
     "id": "kaziranga",
     "slug": "kaziranga",
-    "name": "Kaziranga National Park",
-    "state": "Assam (North-East India)",
+    "name": {
+      "en": "Kaziranga National Park",
+      "es": "Parque Nacional Kaziranga",
+      "pt": "Parque Nacional Kaziranga"
+    },
+    "state": {
+      "en": "Assam (North-East India)",
+      "es": "Assam (Noreste de la India)",
+      "pt": "Assam (Nordeste da Índia)"
+    },
     "isNorthEast": true,
     "image": "https://images.unsplash.com/photo-1575550959106-5a7defe28b56?w=1200&q=80",
-    "tagline": "UNESCO World Heritage Sanctuary for One-Horned Rhinos",
-    "desc": "A jewel of North-East India holding two-thirds of the world's great one-horned rhinoceros population alongside wild water buffaloes.",
-    "highlights": ["One-Horned Rhinoceros", "Brahmaputra Floodplains", "Elephant Back Safaris"],
-    "bestMonths": "November to April"
+    "tagline": {
+      "en": "UNESCO World Heritage Sanctuary for One-Horned Rhinos",
+      "es": "Santuario Patrimonio Mundial de la UNESCO para Rinocerontes de Un Cuerno",
+      "pt": "Santuário Patrimônio Mundial da UNESCO para Rinocerontes de Um Chifre"
+    },
+    "desc": {
+      "en": "A jewel of North-East India holding two-thirds of the world's great one-horned rhinoceros population alongside wild water buffaloes.",
+      "es": "Una joya del noreste de la India que alberga dos tercios de la población mundial del gran rinoceronte de un cuerno junto a búfalos de agua salvajes.",
+      "pt": "Uma joia do nordeste da Índia que abriga dois terços da população mundial do grande rinoceronte de um chifre junto com búfalos d'água selvagens."
+    },
+    "highlights": [
+      {
+        "en": "One-Horned Rhinoceros",
+        "es": "Rinocerontes de Un Cuerno",
+        "pt": "Rinocerontes de Um Chifre"
+      },
+      {
+        "en": "Brahmaputra Floodplains",
+        "es": "Llanuras del Río Brahmaputra",
+        "pt": "Planícies do Rio Brahmaputra"
+      },
+      {
+        "en": "Elephant Back Safaris",
+        "es": "Safaris a Lomo de Elefante",
+        "pt": "Safáris a Dorso de Elefante"
+      }
+    ],
+    "bestMonths": {
+      "en": "November to April",
+      "es": "Noviembre a Abril",
+      "pt": "Novembro a Abril"
+    }
   },
   {
     "id": "kanha",
     "slug": "kanha",
-    "name": "Kanha National Park",
-    "state": "Madhya Pradesh",
+    "name": {
+      "en": "Kanha National Park",
+      "es": "Parque Nacional Kanha",
+      "pt": "Parque Nacional Kanha"
+    },
+    "state": {
+      "en": "Madhya Pradesh",
+      "es": "Madhya Pradesh",
+      "pt": "Madhya Pradesh"
+    },
     "image": "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?w=1200&q=80",
-    "tagline": "Lush Sal Forests & The Rare Hard-Ground Barasingha",
-    "desc": "Inspiration for Rudyard Kipling's Jungle Book, featuring open meadows, dense bamboo forests, and flourishing predator density.",
-    "highlights": ["Hard-Ground Barasingha", "Open Sal Meadows", "Mukki & Kanha Zones"],
-    "bestMonths": "October to June"
+    "tagline": {
+      "en": "Lush Sal Forests & The Rare Hard-Ground Barasingha",
+      "es": "Exuberantes Bosques de Sal y el Raro Ciervo Barasingha",
+      "pt": "Florestas Exuberantes de Sal e o Raro Cervo Barasingha"
+    },
+    "desc": {
+      "en": "Inspiration for Rudyard Kipling's Jungle Book, featuring open meadows, dense bamboo forests, and flourishing predator density.",
+      "es": "Inspiración para El Libro de la Selva de Rudyard Kipling, con prados abiertos, densos bosques de bambú y alta densidad de depredadores.",
+      "pt": "Inspiração para O Livro da Selva de Rudyard Kipling, com prados abertos, florestas densas de bambu e alta densidade de predadores."
+    },
+    "highlights": [
+      {
+        "en": "Hard-Ground Barasingha",
+        "es": "Ciervo Barasingha",
+        "pt": "Cervo Barasingha"
+      },
+      {
+        "en": "Open Sal Meadows",
+        "es": "Prados de Sal Abiertos",
+        "pt": "Prados de Sal Abertos"
+      },
+      {
+        "en": "Mukki & Kanha Zones",
+        "es": "Zonas Mukki y Kanha",
+        "pt": "Zonas Mukki e Kanha"
+      }
+    ],
+    "bestMonths": {
+      "en": "October to June",
+      "es": "Octubre a Junio",
+      "pt": "Outubro a Junho"
+    },
+    "isNorthEast": false
   },
   {
     "id": "bandhavgarh",
     "slug": "bandhavgarh",
-    "name": "Bandhavgarh National Park",
-    "state": "Madhya Pradesh",
+    "name": {
+      "en": "Bandhavgarh National Park",
+      "es": "Parque Nacional Bandhavgarh",
+      "pt": "Parque Nacional Bandhavgarh"
+    },
+    "state": {
+      "en": "Madhya Pradesh",
+      "es": "Madhya Pradesh",
+      "pt": "Madhya Pradesh"
+    },
     "image": "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?w=1200&q=80",
-    "tagline": "Highest Density of Royal Bengal Tigers in India",
-    "desc": "Surrounded by 32 dramatic hills and ancient caves, Bandhavgarh boasts the highest concentration of wild tigers in Asia.",
-    "highlights": ["Tala Safari Zone", "Bandhavgarh Hill Fort", "Leopards & Sloth Bears"],
-    "bestMonths": "October to June"
+    "tagline": {
+      "en": "Highest Density of Royal Bengal Tigers in India",
+      "es": "La Mayor Densidad de Tigres de Bengala Real en la India",
+      "pt": "A Maior Densidade de Tigres de Bengala Real na Índia"
+    },
+    "desc": {
+      "en": "Surrounded by 32 dramatic hills and ancient caves, Bandhavgarh boasts the highest concentration of wild tigers in Asia.",
+      "es": "Rodeado por 32 colinas dramáticas y cuevas antiguas, Bandhavgarh ostenta la mayor concentración de tigres salvajes en Asia.",
+      "pt": "Cercado por 32 colinas impressionantes e cavernas antigas, Bandhavgarh possui a maior concentração de tigres selvagens na Ásia."
+    },
+    "highlights": [
+      {
+        "en": "Tala Safari Zone",
+        "es": "Zona de Safari Tala",
+        "pt": "Zona de Safári Tala"
+      },
+      {
+        "en": "Bandhavgarh Hill Fort",
+        "es": "Fuerte de la Colina de Bandhavgarh",
+        "pt": "Forte da Colina de Bandhavgarh"
+      },
+      {
+        "en": "Leopards & Sloth Bears",
+        "es": "Leopardos y Osos Perezosos",
+        "pt": "Leopardos e Ursos-Preguiça"
+      }
+    ],
+    "bestMonths": {
+      "en": "October to June",
+      "es": "Octubre a Junio",
+      "pt": "Outubro a Junho"
+    },
+    "isNorthEast": false
   },
   {
     "id": "sundarbans",
     "slug": "sundarbans",
-    "name": "Sundarbans National Park",
-    "state": "West Bengal",
+    "name": {
+      "en": "Sundarbans National Park",
+      "es": "Parque Nacional Sundarbans",
+      "pt": "Parque Nacional Sundarbans"
+    },
+    "state": {
+      "en": "West Bengal",
+      "es": "Bengala Occidental",
+      "pt": "Bengala Ocidental"
+    },
     "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80",
-    "tagline": "Largest Mangrove Forest & Swimming Tiger Sanctuary",
-    "desc": "A UNESCO World Heritage tidal delta where Royal Bengal Tigers adapted to salt water and mangrove jungle canals.",
-    "highlights": ["Boat Safaris in Mangrove Creeks", "Estuarine Crocodiles", "Dobanki Watchtower"],
-    "bestMonths": "September to March"
+    "tagline": {
+      "en": "Largest Mangrove Forest & Swimming Tiger Sanctuary",
+      "es": "El Mayor Bosque de Mangles y Santuario de Tigres Nadadores",
+      "pt": "A Maior Floresta de Mangue e Santuário de Tigres Nadadores"
+    },
+    "desc": {
+      "en": "A UNESCO World Heritage tidal delta where Royal Bengal Tigers adapted to salt water and mangrove jungle canals.",
+      "es": "Un delta de marea Patrimonio de la Humanidad por la UNESCO donde los tigres de Bengala se adaptaron al agua salada y los canales de manglares.",
+      "pt": "Um delta de maré Patrimônio Mundial da UNESCO onde os tigres de Bengala se adaptaram à água salgada e aos canais de manguezais."
+    },
+    "highlights": [
+      {
+        "en": "Boat Safaris in Mangrove Creeks",
+        "es": "Safaris en Barco por Canales de Manglar",
+        "pt": "Safáris de Barco em Canais de Mangue"
+      },
+      {
+        "en": "Estuarine Crocodiles",
+        "es": "Cocodrilos Estuarinos",
+        "pt": "Crocodilos Estuarinos"
+      },
+      {
+        "en": "Dobanki Watchtower",
+        "es": "Torre de Observación Dobanki",
+        "pt": "Torre de Observação Dobanki"
+      }
+    ],
+    "bestMonths": {
+      "en": "September to March",
+      "es": "Septiembre a Marzo",
+      "pt": "Setembro a Março"
+    },
+    "isNorthEast": false
   },
   {
     "id": "gir",
     "slug": "gir",
-    "name": "Gir National Park",
-    "state": "Gujarat",
+    "name": {
+      "en": "Gir National Park",
+      "es": "Parque Nacional Gir",
+      "pt": "Parque Nacional Gir"
+    },
+    "state": {
+      "en": "Gujarat",
+      "es": "Gujarat",
+      "pt": "Gujarat"
+    },
     "image": "https://images.unsplash.com/photo-1614027164847-1b28cfe1df60?w=1200&q=80",
-    "tagline": "The Sole Haven of Asiatic Lions on Planet Earth",
-    "desc": "The only natural habitat outside Africa where Asiatic lions roam freely amidst teak forests and rocky hillocks.",
-    "highlights": ["Asiatic Lions", "Devalia Safari Zone", "Maldhari Heritage Villages"],
-    "bestMonths": "December to April"
+    "tagline": {
+      "en": "The Sole Haven of Asiatic Lions on Planet Earth",
+      "es": "El Único Refugio de Leones Asiáticos en el Planeta Tierra",
+      "pt": "O Único Refúgio de Leões Asiáticos no Planeta Terra"
+    },
+    "desc": {
+      "en": "The only natural habitat outside Africa where Asiatic lions roam freely amidst teak forests and rocky hillocks.",
+      "es": "El único hábitat natural fuera de África donde los leones asiáticos deambulan libremente entre bosques de teca y colinas rocosas.",
+      "pt": "O único habitat natural fora da África onde os leões asiáticos deambulam livremente entre florestas de teca e colinas rochosas."
+    },
+    "highlights": [
+      {
+        "en": "Asiatic Lions",
+        "es": "Leones Asiáticos",
+        "pt": "Leões Asiáticos"
+      },
+      {
+        "en": "Devalia Safari Zone",
+        "es": "Zona de Safari Devalia",
+        "pt": "Zona de Safári Devalia"
+      },
+      {
+        "en": "Maldhari Heritage Villages",
+        "es": "Pueblos Tradicionales Maldhari",
+        "pt": "Vilas de Herança Maldhari"
+      }
+    ],
+    "bestMonths": {
+      "en": "December to April",
+      "es": "Diciembre a Abril",
+      "pt": "Dezembro a Abril"
+    },
+    "isNorthEast": false
   },
   {
     "id": "periyar",
     "slug": "periyar",
-    "name": "Periyar National Park",
-    "state": "Kerala",
+    "name": {
+      "en": "Periyar National Park",
+      "es": "Parque Nacional Periyar",
+      "pt": "Parque Nacional Periyar"
+    },
+    "state": {
+      "en": "Kerala",
+      "es": "Kerala",
+      "pt": "Kerala"
+    },
     "image": "/images/kerala_backwaters_houseboat.png",
-    "tagline": "Western Ghats Sanctuary & Scenic Lake Safaris",
-    "desc": "Set in the misty Cardamom Hills of Kerala, famed for wild elephant herds grazing along the banks of Lake Periyar.",
-    "highlights": ["Lake Boat Safaris", "Spice Plantation Walks", "Elephant Herds"],
-    "bestMonths": "September to April"
+    "tagline": {
+      "en": "Western Ghats Sanctuary & Scenic Lake Safaris",
+      "es": "Santuario de Ghats Orientales y Safaris en Lago",
+      "pt": "Santuário dos Ghats Ocidentais e Safáris em Lago"
+    },
+    "desc": {
+      "en": "Set in the misty Cardamom Hills of Kerala, famed for wild elephant herds grazing along the banks of Lake Periyar.",
+      "es": "Ubicado en las brumosas colinas Cardamomo de Kerala, famoso por sus manadas de elefantes salvajes a orillas del lago Periyar.",
+      "pt": "Localizado nas colinas de Cardamomo em Kerala, famoso por suas manadas de elefantes selvagens às margens do lago Periyar."
+    },
+    "highlights": [
+      {
+        "en": "Lake Boat Safaris",
+        "es": "Safaris en Barco por el Lago",
+        "pt": "Safáris de Barco no Lago"
+      },
+      {
+        "en": "Spice Plantation Walks",
+        "es": "Caminatas por Plantaciones de Especias",
+        "pt": "Passeios por Plantações de Especiarias"
+      },
+      {
+        "en": "Elephant Herds",
+        "es": "Manadas de Elefantes",
+        "pt": "Manadas de Elefantes"
+      }
+    ],
+    "bestMonths": {
+      "en": "September to April",
+      "es": "Septiembre a Abril",
+      "pt": "Setembro a Abril"
+    },
+    "isNorthEast": false
   }
 ]
