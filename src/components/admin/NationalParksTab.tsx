@@ -98,16 +98,33 @@ export default function NationalParksTab({
       await syncClientFirestore("national_parks", parkId, payload, false);
 
       const isNew = !parks.find(p => p.id === parkId || p.slug === parkId);
-      const res = isNew 
-        ? await createNationalParkAction(payload) 
-        : await updateNationalParkAction(parkId, payload);
+      let savedSuccess = false;
 
-      if (res.success) {
+      try {
+        const res = isNew 
+          ? await createNationalParkAction(payload) 
+          : await updateNationalParkAction(parkId, payload);
+        if (res && res.success) savedSuccess = true;
+      } catch (err: any) {
+        console.warn("[Save Park] Server Action failed, trying REST fallback:", err);
+      }
+
+      if (!savedSuccess) {
+        const apiRes = await fetch("/api/admin/save-park", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ parkId, payload, isNew })
+        });
+        const apiJson = await apiRes.json();
+        if (apiJson && apiJson.success) savedSuccess = true;
+      }
+
+      if (savedSuccess) {
         showStatus("National Park saved successfully!", "success");
         setEditPark(null);
         loadCMSData(false);
       } else {
-        showStatus(res.error || "Failed to save national park.", "error");
+        showStatus("Failed to save national park.", "error");
       }
     } catch (err: any) {
       showStatus(err.message || "Failed to save park.", "error");
@@ -124,13 +141,32 @@ export default function NationalParksTab({
       setEditPark(null);
     }
     await syncClientFirestore("national_parks", parkId, { isDeleted: true }, true);
-    const res = await deleteNationalParkAction(parkId);
+    
+    let deletedSuccess = false;
+    try {
+      const res = await deleteNationalParkAction(parkId);
+      if (res && res.success) deletedSuccess = true;
+    } catch (err: any) {
+      console.warn("[Delete Park] Server Action failed, trying REST fallback:", err);
+    }
 
-    if (res.success) {
+    if (!deletedSuccess) {
+      try {
+        const apiRes = await fetch("/api/admin/save-park", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ parkId, action: "delete" })
+        });
+        const apiJson = await apiRes.json();
+        if (apiJson && apiJson.success) deletedSuccess = true;
+      } catch (e) {}
+    }
+
+    if (deletedSuccess) {
       showStatus("National Park deleted successfully.", "success");
       loadCMSData(false);
     } else {
-      showStatus(res.error || "Failed to delete national park.", "error");
+      showStatus("Failed to delete national park.", "error");
     }
   };
 

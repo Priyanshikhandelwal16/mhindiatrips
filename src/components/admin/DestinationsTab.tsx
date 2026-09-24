@@ -16,6 +16,7 @@ import {
   deleteCityAction 
 } from "@/app/actions/admin";
 import { getCitiesAction } from "@/app/actions/queries";
+import { syncClientFirestore } from "@/lib/client-db-sync";
 
 interface DestinationsTabProps {
   states: any[];
@@ -192,47 +193,104 @@ export default function DestinationsTab({
     }
   };
 
-  // Save City Action
+  // Save City Action with automatic REST API fallback & Client Firestore sync
   const handleSaveCitySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editCity.id || !editCity.name?.en || !editCity.stateId) {
-      return showStatus("City ID, Parent State, and English Name are required.", "error");
+    if (!editCity.id || (!editCity.name?.en && typeof editCity.name !== "string") || !editCity.stateId) {
+      return showStatus("City ID, Parent State, and Name are required.", "error");
     }
 
     const isNew = !cities.find(c => c.id === editCity.id);
+    
+    // 1. Immediate Client-side Firestore sync
+    await syncClientFirestore("cities", editCity.id, editCity, false);
+
+    let savedSuccess = false;
+
+    // 2. Try Server Action
     try {
       const res = isNew
         ? await createCityAction(editCity.stateId, editCity)
         : await updateCityAction(editCity.stateId, editCity.id, editCity);
 
-      if (res.success) {
-        showStatus("City details saved successfully!", "success");
-        setEditCity(null);
-        await loadCities();
-      } else {
-        showStatus(res.error || "Failed to save city.", "error");
+      if (res && res.success) {
+        savedSuccess = true;
       }
     } catch (err: any) {
-      showStatus(err.message || "Failed to save city.", "error");
+      console.warn("[Save City] Server Action failed, attempting REST fallback:", err?.message || err);
+    }
+
+    // 3. Fallback to dedicated REST API route if Server Action failed or hash mismatched
+    if (!savedSuccess) {
+      try {
+        const apiRes = await fetch("/api/admin/save-city", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            stateId: editCity.stateId,
+            cityId: editCity.id,
+            data: editCity,
+            isNew
+          })
+        });
+
+        const apiJson = await apiRes.json();
+        if (apiJson && apiJson.success) {
+          savedSuccess = true;
+        } else {
+          return showStatus(apiJson.error || "Failed to save city.", "error");
+        }
+      } catch (fallbackErr: any) {
+        console.error("[Save City] REST API Fallback Error:", fallbackErr);
+      }
+    }
+
+    if (savedSuccess) {
+      showStatus("City details saved successfully!", "success");
+      setEditCity(null);
+      await loadCities();
+    } else {
+      showStatus("Failed to save city. Please refresh the page and try again.", "error");
     }
   };
 
-  // Delete City Action
+  // Delete City Action with automatic REST API fallback & Client Firestore sync
   const handleDeleteCityClick = async (stateId: string, id: string) => {
     if (!confirm(`Are you sure you want to delete city "${id}"? This cannot be undone.`)) {
       return;
     }
 
+    // 1. Immediate Client-side Firestore sync
+    await syncClientFirestore("cities", id, { isDeleted: true }, true);
+
+    let deletedSuccess = false;
+
+    // 2. Try Server Action
     try {
       const res = await deleteCityAction(stateId, id);
-      if (res.success) {
-        showStatus("City deleted successfully.", "success");
-        await loadCities();
-      } else {
-        showStatus(res.error || "Failed to delete city.", "error");
-      }
-    } catch (err: any) {
-      showStatus(err.message || "Failed to delete city.", "error");
+      if (res && res.success) deletedSuccess = true;
+    } catch (e: any) {
+      console.warn("[Delete City] Server Action failed, attempting REST fallback:", e);
+    }
+
+    // 3. REST API Fallback
+    if (!deletedSuccess) {
+      try {
+        const apiRes = await fetch("/api/admin/save-city", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ stateId, cityId: id, action: "delete" })
+        });
+        const apiJson = await apiRes.json();
+        if (apiJson && apiJson.success) deletedSuccess = true;
+      } catch (e) {}
+    }
+
+    if (deletedSuccess) {
+      showStatus("City deleted successfully.", "success");
+      await loadCities();
+    } else {
+      showStatus("Failed to delete city. Please refresh and try again.", "error");
     }
   };
 
