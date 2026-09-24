@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getBlogBySlugAction, getBlogsAction, getTourPackagesAction } from "@/app/actions/queries";
 import { formatRichText } from "@/lib/utils";
 import Reveal from "@/components/home/Reveal";
+import BlogPhotoGallery from "@/components/blog/BlogPhotoGallery";
 import { 
   Clock, ArrowLeft, User, Calendar, ChevronRight, Sparkles, MapPin, MessageCircle, BookOpen, ShieldCheck, CheckCircle2, PhoneCall
 } from "lucide-react";
@@ -184,22 +185,15 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
           {/* LEFT MAIN ARTICLE CONTENT (8 COLUMNS) */}
           <main className="lg:col-span-8 space-y-10">
             
-            {/* Featured Cover Image Frame */}
+            {/* Featured Cover Image Frame - CLEAN NO OVERLAY BAR */}
             {(blog.featuredImage || blog.image) && (
               <Reveal>
-                <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border-2 border-[#C5A862]/30 bg-[#0A2A1E]">
+                <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border-2 border-[#C5A862]/30 bg-gray-100">
                   <img 
                     src={blog.featuredImage || blog.image} 
                     alt={blogTitle} 
-                    className="w-full max-h-[540px] object-cover md:object-contain bg-black/40 mx-auto" 
+                    className="w-full max-h-[560px] object-cover mx-auto rounded-3xl" 
                   />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 flex items-center justify-between text-white text-xs">
-                    <span className="flex items-center gap-2 font-medium">
-                      <MapPin className="w-4 h-4 text-[#C5A862]" />
-                      <span>{blog.category} Destination Guide</span>
-                    </span>
-                    <span className="text-white/70 text-[10px] uppercase font-bold tracking-wider">MH India Trips Archives</span>
-                  </div>
                 </div>
               </Reveal>
             )}
@@ -247,50 +241,13 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                   </a>
                 </div>
 
-                {/* Visual Photo Gallery with Optional Captions */}
+                {/* Visual Photo Gallery with Lightbox Modal */}
                 {blog.gallery && blog.gallery.length > 0 && (
-                  <div className="space-y-4 pt-8 border-t border-[#C5A862]/20">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-serif font-bold text-[#0A2A1E]">{text.galleryTitle}</h3>
-                      <span className="text-xs text-[#C5A862] font-semibold">
-                        {blog.gallery.length} {blog.gallery.length === 1 ? "Photo" : "Photos"}
-                      </span>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      {blog.gallery.map((gItem: any, gIdx: number) => {
-                        const gUrl = typeof gItem === "string" ? gItem : (gItem?.url || gItem?.src || "");
-                        if (!gUrl) return null;
-
-                        const gCaptionObj = typeof gItem === "object" ? gItem?.caption : null;
-                        let gCaption = "";
-                        if (typeof gCaptionObj === "string") {
-                          gCaption = gCaptionObj;
-                        } else if (typeof gCaptionObj === "object" && gCaptionObj !== null) {
-                          gCaption = gCaptionObj[lang] || gCaptionObj.en || gCaptionObj.es || gCaptionObj.pt || "";
-                        }
-
-                        return (
-                          <div key={gIdx} className="bg-[#FAF8F5] border border-[#C5A862]/30 rounded-2xl overflow-hidden shadow-md group flex flex-col justify-between hover:border-[#C5A862] transition-colors">
-                            <div className="h-60 w-full overflow-hidden relative bg-[#0A2A1E]">
-                              <img 
-                                src={gUrl} 
-                                alt={gCaption || `Gallery ${gIdx + 1}`} 
-                                loading="lazy" 
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                              />
-                            </div>
-                            {gCaption && (
-                              <div className="p-3.5 bg-white border-t border-[#C5A862]/20">
-                                <p className="text-xs font-medium text-[#0A2A1E]/80 italic text-center">
-                                  "{gCaption}"
-                                </p>
-                              </div>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
+                  <BlogPhotoGallery 
+                    gallery={blog.gallery} 
+                    lang={lang} 
+                    title={text.galleryTitle} 
+                  />
                 )}
 
                 {/* Author Bio Section */}

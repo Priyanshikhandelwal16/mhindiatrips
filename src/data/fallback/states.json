@@ -1,262 +1,418 @@
 [
   {
-    "id": "kerala",
-    "name": {
-      "pt": "Viagem para Kerala",
-      "en": "Kerala",
-      "es": "Viaje A Kerala"
-    },
-    "seoKeywords": {
-      "pt": "Viagem Kerala, turismo Kerala, backwaters Kerala, Ayurveda Kerala, casa-barco Kerala, lua de mel Kerala",
-      "es": "Viaje Kerala, turismo Kerala, backwaters Kerala, Ayurveda Kerala, casa flotante Kerala, luna de miel Kerala",
-      "en": "Kerala Travel Guide, Kerala travel, Kerala tourism, Kerala holidays, Kerala backwaters, Kerala Ayurveda, Kerala houseboat, Munnar travel, Kochi travel, Alleppey travel, Thekkady travel, Kerala honeymoon, Kerala luxury tours, Kerala family holidays"
-    },
-    "isPublished": true,
-    "seoDesc": {
-      "en": "Discover Kerala, India's tropical paradise, with peaceful backwaters, Ayurveda, tea plantations, beaches, wildlife, heritage and unforgettable cultural experiences.",
-      "es": "Descubra Kerala, el paraíso tropical de India, con backwaters, Ayurveda, plantaciones de té, playas, vida silvestre y experiencias culturales.",
-      "pt": "Descubra Kerala, o paraíso tropical da Índia, com backwaters, Ayurveda, plantações de chá, praias, vida selvagem e experiências culturais inesquecíveis."
-    },
-    "slug": {
-      "es": "kerala",
-      "en": "kerala",
-      "pt": "kerala"
-    },
-    "displayOrder": 2,
-    "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787390475/mhindiatrips/waoct7dizhqmvloolrn3.jpg",
-    "isDeleted": false,
-    "description": {
-      "en": "Welcome to Kerala, India's tropical paradise where tranquil backwaters, lush landscapes, palm-fringed beaches, misty hills and centuries-old traditions come together. From the historic streets of Kochi and the peaceful waterways of Alleppey to the tea-covered hills of Munnar and the wildlife of Thekkady, Kerala offers a beautifully diverse journey shaped by nature, wellness, culture and slow travel.",
-      "es": "Bienvenido a Kerala, el paraíso tropical de India, donde tranquilos backwaters, paisajes exuberantes, playas bordeadas de palmeras, colinas cubiertas de niebla y tradiciones ancestrales se unen. Desde las históricas calles de Kochi y los tranquilos canales de Alleppey hasta las colinas de té de Munnar y la vida silvestre de Thekkady, Kerala ofrece un viaje diverso marcado por la naturaleza, el bienestar, la cultura y el ritmo pausado.",
-      "pt": "Bem-vindo a Kerala, o paraíso tropical da Índia, onde tranquilos backwaters, paisagens exuberantes, praias cercadas por palmeiras, colinas cobertas de neblina e tradições ancestrais se encontram. Das ruas históricas de Kochi e dos tranquilos canais de Alleppey às colinas de chá de Munnar e à vida selvagem de Thekkady, Kerala oferece uma viagem diversificada marcada pela natureza, bem-estar, cultura e pelo ritmo tranquilo."
-    },
-    "seoTitle": {
-      "pt": "Guia de Viagem de Kerala | Backwaters, Ayurveda, Praias e Natureza",
-      "en": "Kerala Travel Guide | Backwaters, Ayurveda, Beaches & Nature",
-      "es": "Guía de Viaje de Kerala | Backwaters, Ayurveda, Playas y Naturaleza"
-    }
-  },
-  {
-    "id": "madhya-pradesh",
-    "seoKeywords": {
-      "pt": "Madhya Pradesh viagem, Khajuraho viagem, safári Kanha, safári Bandhavgarh, tour Orchha",
-      "es": "Madhya Pradesh viaje, Khajuraho viaje, safari Kanha, safari Bandhavgarh, Orchha tour",
-      "en": "Madhya Pradesh travel, Madhya Pradesh tourism, Khajuraho travel, Kanha safari, Bandhavgarh safari, Orchha tour, Central India travel"
-    },
-    "name": {
-      "pt": "Turismo em Madhya Pradesh",
-      "en": "Madhya Pradesh",
-      "es": "Turismo En Madhya Pradesh"
-    },
-    "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787217094/mhindiatrips/mhlfovjvwkivdt0bjjqh.jpg",
-    "isPublished": true,
-    "seoTitle": {
-      "pt": "Guia de Viagem de Madhya Pradesh | Khajuraho, Vida Selvagem e Patrimônio",
-      "es": "Guía de Viaje de Madhya Pradesh | Khajuraho, Fauna y Patrimonio",
-      "en": "Madhya Pradesh Travel Guide | Khajuraho, Wildlife & Heritage"
-    },
-    "slug": {
-      "es": "madhya-pradesh",
-      "en": "madhya-pradesh",
-      "pt": "madhya-pradesh"
-    },
-    "displayOrder": 3,
-    "isDeleted": false,
-    "description": {
-      "pt": "Conhecido como o coração da Índia, Madhya Pradesh é uma terra de templos antigos, fortalezas, cidades reais, reservas naturais e paisagens atemporais. Dos monumentos de Khajuraho e do patrimônio de Orchha às florestas de Kanha e Bandhavgarh, o estado oferece uma combinação extraordinária de patrimônio, espiritualidade e vida selvagem.",
-      "es": "Conocido como el corazón de India, Madhya Pradesh es una tierra de templos antiguos, fortalezas, ciudades reales, reservas naturales y paisajes atemporales. Desde los monumentos de Khajuraho y el patrimonio de Orchha hasta los parques de Kanha y Bandhavgarh, ofrece una combinación excepcional de cultura, espiritualidad y vida silvestre.",
-      "en": "Known as the heart of India, Madhya Pradesh is a land of ancient temples, magnificent forts, royal cities, wildlife reserves and timeless landscapes. From the UNESCO-listed monuments of Khajuraho and the historic grandeur of Orchha to the tiger forests of Kanha and Bandhavgarh, the state offers an exceptional combination of heritage, spirituality and wildlife."
-    },
-    "seoDesc": {
-      "pt": "Explore Madhya Pradesh com os templos de Khajuraho, palácios de Orchha, safáris de tigres, Sanchi e Gwalior.",
-      "es": "Explore Madhya Pradesh con los templos de Khajuraho, los palacios de Orchha, safaris de tigres, Sanchi y Gwalior.",
-      "en": "Explore Madhya Pradesh with Khajuraho temples, Orchha palaces, tiger safaris, Sanchi, Gwalior and the cultural heart of India."
-    }
-  },
-  {
-    "id": "maharashtra",
-    "displayOrder": 6,
-    "description": {
-      "en": "Maharashtra brings together India's energetic cities, ancient cave temples, historic forts, spiritual traditions and beautiful Arabian Sea coastline. From the cosmopolitan streets of Mumbai and the heritage of Pune to the ancient caves of Ajanta and Ellora and the peaceful beaches of the Konkan coast, Maharashtra offers an extraordinary mix of history, culture, food and modern India.",
-      "es": "Maharashtra combina ciudades vibrantes, antiguas cuevas, fortalezas históricas, tradiciones espirituales y una hermosa costa del mar Arábigo. Desde la cosmopolita Mumbai y el patrimonio de Pune hasta las cuevas de Ajanta y Ellora y las playas de Konkan, Maharashtra ofrece una fascinante mezcla de historia, cultura, gastronomía y vida moderna.",
-      "pt": "Maharashtra reúne cidades vibrantes, antigas cavernas, fortalezas históricas, tradições espirituais e uma bela costa do Mar Arábico. Da cosmopolita Mumbai ao patrimônio de Pune, passando pelas cavernas de Ajanta e Ellora e pelas praias de Konkan, Maharashtra oferece uma extraordinária combinação de história, cultura, gastronomia e Índia moderna."
-    },
-    "name": {
-      "pt": "Viagem para Maharashtra",
-      "es": "Viaje A Maharashtra",
-      "en": "Maharashtra"
-    },
-    "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787217085/mhindiatrips/jgk7fqqksjsbl8xwc9yd.jpg",
-    "seoTitle": {
-      "pt": "Guia de Viagem de Maharashtra | Mumbai, Ajanta, Ellora e Konkan",
-      "es": "Guía de Viaje de Maharashtra | Mumbai, Ajanta, Ellora y Konkan",
-      "en": "Maharashtra Travel Guide | Mumbai, Ajanta, Ellora & Konkan"
-    },
-    "isPublished": true,
-    "seoDesc": {
-      "pt": "Descubra Maharashtra com Mumbai, as Cavernas de Ajanta e Ellora, fortalezas Maratha, patrimônio de Pune e a bela costa de Konkan.",
-      "es": "Descubra Maharashtra con Mumbai, las cuevas de Ajanta y Ellora, las fortalezas Maratha, el patrimonio de Pune y la costa de Konkan.",
-      "en": "Discover Maharashtra with Mumbai, Ajanta and Ellora Caves, Maratha forts, Pune heritage, vibrant cuisine and the beautiful Konkan coast."
-    },
-    "seoKeywords": {
-      "pt": "Maharashtra viagem, turismo Maharashtra, Mumbai viagem, Ajanta Ellora tour, costa Konkan",
-      "es": "Maharashtra viaje, turismo Maharashtra, Mumbai viaje, Ajanta Ellora tour, Konkan costa",
-      "en": "Maharashtra travel, Maharashtra tourism, Mumbai travel, Ajanta Ellora tour, Pune travel, Maharashtra heritage, Konkan coast, Maharashtra tour"
-    },
-    "isDeleted": false,
-    "slug": {
-      "pt": "maharashtra",
-      "es": "maharashtra",
-      "en": "maharashtra"
-    }
-  },
-  {
     "id": "rajasthan",
-    "description": {
-      "es": "Bienvenido a Rajasthan, la Tierra de los Reyes, donde magníficas fortalezas, elegantes palacios, ciudades llenas de color y vastos paisajes desérticos se unen para crear una de las experiencias de viaje más fascinantes de India. Desde las calles rosadas de Jaipur y los barrios azules de Jodhpur hasta los románticos lagos de Udaipur y las arenas doradas de Jaisalmer, Rajasthan ofrece un extraordinario viaje por el patrimonio real, las tradiciones vivas y la belleza atemporal de India.",
-      "en": "Welcome to Rajasthan, the Land of Kings, where magnificent forts, elegant palaces, colourful cities and vast desert landscapes come together to create one of India's most captivating travel experiences. From the pink streets of Jaipur and the blue lanes of Jodhpur to the romantic lakes of Udaipur and the golden sands of Jaisalmer, Rajasthan offers a remarkable journey through India's royal heritage, living traditions and timeless beauty.",
-      "pt": "Bem-vindo ao Rajastão, a Terra dos Reis, onde magníficas fortalezas, elegantes palácios, cidades coloridas e vastas paisagens desérticas se unem para criar uma das experiências de viagem mais fascinantes da Índia. Das ruas cor-de-rosa de Jaipur e dos bairros azuis de Jodhpur aos românticos lagos de Udaipur e às areias douradas de Jaisalmer, o Rajastão oferece uma viagem extraordinária pelo patrimônio real, pelas tradições vivas e pela beleza atemporal da Índia."
-    },
     "displayOrder": 1,
     "name": {
-      "pt": "Turismo no Rajastão",
+      "en": "Rajasthan",
       "es": "Turismo En Rajasthan",
-      "en": "Rajasthan"
-    },
-    "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787217046/mhindiatrips/hg51fcbwgnmfqduor6y0.jpg",
-    "isPublished": true,
-    "seoDesc": {
-      "es": "Descubra Rajasthan, la Tierra de los Reyes de India, con fortalezas, palacios reales, ciudades coloridas, paisajes desérticos y experiencias culturales.",
-      "en": "Discover Rajasthan, India's Land of Kings, with magnificent forts, royal palaces, colourful cities, desert landscapes, cultural experiences and unforgettable journeys.",
-      "pt": "Descubra o Rajastão, a Terra dos Reis da Índia, com fortalezas, palácios reais, cidades coloridas, paisagens desérticas e experiências culturais."
-    },
-    "seoTitle": {
-      "es": "Guía de Viaje de Rajasthan | Palacios Reales, Fortalezas y Desierto",
-      "en": "Rajasthan Travel Guide | Royal Palaces, Forts & Desert Experiences",
-      "pt": "Guia de Viagem do Rajastão | Palácios Reais, Fortalezas e Deserto"
+      "pt": "Turismo no Rajastão"
     },
     "slug": {
       "en": "rajasthan",
       "es": "rajasthan",
       "pt": "rajasthan"
     },
+    "image": "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=1200&q=80",
+    "isPublished": true,
     "isDeleted": false,
-    "seoKeywords": {
-      "en": "Rajasthan Travel, Rajasthan tourism, Rajasthan travel, Rajasthan tours, Rajasthan holidays, Rajasthan luxury tours, Jaipur Jodhpur Udaipur tour, Rajasthan heritage tour, Rajasthan desert tour, Rajasthan palace tour",
-      "es": "Viaje Rajasthan, turismo Rajasthan, tours Rajasthan, vacaciones Rajasthan, tours de lujo Rajasthan",
-      "pt": "Viagem Rajastão, turismo Rajastão, tours Rajastão, férias Rajastão, tours de luxo Rajastão"
+    "description": {
+      "en": "Welcome to Rajasthan, the Land of Kings, where magnificent forts, royal palaces, desert dunes and living heritage come together.",
+      "es": "Bienvenido a Rajasthan, la Tierra de los Reyes, con fortalezas reales, palacios, dunas del desierto y patrimonio vivo.",
+      "pt": "Bem-vindo ao Rajastão, a Terra dos Reis, com fortalezas reais, palácios, dunas desérticas e patrimônio vivo."
+    },
+    "seoTitle": {
+      "en": "Rajasthan Travel Guide | Royal Palaces, Forts & Desert Tours",
+      "es": "Guía de Viaje de Rajasthan | Palacios y Fortalezas",
+      "pt": "Guia de Viagem do Rajastão | Palácios e Fortalezas"
+    },
+    "seoDesc": {
+      "en": "Discover Rajasthan with royal palaces, desert safaris, Jaipur, Udaipur, Jodhpur and Jaisalmer.",
+      "es": "Descubra Rajasthan con sus palacios, safaris por el desierto y ciudades reales.",
+      "pt": "Descubra o Rajastão com palácios reais, safáris desérticos e cidades históricas."
     }
   },
   {
-    "id": "tamil-nadu",
+    "id": "kerala",
+    "displayOrder": 2,
     "name": {
-      "en": "Tamil Nadu",
-      "es": "Turismo En Tamil Nadu",
-      "pt": "Turismo em Tamil Nadu"
-    },
-    "isPublished": true,
-    "seoTitle": {
-      "pt": "Guia de Viagem de Tamil Nadu | Templos, Cultura e Sul da Índia",
-      "es": "Guía de Viaje de Tamil Nadu | Templos, Cultura y Sur de India",
-      "en": "Tamil Nadu Travel Guide | Temples, Culture & South India"
-    },
-    "seoKeywords": {
-      "pt": "Tamil Nadu viagem, turismo Tamil Nadu, sul Índia viagem, Madurai tour, Mahabalipuram viagem",
-      "en": "Tamil Nadu travel, Tamil Nadu tourism, South India travel, Madurai tour, Mahabalipuram travel, Thanjavur temples, Tamil Nadu heritage",
-      "es": "Tamil Nadu viaje, turismo Tamil Nadu, sur India viaje, Madurai tour, Mahabalipuram viaje"
+      "en": "Kerala",
+      "es": "Viaje A Kerala",
+      "pt": "Viagem para Kerala"
     },
     "slug": {
-      "pt": "tamil-nadu",
-      "en": "tamil-nadu",
-      "es": "tamil-nadu"
+      "en": "kerala",
+      "es": "kerala",
+      "pt": "kerala"
     },
-    "seoDesc": {
-      "es": "Descubra los templos de Tamil Nadu, su arquitectura dravídica, Chennai, Madurai, Thanjavur y la vibrante cultura del sur de India.",
-      "en": "Discover Tamil Nadu's ancient temples, Dravidian architecture, Chennai, Madurai, Thanjavur, Mahabalipuram, Ooty and vibrant South Indian culture.",
-      "pt": "Descubra os templos de Tamil Nadu, arquitetura dravidiana, Chennai, Madurai, Thanjavur e a vibrante cultura do sul da Índia."
-    },
+    "image": "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1200&q=80",
+    "isPublished": true,
     "isDeleted": false,
     "description": {
-      "pt": "Tamil Nadu oferece uma extraordinária viagem por templos antigos, magnífica arquitetura dravidiana, artes clássicas, paisagens costeiras e tradições ancestrais. De Chennai e Mahabalipuram a Madurai, Thanjavur e às tranquilas colinas de Ooty, o estado revela uma das paisagens culturais mais ricas do sul da Índia.",
-      "es": "Tamil Nadu ofrece un extraordinario viaje por templos antiguos, magnífica arquitectura dravídica, artes clásicas, paisajes costeros y tradiciones ancestrales. Desde Chennai y Mahabalipuram hasta Madurai, Thanjavur y las tranquilas colinas de Ooty, el estado revela una de las culturas más fascinantes del sur de India.",
-      "en": "Tamil Nadu is a spectacular journey through ancient temples, magnificent Dravidian architecture, classical arts, coastal landscapes and centuries-old traditions. From Chennai and Mahabalipuram to the temple cities of Madurai and Thanjavur and the peaceful hills of Ooty, Tamil Nadu reveals one of India's richest cultural landscapes."
+      "en": "God's Own Country, famed for emerald backwaters, luxury houseboats, misty tea hills in Munnar, Ayurvedic wellness and spice gardens.",
+      "es": "El propio país de Dios, famoso por sus backwaters esmeralda, casas flotantes, colinas de té en Munnar y Ayurveda.",
+      "pt": "A própria terra de Deus, famosa por backwaters esmeralda, casas-barco de luxo, colinas de chá em Munnar e Ayurveda."
     },
-    "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787217104/mhindiatrips/tyfhi4qbudxe3ahsevoq.jpg",
-    "displayOrder": 4
+    "seoTitle": {
+      "en": "Kerala Travel Guide | Backwaters, Ayurveda & Houseboats",
+      "es": "Guía de Viaje de Kerala | Backwaters y Ayurveda",
+      "pt": "Guia de Viagem de Kerala | Backwaters e Ayurveda"
+    },
+    "seoDesc": {
+      "en": "Explore Kerala's tropical backwaters, Munnar tea hills, Alleppey houseboats and Kochi heritage.",
+      "es": "Explore los backwaters de Kerala, colinas de Munnar y casas flotantes de Alleppey.",
+      "pt": "Explore os backwaters de Kerala, colinas de Munnar e casas-barco de Alleppey."
+    }
   },
   {
     "id": "uttar-pradesh",
-    "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1787217067/mhindiatrips/whowmhk9lijf6qdvlyhy.jpg",
-    "displayOrder": 5,
-    "seoKeywords": {
-      "pt": "Viagem Uttar Pradesh, Agra viagem, Varanasi viagem, Lucknow viagem, tour Taj Mahal, tour espiritual Varanasi, norte Índia viagem",
-      "es": "Viaje Uttar Pradesh, Agra viaje, Varanasi viaje, Lucknow viaje, tour Taj Mahal, tour espiritual Varanasi, norte India viaje",
-      "en": "Uttar Pradesh Travel Guide, Uttar Pradesh travel, Uttar Pradesh tourism, Agra travel, Varanasi travel, Lucknow travel, Taj Mahal tour, Varanasi spiritual tour, Uttar Pradesh heritage, North India travel, Agra Varanasi tour, Golden Triangle Varanasi"
+    "displayOrder": 3,
+    "name": {
+      "en": "Uttar Pradesh",
+      "es": "Turismo En Uttar Pradesh",
+      "pt": "Turismo em Uttar Pradesh"
     },
     "slug": {
       "en": "uttar-pradesh",
       "es": "uttar-pradesh",
       "pt": "uttar-pradesh"
     },
-    "seoDesc": {
-      "pt": "Descubra Uttar Pradesh com o Taj Mahal, a sagrada Varanasi, patrimônio Mughal, cultura Nawabi de Lucknow, cidades espirituais e gastronomia do norte da Índia.",
-      "es": "Descubra Uttar Pradesh con el Taj Mahal, la sagrada Varanasi, el patrimonio mogol, la cultura Nawabi de Lucknow, ciudades espirituales y gastronomía del norte de India.",
-      "en": "Discover Uttar Pradesh with the Taj Mahal, sacred Varanasi, Mughal heritage, Lucknow's Nawabi culture, spiritual cities, historic architecture and authentic North Indian cuisine."
-    },
-    "isDeleted": false,
+    "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1200&q=80",
     "isPublished": true,
-    "seoTitle": {
-      "pt": "Guia de Viagem de Uttar Pradesh | Agra, Varanasi, Lucknow e Índia Espiritual",
-      "en": "Uttar Pradesh Travel Guide | Agra, Varanasi, Lucknow & Spiritual India",
-      "es": "Guía de Viaje de Uttar Pradesh | Agra, Varanasi, Lucknow y la India Espiritual"
-    },
-    "name": {
-      "es": "Turismo En Uttar Pradesh",
-      "en": "Uttar Pradesh",
-      "pt": "Turismo em Uttar Pradesh"
-    },
+    "isDeleted": false,
     "description": {
-      "es": "Bienvenido a Uttar Pradesh, uno de los estados más importantes de India por su riqueza cultural e histórica. Desde la belleza atemporal del Taj Mahal en Agra y la atmósfera espiritual de Varanasi hasta la sagrada Mathura, asociada con el nacimiento de Krishna, y las históricas calles de Lucknow, Uttar Pradesh ofrece un fascinante viaje por el patrimonio, la espiritualidad, la arquitectura, la gastronomía y las tradiciones vivas de India.",
-      "en": "Welcome to Uttar Pradesh, one of India's most culturally and historically significant states. From the timeless beauty of the Taj Mahal in Agra and the spiritual atmosphere of Varanasi to the sacred birthplace of Lord Krishna in Mathura and the historic streets of Lucknow, Uttar Pradesh offers a remarkable journey through India's heritage, spirituality, architecture, cuisine and living traditions.",
-      "pt": "Bem-vindo a Uttar Pradesh, um dos estados cultural e historicamente mais importantes da Índia. Da beleza atemporal do Taj Mahal em Agra e da atmosfera espiritual de Varanasi à sagrada Mathura, associada ao nascimento de Krishna, e às ruas históricas de Lucknow, Uttar Pradesh oferece uma extraordinária viagem pelo patrimônio, espiritualidade, arquitetura, gastronomia e tradições vivas da Índia."
+      "en": "Heartland of Indian heritage and spirituality, housing the Taj Mahal in Agra, sacred ghats of Varanasi and royal Nawabi cuisine in Lucknow.",
+      "es": "El corazón de la historia y espiritualidad india, hogar del Taj Mahal en Agra, ghats sagrados de Varanasi y gastronomía Nawabi de Lucknow.",
+      "pt": "O coração do patrimônio e espiritualidade da Índia, lar do Taj Mahal em Agra, ghats sagrados de Varanasi e culinária de Lucknow."
+    },
+    "seoTitle": {
+      "en": "Uttar Pradesh Travel Guide | Taj Mahal, Varanasi & Lucknow",
+      "es": "Guía de Viaje de Uttar Pradesh | Taj Mahal y Varanasi",
+      "pt": "Guia de Viagem de Uttar Pradesh | Taj Mahal e Varanasi"
+    },
+    "seoDesc": {
+      "en": "Discover Uttar Pradesh: Taj Mahal, Agra Fort, Varanasi spiritual Aarti and Lucknow Nawabi heritage.",
+      "es": "Descubra Uttar Pradesh: Taj Mahal, Fuerte de Agra, ceremonias en Varanasi y Lucknow.",
+      "pt": "Descubra Uttar Pradesh: Taj Mahal, Forte de Agra, cerimônias em Varanasi e Lucknow."
     }
   },
   {
-    "id": "g",
+    "id": "madhya-pradesh",
+    "displayOrder": 4,
+    "name": {
+      "en": "Madhya Pradesh",
+      "es": "Turismo En Madhya Pradesh",
+      "pt": "Turismo em Madhya Pradesh"
+    },
+    "slug": {
+      "en": "madhya-pradesh",
+      "es": "madhya-pradesh",
+      "pt": "madhya-pradesh"
+    },
+    "image": "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?w=1200&q=80",
     "isPublished": true,
-    "displayOrder": 7,
-    "updatedAt": "2026-09-15T05:23:29.306Z",
     "isDeleted": false,
-    "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789449768/mhindiatrips/i3mqfqpkedke0qshk5av.jpg",
+    "description": {
+      "en": "The tiger heart of India featuring UNESCO Khajuraho temples, Orchha palaces, Gwalior Fort, Sanchi Stupa and dense tiger reserves.",
+      "es": "El corazón de los tigres en India, con los templos de Khajuraho, palacios de Orchha, fuerte de Gwalior y reservas de vida silvestre.",
+      "pt": "O coração dos tigres na Índia, com templos de Khajuraho, palácios de Orchha, forte de Gwalior e reservas de vida selvagem."
+    },
+    "seoTitle": {
+      "en": "Madhya Pradesh Travel Guide | Khajuraho, Orchha & Tiger Safaris",
+      "es": "Guía de Viaje de Madhya Pradesh | Khajuraho y Safaris",
+      "pt": "Guia de Viagem de Madhya Pradesh | Khajuraho e Safáris"
+    },
+    "seoDesc": {
+      "en": "Explore Madhya Pradesh: Khajuraho erotic stone sculptures, Orchha heritage, Gwalior and tiger safaris in Kanha.",
+      "es": "Explore Madhya Pradesh: templos de Khajuraho, palacios de Orchha y safaris de tigres.",
+      "pt": "Explore Madhya Pradesh: templos de Khajuraho, palácios de Orchha e safáris de tigres."
+    }
+  },
+  {
+    "id": "maharashtra",
+    "displayOrder": 5,
+    "name": {
+      "en": "Maharashtra",
+      "es": "Viaje A Maharashtra",
+      "pt": "Viagem para Maharashtra"
+    },
+    "slug": {
+      "en": "maharashtra",
+      "es": "maharashtra",
+      "pt": "maharashtra"
+    },
+    "image": "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=1200&q=80",
+    "isPublished": true,
+    "isDeleted": false,
+    "description": {
+      "en": "From cosmopolitan Mumbai and UNESCO Ajanta-Ellora caves to green Western Ghats hill stations and historic Maratha fortresses.",
+      "es": "Desde la cosmopolita Mumbai y las cuevas de Ajanta-Ellora hasta las estaciones de montaña de los Ghats Occidentales y fortalezas Maratha.",
+      "pt": "Da cosmopolita Mumbai e cavernas de Ajanta-Ellora às estâncias de montanha dos Ghats Ocidentais e fortalezas Maratha."
+    },
+    "seoTitle": {
+      "en": "Maharashtra Travel Guide | Mumbai, Ajanta Ellora Caves & Ghats",
+      "es": "Guía de Viaje de Maharashtra | Mumbai y Cuevas Ajanta",
+      "pt": "Guia de Viagem de Maharashtra | Mumbai e Cavernas Ajanta"
+    },
+    "seoDesc": {
+      "en": "Discover Maharashtra: Gateway of India in Mumbai, rock-cut Ajanta & Ellora caves, Pune and Konkan coast.",
+      "es": "Descubra Maharashtra: Puerta de la India en Mumbai, cuevas de Ajanta y Ellora y la costa de Konkan.",
+      "pt": "Descubra Maharashtra: Portal da Índia em Mumbai, cavernas de Ajanta e Ellora e a costa de Konkan."
+    }
+  },
+  {
+    "id": "tamil-nadu",
+    "displayOrder": 6,
+    "name": {
+      "en": "Tamil Nadu",
+      "es": "Turismo En Tamil Nadu",
+      "pt": "Turismo em Tamil Nadu"
+    },
+    "slug": {
+      "en": "tamil-nadu",
+      "es": "tamil-nadu",
+      "pt": "tamil-nadu"
+    },
+    "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1200&q=80",
+    "isPublished": true,
+    "isDeleted": false,
+    "description": {
+      "en": "Land of soaring Dravidian temple gopurams, ancient Mahabalipuram shore temples, Madurai Meenakshi, and cool Nilgiri tea hills.",
+      "es": "Tierra de gopurams dravídicos, templos costeros de Mahabalipuram, templo Meenakshi en Madurai y colinas de té de Nilgiri.",
+      "pt": "Terra de gopurams dravidianos, templos à beira-mar de Mahabalipuram, templo Meenakshi em Madurai e colinas de chá."
+    },
+    "seoTitle": {
+      "en": "Tamil Nadu Travel Guide | Dravidian Temples, Madurai & Ooty",
+      "es": "Guía de Viaje de Tamil Nadu | Templos Dravídicos",
+      "pt": "Guia de Viagem de Tamil Nadu | Templos Dravidianos"
+    },
+    "seoDesc": {
+      "en": "Explore Tamil Nadu's architectural masterpieces: Madurai Meenakshi, Thanjavur Brihadeeswarar, Mahabalipuram & Ooty.",
+      "es": "Explore las joyas arquitectónicas de Tamil Nadu: Madurai, Thanjavur, Mahabalipuram y Ooty.",
+      "pt": "Explore as joias arquitetônicas de Tamil Nadu: Madurai, Thanjavur, Mahabalipuram e Ooty."
+    }
+  },
+  {
+    "id": "goa",
+    "displayOrder": 7,
     "name": {
       "en": "Goa",
-      "es": "",
-      "pt": ""
+      "es": "Viaje A Goa",
+      "pt": "Viagem para Goa"
     },
     "slug": {
       "en": "goa",
-      "es": "",
-      "pt": ""
+      "es": "goa",
+      "pt": "goa"
     },
+    "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=1200&q=80",
+    "isPublished": true,
+    "isDeleted": false,
     "description": {
-      "en": "",
-      "es": "",
-      "pt": ""
+      "en": "Tropical coastal paradise with pristine golden sand beaches, UNESCO Portuguese churches, spice plantations and vibrant beach nightlife.",
+      "es": "Paraíso costero tropical con playas de arena dorada, iglesias portuguesas Patrimonio de la Humanidad y plantaciones de especias.",
+      "pt": "Paraíso tropical litorâneo com praias de areia dourada, igrejas portuguesas Patrimônio Mundial e plantações de especiarias."
     },
     "seoTitle": {
-      "en": "",
-      "es": "",
-      "pt": ""
+      "en": "Goa Travel Guide | Golden Beaches, Churches & Water Sports",
+      "es": "Guía de Viaje de Goa | Playas e Iglesias Portuguesas",
+      "pt": "Guia de Viagem de Goa | Praias e Igrejas Portuguesas"
     },
     "seoDesc": {
-      "en": "",
-      "es": "",
-      "pt": ""
+      "en": "Discover Goa: Baga beach, Old Goa Basilica of Bom Jesus, Panaji Latin Quarter and Dudhsagar waterfalls.",
+      "es": "Descubra Goa: playa de Baga, Basílica del Bom Jesus en Old Goa y cascadas de Dudhsagar.",
+      "pt": "Descubra Goa: praia de Baga, Basílica do Bom Jesus em Old Goa e cachoeiras de Dudhsagar."
+    }
+  },
+  {
+    "id": "himachal-pradesh",
+    "displayOrder": 8,
+    "name": {
+      "en": "Himachal Pradesh",
+      "es": "Turismo En Himachal Pradesh",
+      "pt": "Turismo em Himachal Pradesh"
     },
-    "seoKeywords": {
-      "en": "",
-      "es": "",
-      "pt": ""
+    "slug": {
+      "en": "himachal-pradesh",
+      "es": "himachal-pradesh",
+      "pt": "himachal-pradesh"
+    },
+    "image": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1200&q=80",
+    "isPublished": true,
+    "isDeleted": false,
+    "description": {
+      "en": "Land of snow-capped Himalayan peaks, pine-forested valleys, colonial Shimla, adventure sports in Manali and Tibetan culture in Dharamshala.",
+      "es": "Tierra de cumbres nevadas del Himalaya, valles arbolados, la colonial Shimla, deportes de aventura en Manali y cultura tibetana.",
+      "pt": "Terra de picos nevados do Himalaia, vales arborizados, a colonial Shimla, esportes de aventura em Manali e cultura tibetana."
+    },
+    "seoTitle": {
+      "en": "Himachal Pradesh Travel Guide | Shimla, Manali & Dharamshala",
+      "es": "Guía de Viaje de Himachal Pradesh | Shimla y Manali",
+      "pt": "Guia de Viagem de Himachal Pradesh | Shimla e Manali"
+    },
+    "seoDesc": {
+      "en": "Explore Himachal Pradesh: Solang Valley Manali, Mall Road Shimla, Dalai Lama temple in Dharamshala & Spiti.",
+      "es": "Explore Himachal Pradesh: Valle de Solang en Manali, Mall Road en Shimla y templo del Dalai Lama en Dharamshala.",
+      "pt": "Explore Himachal Pradesh: Vale de Solang em Manali, Mall Road em Shimla e templo do Dalai Lama em Dharamshala."
+    }
+  },
+  {
+    "id": "uttarakhand",
+    "displayOrder": 9,
+    "name": {
+      "en": "Uttarakhand",
+      "es": "Turismo En Uttarakhand",
+      "pt": "Turismo em Uttarakhand"
+    },
+    "slug": {
+      "en": "uttarakhand",
+      "es": "uttarakhand",
+      "pt": "uttarakhand"
+    },
+    "image": "https://images.unsplash.com/photo-1547970810-dc0eac378882?w=1200&q=80",
+    "isPublished": true,
+    "isDeleted": false,
+    "description": {
+      "en": "Devbhoomi (Land of Gods), birthplace of Yoga in Rishikesh, sacred Ganges Aarti in Haridwar, hill lakes of Nainital and Corbett wild tigers.",
+      "es": "Tierra de los Dioses, cuna del Yoga en Rishikesh, sagrada ceremonia Aarti en Haridwar, lagos de Nainital y tigres en Jim Corbett.",
+      "pt": "Terra dos Deuses, berço do Yoga em Rishikesh, sagrada cerimônia Aarti em Haridwar, lagos de Nainital e tigres em Jim Corbett."
+    },
+    "seoTitle": {
+      "en": "Uttarakhand Travel Guide | Rishikesh Yoga, Haridwar & Nainital",
+      "es": "Guía de Viaje de Uttarakhand | Rishikesh y Haridwar",
+      "pt": "Guia de Viagem de Uttarakhand | Rishikesh e Haridwar"
+    },
+    "seoDesc": {
+      "en": "Discover Uttarakhand: Laxman Jhula Rishikesh, Har Ki Pauri Haridwar, Naini Lake and Jim Corbett National Park.",
+      "es": "Descubra Uttarakhand: Laxman Jhula en Rishikesh, Har Ki Pauri en Haridwar y el lago Naini en Nainital.",
+      "pt": "Descubra Uttarakhand: Laxman Jhula em Rishikesh, Har Ki Pauri em Haridwar e o lago Naini em Nainital."
+    }
+  },
+  {
+    "id": "karnataka",
+    "displayOrder": 10,
+    "name": {
+      "en": "Karnataka",
+      "es": "Turismo En Karnataka",
+      "pt": "Turismo em Karnataka"
+    },
+    "slug": {
+      "en": "karnataka",
+      "es": "karnataka",
+      "pt": "karnataka"
+    },
+    "image": "https://images.unsplash.com/photo-1600100397608-f09074bfa564?w=1200&q=80",
+    "isPublished": true,
+    "isDeleted": false,
+    "description": {
+      "en": "Blend of technological innovation and ancient heritage, featuring UNESCO ruins of Hampi, royal Mysuru Palace, coffee plantations of Coorg and beaches of Gokarna.",
+      "es": "Combinación de innovación y patrimonio antiguo, con las ruinas de Hampi, el Palacio de Mysuru, plantaciones de café en Coorg y playas de Gokarna.",
+      "pt": "Mistura de inovação e patrimônio antigo, com as ruínas de Hampi, o Palácio de Mysuru, plantações de café em Coorg e praias de Gokarna."
+    },
+    "seoTitle": {
+      "en": "Karnataka Travel Guide | Hampi Ruins, Mysuru Palace & Coorg",
+      "es": "Guía de Viaje de Karnataka | Ruinas de Hampi y Mysuru",
+      "pt": "Guia de Viagem de Karnataka | Ruínas de Hampi e Mysuru"
+    },
+    "seoDesc": {
+      "en": "Explore Karnataka: Vijayanagara empire ruins in Hampi, illuminated Mysore Palace, coffee hills of Coorg & Gokarna.",
+      "es": "Explore Karnataka: ruinas del imperio Vijayanagara en Hampi, Palacio de Mysore e colinas de café en Coorg.",
+      "pt": "Explore Karnataka: ruínas do império Vijayanagara em Hampi, Palácio de Mysore e colinas de café em Coorg."
+    }
+  },
+  {
+    "id": "gujarat",
+    "displayOrder": 11,
+    "name": {
+      "en": "Gujarat",
+      "es": "Turismo En Gujarat",
+      "pt": "Turismo em Gujarat"
+    },
+    "slug": {
+      "en": "gujarat",
+      "es": "gujarat",
+      "pt": "gujarat"
+    },
+    "image": "https://images.unsplash.com/photo-1614027164847-1b28cfe1df60?w=1200&q=80",
+    "isPublished": true,
+    "isDeleted": false,
+    "description": {
+      "en": "Home of Asiatic Lions in Gir, the magical white salt desert of Rann of Kutch, sacred Dwarka, and Sabarmati Ashram in UNESCO Ahmedabad.",
+      "es": "Hogar de leones asiáticos en Gir, el mágico desierto blanco de Kutch, la sagrada Dwarka y el Ashram de Sabarmati en Ahmedabad.",
+      "pt": "Lar dos leões asiáticos em Gir, o mágico deserto branco de Kutch, a sagrada Dwarka e o Ashram de Sabarmati em Ahmedabad."
+    },
+    "seoTitle": {
+      "en": "Gujarat Travel Guide | Asiatic Lions, Rann of Kutch & Dwarka",
+      "es": "Guía de Viaje de Gujarat | Leones Asiáticos y Rann de Kutch",
+      "pt": "Guia de Viagem de Gujarat | Leões Asiáticos e Rann de Kutch"
+    },
+    "seoDesc": {
+      "en": "Discover Gujarat: Gir Asiatic Lions, White Rann of Kutch, Statue of Unity, Somnath temple & Dwarka.",
+      "es": "Descubra Gujarat: leones asiáticos de Gir, desierto blanco de Kutch, Estatua de la Unidad y templo de Somnath.",
+      "pt": "Descubra Gujarat: leões asiáticos de Gir, deserto branco de Kutch, Estátua da Unidade e templo de Somnath."
+    }
+  },
+  {
+    "id": "west-bengal",
+    "displayOrder": 12,
+    "name": {
+      "en": "West Bengal",
+      "es": "Turismo En Bengala Occidental",
+      "pt": "Turismo em Bengala Ocidental"
+    },
+    "slug": {
+      "en": "west-bengal",
+      "es": "west-bengal",
+      "pt": "west-bengal"
+    },
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80",
+    "isPublished": true,
+    "isDeleted": false,
+    "description": {
+      "en": "Cultural hub of East India, encompassing colonial architecture in Kolkata, misty tea estates in Darjeeling and swimming tigers in Sundarbans mangroves.",
+      "es": "Centro cultural del este de la India, con arquitectura colonial en Kolkata, plantaciones de té en Darjeeling y tigres en los manglares de Sundarbans.",
+      "pt": "Centro cultural do leste da Índia, com arquitetura colonial em Kolkata, plantações de chá em Darjeeling e tigres nos manguezais de Sundarbans."
+    },
+    "seoTitle": {
+      "en": "West Bengal Travel Guide | Kolkata, Darjeeling & Sundarbans",
+      "es": "Guía de Viaje de Bengala Occidental | Kolkata y Darjeeling",
+      "pt": "Guia de Viagem de Bengala Ocidental | Kolkata e Darjeeling"
+    },
+    "seoDesc": {
+      "en": "Explore West Bengal: Victoria Memorial Kolkata, Darjeeling Himalayan Railway toy train & Sundarbans mangrove tigers.",
+      "es": "Explore Bengala Occidental: Victoria Memorial en Kolkata, tren de juguete en Darjeeling y los manglares de Sundarbans.",
+      "pt": "Explore Bengala Ocidental: Victoria Memorial em Kolkata, trem de brinquedo em Darjeeling e os manguezais de Sundarbans."
+    }
+  },
+  {
+    "id": "delhi",
+    "displayOrder": 13,
+    "name": {
+      "en": "Delhi",
+      "es": "Turismo En Delhi",
+      "pt": "Turismo em Delhi"
+    },
+    "slug": {
+      "en": "delhi",
+      "es": "delhi",
+      "pt": "delhi"
+    },
+    "image": "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1200&q=80",
+    "isPublished": true,
+    "isDeleted": false,
+    "description": {
+      "en": "India's capital territory where ancient empires meet modern democracy, boasting Red Fort, Qutub Minar, Humayun Tomb and Chandni Chowk bazaars.",
+      "es": "La capital de India donde antiguos imperios se encuentran con la democracia moderna, con el Fuerte Rojo, Qutub Minar y Chandni Chowk.",
+      "pt": "A capital da Índia onde antigos impérios encontram a democracia moderna, com o Forte Vermelho, Qutub Minar e Chandni Chowk."
+    },
+    "seoTitle": {
+      "en": "Delhi Travel Guide | Red Fort, Qutub Minar & Historic Bazaars",
+      "es": "Guía de Viaje de Delhi | Fuerte Rojo y Qutub Minar",
+      "pt": "Guia de Viagem de Delhi | Forte Vermelho e Qutub Minar"
+    },
+    "seoDesc": {
+      "en": "Discover Delhi: UNESCO Red Fort, Qutub Minar, India Gate, Lotus Temple, Humayun's Tomb and Chandni Chowk food tours.",
+      "es": "Descubra Delhi: Fuerte Rojo, Qutub Minar, Puerta de la India, Templo del Loto y gastronomía en Chandni Chowk.",
+      "pt": "Descubra Delhi: Forte Vermelho, Qutub Minar, Portal da Índia, Templo do Lótus e gastronomia em Chandni Chowk."
     }
   }
 ]

@@ -49,6 +49,7 @@ async function main() {
     await syncCollection("outbound", "slug");
     await syncCollection("blogs", "slug");
     await syncCollection("states", "id");
+    await syncCollection("cities", "id");
     await syncCollection("foods", "slug");
     await syncCollection("testimonials", "id");
     await syncCollection("pages", "id");
