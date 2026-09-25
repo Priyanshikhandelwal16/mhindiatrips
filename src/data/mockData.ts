@@ -834,7 +834,13 @@ export const statesData: StateData[] = [
     bestTime: { en: "October to April.", es: "De octubre a abril.", pt: "De outubro a abril." },
     travelTips: [],
     faqs: [],
-    cities: [createMockCity("madhya-pradesh", "khajuraho", "Khajuraho", "Khajuraho", "Khajuraho", "Ancient UNESCO Erotic Sculptured Temples", "/images/Western Group of Temples.jpg")]
+    cities: [
+      createMockCity("madhya-pradesh", "khajuraho", "Khajuraho", "Khajuraho", "Khajuraho", "Ancient UNESCO Erotic Sculptured Temples", "/images/Western Group of Temples.jpg"),
+      createMockCity("madhya-pradesh", "bhopal", "Bhopal", "Bhopal", "Bhopal", "City of Lakes & Heritage", "/images/madhya pradesh.jpg"),
+      createMockCity("madhya-pradesh", "indore", "Indore", "Indore", "Indore", "Food Capital & Holkar Heritage", "/images/madhya pradesh.jpg"),
+      createMockCity("madhya-pradesh", "omkareshwar", "Omkareshwar", "Omkareshwar", "Omkareshwar", "Sacred Island Sanctuary & Jyotirlinga", "https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?w=900&q=80"),
+      createMockCity("madhya-pradesh", "pachmarhi", "Pachmarhi", "Pachmarhi", "Pachmarhi", "Queen of Satpura Hill Station", "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=900&q=80")
+    ]
   },
   {
     slug: "tamil-nadu",
