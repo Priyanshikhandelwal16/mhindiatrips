@@ -10,6 +10,7 @@ import {
 import SidebarInquiryForm from "@/components/common/SidebarInquiryForm";
 import PageHeroSlider from "@/components/common/PageHeroSlider";
 import { getLocalizedDestinationsPath, extractLocalizedString } from "@/lib/utils";
+import { getHighResImageUrl } from "@/lib/image-utils";
 
 interface CityDetailPageProps {
   locale: string;
@@ -334,7 +335,7 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
                         {/* Image banner with index pill */}
                         <div className="h-52 sm:h-60 overflow-hidden relative bg-stone-100">
                           <img 
-                            src={pImg} 
+                            src={getHighResImageUrl(pImg)} 
                             alt={pName} 
                             loading="lazy" 
                             className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out" 
@@ -635,7 +636,7 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
                           {pkg.image && (
                             <div className="w-16 h-12 rounded-xl overflow-hidden shrink-0 bg-stone-100">
                               <img
-                                src={pkg.image}
+                                src={getHighResImageUrl(pkg.image)}
                                 alt={pkgTitle}
                                 className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-300"
                               />

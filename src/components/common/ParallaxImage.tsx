@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { getHighResImageUrl } from "@/lib/image-utils";
 
 interface ParallaxImageProps {
   src: string;
@@ -45,7 +46,7 @@ export default function ParallaxImage({
   return (
     <div ref={ref} className={`relative overflow-hidden ${className}`}>
       <img
-        src={src}
+        src={getHighResImageUrl(src)}
         alt={alt}
         className="absolute inset-0 w-full h-[120%] object-cover transition-transform duration-100 ease-out will-change-transform"
         style={{ transform: `translateY(${offset}px)` }}

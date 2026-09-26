@@ -26,6 +26,16 @@ interface FooterProps {
   };
 }
 
+function formatFooterUrl(rawUrl: string, locale: string) {
+  if (!rawUrl) return `/${locale}`;
+  let clean = rawUrl.trim();
+  clean = clean.replace(/^https?:\/\/[^/]+/, '');
+  clean = clean.replace(/^\/(en|es|pt)(\/|$)/, '/');
+  if (!clean.startsWith('/')) clean = '/' + clean;
+  if (clean === '/') return `/${locale}`;
+  return `/${locale}${clean}`;
+}
+
 export default function Footer({ locale, contactDetails }: FooterProps) {
   const pathname = usePathname();
   if (pathname?.includes("/admin")) {
@@ -37,7 +47,8 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
       tagline: "",
       aboutText: "Crafting extraordinary private odysseys and bespoke heritage journeys across India and beyond. Architecting unforgettable, high-end travel memories with personal concierges and unparalleled local mastery.",
       quickLinks: "Discover More",
-      destinations: "Regions",
+      destinations: "India Regions",
+      outboundTitle: "Outbound Trips",
       contactDetails: "The Travel Desk",
       copyright: "2026 MH India Trips. Crafted for luxury.",
       designedBy: "Designed & Developed by",
@@ -50,7 +61,8 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
       tagline: "",
       aboutText: "Diseñando odiseas privadas extraordinarias y viajes patrimoniales a medida en toda la India. Creando recuerdos de viaje inolvidables con servicio de concierge personalizado y una maestría local sin igual.",
       quickLinks: "Descubrir Más",
-      destinations: "Regiones",
+      destinations: "Regiones de India",
+      outboundTitle: "Viajes Internacionales",
       contactDetails: "Mesa de Viaje",
       copyright: "2026 MH India Trips. Creado para el lujo.",
       designedBy: "Diseñado y Desarrollado por",
@@ -63,7 +75,8 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
       tagline: "",
       aboutText: "Criando odisseias privadas extraordinárias e viagens de patrimônio sob medida na Índia. Arquitetando memórias de viagem inesquecíveis com serviço de concierge personalizado e maestria local incomparável.",
       quickLinks: "Descubra Mais",
-      destinations: "Regiões",
+      destinations: "Regiões da Índia",
+      outboundTitle: "Viagens Internacionais",
       contactDetails: "Balcão de Viagens",
       copyright: "2026 MH India Trips. Feito para o luxo.",
       designedBy: "Design e Desenvolvimento por",
@@ -81,7 +94,7 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
   const aboutText = (contactDetails as any)?.footerAboutText?.[locale] || (contactDetails as any)?.footerAboutText?.en || labels.aboutText;
 
   const defaultQuickLinks = [
-    { name: locale === "es" ? "Inicio" : locale === "pt" ? "Início" : "Home", url: "" },
+    { name: locale === "es" ? "Inicio" : locale === "pt" ? "Início" : "Home", url: "/" },
     { name: locale === "es" ? "Paquetes" : locale === "pt" ? "Pacotes" : "Packages", url: "/packages" },
     { name: locale === "es" ? "Parques Nacionales" : locale === "pt" ? "Parques Nacionais" : "National Parks", url: "/national-parks" },
     { name: locale === "es" ? "Viajes Internacionales" : locale === "pt" ? "Viagens Internacionais" : "International Trips", url: "/international-trips" },
@@ -103,7 +116,8 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
     { name: "Varanasi", url: getLocalizedDestinationsPath(locale, "uttar-pradesh", "varanasi") },
     { name: "Delhi & Agra", url: getLocalizedDestinationsPath(locale, "uttar-pradesh", "agra") },
     { name: "Goa", url: getLocalizedDestinationsPath(locale, "goa") },
-    { name: locale === "es" ? "Internacional (Dubái, Bali...)" : "International (Dubai, Bali...)", url: "/international-trips" }
+    { name: "Himachal Pradesh", url: getLocalizedDestinationsPath(locale, "himachal-pradesh") },
+    { name: "Madhya Pradesh", url: getLocalizedDestinationsPath(locale, "madhya-pradesh") },
   ];
 
   const destinationsList = (contactDetails as any)?.customFooterDestinations && (contactDetails as any).customFooterDestinations.length > 0
@@ -113,7 +127,21 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
       }))
     : defaultDestinationsList;
 
+  const defaultOutboundList = [
+    { name: locale === "es" ? "Dubái y Emiratos" : locale === "pt" ? "Dubai e Emirados" : "Dubai & UAE", url: "/international-trips/dubai" },
+    { name: locale === "es" ? "Bali y Indonesia" : locale === "pt" ? "Bali e Indonésia" : "Bali & Indonesia", url: "/international-trips/bali" },
+    { name: locale === "es" ? "Tailandia e Islas" : locale === "pt" ? "Tailândia e Ilhas" : "Thailand & Islands", url: "/international-trips/thailand" },
+    { name: locale === "es" ? "Resorts de Maldivas" : locale === "pt" ? "Resorts das Maldivas" : "Maldives Overwater", url: "/international-trips/maldives" },
+    { name: locale === "es" ? "Vietnam y Camboya" : locale === "pt" ? "Vietnã e Camboja" : "Vietnam & Cambodia", url: "/international-trips/vietnam" },
+    { name: locale === "es" ? "Sri Lanka y Nepal" : locale === "pt" ? "Sri Lanka e Nepal" : "Sri Lanka & Nepal", url: "/international-trips/sri-lanka" },
+  ];
 
+  const outboundList = (contactDetails as any)?.customFooterOutbound && (contactDetails as any).customFooterOutbound.length > 0
+    ? (contactDetails as any).customFooterOutbound.map((item: any) => ({
+        name: typeof item.name === 'string' ? item.name : (item.name?.[locale] || item.name?.en || item.name?.es || item.name?.pt || ""),
+        url: item.url || item.path || ""
+      }))
+    : defaultOutboundList;
 
   return (
     <footer className="bg-[#FAF8F5] text-royal/75 font-sans relative overflow-hidden border-t border-gold/30">
@@ -123,10 +151,10 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
 
       {/* Main Footer layout */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-8 md:pt-20 md:pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
 
-          {/* Logo & Intro Column (Spans 5) */}
-          <div className="lg:col-span-5 space-y-8">
+          {/* Logo & Intro Column (Spans 4) */}
+          <div className="lg:col-span-4 space-y-8">
             {/* Custom style block to support live footer logo height customization */}
             <style dangerouslySetInnerHTML={{__html: `
               .footer-logo-custom-height {
@@ -174,54 +202,75 @@ export default function Footer({ locale, contactDetails }: FooterProps) {
             </div>
           </div>
 
-          {/* Navigation Columns (Spans 2 + 2) */}
-          <div className="lg:col-span-2 space-y-6">
-            <h4 className="text-xs uppercase tracking-[0.2em] text-[#C5A862] font-bold pb-2.5 border-b border-royal/10">
+          {/* Quick Links Column (Spans 2) */}
+          <div className="lg:col-span-2 space-y-5">
+            <h4 className="text-xs uppercase tracking-[0.2em] text-[#C5A862] font-bold pb-2.5 border-b border-royal/10 h-8 flex items-center shrink-0">
               {labels.quickLinks}
             </h4>
-            <ul className="space-y-3.5 text-sm">
+            <ul className="space-y-3.5 text-xs md:text-sm pt-1">
               {quickLinks.map((link: any, i: number) => (
                 <li key={i}>
                   <Link
-                    href={`/${locale}${link.url.startsWith('/') ? link.url.replace(/^\/(en|es|pt)/, '') : '/' + link.url}`}
+                    href={formatFooterUrl(link.url, locale)}
                     className="hover:text-gold text-royal/70 flex items-center gap-2 transition-colors duration-200"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                    <span>{link.name}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                    <span className="truncate">{link.name}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="lg:col-span-2 space-y-6">
-            <h4 className="text-xs uppercase tracking-[0.2em] text-[#C5A862] font-bold pb-2.5 border-b border-royal/10">
+          {/* India Regions Column (Spans 2) */}
+          <div className="lg:col-span-2 space-y-5">
+            <h4 className="text-xs uppercase tracking-[0.2em] text-[#C5A862] font-bold pb-2.5 border-b border-royal/10 h-8 flex items-center shrink-0">
               {labels.destinations}
             </h4>
-            <ul className="space-y-3.5 text-sm">
+            <ul className="space-y-3.5 text-xs md:text-sm pt-1">
               {destinationsList.map((st: any, i: number) => (
                 <li key={i}>
                   <Link
-                    href={st.url}
+                    href={formatFooterUrl(st.url, locale)}
                     className="hover:text-gold text-royal/70 flex items-center gap-2 transition-colors duration-200"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                    <span>{st.name}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                    <span className="truncate">{st.name}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact Column (Spans 3) */}
-          <div className="lg:col-span-3 space-y-6">
-            <h4 className="text-xs uppercase tracking-[0.2em] text-[#C5A862] font-bold pb-2.5 border-b border-royal/10">
+          {/* Outbound Trips Column (Spans 2 - Perfectly Aligned, Clean Header) */}
+          <div className="lg:col-span-2 space-y-5">
+            <h4 className="text-xs uppercase tracking-[0.2em] text-[#C5A862] font-bold pb-2.5 border-b border-royal/10 h-8 flex items-center shrink-0">
+              {labels.outboundTitle}
+            </h4>
+            <ul className="space-y-3.5 text-xs md:text-sm pt-1">
+              {outboundList.map((st: any, i: number) => (
+                <li key={i}>
+                  <Link
+                    href={formatFooterUrl(st.url, locale)}
+                    className="hover:text-gold text-royal/70 flex items-center gap-2 transition-colors duration-200"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                    <span className="truncate">{st.name}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Column (Spans 2) */}
+          <div className="lg:col-span-2 space-y-5">
+            <h4 className="text-xs uppercase tracking-[0.2em] text-[#C5A862] font-bold pb-2.5 border-b border-royal/10 h-8 flex items-center shrink-0">
               {labels.contactDetails}
             </h4>
-            <div className="space-y-4 text-sm font-semibold">
+            <div className="space-y-3.5 text-xs md:text-sm font-semibold pt-1">
               <a href={`tel:${contactDetails?.phone || "+91 9314635830"}`} className="flex items-center gap-2.5 text-royal/70 hover:text-gold transition-colors">
                 <Phone className="w-4 h-4 text-[#C5A862] shrink-0" />
-                <span>{contactDetails?.phone || "+91 9314635830"}</span>
+                <span className="truncate">{contactDetails?.phone || "+91 9314635830"}</span>
               </a>
               <a href={`mailto:${displayEmail}`} className="flex items-center gap-2.5 text-royal/70 hover:text-gold transition-colors">
                 <Mail className="w-4 h-4 text-[#C5A862] shrink-0" />

@@ -649,7 +649,7 @@ export default function AdminDashboard() {
       )}
       
       {/* DESKTOP SIDEBAR */}
-      <aside className="w-64 bg-[#FCFAF6] text-royal shrink-0 hidden md:flex flex-col justify-between py-6 px-5 border-r border-gold/15 fixed left-0 top-0 bottom-0 z-40 overflow-y-auto shadow-lg shadow-royal/5">
+      <aside className="w-64 bg-[#FCFAF6] text-royal shrink-0 hidden lg:flex flex-col justify-between py-6 px-5 border-r border-gold/15 fixed left-0 top-0 bottom-0 z-40 overflow-y-auto shadow-lg shadow-royal/5">
         <div className="space-y-6">
           <Link href={`/${locale}`} className="block pb-4 border-b border-gold/10">
             <img src="/images/logo-transparent.png" alt="MH India Trips" className="h-12 w-auto opacity-95 mx-auto" />
@@ -706,7 +706,7 @@ export default function AdminDashboard() {
 
       {/* MOBILE DRAWER SIDEBAR */}
       {mobileSidebarOpen && (
-        <div className="fixed inset-0 z-50 flex md:hidden">
+        <div className="fixed inset-0 z-50 flex lg:hidden">
           {/* Backdrop */}
           <div className="fixed inset-0 bg-black/60 transition-opacity" onClick={() => setMobileSidebarOpen(false)} />
           
@@ -776,7 +776,7 @@ export default function AdminDashboard() {
       )}
 
       {/* MAIN CONTAINER WORKSPACE */}
-      <div className="flex-grow flex-1 min-w-0 h-full overflow-y-auto px-3 sm:px-6 md:px-10 py-6 md:py-8 md:ml-64 max-w-full overflow-x-hidden">
+      <div className="flex-grow flex-1 min-w-0 h-full overflow-y-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8 lg:ml-64 max-w-full overflow-x-hidden">
         
         {/* UPPER HEADER CONTROLS */}
         <div className="flex justify-between items-center mb-8 border-b border-beige/40 pb-5">
@@ -784,7 +784,7 @@ export default function AdminDashboard() {
             {/* Hamburger Button for mobile screen */}
             <button 
               onClick={() => setMobileSidebarOpen(true)}
-              className="p-2 border border-beige/40 rounded-xl hover:bg-beige/10 md:hidden cursor-pointer shrink-0"
+              className="p-2 border border-beige/40 rounded-xl hover:bg-beige/10 lg:hidden cursor-pointer shrink-0"
               title="Open Navigation"
             >
               <Menu className="w-5 h-5 text-royal" />

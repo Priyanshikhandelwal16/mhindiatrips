@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import { getHighResImageUrl } from "@/lib/image-utils";
 
 interface LazyImageProps {
   src: string;
@@ -47,7 +48,7 @@ export default function LazyImage({ src, alt, className = "", style, priority = 
 
       {inView && (
         <img
-          src={src}
+          src={getHighResImageUrl(src)}
           alt={alt}
           loading={priority ? "eager" : "lazy"}
           decoding="async"

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { MapPin, ChevronRight } from "lucide-react";
 import Reveal from "@/components/home/Reveal";
 import { getLocalizedDestinationsPath, extractLocalizedString } from "@/lib/utils";
+import { getHighResImageUrl } from "@/lib/image-utils";
 
 interface StateListingPageProps {
   locale: string;
@@ -162,7 +163,7 @@ export default function StateListingPage({ locale, state, cities }: StateListing
                       {/* Image container */}
                       <div className="h-80 overflow-hidden relative">
                         <img
-                          src={city.image || "/images/destination_fallback.jpg"}
+                          src={getHighResImageUrl(city.image)}
                           alt={cityTitle}
                           loading="lazy"
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"

@@ -62,12 +62,12 @@ export default function InquiriesTab({
           </div>
 
           {/* Status selector */}
-          <div className="flex rounded-xl bg-beige/20 border border-beige/40 p-1 shadow-sm w-full md:w-auto">
+          <div className="flex flex-nowrap overflow-x-auto max-w-full rounded-xl bg-beige/20 border border-beige/40 p-1 shadow-sm w-full md:w-auto scrollbar-none">
             {["ALL", "NEW", "IN_PROGRESS", "CONTACTED", "CLOSED"].map((filter) => (
               <button
                 key={filter}
                 onClick={() => setStatusFilter(filter)}
-                className={`px-3.5 py-1.5 rounded-lg text-[9px] uppercase tracking-wider font-extrabold transition cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg text-[9px] uppercase tracking-wider font-extrabold transition cursor-pointer whitespace-nowrap shrink-0 ${
                   statusFilter === filter 
                     ? "bg-royal text-white shadow-sm" 
                     : "text-royal/60 hover:text-royal"

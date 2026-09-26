@@ -7,6 +7,7 @@ import {
   Info, ShieldAlert, Globe, Activity, List, Play, X, Star, Settings
 } from "lucide-react";
 import { CloudinaryUpload } from "./CloudinaryUpload";
+import { getHighResImageUrl } from "@/lib/image-utils";
 
 interface PackagesTabProps {
   packages: any[];
@@ -900,7 +901,7 @@ export default function PackagesTab({
                 </div>
                 {editPackage.image && (
                   <div className="col-span-full h-44 w-full overflow-hidden border border-gold/10 rounded-2xl shadow-inner relative">
-                    <img src={editPackage.image || "/images/destination_fallback.jpg"} alt="Package banner" className="w-full h-full object-cover" />
+                    <img src={getHighResImageUrl(editPackage.image)} alt="Package banner" className="w-full h-full object-cover" />
                   </div>
                 )}
               </div>
@@ -2393,7 +2394,7 @@ export default function PackagesTab({
                 return (
                   <div key={pkg.slug} className="bg-white border border-beige/45 rounded-3xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-gold/30 transition">
                     <div className="h-40 w-full overflow-hidden bg-light-gray relative">
-                      <img src={pkg.image || "/images/destination_fallback.jpg"} alt={pkg.title?.en} className="h-full w-full object-cover" />
+                      <img src={getHighResImageUrl(pkg.image)} alt={pkg.title?.en} className="h-full w-full object-cover" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent"></div>
                       <span className={`absolute top-3 left-3 text-[8px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md ${
                         isOut ? "bg-[#0A2A1E] text-[#C5A862] border border-[#C5A862]/30" : "bg-royal text-white border border-gold/20"

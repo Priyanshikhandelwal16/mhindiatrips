@@ -353,44 +353,44 @@ export default function SettingsTab({
         </div>
 
         {/* Sub-Tabs Switcher Bar */}
-        <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-gold/10">
+        <div className="flex flex-nowrap sm:flex-wrap items-center gap-2 pt-2 border-t border-gold/10 overflow-x-auto max-w-full pb-1 scrollbar-none">
           <button
             onClick={() => setActiveSubTab("contact")}
-            className={`px-4 py-2 rounded-full font-bold text-xs transition-all flex items-center gap-2 cursor-pointer ${
+            className={`px-3.5 py-2 rounded-full font-bold text-xs transition-all flex items-center gap-2 cursor-pointer shrink-0 whitespace-nowrap ${
               activeSubTab === "contact" ? "bg-[#0A2A1E] text-white shadow-sm" : "bg-[#FAF8F5] text-royal/70 hover:bg-gold/10"
             }`}
           >
-            <Phone className="w-3.5 h-3.5 text-gold" />
+            <Phone className="w-3.5 h-3.5 text-gold shrink-0" />
             <span>1. Contact & Desk Info</span>
           </button>
 
           <button
             onClick={() => setActiveSubTab("header")}
-            className={`px-4 py-2 rounded-full font-bold text-xs transition-all flex items-center gap-2 cursor-pointer ${
+            className={`px-3.5 py-2 rounded-full font-bold text-xs transition-all flex items-center gap-2 cursor-pointer shrink-0 whitespace-nowrap ${
               activeSubTab === "header" ? "bg-[#0A2A1E] text-white shadow-sm" : "bg-[#FAF8F5] text-royal/70 hover:bg-gold/10"
             }`}
           >
-            <Compass className="w-3.5 h-3.5 text-gold" />
+            <Compass className="w-3.5 h-3.5 text-gold shrink-0" />
             <span>2. Header & Dropdowns</span>
           </button>
 
           <button
             onClick={() => setActiveSubTab("footer")}
-            className={`px-4 py-2 rounded-full font-bold text-xs transition-all flex items-center gap-2 cursor-pointer ${
+            className={`px-3.5 py-2 rounded-full font-bold text-xs transition-all flex items-center gap-2 cursor-pointer shrink-0 whitespace-nowrap ${
               activeSubTab === "footer" ? "bg-[#0A2A1E] text-white shadow-sm" : "bg-[#FAF8F5] text-royal/70 hover:bg-gold/10"
             }`}
           >
-            <Layers className="w-3.5 h-3.5 text-gold" />
+            <Layers className="w-3.5 h-3.5 text-gold shrink-0" />
             <span>3. Footer & Navigation</span>
           </button>
 
           <button
             onClick={() => setActiveSubTab("security")}
-            className={`px-4 py-2 rounded-full font-bold text-xs transition-all flex items-center gap-2 cursor-pointer ${
+            className={`px-3.5 py-2 rounded-full font-bold text-xs transition-all flex items-center gap-2 cursor-pointer shrink-0 whitespace-nowrap ${
               activeSubTab === "security" ? "bg-[#0A2A1E] text-white shadow-sm" : "bg-[#FAF8F5] text-royal/70 hover:bg-gold/10"
             }`}
           >
-            <KeyRound className="w-3.5 h-3.5 text-gold" />
+            <KeyRound className="w-3.5 h-3.5 text-gold shrink-0" />
             <span>4. Security & Passwords</span>
           </button>
         </div>

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Shield, MapPin, Heart, Briefcase, Leaf, Clock } from "lucide-react";
+import { getHighResImageUrl } from "@/lib/image-utils";
 
 interface TravelerInfoCarouselProps {
   locale: string;
@@ -144,7 +145,7 @@ export default function TravelerInfoCarousel({ locale, cardImages = {} }: Travel
                 {/* Image */}
                 <div className="relative h-56 overflow-hidden">
                   <img
-                    src={cardImages[card.id] || card.image}
+                    src={getHighResImageUrl(cardImages[card.id] || card.image)}
                     alt={title}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"

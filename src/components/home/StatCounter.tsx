@@ -19,28 +19,43 @@ export default function StatCounter({ target, suffix = "", duration = 1500 }: St
   useEffect(() => {
     if (isString) return;
     const el = ref.current;
-    if (!el) return;
 
-    // Direct viewport check on mount
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
+    // Mobile fallback timer to guarantee counter starts even if IntersectionObserver is delayed
+    const fallbackTimer = setTimeout(() => {
       setHasStarted(true);
+    }, 300);
+
+    if (!el) {
+      return () => clearTimeout(fallbackTimer);
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHasStarted(true);
-        }
-      },
-      { threshold: 0.15 }
-    );
+    // Direct viewport check on mount
+    try {
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= (window.innerHeight || 800) && rect.bottom >= 0) {
+        setHasStarted(true);
+      }
+    } catch (e) {}
 
-    observer.observe(el);
+    if (typeof IntersectionObserver !== "undefined") {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setHasStarted(true);
+          }
+        },
+        { threshold: 0.01 }
+      );
 
-    return () => {
-      observer.disconnect();
-    };
+      observer.observe(el);
+
+      return () => {
+        clearTimeout(fallbackTimer);
+        observer.disconnect();
+      };
+    }
+
+    return () => clearTimeout(fallbackTimer);
   }, [isString]);
 
   useEffect(() => {
@@ -68,6 +83,6 @@ export default function StatCounter({ target, suffix = "", duration = 1500 }: St
     return <span ref={ref}>{target}{suffix}</span>;
   }
 
-  return <span ref={ref}>{hasStarted ? count : 0}{suffix}</span>;
+  return <span ref={ref}>{hasStarted ? count : numTarget}{suffix}</span>;
 }
 

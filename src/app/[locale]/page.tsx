@@ -10,10 +10,11 @@ import StatCounter from "@/components/home/StatCounter";
 import { 
   MapPin, Clock, ArrowRight, Star, Heart, Compass, Sparkles, 
   Award, Shield, Calendar, BookOpen, Coffee, Landmark, ArrowUpRight,
-  CheckCircle, ShieldCheck, FileCheck, CheckCircle2, BadgeCheck, Building2
+  CheckCircle, ShieldCheck, FileCheck, CheckCircle2, BadgeCheck, Building2, Tag
 } from "lucide-react";
 import { getLocalizedDestinationsPath } from "@/lib/utils";
 import { getHighResImageUrl } from "@/lib/image-utils";
+import { getPackagePriceInfo } from "@/lib/price-utils";
 
 // Lazy load heavy interactive components
 const ServicesSection = dynamic(() => import("@/components/home/ServicesSection"), { ssr: true });
@@ -1096,7 +1097,7 @@ export default async function HomePage({ params }: HomePageProps) {
                   <div className="card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full">
                     <div className="h-80 overflow-hidden relative shrink-0">
                       <Image 
-                        src={st.image} 
+                        src={getHighResImageUrl(st.image)} 
                         alt={stateTitle} 
                         fill 
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -1254,7 +1255,9 @@ export default async function HomePage({ params }: HomePageProps) {
 
         {/* Large, Beautiful Cards (Matched with tour packages catalog page styling) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {tourPackages.map((pkg: any, i: number) => (
+          {tourPackages.map((pkg: any, i: number) => {
+            const priceInfo = getPackagePriceInfo(pkg, locale);
+            return (
             <Reveal key={pkg.slug} delay={i * 80}>
               <div className="card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full transition-all duration-500 hover:border-[#C5A862]/30 group perspective-1000">
                 <div className="relative h-64 overflow-hidden shrink-0">
@@ -1268,11 +1271,17 @@ export default async function HomePage({ params }: HomePageProps) {
                     className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-65" />
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute top-4 left-4 flex flex-col gap-1.5 items-start">
                     <span className="bg-white/95 backdrop-blur-sm text-royal text-[9px] uppercase tracking-wider font-extrabold px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1">
                       <Calendar className="w-3.5 h-3.5 text-gold" />
                       {pkg.durationDays} {text.days}
                     </span>
+                    {priceInfo.saleBadge && (
+                      <span className="bg-[#B91C1C] text-white text-[9px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-md flex items-center gap-1 animate-pulse">
+                        <Tag className="w-3 h-3 text-amber-300" />
+                        {priceInfo.saleBadge}
+                      </span>
+                    )}
                   </div>
                   <div className="absolute bottom-4 right-4">
                     <span className="bg-gold/90 backdrop-blur-sm text-royal text-[9px] uppercase tracking-wider font-black px-3 py-1.5 rounded-full">
@@ -1316,9 +1325,27 @@ export default async function HomePage({ params }: HomePageProps) {
                   </div>
 
                   <div className="pt-6 mt-6 border-t border-[#C5A862]/15 flex justify-between items-center bg-white">
-                    <span className="text-[10px] font-extrabold tracking-wider uppercase text-gold">
-                      {text.priceOnRequest}
-                    </span>
+                    {priceInfo.isEnquireOnly ? (
+                      <span className="text-[10px] font-extrabold tracking-wider uppercase text-gold">
+                        {text.priceOnRequest}
+                      </span>
+                    ) : (
+                      <div className="flex flex-col">
+                        <span className="text-[9px] font-bold uppercase text-[#0A2A1E]/50 tracking-wider">
+                          {locale === "es" ? "Desde" : locale === "pt" ? "A partir de" : "Starting From"}
+                        </span>
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-lg font-serif font-extrabold text-[#0A2A1E]">
+                            {priceInfo.formattedOfferPrice}
+                          </span>
+                          {priceInfo.hasDiscount && priceInfo.formattedOriginalPrice && (
+                            <span className="text-xs text-[#0A2A1E]/40 line-through font-medium">
+                              {priceInfo.formattedOriginalPrice}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    )}
                     <Link
                       href={`/${locale}/packages/${pkg.slug}`}
                       className="text-xs font-bold uppercase tracking-wider text-royal hover:text-gold flex items-center gap-1 transition-colors"
@@ -1330,7 +1357,8 @@ export default async function HomePage({ params }: HomePageProps) {
                 </div>
               </div>
             </Reveal>
-          ))}
+          );
+        })}
         </div>
 
         {/* VIEW ALL Packages button */}
@@ -1372,7 +1400,7 @@ export default async function HomePage({ params }: HomePageProps) {
                 <div className="group block bg-[#FAF8F5] border border-gold/10 overflow-hidden shadow-sm flex flex-col h-full rounded-2xl transition-all duration-300 hover:shadow-lg hover:border-gold/30">
                   <div className="h-64 overflow-hidden relative shrink-0">
                     <img 
-                      src={attraction.image} 
+                      src={getHighResImageUrl(attraction.image)} 
                       alt={attraction.name} 
                       className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105" 
                       loading="lazy"
@@ -1511,7 +1539,7 @@ export default async function HomePage({ params }: HomePageProps) {
               <Reveal key={post.slug} delay={i * 80}>
                 <div className="group card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full perspective-1000">
                   <div className="h-56 overflow-hidden shrink-0 relative">
-                    <img src={post.featuredImage} alt={post.title?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
+                    <img src={getHighResImageUrl(post.featuredImage)} alt={post.title?.en} loading="lazy" className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-65" />
                     <span className="absolute top-4 left-4 bg-gold text-royal text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full">
                       {post.category}

@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { getPageByIdAction } from "@/app/actions/queries";
 import Reveal from "@/components/home/Reveal";
 import { getLocalizedDestinationsPath, extractLocalizedString } from "@/lib/utils";
+import { getHighResImageUrl } from "@/lib/image-utils";
 
 interface DestinationsCatalogPageProps {
   locale: string;
@@ -103,7 +104,7 @@ export default async function DestinationsCatalogPage({ locale, states }: Destin
                   <div className="bg-white border border-[#C3AB85]/10 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 h-full flex flex-col justify-between">
                     <div className="h-80 overflow-hidden relative">
                       <img
-                        src={state.image || "/images/destination_fallback.jpg"}
+                        src={getHighResImageUrl(state.image)}
                         alt={stateTitle}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />

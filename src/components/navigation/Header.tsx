@@ -175,17 +175,17 @@ export default function Header({ locale, contactDetails, states = [], packages =
   const ctaUrl = rawCtaUrl.startsWith("/") ? `/${locale}${rawCtaUrl.replace(/^\/(en|es|pt)/, "")}` : rawCtaUrl;
 
   const languages = [
-    { code: "en", name: "English" },
-    { code: "es", name: "Español" },
-    { code: "pt", name: "Português" },
-    { code: "fr", name: "Français" },
-    { code: "de", name: "Deutsch" },
-    { code: "it", name: "Italiano" },
-    { code: "hi", name: "हिन्दी" },
-    { code: "ru", name: "Русский" },
-    { code: "ja", name: "日本語" },
-    { code: "zh-CN", name: "中文" },
-    { code: "ar", name: "العربية" }
+    { code: "en", name: "English", flag: "🇬🇧" },
+    { code: "es", name: "Español", flag: "🇪🇸" },
+    { code: "pt", name: "Português", flag: "🇵🇹" },
+    { code: "fr", name: "Français", flag: "🇫🇷" },
+    { code: "de", name: "Deutsch", flag: "🇩🇪" },
+    { code: "it", name: "Italiano", flag: "🇮🇹" },
+    { code: "hi", name: "हिन्दी", flag: "🇮🇳" },
+    { code: "ru", name: "Русский", flag: "🇷🇺" },
+    { code: "ja", name: "日本語", flag: "🇯🇵" },
+    { code: "zh-CN", name: "中文", flag: "🇨🇳" },
+    { code: "ar", name: "العربية", flag: "🇦🇪" }
   ];
 
   const handleSelectLanguage = (targetLocale: string) => {
@@ -610,28 +610,35 @@ export default function Header({ locale, contactDetails, states = [], packages =
             <div className="relative">
               <button 
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
-                className="flex items-center gap-1 text-[8.5px] 2xl:text-[10px] font-bold uppercase tracking-wider text-royal border border-gold/25 hover:border-gold hover:text-gold px-2.5 py-1.5 2xl:px-4 2xl:py-2 rounded-full cursor-pointer transition-all duration-300"
+                className="flex items-center gap-1.5 text-[8.5px] 2xl:text-[10px] font-bold uppercase tracking-wider text-royal border border-gold/25 hover:border-gold hover:text-gold px-3 py-1.5 2xl:px-4 2xl:py-2 rounded-full cursor-pointer transition-all duration-300 bg-white/50"
                 aria-label="Language Selector"
                 suppressHydrationWarning={true}
               >
-                <span>{locale}</span>
+                <span>{locale === "es" ? "🇪🇸 ES" : locale === "pt" ? "🇵🇹 PT" : "🇬🇧 EN"}</span>
                 <ChevronDown className="w-2.5 h-2.5 text-gold" />
               </button>
               
               {langMenuOpen && (
                 <>
                   <div className="fixed inset-0 z-30" onClick={() => setLangMenuOpen(false)} />
-                  <div className="absolute right-0 mt-3 w-40 bg-white border border-gold/15 shadow-2xl z-40 py-2.5 overflow-hidden animate-scale-up rounded-xl">
+                  <div className="absolute right-0 mt-3 w-44 bg-white border border-gold/15 shadow-2xl z-40 py-2.5 overflow-hidden animate-scale-up rounded-xl">
+                    <div className="px-3 py-1 text-[8px] font-black uppercase text-gold tracking-widest border-b border-gold/10 mb-1">
+                      Featured Languages
+                    </div>
                     {languages.map((lang) => (
                       <Link
                         key={lang.code}
                         href={switchLocalePath(lang.code)}
                         onClick={() => handleSelectLanguage(lang.code)}
-                        className={`block px-5 py-2 text-[11px] font-semibold tracking-wider uppercase text-royal hover:bg-gold/5 hover:text-gold transition-colors ${
-                          locale === lang.code ? "text-gold font-extrabold bg-gold/5" : ""
+                        className={`flex items-center justify-between px-4 py-2 text-[11px] font-semibold tracking-wider uppercase text-royal hover:bg-gold/5 hover:text-gold transition-colors ${
+                          locale === lang.code ? "text-gold font-extrabold bg-gold/10" : ""
                         }`}
                       >
-                        {lang.name}
+                        <span className="flex items-center gap-2">
+                          <span>{lang.flag}</span>
+                          <span>{lang.name}</span>
+                        </span>
+                        {locale === lang.code && <span className="w-2 h-2 rounded-full bg-gold" />}
                       </Link>
                     ))}
                   </div>
@@ -650,30 +657,38 @@ export default function Header({ locale, contactDetails, states = [], packages =
           </div>
 
           {/* Mobile Buttons */}
-          <div className="flex xl:hidden items-center gap-2 z-20">
+          <div className="flex xl:hidden items-center gap-2 z-20 relative">
             <button
               onClick={() => setLangMenuOpen(!langMenuOpen)}
-              className="p-2 border border-gold/15 text-royal hover:border-gold rounded-full transition-colors"
+              className="px-3 py-1.5 border border-gold/20 text-royal hover:border-gold rounded-full transition-colors flex items-center gap-1 text-[10px] font-bold uppercase bg-white/60"
               aria-label="Language Mobile Menu"
               suppressHydrationWarning={true}
             >
-              <Globe className="w-4 h-4 text-gold" />
+              <span>{locale === "es" ? "🇪🇸 ES" : locale === "pt" ? "🇵🇹 PT" : "🇬🇧 EN"}</span>
+              <ChevronDown className="w-3 h-3 text-gold" />
             </button>
 
             {langMenuOpen && (
               <>
                 <div className="fixed inset-0 z-30" onClick={() => setLangMenuOpen(false)} />
-                <div className="absolute right-16 mt-32 w-36 bg-white border border-gold/15 shadow-xl z-40 py-2 overflow-hidden animate-scale-up rounded-xl">
+                <div className="absolute right-0 top-12 w-48 bg-white border border-gold/20 shadow-2xl z-50 py-2.5 overflow-hidden animate-scale-up rounded-2xl max-h-80 overflow-y-auto">
+                  <div className="px-4 py-1 text-[8px] font-black uppercase text-gold tracking-widest border-b border-gold/10 mb-1">
+                    Select Language
+                  </div>
                   {languages.map((lang) => (
                     <Link
                       key={lang.code}
                       href={switchLocalePath(lang.code)}
                       onClick={() => handleSelectLanguage(lang.code)}
-                      className={`block px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-royal hover:text-gold hover:bg-gold/5 ${
-                        locale === lang.code ? "text-gold font-extrabold bg-gold/5" : ""
+                      className={`flex items-center justify-between px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-royal hover:text-gold hover:bg-gold/5 ${
+                        locale === lang.code ? "text-gold font-extrabold bg-gold/10" : ""
                       }`}
                     >
-                      {lang.name}
+                      <span className="flex items-center gap-2">
+                        <span>{lang.flag}</span>
+                        <span>{lang.name}</span>
+                      </span>
+                      {locale === lang.code && <span className="text-[8px] bg-gold/20 text-royal px-1.5 py-0.5 rounded font-black">ACTIVE</span>}
                     </Link>
                   ))}
                 </div>
@@ -696,7 +711,34 @@ export default function Header({ locale, contactDetails, states = [], packages =
       {/* Mobile Menu Panel */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 bg-[#FCFAF6]/98 backdrop-blur-xl z-40 flex flex-col justify-start pt-24 px-6 pb-10 space-y-4 animate-fade-in xl:hidden text-royal overflow-y-auto overscroll-contain">
-          <nav className="flex flex-col space-y-1 pt-4 text-left">
+          
+          {/* Mobile Quick Language Bar */}
+          <div className="bg-white border border-gold/20 p-3 rounded-2xl space-y-2 shadow-sm">
+            <span className="text-[9px] font-bold uppercase tracking-widest text-gold block">
+              🌐 Select Language / Idioma:
+            </span>
+            <div className="flex flex-wrap gap-1.5">
+              {languages.map((lang) => (
+                <Link
+                  key={lang.code}
+                  href={switchLocalePath(lang.code)}
+                  onClick={() => {
+                    handleSelectLanguage(lang.code);
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`px-3 py-1.5 rounded-lg text-[9.5px] font-extrabold uppercase tracking-wider transition ${
+                    locale === lang.code
+                      ? "bg-[#0A2A1E] text-gold border border-gold/30 shadow-sm"
+                      : "bg-beige/30 text-royal/80 hover:bg-gold/10"
+                  }`}
+                >
+                  {lang.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <nav className="flex flex-col space-y-1 pt-2 text-left">
             
             {/* Home Link */}
             <Link

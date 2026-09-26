@@ -5,6 +5,7 @@ import {
   Utensils, Plus, Edit2, Trash2, Image as ImageIcon, MapPin, Star, BookOpen 
 } from "lucide-react";
 import { CloudinaryUpload } from "./CloudinaryUpload";
+import { getHighResImageUrl } from "@/lib/image-utils";
 
 interface CuisinesTabProps {
   foods: any[];
@@ -250,7 +251,7 @@ export default function CuisinesTab({
                 </div>
                 {editFood.image && (
                   <div className="col-span-full h-36 w-full overflow-hidden border border-gold/10 rounded-2xl shadow-inner">
-                    <img src={editFood.image || "/images/destination_fallback.jpg"} alt="Dish review" className="w-full h-full object-cover" />
+                    <img src={getHighResImageUrl(editFood.image)} alt="Dish review" className="w-full h-full object-cover" />
                   </div>
                 )}
               </div>
@@ -443,7 +444,7 @@ export default function CuisinesTab({
           {(foods || []).map((food) => (
             <div key={food.slug} className="bg-white border border-beige/45 rounded-3xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-gold/30 transition">
               <div className="h-40 w-full overflow-hidden bg-light-gray relative">
-                <img src={food.image || "/images/destination_fallback.jpg"} alt={food.title?.en} className="h-full w-full object-cover" />
+                <img src={getHighResImageUrl(food.image)} alt={food.title?.en} className="h-full w-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent"></div>
               </div>
               <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">

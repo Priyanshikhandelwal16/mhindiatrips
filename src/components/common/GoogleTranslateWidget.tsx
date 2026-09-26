@@ -10,21 +10,36 @@ declare global {
   }
 }
 
+/**
+ * Wipes out all googtrans cookies across root domain, subdomains, and locale paths
+ * so Google Machine Translate never interferes with human-translated pages (en, es, pt).
+ */
+export function clearGoogleTranslateCookies() {
+  if (typeof document === "undefined") return;
+  const domain = window.location.hostname;
+  const domainVariations = ["", domain, `.${domain}`, `www.${domain}`];
+  const paths = ["/", "/en", "/es", "/pt"];
+
+  for (const d of domainVariations) {
+    for (const p of paths) {
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${p};${d ? ` domain=${d};` : ""}`;
+    }
+  }
+
+  const combo = document.querySelector(".goog-te-combo") as HTMLSelectElement;
+  if (combo && combo.value !== "") {
+    combo.value = "";
+    combo.dispatchEvent(new Event("change"));
+  }
+}
+
 export function setGoogleTranslateCookie(targetLang: string) {
   if (typeof document === "undefined") return;
   const domain = window.location.hostname;
 
-  if (targetLang === "en") {
-    // Clear googtrans cookies completely to restore original English text
-    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain};`;
-    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${domain};`;
-
-    const combo = document.querySelector(".goog-te-combo") as HTMLSelectElement;
-    if (combo && combo.value !== "en" && combo.value !== "") {
-      combo.value = "en";
-      combo.dispatchEvent(new Event("change"));
-    }
+  // For native supported human locales (English, Spanish, Portuguese), ALWAYS wipe Google Translate cookies completely!
+  if (targetLang === "en" || targetLang === "es" || targetLang === "pt") {
+    clearGoogleTranslateCookies();
     return;
   }
 
@@ -34,11 +49,9 @@ export function setGoogleTranslateCookie(targetLang: string) {
   document.cookie = `googtrans=${cookieValue}; path=/; domain=.${domain};`;
 
   const combo = document.querySelector(".goog-te-combo") as HTMLSelectElement;
-  if (combo) {
-    if (combo.value !== targetLang) {
-      combo.value = targetLang;
-      combo.dispatchEvent(new Event("change"));
-    }
+  if (combo && combo.value !== targetLang) {
+    combo.value = targetLang;
+    combo.dispatchEvent(new Event("change"));
   }
 }
 
@@ -46,25 +59,28 @@ export default function GoogleTranslateWidget() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Extract active locale segment or googtrans cookie target
     const segments = (pathname || "").split("/").filter(Boolean);
     const firstSeg = (segments[0] || "").toLowerCase();
-    const supportedLangs = ["es", "pt", "fr", "de", "it", "ru", "ja", "zh-CN", "hi", "ar"];
-    
-    // Read active googtrans cookie if set
-    let cookieLang = "";
-    if (typeof document !== "undefined") {
-      const match = document.cookie.match(/googtrans=\/en\/([a-zA-Z-]+)/);
-      if (match && match[1]) cookieLang = match[1];
+
+    // Core native human-translated locales: en, es, pt
+    const isNativeLocale = firstSeg === "en" || firstSeg === "es" || firstSeg === "pt" || firstSeg === "";
+
+    if (isNativeLocale) {
+      clearGoogleTranslateCookies();
+      if (typeof document !== "undefined" && firstSeg) {
+        document.documentElement.lang = firstSeg;
+      }
+      return;
     }
 
-    const targetLang = supportedLangs.includes(firstSeg) 
-      ? firstSeg 
-      : supportedLangs.includes(cookieLang) 
-      ? cookieLang 
-      : "en";
+    const autoSupportedLangs = ["fr", "de", "it", "ru", "ja", "zh-CN", "hi", "ar"];
+    const targetLang = autoSupportedLangs.includes(firstSeg) ? firstSeg : "en";
 
-    // Set or clear Google Translate cookie automatically on page load
+    if (targetLang === "en") {
+      clearGoogleTranslateCookies();
+      return;
+    }
+
     setGoogleTranslateCookie(targetLang);
 
     window.googleTranslateElementInit = () => {
@@ -79,16 +95,6 @@ export default function GoogleTranslateWidget() {
           },
           "google_translate_element"
         );
-
-        // Periodically verify translation on initial load to override React hydration
-        let count = 0;
-        const interval = setInterval(() => {
-          count++;
-          if (targetLang !== "en") {
-            setGoogleTranslateCookie(targetLang);
-          }
-          if (count > 25) clearInterval(interval);
-        }, 300);
       }
     };
 
@@ -101,44 +107,9 @@ export default function GoogleTranslateWidget() {
     } else if (window.googleTranslateElementInit) {
       window.googleTranslateElementInit();
     }
-
-    // MutationObserver to automatically translate small detail points, activities, key points, and accordions on DOM updates
-    let observer: MutationObserver | null = null;
-    if (targetLang !== "en" && typeof MutationObserver !== "undefined") {
-      let debounceTimer: NodeJS.Timeout | null = null;
-      observer = new MutationObserver((mutations) => {
-        let hasRelevantMutation = false;
-        for (const m of mutations) {
-          if (m.type === "childList" || m.type === "characterData") {
-            const targetEl = m.target as HTMLElement;
-            if (targetEl && (targetEl.classList?.contains("goog-te-banner-frame") || targetEl.id === "google_translate_element" || targetEl.tagName === "SCRIPT")) {
-              continue;
-            }
-            hasRelevantMutation = true;
-            break;
-          }
-        }
-        if (hasRelevantMutation) {
-          if (debounceTimer) clearTimeout(debounceTimer);
-          debounceTimer = setTimeout(() => {
-            setGoogleTranslateCookie(targetLang);
-          }, 350);
-        }
-      });
-
-      observer.observe(document.body, {
-        childList: true,
-        subtree: true,
-        characterData: true
-      });
-    }
-
-    return () => {
-      if (observer) observer.disconnect();
-    };
   }, [pathname]);
 
   return (
-    <div id="google_translate_element" className="google-translate-container" />
+    <div id="google_translate_element" className="google-translate-container hidden opacity-0 pointer-events-none" />
   );
 }

@@ -6,6 +6,7 @@ import {
   HelpCircle, ChevronRight, FileText, ChevronDown, ChevronUp, Image as ImageIcon
 } from "lucide-react";
 import { CloudinaryUpload } from "./CloudinaryUpload";
+import { getHighResImageUrl } from "@/lib/image-utils";
 
 interface PagesTabProps {
   pages: any[];
@@ -47,14 +48,14 @@ export default function PagesTab({
     <div className="space-y-6 animate-fade-in text-xs text-royal">
       {/* Pages Tab Header */}
       {!editPage && !newCustomPage && (
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div>
             <h2 className="text-lg font-bold text-royal font-serif">Website Content & Pages</h2>
             <p className="text-[10px] text-royal/40">Translate and redesign content layouts for the front-end localized pages.</p>
           </div>
           <button
             onClick={() => setNewCustomPage({ id: "", title: { en: "", es: "", pt: "" }, heroImage: "", content: { body: { en: "", es: "", pt: "" } } })}
-            className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 flex items-center gap-1.5 transition cursor-pointer"
+            className="bg-royal text-white border border-gold/20 hover:bg-gold hover:text-royal font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 flex items-center gap-1.5 transition cursor-pointer shrink-0 rounded-xl"
           >
             <Plus className="w-4 h-4" />
             <span>Add Custom Page</span>
@@ -64,13 +65,13 @@ export default function PagesTab({
 
       {/* NEW CUSTOM PAGE FORM */}
       {newCustomPage && (
-        <form onSubmit={handleCreatePage} className="bg-white border border-gold/20 p-8 shadow-md space-y-6 rounded-3xl">
+        <form onSubmit={handleCreatePage} className="bg-white border border-gold/20 p-4 sm:p-6 md:p-8 shadow-md space-y-6 rounded-3xl">
           <div className="flex justify-between items-center border-b border-beige/40 pb-4">
             <h3 className="text-base font-bold font-serif">Create New Custom Page</h3>
-            <button type="button" onClick={() => setNewCustomPage(null)} className="text-royal/50 hover:text-royal">Cancel</button>
+            <button type="button" onClick={() => setNewCustomPage(null)} className="text-royal/50 hover:text-royal font-bold uppercase text-[10px]">Cancel</button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             <div className="space-y-1.5">
               <label className="font-bold uppercase tracking-wider block">Page Slug (e.g. exclusive-tours)</label>
               <input 
@@ -84,7 +85,7 @@ export default function PagesTab({
             </div>
             <div className="space-y-1.5">
               <label className="font-bold uppercase tracking-wider block">Hero Banner Image URL (Optional)</label>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
                 <input 
                   type="text" 
                   value={newCustomPage.heroImage || ""}
@@ -105,7 +106,7 @@ export default function PagesTab({
           {/* Title (Translatable) */}
           <div className="space-y-3">
             <span className="font-black uppercase tracking-widest text-[9px] text-gold block">Page Title Translations</span>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {["en", "es", "pt"].map((lang) => (
                 <div key={lang} className="space-y-1">
                   <label className="font-bold uppercase tracking-wider">Title ({lang.toUpperCase()})</label>
@@ -149,7 +150,7 @@ export default function PagesTab({
             </div>
           </div>
 
-          <div className="flex gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row gap-3 pt-4">
             <button type="submit" className="bg-royal text-white px-6 py-3.5 font-bold uppercase tracking-wider cursor-pointer rounded-lg shadow-md hover:bg-gold hover:text-royal transition">
               Create Page
             </button>
@@ -162,7 +163,7 @@ export default function PagesTab({
 
       {/* EDIT EXISTING PAGE FORM */}
       {editPage && (
-        <form onSubmit={handleSavePage} className="bg-white border border-gold/20 p-8 shadow-md space-y-6 rounded-3xl">
+        <form onSubmit={handleSavePage} className="bg-white border border-gold/20 p-4 sm:p-6 md:p-8 shadow-md space-y-6 rounded-3xl">
           <div className="flex justify-between items-center border-b border-beige/40 pb-4">
             <div className="space-y-1">
               <h3 className="text-base font-bold font-serif">Editing Page: <span className="text-gold font-light">/{editPage.id}</span></h3>
@@ -210,7 +211,7 @@ export default function PagesTab({
                   </div>
                   {editPage.heroImage && (
                     <div className="h-20 w-full overflow-hidden border border-gold/10 bg-[#FAF8F5] rounded-xl shadow-inner">
-                      <img src={editPage.heroImage || "/images/destination_fallback.jpg"} alt="Hero preview" className="w-full h-full object-cover" />
+                      <img src={getHighResImageUrl(editPage.heroImage)} alt="Hero preview" className="w-full h-full object-cover" />
                     </div>
                   )}
                 </div>
@@ -569,7 +570,7 @@ export default function PagesTab({
                 <div key={p.id} className="bg-white border border-beige/45 rounded-3xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-gold/30 transition">
                   {p.heroImage ? (
                     <div className="h-36 overflow-hidden bg-[#FAF8F5] relative">
-                      <img src={p.heroImage || "/images/destination_fallback.jpg"} alt={p.title?.en} className="w-full h-full object-cover" />
+                      <img src={getHighResImageUrl(p.heroImage)} alt={p.title?.en} className="w-full h-full object-cover" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                     </div>
                   ) : (
@@ -617,7 +618,7 @@ export default function PagesTab({
                   <div key={p.id} className="bg-white border border-beige/45 rounded-3xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-gold/30 transition">
                     {p.heroImage ? (
                       <div className="h-36 overflow-hidden bg-[#FAF8F5]">
-                        <img src={p.heroImage || "/images/destination_fallback.jpg"} alt={p.title?.en} className="w-full h-full object-cover" />
+                        <img src={getHighResImageUrl(p.heroImage)} alt={p.title?.en} className="w-full h-full object-cover" />
                       </div>
                     ) : (
                       <div className="h-36 bg-light-gray flex items-center justify-center border-b border-beige/25">

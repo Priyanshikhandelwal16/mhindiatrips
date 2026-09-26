@@ -413,27 +413,35 @@ export function extractLocalizedString(val: any, lang: string = "en"): string {
   if (typeof val === "number" || typeof val === "boolean") return String(val);
 
   if (typeof val === "object") {
-    // 1. Check direct lang key, or fallback keys
-    const target = val[lang] ?? val[lang === "es" || lang === "pt" ? lang : "en"] ?? val.en ?? val.es ?? val.pt;
-    if (target !== undefined && target !== null) {
-      if (typeof target === "string") return cleanAIText(target);
-      if (typeof target === "number" || typeof target === "boolean") return String(target);
-      if (typeof target === "object") {
-        const res = extractLocalizedString(target, lang);
-        if (res) return cleanAIText(res);
-      }
+    const l = (lang || "en").toLowerCase();
+
+    // 1. Check requested lang key for a valid non-empty string
+    if (typeof val[l] === "string" && val[l].trim().length > 0) {
+      return cleanAIText(val[l]);
     }
 
-    // 2. Iterate keys if target couldn't be resolved as string
+    // 2. Check English fallback key for a valid non-empty string
+    if (typeof val.en === "string" && val.en.trim().length > 0) {
+      return cleanAIText(val.en);
+    }
+
+    // 3. Check Spanish or Portuguese fallback keys if present
+    if (typeof val.es === "string" && val.es.trim().length > 0) {
+      return cleanAIText(val.es);
+    }
+    if (typeof val.pt === "string" && val.pt.trim().length > 0) {
+      return cleanAIText(val.pt);
+    }
+
+    // 4. Iterate all object keys for any non-empty string value
     for (const key of Object.keys(val)) {
       const item = val[key];
-      if (item !== undefined && item !== null) {
-        if (typeof item === "string") return cleanAIText(item);
-        if (typeof item === "number" || typeof item === "boolean") return String(item);
-        if (typeof item === "object") {
-          const res = extractLocalizedString(item, lang);
-          if (res) return cleanAIText(res);
-        }
+      if (typeof item === "string" && item.trim().length > 0) {
+        return cleanAIText(item);
+      }
+      if (typeof item === "object" && item !== null) {
+        const nested = extractLocalizedString(item, lang);
+        if (nested && nested.trim().length > 0) return cleanAIText(nested);
       }
     }
   }

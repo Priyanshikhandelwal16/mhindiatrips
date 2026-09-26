@@ -159,7 +159,7 @@
           "es": "Inicio",
           "pt": "Início"
         },
-        "url": "/en"
+        "url": "/"
       },
       {
         "id": "packages",
@@ -168,7 +168,7 @@
           "es": "Paquetes",
           "pt": "Pacotes"
         },
-        "url": "/en/packages"
+        "url": "/packages"
       },
       {
         "id": "outbound",
@@ -177,7 +177,7 @@
           "es": "Viajes Internacionales",
           "pt": "Viagens Internacionais"
         },
-        "url": "/en/international-trips"
+        "url": "/international-trips"
       },
       {
         "id": "food",
@@ -186,7 +186,7 @@
           "es": "Gastronomía",
           "pt": "Gastronomia"
         },
-        "url": "/en/food"
+        "url": "/food"
       },
       {
         "id": "blog",
@@ -195,7 +195,7 @@
           "es": "Blog",
           "pt": "Blog"
         },
-        "url": "/en/blog"
+        "url": "/blog"
       },
       {
         "id": "about",
@@ -204,7 +204,7 @@
           "es": "Nosotros",
           "pt": "Sobre Nós"
         },
-        "url": "/en/about"
+        "url": "/about"
       },
       {
         "id": "contact",
@@ -213,7 +213,7 @@
           "es": "Contacto",
           "pt": "Contato"
         },
-        "url": "/en/contact"
+        "url": "/contact"
       }
     ],
     "customFooterDestinations": [
@@ -221,10 +221,10 @@
         "id": "rajasthan",
         "name": {
           "en": "Rajasthan",
-          "es": "Rajasthan",
+          "es": "Rajastán",
           "pt": "Rajastão"
         },
-        "url": "/en/destinations-in-india/rajasthan"
+        "url": "/destinations-in-india/rajasthan"
       },
       {
         "id": "kerala",
@@ -233,7 +233,7 @@
           "es": "Kerala",
           "pt": "Kerala"
         },
-        "url": "/en/destinations-in-india/kerala"
+        "url": "/destinations-in-india/kerala"
       },
       {
         "id": "varanasi",
@@ -242,7 +242,7 @@
           "es": "Varanasi",
           "pt": "Varanasi"
         },
-        "url": "/en/destinations-in-india/uttar-pradesh/varanasi"
+        "url": "/destinations-in-india/uttar-pradesh/varanasi"
       },
       {
         "id": "delhi-agra",
@@ -251,7 +251,7 @@
           "es": "Delhi y Agra",
           "pt": "Délhi e Agra"
         },
-        "url": "/en/destinations-in-india/uttar-pradesh/agra"
+        "url": "/destinations-in-india/uttar-pradesh/agra"
       },
       {
         "id": "goa",
@@ -260,18 +260,83 @@
           "es": "Goa",
           "pt": "Goa"
         },
-        "url": "/en/destinations-in-india/goa"
+        "url": "/destinations-in-india/goa"
       },
       {
-        "id": "outbound-all",
+        "id": "himachal",
         "name": {
-          "en": "International (Dubai, Bali...)",
-          "es": "Internacional (Dubái, Bali...)",
-          "pt": "Internacional (Dubai, Bali...)"
+          "en": "Himachal & Ladakh",
+          "es": "Himachal y Ladakh",
+          "pt": "Himachal e Ladakh"
         },
-        "url": "/en/international-trips"
+        "url": "/destinations-in-india/himachal-pradesh"
+      },
+      {
+        "id": "madhya-pradesh",
+        "name": {
+          "en": "Madhya Pradesh",
+          "es": "Madhya Pradesh",
+          "pt": "Madhya Pradesh"
+        },
+        "url": "/destinations-in-india/madhya-pradesh"
       }
     ],
-    "updatedAt": "2026-09-15T05:46:08.600Z"
+    "customFooterOutbound": [
+      {
+        "id": "dubai",
+        "name": {
+          "en": "Dubai & UAE",
+          "es": "Dubái y Emiratos",
+          "pt": "Dubai e Emirados"
+        },
+        "url": "/international-trips/dubai"
+      },
+      {
+        "id": "bali",
+        "name": {
+          "en": "Bali & Indonesia",
+          "es": "Bali y Indonesia",
+          "pt": "Bali e Indonésia"
+        },
+        "url": "/international-trips/bali"
+      },
+      {
+        "id": "thailand",
+        "name": {
+          "en": "Thailand & Islands",
+          "es": "Tailandia e Islas",
+          "pt": "Tailândia e Ilhas"
+        },
+        "url": "/international-trips/thailand"
+      },
+      {
+        "id": "maldives",
+        "name": {
+          "en": "Maldives Overwater",
+          "es": "Resorts de Maldivas",
+          "pt": "Resorts das Maldivas"
+        },
+        "url": "/international-trips/maldives"
+      },
+      {
+        "id": "vietnam",
+        "name": {
+          "en": "Vietnam & Cambodia",
+          "es": "Vietnam y Camboya",
+          "pt": "Vietnã e Camboja"
+        },
+        "url": "/international-trips/vietnam"
+      },
+      {
+        "id": "sri-lanka",
+        "name": {
+          "en": "Sri Lanka & Nepal",
+          "es": "Sri Lanka y Nepal",
+          "pt": "Sri Lanka e Nepal"
+        },
+        "url": "/international-trips/sri-lanka"
+      }
+    ],
+    "updatedAt": "2026-09-27T01:01:00.000Z"
   }
 ]

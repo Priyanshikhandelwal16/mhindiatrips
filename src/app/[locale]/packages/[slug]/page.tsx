@@ -6,12 +6,13 @@ import { db } from "@/lib/db";
 import { 
   Calendar, MapPin, Users, CheckCircle, XCircle, ArrowRight, 
   Star, Clock, ShieldCheck, Car, Hotel, Utensils, Heart,
-  ChevronLeft, Info, DollarSign, Globe, Sparkles, Phone, Mail, MessageSquare, AlertCircle, Printer, Compass, Award, Check
+  ChevronLeft, Info, DollarSign, Globe, Sparkles, Phone, Mail, MessageSquare, AlertCircle, Printer, Compass, Award, Check, Tag
 } from "lucide-react";
 import Reveal from "@/components/home/Reveal";
 import PrintBrochureButton from "@/components/packages/PrintBrochureButton";
 import { getHighResImageUrl } from "@/lib/image-utils";
 import { extractLocalizedString, extractStringList } from "@/lib/utils";
+import { getPackagePriceInfo } from "@/lib/price-utils";
 
 interface PackageDetailProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -255,6 +256,8 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
   };
   const noticeText = extractLocalizedString(pkg.seasonalDiscountNote, lang) || extractLocalizedString(pkg.pricing?.seasonalDiscountNote, lang) || defaultSeasonalNotice[lang as keyof typeof defaultSeasonalNotice] || defaultSeasonalNotice.en;
 
+  const priceInfo = getPackagePriceInfo(pkg, locale);
+
   // Fallback photo helper so EVERY single day has a high-res image
   const getFallbackDayImage = (titleStr: string, locationStr: string, dayNumber: number) => {
     const combined = (titleStr + " " + locationStr + " " + pkgTitle).toLowerCase();
@@ -412,6 +415,16 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
               <ShieldCheck className="w-3.5 h-3.5 text-[#CA8A04]" />
               {text.customizable}
             </span>
+
+            {!priceInfo.isEnquireOnly && (
+              <span className="bg-[#0A2A1E] text-white px-4 py-1.5 rounded-full text-xs font-bold border border-[#C5A862]/30 flex items-center gap-1.5 shadow-sm">
+                <span className="text-[10px] text-[#C5A862] uppercase tracking-wider">{locale === "es" ? "Desde:" : locale === "pt" ? "A partir de:" : "From:"}</span>
+                <span className="text-sm font-extrabold text-[#C5A862]">{priceInfo.formattedOfferPrice}</span>
+                {priceInfo.hasDiscount && priceInfo.formattedOriginalPrice && (
+                  <span className="text-[10px] text-white/50 line-through">{priceInfo.formattedOriginalPrice}</span>
+                )}
+              </span>
+            )}
           </div>
 
           <div className="flex items-center gap-3">
@@ -484,6 +497,91 @@ export default async function PackageDetailPage({ params, searchParams }: Packag
                   <h4 className="text-[11px] sm:text-xs font-bold text-[#0A2A1E] uppercase tracking-wider">{text.minTravellers}</h4>
                   <p className="text-[10px] sm:text-[11px] text-[#1B1B1B]/70 font-medium">2 Guests Min</p>
                 </div>
+              </div>
+
+            </div>
+          </Reveal>
+
+          {/* PROMINENT PRICING & SPECIAL OFFER BOX */}
+          <Reveal>
+            <div className="bg-gradient-to-br from-[#0A2A1E] via-[#0D3828] to-[#0A2A1E] text-white p-8 md:p-10 rounded-3xl border-2 border-[#C5A862] shadow-2xl space-y-6 relative overflow-hidden">
+              {/* Background luxury shimmer */}
+              <div className="absolute top-0 right-0 w-72 h-72 bg-[#C5A862]/10 rounded-full filter blur-3xl pointer-events-none" />
+
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-[#C5A862]/30 pb-6 relative z-10">
+                <div className="space-y-1.5">
+                  <div className="flex items-center gap-2">
+                    <Tag className="w-5 h-5 text-[#C5A862]" />
+                    <span className="text-xs font-bold uppercase tracking-widest text-[#C5A862]">
+                      {locale === "es" ? "Detalles de Tarifa y Ofertas" : locale === "pt" ? "Detalhes de Preço e Ofertas" : "Pricing & Special Offer Details"}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-serif font-bold text-white">
+                    {priceInfo.isEnquireOnly
+                      ? (locale === "es" ? "Precio Disponible Bajo Petición" : locale === "pt" ? "Preço Sob Consulta" : "Price Available On Request")
+                      : (priceInfo.hasDiscount ? (locale === "es" ? "Oferta Especial de Temporada" : locale === "pt" ? "Oferta Especial de Temporada" : "Special Seasonal Offer Rate") : (locale === "es" ? "Tarifa Oficial por Persona" : locale === "pt" ? "Tarifa Oficial por Pessoa" : "Official Package Rate"))}
+                  </h3>
+                </div>
+
+                {!priceInfo.isEnquireOnly && (
+                  <div className="bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-[#C5A862]/40 text-center md:text-right shrink-0 space-y-1 shadow-lg">
+                    <span className="text-[10px] uppercase font-extrabold tracking-wider text-[#C5A862] block">
+                      {locale === "es" ? "Desde (Por Persona)" : locale === "pt" ? "A partir de (Por Pessoa)" : "Starting From (Per Person)"}
+                    </span>
+                    <div className="flex items-baseline justify-center md:justify-end gap-3">
+                      <span className="text-3xl md:text-4xl font-serif font-extrabold text-[#C5A862]">
+                        {priceInfo.formattedOfferPrice}
+                      </span>
+                      {priceInfo.hasDiscount && priceInfo.formattedOriginalPrice && (
+                        <span className="text-base text-white/50 line-through font-medium">
+                          {priceInfo.formattedOriginalPrice}
+                        </span>
+                      )}
+                    </div>
+                    {priceInfo.saleBadge && (
+                      <span className="inline-block bg-[#B91C1C] text-white text-[10px] font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md mt-1 animate-pulse">
+                        🔥 {priceInfo.saleBadge}
+                      </span>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              {/* Group Pricing or Included/Excluded notes if provided in pkg.pricing */}
+              {(pkg.pricing?.groupPricing || pkg.pricing?.priceIncludes || pkg.pricing?.priceExcludes) && (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 relative z-10">
+                  {pkg.pricing?.groupPricing && (
+                    <div className="bg-white/5 p-4 rounded-xl border border-white/10 space-y-1">
+                      <span className="text-[10px] uppercase font-bold text-[#C5A862] block">👥 Group Pricing</span>
+                      <p className="text-xs text-white/80 font-medium">{pkg.pricing.groupPricing}</p>
+                    </div>
+                  )}
+                  {pkg.pricing?.priceIncludes && (
+                    <div className="bg-white/5 p-4 rounded-xl border border-white/10 space-y-1">
+                      <span className="text-[10px] uppercase font-bold text-emerald-400 block">✓ Included Short Summary</span>
+                      <p className="text-xs text-white/80 font-medium">{pkg.pricing.priceIncludes}</p>
+                    </div>
+                  )}
+                  {pkg.pricing?.priceExcludes && (
+                    <div className="bg-white/5 p-4 rounded-xl border border-white/10 space-y-1">
+                      <span className="text-[10px] uppercase font-bold text-amber-400 block">✕ Excluded Short Summary</span>
+                      <p className="text-xs text-white/80 font-medium">{pkg.pricing.priceExcludes}</p>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
+                <span className="text-xs text-white/70 italic">
+                  * Prices are per person based on twin sharing. All luxury tours are 100% customizable.
+                </span>
+                <Link 
+                  href={`/${locale}/contact?package=${slug}`} 
+                  className="w-full sm:w-auto bg-[#C5A862] hover:bg-white text-[#0A2A1E] text-xs font-bold uppercase tracking-widest px-8 py-3.5 rounded-full transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:scale-105 shrink-0"
+                >
+                  <span>{text.inquireCta}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
 
             </div>

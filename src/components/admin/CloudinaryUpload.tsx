@@ -127,10 +127,10 @@ export function CloudinaryUpload({
   };
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-3 shrink-0">
       {/* Upload local file */}
-      <label className="bg-gold/10 hover:bg-gold/20 border border-gold/30 text-royal hover:text-gold font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 cursor-pointer transition flex items-center gap-1.5 rounded-lg shadow-sm">
-        <Upload className="w-3.5 h-3.5" />
+      <label className="bg-gold/10 hover:bg-gold/20 border border-gold/30 text-royal hover:text-gold font-bold text-[10px] tracking-wider uppercase px-4 py-2.5 cursor-pointer transition flex items-center gap-1.5 rounded-lg shadow-sm shrink-0 whitespace-nowrap">
+        <Upload className="w-3.5 h-3.5 shrink-0" />
         <span>{uploading ? "Uploading..." : label}</span>
         <input type="file" onChange={onChange} className="hidden" accept="image/*" disabled={uploading} />
       </label>

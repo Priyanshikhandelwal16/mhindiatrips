@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, X, MapPin, Clock, Star, Calendar } from "lucide-react";
 import { getLocalizedDestinationsPath } from "@/lib/utils";
+import { getHighResImageUrl } from "@/lib/image-utils";
 
 interface MonumentItem {
   id: string;
@@ -265,7 +266,7 @@ export default function MonumentsAccordion({ locale, monuments }: MonumentsAccor
             {/* Hero Image */}
             <div className="relative h-64 md:h-72 w-full shrink-0">
               <img
-                src={selectedMonument.image}
+                src={getHighResImageUrl(selectedMonument.image)}
                 alt={selectedMonument.title[locale as "en" | "es" | "pt"]}
                 className="w-full h-full object-cover"
               />

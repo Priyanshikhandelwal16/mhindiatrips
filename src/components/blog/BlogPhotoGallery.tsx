@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight, Maximize2, Sparkles, Image as ImageIcon } from "lucide-react";
+import { getHighResImageUrl } from "@/lib/image-utils";
 
 interface BlogPhotoGalleryProps {
   gallery: any[];
@@ -72,7 +73,7 @@ export default function BlogPhotoGallery({ gallery, lang, title }: BlogPhotoGall
               {/* Image Container with Full Height & Smooth Hover */}
               <div className="h-72 sm:h-80 md:h-96 w-full overflow-hidden relative bg-gray-100">
                 <img 
-                  src={gUrl} 
+                  src={getHighResImageUrl(gUrl)} 
                   alt={gCaption || `Photo ${gIdx + 1}`} 
                   loading="lazy" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
@@ -151,7 +152,7 @@ export default function BlogPhotoGallery({ gallery, lang, title }: BlogPhotoGall
               return (
                 <div className="space-y-4 text-center">
                   <img
-                    src={currentUrl}
+                    src={getHighResImageUrl(currentUrl)}
                     alt={currentCap || `Full Photo ${selectedIndex + 1}`}
                     className="max-h-[75vh] max-w-full object-contain rounded-2xl shadow-2xl border border-white/20 mx-auto"
                   />

@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Utensils, ArrowRight, MapPin } from "lucide-react";
 import Reveal from "./Reveal";
+import { getHighResImageUrl } from "@/lib/image-utils";
 
 interface FoodSectionProps {
   locale: string;
@@ -90,7 +91,7 @@ export default function FoodSection({ locale, foods, labels }: FoodSectionProps)
                   className="group relative block h-80 overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500"
                 >
                   <img
-                    src={imageUrl}
+                    src={getHighResImageUrl(imageUrl)}
                     alt={food.title[locale as "en" | "es" | "pt"] || food.title.en}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"

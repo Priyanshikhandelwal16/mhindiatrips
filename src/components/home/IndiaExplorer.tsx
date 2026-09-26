@@ -7,6 +7,7 @@ import { states, getDestinationsByState, getToursByState } from '@/data/database
 import { gsap } from 'gsap';
 import { Compass, ArrowRight, Eye } from 'lucide-react';
 import { getLocalizedDestinationsPath } from '@/lib/utils';
+import { getHighResImageUrl } from '@/lib/image-utils';
 
 export const IndiaExplorer: React.FC = () => {
   const router = useRouter();
@@ -285,7 +286,7 @@ export const IndiaExplorer: React.FC = () => {
                         onClick={() => router.push(getLocalizedDestinationsPath(locale, selectedState?.slug, dest.slug))}
                         className="text-left flex items-center space-x-3 group border border-sand-300/40 p-2 bg-ivory-50/50 hover:bg-sand-50 transition-colors"
                       >
-                        <img src={dest.image} alt="" className="w-10 h-10 object-cover" />
+                        <img src={getHighResImageUrl(dest.image)} alt="" className="w-10 h-10 object-cover" />
                         <div>
                           <h5 className="font-serif text-xs font-bold text-charcoal-800 group-hover:text-sand-500 transition-colors">
                             {dest.name[lang]}

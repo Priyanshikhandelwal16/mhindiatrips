@@ -4,10 +4,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Reveal from "@/components/home/Reveal";
 import { 
-  Calendar, CheckCircle, ArrowRight 
+  Calendar, CheckCircle, ArrowRight, Tag
 } from "lucide-react";
 
 import { getHighResImageUrl } from "@/lib/image-utils";
+import { getPackagePriceInfo } from "@/lib/price-utils";
 
 interface PackagesFilterSectionProps {
   packages: any[];
@@ -34,7 +35,7 @@ export default function PackagesFilterSection({
 
   return (
     <div className="space-y-12">
-      {/* Category Tabs: Smooth Horizontal Scrollable on Mobile (Fixes Screenshot 2) */}
+      {/* Category Tabs: Smooth Horizontal Scrollable on Mobile */}
       <Reveal className="w-full">
         <div className="flex items-center gap-2 sm:gap-3 justify-start sm:justify-center overflow-x-auto no-scrollbar max-w-full px-3 py-2 scroll-smooth">
           <button
@@ -84,6 +85,8 @@ export default function PackagesFilterSection({
             ? pkg.tagline
             : (pkg.tagline?.[locale as "en" | "es" | "pt"] || pkg.tagline?.en || pkg.shortDescription?.[locale as "en" | "es" | "pt"] || pkg.shortDescription?.en || pkg.short_description?.[locale as "en" | "es" | "pt"] || pkg.short_description?.en || "");
 
+          const priceInfo = getPackagePriceInfo(pkg, locale);
+
           return (
             <Reveal key={pkg.slug || i} delay={i * 80}>
               <div id={pkg.slug} className="card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full transition-all duration-500 hover:border-[#C5A862]/30 scroll-mt-28 group perspective-1000">
@@ -97,12 +100,21 @@ export default function PackagesFilterSection({
                     className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-65" />
-                  <div className="absolute top-4 left-4">
+                  
+                  {/* Top Left: Duration Badge & Sale Badge */}
+                  <div className="absolute top-4 left-4 flex flex-col gap-1.5 items-start">
                     <span className="bg-white/95 backdrop-blur-sm text-royal text-[9px] uppercase tracking-wider font-extrabold px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1">
                       <Calendar className="w-3.5 h-3.5 text-gold" />
                       {pkg.durationDays || pkg.duration_days || 7} {text.days}
                     </span>
+                    {priceInfo.saleBadge && (
+                      <span className="bg-[#B91C1C] text-white text-[9px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-md flex items-center gap-1 animate-pulse">
+                        <Tag className="w-3 h-3 text-amber-300" />
+                        {priceInfo.saleBadge}
+                      </span>
+                    )}
                   </div>
+
                   <div className="absolute bottom-4 right-4">
                     <span className="bg-gold/90 backdrop-blur-sm text-royal text-[9px] uppercase tracking-wider font-black px-3 py-1.5 rounded-full">
                       {text.privateTour}
@@ -154,9 +166,28 @@ export default function PackagesFilterSection({
                 </div>
                 
                 <div className="pt-6 mt-6 border-t border-[#C5A862]/15 flex justify-between items-center bg-white">
-                  <span className="text-[10px] font-extrabold tracking-wider uppercase text-gold">
-                    {text.priceOnRequest}
-                  </span>
+                  {priceInfo.isEnquireOnly ? (
+                    <span className="text-[10px] font-extrabold tracking-wider uppercase text-gold">
+                      {text.priceOnRequest}
+                    </span>
+                  ) : (
+                    <div className="flex flex-col">
+                      <span className="text-[9px] font-bold uppercase text-[#0A2A1E]/50 tracking-wider">
+                        {locale === "es" ? "Desde" : locale === "pt" ? "A partir de" : "Starting From"}
+                      </span>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-lg font-serif font-extrabold text-[#0A2A1E]">
+                          {priceInfo.formattedOfferPrice}
+                        </span>
+                        {priceInfo.hasDiscount && priceInfo.formattedOriginalPrice && (
+                          <span className="text-xs text-[#0A2A1E]/40 line-through font-medium">
+                            {priceInfo.formattedOriginalPrice}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
                   <Link
                     href={`/${locale}/packages/${pkg.slug}`}
                     className="text-xs font-bold uppercase tracking-wider text-royal hover:text-gold flex items-center gap-1 transition-colors"
@@ -175,3 +206,4 @@ export default function PackagesFilterSection({
     </div>
   );
 }
+
