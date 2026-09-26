@@ -624,7 +624,20 @@ export default async function HomePage({ params }: HomePageProps) {
       cta2Link: "/contact"
     }
   ];
-  const slides = default20Slides;
+  const slides = (cms.slides && Array.isArray(cms.slides) && cms.slides.length > 0)
+    ? cms.slides.map((s: any) => ({
+        image: s.image || "/images/taj_mahal_sunrise.png",
+        sub: typeof s.sub === "object" ? (s.sub[lang] || s.sub.en || "") : (s.sub || ""),
+        title: typeof s.title === "object" ? (s.title[lang] || s.title.en || "") : (s.title || ""),
+        desc: typeof s.desc === "object" ? (s.desc[lang] || s.desc.en || "") : (s.desc || ""),
+        location: typeof s.location === "object" ? (s.location[lang] || s.location.en || "") : (s.location || ""),
+        objectPosition: s.objectPosition || "center center",
+        cta1Text: typeof s.cta1Text === "object" ? (s.cta1Text[lang] || s.cta1Text.en || "") : (s.cta1Text || ""),
+        cta1Link: s.cta1Link || getLocalizedDestinationsPath(locale, "uttar-pradesh"),
+        cta2Text: typeof s.cta2Text === "object" ? (s.cta2Text[lang] || s.cta2Text.en || "") : (s.cta2Text || text.inquireCTA),
+        cta2Link: s.cta2Link || "/contact"
+      }))
+    : default20Slides;
 
   // CMS stats
   const cmsStats = (cms.stats && cms.stats.length > 0) ? cms.stats : [];
@@ -1448,36 +1461,6 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
-
-      {/* SECTION 5: Gastronomy Preview (Curated Culinary Card) */}
-      <section className="max-w-7xl mx-auto px-6 py-32 border-b border-gold/10 space-y-16">
-        <div className="bg-royal border border-gold/15 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 relative shadow-2xl">
-          <div className="lg:col-span-5 h-[400px] lg:h-auto relative overflow-hidden">
-            <img src={cmsFoodSection.image || "/images/indian_cuisine_feast.png"} alt="Culinary Spices" loading="lazy" className="w-full h-full object-cover absolute inset-0 animate-kenburns" />
-          </div>
-          <div className="lg:col-span-7 p-10 md:p-20 flex flex-col justify-center space-y-8 text-white bg-royal relative">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-gold/5 via-transparent to-transparent pointer-events-none" />
-            <span className="text-xs uppercase tracking-[0.25em] text-gold font-bold">{text.foodSub}</span>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">{text.foodTitle}</h2>
-            <p className="text-sm md:text-base text-white/70 leading-relaxed font-light max-w-xl">
-              India's cultural geography is best tasted. From royal Mughal slow-cooked saffron curries to local coconut fish marinades, we map private food walks and dining logs.
-            </p>
-            <div className="pt-4">
-              <Link href={`/${locale}/food`} className="bg-gold hover:bg-gold-light text-royal text-base md:text-lg font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 inline-block shadow-lg">
-                Explore Food Guide
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* VIEW ALL Food Experiences button */}
-        <div className="text-center pt-8">
-          <Link href={`/${locale}/food`} className="inline-flex items-center gap-2 bg-royal hover:bg-royal/90 text-white text-base md:text-lg font-bold uppercase tracking-widest px-10 py-5 rounded-full transition-transform hover:scale-105 shadow-xl">
-            <span>{text.viewAll}</span>
-            <ArrowRight className="w-5 h-5 text-gold" />
-          </Link>
-        </div>
-      </section>
 
       {/* SECTION 5.5: Traveler Information 3D Carousel (Screenshot 3 Theme) */}
       <TravelerInfoCarousel locale={locale} cardImages={travelInfoCardImages} />

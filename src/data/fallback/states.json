@@ -7352,56 +7352,5 @@
       "pt": "delhi",
       "en": "delhi"
     }
-  },
-  {
-    "id": "puducherry",
-    "name": {
-      "en": "Puducherry",
-      "es": "Puducherry",
-      "pt": "Puducherry"
-    },
-    "slug": {
-      "en": "puducherry",
-      "es": "puducherry",
-      "pt": "puducherry"
-    },
-    "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=900&q=80",
-    "isPublished": true,
-    "isDeleted": false,
-    "description": {
-      "en": "Puducherry (formerly Pondicherry) is a charming Union Territory of India, famous for French colonial architecture, spiritual havens like Auroville, quiet beaches, and seaside promenades.",
-      "es": "Puducherry (anteriormente Pondicherry) es un encantador Territorio de la Unión de la India, famoso por su arquitectura colonial francesa, centros espirituales como Auroville y tranquilos paseos marítimos.",
-      "pt": "Puducherry (anteriormente Pondicherry) é um encantador Território da União da Índia, famoso por sua arquitetura colonial francesa, centros espirituais como Auroville e calçadões à beira-mar."
-    },
-    "seoTitle": {
-      "en": "Puducherry Tourism | Places to Visit & Travel Guide",
-      "es": "Turismo en Puducherry | Lugares para Visitar y Guía de Viajes",
-      "pt": "Turismo em Puducherry | Lugares para Visitar e Guia de Viagem"
-    },
-    "seoDesc": {
-      "en": "Discover Puducherry travel guide, French Quarter, Auroville, beaches and top attractions.",
-      "es": "Descubre la guía de viajes de Puducherry, Barrio Francés, Auroville y principales atracciones.",
-      "pt": "Descubra o guia de viagem de Puducherry, Bairro Francês, Auroville e principais atrações."
-    },
-    "seoKeywords": {
-      "en": [
-        "Puducherry",
-        "Pondicherry",
-        "Auroville",
-        "French Quarter"
-      ],
-      "es": [
-        "Puducherry",
-        "Pondicherry",
-        "Auroville",
-        "Barrio Francés"
-      ],
-      "pt": [
-        "Puducherry",
-        "Pondicherry",
-        "Auroville",
-        "Bairro Francês"
-      ]
-    }
   }
 ]
