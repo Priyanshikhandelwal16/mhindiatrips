@@ -251,10 +251,9 @@ export default function PagesTab({
                 const isStats = key === "stats";
                 return (
                   <div key={key} className="border border-beige/35 rounded-2xl overflow-hidden shadow-sm">
-                    <button
-                      type="button"
+                    <div
                       onClick={() => toggleSection(key)}
-                      className="w-full bg-light-gray/50 px-6 py-4 flex justify-between items-center border-b border-beige/25 hover:bg-light-gray transition"
+                      className="w-full bg-light-gray/50 px-6 py-4 flex justify-between items-center border-b border-beige/25 hover:bg-light-gray transition cursor-pointer"
                     >
                       <div className="flex items-center gap-2">
                         {isSlides ? <ImageIcon className="w-4 h-4 text-gold" /> : isFaqs ? <HelpCircle className="w-4 h-4 text-gold" /> : <Layers className="w-4 h-4 text-gold" />}
@@ -293,7 +292,7 @@ export default function PagesTab({
                         </button>
                         {openSections[key] ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                       </div>
-                    </button>
+                    </div>
 
                     {openSections[key] && (
                       <div className="p-6 space-y-6 bg-white max-h-[70vh] overflow-y-auto">

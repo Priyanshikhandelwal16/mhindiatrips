@@ -2565,5 +2565,353 @@
       "es": "Desde el deslumbrante Gran Palacio de Bangkok y comida callejera Michelin hasta los templos de montaña de Chiang Mai y las aguas de Phuket, Tailandia es la escapada asiática definitiva.",
       "en": "From Bangkok's glittering Grand Palace and Michelin street food to Chiang Mai's mountain temples and Phuket's emerald karst island waters, Thailand offers the ultimate Asian escape."
     }
+  },
+  {
+    "slug": "nepal",
+    "id": "nepal-bhutan",
+    "hotels": [
+      {
+        "desc": {
+          "es": "Un exclusivo hotel de lujo inspirado en el patrimonio de Katmandú, conocido por su arquitectura tradicional nepalí, artesanía y fuerte identidad local.",
+          "pt": "Um exclusivo hotel de luxo inspirado no patrimônio de Katmandu, conhecido pela arquitetura tradicional nepalesa, artesanato e forte identidade local.",
+          "en": "A distinctive heritage-inspired luxury hotel in Kathmandu known for traditional Nepalese architecture, craftsmanship and a strong sense of place."
+        },
+        "name": "Dwarika's Hotel, Kathmandu",
+        "rating": "Luxury 5-Star Heritage Hotel",
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789447442/mhindiatrips/ksijubrdexzbl2vbckv4.jpg"
+      },
+      {
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1789447465/mhindiatrips/mdeht2okrivvicy8ppod.jpg",
+        "name": "COMO Uma Paro, Bhutan",
+        "desc": {
+          "en": "A refined Himalayan retreat offering serene mountain surroundings, wellness experiences, Bhutanese-inspired design and an intimate connection with Paro's landscape.",
+          "pt": "Um elegante refúgio do Himalaia cercado por montanhas, oferecendo experiências de bem-estar, design inspirado no Butão e uma conexão íntima com a paisagem de Paro.",
+          "es": "Un elegante refugio del Himalaya rodeado de montañas, con experiencias de bienestar, diseño inspirado en Bután y una conexión íntima con el paisaje de Paro."
+        },
+        "rating": "Luxury 5-Star Mountain Retreat"
+      }
+    ],
+    "travelTips": [
+      {
+        "es": "El clima de montaña puede cambiar rápidamente; lleva varias capas de ropa y calzado cómodo incluso durante los meses más cálidos.",
+        "pt": "O clima nas montanhas pode mudar rapidamente; leve roupas em camadas e calçados confortáveis mesmo durante os meses mais quentes.",
+        "en": "Mountain weather can change quickly, so carry layers and comfortable walking shoes even during the warmer months."
+      },
+      {
+        "pt": "Dê tempo ao corpo para se adaptar às altitudes elevadas e planeje trekkings exigentes com um operador experiente.",
+        "en": "Allow your body time to adjust when travelling to higher elevations and discuss demanding trekking plans with an experienced operator.",
+        "es": "Dale tiempo a tu cuerpo para adaptarse a las grandes alturas y consulta los trekkings exigentes con un operador experimentado."
+      },
+      {
+        "pt": "Vista-se de forma respeitosa ao visitar templos e mosteiros e siga as regras locais sobre fotografia e calçados.",
+        "en": "Dress respectfully when visiting temples and monasteries and follow local instructions regarding photography and footwear.",
+        "es": "Viste respetuosamente al visitar templos y monasterios y sigue las normas locales sobre fotografía y calzado."
+      },
+      {
+        "pt": "A caminhada até o Tiger's Nest exige bons calçados e condicionamento físico razoável; reserve tempo suficiente e evite fazê-la com pressa.",
+        "en": "The Tiger's Nest hike requires good footwear and reasonable fitness; allow plenty of time rather than treating it as a rushed excursion.",
+        "es": "La caminata al Tiger's Nest requiere buen calzado y una condición física razonable; reserva suficiente tiempo y evita hacerla con prisas."
+      },
+      {
+        "en": "Photography, religious ceremonies and interactions with monks should always be approached respectfully and according to local customs.",
+        "pt": "Fotografias, cerimônias religiosas e interações com monges devem sempre ser realizadas com respeito e de acordo com os costumes locais.",
+        "es": "La fotografía, las ceremonias religiosas y las interacciones con monjes deben realizarse siempre con respeto y de acuerdo con las costumbres locales."
+      }
+    ],
+    "localFood": {
+      "pt": "A culinária nepalesa combina influências do Himalaia, do Sul da Ásia e do Tibete. O dal bhat é uma refeição básica, enquanto momos, thukpa, sel roti e especialidades Newari oferecem uma introdução mais ampla às tradições culinárias do país. A culinária do Butão destaca-se pelo uso generoso de pimentas e queijo. Ema datshi, arroz vermelho, preparações de trigo-sarraceno, phaksha paa e vegetais sazonais estão entre seus sabores característicos. Chás, ervas do Himalaia e ingredientes produzidos localmente completam a experiência gastronômica dos dois destinos.",
+      "en": "Nepalese cuisine combines Himalayan, South Asian and Tibetan influences. Dal bhat remains a staple meal, while momos, thukpa, sel roti and regional Newari dishes offer a wider introduction to the country's culinary traditions. Bhutanese cuisine is distinctive for its generous use of chillies and cheese. Ema datshi, red rice, buckwheat preparations, phaksha paa and seasonal vegetables are among the country's characteristic flavours. Tea, Himalayan herbs and locally produced ingredients complete the culinary experience across both destinations.",
+      "es": "La gastronomía nepalí combina influencias del Himalaya, Asia Meridional y Tíbet. El dal bhat es uno de los platos básicos, mientras que los momos, thukpa, sel roti y las especialidades Newari ofrecen una visión más amplia de las tradiciones culinarias del país. La cocina de Bután destaca por el uso generoso de chile y queso. El ema datshi, el arroz rojo, las preparaciones de trigo sarraceno, el phaksha paa y las verduras de temporada forman parte de sus sabores característicos. El té, las hierbas del Himalaya y los ingredientes locales completan la experiencia gastronómica de ambos destinos."
+    },
+    "suggestedItinerary": {
+      "en": "Day 1 — Kathmandu Arrival: Private airport transfer, luxury hotel check-in and relaxed evening in Kathmandu. Day 2 — Kathmandu Heritage: Explore Kathmandu Durbar Square, Swayambhunath, Boudhanath and Pashupatinath. Day 3 — Kathmandu to Pokhara: Travel to Pokhara and enjoy a relaxed lakeside afternoon with Himalayan views. Day 4 — Pokhara: Sunrise Himalayan viewing, Phewa Lake boating and a curated wellness or cultural experience. Day 5 — Nepal to Bhutan: Return to Kathmandu and fly to Paro, Bhutan, followed by a private transfer to Thimphu. Day 6 — Thimphu & Dochula: Explore Thimphu's cultural landmarks and travel through the scenic Dochula Pass towards Punakha. Day 7 — Punakha: Discover Punakha Dzong, traditional villages and the peaceful Himalayan valley. Day 8 — Paro & Tiger's Nest: Return to Paro and hike to the iconic Taktsang Monastery, followed by a relaxed evening in Paro. Day 9 — Departure: Leisure breakfast and private transfer to Paro International Airport.",
+      "pt": "Dia 1 — Chegada a Katmandu: Traslado privativo do aeroporto, check-in no hotel de luxo e tarde tranquila em Katmandu. Dia 2 — Patrimônio de Katmandu: Explore Kathmandu Durbar Square, Swayambhunath, Boudhanath e Pashupatinath. Dia 3 — Katmandu a Pokhara: Viaje até Pokhara e desfrute de uma tarde tranquila à beira do lago com vistas do Himalaia. Dia 4 — Pokhara: Observação do Himalaia ao nascer do sol, passeio de barco pelo Lago Phewa e uma experiência de bem-estar ou cultural. Dia 5 — Nepal a Butão: Retorno a Katmandu e voo para Paro, Butão, seguido de traslado privativo para Thimphu. Dia 6 — Thimphu e Dochula: Explore os principais pontos culturais de Thimphu e atravesse o cênico Passo de Dochula em direção a Punakha. Dia 7 — Punakha: Descubra Punakha Dzong, vilarejos tradicionais e o tranquilo vale do Himalaia. Dia 8 — Paro e Tiger's Nest: Retorne a Paro e faça a caminhada até o icônico Mosteiro Taktsang, seguida de uma tarde tranquila em Paro. Dia 9 — Partida: Café da manhã tranquilo e traslado privativo para o Aeroporto Internacional de Paro.",
+      "es": "Día 1 — Llegada a Katmandú: Traslado privado desde el aeropuerto, check-in en el hotel de lujo y tarde relajada en Katmandú. Día 2 — Patrimonio de Katmandú: Explora Kathmandu Durbar Square, Swayambhunath, Boudhanath y Pashupatinath. Día 3 — Katmandú a Pokhara: Viaja a Pokhara y disfruta de una tarde tranquila junto al lago con vistas del Himalaya. Día 4 — Pokhara: Vistas del Himalaya al amanecer, paseo en barco por el lago Phewa y una experiencia de bienestar o cultural. Día 5 — Nepal a Bután: Regreso a Katmandú y vuelo a Paro, Bután, seguido de traslado privado a Thimphu. Día 6 — Thimphu y Dochula: Explora los principales lugares culturales de Thimphu y atraviesa el pintoresco paso de Dochula hacia Punakha. Día 7 — Punakha: Descubre Punakha Dzong, las aldeas tradicionales y el tranquilo valle del Himalaya. Día 8 — Paro y Tiger's Nest: Regresa a Paro y realiza la caminata hasta el icónico monasterio Taktsang, seguido de una tarde relajada en Paro. Día 9 — Salida: Desayuno tranquilo y traslado privado al aeropuerto internacional de Paro."
+    },
+    "description": {
+      "es": "Descubre Nepal y Bután, dos extraordinarios destinos del Himalaya donde majestuosos paisajes montañosos, antiguas tradiciones espirituales, culturas vibrantes y una refinada hospitalidad de montaña se unen. Desde los templos y estupas históricos de Katmandú hasta los tranquilos lagos de Pokhara, los legendarios Himalayas y Lumbini, lugar de nacimiento de Buda, Nepal ofrece un viaje excepcional a través de la naturaleza, la aventura y un patrimonio vivo. Al otro lado de la frontera, Bután muestra otra faceta del Himalaya a través de valles tranquilos, monasterios-fortaleza, arquitectura tradicional y profundas tradiciones budistas. Explora Thimphu, atraviesa el pintoresco paso de Dochula, descubre el magnífico Punakha Dzong y realiza la icónica caminata hasta el monasterio Tiger's Nest sobre Paro. Juntos, Nepal y Bután crean un extraordinario viaje de lujo para viajeros que buscan paisajes del Himalaya, espiritualidad, cultura, bienestar y experiencias significativas.",
+      "pt": "Descubra o Nepal e o Butão, dois destinos extraordinários do Himalaia onde paisagens montanhosas majestosas, antigas tradições espirituais, culturas vibrantes e uma refinada hospitalidade de montanha se encontram. Dos templos e estupas históricos de Katmandu aos tranquilos lagos de Pokhara, às lendárias montanhas do Himalaia e a Lumbini, local de nascimento de Buda, o Nepal oferece uma jornada excepcional pela natureza, aventura e patrimônio vivo. Do outro lado da fronteira, o Butão revela uma faceta diferente do Himalaia através de vales tranquilos, mosteiros-fortaleza, arquitetura tradicional e profundas tradições budistas. Explore Thimphu, atravesse o cênico Passo de Dochula, descubra o magnífico Punakha Dzong e faça a icônica caminhada até o Mosteiro Tiger's Nest acima de Paro. Juntos, Nepal e Butão formam uma extraordinária viagem de luxo para viajantes que buscam paisagens do Himalaia, espiritualidade, cultura, bem-estar e experiências significativas.",
+      "en": "Discover Nepal and Bhutan, two extraordinary Himalayan destinations where towering mountain landscapes, ancient spiritual traditions, colourful cultures and refined mountain hospitality come together. From the historic temples and stupas of Kathmandu to the tranquil lakes of Pokhara, the legendary Himalayas and the birthplace of Buddha at Lumbini, Nepal offers a remarkable journey through nature, adventure and living heritage. Across the border, Bhutan reveals a different side of the Himalayas through peaceful valleys, fortress monasteries, traditional architecture and deeply rooted Buddhist traditions. Explore Thimphu, cross the scenic Dochula Pass, discover magnificent Punakha Dzong and hike to the iconic Tiger's Nest Monastery above Paro. Together, Nepal and Bhutan create an exceptional luxury journey for travellers seeking Himalayan scenery, spirituality, cultural discovery, wellness and meaningful experiences."
+    },
+    "region": "South Asia (Nepal & Bhutan)",
+    "bestTime": {
+      "es": "De octubre a abril",
+      "pt": "De outubro a abril",
+      "en": "October to April"
+    },
+    "gallery": [],
+    "title": {
+      "en": "Nepal",
+      "es": "Nepal y Bután",
+      "pt": "Nepal e Butão"
+    },
+    "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1790426518/mhindiatrips/psng01t7dgwv3a8beeg6.avif",
+    "updatedAt": "2026-09-26T17:40:41.837Z",
+    "experiences": [
+      {
+        "desc": {
+          "es": "Disfruta de un vuelo panorámico con vistas extraordinarias de los picos del Himalaya, incluida la región del Everest.",
+          "pt": "Desfrute de um voo panorâmico com vistas extraordinárias dos picos do Himalaia, incluindo a região do Everest.",
+          "en": "Enjoy a scenic flight for extraordinary views of the Himalayan peaks, including the Everest region."
+        },
+        "title": {
+          "es": "Vuelo Panorámico sobre el Himalaya",
+          "pt": "Voo Panorâmico pelo Himalaia",
+          "en": "Himalayan Mountain Flight"
+        },
+        "image": ""
+      },
+      {
+        "desc": {
+          "es": "Explora antiguos templos, patios, estupas y mercados tradicionales con un guía cultural privado.",
+          "pt": "Explore antigos templos, pátios, estupas e mercados tradicionais com um guia cultural privativo.",
+          "en": "Explore ancient temples, courtyards, stupas and traditional markets with a private cultural guide."
+        },
+        "image": "",
+        "title": {
+          "pt": "Caminhada Histórica em Katmandu",
+          "en": "Kathmandu Heritage Walk",
+          "es": "Ruta del Patrimonio por Katmandú"
+        }
+      },
+      {
+        "desc": {
+          "pt": "Combine vistas do Himalaia, passeio privativo de barco no Lago Phewa, bem-estar e gastronomia sofisticada à beira do lago.",
+          "en": "Combine Himalayan views, private boating on Phewa Lake, wellness and refined lakeside dining.",
+          "es": "Combina vistas del Himalaya, navegación privada por el lago Phewa, bienestar y gastronomía sofisticada junto al lago."
+        },
+        "image": "",
+        "title": {
+          "pt": "Refúgio de Luxo à Beira-Mar em Pokhara",
+          "es": "Escapada de Lujo Junto al Lago en Pokhara",
+          "en": "Pokhara Luxury Lakeside Escape"
+        }
+      },
+      {
+        "title": {
+          "pt": "Experiência em Mosteiros do Butão",
+          "en": "Bhutanese Monastery Experience",
+          "es": "Experiencia en Monasterios de Bután"
+        },
+        "desc": {
+          "es": "Visita monasterios y dzongs históricos mientras descubres las tradiciones budistas de Bután.",
+          "pt": "Visite mosteiros e dzongs históricos enquanto conhece as tradições budistas do Butão.",
+          "en": "Visit historic monasteries and dzongs while learning about Bhutanese Buddhist traditions."
+        },
+        "image": ""
+      },
+      {
+        "title": {
+          "pt": "Caminhada Privativa Guiada ao Tiger's Nest",
+          "en": "Tiger's Nest Private Guided Hike",
+          "es": "Caminata Privada Guiada al Tiger's Nest"
+        },
+        "image": "",
+        "desc": {
+          "es": "Realiza la caminata hasta Taktsang con un guía privado y disfruta del paisaje montañoso sagrado de Paro.",
+          "pt": "Faça a caminhada até Taktsang com um guia privativo e aproveite a paisagem montanhosa sagrada de Paro.",
+          "en": "Hike to Taktsang Monastery with a private guide and enjoy the sacred mountain landscape around Paro."
+        }
+      },
+      {
+        "title": {
+          "en": "Traditional Himalayan Wellness",
+          "pt": "Bem-estar Tradicional do Himalaia",
+          "es": "Bienestar Tradicional del Himalaya"
+        },
+        "desc": {
+          "pt": "Experimente meditação, yoga, terapias tradicionais e rituais de bem-estar inspirados no Butão e no Himalaia.",
+          "es": "Disfruta de meditación, yoga, terapias tradicionales y rituales de bienestar inspirados en Bután y el Himalaya.",
+          "en": "Experience meditation, yoga, traditional therapies and Bhutanese or Himalayan-inspired wellness rituals."
+        },
+        "image": ""
+      }
+    ],
+    "seo": {
+      "en": {
+        "title": "Nepal & Bhutan Luxury Travel | Himalayas, Temples & Mountain Kingdoms",
+        "keywords": "Nepal Bhutan luxury travel, Nepal Bhutan tour, Himalayan luxury tour, Kathmandu, Pokhara, Mount Everest, Paro, Thimphu, Punakha, Tiger's Nest, Bhutan luxury travel",
+        "description": "Discover Nepal and Bhutan through luxury Himalayan journeys featuring Kathmandu, Pokhara, Everest views, Paro, Thimphu, Punakha and Tiger's Nest."
+      },
+      "pt": {
+        "title": "Viagens de Luxo para Nepal e Butão | Himalaia, Templos e Reinos Montanhosos",
+        "keywords": "viagens de luxo Nepal Butão, tour Nepal Butão, viagem de luxo Himalaia, Katmandu, Pokhara, Monte Everest, Paro, Thimphu, Punakha, Tiger's Nest, viagens de luxo Butão",
+        "description": "Descubra Nepal e Butão em uma viagem de luxo pelo Himalaia com Katmandu, Pokhara, vistas do Everest, Paro, Thimphu, Punakha e Tiger's Nest."
+      },
+      "es": {
+        "title": "Viajes de Lujo a Nepal y Bután | Himalaya, Templos y Reinos de Montaña",
+        "keywords": "viajes de lujo Nepal Bután, tour Nepal Bután, viaje de lujo Himalaya, Katmandú, Pokhara, Monte Everest, Paro, Thimphu, Punakha, Tiger's Nest, viajes de lujo Bután",
+        "description": "Descubre Nepal y Bután en un viaje de lujo por el Himalaya con Katmandú, Pokhara, vistas del Everest, Paro, Thimphu, Punakha y Tiger's Nest."
+      }
+    },
+    "tagline": {
+      "pt": "Picos do Himalaia, Mosteiros Sagrados e Reinos Montanhosos Atemporais",
+      "es": "Picos del Himalaya, Monasterios Sagrados y Reinos de Montaña Atemporales",
+      "en": "Himalayan Peaks, Sacred Monasteries & Timeless Mountain Kingdoms"
+    },
+    "thingsToDo": [
+      {
+        "es": "Vuelo Panorámico sobre el Himalaya",
+        "pt": "Voo Panorâmico pelo Himalaia",
+        "en": "Himalayan Mountain Flight"
+      },
+      {
+        "pt": "Caminhada Histórica em Katmandu",
+        "en": "Kathmandu Heritage Walk",
+        "es": "Ruta del Patrimonio por Katmandú"
+      },
+      {
+        "es": "Escapada de Lujo Junto al Lago en Pokhara",
+        "pt": "Refúgio de Luxo à Beira-Mar em Pokhara",
+        "en": "Pokhara Luxury Lakeside Escape"
+      },
+      {
+        "pt": "Experiência em Mosteiros do Butão",
+        "es": "Experiencia en Monasterios de Bután",
+        "en": "Bhutanese Monastery Experience"
+      },
+      {
+        "pt": "Caminhada Privativa Guiada ao Tiger's Nest",
+        "en": "Tiger's Nest Private Guided Hike",
+        "es": "Caminata Privada Guiada al Tiger's Nest"
+      },
+      {
+        "es": "Bienestar Tradicional del Himalaya",
+        "pt": "Bem-estar Tradicional do Himalaia",
+        "en": "Traditional Himalayan Wellness"
+      }
+    ],
+    "culture": {
+      "pt": "A paisagem cultural do Nepal e do Butão é profundamente espiritual e extraordinariamente diversa. Templos hindus, estupas budistas, mosteiros, bandeiras de oração, rios sagrados e santuários nas montanhas fazem parte da vida cotidiana do Nepal. A cultura do Butão é fortemente influenciada pelo budismo Vajrayana, enquanto mosteiros, dzongs, danças mascaradas, cerimônias religiosas, tecelagem tradicional e arco e flecha continuam sendo importantes expressões da identidade nacional. A hospitalidade tradicional, o artesanato local, os festivais coloridos e as vestimentas distintas tornam os dois países especialmente interessantes para viajantes que desejam uma imersão cultural autêntica.",
+      "es": "El paisaje cultural de Nepal y Bután es profundamente espiritual y extraordinariamente diverso. Los templos hindúes, estupas budistas, monasterios, banderas de oración, ríos sagrados y santuarios de montaña forman parte integral de la vida cotidiana de Nepal. La cultura de Bután está fuertemente influenciada por el budismo Vajrayana, mientras que los monasterios, dzongs, danzas con máscaras, ceremonias religiosas, tejidos tradicionales y tiro con arco continúan siendo importantes expresiones de la identidad nacional. La hospitalidad tradicional, la artesanía local, los coloridos festivales y las vestimentas distintivas hacen que ambos países sean especialmente atractivos para viajeros interesados en una inmersión cultural auténtica.",
+      "en": "The cultural landscape of Nepal and Bhutan is deeply spiritual and remarkably diverse. Hindu temples, Buddhist stupas, monasteries, prayer flags, sacred rivers and mountain shrines form an integral part of everyday life in Nepal. Bhutan's culture is strongly influenced by Vajrayana Buddhism, with monasteries, dzongs, masked dances, prayer ceremonies, traditional weaving and archery remaining important expressions of national identity. Traditional hospitality, local craftsmanship, colourful festivals and distinctive clothing make both countries particularly rewarding for travellers interested in authentic cultural immersion."
+    },
+    "history": {
+      "en": "Nepal and Bhutan developed as distinct Himalayan kingdoms shaped by Buddhism, Hinduism, trade routes and mountain communities. Nepal's Kathmandu Valley became an important centre of art, architecture and religion, particularly under the Malla kingdoms. Its historic cities of Kathmandu, Patan and Bhaktapur preserve remarkable temples, courtyards, palaces and traditional Newari craftsmanship. Bhutan developed its own distinctive Himalayan Buddhist identity, with dzongs serving as important religious and administrative centres. The country unified under the Wangchuck dynasty in the early twentieth century and became a constitutional monarchy in 2008. The heritage of both countries remains deeply connected to everyday life, with temples, monasteries, festivals, traditional architecture and religious practices continuing to shape local communities.",
+      "pt": "Nepal e Butão desenvolveram-se como distintos reinos do Himalaia, moldados pelo budismo, hinduísmo, rotas comerciais e comunidades montanhosas. O Vale de Katmandu tornou-se um importante centro de arte, arquitetura e religião, especialmente durante os reinos Malla. Suas cidades históricas de Katmandu, Patan e Bhaktapur preservam templos, pátios, palácios e artesanato tradicional Newar de grande importância. O Butão desenvolveu sua própria identidade budista do Himalaia, com os dzongs funcionando como importantes centros religiosos e administrativos. O país foi unificado sob a dinastia Wangchuck no início do século XX e tornou-se uma monarquia constitucional em 2008. O patrimônio dos dois países continua profundamente ligado à vida cotidiana, com templos, mosteiros, festivais, arquitetura tradicional e práticas religiosas moldando as comunidades locais.",
+      "es": "Nepal y Bután se desarrollaron como distintos reinos del Himalaya, moldeados por el budismo, el hinduismo, las rutas comerciales y las comunidades de montaña. El valle de Katmandú se convirtió en un importante centro de arte, arquitectura y religión, especialmente durante los reinos Malla. Sus ciudades históricas de Katmandú, Patan y Bhaktapur conservan extraordinarios templos, patios, palacios y artesanía tradicional Newar. Bután desarrolló su propia identidad budista del Himalaya, con los dzongs como importantes centros religiosos y administrativos. El país se unificó bajo la dinastía Wangchuck a comienzos del siglo XX y se convirtió en una monarquía constitucional en 2008. El patrimonio de ambos países continúa profundamente conectado con la vida cotidiana, mientras templos, monasterios, festivales, arquitectura tradicional y prácticas religiosas siguen dando forma a las comunidades locales."
+    },
+    "attractions": [
+      {
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1790426544/mhindiatrips/q1cqw0efz2z9mepr8wrc.avif",
+        "name": {
+          "es": "Valle de Katmandú",
+          "pt": "Vale de Katmandu",
+          "en": "Kathmandu Valley"
+        },
+        "desc": {
+          "pt": "Explore Katmandu, Patan e Bhaktapur, três cidades históricas repletas de patrimônio UNESCO, templos, pátios, palácios e extraordinário artesanato Newar.",
+          "es": "Explora Katmandú, Patan y Bhaktapur, tres ciudades históricas llenas de patrimonio UNESCO, templos, patios, palacios y extraordinaria artesanía Newar.",
+          "en": "Explore Kathmandu, Patan and Bhaktapur, three historic cities filled with UNESCO heritage, temples, courtyards, palaces and extraordinary Newari craftsmanship."
+        }
+      },
+      {
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1790426572/mhindiatrips/wofx1hyl73vuyqxpk37i.avif",
+        "desc": {
+          "en": "Visit one of Nepal's most important Buddhist pilgrimage sites and experience the spiritual atmosphere surrounding the enormous white stupa and prayer wheels.",
+          "pt": "Visite um dos mais importantes locais de peregrinação budista do Nepal e vivencie a atmosfera espiritual da grande estupa branca e das rodas de oração.",
+          "es": "Visita uno de los lugares de peregrinación budista más importantes de Nepal y descubre la atmósfera espiritual de su gran estupa blanca y ruedas de oración."
+        },
+        "name": {
+          "en": "Boudhanath Stupa",
+          "pt": "Estupa de Boudhanath",
+          "es": "Estupa de Boudhanath"
+        }
+      },
+      {
+        "desc": {
+          "pt": "Relaxe às margens do tranquilo Lago Phewa enquanto aprecia vistas espetaculares da cordilheira Annapurna e do Machhapuchhre.",
+          "es": "Relájate junto al tranquilo lago Phewa mientras disfrutas de espectaculares vistas de la cordillera del Annapurna y Machhapuchhre.",
+          "en": "Relax beside tranquil Phewa Lake while enjoying spectacular views of the Annapurna range and Machhapuchhre."
+        },
+        "name": {
+          "pt": "Pokhara e Lago Phewa",
+          "es": "Pokhara y Lago Phewa",
+          "en": "Pokhara & Phewa Lake"
+        },
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1790426596/mhindiatrips/rsymodov6sue0vho2uqm.avif"
+      },
+      {
+        "image": "https://res.cloudinary.com/irrjgm1b/image/upload/v1790426618/mhindiatrips/pek4jtxkg5nu8bcvzjpt.avif",
+        "name": {
+          "es": "Región del Monte Everest",
+          "pt": "Região do Monte Everest",
+          "en": "Everest Mountain Region"
+        },
+        "desc": {
+          "es": "Descubre el legendario paisaje del Himalaya alrededor del Everest mediante vuelos panorámicos, miradores o experiencias de trekking cuidadosamente planificadas.",
+          "pt": "Vivencie a lendária paisagem do Himalaia ao redor do Everest através de voos panorâmicos, mirantes ou experiências de trekking cuidadosamente planejadas.",
+          "en": "Experience the legendary Himalayan landscape around Mount Everest through scenic mountain flights, viewpoints or carefully planned trekking experiences."
+        }
+      }
+    ],
+    "faqs": [
+      {
+        "a": {
+          "es": "De octubre a abril es un excelente período general para combinar Nepal y Bután, con buenas condiciones para disfrutar de las montañas, el patrimonio cultural y las actividades al aire libre.",
+          "pt": "De outubro a abril é um excelente período geral para combinar Nepal e Butão, com boas condições para apreciar as montanhas, o patrimônio cultural e as atividades ao ar livre.",
+          "en": "October to April is a strong general period for combining Nepal and Bhutan, offering good conditions for mountain views, cultural sightseeing and outdoor experiences."
+        },
+        "q": {
+          "es": "¿Cuál es la mejor época para visitar Nepal y Bután?",
+          "pt": "Qual é a melhor época para visitar o Nepal e o Butão?",
+          "en": "What is the best time to visit Nepal and Bhutan?"
+        }
+      },
+      {
+        "a": {
+          "pt": "Uma viagem de 9 a 12 dias funciona muito bem para combinar Katmandu, Pokhara e Paro, Thimphu e Punakha no Butão sem pressa.",
+          "es": "Un viaje de 9 a 12 días funciona muy bien para combinar Katmandú, Pokhara y Paro, Thimphu y Punakha en Bután sin prisas.",
+          "en": "A 9–12 day journey works well for combining Kathmandu, Pokhara and Bhutan's Paro, Thimphu and Punakha without rushing."
+        },
+        "q": {
+          "es": "¿Cuántos días son ideales para Nepal y Bután?",
+          "pt": "Quantos dias são ideais para Nepal e Butão?",
+          "en": "How many days are ideal for Nepal and Bhutan?"
+        }
+      },
+      {
+        "q": {
+          "pt": "O Nepal é adequado para viagens de luxo?",
+          "en": "Is Nepal suitable for luxury travel?",
+          "es": "¿Es Nepal adecuado para viajes de lujo?"
+        },
+        "a": {
+          "es": "Sí. Nepal ofrece hoteles patrimoniales de lujo, resorts con vistas a las montañas, guías privados, vuelos panorámicos, bienestar y viajes personalizados por el Himalaya.",
+          "pt": "Sim. O Nepal oferece hotéis históricos de luxo, resorts com vistas para as montanhas, guias privativos, voos panorâmicos, experiências de bem-estar e viagens personalizadas pelo Himalaia.",
+          "en": "Yes. Nepal offers luxury heritage hotels, mountain-view resorts, private guides, scenic flights, wellness experiences and personalised Himalayan journeys."
+        }
+      },
+      {
+        "q": {
+          "en": "Is Bhutan good for a luxury holiday?",
+          "pt": "O Butão é bom para férias de luxo?",
+          "es": "¿Es Bután adecuado para unas vacaciones de lujo?"
+        },
+        "a": {
+          "es": "Por supuesto. Bután es especialmente adecuado para viajes culturales premium, guías privados, retiros de lujo en las montañas, bienestar y visitas inmersivas a monasterios.",
+          "pt": "Com certeza. O Butão é especialmente indicado para viagens culturais premium, guias privativos, retiros de luxo nas montanhas, experiências de bem-estar e visitas imersivas a mosteiros.",
+          "en": "Absolutely. Bhutan is particularly suited to premium cultural journeys, private guides, luxury mountain retreats, wellness experiences and immersive monastery visits."
+        }
+      },
+      {
+        "q": {
+          "pt": "Posso combinar o Nepal e o Butão em uma única viagem?",
+          "en": "Can I combine Nepal and Bhutan in one trip?",
+          "es": "¿Puedo combinar Nepal y Bután en un solo viaje?"
+        },
+        "a": {
+          "pt": "Sim. Combinar os dois países cria um roteiro natural pelo Himalaia, unindo as paisagens montanhosas e a diversidade cultural do Nepal ao patrimônio budista e aos tranquilos vales do Butão.",
+          "es": "Sí. Combinar ambos países crea un itinerario natural por el Himalaya, uniendo los paisajes montañosos y la diversidad cultural de Nepal con el patrimonio budista y los tranquilos valles de Bután.",
+          "en": "Yes. Combining both countries creates a natural Himalayan itinerary, pairing Nepal's mountain landscapes and cultural diversity with Bhutan's intimate Buddhist heritage and peaceful valleys."
+        }
+      }
+    ],
+    "overview": {
+      "es": "Descubre Nepal y Bután, dos extraordinarios destinos del Himalaya donde majestuosos paisajes montañosos, antiguas tradiciones espirituales, culturas vibrantes y una refinada hospitalidad de montaña se unen. Desde los templos y estupas históricos de Katmandú hasta los tranquilos lagos de Pokhara, los legendarios Himalayas y Lumbini, lugar de nacimiento de Buda, Nepal ofrece un viaje excepcional a través de la naturaleza, la aventura y un patrimonio vivo. Al otro lado de la frontera, Bután muestra otra faceta del Himalaya a través de valles tranquilos, monasterios-fortaleza, arquitectura tradicional y profundas tradiciones budistas. Explora Thimphu, atraviesa el pintoresco paso de Dochula, descubre el magnífico Punakha Dzong y realiza la icónica caminata hasta el monasterio Tiger's Nest sobre Paro. Juntos, Nepal y Bután crean un extraordinario viaje de lujo para viajeros que buscan paisajes del Himalaya, espiritualidad, cultura, bienestar y experiencias significativas.",
+      "pt": "Descubra o Nepal e o Butão, dois destinos extraordinários do Himalaia onde paisagens montanhosas majestosas, antigas tradições espirituais, culturas vibrantes e uma refinada hospitalidade de montanha se encontram. Dos templos e estupas históricos de Katmandu aos tranquilos lagos de Pokhara, às lendárias montanhas do Himalaia e a Lumbini, local de nascimento de Buda, o Nepal oferece uma jornada excepcional pela natureza, aventura e patrimônio vivo. Do outro lado da fronteira, o Butão revela uma faceta diferente do Himalaia através de vales tranquilos, mosteiros-fortaleza, arquitetura tradicional e profundas tradições budistas. Explore Thimphu, atravesse o cênico Passo de Dochula, descubra o magnífico Punakha Dzong e faça a icônica caminhada até o Mosteiro Tiger's Nest acima de Paro. Juntos, Nepal e Butão formam uma extraordinária viagem de luxo para viajantes que buscam paisagens do Himalaia, espiritualidade, cultura, bem-estar e experiências significativas.",
+      "en": "Discover Nepal and Bhutan, two extraordinary Himalayan destinations where towering mountain landscapes, ancient spiritual traditions, colourful cultures and refined mountain hospitality come together. From the historic temples and stupas of Kathmandu to the tranquil lakes of Pokhara, the legendary Himalayas and the birthplace of Buddha at Lumbini, Nepal offers a remarkable journey through nature, adventure and living heritage. Across the border, Bhutan reveals a different side of the Himalayas through peaceful valleys, fortress monasteries, traditional architecture and deeply rooted Buddhist traditions. Explore Thimphu, cross the scenic Dochula Pass, discover magnificent Punakha Dzong and hike to the iconic Tiger's Nest Monastery above Paro. Together, Nepal and Bhutan create an exceptional luxury journey for travellers seeking Himalayan scenery, spirituality, cultural discovery, wellness and meaningful experiences."
+    },
+    "isDeleted": false
   }
 ]
