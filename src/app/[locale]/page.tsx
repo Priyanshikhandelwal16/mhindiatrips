@@ -381,52 +381,250 @@ export default async function HomePage({ params }: HomePageProps) {
   const cms = pageData?.content || {};
   const lang = (locale === "es" || locale === "pt") ? locale : "en";
 
-  // Build slides from CMS data
-  const cmsSlides = cms.slides || [];
-  const slides = (cmsSlides && cmsSlides.length > 0) ? cmsSlides.map((s: any) => {
-    const resolveField = (fieldVal: any, fallbackVal: string) => {
-      if (!fieldVal) return fallbackVal;
-      if (typeof fieldVal === "string") return fieldVal;
-      if (typeof fieldVal === "object") {
-        return fieldVal[lang] || fieldVal.en || fallbackVal;
-      }
-      return fallbackVal;
-    };
-
-    return {
-      image: s.image,
-      sub: resolveField(s.sub, text.heroSub),
-      title: resolveField(s.title, text.heroTitle),
-      desc: resolveField(s.desc, text.heroDesc),
-      location: resolveField(s.location, ""),
-      objectPosition: s.objectPosition || "center 30%",
-      cta1Text: resolveField(s.cta1Text, text.cta),
-      cta1Link: s.cta1Link || "/destinations",
-      cta2Text: resolveField(s.cta2Text, text.inquireCTA),
-      cta2Link: s.cta2Link || "/contact"
-    };
-  }) : [
-    { image: "/images/taj_mahal_sunrise.png", sub: text.heroSub, title: text.heroTitle, desc: text.heroDesc, location: "Taj Mahal, Agra", objectPosition: "center center", cta1Text: text.cta, cta1Link: "/packages", cta2Text: text.inquireCTA, cta2Link: "/contact" },
-    { image: "/images/rajasthan_fort_sunset.png", sub: "HERITAGE PALACES", title: "The Royal Magic of Rajasthan", desc: "Explore desert dunes, medieval forts, and dine inside authentic royal palaces.", location: "Mehrangarh Fort, Jodhpur", objectPosition: "center center", cta1Text: "Explore Rajasthan", cta1Link: getLocalizedDestinationsPath(locale, "rajasthan"), cta2Text: "Royal Packages", cta2Link: "/packages" },
-    { image: "/images/kerala_backwaters_houseboat.png", sub: "HOLISTIC RETREATS", title: "Tropical Serenity in Kerala", desc: "Cruise through emerald backwaters and rejuvenate with Ayurvedic rituals.", location: "Backwaters, Alleppey", objectPosition: "center center", cta1Text: "Kerala Retreats", cta1Link: getLocalizedDestinationsPath(locale, "kerala"), cta2Text: "Plan My Trip", cta2Link: "/contact" },
-    { image: "/images/Jaipur.jpg", sub: "ROYAL ARCHITECTURE", title: "Pink City Wonders of Jaipur", desc: "Marvel at the astronomical Jantar Mantar and the beautiful honeycomb structure of Hawa Mahal.", location: "Hawa Mahal, Jaipur", objectPosition: "center center", cta1Text: "Explore Jaipur", cta1Link: getLocalizedDestinationsPath(locale, "rajasthan"), cta2Text: "Inquire Now", cta2Link: "/contact" },
-    { image: "/images/Udaipur.jpg", sub: "ROMANTIC ESCAPES", title: "Udaipur: Venice of the East", desc: "Sail across shimmering Lake Pichola and stay in floating marble palaces under the stars.", location: "Lake Pichola, Udaipur", objectPosition: "center center", cta1Text: "See Packages", cta1Link: "/packages", cta2Text: "Inquire Now", cta2Link: "/contact" },
-    { image: "/images/varanasi_ghats_aarti.png", sub: "SACRED PLACES", title: "Spiritual Awakenings in Varanasi", desc: "Witness the intense devotion of evening Ganga Aarti ceremonies by the sacred ghats.", location: "Ganga Ghats, Varanasi", objectPosition: "center center", cta1Text: "Spiritual Itineraries", cta1Link: getLocalizedDestinationsPath(locale, "uttar-pradesh"), cta2Text: "Inquire Now", cta2Link: "/contact" },
-    { image: "/images/goa 2.jpg", sub: "BEACH LUXURY", title: "Golden Sands & Heritage of Goa", desc: "Relax on pristine tropical beaches and explore colonial Portuguese churches in old Goa.", location: "Baga & Old Goa, Goa", objectPosition: "center center", cta1Text: "Explore Goa", cta1Link: getLocalizedDestinationsPath(locale, "goa"), cta2Text: "Plan Itinerary", cta2Link: "/contact" },
-    { image: "/images/munnar.jpg", sub: "HIMALAYAS & HILLS", title: "Misty Tea Hills of Munnar", desc: "Breathe the fresh mountain air of rolling tea estates and misty peaks in South India.", location: "Munnar Tea Estates, Kerala", objectPosition: "center center", cta1Text: "Kerala Guides", cta1Link: getLocalizedDestinationsPath(locale, "kerala"), cta2Text: "Inquire Now", cta2Link: "/contact" },
-    { image: "/images/ranthambore_tiger_safari.png", sub: "WILDLIFE ADVENTURES", title: "Tiger Safaris in Ranthambore", desc: "Search for the majestic Royal Bengal Tiger in the ancient hunting grounds of Maharajas.", location: "National Park, Ranthambore", objectPosition: "center center", cta1Text: "Wildlife Packages", cta1Link: "/packages", cta2Text: "Inquire Now", cta2Link: "/contact" },
-    { image: "/images/port blair.jpg", sub: "ISLAND GETAWAYS", title: "Andaman Islands: Tropical Blue Havens", desc: "Swim in turquoise waters and dive into the pristine marine life and coral reefs of Havelock.", location: "Radhanagar Beach, Havelock", objectPosition: "center center", cta1Text: "Island Tours", cta1Link: "/packages", cta2Text: "Inquire Now", cta2Link: "/contact" },
-    { image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1600&q=80", sub: "OUTBOUND LUXURY", title: "Maldives Overwater Paradise", desc: "Escape to private water villas over turquoise lagoons and coral reefs.", location: "Maldives Islands", objectPosition: "center center", cta1Text: "Outbound Packages", cta1Link: "/packages?category=Outbound", cta2Text: "Inquire Now", cta2Link: "/contact" },
-    { image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1600&q=80", sub: "OUTBOUND ADVENTURE", title: "Bali Tropical Sanctuaries", desc: "Explore emerald rice terraces, cliffside temples, and luxury beach resorts in Bali.", location: "Ubud & Seminyak, Bali", objectPosition: "center center", cta1Text: "Outbound Tours", cta1Link: "/packages?category=Outbound", cta2Text: "Plan My Trip", cta2Link: "/contact" },
-    { image: "https://images.unsplash.com/photo-1506665531195-3566fe2b4dfa?w=1600&q=80", sub: "OUTBOUND EXPLORER", title: "Thailand Islands & Temples", desc: "Discover Bangkok's golden spires, Chiang Mai sanctuaries, and Phuket beaches.", location: "Phuket & Chiang Mai, Thailand", objectPosition: "center center", cta1Text: "Thailand Packages", cta1Link: "/packages?category=Outbound", cta2Text: "Inquire Now", cta2Link: "/contact" },
-    { image: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?w=1600&q=80", sub: "OUTBOUND ODYSSEY", title: "Sri Lanka Heritage & Wildlife Safaris", desc: "Journey through Sigiriya fortress rock, tea plantations, and leopard safaris.", location: "Sigiriya & Ella, Sri Lanka", objectPosition: "center center", cta1Text: "Sri Lanka Packages", cta1Link: "/packages?category=Outbound", cta2Text: "Inquire Now", cta2Link: "/contact" },
-    { image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1600&q=80", sub: "OUTBOUND EXPEDITIONS", title: "Nepal & Majestic Himalayan Vistas", desc: "Witness Everest panoramas, ancient Kathmandu squares, and peaceful Pokhara lakes.", location: "Kathmandu & Pokhara, Nepal", objectPosition: "center center", cta1Text: "Nepal Tours", cta1Link: "/packages?category=Outbound", cta2Text: "Inquire Now", cta2Link: "/contact" },
-    { image: "https://images.unsplash.com/photo-1578637387939-43c525550085?w=1600&q=80", sub: "OUTBOUND KINGDOMS", title: "Bhutan: The Land of Thunder Dragon", desc: "Hike to Tiger's Nest monastery and experience pristine Himalayan spirituality.", location: "Paro & Thimphu, Bhutan", objectPosition: "center center", cta1Text: "Bhutan Tours", cta1Link: "/packages?category=Outbound", cta2Text: "Inquire Now", cta2Link: "/contact" },
-    { image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1600&q=80", sub: "OUTBOUND METROPOLIS", title: "Singapore Skyline & Garden City", desc: "Experience futuristic Gardens by the Bay, Marina Bay, and vibrant food streets.", location: "Marina Bay, Singapore", objectPosition: "center center", cta1Text: "Singapore Tours", cta1Link: "/packages?category=Outbound", cta2Text: "Inquire Now", cta2Link: "/contact" },
-    { image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1600&q=80", sub: "OUTBOUND CULTURAL", title: "Malaysia Towers & Tropical Rainforests", desc: "Explore Kuala Lumpur Twin Towers and ancient rainforests of Langkawi.", location: "Kuala Lumpur & Langkawi, Malaysia", objectPosition: "center center", cta1Text: "Malaysia Tours", cta1Link: "/packages?category=Outbound", cta2Text: "Inquire Now", cta2Link: "/contact" },
-    { image: "https://images.unsplash.com/photo-1540611025311-01df3cef54b5?w=1600&q=80", sub: "OUTBOUND HERITAGE", title: "Laos: Luang Prabang Serenity", desc: "Discover golden Buddhist temples, Mekong river cruises, and Kuang Si waterfalls.", location: "Luang Prabang, Laos", objectPosition: "center center", cta1Text: "Laos Packages", cta1Link: "/packages?category=Outbound", cta2Text: "Inquire Now", cta2Link: "/contact" },
-    { image: "/images/Jaisalmer.jpg", sub: "DESERT FORTRESSES", title: "Golden Sands of Jaisalmer", desc: "Stay in luxury desert safari camps amidst rolling dunes of Thar Desert.", location: "Thar Desert, Jaisalmer", objectPosition: "center center", cta1Text: "Desert Packages", cta1Link: getLocalizedDestinationsPath(locale, "rajasthan"), cta2Text: "Inquire Now", cta2Link: "/contact" }
+  // Always use the 20 curated multi-lingual hero slides with Taj Mahal #1
+  const default20Slides = [
+    {
+      image: "/images/taj_mahal_sunrise.png",
+      sub: lang === "es" ? "MARAVILLAS DE LA INDIA" : lang === "pt" ? "MARAVILHAS DA ÍNDIA" : text.heroSub,
+      title: lang === "es" ? "Taj Mahal: Símbolo del Amor Eterno" : lang === "pt" ? "Taj Mahal: Símbolo do Amor Eterno" : text.heroTitle,
+      desc: lang === "es" ? "Experimente la belleza del icónico mausoleo de mármol al amanecer en Agra." : lang === "pt" ? "Experimente a beleza do icônico mausóleu de mármol ao amanhecer em Agra." : text.heroDesc,
+      location: "Taj Mahal, Agra, Uttar Pradesh",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Explorar Destinos de Agra" : lang === "pt" ? "Explorar Destinados de Agra" : "Explore Agra Destinations",
+      cta1Link: getLocalizedDestinationsPath(locale, "uttar-pradesh"),
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    },
+    {
+      image: "/images/Jaipur.jpg",
+      sub: lang === "es" ? "PALACIOS REALES DE RAJASTHÁN" : lang === "pt" ? "PALÁCIOS REAIS DO RAJASTÃO" : "RAJASTHAN ROYAL PALACES",
+      title: lang === "es" ? "Fuerte Amber y Maravillas de Jaipur" : lang === "pt" ? "Forte Amber e Maravilhas de Jaipur" : "Amer Fort & Pink City Wonders of Jaipur",
+      desc: lang === "es" ? "Explore majestuosos fuertes en colinas, el Hawa Mahal y el patrimonio real de Rajastán." : lang === "pt" ? "Explore grandes fortes em colinas, Hawa Mahal e patrimônio real do Rajastão." : "Explore grand hill forts, Hawa Mahal, and royal heritage in the capital of Rajasthan.",
+      location: "Jaipur, Rajasthan",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Explorar Jaipur" : lang === "pt" ? "Explorar Jaipur" : "Explore Jaipur",
+      cta1Link: getLocalizedDestinationsPath(locale, "rajasthan"),
+      cta2Text: lang === "es" ? "Consultar Ahora" : lang === "pt" ? "Consultar Agora" : "Inquire Now",
+      cta2Link: "/contact"
+    },
+    {
+      image: "/images/Jaisalmer.jpg",
+      sub: lang === "es" ? "SAFARIS EN EL DESIERTO DE THAR" : lang === "pt" ? "SAFÁRIS NO DESERTO DE THAR" : "THAR DESERT SAFARIS",
+      title: lang === "es" ? "Dunas Doradas y Fuerte de Jaisalmer" : lang === "pt" ? "Dunas Douradas e Forte de Jaisalmer" : "Golden Dunes & Living Fort of Jaisalmer",
+      desc: lang === "es" ? "Duerma bajo las estrellas en campamentos de lujo y explore la fortaleza dorada de Rajastán." : lang === "pt" ? "Dorma sob o céu estrelado em acampamentos de luxo e explore a fortaleza dourada." : "Sleep under starlit desert skies in luxury tented camps and explore the golden sandstone fortress.",
+      location: "Jaisalmer, Rajasthan",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Tours del Desierto" : lang === "pt" ? "Tours do Deserto" : "Desert Tours",
+      cta1Link: getLocalizedDestinationsPath(locale, "rajasthan"),
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    },
+    {
+      image: "/images/Udaipur.jpg",
+      sub: lang === "es" ? "PALACIOS EN EL LAGO ROMÁNTICOS" : lang === "pt" ? "PALÁCIOS NO LAGO ROMÂNTICOS" : "ROMANTIC LAKE PALACES",
+      title: lang === "es" ? "Udaipur: La Venecia del Este y Lago Pichola" : lang === "pt" ? "Udaipur: Veneza do Leste e Lago Pichola" : "Udaipur: Venice of the East & Lake Pichola",
+      desc: lang === "es" ? "Navegue por aguas cristalinas y afíjese en palacios flotantes junto a las colinas Aravalli." : lang === "pt" ? "Navegue por águas cristalinas e fique em palácios flutuantes sob as colinas Aravalli." : "Sail across shimmering waters and stay in floating marble palaces under the stars.",
+      location: "Lake Pichola, Udaipur, Rajasthan",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Explorar Lagos de Udaipur" : lang === "pt" ? "Explorar Lagos de Udaipur" : "Explore Udaipur Lakes",
+      cta1Link: getLocalizedDestinationsPath(locale, "rajasthan"),
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    },
+    {
+      image: "/images/rajasthan_fort_sunset.png",
+      sub: lang === "es" ? "FORTALEZAS HISTÓRICAS" : lang === "pt" ? "FORTALEZAS HISTÓRICAS" : "HISTORIC FORTRESSES",
+      title: lang === "es" ? "Fuerte Mehrangarh y Ciudad Azul de Jodhpur" : lang === "pt" ? "Forte Mehrangarh e Cidade Azul de Jodhpur" : "Mehrangarh Fort & Blue City of Jodhpur",
+      desc: lang === "es" ? "Contemple el imponente castillo sobre la roca y pasee por los bazares de la Ciudad Azul." : lang === "pt" ? "Contemple o imponente castelo sobre a rocha e passeie pelos bazares da Cidade Azul." : "Marvel at the majestic fort perched above the blue-painted houses and traditional spice markets.",
+      location: "Mehrangarh Fort, Jodhpur, Rajasthan",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Explorar Rajastán" : lang === "pt" ? "Explorar Rajastão" : "Explore Rajasthan",
+      cta1Link: getLocalizedDestinationsPath(locale, "rajasthan"),
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    },
+    {
+      image: "/images/kerala_backwaters_houseboat.png",
+      sub: lang === "es" ? "REMANSOS TROPICALES" : lang === "pt" ? "REMANSOS TROPICAIS" : "TROPICAL BACKWATERS",
+      title: lang === "es" ? "Cruceros en Casa Flotante en Alleppey, Kerala" : lang === "pt" ? "Cruzeiros em Casa Flutuante em Alleppey, Kerala" : "Houseboat Cruises in Alleppey, Kerala",
+      desc: lang === "es" ? "Deslízate por lagunas esmeralda rodeadas de palmeras y rejuvenezca con rituales ayurvédicos." : lang === "pt" ? "Navegue por lagoas de esmeralda e rejuvenesça com rituais ayurvédicos tradicionais." : "Cruise through emerald backwaters and rejuvenate with authentic Ayurvedic rituals.",
+      location: "Backwaters, Alleppey, Kerala",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Viajes a Kerala" : lang === "pt" ? "Viagens para Kerala" : "Kerala Retreats",
+      cta1Link: getLocalizedDestinationsPath(locale, "kerala"),
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    },
+    {
+      image: "/images/munnar.jpg",
+      sub: lang === "es" ? "MONTAÑAS DE TÉ DE WESTERN GHATS" : lang === "pt" ? "COLINAS DE CHÁ DOS GATES OCIDENTAIS" : "WESTERN GHATS TEA HILLS",
+      title: lang === "es" ? "Plantaciones de Té y Colinas de Munnar" : lang === "pt" ? "Plantações de Chá e Colinas de Munnar" : "Misty Tea Hills of Munnar",
+      desc: lang === "es" ? "Respire aire puro entre plantaciones de té verde y picos montañosos envueltos en niebla." : lang === "pt" ? "Respire ar puro entre plantações de chá verde e picos montanhosos enevoados." : "Breathe the fresh mountain air of rolling tea estates and misty peaks in South India.",
+      location: "Munnar Tea Estates, Kerala",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Guías de Kerala" : lang === "pt" ? "Guias de Kerala" : "Kerala Guides",
+      cta1Link: getLocalizedDestinationsPath(locale, "kerala"),
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    },
+    {
+      image: "/images/varanasi_ghats_aarti.png",
+      sub: lang === "es" ? "FESTIVALES Y RITUALES ESPIRITUALES" : lang === "pt" ? "FESTIVAIS E RITUAIS ESPIRITUAIS" : "SPIRITUAL RITUALS & FESTIVALS",
+      title: lang === "es" ? "Ceremonias Ganga Aarti en la Sagrada Varanasi" : lang === "pt" ? "Cerimônias Ganga Aarti na Sagrada Varanasi" : "Spiritual Awakenings & Ganga Aarti in Varanasi",
+      desc: lang === "es" ? "Presencie sagrados rituales de lámparas y cantos devocionales en los antiguos ghats del río Ganges." : lang === "pt" ? "Testemunhe rituais sagrados de lâmpadas e cantos devocionais nos antigos ghats do rio Ganges." : "Witness the intense devotion of evening Ganga Aarti ceremonies by the ancient sacred ghats.",
+      location: "Ganga Ghats, Varanasi, Uttar Pradesh",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Rutas Espirituales" : lang === "pt" ? "Rotas Espirituais" : "Spiritual Itineraries",
+      cta1Link: getLocalizedDestinationsPath(locale, "uttar-pradesh"),
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1609828913642-c55f7659f710?w=1600&q=80",
+      sub: lang === "es" ? "FESTIVALES CULTURALES" : lang === "pt" ? "FESTIVAIS CULTURAIS" : "CULTURAL FESTIVALS",
+      title: lang === "es" ? "Rann Utsav: Festival del Desierto Blanco de Kutch" : lang === "pt" ? "Rann Utsav: Festival do Deserto Branco de Kutch" : "Great Rann Utsav: White Salt Desert Festival",
+      desc: lang === "es" ? "Disfrute de música folclórica, artesanías y noches de luna llena en el gran desierto de sal de Gujarat." : lang === "pt" ? "Desfrute de música folclórica, artesanato e noites de lua cheia no deserto de sal de Gujarat." : "Celebrate vibrant music, crafts, and full-moon nights on the endless white salt desert of Kutch.",
+      location: "Rann of Kutch, Gujarat",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Explorar Gujarat" : lang === "pt" ? "Explorar Gujarat" : "Explore Gujarat",
+      cta1Link: getLocalizedDestinationsPath(locale, "gujarat"),
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?w=1600&q=80",
+      sub: lang === "es" ? "SANTUARIOS SAGRADOS" : lang === "pt" ? "SANTUÁRIOS SAGRADOS" : "SACRED SHRINES",
+      title: lang === "es" ? "El Templo Dorado: Joya Espiritual de Amritsar" : lang === "pt" ? "O Templo Dourado: Joia Espiritual de Amritsar" : "The Golden Temple: Crown Jewel of Amritsar",
+      desc: lang === "es" ? "Sienta paz y armonía en Sri Harmandir Sahib rodeado por el estanque sagrado Amrit Sarovar." : lang === "pt" ? "Sinta paz e harmonia em Sri Harmandir Sahib cercado pelo lago sagrado Amrit Sarovar." : "Experience serene spirituality at Sri Harmandir Sahib surrounded by the sacred Amrit Sarovar pool.",
+      location: "Amritsar, Punjab",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Ver Destinos" : lang === "pt" ? "Ver Destinos" : "View Destinations",
+      cta1Link: "/destinations",
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1600100397608-f010e423b971?w=1600&q=80",
+      sub: lang === "es" ? "ARQUITECTURA PATRIMONIAL UNESCO" : lang === "pt" ? "ARQUITETURA PATRIMONIAL UNESCO" : "UNESCO ARCHITECTURAL WONDERS",
+      title: lang === "es" ? "Templos Esculpidos de Khajuraho UNESCO" : lang === "pt" ? "Templos Esculpidos de Khajuraho UNESCO" : "Khajuraho UNESCO Sculptured Temples",
+      desc: lang === "es" ? "Contemple la maestría artística medieval y las famosas esculturas en piedra del período Chandela." : lang === "pt" ? "Contemple a maestria artística medieval e as famosas esculturas em pedra do período Chandela." : "Admire exquisite medieval Nagara architecture and intricate stone carvings of Chandela period.",
+      location: "Khajuraho, Madhya Pradesh",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Explorar Madhya Pradesh" : lang === "pt" ? "Explorar Madhya Pradesh" : "Explore MP",
+      cta1Link: getLocalizedDestinationsPath(locale, "madhya-pradesh"),
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    },
+    {
+      image: "/images/ranthambore_tiger_safari.png",
+      sub: lang === "es" ? "PARQUES NACIONALES Y SAFARIS" : lang === "pt" ? "PARQUES NACIONAIS E SAFÁRIS" : "NATIONAL PARKS & SAFARIS",
+      title: lang === "es" ? "Safaris del Tigre de Bengala en Ranthambore" : lang === "pt" ? "Safáris do Tigre de Bengala em Ranthambore" : "Royal Bengal Tiger Safaris in Ranthambore",
+      desc: lang === "es" ? "Rastree tigres de Bengala salvajes en las antiguas reservas de caza rodeadas de ruinas históricas." : lang === "pt" ? "Rastreie tigres de Bengala selvagens nas antigas reservas de caça com ruínas históricas." : "Search for the majestic Royal Bengal Tiger in the ancient hunting grounds of Maharajas.",
+      location: "Ranthambore National Park, Rajasthan",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Tours de Naturaleza" : lang === "pt" ? "Tours de Natureza" : "Wildlife Packages",
+      cta1Link: "/packages?category=Wildlife",
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1549366021-9f761d450615?w=1600&q=80",
+      sub: lang === "es" ? "VIDA SILVESTRE DEL HIMALAYA" : lang === "pt" ? "VIDA SELVAGEM DO HIMALAIA" : "HIMALAYAN WILDLIFE",
+      title: lang === "es" ? "Parque Nacional Jim Corbett y Naturaleza" : lang === "pt" ? "Parque Nacional Jim Corbett e Natureza" : "Jim Corbett National Park & Wilderness",
+      desc: lang === "es" ? "Explore el parque nacional más antiguo de la India, hogar de elefantes salvajes, leopardos y densos bosques." : lang === "pt" ? "Explore o parque nacional mais antigo da Índia, lar de elefantes selvagens, leopardos e florestas." : "Explore India's oldest national park, home to wild Asian elephants, elusive leopards, and dense forests.",
+      location: "Jim Corbett National Park, Uttarakhand",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Tours de Safaris" : lang === "pt" ? "Tours de Safáris" : "Safari Tours",
+      cta1Link: "/packages?category=Wildlife",
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=1600&q=80",
+      sub: lang === "es" ? "METRÓPOLIS Y PATRIMONIO DE MAHARASHTRA" : lang === "pt" ? "METRÓPOLE E PATRIMÔNIO DE MAHARASHTRA" : "MAHARASHTRA METROPOLIS",
+      title: lang === "es" ? "Puerta de la India y la Vibrante Bombay" : lang === "pt" ? "Portal da Índia e a Vibrante Mumbai" : "Gateway of India & Vibrant Mumbai",
+      desc: lang === "es" ? "Descubra el corazón económico de la India, monumentos en el puerto y el encanto colonial británico." : lang === "pt" ? "Descubra o coração econômico da Índia, monumentos no porto e o charme colonial." : "Discover the economic capital of India, iconic waterfront monuments, and colonial architecture.",
+      location: "Mumbai, Maharashtra",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Explorar Maharashtra" : lang === "pt" ? "Explorar Maharashtra" : "Explore Maharashtra",
+      cta1Link: getLocalizedDestinationsPath(locale, "maharashtra"),
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1600&q=80",
+      sub: lang === "es" ? "ARQUITECTURA DRAVÍDICA DEL SUR" : lang === "pt" ? "ARQUITETURA DRAVÍDICA DO SUL" : "DRAVIDIAN TEMPLE TOWERS",
+      title: lang === "es" ? "Torres del Templo Meenakshi en Madurai" : lang === "pt" ? "Torres do Templo Meenakshi em Madurai" : "Meenakshi Amman Temple Towers of Madurai",
+      desc: lang === "es" ? "Maravíllese con las majestuosas gopurams de colores y esculturas sagradas en la antigua Madurai." : lang === "pt" ? "Maravilhe-se com as majestosas gopurams coloridas e esculturas sagradas na antiga Madurai." : "Marvel at towering colorful gopurams and thousands of sculpted deities in ancient Madurai.",
+      location: "Madurai, Tamil Nadu",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Ver Destinos" : lang === "pt" ? "Ver Destinos" : "View Destinations",
+      cta1Link: "/destinations",
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    },
+    {
+      image: "/images/goa 2.jpg",
+      sub: lang === "es" ? "PARAÍSO COSTERO TROPICAL" : lang === "pt" ? "PARAÍSO LITORÂNEO TROPICAL" : "BEACH LUXURY & HERITAGE",
+      title: lang === "es" ? "Playas Doradas y Herencia Portuguesa de Goa" : lang === "pt" ? "Praias Douradas e Herança Portuguesa de Goa" : "Golden Sands & Colonial Heritage of Goa",
+      desc: lang === "es" ? "Relájese en playas soleadas y explore iglesias de la UNESCO en la histórica Goa Velha." : lang === "pt" ? "Relaxe em praias ensolaradas e explore igrejas da UNESCO na histórica Goa Velha." : "Relax on pristine tropical beaches and explore colonial Portuguese churches in Old Goa.",
+      location: "Baga & Old Goa, Goa",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Explorar Goa" : lang === "pt" ? "Explorar Goa" : "Explore Goa",
+      cta1Link: getLocalizedDestinationsPath(locale, "goa"),
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1600&q=80",
+      sub: lang === "es" ? "DESTINOS INTERNACIONALES DE LUJO" : lang === "pt" ? "DESTINOS INTERNACIONAIS DE LUXO" : "OUTBOUND LUXURY METROPOLIS",
+      title: lang === "es" ? "Dubái: Rascacielos Futuristas y Dunas del Desierto" : lang === "pt" ? "Dubai: Raciocínio Futurista e Dunas do Deserto" : "Dubai: Futuristic Skylines & Desert Dunes",
+      desc: lang === "es" ? "Experimente el Burj Khalifa, compras de lujo y safaris internacionales en las dunas doradas de Dubái." : lang === "pt" ? "Experimente o Burj Khalifa, compras de luxo e safáris internacionais nas dunas douradas de Dubai." : "Witness Burj Khalifa, world-class luxury shopping, and thrilling desert dune safaris in Dubai.",
+      location: "Dubai, United Arab Emirates",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Explorar Destinos de Dubái" : lang === "pt" ? "Explorar Destinos de Dubai" : "Explore Dubai Destinations",
+      cta1Link: "/international-trips",
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1600&q=80",
+      sub: lang === "es" ? "PARAÍSO SOBRE EL AGUA" : lang === "pt" ? "PARAÍSO SOBRE A ÁGUA" : "OUTBOUND OVERWATER PARADISE",
+      title: lang === "es" ? "Maldivas: Villas Privadas sobre Lagunas Turquesa" : lang === "pt" ? "Maldivas: Villas Privadas sobre Lagoas Turquesa" : "Maldives Overwater Villas & Island Escapes",
+      desc: lang === "es" ? "Escápese a bungalows de lujo sobre arrecifes de coral vivos y aguas cristalinas en las Maldivas." : lang === "pt" ? "Escape para bangalôs de luxo sobre recifes de coral e águas cristalinas nas Maldivas." : "Escape to private water bungalows suspended over vibrant coral reefs and turquoise lagoons.",
+      location: "Maldives Islands",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Explorar Islas Maldivas" : lang === "pt" ? "Explorar Ilhas Maldivas" : "Explore Maldives Islands",
+      cta1Link: "/international-trips",
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1600&q=80",
+      sub: lang === "es" ? "SANTUARIOS TROPICALES INTERNACIONALES" : lang === "pt" ? "SANTUÁRIOS TROPICAIS INTERNACIONAIS" : "OUTBOUND TROPICAL SANCTUARIES",
+      title: lang === "es" ? "Bali: Terrazas de Arroz de Ubud y Templos Sagrados" : lang === "pt" ? "Bali: Terraços de Arroz de Ubud e Templos Sagrados" : "Bali Rice Terraces & Sacred Sea Temples",
+      desc: lang === "es" ? "Explore exuberantes selvas en Ubud, templos acantilados al atardecer y resorts de lujo en Bali." : lang === "pt" ? "Explore florestas em Ubud, templos em falésias ao pôr do sol e resorts de luxo em Bali." : "Explore emerald rice terraces, cliffside sunset temples, and luxury beach resorts in Bali.",
+      location: "Ubud & Seminyak, Bali, Indonesia",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Explorar Destinos de Bali" : lang === "pt" ? "Explorar Destinos de Bali" : "Explore Bali Destinations",
+      cta1Link: "/international-trips",
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1506665531195-3566fe2b4dfa?w=1600&q=80",
+      sub: lang === "es" ? "PLAYAS E ISLAS INTERNACIONALES" : lang === "pt" ? "PRAIAS E ILHAS INTERNACIONAIS" : "OUTBOUND ISLAND ADVENTURE",
+      title: lang === "es" ? "Tailandia: Templos Dorados y Playas de Phuket" : lang === "pt" ? "Tailândia: Templos Dourados e Praias de Phuket" : "Thailand Islands, Phuket Beaches & Golden Temples",
+      desc: lang === "es" ? "Descubra los palacios dorados de Bangkok, santuarios de elefantes en Chiang Mai y playas de Phuket." : lang === "pt" ? "Descubra palácios dourados de Bangkok, santuários de elefantes em Chiang Mai e praias de Phuket." : "Discover Bangkok's golden spires, Chiang Mai elephant sanctuaries, and tropical Phuket beaches.",
+      location: "Phuket & Bangkok, Thailand",
+      objectPosition: "center center",
+      cta1Text: lang === "es" ? "Paquetes Tailandia" : lang === "pt" ? "Pacotes Tailândia" : "Thailand Tours",
+      cta1Link: "/packages?category=Outbound",
+      cta2Text: text.inquireCTA,
+      cta2Link: "/contact"
+    }
   ];
+  const slides = default20Slides;
 
   // CMS stats
   const cmsStats = (cms.stats && cms.stats.length > 0) ? cms.stats : [];

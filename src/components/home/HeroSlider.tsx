@@ -31,7 +31,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
     if (paused) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 1800);
+    }, 4500);
     return () => clearInterval(timer);
   }, [paused, slides.length]);
 
@@ -113,13 +113,14 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
               <div className="space-y-4 text-white max-w-3xl">
                 
                 {/* Agency & Tagline Badges (Two Separate Lines/Badges) */}
-                <div className="flex flex-wrap items-center gap-2 animate-fade-in mb-1">
+                <div className="flex flex-wrap items-center gap-2.5 animate-fade-in mb-2">
                   <span className="inline-flex items-center gap-2 bg-[#0A2A1E]/90 backdrop-blur-xl border border-gold/40 rounded-full px-4 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-extrabold text-gold shadow-xl">
                     <Sparkles className="w-3.5 h-3.5 text-gold shrink-0 animate-pulse" />
                     <span>{locale === "es" ? "Agencia de Viajes Local en la India" : locale === "pt" ? "Agência de Viagens Local na Índia" : "Local Travel Agency in India"}</span>
                   </span>
-                  <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full px-4 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.18em] font-medium text-white/95 shadow-lg">
-                    <span>{locale === "es" ? "Explore la India más allá de las expectativas" : locale === "pt" ? "Explore a Índia além das expectativas" : "Explore India Beyond Expectations"}</span>
+                  <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#C5A862] via-[#F5E6B3] to-[#C5A862] border border-amber-200/90 rounded-full px-4.5 py-1.5 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-black text-[#0A2A1E] shadow-2xl shadow-gold/50 transition-all duration-300 hover:scale-105">
+                    <Sparkles className="w-3.5 h-3.5 text-[#0A2A1E] shrink-0 animate-pulse" />
+                    <span className="drop-shadow-sm">{locale === "es" ? "Explore la India más allá de las expectativas" : locale === "pt" ? "Explore a Índia além das expectativas" : "Explore India Beyond Expectations"}</span>
                   </span>
                 </div>
 
