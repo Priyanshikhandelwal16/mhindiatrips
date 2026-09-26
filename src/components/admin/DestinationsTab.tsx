@@ -147,9 +147,12 @@ export default function DestinationsTab({
 
     const isNew = !states.find(s => s.id === editState.id);
     try {
-      const res = isNew
-        ? await createStateAction(editState)
-        : await updateStateAction(editState.id, editState);
+      const apiRes = await fetch("/api/admin/save-state", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ stateId: editState.id, data: editState, isNew })
+      });
+      const res = await apiRes.json();
 
       if (res.success) {
         showStatus("State details saved successfully!", "success");
@@ -175,7 +178,12 @@ export default function DestinationsTab({
     }
 
     try {
-      const res = await deleteStateAction(id);
+      const apiRes = await fetch("/api/admin/save-state", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ stateId: id, action: "delete" })
+      });
+      const res = await apiRes.json();
       if (res.success) {
         showStatus("State deleted successfully.", "success");
         await loadCMSData();
@@ -199,8 +207,16 @@ export default function DestinationsTab({
     list[targetIdx].displayOrder = temp;
 
     try {
-      await updateStateAction(list[index].id, { displayOrder: list[index].displayOrder });
-      await updateStateAction(list[targetIdx].id, { displayOrder: list[targetIdx].displayOrder });
+      await fetch("/api/admin/save-state", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ stateId: list[index].id, data: { ...list[index], displayOrder: list[index].displayOrder }, isNew: false })
+      });
+      await fetch("/api/admin/save-state", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ stateId: list[targetIdx].id, data: { ...list[targetIdx], displayOrder: list[targetIdx].displayOrder }, isNew: false })
+      });
       await loadCMSData();
     } catch (e) {
       showStatus("Failed to update ordering.", "error");
