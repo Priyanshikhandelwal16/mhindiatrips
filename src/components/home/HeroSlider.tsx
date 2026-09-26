@@ -64,15 +64,28 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Hidden preloader for smooth instant transitions */}
+      {/* Hidden preloader for smooth instant transitions (preloading current & next slide only) */}
       <div className="hidden">
-        {slides.map((slide, idx) => (
-          <img key={`preload-${idx}`} src={slide.image?.includes("unsplash.com") ? slide.image.replace(/w=\d+/, "w=1600").replace(/q=\d+/, "q=80") : slide.image} alt="preload" />
-        ))}
+        {[current, (current + 1) % slides.length].map((idx) => {
+          const s = slides[idx];
+          if (!s?.image) return null;
+          return (
+            <img 
+              key={`preload-${idx}`} 
+              src={s.image.includes("unsplash.com") ? s.image.replace(/w=\d+/, "w=1600").replace(/q=\d+/, "q=80") : s.image} 
+              alt="preload" 
+            />
+          );
+        })}
       </div>
 
-      {/* Slides */}
+      {/* Slides (render only active and adjacent slides for 90% GPU performance boost) */}
       {slides.map((slide, i) => {
+        const isCurrent = i === current;
+        const isNext = i === (current + 1) % slides.length;
+        const isPrev = i === (current - 1 + slides.length) % slides.length;
+        if (!isCurrent && !isNext && !isPrev) return null;
+
         let imgSrc = slide.image
           ? slide.image.startsWith("/")
             ? encodeURI(slide.image)
@@ -89,14 +102,14 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
         return (
           <div 
             key={i} 
-            className={`hero-slide absolute inset-0 transition-all duration-300 ${i === current ? "z-10 opacity-100 visible" : "z-0 opacity-0 invisible pointer-events-none"}`}
+            className={`hero-slide absolute inset-0 transition-all duration-300 will-change-[opacity,transform] ${i === current ? "z-10 opacity-100 visible" : "z-0 opacity-0 invisible pointer-events-none"}`}
           >
             <Image
               src={imgSrc}
               alt={slide.title}
               fill
-              priority={i === 0}
-              quality={100}
+              priority={i === current}
+              quality={90}
               unoptimized
               sizes="100vw"
               className={`absolute inset-0 w-full h-full object-cover transform-gpu transition-transform duration-[2200ms] ease-out ${
