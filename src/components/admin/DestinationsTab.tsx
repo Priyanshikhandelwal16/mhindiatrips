@@ -113,10 +113,24 @@ export default function DestinationsTab({
     const status: Record<string, boolean> = { en: false, es: false, pt: false };
     
     locales.forEach(l => {
-      const hasName = !!city.name?.[l];
-      const hasShortDesc = !!city.description?.[l];
-      const hasContent = !!city.content?.[l] && city.content[l].length > 40;
-      const hasSeoTitle = !!city.seoTitle?.[l];
+      const nameVal = typeof city.name === "object" ? city.name?.[l] : (l === "en" ? city.name : "");
+      const hasName = !!nameVal;
+      
+      const shortDescVal = (typeof city.description === "object" && city.description?.[l]) || 
+                           (typeof city.shortDescription === "object" && city.shortDescription?.[l]) || 
+                           (typeof city.description === "string" ? city.description : "");
+      const hasShortDesc = !!shortDescVal;
+      
+      const contentVal = (typeof city.content === "object" && city.content?.[l]) || 
+                         (typeof city.overview === "object" && city.overview?.[l]) || 
+                         (typeof city.fullDescription === "object" && city.fullDescription?.[l]) || 
+                         (typeof city.content === "string" ? city.content : "");
+      const hasContent = !!contentVal && contentVal.length > 20;
+      
+      const seoVal = (typeof city.seoTitle === "object" && city.seoTitle?.[l]) || 
+                     (typeof city.seoTitle === "string" ? city.seoTitle : "") || 
+                     hasName; // Fallback to name if explicit SEO title not set
+      const hasSeoTitle = !!seoVal;
       
       status[l] = hasName && hasShortDesc && hasContent && hasSeoTitle;
     });
@@ -200,18 +214,26 @@ export default function DestinationsTab({
       return showStatus("City ID, Parent State, and Name are required.", "error");
     }
 
-    const isNew = !cities.find(c => c.id === editCity.id);
+    const editCityPayload = {
+      ...editCity,
+      overview: editCity.content || editCity.overview || editCity.fullDescription || {},
+      fullDescription: editCity.content || editCity.overview || editCity.fullDescription || {},
+      content: editCity.content || editCity.overview || editCity.fullDescription || {},
+      updatedAt: new Date().toISOString()
+    };
+
+    const isNew = !cities.find(c => c.id === editCityPayload.id);
     
     // 1. Immediate Client-side Firestore sync
-    await syncClientFirestore("cities", editCity.id, editCity, false);
+    await syncClientFirestore("cities", editCityPayload.id, editCityPayload, false);
 
     let savedSuccess = false;
 
     // 2. Try Server Action
     try {
       const res = isNew
-        ? await createCityAction(editCity.stateId, editCity)
-        : await updateCityAction(editCity.stateId, editCity.id, editCity);
+        ? await createCityAction(editCityPayload.stateId, editCityPayload)
+        : await updateCityAction(editCityPayload.stateId, editCityPayload.id, editCityPayload);
 
       if (res && res.success) {
         savedSuccess = true;
@@ -573,7 +595,13 @@ export default function DestinationsTab({
                           </td>
                           <td className="p-4 text-right pr-6 space-x-2">
                             <button
-                              onClick={() => setEditCity({ ...city, touristPlaces: city.touristPlaces || [] })}
+                              onClick={() => setEditCity({ 
+                                ...city, 
+                                content: city.content || city.overview || city.fullDescription || {},
+                                overview: city.overview || city.content || city.fullDescription || {},
+                                fullDescription: city.fullDescription || city.overview || city.content || {},
+                                touristPlaces: city.touristPlaces || [] 
+                              })}
                               className="bg-royal/5 text-royal hover:bg-gold hover:text-royal p-2 rounded-xl transition cursor-pointer"
                               title="Edit City"
                             >

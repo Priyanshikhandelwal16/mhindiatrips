@@ -17,7 +17,7 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
   const stateTitle = extractLocalizedString(state.name, lang) || extractLocalizedString(state.title, lang) || state.id;
   const cityTitle = extractLocalizedString(city.name, lang) || extractLocalizedString(city.title, lang) || city.id;
   const cityShortDesc = extractLocalizedString(city.shortDescription, lang) || extractLocalizedString(city.description, lang);
-  const cityOverview = extractLocalizedString(city.fullDescription, lang) || extractLocalizedString(city.overview, lang);
+  const cityOverview = extractLocalizedString(city.fullDescription, lang) || extractLocalizedString(city.overview, lang) || extractLocalizedString(city.content, lang);
   const cityContent = extractLocalizedString(city.content, lang);
   const cityImage = city.image || city.hero?.image || "/images/destination_fallback.jpg";
 
@@ -180,9 +180,16 @@ export default function CityDetailPage({ locale, state, city, relatedPackages }:
                 <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#1a5c5a]">
                   {text.overview}
                 </h2>
-                <div className="text-sm md:text-base text-[#1B1B1B]/75 leading-[1.85] font-light whitespace-pre-line">
-                  {cityOverview}
-                </div>
+                {typeof cityOverview === 'string' && cityOverview.includes('<') ? (
+                  <div 
+                    className="prose max-w-none text-sm md:text-base text-[#1B1B1B]/80 leading-[1.85] font-light space-y-3 [&_h2]:text-2xl [&_h2]:font-serif [&_h2]:font-bold [&_h2]:text-[#1a5c5a] [&_h2]:mt-6 [&_h2]:mb-3 [&_h3]:text-xl [&_h3]:font-serif [&_h3]:font-semibold [&_h3]:text-[#1a5c5a] [&_h3]:mt-4 [&_h3]:mb-2 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1 [&_li]:text-[#1B1B1B]/80 [&_strong]:font-semibold [&_strong]:text-[#1a5c5a] [&_p]:mb-3"
+                    dangerouslySetInnerHTML={{ __html: cityOverview }} 
+                  />
+                ) : (
+                  <div className="text-sm md:text-base text-[#1B1B1B]/75 leading-[1.85] font-light whitespace-pre-line">
+                    {cityOverview}
+                  </div>
+                )}
               </div>
             )}
 
