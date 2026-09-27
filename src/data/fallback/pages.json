@@ -95,7 +95,7 @@
       },
       "slides": [
         {
-          "image": "/images/taj_mahal_sunrise.png",
+          "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "MARVELS OF INDIA",
             "es": "MARAVILLAS DE LA INDIA",
@@ -131,7 +131,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "/images/Jaipur.jpg",
+          "image": "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "RAJASTHAN ROYAL PALACES",
             "es": "PALACIOS REALES DE RAJASTHÁN",
@@ -167,7 +167,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "/images/Jaisalmer.jpg",
+          "image": "https://images.unsplash.com/photo-1576487248805-cf45f6bcc67f?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "THAR DESERT SAFARIS",
             "es": "SAFARIS EN EL DESIERTO DE THAR",
@@ -203,7 +203,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "/images/Udaipur.jpg",
+          "image": "https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "ROMANTIC LAKE PALACES",
             "es": "PALACIOS EN EL LAGO ROMÁNTICOS",
@@ -239,7 +239,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "/images/rajasthan_fort_sunset.png",
+          "image": "https://images.unsplash.com/photo-1568849676085-51415703900f?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "HISTORIC FORTRESSES",
             "es": "FORTALEZAS HISTÓRICAS",
@@ -275,7 +275,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "/images/kerala_backwaters_houseboat.png",
+          "image": "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "TROPICAL BACKWATERS",
             "es": "REMANSOS TROPICALES",
@@ -311,7 +311,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "/images/munnar.jpg",
+          "image": "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "WESTERN GHATS TEA HILLS",
             "es": "MONTAÑAS DE TÉ DE WESTERN GHATS",
@@ -347,7 +347,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "/images/varanasi_ghats_aarti.png",
+          "image": "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "SPIRITUAL RITUALS & FESTIVALS",
             "es": "FESTIVALES Y RITUALES ESPIRITUALES",
@@ -383,7 +383,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "https://images.unsplash.com/photo-1609828913642-c55f7659f710?w=1600&q=80",
+          "image": "https://images.unsplash.com/photo-1609828913642-c55f7659f710?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "CULTURAL FESTIVALS",
             "es": "FESTIVALES CULTURALES",
@@ -419,7 +419,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?w=1600&q=80",
+          "image": "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "SACRED SHRINES",
             "es": "SANTUARIOS SAGRADOS",
@@ -455,7 +455,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "https://images.unsplash.com/photo-1600100397608-f010e423b971?w=1600&q=80",
+          "image": "https://images.unsplash.com/photo-1600100397608-f010e423b971?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "UNESCO ARCHITECTURAL WONDERS",
             "es": "ARQUITECTURA PATRIMONIAL UNESCO",
@@ -491,7 +491,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "/images/ranthambore_tiger_safari.png",
+          "image": "https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "NATIONAL PARKS & SAFARIS",
             "es": "PARQUES NACIONALES Y SAFARIS",
@@ -527,7 +527,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "https://images.unsplash.com/photo-1549366021-9f761d450615?w=1600&q=80",
+          "image": "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "HIMALAYAN WILDLIFE",
             "es": "VIDA SILVESTRE DEL HIMALAYA",
@@ -563,7 +563,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=1600&q=80",
+          "image": "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "MAHARASHTRA METROPOLIS",
             "es": "METRÓPOLIS Y PATRIMONIO DE MAHARASHTRA",
@@ -599,7 +599,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1600&q=80",
+          "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "DRAVIDIAN TEMPLE TOWERS",
             "es": "ARQUITECTURA DRAVÍDICA DEL SUR",
@@ -635,7 +635,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "/images/goa 2.jpg",
+          "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "BEACH LUXURY & HERITAGE",
             "es": "PARAÍSO COSTERO TROPICAL",
@@ -671,7 +671,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1600&q=80",
+          "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "OUTBOUND LUXURY METROPOLIS",
             "es": "DESTINOS INTERNACIONALES DE LUJO",
@@ -707,7 +707,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1600&q=80",
+          "image": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "OUTBOUND OVERWATER PARADISE",
             "es": "PARAÍSO SOBRE EL AGUA",
@@ -743,7 +743,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1600&q=80",
+          "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "OUTBOUND TROPICAL SANCTUARIES",
             "es": "SANTUARIOS TROPICALES INTERNACIONALES",
@@ -779,7 +779,7 @@
           "cta2Link": "/contact"
         },
         {
-          "image": "https://images.unsplash.com/photo-1506665531195-3566fe2b4dfa?w=1600&q=80",
+          "image": "https://images.unsplash.com/photo-1506665531195-3566fe2b4dfa?auto=format&fit=crop&w=2800&q=95",
           "sub": {
             "en": "OUTBOUND ISLAND ADVENTURE",
             "es": "PLAYAS E ISLAS INTERNACIONALES",

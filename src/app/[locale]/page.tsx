@@ -625,9 +625,9 @@ export default async function HomePage({ params }: HomePageProps) {
       cta2Link: "/contact"
     }
   ];
-  const slides = (cms.slides && Array.isArray(cms.slides) && cms.slides.length > 0)
+  const slidesRaw = (cms.slides && Array.isArray(cms.slides) && cms.slides.length > 0)
     ? cms.slides.map((s: any) => ({
-        image: s.image || "/images/taj_mahal_sunrise.png",
+        image: getHighResImageUrl(s.image) || "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=2800&q=95",
         sub: typeof s.sub === "object" ? (s.sub[lang] || s.sub.en || "") : (s.sub || ""),
         title: typeof s.title === "object" ? (s.title[lang] || s.title.en || "") : (s.title || ""),
         desc: typeof s.desc === "object" ? (s.desc[lang] || s.desc.en || "") : (s.desc || ""),
@@ -638,7 +638,11 @@ export default async function HomePage({ params }: HomePageProps) {
         cta2Text: typeof s.cta2Text === "object" ? (s.cta2Text[lang] || s.cta2Text.en || "") : (s.cta2Text || text.inquireCTA),
         cta2Link: s.cta2Link || "/contact"
       }))
-    : default20Slides;
+    : default20Slides.map((s: any) => ({
+        ...s,
+        image: getHighResImageUrl(s.image)
+      }));
+  const slides = slidesRaw;
 
   // CMS stats
   const cmsStats = (cms.stats && cms.stats.length > 0) ? cms.stats : [];

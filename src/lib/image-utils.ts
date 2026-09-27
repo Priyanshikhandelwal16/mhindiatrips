@@ -31,7 +31,7 @@ const HD_LOCAL_MAP: Record<string, string> = {
 };
 
 export function getHighResImageUrl(url?: string): string {
-  const fallback = "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=2560&q=95";
+  const fallback = "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=2800&q=95";
   if (!url || typeof url !== "string") return fallback;
 
   let cleanUrl = url.trim();
@@ -50,16 +50,16 @@ export function getHighResImageUrl(url?: string): string {
     }
   }
 
-  // Upgrade Unsplash image resolution to 2560px Ultra-HD with 95% quality
+  // Upgrade Unsplash image resolution to 2800px Ultra-HD with 95% quality
   if (cleanUrl.includes("unsplash.com")) {
     // Strip restrictive height parameters
     cleanUrl = cleanUrl.replace(/([?&])h=\d+/g, "");
     
-    // Set or replace width parameter to 2560
+    // Set or replace width parameter to 2800
     if (/([?&])w=\d+/.test(cleanUrl)) {
-      cleanUrl = cleanUrl.replace(/([?&])w=\d+/, "$1w=2560");
+      cleanUrl = cleanUrl.replace(/([?&])w=\d+/, "$1w=2800");
     } else {
-      cleanUrl += (cleanUrl.includes("?") ? "&" : "?") + "w=2560";
+      cleanUrl += (cleanUrl.includes("?") ? "&" : "?") + "w=2800";
     }
 
     // Set or replace quality parameter to 95
@@ -75,14 +75,14 @@ export function getHighResImageUrl(url?: string): string {
     return cleanUrl;
   }
 
-  // Optimize & upscale Cloudinary URLs to serve 4K resolution (2560px width)
+  // Optimize & upscale Cloudinary URLs to serve 4K resolution (2800px width)
   if (cleanUrl.includes("cloudinary.com")) {
     // Strip existing restrictive transform flags e.g. w_400, c_thumb, q_auto:low, etc.
     if (cleanUrl.includes("/upload/")) {
       // Remove transformation string if placed after /upload/
       cleanUrl = cleanUrl.replace(/\/upload\/(?:[a-z]_[^/]+,)*[a-z]_[^/]+\//gi, "/upload/");
       // Insert top quality 4K Ultra-HD parameters
-      cleanUrl = cleanUrl.replace(/\/upload\//i, "/upload/f_auto,q_auto:best,w_2560/");
+      cleanUrl = cleanUrl.replace(/\/upload\//i, "/upload/f_auto,q_auto:best,w_2800/");
     }
     return cleanUrl;
   }
