@@ -193,9 +193,9 @@ export default function MonumentsAccordion({ locale, monuments }: MonumentsAccor
                       : "flex-grow-[1] h-[70px] md:h-full md:min-w-[80px]"
                   }`}
                   style={{
-                    backgroundImage: `url(${item.image})`,
+                    backgroundImage: `url(${getHighResImageUrl(item.image)})`,
                     backgroundSize: "cover",
-                    backgroundPosition: "center"
+                    backgroundPosition: "center 30%"
                   }}
                 >
                   {/* Dark gradient overlay */}

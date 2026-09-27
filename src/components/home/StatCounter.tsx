@@ -20,42 +20,46 @@ export default function StatCounter({ target, suffix = "", duration = 1500 }: St
     if (isString) return;
     const el = ref.current;
 
-    // Mobile fallback timer to guarantee counter starts even if IntersectionObserver is delayed
-    const fallbackTimer = setTimeout(() => {
-      setHasStarted(true);
-    }, 300);
-
-    if (!el) {
-      return () => clearTimeout(fallbackTimer);
-    }
-
-    // Direct viewport check on mount
-    try {
+    const checkInView = () => {
+      if (!el) return;
       const rect = el.getBoundingClientRect();
-      if (rect.top <= (window.innerHeight || 800) && rect.bottom >= 0) {
+      const viewHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top <= viewHeight + 100 && rect.bottom >= -100) {
         setHasStarted(true);
       }
-    } catch (e) {}
+    };
 
-    if (typeof IntersectionObserver !== "undefined") {
+    checkInView();
+
+    const fallbackTimer = setTimeout(() => {
+      setHasStarted(true);
+    }, 400);
+
+    window.addEventListener("scroll", checkInView, { passive: true });
+
+    if (typeof IntersectionObserver !== "undefined" && el) {
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
             setHasStarted(true);
           }
         },
-        { threshold: 0.01 }
+        { threshold: 0.01, rootMargin: "50px" }
       );
 
       observer.observe(el);
 
       return () => {
         clearTimeout(fallbackTimer);
+        window.removeEventListener("scroll", checkInView);
         observer.disconnect();
       };
     }
 
-    return () => clearTimeout(fallbackTimer);
+    return () => {
+      clearTimeout(fallbackTimer);
+      window.removeEventListener("scroll", checkInView);
+    };
   }, [isString]);
 
   useEffect(() => {
@@ -83,6 +87,7 @@ export default function StatCounter({ target, suffix = "", duration = 1500 }: St
     return <span ref={ref}>{target}{suffix}</span>;
   }
 
-  return <span ref={ref}>{hasStarted ? count : numTarget}{suffix}</span>;
+  const activeCount = hasStarted ? count : numTarget;
+  return <span ref={ref}>{activeCount}{suffix}</span>;
 }
 

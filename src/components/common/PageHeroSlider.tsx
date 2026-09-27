@@ -2,7 +2,9 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Sparkles, Building2 } from "lucide-react";
+import { getHighResImageUrl } from "@/lib/image-utils";
 
 export interface PageSlide {
   image?: string;
@@ -37,9 +39,26 @@ export default function PageHeroSlider({
   const title = overrideTitle || slide?.title || showBreadcrumb || "MH India Trips";
   const subtitle = overrideSubtitle || slide?.subtitle || showBreadcrumb || "LOCAL TRAVEL AGENCY IN INDIA";
   const description = overrideDesc || slide?.description || "";
+  const bgImage = slide?.image ? getHighResImageUrl(slide.image) : null;
 
   return (
-    <section className="relative w-full bg-gradient-to-b from-[#062D27] via-[#0B4D44] to-[#062D27] text-white py-20 md:py-28 overflow-hidden border-b border-gold/20 font-sans shadow-xl">
+    <section className="relative w-full bg-gradient-to-b from-[#062D27] via-[#0B4D44] to-[#062D27] text-white py-16 xs:py-20 md:py-28 overflow-hidden border-b border-gold/20 font-sans shadow-xl">
+      {/* Background image if provided */}
+      {bgImage && (
+        <div className="absolute inset-0 pointer-events-none">
+          <Image
+            src={bgImage}
+            alt={title}
+            fill
+            priority
+            quality={95}
+            sizes="100vw"
+            className="w-full h-full object-cover object-[center_30%] opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#062D27]/90 via-[#0B4D44]/80 to-[#062D27]/95" />
+        </div>
+      )}
+
       {/* Decorative Luxury Background Glows & Pattern */}
       <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#C5A862_1.5px,transparent_1.5px)] [background-size:28px_28px] pointer-events-none" />
       <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-gold/15 rounded-full blur-3xl pointer-events-none" />

@@ -58,7 +58,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
 
   return (
     <section
-      className="relative min-h-[580px] h-[92vh] sm:h-[95vh] md:h-screen w-full overflow-hidden"
+      className="relative min-h-[460px] xs:min-h-[500px] sm:min-h-[580px] h-[64vh] xs:h-[72vh] sm:h-[90vh] md:h-screen w-full overflow-hidden"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={handleTouchStart}
@@ -92,7 +92,9 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
         return (
           <div 
             key={i} 
-            className={`hero-slide absolute inset-0 transition-all duration-500 will-change-[opacity,transform] ${i === current ? "z-10 opacity-100 visible" : "z-0 opacity-0 invisible pointer-events-none"}`}
+            className={`hero-slide absolute inset-0 transition-opacity duration-700 ease-in-out ${
+              i === current ? "z-10 opacity-100 visible pointer-events-auto" : "z-0 opacity-0 invisible pointer-events-none"
+            }`}
           >
             <Image
               src={imgSrc}
@@ -100,29 +102,28 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
               fill
               priority={i === current}
               quality={95}
-              unoptimized
               sizes="100vw"
-              className={`absolute inset-0 w-full h-full object-cover transform-gpu transition-transform duration-[2500ms] ease-out ${
-                i === current ? "scale-100" : "scale-[1.03]"
+              className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[3000ms] ease-out ${
+                i === current ? "scale-100" : "scale-[1.02]"
               }`}
-              style={{ objectPosition: slide.objectPosition || "center center" }}
+              style={{ objectPosition: slide.objectPosition || "center 30%" }}
             />
             {/* Vignette overlay for readable text and crisp photo rendering */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/25 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/25 pointer-events-none" />
 
           {/* Content */}
-          <div className="relative z-10 h-full flex items-end pb-16 sm:pb-24 md:pb-28 pt-20">
+          <div className="relative z-10 h-full flex items-end pb-10 xs:pb-14 sm:pb-24 md:pb-28 pt-12 sm:pt-20">
             <div className="w-full px-4 sm:px-8 md:px-16 lg:px-24">
-              <div className="space-y-2.5 sm:space-y-4 text-white max-w-3xl">
+              <div className="space-y-2 sm:space-y-4 text-white max-w-3xl">
                 
                 {/* Agency & Tagline Badges */}
-                <div className="flex flex-wrap items-center gap-2 animate-fade-in mb-1">
-                  <span className="inline-flex items-center gap-1.5 bg-[#0A2A1E]/90 backdrop-blur-xl border border-gold/40 rounded-full px-3 py-1 sm:px-4 sm:py-1.5 text-[8px] sm:text-[9.5px] md:text-[10px] uppercase tracking-[0.15em] sm:tracking-[0.2em] font-extrabold text-gold shadow-xl">
-                    <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-gold shrink-0 animate-pulse" />
-                    <span>{locale === "es" ? "Agencia de Viajes Local en la India" : locale === "pt" ? "Agência de Viagens Local na Índia" : "Local Travel Agency in India"}</span>
+                <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 animate-fade-in mb-0.5">
+                  <span className="inline-flex items-center gap-1.5 bg-[#0A2A1E]/90 backdrop-blur-xl border border-gold/40 rounded-full px-2.5 py-0.5 sm:px-4 sm:py-1.5 text-[7.5px] xs:text-[8px] sm:text-[9.5px] md:text-[10px] uppercase tracking-[0.12em] sm:tracking-[0.2em] font-extrabold text-gold shadow-xl">
+                    <Sparkles className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-gold shrink-0 animate-pulse" />
+                    <span>{locale === "es" ? "Agencia Local en la India" : locale === "pt" ? "Agência Local na Índia" : "Local Travel Agency in India"}</span>
                   </span>
-                  <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-[#C5A862] via-[#F5E6B3] to-[#C5A862] border border-amber-200/90 rounded-full px-3 py-1 sm:px-4.5 sm:py-1.5 text-[8.5px] sm:text-[10px] md:text-[11px] uppercase tracking-[0.15em] sm:tracking-[0.2em] font-black text-[#0A2A1E] shadow-2xl shadow-gold/50">
-                    <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#0A2A1E] shrink-0 animate-pulse" />
+                  <span className="hidden xs:inline-flex items-center gap-1.5 bg-gradient-to-r from-[#C5A862] via-[#F5E6B3] to-[#C5A862] border border-amber-200/90 rounded-full px-3 py-1 sm:px-4.5 sm:py-1.5 text-[8px] sm:text-[10px] md:text-[11px] uppercase tracking-[0.12em] sm:tracking-[0.2em] font-black text-[#0A2A1E] shadow-2xl shadow-gold/50">
+                    <Sparkles className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-[#0A2A1E] shrink-0 animate-pulse" />
                     <span>{locale === "es" ? "Explore la India más allá de las expectativas" : locale === "pt" ? "Explore a Índia além das expectativas" : "Explore India Beyond Expectations"}</span>
                   </span>
                 </div>
@@ -130,8 +131,8 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
                 {/* Location Badge */}
                 {slide.location && (
                   <div className="animate-fade-in">
-                    <span className="inline-flex items-center gap-1.5 bg-[#0A2A1E]/60 backdrop-blur-xl border border-[#C5A862]/30 rounded-full px-3.5 py-1 sm:px-5 sm:py-2 text-[8.5px] sm:text-[10px] uppercase tracking-[0.2em] font-semibold text-white/95 shadow-lg">
-                      <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-gold animate-pulse shrink-0" />
+                    <span className="inline-flex items-center gap-1 bg-[#0A2A1E]/70 backdrop-blur-xl border border-[#C5A862]/35 rounded-full px-2.5 py-0.5 sm:px-5 sm:py-2 text-[8px] sm:text-[10px] uppercase tracking-[0.18em] font-semibold text-white/95 shadow-lg">
+                      <MapPin className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-gold animate-pulse shrink-0" />
                       <span>{slide.location}</span>
                     </span>
                   </div>
@@ -139,35 +140,35 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
 
                 {/* Subtitle */}
                 {slide.sub && (
-                  <p className="text-[9.5px] sm:text-[11px] uppercase tracking-[0.2em] text-gold font-bold block">
+                  <p className="text-[8.5px] sm:text-[11px] uppercase tracking-[0.2em] text-gold font-bold block">
                     {slide.sub}
                   </p>
                 )}
 
                 {/* Title */}
-                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[4.2rem] font-bold tracking-tight leading-[1.1] font-serif drop-shadow-md">
+                <h1 className="text-xl xs:text-2xl sm:text-4xl md:text-5xl lg:text-[4.2rem] font-bold tracking-tight leading-[1.15] font-serif drop-shadow-md">
                   {slide.title}
                 </h1>
 
                 {/* Description */}
                 {slide.desc && (
-                  <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 max-w-xl leading-relaxed font-light line-clamp-3 sm:line-clamp-none">
+                  <p className="text-[11px] sm:text-sm md:text-base lg:text-lg text-white/90 max-w-xl leading-relaxed font-light line-clamp-2 sm:line-clamp-none">
                     {slide.desc}
                   </p>
                 )}
 
                 {/* CTAs */}
-                <div className="flex flex-wrap gap-2.5 sm:gap-3 pt-2 sm:pt-4">
+                <div className="flex flex-wrap gap-2 sm:gap-3 pt-1 sm:pt-4">
                   <Link
                     href={`/${locale}${(slide as any).cta1Link || "/destinations"}`}
-                    className="group bg-gold hover:bg-gold-light text-[#0A2A1E] text-[10px] sm:text-[11px] font-bold uppercase tracking-wider py-3 px-6 sm:py-4 sm:px-8 rounded-full transition-all duration-400 shadow-lg shadow-gold/20 hover:shadow-xl inline-flex items-center gap-1.5 border border-gold"
+                    className="group bg-gold hover:bg-gold-light text-[#0A2A1E] text-[9px] xs:text-[10px] sm:text-[11px] font-bold uppercase tracking-wider py-2.5 px-4 sm:py-4 sm:px-8 rounded-full transition-all duration-300 shadow-lg shadow-gold/20 hover:shadow-xl inline-flex items-center gap-1 border border-gold"
                   >
                     <span>{(slide as any).cta1Text || ctaText}</span>
-                    <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform text-[#0A2A1E] shrink-0" />
+                    <ChevronRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover:translate-x-0.5 transition-transform text-[#0A2A1E] shrink-0" />
                   </Link>
                   <Link
                     href={`/${locale}${(slide as any).cta2Link || "#inquire-now"}`}
-                    className="bg-white/10 hover:bg-white/20 backdrop-blur-xl text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-wider py-3 px-6 sm:py-4 sm:px-8 rounded-full transition-all duration-400 border border-white/25 hover:border-white/50"
+                    className="bg-white/10 hover:bg-white/20 backdrop-blur-xl text-white text-[9px] xs:text-[10px] sm:text-[11px] font-bold uppercase tracking-wider py-2.5 px-4 sm:py-4 sm:px-8 rounded-full transition-all duration-300 border border-white/25 hover:border-white/50"
                   >
                     {(slide as any).cta2Text || inquireCTA}
                   </Link>
@@ -198,19 +199,19 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
       </button>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
+      <div className="absolute bottom-6 sm:bottom-20 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 sm:gap-3 max-w-[90vw] overflow-x-auto no-scrollbar py-1">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
             aria-label={`Go to slide ${i + 1}`}
-            className="group relative p-1"
+            className="group relative p-1 shrink-0"
             suppressHydrationWarning={true}
           >
             <span className={`block rounded-full transition-all duration-700 ${
               i === current
-                ? "w-12 h-[2px] bg-gold"
-                : "w-4 h-[2px] bg-white/30 group-hover:bg-white/70"
+                ? "w-8 sm:w-12 h-[2px] bg-gold"
+                : "w-3 sm:w-4 h-[2px] bg-white/40 group-hover:bg-white/80"
             }`} />
           </button>
         ))}
@@ -224,7 +225,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center text-white/40">
+      <div className="hidden sm:flex absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex-col items-center text-white/40">
         <span className="text-[9px] uppercase tracking-[0.35em] mb-3 font-medium">Scroll</span>
         <div className="w-[1px] h-8 bg-gradient-to-b from-white/50 to-transparent relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-gold to-transparent animate-pulse-gentle" />
