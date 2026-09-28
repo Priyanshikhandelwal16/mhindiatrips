@@ -438,11 +438,11 @@ export default async function AboutPage({ params }: AboutPageProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
           {team.map((member: any, i: number) => (
             <Reveal key={i} delay={i * 120} className="bg-white border border-gold/30 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between">
-              <div className="h-72 overflow-hidden bg-[#062D27]/10 relative">
+              <div className="aspect-[4/5] sm:aspect-[3/4] max-h-[400px] w-full overflow-hidden bg-[#062D27]/10 relative">
                 <img 
                   src={member.img || "/images/team_rahul.png"} 
                   alt={member.name} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" 
                 />
               </div>
               <div className="p-8 space-y-4 bg-white">

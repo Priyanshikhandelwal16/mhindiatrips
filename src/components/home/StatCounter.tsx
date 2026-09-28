@@ -8,7 +8,7 @@ interface StatCounterProps {
   duration?: number;
 }
 
-export default function StatCounter({ target, suffix = "", duration = 1500 }: StatCounterProps) {
+export default function StatCounter({ target, suffix = "", duration = 1800 }: StatCounterProps) {
   const isString = typeof target === "string" && isNaN(Number(target));
   const numTarget = typeof target === "number" ? target : (parseFloat(target) || 0);
 
@@ -19,46 +19,40 @@ export default function StatCounter({ target, suffix = "", duration = 1500 }: St
   useEffect(() => {
     if (isString) return;
     const el = ref.current;
+    if (!el) return;
 
     const checkInView = () => {
       if (!el) return;
       const rect = el.getBoundingClientRect();
       const viewHeight = window.innerHeight || document.documentElement.clientHeight;
-      if (rect.top <= viewHeight + 100 && rect.bottom >= -100) {
+      // Trigger when element top enters viewport area
+      if (rect.top <= viewHeight - 20 && rect.bottom >= 0) {
         setHasStarted(true);
       }
     };
 
     checkInView();
 
-    const fallbackTimer = setTimeout(() => {
-      setHasStarted(true);
-    }, 400);
-
     window.addEventListener("scroll", checkInView, { passive: true });
+    window.addEventListener("resize", checkInView, { passive: true });
 
-    if (typeof IntersectionObserver !== "undefined" && el) {
-      const observer = new IntersectionObserver(
+    let observer: IntersectionObserver | null = null;
+    if (typeof IntersectionObserver !== "undefined") {
+      observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
             setHasStarted(true);
           }
         },
-        { threshold: 0.01, rootMargin: "50px" }
+        { threshold: 0.1, rootMargin: "0px 0px -30px 0px" }
       );
-
       observer.observe(el);
-
-      return () => {
-        clearTimeout(fallbackTimer);
-        window.removeEventListener("scroll", checkInView);
-        observer.disconnect();
-      };
     }
 
     return () => {
-      clearTimeout(fallbackTimer);
       window.removeEventListener("scroll", checkInView);
+      window.removeEventListener("resize", checkInView);
+      if (observer) observer.disconnect();
     };
   }, [isString]);
 
@@ -73,12 +67,14 @@ export default function StatCounter({ target, suffix = "", duration = 1500 }: St
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.floor(eased * numTarget));
+
       if (progress < 1) {
         animationFrame = window.requestAnimationFrame(step);
       } else {
         setCount(numTarget);
       }
     };
+
     animationFrame = window.requestAnimationFrame(step);
     return () => cancelAnimationFrame(animationFrame);
   }, [hasStarted, numTarget, duration, isString]);
@@ -87,7 +83,6 @@ export default function StatCounter({ target, suffix = "", duration = 1500 }: St
     return <span ref={ref}>{target}{suffix}</span>;
   }
 
-  const activeCount = hasStarted ? count : numTarget;
+  const activeCount = hasStarted ? count : 0;
   return <span ref={ref}>{activeCount}{suffix}</span>;
 }
-

@@ -51,9 +51,9 @@ export default function PageHeroSlider({
             alt={title}
             fill
             priority
-            quality={95}
+            quality={90}
             sizes="100vw"
-            className="w-full h-full object-cover object-[center_30%] opacity-30"
+            className="w-full h-full object-cover object-[center_40%] opacity-35"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#062D27]/90 via-[#0B4D44]/80 to-[#062D27]/95" />
         </div>

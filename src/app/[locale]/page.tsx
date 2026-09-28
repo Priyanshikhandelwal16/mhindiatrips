@@ -13,7 +13,7 @@ import {
   CheckCircle, ShieldCheck, FileCheck, CheckCircle2, BadgeCheck, Building2, Tag
 } from "lucide-react";
 import { getLocalizedDestinationsPath } from "@/lib/utils";
-import { getHighResImageUrl } from "@/lib/image-utils";
+import { getHighResImageUrl, getOptimizedImageUrl } from "@/lib/image-utils";
 import { getPackagePriceInfo } from "@/lib/price-utils";
 
 // Lazy load heavy interactive components
@@ -1099,13 +1099,13 @@ export default async function HomePage({ params }: HomePageProps) {
               <Reveal key={stateSlug} delay={i * 80}>
                 <Link href={getLocalizedDestinationsPath(locale, stateSlug)} className="group block h-full perspective-1000">
                   <div className="card-3d bg-white border border-[#C5A862]/10 overflow-hidden shadow-md flex flex-col h-full">
-                    <div className="h-80 overflow-hidden relative shrink-0">
+                    <div className="aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden relative shrink-0">
                       <Image 
-                        src={getHighResImageUrl(st.image)} 
+                        src={getOptimizedImageUrl(st.image, 800)} 
                         alt={stateTitle} 
                         fill 
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" 
+                        className="object-cover object-[center_35%] transition-transform duration-[1200ms] ease-out group-hover:scale-105" 
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-90" />
                       <span className="absolute top-5 left-5 bg-royal/95 border border-gold/20 text-gold text-[9px] uppercase tracking-widest font-bold px-4 py-2 rounded-full shadow-md">

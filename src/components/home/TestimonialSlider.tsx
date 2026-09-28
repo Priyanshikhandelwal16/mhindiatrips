@@ -124,7 +124,7 @@ export default function TestimonialSlider({ locale, reviews: initialReviews, lab
 
         <div className="overflow-hidden">
           <div
-            className={`flex gap-8 py-4 ${isHovered ? "[animation-play-state:paused]" : ""} animate-[marquee_45s_linear_infinite]`}
+            className={`flex gap-8 py-4 ${isHovered ? "[animation-play-state:paused]" : ""} animate-[marquee_25s_linear_infinite]`}
             style={{ width: "max-content" }}
           >
             {doubleReviews.map((review: any, i: number) => (

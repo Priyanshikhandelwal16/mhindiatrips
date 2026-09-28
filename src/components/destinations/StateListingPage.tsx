@@ -3,7 +3,7 @@ import Link from "next/link";
 import { MapPin, ChevronRight } from "lucide-react";
 import Reveal from "@/components/home/Reveal";
 import { getLocalizedDestinationsPath, extractLocalizedString } from "@/lib/utils";
-import { getHighResImageUrl } from "@/lib/image-utils";
+import { getHighResImageUrl, getOptimizedImageUrl } from "@/lib/image-utils";
 
 interface StateListingPageProps {
   locale: string;
@@ -110,20 +110,28 @@ export default function StateListingPage({ locale, state, cities }: StateListing
               {stateDesc || `Explore the royal palaces, historic monuments, spiritual temples, and vibrant markets of ${stateTitle}. Handcrafted luxury itineraries with private chauffeurs.`}
             </p>
           </div>
-          <div className="lg:col-span-4 bg-[#0A2A1E] text-white p-6 rounded-2xl border border-[#C5A862]/40 space-y-3">
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C5A862] block">Travel Concierge Specs</span>
-            <div className="space-y-2 text-xs">
-              <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                <span className="text-white/70">Best Time:</span>
-                <span className="font-bold text-[#C5A862]">{state.bestTime?.[lang] || state.bestTime?.en || "October to March"}</span>
+          <div className="lg:col-span-4 bg-[#0A2A1E] text-white p-6 rounded-2xl border border-[#C5A862]/40 space-y-3.5 shadow-lg">
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C5A862] block border-b border-[#C5A862]/30 pb-2">
+              Travel Concierge Specs
+            </span>
+            <div className="space-y-3 text-xs">
+              <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-2.5">
+                <span className="text-white/70 font-medium shrink-0">Best Time:</span>
+                <span className="font-bold text-[#C5A862] text-right leading-tight">
+                  {state.bestTime?.[lang] || state.bestTime?.en || "October to March"}
+                </span>
               </div>
-              <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                <span className="text-white/70">Highlights:</span>
-                <span className="font-bold text-white">Palaces, Culture & Wildlife</span>
+              <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-2.5">
+                <span className="text-white/70 font-medium shrink-0">Highlights:</span>
+                <span className="font-bold text-white text-right leading-tight">
+                  Palaces, Culture & Wildlife
+                </span>
               </div>
-              <div className="flex items-center justify-between pt-1">
-                <span className="text-white/70">Chauffeur:</span>
-                <span className="font-bold text-white">Private Luxury Chauffeur</span>
+              <div className="flex items-start justify-between gap-4 pt-0.5">
+                <span className="text-white/70 font-medium shrink-0">Chauffeur:</span>
+                <span className="font-bold text-white text-right leading-tight">
+                  Private Luxury Chauffeur
+                </span>
               </div>
             </div>
           </div>
@@ -161,12 +169,12 @@ export default function StateListingPage({ locale, state, cities }: StateListing
                   <Link href={cityPath} className="group block h-full">
                     <div className="bg-white border border-[#C5A862]/20 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 h-full flex flex-col justify-between hover:-translate-y-1">
                       {/* Image container */}
-                      <div className="h-80 overflow-hidden relative">
+                      <div className="aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden relative">
                         <img
-                          src={getHighResImageUrl(city.image)}
+                          src={getOptimizedImageUrl(city.image, 800)}
                           alt={cityTitle}
                           loading="lazy"
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-700"
                         />
                         <div className="absolute top-4 left-4 bg-[#0A2A1E] text-[#C5A862] border border-[#C5A862]/30 text-[10px] font-extrabold uppercase tracking-wider px-3.5 py-1.5 rounded-full flex items-center gap-1 shadow-md">
                           <MapPin className="w-3.5 h-3.5 text-[#C5A862]" />

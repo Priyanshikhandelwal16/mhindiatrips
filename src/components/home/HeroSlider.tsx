@@ -32,7 +32,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
     if (paused) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 4500);
+    }, 3200);
     return () => clearInterval(timer);
   }, [paused, slides.length]);
 
@@ -58,7 +58,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
 
   return (
     <section
-      className="relative min-h-[460px] xs:min-h-[500px] sm:min-h-[580px] h-[64vh] xs:h-[72vh] sm:h-[90vh] md:h-screen w-full overflow-hidden"
+      className="relative min-h-[520px] xs:min-h-[560px] sm:min-h-[640px] h-[75vh] sm:h-[88vh] md:h-screen w-full overflow-hidden"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={handleTouchStart}
@@ -92,7 +92,7 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
         return (
           <div 
             key={i} 
-            className={`hero-slide absolute inset-0 transition-opacity duration-700 ease-in-out ${
+            className={`hero-slide absolute inset-0 transition-opacity duration-500 ease-in-out ${
               i === current ? "z-10 opacity-100 visible pointer-events-auto" : "z-0 opacity-0 invisible pointer-events-none"
             }`}
           >
@@ -101,12 +101,12 @@ export default function HeroSlider({ locale, slides, ctaText, inquireCTA }: Hero
               alt={slide.title}
               fill
               priority={i === current}
-              quality={95}
+              quality={90}
               sizes="100vw"
               className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[3000ms] ease-out ${
                 i === current ? "scale-100" : "scale-[1.02]"
               }`}
-              style={{ objectPosition: slide.objectPosition || "center 30%" }}
+              style={{ objectPosition: slide.objectPosition || "center 40%" }}
             />
             {/* Vignette overlay for readable text and crisp photo rendering */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/25 pointer-events-none" />

@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { getPageByIdAction } from "@/app/actions/queries";
 import Reveal from "@/components/home/Reveal";
 import { getLocalizedDestinationsPath, extractLocalizedString } from "@/lib/utils";
-import { getHighResImageUrl } from "@/lib/image-utils";
+import { getHighResImageUrl, getOptimizedImageUrl } from "@/lib/image-utils";
 
 interface DestinationsCatalogPageProps {
   locale: string;
@@ -102,11 +102,12 @@ export default async function DestinationsCatalogPage({ locale, states }: Destin
               <Reveal key={state.id} delay={i * 100}>
                 <Link href={statePath} className="group block h-full">
                   <div className="bg-white border border-[#C3AB85]/10 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 h-full flex flex-col justify-between">
-                    <div className="h-80 overflow-hidden relative">
+                    <div className="aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden relative">
                       <img
-                        src={getHighResImageUrl(state.image)}
+                        src={getOptimizedImageUrl(state.image, 800)}
                         alt={stateTitle}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        loading="lazy"
+                        className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-black/25 group-hover:bg-black/10 transition-colors" />
                     </div>
